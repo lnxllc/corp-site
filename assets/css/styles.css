@@ -2012,3 +2012,307 @@ img{max-width:100%;display:block}
     font-size: 13px;
   }
 }
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand__logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.brand__name {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.brand__sub {
+  font-size: 12px;
+  color: rgba(15,23,42,.55);
+}
+
+.work {
+  margin-bottom: 80px;
+}
+
+.work:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 強制：スマホでナビ崩れを止める ===== */
+@media (max-width: 820px){
+
+  /* ヘッダー内は折り返さない */
+  .nav__inner,
+  .nav__inner *{
+    box-sizing: border-box;
+  }
+
+  .nav__inner{
+    padding: 14px 0 !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* ロゴ周りが折り返さない */
+  .brand,
+  .brand__text,
+  .brand__name,
+  .brand__sub{
+    white-space: nowrap !important;
+  }
+
+  /*
+    ここが本命：
+    ヘッダー内の「リンク群っぽいもの」をスマホで全て消す
+    （※右上の .nav__right は残す）
+  */
+  .nav__inner > nav,
+  .nav__inner > ul,
+  .nav__inner .menu,
+  .nav__inner .nav__menu,
+  .nav__inner .nav-menu,
+  .nav__inner .gnav,
+  .nav__inner .global-nav,
+  .nav__inner .header-nav{
+    display: none !important;
+  }
+
+  /* 右上（お問い合わせボタン等）は残す */
+  .nav__right{
+    margin-left: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* 右上ボタンを少し小さく */
+  .nav__right .btn{
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* ===== Mobile Drawer Menu ===== */
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1002;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+
+  /* 開いた時の× */
+  .is-open .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .is-open .hamburger span:nth-child(2) { opacity: 0; }
+  .is-open .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 1000;
+  }
+
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: min(82vw, 360px);
+    background: #0b0b0b;
+    transform: translateX(100%);
+    transition: transform .28s ease;
+    z-index: 1001;
+    padding: 88px 20px 24px; /* ヘッダー高さに合わせて調整OK */
+  }
+
+  .drawer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 18px;
+  }
+
+  .drawer__list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  /* open */
+  .drawer.is-open {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__menu { display: none; }        /* PC用メニューを消す */
+  .nav__right { display: none; }       /* お問い合わせボタンも一旦消す（必要なら後でドロワーへ） */
+
+  .container.nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger { color: #111; }           /* ← ここ追加 */
+  .hamburger span { background: currentColor; } /* ← ここ変更 */
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  header.nav { position: relative; }
+}
+
+/* ===============================
+   Drawer base
+================================ */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background: #111;
+  transform: translateX(100%);
+  transition: transform .3s ease;
+  z-index: 1001;
+  padding: 80px 24px;
+}
+
+/* 開いた状態 */
+.drawer.is-open {
+  transform: translateX(0);
+}
+
+/* 背景 */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  /* PC用の横メニューはスマホでは消す */
+  .nav__menu,
+  .nav__right {
+    display: none;
+  }
+
+  /* ヘッダー内で右上に配置 */
+  header.nav { position: relative; }
+  .hamburger {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #111; /* 線の色 */
+  }
+  .hamburger span {
+    background: currentColor;
+  }
+
+/* ===============================
+   White Style Drawer
+================================ */
+
+/* 背景オーバーレイ（少し柔らかめ） */
+.drawer-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+}
+
+/* ドロワー本体 */
+.drawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(82vw, 360px);
+  background: #ffffff;
+  box-shadow: -10px 0 30px rgba(0,0,0,.08);
+  transform: translateX(100%);
+  transition: transform .28s ease;
+  z-index: 9999;
+  padding: 96px 28px 40px;
+}
+
+.drawer.is-open{
+  transform: translateX(0);
+}
+
+/* メニューリスト */
+.drawer__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 区切り線 */
+.drawer__list li + li{
+  border-top: 1px solid #f0f2f5;
+}
+
+/* リンク */
+.drawer a{
+  display: block;
+  padding: 18px 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+/* ホバー（タップ） */
+.drawer a:active{
+  opacity: .6;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    z-index: 9999;
+    pointer-events: auto;
+  }
+  header.nav * { pointer-events: auto; }
+}
+
+
+
