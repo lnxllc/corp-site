@@ -1,37 +1,34 @@
-// assets/js/main.js
-(() => {
-  // Mobile menu
-  const btn = document.querySelector('[data-hamburger]');
-  const panel = document.querySelector('[data-mobile]');
-  if (btn && panel) {
-    btn.addEventListener('click', () => {
-      const open = panel.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', String(open));
-    });
+console.log("main.js active");
+
+window.addEventListener("load", function () {
+
+  const btn = document.getElementById("js-hamburger");
+  const drawer = document.getElementById("js-drawer");
+  const overlay = document.getElementById("js-overlay");
+
+  if (!btn || !drawer || !overlay) {
+    console.error("Drawer elements missing");
+    return;
   }
 
-  // Active nav
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('[data-nav]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href === path) a.classList.add('is-active');
-  });
-
-  // Reveal on scroll
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('is-in');
-    });
-  }, { threshold: 0.12 });
-  els.forEach(el => io.observe(el));
-
-  // Contact form (static demo)
-  const form = document.querySelector('[data-contact-form]');
-  if (form) {
-    form.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      alert('送信デモです（静的HTMLのため実送信は未設定）。');
-    });
+  function openMenu() {
+    drawer.classList.add("is-open");
+    overlay.hidden = false;
+    document.body.style.overflow = "hidden";
   }
-})();
+
+  function closeMenu() {
+    drawer.classList.remove("is-open");
+    overlay.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  // 既存イベントを完全に無視して上書き
+  btn.onclick = function (e) {
+    e.preventDefault();
+    drawer.classList.contains("is-open") ? closeMenu() : openMenu();
+  };
+
+  overlay.onclick = closeMenu;
+
+});
