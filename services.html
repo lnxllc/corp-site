@@ -10,6 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
+<!-- Favicon -->
+<link rel="icon" type="assets/image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+
   <!-- CSS（TOPと同じファイル） -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -21,6 +25,7 @@
   <div class="container nav__inner">
     
     <a href="index.html" class="brand">
+<img src="assets/img/logo.png" alt="LnX合同会社ロゴ" class="brand__logo">
       <div class="brand__name">LnX合同会社</div>
       <div class="brand__sub">Branding & Growth Partner</div>
     </a>
@@ -36,39 +41,14 @@
       <a href="contact.html" class="btn btn-primary">お問い合わせ</a>
     </div>
 
+<button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
   </div>
 </header>
-
-
-  <!-- Hero -->
-<section class="page-hero">
-  <div class="page-hero__bg" aria-hidden="true">
-    <!-- 背景の大きい薄文字（Service） -->
-    <div class="page-hero__ghost">Service</div>
-
-    <!-- 斜め + カーブの青い形（SVG） -->
-    <svg class="page-hero__shape" viewBox="0 0 1440 520" preserveAspectRatio="none">
-      <!-- 上部は矩形で埋め、下側を曲線で切る -->
-      <path
-        d="M0,0 H1440 V0
-           V220
-           C1050,430 650,520 0,360
-           Z"
-        fill="url(#grad)"
-      />
-      <defs>
-        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#1f5eff"/>
-          <stop offset="1" stop-color="#2a63ff"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
-
-  <div class="container page-hero__inner">
-    <h1 class="page-hero__title">デジタルマーケティングで<br>ブランドに革命を。</h1>
-  </div>
-</section>
 
 
   <!-- Service List -->
@@ -337,6 +317,18 @@
       <div><a href="privacy.html">プライバシーポリシー</a></div>
     </div>
   </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
 
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="index.html">TOP</a></li>
+    <li><a href="company.html">会社概要</a></li>
+    <li><a href="services.html">事業内容</a></li>
+    <li><a href="works.html">実績</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>
