@@ -14,14 +14,23 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=1" />
 </head>
 
+<!-- Favicon -->
+<link rel="icon" type="assets/image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+
+
 <body>
   <!-- =========================
        Header
   ========================= -->
 <header class="nav">
+
+
+
   <div class="container nav__inner">
     
     <a href="index.html" class="brand">
+<img src="assets/img/logo.png" alt="LnX合同会社ロゴ" class="brand__logo">
       <div class="brand__name">LnX合同会社</div>
       <div class="brand__sub">Branding & Growth Partner</div>
     </a>
@@ -33,11 +42,16 @@
       <a href="works.html">実績</a>
     </nav>
 
-    <div class="nav__right">
-      <a href="contact.html" class="btn btn-primary">お問い合わせ</a>
-    </div>
+<div class="nav__right">
+  <a href="contact.html" class="btn btn-primary">お問い合わせ</a>
+</div>
 
-  </div>
+<button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
 </header>
 
 
@@ -270,6 +284,23 @@
       <div><a href="privacy.html">プライバシーポリシー</a></div>
     </div>
   </footer>
+
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="index.html">TOP</a></li>
+    <li><a href="company.html">会社概要</a></li>
+    <li><a href="services.html">事業内容</a></li>
+    <li><a href="works.html">実績</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<script src="assets/js/main.js?v=3" defer></script>
+
+
+
 </body>
 </html>
 
