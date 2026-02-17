@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>LnX合同会社 | Branding & Growth Partner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts (Inter + Noto Sans JP) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=1" />
+</head>
+
+<body>
+  <!-- =========================
+       Header
+  ========================= -->
+<header class="nav">
+  <div class="container nav__inner">
+    
+    <a href="index.html" class="brand">
+      <div class="brand__name">LnX合同会社</div>
+      <div class="brand__sub">Branding & Growth Partner</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="index.html">TOP</a>
+      <a href="company.html">会社概要</a>
+      <a href="services.html">事業内容</a>
+      <a href="works.html">実績</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="contact.html" class="btn btn-primary">お問い合わせ</a>
+    </div>
+
+  </div>
+</header>
+
+
+  <!-- =========================
+       Hero
+  ========================= -->
+<section class="hero-g">
+<!-- Ln(x) ribbon (background / behind everything) -->
+<svg class="hero-ln-ribbon" viewBox="0 0 1400 700" aria-hidden="true" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="lnRibbonGrad" x1="0%" y1="70%" x2="100%" y2="10%">
+      <stop offset="0%"  stop-color="#2563eb" stop-opacity="0.30"/>
+      <stop offset="55%" stop-color="#3b82f6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.26"/>
+    </linearGradient>
+
+    <!-- ふわっとさせる -->
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.6" />
+    </filter>
+  </defs>
+
+  <!-- テーパーした“リボン”で ln(x)っぽい（左で急上昇→右でなだらか） -->
+  <path
+    d="
+      M -120 640
+      C  120 610,  230 520,  330 420
+      C  430 320,  560 265,  720 235
+      C  960 190, 1180 170, 1550 120
+
+      L 1550 165
+      C 1200 235,  980 255,  760 285
+      C  590 308,  465 355,  370 440
+      C  270 530,  130 620, -120 680
+      Z
+    "
+    fill="url(#lnRibbonGrad)"
+    filter="url(#softBlur)"
+  />
+</svg>
+  <div class="container hero-g__inner">
+      <div class="hero-g__left">
+        <p class="hero-g__kicker">
+          <span class="kdot" aria-hidden="true"></span>
+          STRATEGY × CREATIVE
+        </p>
+
+        <h1 class="hero-g__title">
+         戦略を構造化し、<br>
+         ブランドを<span class="nowrap">加速させる。</span>
+        </h1>
+
+
+        <p class="hero-g__lead">
+ブランド・ビジネスモデルをしっかりと理解した上で、<br>
+          Webマーケティングの戦略～実務運用・各種制作まで<br>
+          一気通貫で伴走し、事業成長をご支援いたします
+        </p>
+
+        <div class="hero-g__cta">
+          <a class="btn btn--primary" href="contact.html">お問い合わせ</a>
+          <a class="btn btn--ghost" href="services.html">提供サービスを見る</a>
+        </div>
+      </div>
+
+      <!-- 右側：円画像 -->
+      <div class="hero-g__right" aria-hidden="true">
+        <div class="hero-g__circle">
+          <!-- img方式（これが最優先で表示される） -->
+          <img src="assets/img/hero.png" alt="" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       What We Do
+  ========================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">What We Do</h2>
+        <p class="section__desc">私たちはこんなことをしています</p>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="card">
+        <div class="card__image">
+         <img src="assets/img/strategy.png" alt="">
+        </div>
+          <h3>Webマーケティング戦略</h3>
+          <p>集客経路や予算配分の最適化、コンバージョンまでの導線設計・KPI設計を行います</p>
+        </div>
+        <div class="card">
+        <div class="card__image">
+         <img src="assets/img/ad.png" alt="">
+        </div>
+          <h3>広告運用</h3>
+          <p>リスティング広告・META広告中心に安価な獲得単価で事業売り上げを効率的にスケールさせます</p>
+        </div>
+        <div class="card">
+        <div class="card__image">
+         <img src="assets/img/sns.png" alt="">
+        </div>
+          <h3>SNS運用代行 / 映像制作</h3>
+          <p>”バズる”だけではない、戦略から落とし込んだ最適なSNS運用をご提案し、撮影や編集もサポートいたします</p>
+        </div>
+      </div>
+     <div class="section__cta">
+       <a href="services.html" class="cta-wide">
+         事業内容を詳しく見る
+       </a>
+     </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       Works
+  ========================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Works（一部）</h2>
+        <p class="section__desc">実績の一部をご紹介します</p>
+      </div>
+
+  <article class="work">
+ <div class="work__content">
+    <div class="work__top">
+      <b>Webマーケ戦略～実行ディレクション①</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media">
+    <img src="assets/img/work7.png" alt="インフルエンサーマーケ施策（保険代理店様）">
+   </div>
+     <p>
+      保険代理店様の顧客獲得に向け、Web集客戦略の設計～実行管理までを一気通貫で行いました。<br>営業部隊による集客の仕組みを構築し、半年で600万円以上の売上増加に貢献しました。
+     </p>
+    </div>
+  </article>
+
+
+  <article class="work">
+ <div class="work__content">
+    <div class="work__top">
+      <b>Webマーケ戦略～実行ディレクション②</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media">
+    <img src="assets/img/work5.png" alt="インフルエンサーマーケ施策（渋谷のパスタ店様）">
+   </div>
+     <p>
+      渋谷のターゲットに則した集客手法としてSNSインフルエンサー集客をご提案し、最適なインフルエンサーをアサインしバズを創出。<br>UGCの流れが生まれ、継続的に投稿→拡散の流れが発生し長期にわたる集客経路となりました。（少なく見積もって来店効果は300組以上）
+     </p>
+    </div>
+  </article>
+
+ 
+  <article class="work">
+   <div class="work__content">
+    <div class="work__top">
+      <b>SNSアカウント設計～運用</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media">
+    <img src="assets/img/work1.png" alt="地域特化型デートアカウント運用（Instagram）">
+   </div>
+     <p>
+      東京のデートスポット紹介アカウントを0から立ち上げ、2.1万フォロワーまでグロースさせました。<br>また当初の戦略設計通り、20-30代の男性をメインフォロワーとして獲得。
+     </p>
+    </div>
+  </article>
+
+  <article class="work">
+ <div class="work__content">
+    <div class="work__top">
+      <b>コーポレートサイト設計～制作</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media">
+    <img src="assets/img/work4.png" alt="ホームページ制作（久保電商）">
+   </div>
+     <p>
+      コーポレートサイトの設計～実装まで一貫して対応いたしました。
+     </p>
+    </div>
+  </article>
+
+<article class="work">
+  <div class="work__content">
+    <div class="work__top">
+      <b>長尺動画撮影～制作<br></b>
+      <span>2025</span>
+    </div>
+  <div class="work__media work__media--video">
+  <a class="work__media work__media--link"
+     href="https://www.youtube.com/watch?v=5j_O3qfLy6E"
+     target="_blank" rel="noopener">
+
+    <img src="https://img.youtube.com/vi/5j_O3qfLy6E/maxresdefault.jpg"
+        alt="ポーカーYoutubeの撮影・ディレクション">
+
+    <span class="play" aria-hidden="true"></span>
+  </a>
+
+  </div>
+    <p>
+      陣内智則等の有名人が出演するポーカー番組の撮影・ディレクションを行いました。
+    </p>
+  </div>
+</article>
+      </div>
+
+<div class="section__cta">
+  <a href="works.html" class="cta-wide">
+    実績をもっと見る
+  </a>
+</div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       Footer
+  ========================= -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>© 2026 LnX合同会社</div>
+      <div><a href="privacy.html">プライバシーポリシー</a></div>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
