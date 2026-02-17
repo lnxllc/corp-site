@@ -1,0 +1,2014 @@
+/* assets/css/styles.css (FULL REPLACE)
+   LnX TOP (index.html対応)
+   - Inter + Noto Sans JP
+   - Geometric hero + Circle image (img固定 + 背景保険)
+*/
+
+/* ========== Base ========== */
+:root{
+  --bg:#ffffff;
+  --txt:#0b0d12;
+
+  --muted:rgba(15,23,42,.66);
+  --soft:rgba(15,23,42,.46);
+
+  --line:rgba(15,23,42,.10);
+
+  --brand1:#7c3aed; /* violet */
+  --brand2:#06b6d4; /* cyan */
+  --brand3:#2563eb; /* blue */
+
+  --shadow:0 26px 90px rgba(15,23,42,.10);
+  --shadow2:0 14px 40px rgba(15,23,42,.08);
+
+  --radius:18px;
+  --radius2:34px;
+
+  --max:1200px;
+  --hpad:28px;
+
+  --h1:clamp(44px, 5vw, 72px);
+  --h2:clamp(26px, 2.6vw, 34px);
+
+  --font-main:"Inter","Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--txt);
+  font-family:var(--font-main);
+  line-height:1.7;
+  letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.container{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 var(--hpad);
+}
+
+/* ========== Header / Nav ========== */
+/* =========================
+   Navigation
+========================= */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.nav__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px var(--hpad);
+}
+
+.brand{
+  text-decoration: none;
+  color: #111;
+}
+
+.brand__name{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.brand__sub{
+  font-size: 12px;
+  color: #777;
+  letter-spacing: 1px;
+}
+
+.nav__menu{
+  display: flex;
+  gap: 32px;
+}
+
+.nav__menu a{
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav__menu a:hover{
+  opacity: .7;
+}
+
+.nav__right{
+  display: flex;
+  align-items: center;
+}
+
+
+/* ========== Buttons ========== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 16px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.16);
+  background:#fff;
+  color:rgba(15,23,42,.88);
+  font-size:13.5px;
+  font-weight:700;
+  transition:.18s ease;
+  cursor:pointer;
+  will-change:transform;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow2);
+}
+.btn--primary{
+  border:none;
+  color:#fff;
+  font-weight:800;
+  background:linear-gradient(135deg, var(--brand1), var(--brand3));
+  box-shadow:0 18px 44px rgba(124,58,237,.18);
+}
+.btn--ghost{
+  background:rgba(255,255,255,.92);
+}
+
+/* ========== Hero ========== */
+.hero-g{
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+  padding:110px 0 90px;
+  isolation:isolate; /* z-indexの衝突を防ぐ */
+}
+
+/* 左側の文字保護ベール（必ず背面へ） */
+.hero-g::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:min(760px, 62vw);
+  background:linear-gradient(90deg, #fff 0%, #fff 82%, rgba(255,255,255,0) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* 小さな装飾（背面） */
+.hero-g::after{
+  content:"";
+  position:absolute;
+  inset:-80px;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 14% 28%, rgba(37,99,235,.12) 0 16px, transparent 17px),
+    radial-gradient(circle at 22% 18%, rgba(6,182,212,.10) 0 10px, transparent 11px),
+    radial-gradient(circle at 10% 70%, rgba(37,99,235,.06) 0 48px, transparent 49px);
+  z-index:0;
+}
+
+.hero-g__inner{
+  position:relative;
+  z-index:2; /* ここが前面 */
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:56px;
+  align-items:center;
+}
+
+.hero-g__kicker{
+  margin:0 0 14px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(15,23,42,.62);
+}
+.kdot{
+  width:8px;height:8px;border-radius:999px;
+  background:linear-gradient(135deg, var(--brand1), var(--brand2));
+}
+
+.hero-g__title{
+  margin:0 0 18px;
+  font-size:var(--h1);
+  line-height:1.06;
+  letter-spacing:-0.03em;
+  font-weight:900;
+  color:var(--txt);
+}
+
+.hero-g__lead{
+  margin:0 0 22px;
+  max-width:60ch;
+  font-size:16px;
+  color:rgba(15,23,42,.70);
+}
+
+.hero-g__cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* 右側 */
+.hero-g__right{
+  position:relative;
+  z-index:3;
+  min-height:520px;
+}
+
+/* 円本体（ここに背景画像の保険も入れる） */
+.hero-g__circle{
+  position:absolute;
+  right:-140px;
+  top:50%;
+  transform:translateY(-50%);
+  width:min(760px, 58vw);
+  aspect-ratio:1/1;
+  border-radius:999px;
+  overflow:hidden;
+
+  /* フチと影 */
+  border:10px solid #fff;
+  box-shadow:0 40px 120px rgba(15,23,42,.14);
+
+  /* 保険：imgが出なくても背景で出す */
+  background-image:url("../img/hero.png"); /* CSSから見たパス */
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-color:#fff;
+
+  z-index:4;
+}
+
+/* img方式を最優先で確実に出す（ズレ封じ） */
+.hero-g__circle img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+
+/* 任意：円を少しだけ浮遊させる */
+@media (prefers-reduced-motion: no-preference){
+  .hero-g__circle{
+    animation: floatCircle 10s ease-in-out infinite;
+  }
+}
+@keyframes floatCircle{
+  0%,100%{ transform: translateY(-50%) translate3d(0,0,0); }
+  50%{ transform: translateY(-50%) translate3d(10px,-10px,0); }
+}
+
+/* ========== Sections ========== */
+.section{padding:92px 0}
+
+.section__head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.section__title{
+  margin:0;
+  font-size:var(--h2);
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.section__desc{
+  margin:0;
+  max-width:74ch;
+  font-size:13.5px;
+  color:rgba(15,23,42,.65);
+}
+
+.grid{display:grid;gap:22px}
+.grid--3{grid-template-columns:repeat(3, 1fr)}
+
+.card{
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  border-radius:var(--radius);
+  padding:26px;
+  box-shadow:var(--shadow2);
+  transition:.22s ease;
+  will-change:transform;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+.card h3{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+.card p{
+  margin:0;
+  font-size:14px;
+  color:rgba(15,23,42,.64);
+}
+
+/* Works */
+.works{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.work{
+  padding:28px;
+  border-radius:var(--radius2);
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  box-shadow:var(--shadow2);
+  transition:.22s ease;
+  will-change:transform;
+}
+.work:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+.work__top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.work__top b{font-size:18px;font-weight:800}
+.work__top span{font-size:12px;color:rgba(15,23,42,.58)}
+.work__body{margin-top:10px}
+.work__body p{margin:0;color:rgba(15,23,42,.64);font-size:14px}
+
+/* ========== Footer ========== */
+.footer{
+  margin-top:54px;
+  padding:44px 0;
+  border-top:1px solid rgba(15,23,42,.10);
+  color:rgba(15,23,42,.60);
+  font-size:12.5px;
+}
+.footer__grid{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.footer a{color:rgba(15,23,42,.60)}
+.footer a:hover{color:rgba(15,23,42,.88)}
+
+/* ========== Responsive ========== */
+@media (max-width: 980px){
+  .hero-g__inner{grid-template-columns:1fr}
+  .hero-g__right{min-height:420px}
+  .hero-g__circle{
+    right:-120px;
+    width:min(700px, 92vw);
+  }
+  .hero-g::before{
+    width:100%;
+    background:linear-gradient(90deg, #fff 0%, #fff 88%, rgba(255,255,255,0) 100%);
+  }
+  .grid--3{grid-template-columns:1fr}
+  .works{grid-template-columns:1fr}
+}
+
+@media (max-width: 720px){
+  :root{ --hpad:18px; }
+  .menu{display:none;}
+  .hero-g{padding:90px 0 70px}
+  .hero-g__circle{
+    right:-180px;
+    border-width:8px;
+  }
+}
+
+.nowrap{
+  white-space: nowrap;
+}
+
+
+
+/* =========================
+   Creative Enhancements
+   - Aura glow behind circle
+   - Geometric lines outside circle
+   - Subtle noise overlay
+   追記：styles.css 末尾
+========================= */
+
+/* 1) 円の後ろに薄いグラデーションオーラ */
+.hero-g__right{
+  isolation: isolate; /* 擬似要素の重なりを安定 */
+}
+
+.hero-g__right::before{
+  content:"";
+  position:absolute;
+  inset:-80px -120px -80px -120px;
+  z-index:1;                 /* 円より後ろ、背景より前 */
+  pointer-events:none;
+  filter: blur(22px);
+  opacity:.55;
+  background:
+    radial-gradient(closest-side at 62% 45%, rgba(124,58,237,.32), transparent 70%),
+    radial-gradient(closest-side at 78% 62%, rgba(6,182,212,.22), transparent 72%),
+    radial-gradient(closest-side at 50% 72%, rgba(37,99,235,.18), transparent 72%);
+}
+
+/* 円は前面を維持 */
+.hero-g__circle{
+  position:absolute;
+  z-index:4;
+}
+
+/* 2) 円の外側に幾何学ライン（薄い円弧＋斜めライン） */
+.hero-g__right::after{
+  content:"";
+  position:absolute;
+  right:-170px;
+  top:50%;
+  transform:translateY(-50%);
+  width:min(780px, 60vw);
+  aspect-ratio:1/1;
+  border-radius:999px;
+  pointer-events:none;
+  z-index:3; /* 円(4)の一つ下で“外側にいる”感じ */
+
+  /* 線の集合（薄いので邪魔しない） */
+  background:
+    /* outer ring */
+    radial-gradient(circle,
+      transparent 0 68.6%,
+      rgba(37,99,235,.28) 68.7% 69.1%,
+      transparent 69.2% 100%),
+    /* inner ring */
+    radial-gradient(circle,
+      transparent 0 60.6%,
+      rgba(6,182,212,.22) 60.7% 61.0%,
+      transparent 61.1% 100%),
+    /* diagonal line */
+    conic-gradient(from 220deg,
+      rgba(124,58,237,0) 0 42deg,
+      rgba(124,58,237,.18) 42deg 44deg,
+      rgba(124,58,237,0) 44deg 360deg);
+
+  /* ほんのりだけ立体感 */
+  filter: drop-shadow(0 22px 60px rgba(15,23,42,.10));
+  opacity:.9;
+}
+
+/* 3) 画面全体にノイズを薄く重ねる（CSSだけで生成） */
+.hero-g{
+  position:relative;
+}
+
+.hero-g .noise{
+  display:none; /* 万一HTMLにnoise要素があっても無視 */
+}
+
+/* 疑似要素でノイズ生成 */
+.hero-g::marker{ content:""; } /* 影響なし */
+
+.hero-g::before{
+  /* 既存の白ベールがある場合は崩さずに… */
+}
+
+/* ノイズは別の擬似要素として重ねる（邪魔しない） */
+.hero-g{
+  --noiseOpacity: .055;
+}
+
+.hero-g::after{
+  /* 既存の装飾（ドット）を残したい場合があるので、
+     ここで上書きしないように “もう一枚” を作るために
+     hero-g に pseudo を増やせない。
+     → 代替：bodyにノイズを乗せる */
+}
+
+
+
+/* ノイズが強いと感じたらここを .03〜.06 で調整 */
+@media (max-width: 720px){
+  body::before{ opacity: .045; }
+}
+
+.card{
+  overflow:hidden;
+  padding:0; /* 画像を上にぴったり */
+}
+
+.card__image{
+  width:100%;
+  aspect-ratio: 16 / 9;
+  overflow:hidden;
+  border-bottom:1px solid rgba(15,23,42,.08);
+}
+
+.card__image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition: transform .6s ease;
+}
+
+.card:hover .card__image img{
+  transform: scale(1.05);
+}
+
+/* 文字部分の余白を戻す */
+.card h3,
+.card p{
+  padding: 20px 26px 0 26px;
+}
+
+.card p{
+  padding-bottom: 26px;
+}
+
+.work__media--link{
+  position:relative;
+  display:block;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.work__media--link img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.work__media--link .play{
+  position:absolute;
+  inset:0;
+  width:64px;
+  height:64px;
+  margin:auto;
+  border-radius:999px;
+  background:rgba(255,255,255,.94);
+  box-shadow:0 18px 40px rgba(15,23,42,.18);
+}
+
+.work__media--link .play::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-35%,-50%);
+  width:0;height:0;
+  border-left:16px solid rgba(15,23,42,.85);
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+}
+
+.work__media--link:hover img{
+  transform: scale(1.04);
+  transition: transform .5s ease;
+}
+
+
+/* =========================
+   Simple Profile
+========================= */
+
+.profile-simple{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:48px;
+  align-items:start;
+}
+
+/* 写真 */
+.profile-simple__media{
+  border-radius:22px;
+  overflow:hidden;
+}
+
+.profile-simple__media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* テキスト */
+.profile-simple__role{
+  margin:0 0 6px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(15,23,42,.55);
+}
+
+.profile-simple__name{
+  margin:0 0 18px;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+
+.profile-simple__content p{
+  margin:0 0 14px;
+  font-size:15.5px;
+  line-height:1.9;
+  color:rgba(15,23,42,.72);
+}
+
+/* モバイル */
+@media (max-width: 980px){
+  .profile-simple{
+    grid-template-columns: 1fr;
+    gap:28px;
+  }
+}
+
+
+/* =========================
+   About / Company page
+========================= */
+
+/* ---- Company block ---- */
+.company-grid{
+  display:grid;
+  grid-template-columns: 1fr;   /* ← 1カラムに */
+  gap:22px;
+  align-items:start;
+}
+
+
+.company-card{
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  border-radius: var(--radius2);
+  box-shadow: var(--shadow2);
+  padding:28px;
+}
+
+.company-dl{
+  margin:0;
+  display:grid;
+  gap:14px;
+}
+
+.company-row{
+  display:grid;
+  grid-template-columns: 140px 1fr;
+  gap:14px;
+  padding:12px 14px;
+  border-radius: 16px;
+  border:1px solid rgba(15,23,42,.08);
+  background: rgba(255,255,255,.88);
+}
+
+.company-row dt{
+  margin:0;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  color: rgba(15,23,42,.62);
+}
+
+.company-row dd{
+  margin:0;
+  font-size:15px;
+  color: rgba(15,23,42,.82);
+  line-height:1.85;
+}
+
+.company-cta{
+  margin-top:18px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* 右側の補足 */
+.company-note{
+  border-radius: var(--radius2);
+  border:1px solid rgba(15,23,42,.10);
+  background: linear-gradient(135deg, rgba(124,58,237,.08), rgba(6,182,212,.08));
+  box-shadow: var(--shadow2);
+  padding:28px;
+}
+.company-note__kicker{
+  margin:0 0 10px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.18em;
+  color: rgba(15,23,42,.62);
+  text-transform:uppercase;
+}
+.company-note__title{
+  margin:0 0 10px;
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.company-note__text{
+  margin:0;
+  font-size:14.5px;
+  line-height:1.9;
+  color: rgba(15,23,42,.70);
+}
+
+/* ---- CEO Profile ---- */
+.ceo{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:48px;
+  align-items:start;
+}
+
+.ceo__media{
+  border-radius: 22px;
+  overflow:hidden;
+  border:1px solid rgba(15,23,42,.10);
+  background:#fff;
+  box-shadow: 0 18px 50px rgba(15,23,42,.08);
+}
+
+.ceo__media img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.ceo__role{
+  margin:0 0 6px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color: rgba(15,23,42,.55);
+}
+
+.ceo__name{
+  margin:0 0 14px;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+
+.ceo__bio{
+  margin:0 0 14px;
+  font-size:15.5px;
+  line-height:1.9;
+  color: rgba(15,23,42,.72);
+}
+
+.ceo__blocks{
+  display:grid;
+  gap:12px;
+  margin: 8px 0 16px;
+}
+
+.ceo__block{
+  padding:14px 16px;
+  border-radius: 16px;
+  border:1px solid rgba(15,23,42,.08);
+  background: rgba(255,255,255,.88);
+}
+
+.ceo__block h4{
+  margin:0 0 6px;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.06em;
+}
+
+.ceo__block p{
+  margin:0;
+  font-size:14.5px;
+  line-height:1.9;
+  color: rgba(15,23,42,.70);
+}
+
+.ceo__cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 980px){
+  .company-grid{ grid-template-columns: 1fr; }
+  .company-row{ grid-template-columns: 120px 1fr; }
+
+  .ceo{ grid-template-columns: 1fr; gap:28px; }
+}
+@media (max-width: 720px){
+  .company-row{ grid-template-columns: 1fr; gap:8px; }
+}
+
+/* =========================
+   Wide CTA - Compact
+========================= */
+
+.section__cta{
+  margin-top:60px;
+  text-align:center;
+}
+
+.cta-wide{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:520px;   /* ← 横幅を少し抑える */
+  padding:18px 20px; /* ← 高さをコンパクトに */
+  border-radius:18px;
+
+  font-size:16px;    /* ← 少し小さめ */
+  font-weight:700;
+  letter-spacing:.04em;
+
+  color:#fff;
+  background:linear-gradient(135deg, var(--brand1), var(--brand3));
+
+  box-shadow:0 18px 44px rgba(124,58,237,.20);
+  transition:.25s ease;
+}
+
+.cta-wide:hover{
+  transform:translateY(-3px);
+  box-shadow:0 26px 60px rgba(124,58,237,.28);
+}
+
+/* =========================
+   Services Page (services.html)
+   追記：styles.css 末尾
+========================= */
+
+/* Hero */
+.svc-hero{
+  position:relative;
+  overflow:hidden;
+  padding:96px 0 66px;
+  background:#fff;
+}
+
+.svc-hero__inner{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:46px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+
+.svc-kicker{
+  margin:0 0 14px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.18em;
+  color:rgba(15,23,42,.62);
+}
+
+.svc-hero__title{
+  margin:0 0 14px;
+  font-size:clamp(38px, 4.4vw, 58px);
+  line-height:1.08;
+  letter-spacing:-0.03em;
+  font-weight:900;
+}
+
+.svc-hero__lead{
+  margin:0 0 18px;
+  max-width:62ch;
+  font-size:16px;
+  color:rgba(15,23,42,.70);
+}
+
+.svc-hero__cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.svc-badges{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.92);
+  color:rgba(15,23,42,.70);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+
+/* 右側オブジェクト（画像なしでも成立） */
+.svc-hero__right{
+  position:relative;
+  min-height:420px;
+  isolation:isolate;
+}
+.svc-orb{
+  position:absolute;
+  inset:auto -120px auto auto;
+  right:-140px;
+  top:50%;
+  transform:translateY(-50%);
+  width:min(640px, 56vw);
+  aspect-ratio:1/1;
+  border-radius:999px;
+  background:
+    radial-gradient(closest-side at 32% 28%, rgba(255,255,255,.65), transparent 62%),
+    radial-gradient(closest-side at 62% 45%, rgba(124,58,237,.30), transparent 70%),
+    radial-gradient(closest-side at 78% 62%, rgba(6,182,212,.22), transparent 72%),
+    radial-gradient(closest-side at 50% 72%, rgba(37,99,235,.16), transparent 72%),
+    linear-gradient(135deg, rgba(124,58,237,.10), rgba(6,182,212,.10));
+  filter: blur(10px);
+  opacity:.95;
+  z-index:1;
+}
+.svc-lines{
+  position:absolute;
+  right:-170px;
+  top:50%;
+  transform:translateY(-50%);
+  width:min(700px, 60vw);
+  aspect-ratio:1/1;
+  border-radius:999px;
+  pointer-events:none;
+  z-index:2;
+  background:
+    radial-gradient(circle,
+      transparent 0 68.6%,
+      rgba(37,99,235,.24) 68.7% 69.1%,
+      transparent 69.2% 100%),
+    radial-gradient(circle,
+      transparent 0 60.6%,
+      rgba(6,182,212,.18) 60.7% 61.0%,
+      transparent 61.1% 100%),
+    conic-gradient(from 220deg,
+      rgba(124,58,237,0) 0 42deg,
+      rgba(124,58,237,.14) 42deg 44deg,
+      rgba(124,58,237,0) 44deg 360deg);
+  filter: drop-shadow(0 22px 60px rgba(15,23,42,.08));
+  opacity:.9;
+}
+
+/* Sections */
+.svc-section.section{ padding:84px 0; }
+
+/* Pillars */
+.pillars{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  margin-top:10px;
+}
+.pillar{
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow2);
+}
+.pillar__top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+.pill{
+  width:38px;height:38px;border-radius:12px;
+  display:grid;place-items:center;
+  font-weight:900;
+  color:#fff;
+  background:linear-gradient(135deg, var(--brand1), var(--brand3));
+  box-shadow:0 14px 36px rgba(124,58,237,.18);
+}
+.pillar h3{ margin:0; font-size:16px; font-weight:900; letter-spacing:-.01em; }
+.pillar p{ margin:8px 0 0; color:rgba(15,23,42,.64); font-size:14px; }
+
+/* Service Cards */
+.svc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:8px;
+}
+.svc-card{
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  border-radius:22px;
+  padding:24px;
+  box-shadow:var(--shadow2);
+  transition:.22s ease;
+}
+.svc-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+.svc-card__head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+}
+.svc-tag{
+  margin:0 0 6px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  color:rgba(15,23,42,.60);
+  text-transform:uppercase;
+}
+.svc-card h3{
+  margin:0;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.svc-chip{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.92);
+  font-size:12px;
+  font-weight:800;
+  color:rgba(15,23,42,.68);
+  white-space:nowrap;
+}
+.svc-copy{
+  margin:10px 0 14px;
+  color:rgba(15,23,42,.66);
+  font-size:14px;
+}
+.svc-list{
+  margin:0;
+  padding-left:18px;
+  color:rgba(15,23,42,.70);
+  font-size:13.5px;
+  display:grid;
+  gap:6px;
+}
+.svc-meta{
+  margin-top:14px;
+  border-top:1px solid rgba(15,23,42,.08);
+  padding-top:12px;
+  display:grid;
+  gap:10px;
+}
+.svc-meta__item{
+  display:grid;
+  gap:2px;
+}
+.svc-meta__item .k{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.10em;
+  color:rgba(15,23,42,.56);
+}
+.svc-meta__item .v{
+  font-size:13.5px;
+  color:rgba(15,23,42,.72);
+}
+
+/* Pricing */
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  margin-top:8px;
+}
+.price{
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  border-radius:22px;
+  padding:24px;
+  box-shadow:var(--shadow2);
+}
+.price--featured{
+  border-color:rgba(124,58,237,.28);
+  box-shadow:0 26px 90px rgba(124,58,237,.16);
+}
+.price__head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+.price h3{
+  margin:0;
+  font-size:16px;
+  font-weight:900;
+}
+.price__tag{
+  padding:7px 10px;
+  border-radius:999px;
+  background:linear-gradient(135deg, rgba(124,58,237,.14), rgba(37,99,235,.12));
+  border:1px solid rgba(15,23,42,.08);
+  font-size:12px;
+  font-weight:800;
+  color:rgba(15,23,42,.70);
+}
+.price__val{
+  margin:0 0 6px;
+  font-size:15px;
+  color:rgba(15,23,42,.72);
+}
+.price__val b{
+  font-size:22px;
+  font-weight:900;
+  color:rgba(15,23,42,.92);
+}
+.price__note{
+  margin:0 0 12px;
+  font-size:13px;
+  color:rgba(15,23,42,.62);
+}
+.price__list{
+  margin:0;
+  padding-left:18px;
+  display:grid;
+  gap:6px;
+  color:rgba(15,23,42,.70);
+  font-size:13.5px;
+}
+.svc-small{
+  margin:14px 0 0;
+  font-size:12.5px;
+  color:rgba(15,23,42,.60);
+}
+
+/* Flow */
+.flow{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0;
+  display:grid;
+  gap:12px;
+}
+.flow__item{
+  display:grid;
+  grid-template-columns: 56px 1fr;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px 18px;
+  border-radius:18px;
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  box-shadow:var(--shadow2);
+}
+.flow__n{
+  width:56px;height:56px;border-radius:18px;
+  display:grid;place-items:center;
+  font-weight:900;
+  color:#fff;
+  background:linear-gradient(135deg, var(--brand1), var(--brand3));
+}
+.flow__body b{
+  display:block;
+  font-size:20px;
+  font-weight:900;
+  margin:2px 0 4px;
+}
+.flow__body p{
+  margin:0;
+  color:rgba(15,23,42,.64);
+  font-size:13.5px;
+}
+
+/* FAQ */
+.faq{
+  display:grid;
+  gap:12px;
+  margin-top:8px;
+}
+.faq__item{
+  border-radius:18px;
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  box-shadow:var(--shadow2);
+  padding:14px 16px;
+}
+.faq__item summary{
+  cursor:pointer;
+  font-weight:900;
+  color:rgba(15,23,42,.88);
+  list-style:none;
+}
+.faq__item summary::-webkit-details-marker{ display:none; }
+.faq__item p{
+  margin:10px 0 2px;
+  color:rgba(15,23,42,.64);
+  font-size:13.5px;
+}
+
+/* CTA box */
+.cta-box{
+  border-radius:24px;
+  border:1px solid rgba(15,23,42,.10);
+  background:
+    radial-gradient(closest-side at 25% 20%, rgba(124,58,237,.12), transparent 65%),
+    radial-gradient(closest-side at 80% 65%, rgba(6,182,212,.10), transparent 70%),
+    rgba(255,255,255,.96);
+  box-shadow:var(--shadow2);
+  padding:26px;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:center;
+}
+.cta-box__title{
+  margin:0 0 6px;
+  font-size:clamp(22px, 2.3vw, 30px);
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.cta-box__lead{
+  margin:0;
+  color:rgba(15,23,42,.66);
+  font-size:14px;
+  max-width:68ch;
+}
+.cta-box__right{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.cta-box__btn{ min-width:180px; }
+
+/* Responsive */
+.only-desktop{ display:inline; }
+@media (max-width: 980px){
+  .svc-hero__inner{ grid-template-columns:1fr; }
+  .svc-hero__right{ min-height:320px; }
+  .svc-orb{ right:-120px; width:min(620px, 92vw); }
+  .svc-lines{ right:-140px; width:min(660px, 94vw); }
+  .pillars{ grid-template-columns:1fr; }
+  .svc-grid{ grid-template-columns:1fr; }
+  .price-grid{ grid-template-columns:1fr; }
+  .cta-box{ flex-direction:column; align-items:flex-start; }
+}
+@media (max-width: 720px){
+  .only-desktop{ display:none; }
+  .svc-hero{ padding:80px 0 56px; }
+}
+
+/* =========================
+   Services: Vertical Alternating (Text / Image)
+========================= */
+
+.svc-stack{
+  display:grid;
+  gap:18px;
+  margin-top:8px;
+}
+
+/* 1行 */
+.svc-row{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:18px;
+  align-items:stretch;
+}
+
+/* 交互（画像左 / テキスト右） */
+.svc-row--reverse{
+  grid-template-columns: .8fr 1.2fr;
+}
+
+/* パネル共通：いまのカード感に揃える */
+.svc-panel{
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  border-radius:22px;
+  box-shadow:var(--shadow2);
+}
+
+/* テキスト側は余白あり */
+.svc-panel--text{
+  padding:24px;
+}
+
+/* 画像側は余白なし＋はみ出し防止 */
+.svc-panel--media{
+  padding:0;
+  overflow:hidden;
+}
+
+/* 画像ボックス */
+.svc-media{
+  width:100%;
+  height:100%;
+  min-height:260px;
+}
+
+.svc-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.02);
+  transition: transform .6s ease;
+}
+
+.svc-row:hover .svc-media img{
+  transform:scale(1.06);
+}
+
+/* モバイルは縦積み（画像→テキストでもOKにするなら order 使う） */
+@media (max-width: 980px){
+  .svc-row,
+  .svc-row--reverse{
+    grid-template-columns: 1fr;
+  }
+  .svc-media{ min-height:220px; }
+}
+
+
+/* =========================
+   Services Alternate Fix
+   - odd: text left / image right
+   - even: image left / text right
+   - remove borders around image area
+========================= */
+
+/* 1行の2カラム */
+.svc-row{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:18px;
+  align-items:stretch;
+}
+
+/* 交互（偶数行）: 並びを入れ替える */
+.svc-row--reverse{
+  grid-template-columns: .8fr 1.2fr;
+}
+
+/* 位置を“強制”で入れ替え（grid-templateが効かない環境/崩れ対策） */
+.svc-row--reverse .svc-panel--media{ grid-column: 1; }
+.svc-row--reverse .svc-panel--text{  grid-column: 2; }
+
+/* テキスト側はカード感そのまま */
+.svc-panel--text{
+  border:1px solid rgba(15,23,42,.10);
+  background:rgba(255,255,255,.96);
+  border-radius:22px;
+  box-shadow:var(--shadow2);
+  padding:24px;
+}
+
+/* 画像側の枠は“全部なし” */
+.svc-panel--media{
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+
+/* 画像だけ角丸にしたい場合（必要なら） */
+.svc-media{
+  width:100%;
+  height:100%;
+  min-height:260px;
+  overflow:hidden;
+  border-radius:22px; /* ←角丸いらなければ消す */
+}
+
+/* 画像表示 */
+.svc-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.02);
+  transition: transform .6s ease;
+}
+.svc-row:hover .svc-media img{ transform:scale(1.06); }
+
+/* モバイルは縦積み */
+@media (max-width: 980px){
+  .svc-row,
+  .svc-row--reverse{
+    grid-template-columns: 1fr;
+  }
+  .svc-row--reverse .svc-panel--media,
+  .svc-row--reverse .svc-panel--text{
+    grid-column:auto;
+  }
+  .svc-media{ min-height:220px; }
+}
+
+/* ===== Service Detail Layout ===== */
+
+.services-detail {
+  padding: 100px 0;
+}
+
+.service-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  margin: 100px 0;
+}
+
+/* 交互 */
+.service-block.reverse {
+  direction: rtl;
+}
+.service-block.reverse .service-text {
+  direction: ltr;
+}
+
+.service-text h3 {
+  font-size: 28px;
+  margin: 12px 0 20px;
+}
+
+.service-text p {
+  font-size: 16px;
+  color: rgba(15,23,42,.7);
+  margin-bottom: 18px;
+}
+
+.service-text ul {
+  padding-left: 18px;
+  color: rgba(15,23,42,.7);
+}
+
+.service-text li {
+  margin-bottom: 6px;
+}
+
+.service-label {
+  font-size: 12px;
+  letter-spacing: .2em;
+  font-weight: 700;
+  color: rgba(15,23,42,.5);
+}
+
+/* 画像 */
+.service-image img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .service-block {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .service-block.reverse {
+    direction: ltr;
+  }
+}
+
+/* =========================
+   Page Hero (estie風)
+========================= */
+.page-hero{
+  position: relative;
+  overflow: hidden;
+  background:#fff;
+  padding: 96px 0 140px; /* 青帯の下に余白を作る */
+}
+
+/* 背景レイヤ */
+.page-hero__bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* 青い形 */
+.page-hero__shape{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:420px; /* 青帯の高さ */
+}
+
+/* 薄い大文字 “Service” */
+.page-hero__ghost{
+  position:absolute;
+  top: 92px;
+  left: clamp(20px, 6vw, 80px);
+  font-size: clamp(64px, 10vw, 180px);
+  font-weight: 900;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.10);
+  mix-blend-mode: overlay; /* それっぽい透明感 */
+  user-select:none;
+  white-space:nowrap;
+}
+
+/* 中身 */
+.page-hero__inner{
+  position: relative;
+  z-index:1;
+}
+
+/* 小見出し（事業内容） */
+.page-hero__kicker{
+  margin:0 0 10px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.92);
+}
+
+/* 見出し（サービス） */
+.page-hero__title{
+  margin:0;
+  font-size: clamp(48px, 5.4vw, 84px);
+  line-height:1.05;
+  font-weight: 900;
+  color:#fff;
+  letter-spacing:-.02em;
+}
+
+/* 画面が狭い時の微調整 */
+@media (max-width: 720px){
+  .page-hero{
+    padding: 86px 0 120px;
+  }
+  .page-hero__shape{
+    height: 380px;
+  }
+  .page-hero__ghost{
+    top: 88px;
+    opacity:.75;
+  }
+}
+
+.hero-g{ position:relative; overflow:hidden; }
+
+/* --- Ln(x) ribbon --- */
+.hero-g{ position:relative; overflow:hidden; isolation:isolate; }
+
+/* 最背面に固定してFV全面を大きく使う */
+.hero-ln-ribbon{
+  position:absolute;
+  inset:-80px -120px;         /* 余白をはみ出させて大きく */
+  width:calc(100% + 240px);
+  height:calc(100% + 160px);
+  z-index:0;                  /* 最背面 */
+  pointer-events:none;
+  opacity:1;
+  transform: rotate(-10deg);  /* 斜めに流す */
+}
+
+/* 既存のベール/ドットが z-index:0 のままだと被るので、上に持ち上げる */
+.hero-g::before,
+.hero-g::after{
+  z-index:1;
+}
+
+/* 文字・画像は常に前面（既存がある場合はそのままでOK） */
+.hero-g__inner{ position:relative; z-index:2; }
+.hero-g__right{ position:relative; z-index:2; }
+.hero-g__circle{ position:absolute; z-index:4; }
+
+/* スマホは少し抑える */
+@media (max-width: 720px){
+  .hero-ln-ribbon{
+    inset:-60px -90px;
+    transform: rotate(-12deg);
+  }
+}
+
+/* ===== FAQ Accordion ===== */
+.section--faq{ padding-top: 70px; }
+
+.faq{
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.faq__item{
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.96);
+  border-radius: 18px;
+  box-shadow: var(--shadow2);
+  overflow: hidden;
+}
+
+/* summaryクリックをボタンっぽく */
+.faq__q{
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  user-select: none;
+}
+
+.faq__q::-webkit-details-marker{ display:none; }
+
+.faq__qtext{
+  font-weight: 800;
+  font-size: 15px;
+  color: rgba(15,23,42,.92);
+  line-height: 1.45;
+}
+
+/* + / - アイコン */
+.faq__icon{
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.14);
+  position: relative;
+  flex: 0 0 auto;
+  background: rgba(255,255,255,.92);
+}
+
+.faq__icon::before,
+.faq__icon::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width: 12px;
+  height: 2px;
+  background: rgba(15,23,42,.65);
+  border-radius: 2px;
+}
+
+.faq__icon::after{
+  transform: rotate(90deg);
+  transition: .18s ease;
+}
+
+/* open時：縦棒を消して「-」に */
+.faq__item[open] .faq__icon::after{
+  transform: rotate(0deg);
+  opacity: 0;
+}
+
+.faq__a{
+  padding: 0 20px 18px 20px;
+  border-top: 1px solid rgba(15,23,42,.08);
+}
+
+.faq__a p{
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: rgba(15,23,42,.66);
+  line-height: 1.75;
+}
+
+/* hover */
+.faq__item:hover{
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  transition: .18s ease;
+}
+
+/* ===== Works Category Blocks ===== */
+.works-cat{
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(15,23,42,.10);
+}
+
+.works-cat:first-of-type{
+  margin-top: 8px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.works-cat__head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom: 14px;
+  flex-wrap:wrap;
+}
+
+.works-cat__title{
+  margin:0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing:-.01em;
+}
+
+.works-cat__sub{
+  margin:0;
+  font-size: 13px;
+  color: rgba(15,23,42,.62);
+}
+
+/* 既存の .works を使ってるならこれ不要
+   もし .works が2カラムなら、カテゴリ内だけそれを再現 */
+.works-cat__grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+@media (max-width: 980px){
+  .works-cat__grid{ grid-template-columns: 1fr; }
+}
+
+
+/* =========================
+   Mobile header spacing fix
+========================= */
+@media (max-width: 720px){
+  /* コンテナの左右余白を少し増やす */
+  :root{ --hpad: 22px; } /* 18px→22px（好みで20〜26） */
+
+  /* 念のため、ヘッダー内の左右にもパディングを確保 */
+  .nav__inner{
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  /* ロゴ周りを少しだけ内側へ */
+  .brand{
+    margin-left: 2px;
+  }
+
+  /* 右上ボタンも少しだけ内側へ */
+  .nav__right{
+    margin-right: 2px;
+  }
+}
+
+
+/* =========================
+   Contact Page
+========================= */
+
+.contact-hero{
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.contact-hero h1{
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.contact-hero p{
+  color: #666;
+}
+
+.form-wrapper{
+  max-width: 600px;
+  margin: 0 auto 120px;
+}
+
+.form-group{
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label{
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea{
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.btn-large{
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+}
+
+/* =========================
+   Contact Page
+========================= */
+.contact-hero{
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.contact-hero h1{
+  font-size: 42px;
+  margin: 0 0 16px;
+}
+
+.contact-hero p{
+  color: rgba(15,23,42,.65);
+}
+
+.contact-form{
+  padding: 0 0 120px;
+}
+
+.form-wrapper{
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-group{
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label{
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea{
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,.14);
+  font-size: 16px;
+  outline: none;
+  background: rgba(255,255,255,.96);
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color: rgba(37,99,235,.45);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.10);
+}
+
+.btn-large{
+  width: 100%;
+  padding: 15px 18px;
+  font-size: 16px;
+}
+
+/* =========================
+   Nav Refresh
+========================= */
+
+/* 背景：うっすらガラス＋境界線 */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15,23,42,.08);
+}
+
+/* 高さ・余白を整える */
+.nav__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding: 14px 0;
+}
+
+/* ブランド周り少し締める */
+.brand__name{
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+.brand__sub{
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: rgba(15,23,42,.48);
+}
+
+/* メニュー：ピル型にして hover/active を作る */
+.menu{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.08);
+  background: rgba(255,255,255,.66);
+  box-shadow: 0 10px 30px rgba(15,23,42,.06);
+}
+
+/* リンクを“ボタンっぽい”チップに */
+.menu a{
+  position: relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .10em;
+
+  color: rgba(15,23,42,.68);
+  transition: .18s ease;
+}
+
+/* hover */
+.menu a:hover{
+  color: rgba(15,23,42,.92);
+  background: rgba(37,99,235,.08);
+}
+
+/* active（現在ページ） */
+.menu a.is-active{
+  color: rgba(15,23,42,.92);
+  background: rgba(37,99,235,.12);
+  box-shadow: inset 0 0 0 1px rgba(37,99,235,.18);
+}
+
+/* 右のCTAをナビに合わせて上品に */
+.nav__right .btn{
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 1px solid rgba(15,23,42,.12);
+}
+
+/* CTAを“青基調”に統一（既に青化してるならそのままでOK） */
+.nav__right .btn--primary{
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  box-shadow: 0 18px 44px rgba(37,99,235,.18);
+}
+
+/* スマホ：メニューを縮める（必要ならハンバーガー化でもOK） */
+@media (max-width: 720px){
+  .menu{
+    gap: 6px;
+    padding: 4px;
+  }
+  .menu a{
+    height: 34px;
+    padding: 0 10px;
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+  .nav__right .btn{
+    height: 38px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+}
