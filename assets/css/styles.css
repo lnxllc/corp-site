@@ -2398,4 +2398,35 @@ img{max-width:100%;display:block}
 }
 
 /* 円のサイズ（必要なら調整） */
-.h
+.hero-g__circle{
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 30px 60px rgba(0,0,0,.08);
+}
+
+.hero-g__circle img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 1024px){
+  .hero-g__circle{ width: 420px; height: 420px; }
+}
+
+@media (max-width: 768px){
+  .hero-g__inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .hero-g__right{ width: 100%; }
+  .hero-g__circle{ width: 320px; height: 320px; }
+}
