@@ -2545,7 +2545,7 @@ img{max-width:100%;display:block}
   .hero-g__right{
     display: block !important;
     position: absolute !important;
-    top: 96px !important;
+    top: 100px !important;
     right: 115px !important;      /* ← ここがポイント（0〜16pxで調整） */
     z-index: 1 !important;
     pointer-events: none !important;
@@ -2627,3 +2627,39 @@ img{max-width:100%;display:block}
   }
 
 }
+
+
+@media (max-width: 768px){
+
+  /* ページ全体の横スクロールを防ぐ（はみ出し対策はこっちでやる） */
+  html, body{
+    overflow-x: hidden;
+  }
+
+  /* hero内では背景SVGを切らない */
+  .hero-g{
+    overflow: visible !important;
+  }
+
+  /* 背景リボン（SVG）を確実に背面で全表示 */
+  .hero-ln-ribbon{
+    position: absolute;
+    inset: 0;
+    width: 140%;
+    height: 140%;
+    left: -20%;
+    top: -10%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* テキストと円は前面 */
+  .hero-g__inner,
+  .hero-g__left,
+  .hero-g__right{
+    position: relative;
+    z-index: 1;
+  }
+}
+
+
