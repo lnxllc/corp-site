@@ -2583,3 +2583,29 @@ img{max-width:100%;display:block}
   }
 }
 
+@media (max-width: 768px){
+
+  /* ===== 円を左に寄せる ===== */
+  .hero-g__right{
+    right: -20vw !important; /* もっと左に寄せたい→数値を小さく（例: -26vw） */
+  }
+
+  /* ===== タイトルを小さく ===== */
+  .hero-g__title{
+    font-size: 44px !important;   /* 好みで 40〜46 */
+    line-height: 1.08 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* ===== サブ（リード）を小さく ===== */
+  .hero-g__lead{
+    font-size: 14px !important;   /* 好みで 13〜15 */
+    line-height: 1.75 !important;
+  }
+
+  /* kicker（STRATEGY × CREATIVE）も少しだけ小さく */
+  .hero-g__kicker{
+    font-size: 12px !important;
+  }
+}
+
