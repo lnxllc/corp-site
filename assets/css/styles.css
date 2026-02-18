@@ -2432,42 +2432,34 @@ img{max-width:100%;display:block}
 }
 
 @media (max-width: 768px){
-  /* テキストを前面に */
+
+  /* 文字を前面に */
   .hero-g__left{
-    position: relative;
-    z-index: 5;
+    position: relative !important;
+    z-index: 50 !important;
+
+    /* 読みやすさの下地 */
+    background: rgba(255,255,255,.88) !important;
+    backdrop-filter: blur(4px) !important;
+    padding: 14px 14px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,.06) !important;
   }
 
-  /* 画像は背面寄りに（邪魔しない） */
+  /* 画像は背面へ */
   .hero-g__right{
-    position: relative;
-    z-index: 1;
-    opacity: .95;
+    position: relative !important;
+    z-index: 1 !important;
   }
 
-  /* テキストの可読性を上げる（うっすら白い下地） */
-  .hero-g__left{
-    background: rgba(255,255,255,.86);
-    backdrop-filter: blur(4px);
-    padding: 14px 14px;
-    border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.06);
+  /* タイトル内の改行(br)を消す → “し、” の改行が消える */
+  .hero-g__title br{
+    display: none !important;
   }
 
-  /* タイトルをさらにくっきり */
-  .hero-g__title{
-    text-shadow: 0 1px 0 rgba(255,255,255,.9);
-  }
-}
-
-@media (max-width: 768px){
+  /* リード文の改行(br)も消す */
   .hero-g__lead br{
-    display: none;
+    display: none !important;
   }
-}
-
-@media (max-width: 768px){
-  .hero-g__title{ font-size: 40px; line-height: 1.08; }
-  .hero-g__lead{ line-height: 1.75; }
 }
 
