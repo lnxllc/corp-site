@@ -2374,48 +2374,28 @@ img{max-width:100%;display:block}
 }
 
 /* ===============================
-   FV layout (hero left + right)
-   ※ .hero__left と .hero__right の親に効かせる
+   Hero-g layout fix
 ================================ */
-
-/* よくある親クラス候補をまとめて指定（どれか当たればOK） */
-.hero__inner,
-.hero__content,
-.hero__wrap,
-.hero .container,
-.fv__inner {
+.hero-g__inner{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-  flex-wrap: nowrap;
+  gap: 48px;
 }
 
-/* 左右の比率 */
-.hero__left {
+/* 左：テキスト */
+.hero-g__left{
   flex: 1 1 520px;
   min-width: 0;
 }
 
-.hero__right {
+/* 右：円画像 */
+.hero-g__right{
   flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 画面が狭い時は縦並び */
-@media (max-width: 768px) {
-  .hero__inner,
-  .hero__content,
-  .hero__wrap,
-  .hero .container,
-  .fv__inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
-
-  .hero__right {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-}
+/* 円のサイズ（必要なら調整） */
+.h
