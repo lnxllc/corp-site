@@ -2463,3 +2463,41 @@ img{max-width:100%;display:block}
   }
 }
 
+@media (max-width: 768px){
+
+  /* 親を基準にする */
+  .hero-g{
+    position: relative;
+  }
+
+  /* ここで“縦並び”を打ち消す（重要） */
+  .hero-g__inner{
+    position: relative;
+    display: block !important; /* flexの縦並び事故を避ける */
+  }
+
+  /* テキストは前面。右側に余白を作って画像と喧嘩しない */
+  .hero-g__left{
+    position: relative !important;
+    z-index: 5 !important;
+    padding-right: 42vw; /* 右の円が被る分の逃げ */
+  }
+
+  /* 円画像を“右に固定して重ねる”（下に落ちない） */
+  .hero-g__right{
+    position: absolute !important;
+    top: 110px !important;     /* 位置は好みで微調整OK */
+    right: -16vw !important;   /* 右にはみ出させて気持ち良く */
+    z-index: 1 !important;
+    pointer-events: none;      /* タップ邪魔しない */
+  }
+
+  .hero-g__circle{
+    width: 62vw !important;
+    height: 62vw !important;
+    max-width: 320px !important;
+    max-height: 320px !important;
+  }
+}
+
+
