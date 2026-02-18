@@ -2527,3 +2527,59 @@ img{max-width:100%;display:block}
     padding-right: 34vw !important; /* 42vw→34vw：円に被せる量を増やす */
   }
 }
+
+@media (max-width: 768px){
+
+  /* どこかで display:none にされてても強制表示 */
+  .hero-g__right{
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* 切られてる可能性があるので解除 */
+  .hero-g,
+  .hero-g__inner{
+    overflow: visible !important;
+  }
+
+  /* FV内に“確実に”出す：画面右上に固定 */
+  .hero-g{
+    position: relative !important;
+  }
+
+  .hero-g__right{
+    position: absolute !important;
+    top: 86px !important;
+    right: -10vw !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+
+  /* 円サイズ */
+  .hero-g__circle{
+    width: 64vw !important;
+    height: 64vw !important;
+    max-width: 320px !important;
+    max-height: 320px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    box-shadow: 0 22px 44px rgba(0,0,0,.08) !important;
+  }
+
+  .hero-g__circle img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* テキストは前面（円より上） */
+  .hero-g__left{
+    position: relative !important;
+    z-index: 5 !important;
+    padding-right: 30vw !important; /* 逃げ量 */
+  }
+}
+
