@@ -2546,7 +2546,7 @@ img{max-width:100%;display:block}
     display: block !important;
     position: absolute !important;
     top: 96px !important;
-    right: 12px !important;      /* ← ここがポイント（0〜16pxで調整） */
+    right: 115px !important;      /* ← ここがポイント（0〜16pxで調整） */
     z-index: 1 !important;
     pointer-events: none !important;
   }
@@ -2592,4 +2592,38 @@ img{max-width:100%;display:block}
   .hero-g__kicker{
     font-size: 12px !important;
   }
+}
+
+@media (max-width: 768px){
+
+  /* メインタイトル */
+  .hero-g__title{
+    font-size: 25px !important;   /* ← 32〜40で調整可 */
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* サブ（説明文） */
+  .hero-g__lead{
+    font-size: 12px !important;   /* 12〜15で調整可 */
+    line-height: 1.75 !important;
+  }
+
+  /* STRATEGY × CREATIVE */
+  .hero-g__kicker{
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+  }
+}
+
+@media (max-width: 768px){
+
+  .hero-g__left{
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important; /* 余白も戻す場合 */
+  }
+
 }
