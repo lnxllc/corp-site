@@ -2315,4 +2315,61 @@ img{max-width:100%;display:block}
 }
 
 
+/* ===============================
+   Hero Right Circle Image
+================================ */
+
+/* 右側コンテナ */
+.hero__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 円の枠 */
+.hero__circle {
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+/* 画像 */
+.hero__circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===============================
+   Responsive
+================================ */
+
+@media (max-width: 1024px) {
+  .hero__circle {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__right {
+    margin-top: 40px;
+  }
+
+  .hero__circle {
+    width: 320px;
+    height: 320px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.hero__circle {
+  border: 8px solid #f5f7fa;
+}
 
