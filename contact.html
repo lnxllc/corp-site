@@ -17,9 +17,85 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=1" />
+
+  <!-- ★このページ専用：強制で効かせる（最終手段） -->
+  <style>
+    /* contactページ限定で最優先にする */
+    body.page-contact .contact-form{
+      max-width: 640px !important;
+      margin: 48px auto 90px !important;
+      padding: 36px !important;
+      border-radius: 20px !important;
+      background: rgba(255,255,255,.78) !important;
+      backdrop-filter: blur(8px) !important;
+      box-shadow: 0 30px 80px rgba(0,0,0,.08) !important;
+      border: 1px solid rgba(0,0,0,.06) !important;
+
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 18px !important;
+    }
+
+    body.page-contact .contact-form .form-group{
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+
+    body.page-contact .contact-form label{
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      color: #111 !important;
+      margin: 0 !important;
+    }
+
+    body.page-contact .contact-form input,
+    body.page-contact .contact-form textarea{
+      width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 14px 16px !important;
+      border-radius: 14px !important;
+      border: 1px solid rgba(0,0,0,.12) !important;
+      background: rgba(255,255,255,.95) !important;
+      font-size: 16px !important;
+      outline: none !important;
+    }
+
+    body.page-contact .contact-form textarea{
+      min-height: 170px !important;
+      resize: vertical !important;
+    }
+
+    body.page-contact .contact-form input:focus,
+    body.page-contact .contact-form textarea:focus{
+      border-color: rgba(37,99,235,.85) !important;
+      box-shadow: 0 0 0 4px rgba(37,99,235,.15) !important;
+    }
+
+    body.page-contact .contact-form button{
+      width: 100% !important;
+      margin-top: 6px !important;
+      padding: 14px 20px !important;
+      border-radius: 999px !important;
+      border: none !important;
+      cursor: pointer !important;
+      font-weight: 800 !important;
+      font-size: 16px !important;
+      color: #fff !important;
+      background: linear-gradient(90deg,#6d28d9,#2563eb) !important;
+      box-shadow: 0 20px 40px rgba(37,99,235,.25) !important;
+    }
+
+    @media (max-width: 768px){
+      body.page-contact .contact-form{
+        padding: 22px !important;
+        margin: 28px 16px 70px !important;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="page-contact">
   <!-- =========================
        Header
   ========================= -->
@@ -52,45 +128,33 @@
 </header>
 
 
-<section class="contact-hero">
-  <div class="container">
-    <h1>お問い合わせ</h1>
-    <p>ご相談・お見積りなどお気軽にお問い合わせください。</p>
-  </div>
-</section>
+  <section class="section">
+    <div class="container">
+      <h1 style="margin:0 0 22px;">お問い合わせ</h1>
 
-<section class="contact-form">
-  <div class="container form-wrapper">
+      <form class="contact-form"
+        action="https://formspree.io/f/xdaldopk"
+        method="POST"
+      >
+        <div class="form-group">
+          <label for="name">お名前</label>
+          <input id="name" name="name" type="text" placeholder="山田 太郎" required />
+        </div>
 
-    <form>
-      <div class="form-group">
-        <label>会社名</label>
-        <input type="text" placeholder="例：株式会社〇〇">
-      </div>
+        <div class="form-group">
+          <label for="email">メールアドレス</label>
+          <input id="email" name="email" type="email" placeholder="example@gmail.com" required />
+        </div>
 
-      <div class="form-group">
-        <label>お名前</label>
-        <input type="text" placeholder="例：山田 太郎">
-      </div>
+        <div class="form-group">
+          <label for="message">お問い合わせ内容</label>
+          <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+        </div>
 
-      <div class="form-group">
-        <label>メールアドレス</label>
-        <input type="email" placeholder="example@mail.com">
-      </div>
-
-      <div class="form-group">
-        <label>お問い合わせ内容</label>
-        <textarea rows="6" placeholder="ご相談内容をご記入ください"></textarea>
-      </div>
-
-      <button type="submit" class="btn btn--primary btn-large">
-        送信する
-      </button>
-    </form>
-
-  </div>
-</section>
-
+        <button type="submit">送信する</button>
+      </form>
+    </div>
+  </section>
 
 
   <!-- =========================
@@ -118,7 +182,6 @@
 
 </body>
 </html>
-
 
 
 
