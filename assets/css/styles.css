@@ -2928,3 +2928,77 @@ header .container{
   margin-left: 10px;
 }
 
+/* =========================
+   Global H2 (Simple LnX Style)
+   ========================= */
+
+h2{
+  font-weight: 900;
+  font-size: clamp(32px, 4vw, 52px); /* 少し大きめ */
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px;
+
+  color: #0b3ed8; /* 濃い青 */
+}
+
+/* 既存の見出し色を打ち消す */
+.section__title{
+  color: #0b3ed8 !important;
+}
+
+/* =========================
+   H2 : First letter large
+   ========================= */
+
+h2::first-letter{
+  font-size: 2.2em;      /* ここで大きさ調整 */
+  font-weight: 900;
+  font-style: italic;    /* ←追加 */
+  line-height: 1;
+  margin-right: 2px;
+}
+
+/* 英語見出し用に少し強めに */
+h2{
+  font-weight: 900;
+  font-size: clamp(32px, 4vw, 52px);
+  color: #0b3ed8;
+  letter-spacing: -0.02em;
+}
+
+
+/* unify CTA baseline quickly */
+.btn, .cta-wide { display:inline-flex !important; align-items:center !important; justify-content:center !important; padding:12px 22px !important; box-sizing:border-box !important; min-width: 0; }
+.section__cta .cta-wide { max-width: 520px; width: auto; }
+.nav__right .btn { padding: 10px 18px !important; } /* headerなら少し小さめ */
+
+
+/* ===== Fix: Services page spacing (targeted) ===== */
+
+/* 1) services page 全体の上下余白を控えめにする（ここだけ調整） */
+.services-detail.section {
+  padding-top: 40px !important;   /* 元が ~92px の想定 → ここで縮める */
+  padding-bottom: 40px !important;
+}
+
+/* 2) 見出し（h2）の下の余白をやや詰める */
+.services-detail .section__title,
+.services-detail h2 {
+  margin-top: 0 !important;       /* 上の余白を確実に消す */
+  margin-bottom: 18px !important; /* 下は少しだけ残す */
+}
+
+/* 3) 見出し直後のブロック（.service-block 等）の上マージンをリセット */
+.services-detail .service-block,
+.services-detail .service-text {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 4) モバイルや狭い画面のときだけさらに詰めたい場合 */
+@media (max-width: 980px) {
+  .services-detail.section { padding-top: 28px !important; padding-bottom: 28px !important; }
+  .services-detail .section__title { margin-bottom: 14px !important; }
+}
+
