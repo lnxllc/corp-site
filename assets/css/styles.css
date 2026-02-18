@@ -2546,7 +2546,7 @@ img{max-width:100%;display:block}
     display: block !important;
     position: absolute !important;
     top: 100px !important;
-    right: 115px !important;      /* ← ここがポイント（0〜16pxで調整） */
+    right: 150px !important;      /* ← ここがポイント（0〜16pxで調整） */
     z-index: 1 !important;
     pointer-events: none !important;
   }
