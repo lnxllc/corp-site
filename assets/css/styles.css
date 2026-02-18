@@ -2501,3 +2501,29 @@ img{max-width:100%;display:block}
 }
 
 
+@media (max-width: 768px){
+
+  /* 1) 円を少し左へ寄せて見える面積を増やす */
+  .hero-g__right{
+    right: -6vw !important; /* ← -16vw だった場合は小さくする */
+  }
+
+  /* 2) 円を少し大きくする */
+  .hero-g__circle{
+    width: 70vw !important;
+    height: 70vw !important;
+    max-width: 360px !important;
+    max-height: 360px !important;
+  }
+
+  /* 3) テキストカードを少し透明にして“透け”で円が見える */
+  .hero-g__left{
+    background: rgba(255,255,255,.78) !important; /* .88→.78 */
+  }
+}
+
+@media (max-width: 768px){
+  .hero-g__left{
+    padding-right: 34vw !important; /* 42vw→34vw：円に被せる量を増やす */
+  }
+}
