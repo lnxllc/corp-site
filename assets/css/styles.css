@@ -2667,7 +2667,7 @@ img{max-width:100%;display:block}
   .hero-ln-ribbon{
     -webkit-mask-image: radial-gradient(
       circle at 0% 100%,
-      rgba(0,0,0,0.35) 0%,   /* ← 完全透明にしない */
+      rgba(0,0,0,0.5) 0%,   /* ← 完全透明にしない */
       rgba(0,0,0,0.55) 18%,
       rgba(0,0,0,0.78) 38%,
       rgba(0,0,0,1) 62%
@@ -2686,3 +2686,245 @@ img{max-width:100%;display:block}
     display: inline !important; /* または block でもOK */
   }
 }
+
+/* ===============================
+   Contact Form (LnX style)
+================================ */
+.contact-form{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+/* 2列レイアウト（PC） */
+/* ===============================
+   Contact Form - Unified Design
+================================ */
+
+.contact-form{
+  max-width: 640px;
+  margin: 0 auto 80px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.08);
+  border: 1px solid rgba(0,0,0,.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ラベル */
+.contact-form label{
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* 入力 */
+.contact-form input,
+.contact-form textarea{
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  font-size: 16px;
+  background: rgba(255,255,255,.95);
+  transition: all .2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+}
+
+/* テキストエリア */
+.contact-form textarea{
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* 送信ボタン */
+.contact-form button{
+  margin-top: 10px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(90deg,#6d28d9,#2563eb);
+  box-shadow: 0 20px 40px rgba(37,99,235,.25);
+  transition: all .2s ease;
+}
+
+.contact-form button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px rgba(37,99,235,.3);
+}
+
+
+/* テキストエリアは2列ぶち抜き */
+.contact-form textarea{
+  grid-column: 1 / -1;
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* ボタンも2列ぶち抜き */
+.contact-form button,
+.contact-form input[type="submit"]{
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+/* 入力共通 */
+.contact-form input,
+.contact-form textarea{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.92);
+  font-size: 16px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+
+/* プレースホルダー */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color: rgba(17,17,17,.45);
+}
+
+/* フォーカス時 */
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color: rgba(59,130,246,.7);
+  box-shadow: 0 0 0 4px rgba(59,130,246,.15);
+}
+
+/* 送信ボタン（LnXっぽい青→紫） */
+.contact-form button,
+.contact-form input[type="submit"]{
+  border: none;
+  cursor: pointer;
+  padding: 14px 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  background: linear-gradient(90deg, #6d28d9, #2563eb);
+  box-shadow: 0 18px 35px rgba(37,99,235,.22);
+}
+
+/* 押した時 */
+.contact-form button:active,
+.contact-form input[type="submit"]:active{
+  transform: translateY(1px);
+  box-shadow: 0 12px 26px rgba(37,99,235,.18);
+}
+
+/* スマホは1列 */
+@media (max-width: 768px){
+  .contact-form{
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+/* ===============================
+   Contact Form (force unified)
+================================ */
+
+.contact-form{
+  max-width: 640px !important;
+  margin: 40px auto 80px !important;
+  padding: 36px !important;
+  border-radius: 20px !important;
+  background: rgba(255,255,255,.75) !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,.08) !important;
+  border: 1px solid rgba(0,0,0,.06) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+}
+
+/* ラベル */
+.contact-form label{
+  display: block !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  margin: 0 0 8px !important;
+}
+
+/* 入力 */
+.contact-form input,
+.contact-form textarea{
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 14px 16px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(0,0,0,.12) !important;
+  background: rgba(255,255,255,.95) !important;
+  font-size: 16px !important;
+  outline: none !important;
+}
+
+/* フォーカス */
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color: rgba(37,99,235,.85) !important;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.15) !important;
+}
+
+/* テキストエリア */
+.contact-form textarea{
+  min-height: 170px !important;
+  resize: vertical !important;
+}
+
+/* 送信ボタン */
+.contact-form button,
+.contact-form input[type="submit"]{
+  width: 100% !important;
+  margin-top: 6px !important;
+  padding: 14px 20px !important;
+  border-radius: 999px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  color: #fff !important;
+  background: linear-gradient(90deg,#6d28d9,#2563eb) !important;
+  box-shadow: 0 20px 40px rgba(37,99,235,.25) !important;
+}
+
+.contact-form button:hover,
+.contact-form input[type="submit"]:hover{
+  transform: translateY(-1px);
+}
+
+/* ヘッダー内の左右余白を少し増やす */
+header .container{
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ロゴを少し右へ */
+.brand{
+  margin-left: 10px;
+}
+
