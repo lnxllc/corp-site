@@ -2587,7 +2587,7 @@ img{max-width:100%;display:block}
 
   /* ===== 円を左に寄せる ===== */
   .hero-g__right{
-    right: -20vw !important; /* もっと左に寄せたい→数値を小さく（例: -26vw） */
+    right: -30vw !important; /* もっと左に寄せたい→数値を小さく（例: -26vw） */
   }
 
   /* ===== タイトルを小さく ===== */
