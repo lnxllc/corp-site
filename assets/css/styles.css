@@ -2663,3 +2663,26 @@ img{max-width:100%;display:block}
 }
 
 
+@media (max-width: 768px){
+  .hero-ln-ribbon{
+    -webkit-mask-image: radial-gradient(
+      circle at 0% 100%,
+      rgba(0,0,0,0.35) 0%,   /* ← 完全透明にしない */
+      rgba(0,0,0,0.55) 18%,
+      rgba(0,0,0,0.78) 38%,
+      rgba(0,0,0,1) 62%
+    );
+    mask-image: radial-gradient(
+      circle at 0% 100%,
+      rgba(0,0,0,0.35) 0%,
+      rgba(0,0,0,0.55) 18%,
+      rgba(0,0,0,0.78) 38%,
+      rgba(0,0,0,1) 62%
+    );
+  }
+}
+@media (max-width: 768px){
+  .hero-g__title br{
+    display: inline !important; /* または block でもOK */
+  }
+}
