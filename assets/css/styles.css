@@ -3010,3 +3010,18 @@ h2{
     display: none;
   }
 }
+
+/* Service 見出し（Serviceページのみ）：PCはそのまま、モバイルで上に余白を追加 */
+@media (max-width: 980px) {
+  .services-detail .section__title,
+  .services-detail h2.section__title {
+    padding-top: 60px !important;    /* 上に余白を付与 */
+    margin-top: 0 !important;        /* 既存マージンがあれば打ち消し */
+  }
+}
+
+/* 少し広めにしたい場合（スマホ極小）： */
+@media (max-width: 420px) {
+  .services-detail .section__title { padding-top: 26px !important; }
+}
+
