@@ -2373,3 +2373,49 @@ img{max-width:100%;display:block}
   border: 8px solid #f5f7fa;
 }
 
+/* ===============================
+   FV layout (hero left + right)
+   ※ .hero__left と .hero__right の親に効かせる
+================================ */
+
+/* よくある親クラス候補をまとめて指定（どれか当たればOK） */
+.hero__inner,
+.hero__content,
+.hero__wrap,
+.hero .container,
+.fv__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: nowrap;
+}
+
+/* 左右の比率 */
+.hero__left {
+  flex: 1 1 520px;
+  min-width: 0;
+}
+
+.hero__right {
+  flex: 0 0 auto;
+}
+
+/* 画面が狭い時は縦並び */
+@media (max-width: 768px) {
+  .hero__inner,
+  .hero__content,
+  .hero__wrap,
+  .hero .container,
+  .fv__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .hero__right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
