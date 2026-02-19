@@ -354,6 +354,86 @@
 
 
 <script src="assets/js/main.js?v=3" defer></script>
+
+<script>
+/*
+  equalizeWorksHeights.js
+  - paste this into your main.js or before </body>
+  - what it does:
+    1) 画像・フォント等が読み込まれて最終レンダリングが終わる load イベントで実行
+    2) .works-cat__grid 内のすべての article.work の高さを測り、最大値を各要素に適用
+    3) ウィンドウリサイズや要素内のサイズ変化にも追従する（ResizeObserver）
+  - 想定された原因に直接対処：CSSだけでは追えない「描画タイミングの差」を吸収します。
+*/
+
+(function () {
+  // セレクタは必要に応じて調整してください
+  const gridSelector = '.works-cat__grid';
+  const itemSelector = '.works-cat__grid > article.work, .works-cat__grid > .work';
+
+  // 高さを揃える関数
+  function equalizeHeights() {
+    const items = Array.from(document.querySelectorAll(itemSelector));
+    if (!items.length) return;
+
+    // 1) まず固定値を解除して自然な高さを計測（重要）
+    items.forEach(el => {
+      el.style.height = '';      // clear height
+      el.style.minHeight = '';   // clear minHeight
+    });
+
+    // 2) 実際の高さを計測して最大値を決める
+    const heights = items.map(el => {
+      const rect = el.getBoundingClientRect();
+      // getBoundingClientRect は subpixel を含む実数を返す
+      return Math.ceil(rect.height);
+    });
+    const maxH = Math.max(...heights, 0);
+
+    // 3) 最大値をすべてに適用（+余白が必要なら調整）
+    items.forEach(el => {
+      el.style.height = maxH + 'px';
+      // el.style.minHeight = maxH + 'px';
+    });
+  }
+
+  // Run after all resources loaded (images/fonts)
+  window.addEventListener('load', function () {
+    equalizeHeights();
+
+    // Observe size changes inside the grid (videos loading later etc.)
+    const grid = document.querySelector(gridSelector);
+    if (grid && 'ResizeObserver' in window) {
+      // debounce helper
+      let rafId = null;
+      const ro = new ResizeObserver(() => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          equalizeHeights();
+          rafId = null;
+        });
+      });
+      // observe each child (so when a child's image/video loads, callback runs)
+      const items = grid.querySelectorAll('article.work, .work');
+      items.forEach(it => ro.observe(it));
+      // Also observe window resize
+      window.addEventListener('resize', () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          equalizeHeights();
+          rafId = null;
+        });
+      });
+    } else {
+      // Fallback: on resize just run function
+      window.addEventListener('resize', equalizeHeights);
+    }
+  });
+
+  // Optional: rapid retry in case images finish slightly after 'load' (rare)
+  // setTimeout(equalizeHeights, 600); // Uncomment if you still see minor shifts
+})();
+</script>
+
 </body>
 </html>
-
