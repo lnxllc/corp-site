@@ -3025,3 +3025,118 @@ h2{
   .services-detail .section__title { padding-top: 26px !important; }
 }
 
+
+/* ===========================
+   Diagnostic + fallback CSS
+   - paste at end of styles.css
+   - コメントに原因想定と対策を記載
+   =========================== */
+
+/* ===== 想定 =====
+   ・画像や外部サムネイルの遅延読み込みで最後のカードだけ描画後に高さが増える
+   ・ある card の内部要素（video, iframe, .work__media--video, 長い <br> など）が
+     最終レンダリング時に高さを伸ばしている
+   -> CSSのみだとタイミングの問題で安定しないケースがあるため JS で再合わせも行う
+   ===== */
+
+/* 1) 可視的にどのカードが“長い”か分かりやすくする（デバッグ用、不要なら消す） */
+.works-cat__grid > article.work {
+  outline: 1px dashed rgba(37,99,235,.12); /* デバッグ用：枠線で判別 */
+  background-clip: padding-box;
+}
+
+/* 2) グリッド行を等高にする（既に入れているものの再確認） */
+.works-cat__grid{
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 22px !important;
+  align-items: stretch !important;
+  grid-auto-rows: 1fr !important;
+}
+
+/* 3) grid アイテムを flex 化して高さ100% を取らせる（CSS側の基本対策） */
+.works-cat__grid > article.work,
+.works-cat__grid > .work {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 4) カード内コンテンツは縦に伸びるようにする */
+.work__content{
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+/* 5) 画像差が原因になりやすいので、画像が極端に縦長にならないよう上限を取る */
+/*    ※ ここは“抑止”であり、画像の見え方を完全に統一したければ固定高さにする */
+.work__media img{
+  max-height: 360px !important;   /* 要調整：縦長を抑えてカード間差を減らす */
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  aspect-ratio: 16 / 9 !important;
+  display:block !important;
+}
+
+/* 6) 本文を下に寄せる（見た目上揃える補助） */
+.work__content > p,
+.work__content p:last-of-type {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+}
+
+/* 7) レスポンシブ：モバイルでは等高解除 */
+@media (max-width: 980px){
+  .works-cat__grid{
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+  }
+  .works-cat__grid > article.work,
+  .works-cat__grid > .work { height: auto !important; min-height: 0 !important; }
+  .work__content > p{ margin-top: 0 !important; }
+  .work__media img{ max-height: none !important; aspect-ratio: auto !important; }
+}
+
+/* 8) デバッグ終了後：以下2行を外すとデバッグ枠が消えます */
+/* .works-cat__grid > article.work { outline: none !important; } */
+
+/* === shorten cards (CSS) ===
+   - 画像の max-height を少し下げる（カードの最大高さを直接下げる）
+   - .work の padding を詰めてカード内の余白を減らす
+   - 必要ならタイトルの font-size も微小に下げて調整
+   Paste this at the end of styles.css
+*/
+
+.work{
+  /* padding を 28px -> 20px に詰める（カード全体を短くする主因） */
+  padding: 20px !important;
+}
+
+/* 画像の縦長をより強く抑える（max-height を下げるほどカードが短くなる） */
+.work__media img{
+  max-height: 280px !important; /* 例: 360 -> 280。好みで 240〜320 の間で調整 */
+  aspect-ratio: 16 / 9 !important;
+}
+
+/* 本文の上下余白を小さくしてさらに高さを削る（不要なら消す） */
+.work__content > p,
+.work__content p{
+  margin-top: 12px !important;   /* 元が auto の場合は影響なし。本文の上下を詰める */
+  margin-bottom: 8px !important;
+}
+
+/* タイトルを少し小さくして1行になりやすくする（必要に応じて） */
+.work__top b{
+  font-size: 16px !important; /* 元が18pxなら16pxに */
+  line-height: 1.15 !important;
+}
+
+/* もしカード間の上下スペースが気になるなら .works-cat に詰める */
+.works-cat{ margin-top: 18px !important; padding-top: 12px !important; }
+
