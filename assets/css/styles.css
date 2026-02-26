@@ -3261,7 +3261,7 @@ h2{
 
   /* ① 位置を下げる */
   .clients{
-    margin-top: 150px;   /* ← 下げ量調整（40〜100で好み） */
+    margin-top: 30px;   /* ← 下げ量調整（40〜100で好み） */
   }
 
   /* ② 白い帯を付ける */
@@ -3274,40 +3274,7 @@ h2{
 
 }
 
-/* ===== PC: 空白タイム/謎の空白をゼロにする ===== */
-@media (min-width: 769px){
 
-  /* PCは「2グループ」だけ使う（3つ目を消す） */
-  .logo-marquee__track .logo-marquee__group:nth-child(3){
-    display: none !important;
-  }
-
-  /* track は中身の幅で動かす（%固定しない） */
-  .logo-marquee__track{
-    width: max-content !important;
-    gap: 0 !important;                    /* track同士の余計な隙間を消す */
-    animation: logoScrollPC 34s linear infinite !important; /* 速度はここで調整 */
-  }
-
-  /* group は “中身の幅” で並べる */
-  .logo-marquee__group{
-    flex: 0 0 auto !important;
-    gap: 56px !important;
-    padding-right: 56px !important;       /* ← 1周目と2周目の継ぎ目の間隔 */
-    flex-wrap: nowrap !important;
-  }
-
-  /* ロゴ自体は縮まない */
-  .logo-marquee__group img{
-    flex-shrink: 0 !important;
-  }
-
-  /* 2グループ（=2周分）なので -50% が “ちょうど1周分” */
-  @keyframes logoScrollPC{
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-}
 
 /* =========================
    Clients logo marquee (unified)
