@@ -3374,7 +3374,7 @@ html, body { overflow-x: hidden; }
     box-shadow: none !important;
 
     padding: 10px 0 !important; /* 縦を詰める */
-    margin-top: 140px !important;
+    margin-top: 120px !important;
   }
 
   /* 角丸帯の擬似要素があれば消す（スマホだけ） */
