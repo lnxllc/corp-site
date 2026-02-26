@@ -3398,7 +3398,7 @@ html, body { overflow-x: hidden; }
   }
 
   .logo-marquee__group{
-    padding: 6px 0 !important;
+    padding: 6px 12px !important;
   }
 
   .logo-marquee__group img{
@@ -3407,3 +3407,24 @@ html, body { overflow-x: hidden; }
     object-fit: contain !important;
   }
 }
+
+@media (min-width: 769px){
+
+  .logo-marquee__track{
+    display: flex !important;
+    width: 200% !important;
+    animation: logoScroll 40s linear infinite;
+  }
+
+  .logo-marquee__group{
+    display: flex !important;
+    align-items: center;
+    flex: 0 0 50% !important;
+    min-width: 50% !important;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+    padding: 0 40px;  /* ロゴの切れ目の空白サイズを調整 */
+  }
+
+}
+
