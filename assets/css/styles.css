@@ -3039,11 +3039,6 @@ h2{
    -> CSSのみだとタイミングの問題で安定しないケースがあるため JS で再合わせも行う
    ===== */
 
-/* 1) 可視的にどのカードが“長い”か分かりやすくする（デバッグ用、不要なら消す） */
-.works-cat__grid > article.work {
-  outline: 1px dashed rgba(37,99,235,.12); /* デバッグ用：枠線で判別 */
-  background-clip: padding-box;
-}
 
 /* 2) グリッド行を等高にする（既に入れているものの再確認） */
 .works-cat__grid{
