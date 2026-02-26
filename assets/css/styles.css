@@ -3142,59 +3142,7 @@ h2{
 
 
 
-/* ===== Clients logo marquee (mobile speed fix + no blank) ===== */
 
-/* 速度は変数化（PCとスマホで変える） */
-:root{
-  --logo-speed: 26s;     /* PC */
-  --logo-gap: 56px;
-  --logo-h: 72px;
-}
-
-.logo-marquee{
-  width:100%;
-  overflow:hidden;
-}
-
-/* trackにはgapを入れない（ズレ＝空白の原因） */
-.logo-marquee__track{
-  display:flex;
-  width:max-content;
-  will-change:transform;
-  animation: logoScroll var(--logo-speed) linear infinite;
-}
-
-/* “継ぎ目余白”は group の padding-right で作る（幅に含まれるのでズレない） */
-.logo-marquee__group{
-  display:flex;
-  align-items:center;
-  gap: var(--logo-gap);
-  padding:14px 0;
-  padding-right: var(--logo-gap);
-}
-
-.logo-marquee__group img{
-  height: clamp(60px, 6vw, var(--logo-h));
-  width:auto;
-  object-fit:contain;
-  flex-shrink:0;
-  display:block;
-}
-
-/* 2グループ前提：常に正確（空白出ない） */
-@keyframes logoScroll{
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* スマホだけ：遅くする（ここだけ触ればOK） */
-@media (max-width: 768px){
-  :root{
-    --logo-speed: 42s;   /* ←遅くしたいほど大きく（例: 36〜60s） */
-    --logo-gap: 34px;
-    --logo-h: 64px;
-  }
-}
 
 
 
@@ -3254,27 +3202,6 @@ h2{
   color: rgba(15,23,42,.82) !important;  /* ← 濃くする */
 }
 
-/* =========================
-   Clients band (mobile only)
-========================= */
-@media (max-width: 768px){
-
-  /* ① 位置を下げる */
-  .clients{
-    margin-top: 0px;   /* ← 下げ量調整（40〜100で好み） */
-  }
-
-  /* ② 白い帯を付ける */
-  .logo-marquee{
-    background: #fff;
-    border-radius: 16px;
-    padding: 18px 0;
-    box-shadow: 0 10px 25px rgba(15,23,42,.06);
-  }
-
-}
-
-
 
 /* =========================
    Clients logo marquee (unified)
@@ -3333,4 +3260,149 @@ h2{
 /* 動き不要ユーザー配慮 */
 @media (prefers-reduced-motion: reduce){
   .logo-marquee__track{ animation: none; }
+}
+
+/* =========================
+   Clients band (FINAL / SINGLE SOURCE)
+   - Full width with rounded background
+========================= */
+
+/* 横スクロール事故防止（必須） */
+html, body { overflow-x: hidden; }
+
+/* section自体を画面幅に */
+.clients{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
+/* “フル幅の中に角丸の帯”を作る（=見た目はフル幅、角丸も維持） */
+.clients::before{
+  content:"";
+  position:absolute;
+  left: clamp(12px, 2.5vw, 24px);
+  right: clamp(12px, 2.5vw, 24px);
+  top: 0;
+  bottom: 0;
+  background: rgba(255,255,255,.92);
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(15,23,42,.06);
+  z-index: 0;
+}
+
+/* 中身を帯の上に */
+.clients .container{
+  position: relative;
+  z-index: 1;
+  max-width: none;       /* container幅制限を解除 */
+  padding: 0;            /* 余白は下で付ける */
+}
+
+/* ロゴの“見える領域” */
+.logo-marquee{
+  width: 100%;
+  overflow: hidden;
+  padding: 18px clamp(12px, 2.5vw, 24px); /* 帯の内側余白 */
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* アニメ */
+:root{
+  --logo-speed: 48s;
+  --logo-gap: 28px;
+  --logo-h: 56px;
+}
+
+.logo-marquee__track{
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: logoScroll var(--logo-speed) linear infinite;
+}
+
+.logo-marquee__group{
+  display: flex;
+  align-items: center;
+  gap: var(--logo-gap);
+  padding-right: var(--logo-gap);
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+}
+
+.logo-marquee__group img{
+  height: var(--logo-h);
+  width: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+  display: block;
+}
+
+@keyframes logoScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* 2グループ前提 */
+}
+
+@media (prefers-reduced-motion: reduce){
+  .logo-marquee__track{ animation: none; }
+}
+
+/* =========================
+   Clients band (MOBILE ONLY)
+   full width + short height
+========================= */
+@media (max-width: 768px){
+
+  html, body{ overflow-x:hidden; }
+
+  /* セクションを画面いっぱいに */
+  .clients{
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    width: 100vw !important;
+
+    background: #fff !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    padding: 10px 0 !important; /* 縦を詰める */
+  }
+
+  /* 角丸帯の擬似要素があれば消す（スマホだけ） */
+  .clients::before,
+  .clients::after{
+    content: none !important;
+    display: none !important;
+  }
+
+  /* container制限を外す（スマホだけ） */
+  .clients .container{
+    max-width: none !important;
+    padding: 0 14px !important;
+  }
+
+  .logo-marquee{
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .logo-marquee__group{
+    padding: 6px 0 !important;
+  }
+
+  .logo-marquee__group img{
+    height: 44px !important; /* 36〜52で調整 */
+    width: auto !important;
+    object-fit: contain !important;
+  }
 }
