@@ -1114,7 +1114,7 @@ img{max-width:100%;display:block}
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:18px;
-  margin-top:8px;
+  margin-top:16px;
 }
 .price{
   border:1px solid rgba(15,23,42,.10);
