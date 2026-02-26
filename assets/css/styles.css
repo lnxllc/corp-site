@@ -2244,7 +2244,7 @@ img{max-width:100%;display:block}
   }
   .hamburger span {
     background: currentColor;
-  }
+  }}
 
 /* ===============================
    White Style Drawer
@@ -3140,3 +3140,171 @@ h2{
 /* もしカード間の上下スペースが気になるなら .works-cat に詰める */
 .works-cat{ margin-top: 18px !important; padding-top: 12px !important; }
 
+
+
+/* ===== Clients logo marquee (mobile speed fix + no blank) ===== */
+
+/* 速度は変数化（PCとスマホで変える） */
+:root{
+  --logo-speed: 26s;     /* PC */
+  --logo-gap: 56px;
+  --logo-h: 72px;
+}
+
+.logo-marquee{
+  width:100%;
+  overflow:hidden;
+}
+
+/* trackにはgapを入れない（ズレ＝空白の原因） */
+.logo-marquee__track{
+  display:flex;
+  width:max-content;
+  will-change:transform;
+  animation: logoScroll var(--logo-speed) linear infinite;
+}
+
+/* “継ぎ目余白”は group の padding-right で作る（幅に含まれるのでズレない） */
+.logo-marquee__group{
+  display:flex;
+  align-items:center;
+  gap: var(--logo-gap);
+  padding:14px 0;
+  padding-right: var(--logo-gap);
+}
+
+.logo-marquee__group img{
+  height: clamp(60px, 6vw, var(--logo-h));
+  width:auto;
+  object-fit:contain;
+  flex-shrink:0;
+  display:block;
+}
+
+/* 2グループ前提：常に正確（空白出ない） */
+@keyframes logoScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* スマホだけ：遅くする（ここだけ触ればOK） */
+@media (max-width: 768px){
+  :root{
+    --logo-speed: 42s;   /* ←遅くしたいほど大きく（例: 36〜60s） */
+    --logo-gap: 34px;
+    --logo-h: 64px;
+  }
+}
+
+
+
+/* ===== Fix: Works images clipped ===== */
+.work__media{
+  width: 100%;
+  aspect-ratio: 16 / 9;     /* 枠の比率を固定 */
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 14px;
+}
+
+.work__media img{
+  width: 100% !important;
+  height: 100% !important;     /* ← ここが重要（枠にフィット） */
+  max-height: none !important; /* ← 強制上限を解除 */
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  display: block;
+}
+
+/* ===== PCでも空白ゼロ（track幅を2周分に固定）===== */
+.logo-marquee__track{
+  width: 200%;                 /* 2周分を強制 */
+}
+
+.logo-marquee__group{
+  flex: 0 0 50%;               /* 各グループを必ず半分幅にする */
+}
+
+/* 画像が折り返すと幅が崩れるので禁止 */
+.logo-marquee__group{
+  flex-wrap: nowrap;
+}
+
+/* ===== Fix: Works text spacing ===== */
+.work__content > p{
+  margin-top: 14px !important;   /* ← 本文の上に余白を復活 */
+  margin-bottom: 0 !important;
+  line-height: 1.8;
+  color: rgba(15,23,42,.64);
+}
+
+/* もし “autoで下寄せ” が残っているなら完全に無効化 */
+.work__content > p,
+.work__content p:last-of-type{
+  margin-top: 14px !important;
+}
+
+.work__media{
+  margin-top: 12px;
+  margin-bottom: 12px; /* ← 画像→本文の間の余白 */
+}
+
+/* ===== Works text color stronger ===== */
+.work__content > p{
+  color: rgba(15,23,42,.82) !important;  /* ← 濃くする */
+}
+
+/* =========================
+   Clients band (mobile only)
+========================= */
+@media (max-width: 768px){
+
+  /* ① 位置を下げる */
+  .clients{
+    margin-top: 150px;   /* ← 下げ量調整（40〜100で好み） */
+  }
+
+  /* ② 白い帯を付ける */
+  .logo-marquee{
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 0;
+    box-shadow: 0 10px 25px rgba(15,23,42,.06);
+  }
+
+}
+
+/* ===== PC: 空白タイム/謎の空白をゼロにする ===== */
+@media (min-width: 769px){
+
+  /* PCは「2グループ」だけ使う（3つ目を消す） */
+  .logo-marquee__track .logo-marquee__group:nth-child(3){
+    display: none !important;
+  }
+
+  /* track は中身の幅で動かす（%固定しない） */
+  .logo-marquee__track{
+    width: max-content !important;
+    gap: 0 !important;                    /* track同士の余計な隙間を消す */
+    animation: logoScrollPC 34s linear infinite !important; /* 速度はここで調整 */
+  }
+
+  /* group は “中身の幅” で並べる */
+  .logo-marquee__group{
+    flex: 0 0 auto !important;
+    gap: 56px !important;
+    padding-right: 56px !important;       /* ← 1周目と2周目の継ぎ目の間隔 */
+    flex-wrap: nowrap !important;
+  }
+
+  /* ロゴ自体は縮まない */
+  .logo-marquee__group img{
+    flex-shrink: 0 !important;
+  }
+
+  /* 2グループ（=2周分）なので -50% が “ちょうど1周分” */
+  @keyframes logoScrollPC{
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+}
