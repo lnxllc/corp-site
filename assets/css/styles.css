@@ -3308,3 +3308,62 @@ h2{
     to   { transform: translateX(-50%); }
   }
 }
+
+/* =========================
+   Clients logo marquee (unified)
+========================= */
+:root{
+  --logo-speed: 34s;   /* PC */
+  --logo-gap: 56px;
+  --logo-h: 72px;
+}
+
+.logo-marquee{
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-marquee__track{
+  display: flex;
+  width: max-content;          /* 中身の実幅で動かす */
+  will-change: transform;
+  animation: logoScroll var(--logo-speed) linear infinite;
+}
+
+.logo-marquee__group{
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;              /* 幅を固定しない */
+  gap: var(--logo-gap);
+  padding: 14px 0;
+  padding-right: var(--logo-gap); /* 継ぎ目の間隔（幅に含まれるのでズレにくい） */
+  flex-wrap: nowrap;            /* 折り返し禁止 */
+}
+
+.logo-marquee__group img{
+  height: var(--logo-h);
+  width: auto;
+  object-fit: contain;
+  flex: 0 0 auto;               /* 縮まない */
+  display: block;
+}
+
+/* 2グループ前提：1周分だけ動かす */
+@keyframes logoScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* スマホ調整 */
+@media (max-width: 768px){
+  :root{
+    --logo-speed: 48s;  /* ゆっくり */
+    --logo-gap: 28px;
+    --logo-h: 56px;
+  }
+}
+
+/* 動き不要ユーザー配慮 */
+@media (prefers-reduced-motion: reduce){
+  .logo-marquee__track{ animation: none; }
+}
