@@ -3423,3 +3423,10 @@ html, body { overflow-x: hidden; }
 
 }
 
+/* ===== Mobile only line break (isolated) ===== */
+.only-sp-br{ display: none; }
+
+@media (max-width: 768px){
+  .only-sp-br{ display: inline; } /* or block でもOK */
+}
+
