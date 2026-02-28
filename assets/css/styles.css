@@ -3423,10 +3423,17 @@ html, body { overflow-x: hidden; }
 
 }
 
-/* ===== Mobile only line break (isolated) ===== */
-.only-sp-br{ display: none; }
+/* ===== Mobile-only BR (wins against existing rules) ===== */
+br.only-sp-br{ display:none !important; }
 
 @media (max-width: 768px){
-  .only-sp-br{ display: inline; } /* or block でもOK */
+  br.only-sp-br{ display:inline !important; }
 }
 
+/* もしFV内だけで確実に効かせたい場合（さらに強い） */
+@media (max-width: 768px){
+  .hero-g__title br.only-sp-br,
+  .hero-g__lead  br.only-sp-br{
+    display:inline !important;
+  }
+}
