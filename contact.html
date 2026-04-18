@@ -160,7 +160,7 @@
           <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
         </div>
 
-        <button type="submit">送信する</button>
+        <button type="submit" onclick="gtag('event', 'generate_lead', { form_name: 'contact_form', method: 'button_click' });">送信する</button>
       </form>
     </div>
   </section>
