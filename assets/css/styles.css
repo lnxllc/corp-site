@@ -3474,3 +3474,47 @@ br.only-sp-br{ display:none !important; }
     margin: 0 auto;
   }
 }
+
+/* =========================
+   Ad LP Banner
+========================= */
+
+.section--ad-banner {
+  padding: 40px 0 70px;
+}
+
+.ad-banner-wrap {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ad-banner-link {
+  display: block;
+  width: 100%;
+}
+
+.ad-banner-img {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* SP */
+@media screen and (max-width: 767px) {
+  .section--ad-banner {
+    padding: 30px 0 50px;
+  }
+
+  .ad-banner-wrap {
+    max-width: 100%;
+  }
+
+  .ad-banner-img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
