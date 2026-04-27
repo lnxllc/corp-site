@@ -3438,12 +3438,16 @@ br.only-sp-br{ display:none !important; }
   }
 }
 
-.ad-bannar {
-  display: block;
+.ad-banner-wrap {
+  width: 100%;
   text-align: center;
 }
 
-.ad-bannar {
+.ad-banner-link {
+  display: inline-block;
+}
+
+.ad-banner-img {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -3452,9 +3456,21 @@ br.only-sp-br{ display:none !important; }
 
 /* PC表示 */
 @media screen and (min-width: 768px) {
-  .ad-bannar {
-    width: 70%;
+  .ad-banner-wrap {
+    width: 100%;
     max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .ad-banner-link {
+    display: block;
+    width: 100%;
+  }
+
+  .ad-banner-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
     margin: 0 auto;
   }
 }
