@@ -1,0 +1,144 @@
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; color: #333; line-height: 1.6; background-color: #fff; overflow-x: hidden; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; }
+
+.keep-block { display: inline-block; vertical-align: top; }
+
+.section-padding { padding: 80px 0; }
+.bg-gray { background-color: #f9f9f9; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; color: #1a2b48; font-weight: 700; }
+
+/* Buttons */
+.btn-main { display: inline-block; background-color: #0056b3; color: #fff; padding: 18px 50px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.2rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3); border: none; }
+.btn-main:hover { background-color: #003d7a; transform: translateY(-2px); }
+.btn-main-sm { display: inline-block; background-color: #0056b3; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 0.95rem; font-weight: bold; white-space: nowrap; flex-shrink: 0; }
+.btn-sm { text-decoration: none; color: #333; margin-right: 15px; font-size: 0.9rem; white-space: nowrap; }
+.btn-white-sm { display: inline-block; background-color: #fff; color: #0056b3; padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; border: none; }
+
+/* Header */
+header { height: 70px; display: flex; align-items: center; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 100; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.logo { font-size: 1.5rem; font-weight: bold; color: #1a2b48; }
+
+/* Hero */
+.hero { background: linear-gradient(rgba(10, 20, 40, 0.8), rgba(10, 20, 40, 0.8)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; color: #fff; padding: 100px 0; text-align: center; }
+.hero-urgency-banner { display: inline-block; background-color: rgba(255, 255, 255, 0.1); border: 2px solid #ff4d4d; color: #fff; font-size: 1.4rem; padding: 12px 20px; border-radius: 5px; margin-bottom: 30px; font-weight: 900; letter-spacing: 0.05em; max-width: 95%; }
+.hero-urgency-banner .highlight { background-color: #ff4d4d; color: #fff; padding: 2px 12px; margin-right: 10px; display: inline-block; border-radius: 3px; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.sub-copy { font-size: 1.2rem; margin-bottom: 15px; opacity: 0.9; font-weight: 700; }
+
+.responsive-h1 { margin-bottom: 30px; font-weight: 900; line-height: 1.2; width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 10px; }
+.responsive-h1 .line { display: block; white-space: nowrap; font-size: clamp(0.9rem, 7vw, 3.5rem); text-align: center; max-width: 100%; margin: 0 auto; padding-right: 5px; }
+.responsive-h1 .price-num { color: #4da3ff; font-size: clamp(1.2rem, 9.5vw, 4.5rem); }
+.hero .description { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.8; }
+
+/* Content Sections */
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pain-item { background: #fff; border-left: 5px solid #0056b3; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.benefit-row { display: flex; gap: 30px; }
+.benefit-card { background: #fff; padding: 40px 30px; border-radius: 10px; flex: 1; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.benefit-icon { font-size: 3rem; color: #0056b3; margin-bottom: 20px; }
+
+/* Mid CTA */
+.mid-cta { background: #0056b3; color: #fff; padding: 40px 0; text-align: center; }
+.mid-cta.secondary { background: #f0f4f8; color: #1a2b48; border-top: 1px solid #e0e6ed; border-bottom: 1px solid #e0e6ed; }
+.mid-cta p { font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; display: inline-block; margin-right: 30px; }
+
+/* Results & Plans */
+.results-grid { display: flex; gap: 20px; }
+.result-item { flex: 1; min-width: 0; }
+
+/* ★ここが重要：実績画像の外枠 */
+.img-placeholder { 
+    width: 100%; 
+    aspect-ratio: 16 / 9; 
+    background: #eee; 
+    overflow: hidden;    
+    margin-bottom: 15px; 
+    border-radius: 8px; 
+    position: relative;
+    border: 1px solid #eee; /* 薄い枠線 */
+}
+
+/* ★ここが重要：中の画像設定 */
+.img-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* 比率を保って枠を埋める */
+    display: block;
+}
+
+.plans-grid { display: flex; gap: 20px; align-items: flex-start; }
+.plan-card { background: #fff; border: 1px solid #ddd; padding: 40px 30px; flex: 1; border-radius: 10px; position: relative; }
+
+.plan-limited-label {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #ff4d4d;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 10;
+    line-height: 1;
+}
+
+.plan-card.popular { border: 2px solid #0056b3; transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 5; }
+.plan-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #0056b3; color: #fff; padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; }
+.plan-header { text-align: center; margin-bottom: 30px; }
+.price { font-size: 1.8rem; font-weight: bold; }
+.price span { font-size: 0.9rem; color: #666; }
+.plan-card ul { list-style: none; }
+.plan-card ul li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.plan-card ul li.faded { color: #0056b3; font-weight: bold; }
+.options-box { margin-top: 60px; background: #fff; padding: 30px; border-radius: 10px; text-align: center; }
+.options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+.opt-item { font-weight: bold; padding: 10px; background: #f0f4f8; border-radius: 5px; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+.faq-item dt { font-weight: bold; color: #1a2b48; padding-left: 30px; position: relative; }
+.faq-item dt::before { content: "Q"; position: absolute; left: 0; color: #0056b3; }
+.faq-item dd { margin-top: 10px; padding-left: 30px; position: relative; color: #666; }
+.faq-item dd::before { content: "A"; position: absolute; left: 0; font-weight: bold; color: #ff4d4d; }
+
+/* CTA Bottom */
+.cta { background: #1a2b48; color: #fff; text-align: center; padding: 100px 0; }
+.cta-inner h2 { font-size: 2.2rem; margin-bottom: 30px; line-height: 1.4; }
+.cta-desc { margin-bottom: 40px; }
+.cta-desc p { font-size: 1.1rem; line-height: 1.8; opacity: 0.9; }
+.btn-white { display: inline-block; background-color: #fff; color: #1a2b48; padding: 20px 50px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
+.btn-white:hover { opacity: 0.9; transform: translateY(-2px); }
+
+footer { padding: 40px 0; text-align: center; font-size: 0.85rem; color: #999; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+    .hero { padding: 60px 0 80px; }
+    .hero-urgency-banner { font-size: 0.9rem; padding: 10px; width: 90%; margin: 0 auto 30px; }
+    .responsive-h1 .line { font-size: clamp(0.9rem, 6.5vw, 2.5rem); padding-right: 15px; }
+    .responsive-h1 .price-num { font-size: clamp(1.2rem, 8.5vw, 3rem); }
+    
+    .pain-grid { grid-template-columns: 1fr; gap: 15px; }
+    .benefit-row { flex-direction: column; gap: 15px; }
+    .results-grid { flex-direction: column; gap: 30px; }
+    .plans-grid { flex-direction: column; align-items: center; gap: 20px; }
+    .plan-card { width: 100%; transform: none !important; margin-bottom: 20px; }
+    .mid-cta p { display: block; margin: 0 0 15px 0; font-size: 1.1rem; }
+    .btn-main { width: 100%; max-width: 320px; }
+
+    .cta { padding: 80px 0; }
+    .cta-inner h2 { font-size: 1.6rem; margin-bottom: 25px; padding: 0 10px; }
+    .cta-desc { margin-bottom: 35px; }
+    .cta-desc p { font-size: 1rem; padding: 0 15px; }
+    .btn-white { width: 90%; max-width: 340px; padding: 18px 20px; }
+}
