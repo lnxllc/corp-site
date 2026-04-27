@@ -3437,3 +3437,9 @@ br.only-sp-br{ display:none !important; }
     display:inline !important;
   }
 }
+
+.ad-bannar {
+  width: 100%;
+  height: auto;
+  display: block;
+}
