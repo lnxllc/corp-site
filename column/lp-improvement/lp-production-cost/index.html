@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>LP制作・改善の費用相場はいくら？依頼前に知るべきポイント | LnX合同会社</title>
+  <meta name="description" content="LP（ランディングページ）制作・改善（LPO）の費用相場を価格帯別・依頼先別に徹底解説。制作費の内訳、LPO（改善）の月額相場、広告運用と合わせた総コストシミュレーション、依頼前の準備まで実務視点でまとめました。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" />
+
+  <link rel="stylesheet" href="../../../assets/css/styles.css?v=1" />
+
+  <style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+    }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 価格帯カード */
+    .price-tier-list { display: grid; gap: 16px; margin: 0 0 32px; }
+    .price-tier {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 0; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+      border: 1px solid rgba(15,23,42,.10);
+    }
+    .price-tier__label {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; padding: 18px 16px;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start; gap: 4px;
+    }
+    .price-tier__label .range {
+      font-size: 17px; font-weight: 900; line-height: 1.2;
+    }
+    .price-tier__label .tag {
+      font-size: 11px; font-weight: 700; opacity: .85; letter-spacing: .08em;
+    }
+    .price-tier__body {
+      background: rgba(255,255,255,.96); padding: 16px 20px;
+    }
+    .price-tier__body h4 { margin: 0 0 6px; font-size: 14px; font-weight: 900; }
+    .price-tier__body p { margin: 0; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .point-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 16px; margin: 0 0 28px;
+    }
+    .point-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2);
+    }
+    .point-card__num {
+      width: 32px; height: 32px; border-radius: 10px;
+      display: grid; place-items: center; font-weight: 900; font-size: 13px;
+      color: #fff; background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      margin-bottom: 10px;
+    }
+    .point-card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 900; }
+    .point-card p { margin: 0; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    /* チェックリスト */
+    .checklist {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14.5px; line-height: 1.7;
+    }
+    .checklist li::before {
+      content: "□"; font-size: 16px; color: var(--brand3);
+      flex: 0 0 auto; margin-top: 1px; font-weight: 900;
+    }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+      .point-grid { grid-template-columns: 1fr; }
+      .price-tier { grid-template-columns: 1fr; }
+      .price-tier__label { padding: 14px 16px; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+    }
+  </style>
+</head>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicon-180.webp">
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="https://lnx.co.jp/index.html" class="brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+        <div class="brand__name">LnX合同会社</div>
+      </a>
+      <nav class="nav__menu">
+        <a href="https://lnx.co.jp/index.html">TOP</a>
+        <a href="https://lnx.co.jp/company.html">会社概要</a>
+        <a href="https://lnx.co.jp/services.html">事業内容</a>
+        <a href="https://lnx.co.jp/works.html">実績</a>
+      </nav>
+      <div class="nav__right">
+        <a href="https://lnx.co.jp/contact.html" class="btn btn-primary">お問い合わせ</a>
+      </div>
+      <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ===== 記事ヒーロー ===== -->
+  <section class="article-hero">
+    <div class="article-wrap">
+      <p class="article-hero__kicker"><span></span>LP改善</p>
+      <h1 class="article-hero__title">LP制作・改善の費用相場はいくら？<br>依頼前に知るべきポイント</h1>
+      <div class="article-hero__meta">
+        <time datetime="2026-06-03">2026年6月3日</time>
+        <span class="article-hero__tag">LP改善</span>
+        <span class="article-hero__tag">LP制作</span>
+        <span class="article-hero__tag">費用相場</span>
+        <span class="article-hero__tag">LPO</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 記事本文 ===== -->
+  <div class="article-container">
+
+    <main>
+      <article class="article-body">
+
+        <div class="lead-box">
+          <p class="lead-box__title">この記事でわかること</p>
+          <ul>
+            <li>LP制作費用の価格帯別相場（〜10万・10〜30万・30〜60万・60万〜）と含まれる内容の違い</li>
+            <li>LP制作費を左右する6つの要因</li>
+            <li>LP改善（LPO）の月額費用相場と、ヒートマップ・A/Bテストなど業務内容の違い</li>
+            <li>広告運用と合わせた総コストシミュレーション</li>
+            <li>「制作して終わり」にならないための依頼前の準備と確認ポイント</li>
+          </ul>
+        </div>
+
+        <nav class="toc" aria-label="目次">
+          <p class="toc__title">目次</p>
+          <ol>
+            <li><a href="#lp-vs-lpo">LP制作とLP改善（LPO）の違い</a></li>
+            <li><a href="#production-cost">LP制作費用の価格帯別相場</a></li>
+            <li><a href="#cost-factors">LP制作費を左右する6つの要因</a></li>
+            <li><a href="#breakdown">制作費の内訳</a></li>
+            <li><a href="#provider-type">依頼先タイプ別の費用目安</a></li>
+            <li><a href="#lpo-cost">LP改善（LPO）の費用相場</a></li>
+            <li><a href="#simulation">広告運用との総コストシミュレーション</a></li>
+            <li><a href="#prepare">依頼前に整理すべきこと</a></li>
+            <li><a href="#lnx-view">LnXの見解</a></li>
+            <li><a href="#faq">よくある質問</a></li>
+          </ol>
+        </nav>
+
+
+        <!-- ===== 1. LP vs LPO ===== -->
+        <h2 id="lp-vs-lpo">LP制作とLP改善（LPO）の違い</h2>
+
+        <p>「LP」に関する費用相談は大きく2種類に分かれます。ひとつは<strong>「新しくLPを作りたい（LP制作）」</strong>、もうひとつは<strong>「既存のLPの成果を改善したい（LPO：ランディングページ最適化）」</strong>です。費用構造が異なるため、まずどちらを求めているか整理しましょう。</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>種別</th>
+              <th>目的</th>
+              <th>費用形態</th>
+              <th>相場</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>LP制作</strong></td>
+              <td>新規でLPを設計・制作する</td>
+              <td>一括（プロジェクト費）</td>
+              <td>10〜100万円（目的・品質による）</td>
+            </tr>
+            <tr>
+              <td><strong>LP改善（LPO）</strong></td>
+              <td>既存LPのCVRを数値分析で改善する</td>
+              <td>月額継続費用</td>
+              <td>月額5〜30万円程度</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-card">
+          <p><strong>重要：</strong>「LPを作ったが成果が出ない」という状態の多くは、<strong>制作後に改善PDCAを回していないこと</strong>が原因です。LP制作は「スタート地点を用意すること」に過ぎず、制作後の改善がなければ広告費が無駄になり続けます。制作費と改善費を別々に考えず、セットで計画することが重要です。</p>
+        </div>
+
+
+        <!-- ===== 2. 価格帯別相場 ===== -->
+        <h2 id="production-cost">LP制作費用の価格帯別相場</h2>
+
+        <p>2026年現在、LP制作の<strong>平均相場は約55万円・中央値は約40万円</strong>とされています。ただし実際の価格帯は10万円以下から100万円超まで幅広く、どの価格帯が「適正」かは目的・品質・依頼先によって異なります。</p>
+
+        <div class="price-tier-list">
+
+          <div class="price-tier">
+            <div class="price-tier__label">
+              <span class="range">〜10万円</span>
+              <span class="tag">テンプレ型・格安</span>
+            </div>
+            <div class="price-tier__body">
+              <h4>テンプレートベースの簡易制作</h4>
+              <p>WordPressテーマ・ページビルダー・ノーコードツールを使った簡易制作。デザインの独自性はほぼなし。原稿・画像は発注側が用意する前提がほとんど。広告テスト目的の仮LPや超小規模ビジネスに向く。</p>
+            </div>
+          </div>
+
+          <div class="price-tier">
+            <div class="price-tier__label">
+              <span class="range">10〜30万円</span>
+              <span class="tag">シンプル制作</span>
+            </div>
+            <div class="price-tier__body">
+              <h4>シンプルなオリジナルデザイン</h4>
+              <p>基本的なオリジナルデザイン＋コーディング。コンテンツ構成の提案は限定的。フリーランスや小規模制作会社が対応する価格帯。LP1枚の設計・デザイン・実装が含まれる。</p>
+            </div>
+          </div>
+
+          <div class="price-tier">
+            <div class="price-tier__label">
+              <span class="range">30〜60万円</span>
+              <span class="tag">標準・最多依頼帯</span>
+            </div>
+            <div class="price-tier__body">
+              <h4>戦略設計込みのオリジナル制作</h4>
+              <p><strong>最も案件数が多い価格帯。</strong>ターゲット分析・コンテンツ設計・コピーライティング・デザイン・コーディングを一貫対応。広告連携を意識した設計が含まれ、CVR改善を意識した構造になる。中小企業の本格的なLPにはこの価格帯が現実的。</p>
+            </div>
+          </div>
+
+          <div class="price-tier">
+            <div class="price-tier__label">
+              <span class="range">60〜100万円</span>
+              <span class="tag">ハイクオリティ</span>
+            </div>
+            <div class="price-tier__body">
+              <h4>高品質なデザイン＋戦略的設計</h4>
+              <p>アニメーション・インタラクション実装・動画組み込みなど高い表現品質。ブランドガイドラインの策定から対応。競合が多い業種・高単価商材・大規模キャンペーンに向く。</p>
+            </div>
+          </div>
+
+          <div class="price-tier">
+            <div class="price-tier__label">
+              <span class="range">100万円〜</span>
+              <span class="tag">大規模・特殊要件</span>
+            </div>
+            <div class="price-tier__body">
+              <h4>大規模制作・特殊機能実装</h4>
+              <p>複数ページ構成・フォームカスタム開発・CRM連携・多言語対応など特殊要件が加わるケース。大手企業のキャンペーンLPや複雑な入力フローを含むケースに相当。</p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- ===== 3. 費用を左右する要因 ===== -->
+        <h2 id="cost-factors">LP制作費を左右する6つの要因</h2>
+
+        <div class="point-grid">
+          <div class="point-card">
+            <div class="point-card__num">①</div>
+            <h4>ページ構成・ボリューム</h4>
+            <p>スクロール量（縦の長さ）が多いほど制作工数が増えます。一般的なBtoC向けLPは6〜10セクション、BtoBは8〜12セクション程度が目安です。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">②</div>
+            <h4>コピーライティング・原稿の有無</h4>
+            <p>ライティングが含まれるかどうかで費用が大きく変わります。自社で原稿を用意できれば制作費を抑えられます。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">③</div>
+            <h4>デザインの品質・独自性</h4>
+            <p>テンプレート流用か完全オリジナルデザインかで費用が2〜5倍変わります。業界の競合水準に合わせた品質を判断基準にしましょう。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">④</div>
+            <h4>アニメーション・インタラクション</h4>
+            <p>スクロールアニメーション・動画埋め込み・インタラクティブな要素は工数が増え費用が上がります。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">⑤</div>
+            <h4>素材（写真・動画）の調達</h4>
+            <p>オリジナル撮影を依頼する場合は別途撮影費が発生します。ストック素材で代替できる部分は費用を抑えられます。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">⑥</div>
+            <h4>計測・タグ設定の範囲</h4>
+            <p>GA4・GTM・Meta/Google広告のコンバージョンタグ設定が含まれるかどうかも確認が必要です。計測が不完全だと改善ができません。</p>
+          </div>
+        </div>
+
+
+        <!-- ===== 4. 費用内訳 ===== -->
+        <h2 id="breakdown">制作費の内訳</h2>
+
+        <p>LP制作費の内訳は制作会社によって異なりますが、一般的に以下の項目で構成されています。見積もり比較の際は、どの項目が含まれているかを必ず確認しましょう。</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>工程</th>
+              <th>内容</th>
+              <th>費用の目安</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>戦略・構成設計</td>
+              <td>ターゲット定義、競合分析、ページ構成（ワイヤーフレーム）作成</td>
+              <td>5〜15万円</td>
+            </tr>
+            <tr>
+              <td>コピーライティング</td>
+              <td>キャッチコピー・本文・CTAテキストの作成</td>
+              <td>5〜15万円</td>
+            </tr>
+            <tr>
+              <td>デザイン</td>
+              <td>ビジュアルデザイン・グラフィック制作（PCとSP両対応）</td>
+              <td>10〜30万円</td>
+            </tr>
+            <tr>
+              <td>コーディング・実装</td>
+              <td>HTML/CSS実装・レスポンシブ対応・CMS組み込み</td>
+              <td>5〜20万円</td>
+            </tr>
+            <tr>
+              <td>計測設定</td>
+              <td>GA4・GTM設定、広告CVタグ設定、フォーム計測</td>
+              <td>3〜10万円</td>
+            </tr>
+            <tr>
+              <td>修正・調整</td>
+              <td>初稿後の修正対応（回数制限あるケースが多い）</td>
+              <td>0〜5万円（回数による）</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-card--warning highlight-card">
+          <p><strong>よくある落とし穴：</strong>「LP制作30万円」という見積もりに計測設定・修正費・サーバー設定費が含まれていないケースがあります。<strong>最終的に必要な全工程の費用を確認</strong>してから比較しましょう。</p>
+        </div>
+
+
+        <!-- ===== 5. 依頼先タイプ ===== -->
+        <h2 id="provider-type">依頼先タイプ別の費用目安</h2>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>依頼先</th>
+              <th>費用目安</th>
+              <th>特徴</th>
+              <th>向いているケース</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>大手Web制作会社</strong></td>
+              <td>50〜150万円</td>
+              <td>高品質・チーム体制。ブランドガイドラインからの制作が得意</td>
+              <td>大手企業・高品質が必要なケース</td>
+            </tr>
+            <tr>
+              <td><strong>中小・専門制作会社</strong></td>
+              <td>20〜80万円</td>
+              <td>広告連携・CVR設計に強い会社が多い。コスパ良好</td>
+              <td>中小企業の本格LP。広告運用と並行したい</td>
+            </tr>
+            <tr>
+              <td><strong>広告運用会社（LP制作含む）</strong></td>
+              <td>10〜50万円</td>
+              <td>広告視点でLP設計。運用と一体で依頼できる</td>
+              <td>広告とLPを一社で完結させたい</td>
+            </tr>
+            <tr>
+              <td><strong>フリーランス</strong></td>
+              <td>5〜30万円</td>
+              <td>コスト最安値帯。個人スキルへの依存が高い</td>
+              <td>予算を抑えたい・シンプルなLP</td>
+            </tr>
+            <tr>
+              <td><strong>ノーコードツール自社制作</strong></td>
+              <td>月額1〜3万円（ツール費のみ）</td>
+              <td>STUDIOなどのノーコードで自作。制作スキルが必要</td>
+              <td>内製化したい・予算が非常に少ない</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-card--success highlight-card">
+          <p><strong>LnXの推奨：</strong>広告を運用しながらLPを改善したい場合は、<strong>広告運用とLP制作・改善を同じ会社に依頼する</strong>のが最も効率的です。広告のデータを見ながらLPを改善できるため、改善サイクルが速くなります。</p>
+        </div>
+
+
+        <!-- ===== 6. LPO費用 ===== -->
+        <h2 id="lpo-cost">LP改善（LPO）の費用相場</h2>
+
+        <p>既存のLPのCVRを改善するLPO（ランディングページ最適化）は、制作とは異なる月額の継続費用が発生します。主な業務内容と費用を整理します。</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>LPO業務の内容</th>
+              <th>月額相場</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GA4・ヒートマップによる現状分析</td>
+              <td>3〜8万円/月</td>
+              <td>Microsoft Clarityは無料で利用可能</td>
+            </tr>
+            <tr>
+              <td>改善仮説の策定・優先順位付け</td>
+              <td>3〜8万円/月</td>
+              <td>データに基づいた仮説出しが重要</td>
+            </tr>
+            <tr>
+              <td>A/Bテストの設計・実施</td>
+              <td>5〜15万円/月</td>
+              <td>テストツール費用が別途かかる場合も</td>
+            </tr>
+            <tr>
+              <td>LP修正・部分改善の実装</td>
+              <td>3〜10万円/月</td>
+              <td>修正範囲によって変動</td>
+            </tr>
+            <tr>
+              <td>フォーム最適化（EFO）</td>
+              <td>3〜10万円/月</td>
+              <td>フォーム離脱率改善に特化</td>
+            </tr>
+            <tr>
+              <td>月次レポート・改善提案</td>
+              <td>2〜5万円/月</td>
+              <td>他業務に含まれることも多い</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>LPO支援会社への依頼コスト目安</h3>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>プランタイプ</th>
+              <th>月額目安</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ライト（分析・提案中心）</td>
+              <td>5〜10万円/月</td>
+              <td>分析レポート＋改善提案のみ。実装は自社対応</td>
+            </tr>
+            <tr>
+              <td>スタンダード（分析＋実装）</td>
+              <td>10〜20万円/月</td>
+              <td>分析・改善仮説・実装修正・月次レポートを含む</td>
+            </tr>
+            <tr>
+              <td>フルサービス（A/Bテスト込み）</td>
+              <td>20〜50万円/月</td>
+              <td>A/Bテスト設計・実施・フォーム改善・PDCAを全対応</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-card">
+          <p><strong>無料から始められるLPO：</strong>Microsoft Clarity（ヒートマップ・セッション録画）はGA4との組み合わせで無料で使えます。まず無料ツールで現状を把握し、改善の方向性が見えてから外注を検討するのも有効な進め方です。</p>
+        </div>
+
+
+        <!-- ===== 7. シミュレーション ===== -->
+        <h2 id="simulation">広告運用との総コストシミュレーション</h2>
+
+        <p>LP制作・改善は広告運用とセットで考えるのが実務的です。「広告費＋広告手数料＋LP制作費＋LP改善費」のトータルコストで計画しましょう。</p>
+
+        <h3>ケース①：LP新規制作＋広告運用スタート（初月）</h3>
+        <table class="cost-table">
+          <thead>
+            <tr><th>費用項目</th><th>金額</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>LP制作費（戦略設計込み・標準クオリティ）</td><td>40万円（1回のみ）</td></tr>
+            <tr><td>計測設定（GA4・GTM・CVタグ）</td><td>5万円（1回のみ）</td></tr>
+            <tr><td>広告運用手数料（月額固定）</td><td>5万円/月</td></tr>
+            <tr><td>広告費（媒体費）</td><td>20万円/月</td></tr>
+            <tr><td><strong>初月合計</strong></td><td><strong>70万円</strong></td></tr>
+            <tr><td><strong>2ヶ月目以降</strong></td><td><strong>25万円/月</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3>ケース②：既存LP＋広告運用中＋LPO追加（月次）</h3>
+        <table class="cost-table">
+          <thead>
+            <tr><th>費用項目</th><th>金額</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>広告運用手数料</td><td>10万円/月</td></tr>
+            <tr><td>広告費（媒体費）</td><td>50万円/月</td></tr>
+            <tr><td>LPO支援（分析＋実装）</td><td>10万円/月</td></tr>
+            <tr><td><strong>月次合計</strong></td><td><strong>70万円/月</strong></td></tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-card--success highlight-card">
+          <p><strong>費用対効果の考え方：</strong>LP改善でCVRが0.5%→1.5%に改善（3倍）すれば、同じ広告費で獲得できるCVが3倍になります。月広告費50万円・CVR改善前CPA5万円→改善後CPA1.7万円。LPO費用10万円/月を払っても、CPAが大幅に下がれば広告費全体の効率が上がります。</p>
+        </div>
+
+
+        <!-- ===== 8. 依頼前の準備 ===== -->
+        <h2 id="prepare">依頼前に整理すべきこと</h2>
+
+        <p>LP制作・改善を外注する前に、以下を整理しておくと提案の質が上がります。</p>
+
+        <div class="checklist">
+          <p class="checklist__title">依頼前の確認チェックリスト</p>
+          <ul>
+            <li>LPの目的（問い合わせ獲得・購入・資料請求・予約など）を明確にしている</li>
+            <li>誰に届けたいか（ターゲット像）を具体的に言語化できている</li>
+            <li>競合LPを3〜5社分リサーチし、参考にしたい・差別化したい点を把握している</li>
+            <li>現状のCVR・流入数・直帰率などの数値を把握している（改善依頼の場合）</li>
+            <li>自社で用意できる素材（写真・動画・テキスト）の範囲を確認している</li>
+            <li>公開予定日・キャンペーン開始日など納品期限を決めている</li>
+            <li>広告配信と連動させる場合、対応する広告媒体・計測ツールを確認している</li>
+            <li>「制作だけ」か「制作＋改善」のどちらを求めているかを決めている</li>
+          </ul>
+        </div>
+
+
+        <!-- CTA -->
+        <div class="article-cta">
+          <p class="article-cta__label">LP制作・改善支援</p>
+          <h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">LP診断・改善、まずご相談ください</h2>
+          <p class="article-cta__lead">LnXでは広告運用と連動したLP制作・CVR改善を支援。現状のLPへの改善提案から対応しています。</p>
+          <a href="https://lnx.co.jp/contact.html" class="article-cta__btn">LP診断を相談する</a>
+        </div>
+
+
+        <!-- ===== 9. LnXの見解 ===== -->
+        <h2 id="lnx-view">LnXの見解</h2>
+
+        <p>LP制作費で最も多い相談トラブルは「思ったより高かった」「制作後に何も改善が起きない」の2つです。前者は見積もり比較の際に含まれる工程の確認が足りないことで起きます。「LP制作30万円」でもコピーライティング・計測設定が含まれないケースがあり、追加費用で最終的に高くなるパターンは珍しくありません。</p>
+
+        <p>後者は、LP制作が「ゴール」になっているケースです。LPは完成した瞬間から「改善が始まる」ものです。実際のユーザーが来訪してからヒートマップ・GA4・広告データを組み合わせて改善仮説を出し、実装・測定を繰り返すことで初めてCVRが上がります。LnXでは広告運用のデータとLP分析を同じ担当者が見るため、「クリックはされているがCVしない」「離脱が多いポイントはどこか」という分析がすぐに改善に直結します。</p>
+
+        <p>また、LPを広告運用会社とは別の制作会社に依頼すると、「広告は代理店・LPは制作会社」と責任が分断され、「CVが悪いのは広告のせいか・LPのせいか」の判断が曖昧になります。<strong>広告・LP・計測を一体で管理することが、もっとも速くCPAを下げる方法</strong>だと私たちは考えています。</p>
+
+
+        <!-- ===== 10. FAQ ===== -->
+        <h2 id="faq">よくある質問</h2>
+
+        <div class="article-faq">
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              LP制作にかかる期間の目安はどのくらいですか？
+            </summary>
+            <div class="article-faq__body">
+              <p>価格帯や制作会社の状況によって異なりますが、一般的な目安は以下の通りです。テンプレート型（〜10万円）：1〜2週間。シンプル制作（10〜30万円）：2〜4週間。標準クオリティ（30〜60万円）：1〜2ヶ月。高品質・大規模（60万円〜）：2〜3ヶ月以上。キャンペーン開始日が決まっている場合は、逆算して早めに動くことが重要です。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              LP制作後に修正が発生した場合、追加費用はかかりますか？
+            </summary>
+            <div class="article-faq__body">
+              <p>多くの制作会社では、初稿後の修正回数に上限があり（2〜3回程度）、それを超えると追加費用が発生します。契約前に「修正回数の上限」と「超過時の費用目安」を確認しましょう。また、広告配信後にCVR改善のための修正が発生する場合も、月次改善費として別途費用が必要になります。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              LPOはどのくらいのトラフィックがないと効果が見えませんか？
+            </summary>
+            <div class="article-faq__body">
+              <p>A/Bテストで統計的な有意差を出すには、一般的に片方のパターンあたり最低200〜500クリック以上が必要とされています。月間LP流入が300〜500セッション未満の段階では、A/Bテストより「ヒートマップ分析と単純な改善実装」の方が効率的です。月間1,000セッション以上になってからA/Bテストを本格運用するのが実務的です。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              広告運用中にLPを大幅に変更しても大丈夫ですか？
+            </summary>
+            <div class="article-faq__body">
+              <p>大幅な変更（ファーストビューの刷新・フォームの大幅変更など）は広告の学習データに影響することがあります。Meta広告の場合、LPのURL変更がキャンペーンの学習リセットに繋がるケースもあります。段階的な改善（既存ページのテキスト変更・ボタン位置の変更など）と並行して、新しいURLのテストバージョンを別途用意してA/Bテストする方法が推奨されます。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              ノーコードツール（STUDIOなど）で自社制作すると費用はどのくらいですか？
+            </summary>
+            <div class="article-faq__body">
+              <p>STUDIOの場合、ビジネスプランで月額3,000〜5,000円程度です。デザインスキルがあれば外注費をゼロにできますが、GA4・GTM・広告CVタグの設定は別途スキルが必要です。ノーコードツール自体の費用は安くても、「正しく計測できていない状態」では広告改善ができません。制作費より計測設定への投資を優先することをおすすめします。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              LPのCVRの「良い水準」はどのくらいですか？
+            </summary>
+            <div class="article-faq__body">
+              <p>業種・商材・ターゲットによって大きく異なりますが、一般的な目安は以下の通りです。問い合わせフォーム（BtoB）：1〜3%。無料登録・資料請求：3〜8%。EC購入：1〜3%。飲食・美容予約：3〜8%。現状CVRと業界平均を比較し、大きく下回っている場合はLP改善の優先度が高いサインです。</p>
+            </div>
+          </details>
+
+        </div>
+
+        <!-- 関連記事 -->
+        <div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+          <p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+          <ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+            <li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+              <a href="https://lnx.co.jp/column/lp-improvement/lp-cvr-improvement/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ LPのCVRを改善する方法｜広告成果を上げるチェックポイント</a>
+            </li>
+            <li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+              <a href="https://lnx.co.jp/column/lp-improvement/ad-click-no-inquiry/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告はクリックされるのに問い合わせが増えない原因とは？</a>
+            </li>
+            <li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+              <a href="https://lnx.co.jp/column/advertising/meta-ads-cost/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告運用代行の費用相場は？月額・手数料・広告費別に解説</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 著者 -->
+        <div class="article-author">
+          <div class="article-author__icon">🧑‍💻</div>
+          <div>
+            <p class="article-author__name">LnX合同会社 編集部</p>
+            <p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+          </div>
+        </div>
+
+      </article>
+    </main>
+
+    <!-- サイドバー -->
+    <aside class="article-sidebar">
+
+      <div class="sidebar-card sidebar-toc">
+        <p class="sidebar-card__title">目次</p>
+        <ol>
+          <li><a href="#lp-vs-lpo">制作とLPOの違い</a></li>
+          <li><a href="#production-cost">価格帯別の相場</a></li>
+          <li><a href="#cost-factors">費用を左右する要因</a></li>
+          <li><a href="#breakdown">制作費の内訳</a></li>
+          <li><a href="#provider-type">依頼先タイプ別比較</a></li>
+          <li><a href="#lpo-cost">LP改善（LPO）の相場</a></li>
+          <li><a href="#simulation">総コストシミュレーション</a></li>
+          <li><a href="#prepare">依頼前のチェックリスト</a></li>
+          <li><a href="#lnx-view">LnXの見解</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ol>
+      </div>
+
+      <div class="sidebar-cta">
+        <p>LP診断・改善支援<br>まずご相談ください</p>
+        <a href="https://lnx.co.jp/contact.html">LP診断を相談する</a>
+      </div>
+
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">関連サービス</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 8px;">
+          <li><a href="/service/lp/" style="font-size: 13px; font-weight: 700; color: var(--brand3);">→ LP制作・改善支援</a></li>
+          <li><a href="/service/web-ads/" style="font-size: 13px; font-weight: 700; color: rgba(15,23,42,.68);">→ Web広告運用代行</a></li>
+          <li><a href="/service/meta-ads/" style="font-size: 13px; font-weight: 700; color: rgba(15,23,42,.68);">→ Meta広告運用代行</a></li>
+          <li><a href="/service/analytics/" style="font-size: 13px; font-weight: 700; color: rgba(15,23,42,.68);">→ GA4・GTM計測設定</a></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>© 2026 LnX合同会社</div>
+      <div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+    </div>
+  </footer>
+
+  <div class="drawer-overlay" id="js-overlay" hidden></div>
+  <nav class="drawer" id="js-drawer" aria-hidden="true">
+    <ul class="drawer__list">
+      <li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+      <li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+      <li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+      <li><a href="https://lnx.co.jp/works.html">実績</a></li>
+      <li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <script src="../../../assets/js/main.js?v=3" defer></script>
+
+</body>
+</html>
