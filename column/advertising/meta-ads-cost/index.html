@@ -1,1 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meta広告運用代行の費用相場は？月額・手数料・広告費別に解説 | LnX合同会社</title>
+  <meta name="description" content="Meta広告（Instagram・Facebook広告）の運用代行費用を月額・手数料・広告費規模別に徹底解説。相場感の把握から代理店の選び方、少額予算での外注ポイントまで実務視点でまとめました。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" />
+
+  <!-- 既存サイトCSS（同一ディレクトリ構成前提） -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=1" />
+
+  <style>
+    /* ========================================
+       記事ページ専用スタイル
+       既存 styles.css の変数・クラスを継承
+    ======================================== */
+
+    /* ---------- レイアウト ---------- */
+    .article-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 var(--hpad);
+    }
+
+    /* ---------- 記事ヒーロー ---------- */
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+
+    .article-hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      color: var(--brand3);
+      margin-bottom: 16px;
+    }
+
+    .article-hero__kicker span {
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: var(--brand3);
+      display: inline-block;
+    }
+
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      color: var(--txt);
+      margin: 0 0 20px;
+    }
+
+    .article-hero__meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--soft);
+    }
+
+    .article-hero__meta time { font-weight: 600; }
+
+    .article-hero__tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.10);
+      color: var(--brand3);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* ---------- 記事本文 ---------- */
+    .article-body {
+      padding: 56px 0 80px;
+      font-size: 15.5px;
+      line-height: 1.9;
+      color: rgba(15,23,42,.80);
+    }
+
+    .article-body h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important;
+      font-weight: 900 !important;
+      letter-spacing: -.02em !important;
+      color: var(--txt) !important;
+      margin: 56px 0 20px !important;
+      padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+    }
+
+    .article-body h2::first-letter {
+      font-size: 1em !important; /* 記事内では通常サイズ */
+      font-style: normal !important;
+    }
+
+    .article-body h3 {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--txt);
+      margin: 36px 0 14px;
+      padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+
+    .article-body h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--txt);
+      margin: 26px 0 10px;
+    }
+
+    .article-body p {
+      margin: 0 0 20px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin: 0 0 20px;
+      padding-left: 22px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .article-body li {
+      line-height: 1.75;
+    }
+
+    /* ---------- 目次 ---------- */
+    .toc {
+      background: rgba(37,99,235,.05);
+      border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 0 0 40px;
+    }
+
+    .toc__title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      color: var(--brand3);
+      margin: 0 0 14px;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .toc li {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .toc a {
+      color: rgba(15,23,42,.75);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: .15s ease;
+    }
+
+    .toc a:hover {
+      color: var(--brand3);
+      border-bottom-color: rgba(37,99,235,.3);
+    }
+
+    /* ---------- リードボックス ---------- */
+    .lead-box {
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 0 0 40px;
+      box-shadow: var(--shadow2);
+    }
+
+    .lead-box__title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .lead-box ul {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .lead-box li {
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+
+    /* ---------- 費用一覧テーブル ---------- */
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 0 0 28px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow2);
+    }
+
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .cost-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+
+    .cost-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cost-table tr:nth-child(even) td {
+      background: rgba(37,99,235,.03);
+    }
+
+    .cost-table tr:hover td {
+      background: rgba(37,99,235,.06);
+    }
+
+    /* ---------- ハイライトカード ---------- */
+    .highlight-card {
+      border-left: 4px solid var(--brand3);
+      background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+
+    .highlight-card--warning {
+      border-left-color: #f59e0b;
+      background: rgba(245,158,11,.06);
+    }
+
+    .highlight-card--success {
+      border-left-color: #10b981;
+      background: rgba(16,185,129,.06);
+    }
+
+    .highlight-card p {
+      margin: 0;
+      font-size: 14.5px;
+    }
+
+    .highlight-card strong {
+      color: var(--brand3);
+    }
+
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* ---------- ポイントグリッド ---------- */
+    .point-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 0 0 28px;
+    }
+
+    .point-card {
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.96);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow2);
+    }
+
+    .point-card__num {
+      width: 32px; height: 32px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 13px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      margin-bottom: 10px;
+    }
+
+    .point-card h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .point-card p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ---------- FAQ ---------- */
+    .article-faq {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 28px;
+    }
+
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.96);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      overflow: hidden;
+    }
+
+    .article-faq__item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 14.5px;
+      color: rgba(15,23,42,.90);
+    }
+
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+
+    .faq-q-badge {
+      flex: 0 0 auto;
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .article-faq__body {
+      padding: 0 20px 18px 58px;
+      border-top: 1px solid rgba(15,23,42,.08);
+    }
+
+    .article-faq__body p {
+      margin: 14px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ---------- CTAボックス ---------- */
+    .article-cta {
+      border-radius: 20px;
+      border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      margin: 48px 0 28px;
+      text-align: center;
+    }
+
+    .article-cta__label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      color: var(--brand1);
+      margin-bottom: 10px;
+    }
+
+    .article-cta__title {
+      font-size: clamp(18px, 2.2vw, 24px);
+      font-weight: 900;
+      letter-spacing: -.01em;
+      margin: 0 0 10px;
+    }
+
+    .article-cta__lead {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 22px;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .article-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 18px 44px rgba(124,58,237,.22);
+      transition: .2s ease;
+    }
+
+    .article-cta__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 54px rgba(124,58,237,.30);
+    }
+
+    /* ---------- 著者 ---------- */
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.94);
+      margin: 40px 0 0;
+    }
+
+    .article-author__icon {
+      width: 48px; height: 48px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    .article-author__name {
+      font-weight: 900;
+      font-size: 15px;
+      margin: 0 0 3px;
+    }
+
+    .article-author__bio {
+      font-size: 13px;
+      color: var(--soft);
+      margin: 0;
+    }
+
+    /* ---------- サイドバー風コンテナ ---------- */
+    .article-container {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 48px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--hpad);
+    }
+
+    .article-sidebar {
+      position: sticky;
+      top: 90px;
+    }
+
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.96);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow2);
+      margin-bottom: 18px;
+    }
+
+    .sidebar-card__title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      color: var(--soft);
+      margin: 0 0 12px;
+    }
+
+    .sidebar-toc ol {
+      margin: 0;
+      padding-left: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .sidebar-toc li {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .sidebar-toc a {
+      color: rgba(15,23,42,.68);
+      text-decoration: none;
+      transition: .15s ease;
+    }
+
+    .sidebar-toc a:hover { color: var(--brand3); }
+
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar-cta p {
+      font-size: 13px;
+      margin: 0 0 14px;
+      opacity: .92;
+    }
+
+    .sidebar-cta a {
+      display: block;
+      background: #fff;
+      color: var(--brand1);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px;
+      border-radius: 999px;
+      transition: .18s ease;
+    }
+
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    /* ---------- レスポンシブ ---------- */
+    @media (max-width: 980px) {
+      .article-container {
+        grid-template-columns: 1fr;
+      }
+      .article-sidebar {
+        display: none;
+      }
+      .point-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+    }
+  </style>
+</head>
+
+<!-- Favicon -->
+<link rel="icon" type="assets/image/png" sizes="32x32" href="assets/img/favicon-32.webp">
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+        <div class="brand__name">LnX合同会社</div>
+      </a>
+      <nav class="nav__menu">
+        <a href="index.html">TOP</a>
+        <a href="company.html">会社概要</a>
+        <a href="services.html">事業内容</a>
+        <a href="works.html">実績</a>
+      </nav>
+      <div class="nav__right">
+        <a href="contact.html" class="btn btn-primary">お問い合わせ</a>
+      </div>
+      <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ===== 記事ヒーロー ===== -->
+  <section class="article-hero">
+    <div class="article-wrap">
+      <p class="article-hero__kicker"><span></span>広告運用</p>
+      <h1 class="article-hero__title">Meta広告運用代行の費用相場は？<br>月額・手数料・広告費別に解説</h1>
+      <div class="article-hero__meta">
+        <time datetime="2026-06-03">2026年6月3日</time>
+        <span class="article-hero__tag">広告運用</span>
+        <span class="article-hero__tag">Meta広告</span>
+        <span class="article-hero__tag">費用相場</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== 記事本文 ===== -->
+  <div class="article-container">
+
+    <!-- メインコンテンツ -->
+    <main>
+      <article class="article-body">
+
+        <!-- この記事でわかること -->
+        <div class="lead-box">
+          <p class="lead-box__title">この記事でわかること</p>
+          <ul>
+            <li>Meta広告運用代行の費用体系（初期費用・月額手数料・広告費）の全体像</li>
+            <li>料金体系3タイプ（手数料率型・月額固定型・成果報酬型）の違いと選び方</li>
+            <li>広告費の規模別にかかる総コストのシミュレーション</li>
+            <li>少額予算（月10〜20万円）でも外注できるのかの判断基準</li>
+            <li>費用を比較するときに見落としがちなポイント</li>
+          </ul>
+        </div>
+
+        <!-- 目次 -->
+        <nav class="toc" aria-label="目次">
+          <p class="toc__title">目次</p>
+          <ol>
+            <li><a href="#cost-overview">Meta広告運用代行の費用構造：3つの要素</a></li>
+            <li><a href="#fee-type">料金体系の3タイプと特徴</a></li>
+            <li><a href="#initial-cost">初期費用の相場と内訳</a></li>
+            <li><a href="#monthly-cost">月額運用手数料の相場</a></li>
+            <li><a href="#ad-budget">広告費の目安と規模感</a></li>
+            <li><a href="#simulation">費用シミュレーション</a></li>
+            <li><a href="#small-budget">少額予算（月10〜20万円）での外注は現実的？</a></li>
+            <li><a href="#choose-point">代理店選びで見るべき費用まわりのポイント</a></li>
+            <li><a href="#lnx-view">LnXの見解</a></li>
+            <li><a href="#faq">よくある質問</a></li>
+          </ol>
+        </nav>
+
+
+        <!-- ===== 1. 費用構造 ===== -->
+        <h2 id="cost-overview">Meta広告運用代行の費用構造：3つの要素</h2>
+
+        <p>Meta広告（Instagram広告・Facebook広告）の運用代行を依頼する際にかかる費用は、大きく「初期費用」「月額運用手数料」「広告費（媒体費）」の3つに分けられます。</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>費用の種類</th>
+              <th>概要</th>
+              <th>相場</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>初期費用</strong></td>
+              <td>アカウント設計・ピクセル設定・初期構築など</td>
+              <td>0〜20万円</td>
+            </tr>
+            <tr>
+              <td><strong>月額運用手数料</strong></td>
+              <td>広告の日次確認・改善・レポーティングなど</td>
+              <td>広告費の15〜25%、または月額5〜20万円</td>
+            </tr>
+            <tr>
+              <td><strong>広告費（媒体費）</strong></td>
+              <td>Meta社に支払う配信コスト。代理店経由でも基本的に実費</td>
+              <td>月10万円〜（成果を出すには30万円以上が目安）</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>「月いくらかかるの？」と考えるときは、この3つをすべて合算した「総コスト」で判断することが重要です。手数料だけ安くても、広告費が別途かかることを忘れると予算オーバーになりがちです。</p>
+
+        <div class="highlight-card">
+          <p><strong>ポイント：</strong>総コスト＝初期費用（初月のみ）＋月額手数料＋広告費。月あたりで比較するときは、初期費用を契約期間で割って換算するのが正確です。</p>
+        </div>
+
+
+        <!-- ===== 2. 料金体系 ===== -->
+        <h2 id="fee-type">料金体系の3タイプと特徴</h2>
+
+        <p>Meta広告の運用代行会社が採用している料金体系は主に3種類あります。それぞれ異なる特徴を持つため、自社の予算規模や目的に合わせて選ぶことが大切です。</p>
+
+        <h3>① 手数料率型（広告費連動型）</h3>
+        <p>最も一般的な料金体系で、広告費の一定割合（多くは15〜25%）を運用手数料として支払う方式です。広告費が増えるほど手数料も増えるため、代理店側に「成果を出して予算を増やす」インセンティブが働きやすい点がメリットとされています。</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>広告費（月）</th>
+              <th>手数料20%の場合</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20万円</td>
+              <td>4万円（最低手数料が5万円の場合は5万円）</td>
+              <td>少額は最低手数料が適用されることが多い</td>
+            </tr>
+            <tr>
+              <td>50万円</td>
+              <td>10万円</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>100万円</td>
+              <td>20万円</td>
+              <td>–</td>
+            </tr>
+            <tr>
+              <td>300万円</td>
+              <td>60万円（大手は15%前後に下がることも）</td>
+              <td>大口契約は交渉余地あり</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-card--warning highlight-card">
+          <p><strong>注意：</strong>広告費が月20〜30万円程度の少額帯では、本来の手数料計算額より「最低手数料（月5万円程度）」が適用されるケースが大半です。少額予算での相場感として「広告費＋5〜7万円の固定手数料」と見積もっておくのが実態に近い数字です。</p>
+        </div>
+
+        <h3>② 月額固定型</h3>
+        <p>広告費の多寡に関わらず、毎月一定額を支払う方式。月5〜20万円程度が相場帯です。少額予算でも費用が膨らまないため、月10〜30万円規模の広告予算では手数料率型より総コストを抑えやすいことがあります。少額広告運用に特化した代理店やフリーランスに多い形態です。</p>
+
+        <h3>③ 成果報酬型</h3>
+        <p>獲得件数やCV数など、成果に連動して手数料が決まる方式。一見リスクが低そうに見えますが、実際には成果単価が高く設定されていることが多く、かつ「成果の定義（リードの質など）」が代理店に都合よく解釈されるケースもあります。採用しているサービスは少なく、注意が必要な料金体系です。</p>
+
+
+        <!-- ===== 3. 初期費用 ===== -->
+        <h2 id="initial-cost">初期費用の相場と内訳</h2>
+
+        <p>初期費用の相場は0〜20万円と幅がありますが、5〜10万円がボリュームゾーンです。初期費用に何が含まれているかを事前に確認することが重要です。</p>
+
+        <div class="point-grid">
+          <div class="point-card">
+            <div class="point-card__num">①</div>
+            <h4>アカウント設計・初期構築</h4>
+            <p>キャンペーン構造の設計、広告セット・クリエイティブの初期入稿。設計の質が後の成果に大きく影響します。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">②</div>
+            <h4>Metaピクセル・計測設定</h4>
+            <p>コンバージョンAPIの設定、イベント計測の実装。計測が正確でないと改善できません。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">③</div>
+            <h4>ターゲット設計・オーディエンス</h4>
+            <p>カスタムオーディエンス・類似オーディエンスの設計。既存顧客データを活用する際に重要です。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">④</div>
+            <h4>クリエイティブ初回制作</h4>
+            <p>初期バナー・動画の制作費が含まれる場合と別途になる場合があります。事前確認が必須です。</p>
+          </div>
+        </div>
+
+        <div class="highlight-card--success highlight-card">
+          <p><strong>確認ポイント：</strong>「初期費用なし」を売りにする会社もありますが、その場合は月額手数料が高めに設定されていることが多いです。トータルの12ヶ月コストで比較するようにしましょう。</p>
+        </div>
+
+
+        <!-- ===== 4. 月額運用手数料 ===== -->
+        <h2 id="monthly-cost">月額運用手数料の相場</h2>
+
+        <p>月額運用手数料は、手数料率型であれば「広告費の15〜25%」が業界標準です。代理店の規模やサービス内容によって異なり、大手総合代理店ほど手数料率が高く、特化型・中小の代理店やフリーランスは手数料率を下げている傾向があります。</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>代理店タイプ</th>
+              <th>手数料率の目安</th>
+              <th>最低手数料</th>
+              <th>向いているケース</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>大手総合代理店</td>
+              <td>20〜30%</td>
+              <td>10万円〜</td>
+              <td>月広告費100万円以上、大規模案件</td>
+            </tr>
+            <tr>
+              <td>中規模・特化型代理店</td>
+              <td>15〜25%</td>
+              <td>5〜7万円</td>
+              <td>月広告費30〜100万円</td>
+            </tr>
+            <tr>
+              <td>少額特化・スタートアップ型</td>
+              <td>固定5〜10万円</td>
+              <td>なし（固定制）</td>
+              <td>月広告費10〜30万円</td>
+            </tr>
+            <tr>
+              <td>フリーランス</td>
+              <td>固定3〜8万円</td>
+              <td>なし</td>
+              <td>低コストで始めたい、密な連携希望</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>月額手数料の中に含まれるサービス内容も代理店によって異なります。「クリエイティブ制作費は含まれるか」「レポートはどこまで細かく出してもらえるか」「LP改善の提案はあるか」など、比較検討時に必ず確認しましょう。</p>
+
+
+        <!-- ===== 5. 広告費の目安 ===== -->
+        <h2 id="ad-budget">広告費の目安と規模感</h2>
+
+        <p>Meta広告自体は技術的には1日数百円から配信できますが、継続的な成果を出すためにはある程度の予算が必要です。業界ごとの目安を示します。</p>
+
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>月間広告費</th>
+              <th>成果の期待値</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>〜5万円</td>
+              <td>学習・テスト段階。安定したCV獲得は困難</td>
+              <td>クリエイティブ検証程度なら可</td>
+            </tr>
+            <tr>
+              <td>5〜15万円</td>
+              <td>限定的なリーチ。CVは月数件レベル</td>
+              <td>BtoC単価の低い商材に限り成立するケースあり</td>
+            </tr>
+            <tr>
+              <td>15〜30万円</td>
+              <td>安定したCV獲得が見え始める</td>
+              <td>多くの代理店の「最低出稿額」帯</td>
+            </tr>
+            <tr>
+              <td>30〜100万円</td>
+              <td>継続的な改善・スケールが可能</td>
+              <td>多くの中小企業にとって主力予算帯</td>
+            </tr>
+            <tr>
+              <td>100万円〜</td>
+              <td>複数キャンペーン・クリエイティブの同時展開</td>
+              <td>計測・LP改善との統合が特に重要になる</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-card">
+          <p><strong>LnXの実感値：</strong>月広告費15〜30万円の規模でも、LP・計測・クリエイティブを同時に整えることで十分な成果を出せるケースは多いです。逆に広告費を増やしても「LP」や「計測」が機能していないと、費用対効果が伸び悩みます。</p>
+        </div>
+
+
+        <!-- ===== 6. シミュレーション ===== -->
+        <h2 id="simulation">費用シミュレーション</h2>
+
+        <p>実際に代理店に依頼した場合の「総コスト」をシミュレーションします。</p>
+
+        <h3>ケース①：月広告費20万円・手数料固定5万円</h3>
+        <table class="cost-table">
+          <thead>
+            <tr><th>費用項目</th><th>初月</th><th>2ヶ月目以降</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>初期費用</td><td>5万円</td><td>0円</td></tr>
+            <tr><td>月額運用手数料</td><td>5万円</td><td>5万円</td></tr>
+            <tr><td>広告費（媒体費）</td><td>20万円</td><td>20万円</td></tr>
+            <tr><td><strong>合計</strong></td><td><strong>30万円</strong></td><td><strong>25万円</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3>ケース②：月広告費50万円・手数料率20%</h3>
+        <table class="cost-table">
+          <thead>
+            <tr><th>費用項目</th><th>初月</th><th>2ヶ月目以降</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>初期費用</td><td>10万円</td><td>0円</td></tr>
+            <tr><td>月額運用手数料（20%）</td><td>10万円</td><td>10万円</td></tr>
+            <tr><td>広告費（媒体費）</td><td>50万円</td><td>50万円</td></tr>
+            <tr><td><strong>合計</strong></td><td><strong>70万円</strong></td><td><strong>60万円</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3>ケース③：月広告費100万円・手数料率20%</h3>
+        <table class="cost-table">
+          <thead>
+            <tr><th>費用項目</th><th>初月</th><th>2ヶ月目以降</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>初期費用</td><td>10〜20万円</td><td>0円</td></tr>
+            <tr><td>月額運用手数料（20%）</td><td>20万円</td><td>20万円</td></tr>
+            <tr><td>広告費（媒体費）</td><td>100万円</td><td>100万円</td></tr>
+            <tr><td><strong>合計</strong></td><td><strong>130〜140万円</strong></td><td><strong>120万円</strong></td></tr>
+          </tbody>
+        </table>
+
+
+        <!-- ===== 7. 少額予算 ===== -->
+        <h2 id="small-budget">少額予算（月10〜20万円）での外注は現実的？</h2>
+
+        <p>「広告予算は月10〜20万円程度なのですが、外注できますか？」という相談は非常に多いです。結論から言えば、<strong>対応可能な代理店は存在しますし、適切に依頼すれば十分な費用対効果が出るケースも多い</strong>です。ただし、注意すべき点がいくつかあります。</p>
+
+        <h3>少額予算で外注するときの注意点</h3>
+
+        <div class="point-grid">
+          <div class="point-card">
+            <div class="point-card__num">①</div>
+            <h4>最低手数料の存在</h4>
+            <p>大手代理店は月広告費20万円未満を受け付けないケースが多いです。少額予算に対応している代理店を探す必要があります。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">②</div>
+            <h4>手数料率が割高になる</h4>
+            <p>月20万円の広告費に対して手数料5万円だと、実質手数料率は25%。広告費に対してコストが重くなります。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">③</div>
+            <h4>LPが整っているか</h4>
+            <p>少額予算では「クリックの数」が限られます。LP（ランディングページ）のCVR（転換率）が低いと成果が出にくいです。</p>
+          </div>
+          <div class="point-card">
+            <div class="point-card__num">④</div>
+            <h4>計測が正確か</h4>
+            <p>Metaピクセルや計測設定が不完全なまま少額広告を回すと、判断材料が揃わずPDCAが回せません。</p>
+          </div>
+        </div>
+
+        <div class="highlight-card--success highlight-card">
+          <p><strong>LnXの場合：</strong>AdStartプランは月額3万円（別途広告費）から対応しています。少額でも「LP・計測・広告」を一緒に整えることで、実際に成果につなげた実績があります。予算が限られているほど、三点セットで進めることが重要です。</p>
+        </div>
+
+
+        <!-- ===== 8. 選び方のポイント ===== -->
+        <h2 id="choose-point">代理店選びで見るべき費用まわりのポイント</h2>
+
+        <p>費用の安さだけで代理店を選ぶと失敗しやすいです。費用に関して確認すべきポイントを整理します。</p>
+
+        <ol>
+          <li><strong>「総コスト」を12ヶ月で計算する</strong>：初期費用を月割りにして、毎月の実質コストを比較する</li>
+          <li><strong>クリエイティブ制作費は含まれるか確認</strong>：別途制作費がかかる場合、月2〜5万円程度が追加になることも多い</li>
+          <li><strong>最低出稿金額・最低手数料を確認</strong>：月広告費が少ない場合、適用される金額に大きな差が出る</li>
+          <li><strong>LP改善・計測対応が含まれるか</strong>：広告だけ見ていても成果は出にくい。LP・計測の視点を持つ代理店を選ぶ</li>
+          <li><strong>レポートの内容と頻度を確認</strong>：週次・月次、どこまで詳細を報告してもらえるかで「見える化」の質が変わる</li>
+          <li><strong>担当者の実務経験を確認</strong>：会社の規模ではなく、実際に担当する人の経験値を確認する</li>
+          <li><strong>解約条件・最低契約期間を確認</strong>：3〜6ヶ月の縛りがある場合が多い。成果が出なかった場合の条件もあわせて確認</li>
+        </ol>
+
+
+        <!-- ===== 9. LnXの見解 ===== -->
+        <h2 id="lnx-view">LnXの見解</h2>
+
+        <p>私たちLnXが現場で感じていることを正直にお伝えします。</p>
+
+        <p>Meta広告の費用で最も多い「失敗パターン」は、<strong>広告費をかけてもLPや計測が整っていない</strong>ことです。月30万円の広告費を使っても、ランディングページのCVRが1%未満のまま、かつピクセルの計測も不正確な状態では、代理店側も改善の手が打てません。</p>
+
+        <p>また、「安い代理店に任せたが担当者が月1回しか確認せず、半年経っても何も変わらなかった」という相談も少なくありません。手数料の安さよりも、<strong>「週次で改善が回っているか」「クリエイティブが定期的に入れ替わっているか」</strong>の方が実際の成果に直結します。</p>
+
+        <p>予算が月10〜30万円規模の場合、私たちが最もおすすめするのは「広告・LP・計測をセットで依頼できる会社」を選ぶことです。分割して複数社に依頼するより、一貫して見てもらえる方が課題が見えやすく、改善も速くなります。</p>
+
+        <!-- CTA -->
+        <div class="article-cta">
+          <p class="article-cta__label">META広告 運用代行</p>
+          <h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">月3万円〜、少額予算でも始められます</h2>
+          <p class="article-cta__lead">LnXのAdStartプランは、広告・LP・計測をまとめて支援。「どこから始めればいいか分からない」という段階からご相談ください。</p>
+          <a href="contact.html" class="article-cta__btn">Meta広告の無料相談をする</a>
+        </div>
+
+
+        <!-- ===== 10. FAQ ===== -->
+        <h2 id="faq">よくある質問</h2>
+
+        <div class="article-faq">
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              Meta広告の運用代行を依頼する際、広告費の最低予算はいくらですか？
+            </summary>
+            <div class="article-faq__body">
+              <p>代理店にもよりますが、一般的には月15〜30万円以上の広告費を推奨するところが多いです。月10〜15万円規模でも対応可能な代理店はありますが、その場合は成果が出るまでに時間がかかる可能性があります。LnXでは月広告費の下限を設けず、最適な予算配分からご提案しています。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              手数料率型と月額固定型はどちらが得ですか？
+            </summary>
+            <div class="article-faq__body">
+              <p>広告費が月30万円以上であれば手数料率型（20%）の方が固定型より高くなるケースも多いですが、一概には言えません。重要なのは「担当者のスキルと改善の質」です。月5万円の固定手数料でも動きが良い代理店の方が、20%手数料でも動かない代理店よりコスパが高くなります。費用体系だけでなく、運用実態を確認するようにしましょう。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              クリエイティブ（バナー・動画）の制作費は別途かかりますか？
+            </summary>
+            <div class="article-faq__body">
+              <p>多くの代理店では運用手数料とクリエイティブ制作費は別料金です。バナー1枚で1〜3万円、動画で5〜20万円程度が相場です。初期費用にクリエイティブ制作が含まれる場合もあるため、見積もり時に必ず確認してください。LnXではクリエイティブの方向性提案から入稿用素材の調整まで対応しており、制作費については個別にご相談いただけます。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              Instagramのみへの広告配信でも代行依頼できますか？
+            </summary>
+            <div class="article-faq__body">
+              <p>はい、Metaの広告管理ツールはFacebook・Instagram・Messenger・Audience Networkの4媒体を統合管理していますが、Instagram面のみへの配信設定も可能です。特に視覚的な商材（飲食・アパレル・美容・店舗など）の場合、Instagram中心の設計の方が成果につながりやすいケースもあります。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              成果が出なかった場合、費用は返ってきますか？
+            </summary>
+            <div class="article-faq__body">
+              <p>基本的に運用手数料は作業の対価として発生するため、成果の有無にかかわらず返金はありません。成果報酬型を採用している会社はごく一部で、その場合も設定条件が厳しいことが多いです。「成果保証」を大きく謳う代理店には、条件の詳細を必ず確認するようにしましょう。</p>
+            </div>
+          </details>
+
+          <details class="article-faq__item">
+            <summary>
+              <span class="faq-q-badge">Q</span>
+              広告代理店への乗り換えを検討中です。過去の運用データは引き継げますか？
+            </summary>
+            <div class="article-faq__body">
+              <p>広告アカウントのオーナー権限がご自身（あるいは自社）にあれば、蓄積された学習データ・ピクセルデータ・オーディエンスデータはそのまま引き継いで新たな代理店に運用を委託できます。これが「アカウントは自社所有にする」ことが重要な理由です。代理店名義のアカウントで運用している場合、乗り換え時にデータをゼロから再構築しなければならないリスクがあります。</p>
+            </div>
+          </details>
+
+        </div>
+
+        <!-- 関連記事リンク -->
+        <div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+          <p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+          <ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+            <li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+              <a href="/column/advertising/instagram-ads-cost/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Instagram広告の費用はいくら？少額予算で始める場合の目安</a>
+            </li>
+            <li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+              <a href="/column/advertising/meta-ads-no-result/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告で成果が出ない原因10選｜改善チェックリスト付き</a>
+            </li>
+            <li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+              <a href="/column/lp-improvement/ad-click-no-inquiry/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告はクリックされるのに問い合わせが増えない原因とは？</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 著者 -->
+        <div class="article-author">
+          <div class="article-author__icon">🧑‍💻</div>
+          <div>
+            <p class="article-author__name">LnX合同会社 編集部</p>
+            <p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+          </div>
+        </div>
+
+      </article>
+    </main>
+
+    <!-- サイドバー -->
+    <aside class="article-sidebar">
+
+      <div class="sidebar-card sidebar-toc">
+        <p class="sidebar-card__title">目次</p>
+        <ol>
+          <li><a href="#cost-overview">費用構造：3つの要素</a></li>
+          <li><a href="#fee-type">料金体系の3タイプ</a></li>
+          <li><a href="#initial-cost">初期費用の相場</a></li>
+          <li><a href="#monthly-cost">月額手数料の相場</a></li>
+          <li><a href="#ad-budget">広告費の目安</a></li>
+          <li><a href="#simulation">費用シミュレーション</a></li>
+          <li><a href="#small-budget">少額予算での外注</a></li>
+          <li><a href="#choose-point">代理店選びのポイント</a></li>
+          <li><a href="#lnx-view">LnXの見解</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ol>
+      </div>
+
+      <div class="sidebar-cta">
+        <p>月3万円〜<br>Meta広告の運用代行<br>はじめませんか？</p>
+        <a href="contact.html">無料相談する</a>
+      </div>
+
+      <div class="sidebar-card">
+        <p class="sidebar-card__title">関連サービス</p>
+        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 8px;">
+          <li><a href="/service/meta-ads/" style="font-size: 13px; font-weight: 700; color: var(--brand3);">→ Meta広告運用代行</a></li>
+          <li><a href="/service/web-ads/" style="font-size: 13px; font-weight: 700; color: rgba(15,23,42,.68);">→ Web広告運用代行</a></li>
+          <li><a href="/service/lp/" style="font-size: 13px; font-weight: 700; color: rgba(15,23,42,.68);">→ LP制作・改善支援</a></li>
+          <li><a href="/service/analytics/" style="font-size: 13px; font-weight: 700; color: rgba(15,23,42,.68);">→ GA4・GTM計測設定</a></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>© 2026 LnX合同会社</div>
+      <div><a href="privacy.html">プライバシーポリシー</a></div>
+    </div>
+  </footer>
+
+  <div class="drawer-overlay" id="js-overlay" hidden></div>
+  <nav class="drawer" id="js-drawer" aria-hidden="true">
+    <ul class="drawer__list">
+      <li><a href="index.html">TOP</a></li>
+      <li><a href="company.html">会社概要</a></li>
+      <li><a href="services.html">事業内容</a></li>
+      <li><a href="works.html">実績</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <script src="assets/js/main.js?v=3" defer></script>
+
+</body>
+</html>
