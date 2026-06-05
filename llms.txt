@@ -1,0 +1,129 @@
+# LnX合同会社 – コラム記事インデックス
+
+> LnX合同会社（https://lnx.co.jp）は、中小企業向けにWeb広告運用・SNS運用・LP改善・GA4計測設定をワンストップで支援するWebマーケティング会社です。
+> 本ファイルは、AI（LLM）がサイトのコンテンツ構造を効率的に把握するためのインデックスです。
+
+## 会社情報
+
+- **会社名**: LnX合同会社
+- **サイト**: https://lnx.co.jp
+- **事業内容**: Web広告運用代行（Google広告・Meta広告）、Instagram運用代行、LP制作・改善、GA4・GTM計測設定
+- **対象顧客**: 中小企業・スタートアップ・個人事業主
+- **拠点**: 東京都渋谷区
+
+## 主要ページ
+
+- [TOP](https://lnx.co.jp/) – サービス概要・実績・お問い合わせ
+- [会社概要](https://lnx.co.jp/company.html) – 会社情報・代表者プロフィール
+- [事業内容](https://lnx.co.jp/services.html) – 提供サービスの詳細
+- [実績](https://lnx.co.jp/works.html) – 支援事例・成果
+- [お問い合わせ](https://lnx.co.jp/contact.html) – 無料相談フォーム
+
+## コラム記事
+
+中小企業向けのWebマーケティング実務ノウハウを30本のコラムで発信しています。
+
+### 広告運用
+
+- [広告運用レポートでは何を見るべき？初心者向けに主要指標を解説](https://lnx.co.jp/column/advertising/ad-report-metrics/)
+  広告運用レポートで確認すべき主要指標（CTR・CPC・CVR・CPA・ROAS・CPM）を初心者向けにわかりやすく解説。指標の計算式・目安・改善の読み方と、「数字を関係性で見る」思考法を実務視点でまとめています。
+
+- [CPAが高い原因とは？広告改善で見るべきポイントを徹底解説](https://lnx.co.jp/column/advertising/cpa-high-cause/)
+  Web広告のCPA（顧客獲得単価）が高い・悪化している原因を「CPC・CTR・CVR・LP・計測」の5軸で分解して解説。Google広告・Meta広告それぞれの改善ポイントと、業種別CPA目安も合わせてまとめています。
+
+- [Instagram広告の費用はいくら？少額予算で始める場合の目安](https://lnx.co.jp/column/advertising/instagram-ads-cost/)
+  Instagram広告にかかる費用を課金方式・業種別単価・予算規模別に徹底解説。少額予算（月3万〜10万円）でも成果を出すための考え方と、運用代行を依頼した場合の総コストもシミュレーションします。
+
+- [リスティング広告運用代行の費用相場はいくら？手数料・広告費・業種別に解説](https://lnx.co.jp/column/advertising/listing-ads-cost/)
+  リスティング広告（Google広告・Yahoo!広告）の運用代行にかかる費用を、手数料体系・業種別クリック単価・広告費規模別に徹底解説。初期費用・月額手数料・広告費の総コストシミュレーションや、代理店選びの注意点もまとめています。
+
+- [Meta広告運用代行の費用相場は？月額・手数料・広告費別に解説](https://lnx.co.jp/column/advertising/meta-ads-cost/)
+  Meta広告（Instagram・Facebook広告）の運用代行費用を月額・手数料・広告費規模別に徹底解説。相場感の把握から代理店の選び方、少額予算での外注ポイントまで実務視点でまとめました。
+
+- [Meta広告で成果が出ない原因10選｜改善チェックリスト付き](https://lnx.co.jp/column/advertising/meta-ads-no-result/)
+  Meta広告（Instagram・Facebook広告）で成果が出ない原因を10個に分類して解説。計測・クリエイティブ・LP・学習フェーズ・ターゲティングなど領域別に原因を特定し、明日から使える改善チェックリストもまとめています。
+
+- [Meta広告とGoogle広告の違い｜どちらを先に始めるべきか徹底比較](https://lnx.co.jp/column/advertising/meta-vs-google-ads/)
+  Meta広告（Instagram・Facebook）とGoogle広告の違いを仕組み・費用・CVR・向いている業種の観点で徹底比較。どちらを先に始めるべきかの判断基準と、2026年最新の媒体環境の変化も解説します。
+
+- [広告運用代行を外注するメリット・デメリット｜自社運用との比較と判断基準](https://lnx.co.jp/column/advertising/outsource-ad-merit-demerit/)
+  広告運用を代理店に外注する場合のメリット・デメリットを、自社運用（インハウス）との徹底比較で解説。コスト・ノウハウ・スピード・リスクの4軸で整理し、外注すべきケース・しない方がいいケースの判断基準もまとめています。
+
+### Webマーケ戦略
+
+- [Webマーケティング会社に相談する前に整理すべきこと｜チェックリスト付き](https://lnx.co.jp/column/web-marketing/before-consulting-checklist/)
+  Webマーケティング会社に相談・依頼する前に整理しておくべき情報（目標・予算・現状・課題）を解説。事前準備を整えることで相談の質が上がり、最適な提案を受けやすくなる理由と、確認すべき5つの事項をチェックリスト付きでまとめています。
+
+- [Web広告代理店の選び方｜失敗しないために見るべきポイント10選](https://lnx.co.jp/column/web-marketing/how-to-choose-ad-agency/)
+  Web広告代理店を選ぶときに失敗しないための10のチェックポイントを解説。アカウント所有権・担当者の実力・費用体系の透明性・LP対応など、実務視点での見極め方と、よくある失敗事例もあわせて紹介します。
+
+- [Webマーケティング支援会社の選び方｜依頼前に見るべきポイント](https://lnx.co.jp/column/web-marketing/how-to-choose-marketing-company/)
+  Webマーケティング支援会社を選ぶ前に知っておくべきポイントを解説。広告代理店・コンサル・ワンストップ支援の違い、費用相場、依頼前の準備、失敗しない選定基準まで、中小企業向けに実務視点でまとめました。
+
+- [マーケティング顧問の費用相場と依頼できる業務範囲](https://lnx.co.jp/column/web-marketing/marketing-consultant-fee/)
+  マーケティング顧問（外部CMO）の費用相場を契約形態・業務範囲別に解説。月額顧問契約・スポット・プロジェクト型の違い、コンサル会社とフリーランスの比較、依頼すべきかの判断基準まで中小企業向けに実務視点でまとめました。
+
+- [中小企業がWeb集客で最初に取り組むべき施策とは？優先順位と進め方](https://lnx.co.jp/column/web-marketing/sme-web-marketing-first-step/)
+  中小企業がWeb集客を始める際の優先順位を解説。LP・計測の土台整備から始め、広告・SNS・SEOの使い分け、予算別ロードマップ、よくある失敗パターンまで実務視点でまとめています。
+
+- [店舗集客に向いているWeb施策とは？広告・SNS・LPの使い分け](https://lnx.co.jp/column/web-marketing/store-web-marketing/)
+  実店舗・地域ビジネスの集客に向いているWeb施策（MEO・SNS・Web広告・LP）を使い分け方付きで解説。業種別の推奨施策、予算別のスタート方法、2026年のローカル集客トレンドまでまとめています。
+
+- [月額10万円〜30万円でできるWebマーケティング施策｜予算別の最適な使い方](https://lnx.co.jp/column/web-marketing/web-marketing-budget-plan/)
+  月額10万円・20万円・30万円のWebマーケティング予算で最大の成果を出す施策の使い方を解説。広告費と支援費の適切な配分、予算帯別のおすすめ施策の組み合わせ、費用対効果の考え方をまとめています。
+
+- [Web集客を外注するメリット・デメリットを解説｜判断基準と失敗しないポイント](https://lnx.co.jp/column/web-marketing/web-outsource-merit-demerit/)
+  Web集客（広告・SEO・SNS・LP）を外注するメリット・デメリットを実務視点で徹底解説。自社運用（内製化）との比較、外注すべきケース・すべきでないケースの判断基準、失敗パターンと回避策まで中小企業向けにまとめています。
+
+### SNS運用
+
+- [Instagramのフォロワーが増えない原因と改善策｜2026年最新アルゴリズム対応版](https://lnx.co.jp/column/sns-marketing/instagram-follower-not-growing/)
+  Instagramのフォロワーが増えない原因を2026年最新アルゴリズムをもとに解説。リール・カルーセル・ハッシュタグ・プロフィール・投稿戦略など領域別の改善策と、フォロワーを「集客」につなげる実務視点のポイントをまとめています。
+
+- [Instagram運用代行の費用相場は？依頼できる業務範囲も解説](https://lnx.co.jp/column/sns-marketing/instagram-operation-cost/)
+  Instagram運用代行の費用相場を業務範囲・依頼先タイプ別に徹底解説。投稿代行のみ・撮影込み・広告運用まで、月額の目安と総コストシミュレーション、代理店選びの判断基準まで実務視点でまとめています。
+
+- [飲食店がInstagram集客で成果を出すための投稿設計｜来店につながる実践ガイド](https://lnx.co.jp/column/sns-marketing/restaurant-instagram-strategy/)
+  飲食店がInstagramで来店・予約につなげるための投稿設計を解説。リール・カルーセル・ストーリーズの使い分け、撮影のコツ、プロフィール設計、フォロワーを顧客に変える導線設計まで2026年最新版でまとめています。
+
+- [SNS運用代行と広告運用代行の違い｜どちらを優先すべき？](https://lnx.co.jp/column/sns-marketing/sns-vs-ads/)
+  SNS運用代行と広告運用代行の違いを目的・費用・効果期間・向いているケースで徹底比較。中小企業がどちらを先に始めるべきかの判断基準と、両方を組み合わせて最大化する戦略を実務視点で解説します。
+
+### LP改善
+
+- [広告はクリックされるのに問い合わせが増えない原因とは？](https://lnx.co.jp/column/lp-improvement/ad-click-no-inquiry/)
+  広告のCTRは高いのに問い合わせ・CVが増えない原因を徹底解説。LPのCVR低下の主な原因（表示速度・メッセージミスマッチ・フォームの問題・信頼性不足など）と、実務的な改善手順を診断フローつきでまとめています。
+
+- [広告運用とLP改善はセットで考えるべき理由｜成果を最大化する一体型運用](https://lnx.co.jp/column/lp-improvement/ad-lp-integration/)
+  広告運用とLP改善を別々に考えることで起きる失敗と、一体型で運用することで成果が最大化する理由を解説。CPA改善の数値シミュレーション、分業体制の落とし穴、広告×LP×計測を一体で管理する実務的なアプローチをまとめています。
+
+- [LPのCVRを改善する方法｜広告成果を上げるチェックポイント完全版](https://lnx.co.jp/column/lp-improvement/lp-cvr-improvement/)
+  LP（ランディングページ）のCVRを改善する方法を、ファーストビュー・CTA・フォーム・信頼性・モバイル最適化など領域別に解説。今すぐ実践できる改善施策とチェックリスト、A/Bテストの進め方まで実務視点でまとめています。
+
+- [フォーム離脱を減らすには？入力率を上げるEFO改善方法｜チェックリスト付き](https://lnx.co.jp/column/lp-improvement/lp-form-exit-improvement/)
+  フォームの離脱率を下げてCVRを改善するEFO（入力フォーム最適化）の方法を徹底解説。入力項目の削減・エラー設計・スマホ最適化・安心要素・チャット型フォームまで、実践的な改善施策とチェックリストをまとめています。
+
+- [LP制作・改善の費用相場はいくら？依頼前に知るべきポイント](https://lnx.co.jp/column/lp-improvement/lp-production-cost/)
+  LP（ランディングページ）制作・改善（LPO）の費用相場を価格帯別・依頼先別に徹底解説。制作費の内訳、LPO（改善）の月額相場、広告運用と合わせた総コストシミュレーション、依頼前の準備まで実務視点でまとめました。
+
+- [採用・人材系LPで成果を出すための改善ポイント｜応募数を増やすLP設計](https://lnx.co.jp/column/lp-improvement/recruitment-lp-improvement/)
+  採用・人材系LPで応募数・CVRを改善するポイントを解説。求職者の不安解消・ファーストビュー設計・社員の声・フォーム最適化など、採用LPに特有の改善施策を実務視点でまとめています。
+
+### 計測・GA4
+
+- [広告管理画面とCRMのCV数が合わない原因とは？原因別の確認・対処法](https://lnx.co.jp/column/analytics/ad-crm-cv-gap/)
+  広告管理画面（Google広告・Meta広告）のCV数とCRM・実際の問い合わせ数が一致しない原因を徹底解説。コンバージョンカウント方式の違い・ビュースルーCV・Cookie制限・重複計測など原因別の確認手順と対処法をまとめています。
+
+- [GA4でコンバージョン計測できない原因と確認ポイント｜GTM設定トラブル対処法](https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/)
+  GA4でコンバージョン（キーイベント）が計測されない・ゼロのままになる原因を徹底解説。GTMのタグ設定ミス・イベント未登録・キーイベント未設定・反映待ちなど原因別の確認手順と対処法、デバッグビューの使い方もまとめています。
+
+- [Meta広告とGA4の数値がずれる理由とは？原因と対処法](https://lnx.co.jp/column/analytics/meta-ads-ga4-gap/)
+  Meta広告の管理画面とGA4のCV数・セッション数が一致しない原因を徹底解説。アトリビューションの違い・ビュースルーCV・ITP・Cookie制限・チャネル帰属の違いなど、原因別の確認手順と対処法を実務視点でまとめています。
+
+- [UTMパラメータとは？広告効果測定での使い方を解説｜GA4での確認手順付き](https://lnx.co.jp/column/analytics/utm-parameter-guide/)
+  UTMパラメータの基本・5種類の使い分け・設定方法をGA4での確認手順付きで解説。どの広告・どのSNS投稿からCVが発生したかを正確に把握するために必要な設定ルールと実務的な運用のコツをまとめています。
+
+---
+
+*このファイルは llms.txt 仕様（https://llmstxt.org）に準拠しています。*
+*最終更新: 2026-06-05*
