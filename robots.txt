@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://lnx.co.jp/sitemap.xml
