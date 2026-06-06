@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>Webマーケティング支援会社の選び方｜依頼前に見るべきポイント | LnX合同会社</title>
+<meta content="Webマーケティング支援会社を選ぶ前に知っておくべきポイントを解説。広告代理店・コンサル・ワンストップ支援の違い、費用相場、依頼前の準備、失敗しない選定基準まで、中小企業向けに実務視点でまとめました。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+    }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    /* 支援タイプカード */
+    .type-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin: 0 0 32px;
+    }
+    .type-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2);
+    }
+    .type-card__icon {
+      font-size: 28px; margin-bottom: 10px; display: block;
+    }
+    .type-card__name {
+      font-size: 14px; font-weight: 900; margin: 0 0 8px; color: var(--txt);
+    }
+    .type-card__desc {
+      font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0 0 10px;
+    }
+    .type-card__fee {
+      font-size: 12px; font-weight: 800; color: var(--brand3);
+      padding: 4px 8px; border-radius: 6px;
+      background: rgba(37,99,235,.08); display: inline-block;
+    }
+
+    /* 準備ステップ */
+    .step-list { display: grid; gap: 14px; margin: 0 0 28px; }
+    .step-item {
+      display: grid; grid-template-columns: 48px 1fr;
+      gap: 16px; align-items: flex-start;
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2);
+    }
+    .step-item__num {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 16px; color: #fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      flex: 0 0 auto;
+    }
+    .step-item__body h4 { margin: 0 0 6px; font-size: 15px; font-weight: 900; }
+    .step-item__body p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* 選定基準カード */
+    .criteria-list { display: grid; gap: 16px; margin: 0 0 32px; }
+    .criteria-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2);
+      transition: .2s ease;
+    }
+    .criteria-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .criteria-item__icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: grid; place-items: center; flex: 0 0 auto;
+      background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(124,58,237,.10));
+      font-size: 18px;
+    }
+    .criteria-item__body h4 { margin: 0 0 6px; font-size: 15px; font-weight: 900; }
+    .criteria-item__body p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    /* チェックリスト */
+    .checklist {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14.5px; line-height: 1.7;
+    }
+    .checklist li::before {
+      content: "□"; font-size: 16px; color: var(--brand3);
+      flex: 0 0 auto; margin-top: 1px; font-weight: 900;
+    }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+      .type-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .step-item { grid-template-columns: 40px 1fr; gap: 12px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+    }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Webマーケティング支援会社の選び方｜依頼前に見るべきポイント",
+  "description": "Webマーケティング支援会社を選ぶ前に知っておくべきポイントを解説。広告代理店・コンサル・ワンストップ支援の違い、費用相場、依頼前の準備、失敗しない選定基準まで、中小企業向けに実務視点でまとめました。",
+  "url": "https://lnx.co.jp/column/web-marketing/how-to-choose-marketing-company/",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/web-marketing/how-to-choose-marketing-company/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Webマーケ戦略",
+      "item": "https://lnx.co.jp/column/web-marketing/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Webマーケティング支援会社の選び方｜依頼前に見るべきポイント",
+      "item": "https://lnx.co.jp/column/web-marketing/how-to-choose-marketing-company/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Webマーケティング支援を依頼するのに適した時期はありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "業種によって異なりますが、一般的には繁忙期の2〜3ヶ月前が理想的です。広告運用は学習期間が1〜2ヶ月かかること、LP改善や計測設定にも準備期間が必要なため、「来月から集客を増やしたい」では間に合わないケースがあります。特に季節性の高い商材（アパレル・飲食・観光など）は早めの動き出しが重要です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "社内にWebマーケティングの知識がほとんどない状態で依頼しても大丈夫ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "知識がなくても依頼できます。ただし「全部丸投げ」にするのではなく、定期的な報告を受けて内容を理解しようとする姿勢が重要です。知識ゼロでも「なぜこの施策をするのか」「この数値が悪い理由は何か」を質問し続けることで、徐々に判断力が身についてきます。いい支援会社は、そのプロセスを丁寧にサポートしてくれます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "複数の施策（広告・SEO・SNSなど）を同時に依頼すべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "予算と社内リソースに余裕がある場合を除き、最初は一施策に集中することをおすすめします。複数施策を同時に走らせると、どれが効いているか判断できなくなり、改善のPDCAが回りにくくなります。最も成果に直結する施策を1つ選んで安定させてから、次の施策を追加していく順番が効率的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支援会社を変更（乗り換え）する場合、どのくらいの準備期間が必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最低でも1〜2ヶ月の準備期間を見ておきましょう。現在の会社への解約通知（1〜2ヶ月前が一般的）、新しい会社へのヒアリング・提案・契約、既存アカウントのデータ引き継ぎ（自社名義であれば比較的スムーズ）などの手続きが発生します。「成果が出ない」と感じたら、最低契約期間が終わる2〜3ヶ月前から動き始めることが実務的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "月10万円以下の予算でもWebマーケティング支援を依頼できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "依頼できる会社は存在しますが、選択肢は絞られます。月10万円以下では「広告費＋支援費用」をすべてカバーするのが難しいため、まず「LP・計測の整備」だけを依頼してから広告をスタートする、あるいは特定の施策（SNS運用のみなど）に絞って依頼するのが現実的です。LnXでは月額3万円〜の支援プランがあり、少額でも成果を出せる体制でご支援しています。"
+      }
+    }
+  ]
+}</script></head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- ===== Header ===== -->
+<header class="nav">
+<div class="container nav__inner">
+<a class="brand" href="https://lnx.co.jp/index.html">
+<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
+<div class="brand__name">LnX合同会社</div>
+</a>
+<nav class="nav__menu">
+<a href="https://lnx.co.jp/index.html">TOP</a>
+<a href="https://lnx.co.jp/company.html">会社概要</a>
+<a href="https://lnx.co.jp/services.html">事業内容</a>
+<a href="https://lnx.co.jp/works.html">実績</a>
+</nav>
+<div class="nav__right">
+<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
+</div>
+<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<p class="article-hero__kicker"><span></span>Webマーケ戦略</p>
+<h1 class="article-hero__title">Webマーケティング支援会社の選び方<br/>｜依頼前に見るべきポイント</h1>
+<div class="article-hero__meta">
+<time datetime="2026-06-03">2026年6月3日</time>
+<span class="article-hero__tag">Webマーケ戦略</span>
+<span class="article-hero__tag">支援会社</span>
+<span class="article-hero__tag">選び方</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>「Webマーケティング支援会社」「広告代理店」「コンサル」の違いと使い分け</li>
+<li>支援タイプ別の費用相場（広告運用・SEO・ワンストップ支援など）</li>
+<li>依頼前に自社で整理しておくべき5つのこと</li>
+<li>失敗しない支援会社の選定基準7つ</li>
+<li>中小企業が陥りがちな「選び方の落とし穴」と回避策</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#what-is">Webマーケティング支援会社とは？広告代理店・コンサルとの違い</a></li>
+<li><a href="#type">支援タイプ別の特徴と費用相場</a></li>
+<li><a href="#prepare">依頼前に自社で整理すべき5つのこと</a></li>
+<li><a href="#criteria">失敗しない選定基準7つ</a></li>
+<li><a href="#pitfall">中小企業が陥りがちな落とし穴</a></li>
+<li><a href="#checklist">依頼前の最終確認チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 1. 定義・違い ===== -->
+<h2 id="what-is">Webマーケティング支援会社とは？広告代理店・コンサルとの違い</h2>
+<p>「Webマーケティング支援会社」という言葉は広義で使われており、企業によって提供内容が大きく異なります。広告運用代行だけの会社もあれば、戦略立案からSEO・SNS・LP制作・計測まで一気通貫で支援する会社もあります。まず自社が「何を求めているか」を明確にしてから探すことが重要です。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>呼称</th>
+<th>主な支援内容</th>
+<th>向いているケース</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Web広告代理店</strong></td>
+<td>Google広告・Meta広告などの運用代行。入稿・入札・改善・レポートが中心</td>
+<td>広告運用だけを任せたい。既に戦略は決まっている</td>
+</tr>
+<tr>
+<td><strong>Webコンサルティング会社</strong></td>
+<td>戦略立案・施策設計・KPI設計。実行は自社または別途委託</td>
+<td>何をすべきか整理したい。自社に実行リソースがある</td>
+</tr>
+<tr>
+<td><strong>SEO・コンテンツ支援会社</strong></td>
+<td>SEO対策・記事制作・サイト改善。中長期の自然検索流入を強化</td>
+<td>広告に依存しない集客基盤を作りたい</td>
+</tr>
+<tr>
+<td><strong>SNS運用代行会社</strong></td>
+<td>Instagram・X・TikTokなどの投稿設計・運用・分析</td>
+<td>SNSアカウントを育てて集客につなげたい</td>
+</tr>
+<tr>
+<td><strong>ワンストップ支援会社</strong></td>
+<td>戦略〜広告・SNS・LP・計測まで複数領域を一社で対応</td>
+<td>何から手をつければいいか分からない。まとめて任せたい</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card">
+<p><strong>重要な視点：</strong>「Webマーケティング支援会社を探している」という状態は、多くの場合<strong>「何が課題かまだ明確でない」</strong>段階でもあります。まず自社の課題を整理してから探す方が、ミスマッチを防げます。次のセクションで整理の方法を解説します。</p>
+</div>
+<!-- ===== 2. 支援タイプと費用 ===== -->
+<h2 id="type">支援タイプ別の特徴と費用相場</h2>
+<div class="type-grid">
+<div class="type-card">
+<span class="type-card__icon">📢</span>
+<p class="type-card__name">Web広告運用代行</p>
+<p class="type-card__desc">Google・Meta広告などの運用実務を代行。入稿から改善まで一任できる</p>
+<span class="type-card__fee">月額：広告費の15〜25% or 固定3〜20万円</span>
+</div>
+<div class="type-card">
+<span class="type-card__icon">🔍</span>
+<p class="type-card__name">SEO・コンテンツ支援</p>
+<p class="type-card__desc">検索流入を増やすためのサイト改善・記事制作・内部対策</p>
+<span class="type-card__fee">月額：10〜50万円程度</span>
+</div>
+<div class="type-card">
+<span class="type-card__icon">📱</span>
+<p class="type-card__name">SNS運用代行</p>
+<p class="type-card__desc">Instagram・X等の投稿設計・制作・運用・フォロワー獲得支援</p>
+<span class="type-card__fee">月額：5〜30万円程度</span>
+</div>
+<div class="type-card">
+<span class="type-card__icon">📄</span>
+<p class="type-card__name">LP制作・改善支援</p>
+<p class="type-card__desc">CVRを高めるLPの設計・制作・A/Bテスト・改善提案</p>
+<span class="type-card__fee">制作：10〜100万円、改善：月5〜20万円</span>
+</div>
+<div class="type-card">
+<span class="type-card__icon">📊</span>
+<p class="type-card__name">計測・解析支援</p>
+<p class="type-card__desc">GA4・GTM・Metaピクセル設定、データ分析・レポーティング</p>
+<span class="type-card__fee">初期：10〜30万円、月次：3〜10万円</span>
+</div>
+<div class="type-card">
+<span class="type-card__icon">🎯</span>
+<p class="type-card__name">ワンストップ支援</p>
+<p class="type-card__desc">戦略〜広告・SNS・LP・計測を一社でまとめて対応</p>
+<span class="type-card__fee">月額：10〜100万円（範囲による）</span>
+</div>
+</div>
+<div class="highlight-card--success highlight-card">
+<p><strong>中小企業に多いパターン：</strong>月予算10〜50万円規模では、広告運用代行＋LP改善＋計測設定を1社にまとめて依頼する「ワンストップ型」が費用対効果の面で有利なケースが多いです。別々の会社に依頼すると連携コストとコミュニケーションコストが増大します。</p>
+</div>
+<!-- ===== 3. 依頼前の準備 ===== -->
+<h2 id="prepare">依頼前に自社で整理すべき5つのこと</h2>
+<p>支援会社に問い合わせる前に、以下の5点を自社で整理しておくと、提案の質が上がり、比較検討もしやすくなります。</p>
+<div class="step-list">
+<div class="step-item">
+<div class="step-item__num">1</div>
+<div class="step-item__body">
+<h4>現状の課題を言語化する</h4>
+<p>「集客できていない」ではなく、「月の問い合わせが5件しかない」「広告はクリックされているがCVにつながらない」「SNSフォロワーは増えているが来店につながっていない」のように、具体的な数値と症状を整理します。課題が曖昧なまま相談すると、提案が的外れになりやすいです。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">2</div>
+<div class="step-item__body">
+<h4>目標（KPI）を設定する</h4>
+<p>「問い合わせを月20件にしたい」「半年で売上を1.5倍にしたい」など、達成したい数値目標を決めておきます。目標がないと支援会社が何に向かって動けばいいか分からず、「とりあえず運用します」という状態になりがちです。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">3</div>
+<div class="step-item__body">
+<h4>予算の上限を決める</h4>
+<p>月にいくらまで使えるか（広告費＋支援費用の合計）をあらかじめ決めておきます。「予算は相談次第で」という状態では、支援会社側も提案の軸が定まらず、結果的に大きめの金額を提示されることがあります。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">4</div>
+<div class="step-item__body">
+<h4>自社で対応できる範囲を確認する</h4>
+<p>クリエイティブ素材（写真・動画）は用意できるか、担当者は週に何時間をマーケティングに割けるか、社内で決裁できるスピードはどのくらいかを把握しておきます。支援会社の動きは自社の対応速度に左右されます。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">5</div>
+<div class="step-item__body">
+<h4>優先する施策領域を絞る</h4>
+<p>「広告・SEO・SNS・LP・計測を全部やりたい」という状態で相談すると、提案が広がりすぎて絞れなくなります。まず「今一番成果に直結する施策はどれか」を仮でも決めてから相談すると、議論が実務的になります。</p>
+</div>
+</div>
+</div>
+<!-- ===== 4. 選定基準 ===== -->
+<h2 id="criteria">失敗しない選定基準7つ</h2>
+<div class="criteria-list">
+<div class="criteria-item">
+<div class="criteria-item__icon">🎯</div>
+<div class="criteria-item__body">
+<h4>自社の課題・業種と支援会社の得意領域が一致しているか</h4>
+<p>BtoB企業に強い会社・店舗集客に強い会社・EC特化の会社など、支援会社によって得意領域は異なります。「Webマーケ全般対応」より、自社の業種・課題に近い実績を持つ会社の方が立ち上がりが速く、的外れな提案が少なくなります。</p>
+</div>
+</div>
+<div class="criteria-item">
+<div class="criteria-item__icon">⚡</div>
+<div class="criteria-item__body">
+<h4>戦略立案から実行まで一貫して対応できるか</h4>
+<p>「戦略は提案するが実行は自社で」というコンサル型では、社内にリソースがない中小企業はすぐ行き詰まります。戦略設計から実務実行（広告入稿・投稿作成・LP改善など）まで一気通貫で動いてくれる会社かを確認しましょう。</p>
+</div>
+</div>
+<div class="criteria-item">
+<div class="criteria-item__icon">📈</div>
+<div class="criteria-item__body">
+<h4>成果にコミットする姿勢があるか</h4>
+<p>「まずやってみましょう」「3ヶ月様子を見ましょう」だけで改善仮説がない会社は要注意です。初回提案から「この課題に対してこの施策をこの順番で進める」という具体的な方針が語れる会社を選びましょう。</p>
+</div>
+</div>
+<div class="criteria-item">
+<div class="criteria-item__icon">🔍</div>
+<div class="criteria-item__body">
+<h4>広告以外（LP・計測・SNS）への視点があるか</h4>
+<p>Webマーケティングの成果は広告単体では決まりません。LPのCVR・計測の正確さ・SNSとの連携など複合的な要因で決まります。広告だけでなく周辺領域にも目を向けて提案してくれる会社は、長期的に成果が出しやすいです。</p>
+</div>
+</div>
+<div class="criteria-item">
+<div class="criteria-item__icon">📋</div>
+<div class="criteria-item__body">
+<h4>具体的な実績・事例を開示しているか</h4>
+<p>「支援実績〇〇社以上」だけでなく、「どの業種で・どんな課題に対して・どんな施策で・数値がどう改善したか」まで語れる会社を選びましょう。守秘義務で開示できない場合は概要レベルでも確認します。</p>
+</div>
+</div>
+<div class="criteria-item">
+<div class="criteria-item__icon">💬</div>
+<div class="criteria-item__body">
+<h4>コミュニケーションのスピードと質</h4>
+<p>初回問い合わせから提案までのレスポンス速度・回答の具体性・担当者の理解度は、その後の運用品質を予測する指標です。「定型的な回答しか返ってこない」「聞いたことに直接答えない」は要注意サインです。</p>
+</div>
+</div>
+<div class="criteria-item">
+<div class="criteria-item__icon">💰</div>
+<div class="criteria-item__body">
+<h4>費用体系が透明で、総コストが比較できるか</h4>
+<p>「別途費用が発生する場合があります」だけの見積もりは論外です。初期費用・月額費用・追加費用の発生条件がすべて書面で明示されているかを確認します。複数社の総コスト（12ヶ月換算）を比較することも忘れずに。</p>
+</div>
+</div>
+</div>
+<!-- ===== 5. 落とし穴 ===== -->
+<h2 id="pitfall">中小企業が陥りがちな落とし穴</h2>
+<h3>落とし穴① 「有名な会社だから安心」という思い込み</h3>
+<p>大手の支援会社・有名な代理店に依頼しても、実際に担当するのは経験の浅い担当者というケースは珍しくありません。中小企業の月広告費30〜50万円規模の案件は、大手にとっては「小口案件」として優先度が下がりやすいです。会社の規模より担当者の実力と案件への優先度を見極めることが重要です。</p>
+<h3>落とし穴② 「全部まとめてお任せ」で丸投げ状態になる</h3>
+<p>支援会社に全部任せることで社内にナレッジが一切蓄積されず、乗り換えるたびにゼロスタートになる状態に陥るケースがあります。月次レポートを「読むだけ」にせず、「なぜこの施策をするのか」を都度確認して自社の理解を深めることが重要です。</p>
+<h3>落とし穴③ 「安い方が得」という費用だけの比較</h3>
+<p>月額手数料が安くても、改善の頻度が低ければトータルで損をします。費用の比較は「月額手数料」だけでなく、「その費用で何をしてもらえるか」の内訳で比較することが本質です。「安くて動かない代理店」より「適正価格で週次改善してくれる代理店」の方が費用対効果は高くなります。</p>
+<h3>落とし穴④ 「まず3ヶ月試してみよう」で検証期間が不明確</h3>
+<p>「3ヶ月後に何の数値がどのくらい改善されていれば合格か」を最初に合意していないと、3ヶ月後に成果を評価できません。契約前に「この期間でこの指標をこの水準にする」という目標を明文化しておきましょう。</p>
+<div class="highlight-card--warning highlight-card">
+<p><strong>最も多い失敗パターン：</strong>課題が曖昧なまま「集客を改善したい」とだけ伝えて依頼 → 支援会社が広めに提案 → 複数施策を同時スタート → どれが効いているか分からない → 半年後も成果が見えない。<strong>最初に課題・目標・優先順位を絞ることが、最良の失敗防止策</strong>です。</p>
+</div>
+<!-- ===== 6. 最終チェックリスト ===== -->
+<h2 id="checklist">依頼前の最終確認チェックリスト</h2>
+<div class="checklist">
+<p class="checklist__title">支援会社に依頼する前に確認しましょう</p>
+<ul>
+<li>自社の課題を「具体的な数値と症状」で言語化できている</li>
+<li>達成したいKPI（問い合わせ数・CPA・売上など）を設定している</li>
+<li>月の予算上限（広告費＋支援費用の合計）を決めている</li>
+<li>優先する施策領域を仮でも絞り込んでいる</li>
+<li>複数社（最低2〜3社）に見積もりを依頼し、総コストと支援内容で比較している</li>
+<li>担当者の実力・実績を直接確認した</li>
+<li>「3ヶ月後にこの指標がこの水準になれば継続する」という評価基準を合意した</li>
+<li>契約書に最低期間・解約条件・データ引き渡し方法が明記されている</li>
+</ul>
+</div>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">WEB集客 支援</p>
+<h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">「何から始めればいい？」という段階からご相談ください</h2>
+<p class="article-cta__lead">LnXは広告・LP・計測・SNSをワンストップで支援。課題の整理から一緒に取り組みます。まずは現状のヒアリングから。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">Web集客を無料相談する</a>
+</div>
+<!-- ===== 7. LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>私たちが相談を受けるとき、最初に必ず確認するのは「現状の数値」と「一番困っていること」です。「集客を改善したい」という抽象的な要望から始まるご相談でも、ヒアリングを通じて「広告はクリックされているがCVしない」→「LPのCVRが0.5%しかない」→「まずLPを直すことが最優先」という具体的な優先順位が見えてきます。</p>
+<p>LnXが他の支援会社と異なる点は、<strong>「広告・LP・計測・SNSを分断せず、一気通貫で見ること」</strong>です。広告代理店に広告を任せ、制作会社にLPを任せ、別会社に計測を任せると、責任の分散が起きて「誰も全体を最適化しない」状態になります。中小企業にとって最も効率的なのは、これらを一社でまとめて管理することだと私たちは考えています。</p>
+<p>また、LnXが特に重視しているのが「依頼者の理解を育てること」です。ブラックボックスな運用ではなく、毎週の数値共有と「なぜこうしたか」の説明を通じて、発注者側にもマーケティングの判断力が身についていく。そういう関係性が、長期的な成果につながると信じています。</p>
+<!-- ===== 8. FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              Webマーケティング支援を依頼するのに適した時期はありますか？
+            </summary>
+<div class="article-faq__body">
+<p>業種によって異なりますが、一般的には繁忙期の2〜3ヶ月前が理想的です。広告運用は学習期間が1〜2ヶ月かかること、LP改善や計測設定にも準備期間が必要なため、「来月から集客を増やしたい」では間に合わないケースがあります。特に季節性の高い商材（アパレル・飲食・観光など）は早めの動き出しが重要です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              社内にWebマーケティングの知識がほとんどない状態で依頼しても大丈夫ですか？
+            </summary>
+<div class="article-faq__body">
+<p>知識がなくても依頼できます。ただし「全部丸投げ」にするのではなく、定期的な報告を受けて内容を理解しようとする姿勢が重要です。知識ゼロでも「なぜこの施策をするのか」「この数値が悪い理由は何か」を質問し続けることで、徐々に判断力が身についてきます。いい支援会社は、そのプロセスを丁寧にサポートしてくれます。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              複数の施策（広告・SEO・SNSなど）を同時に依頼すべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>予算と社内リソースに余裕がある場合を除き、最初は一施策に集中することをおすすめします。複数施策を同時に走らせると、どれが効いているか判断できなくなり、改善のPDCAが回りにくくなります。最も成果に直結する施策を1つ選んで安定させてから、次の施策を追加していく順番が効率的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              支援会社を変更（乗り換え）する場合、どのくらいの準備期間が必要ですか？
+            </summary>
+<div class="article-faq__body">
+<p>最低でも1〜2ヶ月の準備期間を見ておきましょう。現在の会社への解約通知（1〜2ヶ月前が一般的）、新しい会社へのヒアリング・提案・契約、既存アカウントのデータ引き継ぎ（自社名義であれば比較的スムーズ）などの手続きが発生します。「成果が出ない」と感じたら、最低契約期間が終わる2〜3ヶ月前から動き始めることが実務的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              月10万円以下の予算でもWebマーケティング支援を依頼できますか？
+            </summary>
+<div class="article-faq__body">
+<p>依頼できる会社は存在しますが、選択肢は絞られます。月10万円以下では「広告費＋支援費用」をすべてカバーするのが難しいため、まず「LP・計測の整備」だけを依頼してから広告をスタートする、あるいは特定の施策（SNS運用のみなど）に絞って依頼するのが現実的です。LnXでは月額3万円〜の支援プランがあり、少額でも成果を出せる体制でご支援しています。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/web-marketing/how-to-choose-ad-agency/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Web広告代理店の選び方｜失敗しないために見るべきポイント10選</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/outsource-ad-merit-demerit/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告運用代行を外注するメリット・デメリット｜自社運用との比較と判断基準</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/web-marketing/sme-web-marketing-first-step/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 中小企業がWeb集客で最初に取り組むべき施策とは？</a>
+</li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#what-is">支援会社の種類と違い</a></li>
+<li><a href="#type">タイプ別特徴と費用相場</a></li>
+<li><a href="#prepare">依頼前に整理すべき5つ</a></li>
+<li><a href="#criteria">失敗しない選定基準7つ</a></li>
+<li><a href="#pitfall">陥りがちな落とし穴</a></li>
+<li><a href="#checklist">依頼前の最終確認</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>「何から始めれば？」<br/>まずLnXへご相談を</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+<div class="container footer__grid">
+<div>© 2026 LnX合同会社</div>
+<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+</div>
+</footer>
+<div class="drawer-overlay" hidden="" id="js-overlay"></div>
+<nav aria-hidden="true" class="drawer" id="js-drawer">
+<ul class="drawer__list">
+<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+<li><a href="https://lnx.co.jp/works.html">実績</a></li>
+<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>

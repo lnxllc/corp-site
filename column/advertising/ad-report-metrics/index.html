@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>広告運用レポートでは何を見るべき？初心者向けに主要指標を解説 | LnX合同会社</title>
+<meta content="広告運用レポートで確認すべき主要指標（CTR・CPC・CVR・CPA・ROAS・CPM）を初心者向けにわかりやすく解説。指標の計算式・目安・改善の読み方と、「数字を関係性で見る」思考法を実務視点でまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 指標カード */
+    .metric-list { display: grid; gap: 24px; margin: 0 0 32px; }
+    .metric-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; transition: .2s ease; }
+    .metric-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .metric-card__head { display: flex; align-items: center; gap: 16px; padding: 16px 22px; background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.05)); border-bottom: 1px solid rgba(15,23,42,.08); }
+    .metric-card__badge { padding: 6px 14px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-weight: 900; font-size: 15px; letter-spacing: .04em; flex: 0 0 auto; }
+    .metric-card__name { font-size: 15px; font-weight: 900; margin: 0; color: var(--txt); }
+    .metric-card__name span { font-size: 13px; font-weight: 500; color: var(--soft); margin-left: 8px; }
+    .metric-card__body { padding: 18px 22px; display: grid; gap: 14px; }
+    .metric-card__formula { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: 10px; padding: 10px 16px; font-size: 14px; font-family: monospace; font-weight: 700; color: var(--brand3); }
+    .metric-card__desc { font-size: 14.5px; line-height: 1.85; margin: 0; }
+    .metric-card__tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .metric-tag { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; }
+    .metric-tag--bench { background: rgba(37,99,235,.08); color: var(--brand3); }
+    .metric-tag--bad { background: rgba(239,68,68,.08); color: #dc2626; }
+    .metric-tag--good { background: rgba(16,185,129,.08); color: #059669; }
+    .metric-card__action { font-size: 14px; line-height: 1.8; padding: 12px 14px; background: rgba(16,185,129,.05); border: 1px solid rgba(16,185,129,.16); border-radius: 10px; }
+    .metric-card__action::before { content: "→ 改善アクション："; font-weight: 900; color: #059669; }
+
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    /* 思考フレームカード */
+    .frame-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow2); margin: 0 0 16px; }
+    .frame-card__title { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+    .frame-card__title::before { content: ""; width: 4px; height: 18px; border-radius: 2px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: block; flex: 0 0 auto; }
+    .frame-card p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: var(--brand1); font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } .article-body { padding: 36px 0 56px; } .metric-card__head { flex-wrap: wrap; } }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "広告運用レポートでは何を見るべき？初心者向けに主要指標を解説",
+  "description": "広告運用レポートで確認すべき主要指標（CTR・CPC・CVR・CPA・ROAS・CPM）を初心者向けにわかりやすく解説。指標の計算式・目安・改善の読み方と、「数字を関係性で見る」思考法を実務視点でまとめています。",
+  "url": "https://lnx.co.jp/column/advertising/ad-report-metrics/",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/advertising/ad-report-metrics/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "広告運用",
+      "item": "https://lnx.co.jp/column/advertising/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "広告運用レポートでは何を見るべき？初心者向けに主要指標を解説",
+      "item": "https://lnx.co.jp/column/advertising/ad-report-metrics/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "CPAとROASはどちらで管理すればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "商材によります。EC・通販など「売上が直接計測できる」場合はROASで管理するのが適切です。問い合わせ・資料請求・予約など「CVが売上に直接つながらない」場合はCPAで管理します。同一アカウントでもECのキャンペーンはROAS、リード獲得のキャンペーンはCPAで別々に管理するのが実務的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CTRが高いのにCVが少ない場合、何が原因ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CTRが高い＝広告はクリックされているということなので、問題はLP側にあります。確認すべきは①LPのモバイル表示速度（3秒以上かかっていないか）②ファーストビューで価値が伝わっているか③フォームの入力項目が多すぎないか④広告の訴求とLPのメッセージが一致しているか（メッセージマッチ）の4点です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "品質スコアとはなんですか？上げるにはどうすればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "品質スコアはGoogle広告の独自指標で、「広告の関連性・予想CTR・LPの利便性」の3要素から1〜10で評価されます。スコアが高いほど同じ入札額でも低いCPCで表示されます。改善方法は①広告文にキーワードを自然に含める②広告グループを細かく分けてキーワードと広告文の一致度を高める③LPの表示速度と関連コンテンツを充実させるの3点が基本です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "フリークエンシーとは何ですか？何回が適切ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "フリークエンシーはMeta広告の指標で、同一ユーザーに広告が何回表示されたかの平均値です。フリークエンシーが高すぎると（目安：3〜5回以上）、同じユーザーに繰り返し同じ広告が表示されて「広告疲れ」が起き、CTRとCVRが低下します。フリークエンシーが上昇してきたら新しいクリエイティブを投入するか、オーディエンスを拡大するかを検討します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "代理店からもらうレポートに「何を追加してほしい」と言えばいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最低限のレポートには「期間のCPA・CV数・広告費・CTR・CPC・CVR」と「前週/前月との比較」が含まれているはずです。これに加えてリクエストすると良いのは①クリエイティブ別のパフォーマンス（どの素材が一番成果が出ているか）②デバイス別CPA（PCとスマホで成果差がないか）③「今週何を改善したか・来週何をするか」の一言コメントです。最後の項目が一番重要で、これがないレポートは「報告」だけで「改善につながらないレポート」です。"
+      }
+    }
+  ]
+}</script></head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<header class="nav">
+<div class="container nav__inner">
+<a class="brand" href="https://lnx.co.jp/index.html">
+<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
+<div class="brand__name">LnX合同会社</div>
+</a>
+<nav class="nav__menu">
+<a href="https://lnx.co.jp/index.html">TOP</a>
+<a href="https://lnx.co.jp/company.html">会社概要</a>
+<a href="https://lnx.co.jp/services.html">事業内容</a>
+<a href="https://lnx.co.jp/works.html">実績</a>
+</nav>
+<div class="nav__right">
+<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
+</div>
+<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header>
+<section class="article-hero">
+<div class="article-wrap">
+<p class="article-hero__kicker"><span></span>広告運用</p>
+<h1 class="article-hero__title">広告運用レポートでは何を見るべき？<br/>初心者向けに主要指標を解説</h1>
+<div class="article-hero__meta">
+<time datetime="2026-06-03">2026年6月3日</time>
+<span class="article-hero__tag">広告運用</span>
+<span class="article-hero__tag">レポート</span>
+<span class="article-hero__tag">指標</span>
+<span class="article-hero__tag">初心者</span>
+</div>
+</div>
+</section>
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>広告レポートで確認すべき主要6指標（CTR・CPC・CVR・CPA・ROAS・CPM）の意味と計算式</li>
+<li>各指標の業種別目安と「良い・悪い」の判断基準</li>
+<li>指標を「単体ではなく関係性で見る」思考フレーム</li>
+<li>「CPAが高い」「CVが少ない」などの症状から原因指標を特定する方法</li>
+<li>Google広告・Meta広告それぞれで優先的に見るべき指標の違い</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#premise">最初に知っておくべき大原則：指標は「関係性」で見る</a></li>
+<li><a href="#metrics">主要6指標の詳細解説</a></li>
+<li><a href="#diagnosis">症状から原因指標を特定する思考フレーム</a></li>
+<li><a href="#media-diff">Google広告・Meta広告で見方が変わる指標</a></li>
+<li><a href="#weekly-check">週次・月次でチェックすべき指標の優先順位</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 大原則 ===== -->
+<h2 id="premise">最初に知っておくべき大原則：指標は「関係性」で見る</h2>
+<p>広告レポートを開くと数十〜数百の指標が並んでいます。初心者が最初につまずくのは「どの数字を見れば良いか分からない」という状態です。まず理解すべき大原則は、<strong>「指標は単体で見ても意味がない。複数の指標の関係性から原因を特定することが目的」</strong>です。</p>
+<p>たとえば「CPA（顧客獲得単価）が高い」という事実だけでは改善できません。CPAを「CPC（クリック単価）÷ CVR（転換率）」に分解して初めて「CPCが高いのが原因か、CVRが低いのが原因か」が分かり、改善アクションが決まります。</p>
+<div class="highlight-card">
+<p><strong>最重要の公式：</strong><br/>CPA ＝ CPC ÷ CVR<br/><br/>CPAが高い → CPCが高い（クリエイティブ・入札の問題）か CVRが低い（LP・フォームの問題）かを切り分ける。これが広告レポートを読む基本思考です。</p>
+</div>
+<!-- ===== 主要6指標 ===== -->
+<h2 id="metrics">主要6指標の詳細解説</h2>
+<div class="metric-list">
+<!-- CTR -->
+<div class="metric-card">
+<div class="metric-card__head">
+<span class="metric-card__badge">CTR</span>
+<p class="metric-card__name">クリック率 <span>Click Through Rate</span></p>
+</div>
+<div class="metric-card__body">
+<div class="metric-card__formula">CTR（%）＝ クリック数 ÷ 表示回数（インプレッション数）× 100</div>
+<p class="metric-card__desc">広告が表示されたうちの何%がクリックされたかを示す指標。クリエイティブ（広告文・画像・動画）がターゲットに刺さっているかを測ります。CTRが低い＝広告が目に留まっていない、または響いていないサインです。</p>
+<div class="metric-card__tags">
+<span class="metric-tag metric-tag--bench">Google検索広告 目安：3〜10%</span>
+<span class="metric-tag metric-tag--bench">Meta広告 目安：1〜3%</span>
+<span class="metric-tag metric-tag--bad">1%未満は要改善</span>
+</div>
+<div class="metric-card__action">クリエイティブの刷新・広告文のキャッチコピー改善・ターゲットに合った訴求への変更</div>
+</div>
+</div>
+<!-- CPC -->
+<div class="metric-card">
+<div class="metric-card__head">
+<span class="metric-card__badge">CPC</span>
+<p class="metric-card__name">クリック単価 <span>Cost Per Click</span></p>
+</div>
+<div class="metric-card__body">
+<div class="metric-card__formula">CPC（円）＝ 広告費 ÷ クリック数</div>
+<p class="metric-card__desc">1クリックあたりにかかった費用。CPCが高いと、同じ予算でLP到達できるユーザー数が少なくなります。CPCはCTR・品質スコア・競合の入札額・キーワードの競合度によって変動します。</p>
+<div class="metric-card__tags">
+<span class="metric-tag metric-tag--bench">業種によって大きく差あり（50円〜数千円）</span>
+<span class="metric-tag metric-tag--bad">CPA目標の1/5以上は要注意</span>
+</div>
+<div class="metric-card__action">品質スコアの改善（広告文とLPの関連性向上）・除外キーワードの追加・入札戦略の見直し・CTRを上げてCPCを下げる</div>
+</div>
+</div>
+<!-- CVR -->
+<div class="metric-card">
+<div class="metric-card__head">
+<span class="metric-card__badge">CVR</span>
+<p class="metric-card__name">転換率（コンバージョン率） <span>Conversion Rate</span></p>
+</div>
+<div class="metric-card__body">
+<div class="metric-card__formula">CVR（%）＝ コンバージョン数 ÷ クリック数 × 100</div>
+<p class="metric-card__desc">広告をクリックしたユーザーのうち何%がCVしたかを示します。CVRは広告の質ではなく<strong>LPの質</strong>を反映する指標です。CTRが高くCVRが低い場合、「広告は機能しているがLPで離脱している」状態を示します。</p>
+<div class="metric-card__tags">
+<span class="metric-tag metric-tag--bench">BtoB問い合わせ：1〜3%</span>
+<span class="metric-tag metric-tag--bench">EC購入：1〜3%</span>
+<span class="metric-tag metric-tag--bench">無料体験/相談：3〜8%</span>
+<span class="metric-tag metric-tag--bad">同業他社比較で半分以下は要改善</span>
+</div>
+<div class="metric-card__action">LPのファーストビュー改善・表示速度の改善・フォームの最適化（EFO）・メッセージマッチの確認</div>
+</div>
+</div>
+<!-- CPA -->
+<div class="metric-card">
+<div class="metric-card__head">
+<span class="metric-card__badge">CPA</span>
+<p class="metric-card__name">顧客獲得単価 <span>Cost Per Acquisition</span></p>
+</div>
+<div class="metric-card__body">
+<div class="metric-card__formula">CPA（円）＝ 広告費 ÷ コンバージョン数　＝　CPC ÷ CVR</div>
+<p class="metric-card__desc">1件のCVを獲得するためにかかった費用。広告運用の費用対効果を評価する最も重要な指標のひとつです。CPAの目標値は「受注単価 × 受注率 × 利益率」で逆算します。CPAの良し悪しは絶対値ではなくビジネスモデルとの比較で判断します。</p>
+<div class="metric-card__tags">
+<span class="metric-tag metric-tag--bench">許容CPA：受注単価×受注率×利益率</span>
+<span class="metric-tag metric-tag--bad">目標CPAの2倍超は要改善</span>
+</div>
+<div class="metric-card__action">CPCとCVRに分解して原因を特定する。CPCが問題→クリエイティブ改善。CVRが問題→LP改善</div>
+</div>
+</div>
+<!-- ROAS -->
+<div class="metric-card">
+<div class="metric-card__head">
+<span class="metric-card__badge">ROAS</span>
+<p class="metric-card__name">広告費用対効果 <span>Return On Ad Spend</span></p>
+</div>
+<div class="metric-card__body">
+<div class="metric-card__formula">ROAS（%）＝ 広告経由の売上 ÷ 広告費 × 100</div>
+<p class="metric-card__desc">広告費に対して何倍の売上が生まれたかを示します。ROAS 300%＝1万円の広告費で3万円の売上。ECなど売上が直接計測できる場合に使います。CPAは「1件あたりのコスト」、ROASは「投資倍率」と役割が異なります。</p>
+<div class="metric-card__tags">
+<span class="metric-tag metric-tag--bench">EC一般：300〜500%が目安</span>
+<span class="metric-tag metric-tag--bad">利益率20%の商材なら500%以上必要</span>
+<span class="metric-tag metric-tag--good">問い合わせ系はROASよりCPAで管理</span>
+</div>
+<div class="metric-card__action">商品単価・利益率から損益分岐ROASを算出し、それを上回るROASを目標に設定する</div>
+</div>
+</div>
+<!-- CPM -->
+<div class="metric-card">
+<div class="metric-card__head">
+<span class="metric-card__badge">CPM</span>
+<p class="metric-card__name">1,000回表示あたりコスト <span>Cost Per Mille</span></p>
+</div>
+<div class="metric-card__body">
+<div class="metric-card__formula">CPM（円）＝ 広告費 ÷ インプレッション数 × 1,000</div>
+<p class="metric-card__desc">1,000回広告が表示されるのにかかったコスト。認知拡大目的のキャンペーン（ブランドリフト・リーチ最大化）を評価する指標です。また、CPCが高い場合にCPMが正常かを確認することで「クリックされていない（CTRの問題）」か「そもそも表示されていない（オーディエンスの問題）」かを切り分けられます。</p>
+<div class="metric-card__tags">
+<span class="metric-tag metric-tag--bench">Meta広告 目安：500〜2,000円</span>
+<span class="metric-tag metric-tag--bench">Google ディスプレイ：200〜800円</span>
+</div>
+<div class="metric-card__action">CPMが高い→オーディエンスが競合と重複している可能性。ターゲティングの見直しまたはオーディエンスの拡大を検討</div>
+</div>
+</div>
+</div>
+<!-- ===== 症状から特定 ===== -->
+<h2 id="diagnosis">症状から原因指標を特定する思考フレーム</h2>
+<p>「レポートを見て何かがおかしい」と感じたとき、症状から原因指標を特定する思考フレームを身につけると改善が速くなります。</p>
+<div class="frame-card">
+<p class="frame-card__title">症状①：CPAが高い・悪化している</p>
+<p>まず CPC ÷ CVR に分解する。→ CPCが高ければクリエイティブ・入札・キーワードを確認。CVRが低ければLPの速度・ファーストビュー・フォームを確認。両方悪ければ計測設定のミスを先に疑う。</p>
+</div>
+<div class="frame-card">
+<p class="frame-card__title">症状②：クリックはあるのにCVがゼロ</p>
+<p>まず計測設定を確認（GA4・CVタグの動作テスト）。次にLPのモバイル表示・速度を確認。モバイルスコアが50点未満なら速度改善が最優先。その後フォームの入力ハードル・CTAの位置を確認。</p>
+</div>
+<div class="frame-card">
+<p class="frame-card__title">症状③：表示回数は多いのにクリックが少ない（CTRが低い）</p>
+<p>クリエイティブ・広告文がターゲットに響いていない。訴求の方向性（価格/機能/感情）を変えたテストを行う。Meta広告ではクリエイティブ疲弊（1〜2週間で摩耗）の可能性も確認する。</p>
+</div>
+<div class="frame-card">
+<p class="frame-card__title">症状④：CPCが突然高騰した</p>
+<p>競合の入札増加・品質スコアの低下・検索語句の変化の3つを確認。検索語句レポートで無関係なキーワードからのクリックが増えていないか確認し、除外キーワードを追加する。</p>
+</div>
+<div class="frame-card">
+<p class="frame-card__title">症状⑤：ROASが低い（ECの場合）</p>
+<p>ROASを「売上÷広告費」から「客単価 × CV数 ÷ 広告費」に分解する。客単価が低い（商品ミックスの問題）かCPA が高い（広告効率の問題）かを切り分け、それぞれ別の対策を打つ。</p>
+</div>
+<!-- ===== 媒体別の違い ===== -->
+<h2 id="media-diff">Google広告・Meta広告で見方が変わる指標</h2>
+<table class="cost-table">
+<thead>
+<tr>
+<th>指標</th>
+<th>Google広告（検索）</th>
+<th>Meta広告（Instagram・Facebook）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CTR</strong></td>
+<td>3〜10%が目安。低い場合は広告文の関連性かキーワードとのマッチを確認</td>
+<td>1〜3%が目安。1%未満はクリエイティブ疲弊か訴求ミスを疑う</td>
+</tr>
+<tr>
+<td><strong>CPC</strong></td>
+<td>品質スコアに強く影響される。同キーワードでもスコアが高いほどCPCが下がる</td>
+<td>CPMから算出される。オーディエンス競合度・クリエイティブ品質で変動</td>
+</tr>
+<tr>
+<td><strong>CVR</strong></td>
+<td>検索意図が明確なため比較的高め。1〜5%の業種が多い</td>
+<td>認知段階のユーザーが多いため低め。0.5〜2%の業種が多い</td>
+</tr>
+<tr>
+<td><strong>特に重視する指標</strong></td>
+<td>品質スコア・検索語句別CPA・除外KWの有無</td>
+<td>クリエイティブ別CTR・フリークエンシー（表示頻度）・ビュースルーCV比率</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--success highlight-card">
+<p><strong>媒体選択の考え方：</strong>Google検索広告は「今すぐ検索しているユーザー」に届くためCVRが高め。Meta広告は「まだ検索していないが潜在的に関心があるユーザー」に届くためCVRは低め。どちらが優れているのではなく、商材とファネルの段階によって使い分けることが重要です。</p>
+</div>
+<!-- ===== 週次・月次 ===== -->
+<h2 id="weekly-check">週次・月次でチェックすべき指標の優先順位</h2>
+<table class="cost-table">
+<thead>
+<tr>
+<th>確認頻度</th>
+<th>確認指標</th>
+<th>確認の目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>毎日</strong></td>
+<td>広告費の消化ペース・CV数・CPAの前日比</td>
+<td>異常値（CPAが突然3倍になるなど）の早期発見</td>
+</tr>
+<tr>
+<td><strong>週次</strong></td>
+<td>CTR・CPC・CVR・CPA・クリエイティブ別パフォーマンス</td>
+<td>クリエイティブ疲弊の確認・改善の優先順位決め</td>
+</tr>
+<tr>
+<td><strong>月次</strong></td>
+<td>CPA推移・ROAS推移・セグメント別（デバイス・時間帯・地域）CPA</td>
+<td>施策の成果評価・翌月の予算配分・ターゲティング改善の判断</td>
+</tr>
+<tr>
+<td><strong>四半期</strong></td>
+<td>チャネル別（Google・Meta・SEO等）のCV貢献度・予算配分の見直し</td>
+<td>中期的な施策の方向性と予算最適化</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--warning highlight-card">
+<p><strong>よくある失敗：</strong>毎日細かく数値を見て、少しの変動でもすぐに設定を変えてしまうことです。特にMeta広告の学習フェーズ中（7日〜50CV蓄積まで）は数値が不安定で、頻繁な変更が学習をリセットし悪循環を生みます。<strong>週次で傾向を見て、月次で大きな判断をする</strong>というリズムが基本です。</p>
+</div>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">WEB広告 運用代行</p>
+<h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">広告レポートの読み方から改善まで、まずご相談ください</h2>
+<p class="article-cta__lead">LnXでは週次で数値を共有し「なぜこの施策をするか」を丁寧に説明しながら改善を進めます。「レポートを受け取っても意味が分からない」という状態を解消します。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">広告運用を無料相談する</a>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>広告レポートを渡されても「何が良くて何が悪いのか分からない」という状態が続いているなら、まず覚えるべきことは一つです。<strong>「CPAが高い・悪化しているときは、必ずCPCとCVRに分解する」</strong>。この思考習慣だけで、改善の方向性が8割決まります。</p>
+<p>LnXが代理店として特に意識しているのは、「レポートを送って終わり」にしないことです。毎週の数値共有では必ず「今週この数値が変わった原因はこれで、来週これをします」という一言を添えます。数字が動いた理由と次のアクションがセットで分かることが、依頼者がレポートを読む意義です。</p>
+<p>また、初心者が最初に覚えるべき指標はCTR・CPC・CVR・CPAの4つだけで十分です。ROASやCPMは業種・目的によって使う場面が限られます。まずこの4指標の関係性（CPA＝CPC÷CVR）を体に染み込ませることが、広告運用の理解を深める最短ルートです。</p>
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              CPAとROASはどちらで管理すればいいですか？
+            </summary>
+<div class="article-faq__body">
+<p>商材によります。EC・通販など「売上が直接計測できる」場合はROASで管理するのが適切です。問い合わせ・資料請求・予約など「CVが売上に直接つながらない」場合はCPAで管理します。同一アカウントでもECのキャンペーンはROAS、リード獲得のキャンペーンはCPAで別々に管理するのが実務的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              CTRが高いのにCVが少ない場合、何が原因ですか？
+            </summary>
+<div class="article-faq__body">
+<p>CTRが高い＝広告はクリックされているということなので、問題はLP側にあります。確認すべきは①LPのモバイル表示速度（3秒以上かかっていないか）②ファーストビューで価値が伝わっているか③フォームの入力項目が多すぎないか④広告の訴求とLPのメッセージが一致しているか（メッセージマッチ）の4点です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              品質スコアとはなんですか？上げるにはどうすればいいですか？
+            </summary>
+<div class="article-faq__body">
+<p>品質スコアはGoogle広告の独自指標で、「広告の関連性・予想CTR・LPの利便性」の3要素から1〜10で評価されます。スコアが高いほど同じ入札額でも低いCPCで表示されます。改善方法は①広告文にキーワードを自然に含める②広告グループを細かく分けてキーワードと広告文の一致度を高める③LPの表示速度と関連コンテンツを充実させるの3点が基本です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              フリークエンシーとは何ですか？何回が適切ですか？
+            </summary>
+<div class="article-faq__body">
+<p>フリークエンシーはMeta広告の指標で、同一ユーザーに広告が何回表示されたかの平均値です。フリークエンシーが高すぎると（目安：3〜5回以上）、同じユーザーに繰り返し同じ広告が表示されて「広告疲れ」が起き、CTRとCVRが低下します。フリークエンシーが上昇してきたら新しいクリエイティブを投入するか、オーディエンスを拡大するかを検討します。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              代理店からもらうレポートに「何を追加してほしい」と言えばいいですか？
+            </summary>
+<div class="article-faq__body">
+<p>最低限のレポートには「期間のCPA・CV数・広告費・CTR・CPC・CVR」と「前週/前月との比較」が含まれているはずです。これに加えてリクエストすると良いのは①クリエイティブ別のパフォーマンス（どの素材が一番成果が出ているか）②デバイス別CPA（PCとスマホで成果差がないか）③「今週何を改善したか・来週何をするか」の一言コメントです。最後の項目が一番重要で、これがないレポートは「報告」だけで「改善につながらないレポート」です。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/cpa-high-cause/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ CPAが高い原因とは？広告改善で見るべきポイントを徹底解説</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/meta-ads-no-result/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告で成果が出ない原因10選｜改善チェックリスト付き</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/lp-improvement/ad-click-no-inquiry/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告はクリックされるのに問い合わせが増えない原因とは？</a>
+</li>
+</ul>
+</div>
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#premise">指標は関係性で見る</a></li>
+<li><a href="#metrics">主要6指標の解説</a></li>
+<li><a href="#diagnosis">症状から原因を特定</a></li>
+<li><a href="#media-diff">媒体別の見方の違い</a></li>
+<li><a href="#weekly-check">週次・月次の確認順位</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>広告レポートの改善<br/>まずご相談ください</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<footer class="footer">
+<div class="container footer__grid">
+<div>© 2026 LnX合同会社</div>
+<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+</div>
+</footer>
+<div class="drawer-overlay" hidden="" id="js-overlay"></div>
+<nav aria-hidden="true" class="drawer" id="js-drawer">
+<ul class="drawer__list">
+<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+<li><a href="https://lnx.co.jp/works.html">実績</a></li>
+<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>

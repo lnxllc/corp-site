@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>月額10万円〜30万円でできるWebマーケティング施策｜予算別の最適な使い方 | LnX合同会社</title>
+<meta content="月額10万円・20万円・30万円のWebマーケティング予算で最大の成果を出す施策の使い方を解説。広告費と支援費の適切な配分、予算帯別のおすすめ施策の組み合わせ、費用対効果の考え方をまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 予算プランカード */
+    .budget-plan { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); margin: 0 0 36px; }
+    .budget-plan__header {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; padding: 18px 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .budget-plan__amount { font-size: 22px; font-weight: 900; }
+    .budget-plan__label { font-size: 12px; font-weight: 800; letter-spacing: .12em; opacity: .85; }
+    .budget-plan__tag { background: rgba(255,255,255,.20); border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 800; }
+    .budget-plan__body { background: rgba(255,255,255,.96); padding: 22px 24px; border: 1px solid rgba(15,23,42,.10); border-top: none; }
+    .budget-plan__alloc { display: grid; gap: 10px; margin-bottom: 20px; }
+    .alloc-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 10px; background: rgba(37,99,235,.05); }
+    .alloc-row__name { font-size: 14px; font-weight: 700; color: var(--txt); }
+    .alloc-row__amount { font-size: 14px; font-weight: 900; color: var(--brand3); white-space: nowrap; }
+    .budget-plan__actions { border-top: 1px solid rgba(15,23,42,.08); padding-top: 16px; }
+    .budget-plan__actions h4 { font-size: 13px; font-weight: 800; color: var(--muted); letter-spacing: .10em; margin: 0 0 10px; }
+    .budget-plan__actions ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .budget-plan__actions li { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; line-height: 1.7; }
+    .budget-plan__actions li::before { content: "✓"; color: #059669; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
+
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: var(--brand1); font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } .article-body { padding: 36px 0 56px; } .budget-plan__header { flex-direction: column; align-items: flex-start; } }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "月額10万円〜30万円でできるWebマーケティング施策｜予算別の最適な使い方",
+  "description": "月額10万円・20万円・30万円のWebマーケティング予算で最大の成果を出す施策の使い方を解説。広告費と支援費の適切な配分、予算帯別のおすすめ施策の組み合わせ、費用対効果の考え方をまとめています。",
+  "url": "https://lnx.co.jp/column/web-marketing/web-marketing-budget-plan/",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/web-marketing/web-marketing-budget-plan/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Webマーケ戦略",
+      "item": "https://lnx.co.jp/column/web-marketing/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "月額10万円〜30万円でできるWebマーケティング施策｜予算別の最適な使い方",
+      "item": "https://lnx.co.jp/column/web-marketing/web-marketing-budget-plan/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "月額10万円で広告を始めた場合、何件くらいCVが取れますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "業種・商材・CVRによって大きく異なります。仮に広告費7万円・CPC200円・CVR2%の場合、月350クリック×2%＝7件のCV、CPA約1万円です。BtoBで高額商材の場合はCPCが高くなるため同じ予算でもCVが少なくなります。まず「自社の目標CPA」を決め、「目標CPA×目標CV数＝必要な広告費」と逆算して予算を設定することをおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "予算が限られている場合、広告費と支援費はどのくらいの割合にすべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一般的に「広告費70〜80%・支援費20〜30%」が目安です。月20万円なら広告費14〜16万円・手数料4〜6万円程度です。ただし初期のLP改善・計測設定は「先行投資」として一時的に支援費を多めに取ることが費用対効果を高めます。安定稼働後は広告費の比率を上げていく調整が理想的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "月20万円をGoogle広告1本に集中するのと、Google・Metaに分けるのはどちらが良いですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "月20万円の場合は1媒体集中をおすすめします。2媒体に分けると各媒体への広告費が少なくなりAIの学習データが蓄積されにくくなります。また2媒体を並行管理するには運用コストも増えます。まず1媒体で安定したCPAを確立し、月30〜50万円以上の予算が確保できた段階で2媒体目を追加するのが実務的な進め方です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SEOとコンテンツマーケティングはいつから始めるべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "広告での集客が安定軌道に乗ってから（概ね3〜6ヶ月後）追加することをおすすめします。SEO・コンテンツは効果が出るまで6ヶ月〜1年かかるため、今すぐの成果には繋がりません。ただし「長期的に広告費依存を下げる」という目標がある場合は、広告と並行して早めに始めることも有効です。月30万円以上の予算が確保できた段階からが現実的です。"
+      }
+    }
+  ]
+}</script></head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<header class="nav">
+<div class="container nav__inner">
+<a class="brand" href="https://lnx.co.jp/index.html">
+<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
+<div class="brand__name">LnX合同会社</div>
+</a>
+<nav class="nav__menu">
+<a href="https://lnx.co.jp/index.html">TOP</a>
+<a href="https://lnx.co.jp/company.html">会社概要</a>
+<a href="https://lnx.co.jp/services.html">事業内容</a>
+<a href="https://lnx.co.jp/works.html">実績</a>
+</nav>
+<div class="nav__right">
+<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
+</div>
+<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header>
+<section class="article-hero">
+<div class="article-wrap">
+<p class="article-hero__kicker"><span></span>Webマーケ戦略</p>
+<h1 class="article-hero__title">月額10万円〜30万円でできるWebマーケティング施策<br/>｜予算別の最適な使い方</h1>
+<div class="article-hero__meta">
+<time datetime="2026-06-03">2026年6月3日</time>
+<span class="article-hero__tag">Webマーケ戦略</span>
+<span class="article-hero__tag">予算</span>
+<span class="article-hero__tag">施策</span>
+</div>
+</div>
+</section>
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>月額10万円・20万円・30万円の3予算帯別のおすすめ施策の組み合わせ</li>
+<li>「広告費（媒体費）」と「支援費（代理店手数料・制作費）」の適切な配分</li>
+<li>施策ごとの費用相場と費用対効果の比較</li>
+<li>少ない予算で最大の成果を出すための考え方</li>
+<li>予算を増やすべきタイミングの判断基準</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#premise">まず「広告費」と「支援費」を分けて考える</a></li>
+<li><a href="#plan-10">月額10万円プランの使い方</a></li>
+<li><a href="#plan-20">月額20万円プランの使い方</a></li>
+<li><a href="#plan-30">月額30万円プランの使い方</a></li>
+<li><a href="#cost-roi">施策別の費用相場と費用対効果</a></li>
+<li><a href="#budget-up">予算を増やすべきタイミング</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 前提 ===== -->
+<h2 id="premise">まず「広告費」と「支援費」を分けて考える</h2>
+<p>「月額20万円のWebマーケティング予算」といっても、その中身は大きく2種類に分かれます。この違いを理解していないと、見積もり比較で混乱します。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>費用の種類</th>
+<th>内容</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>広告費（媒体費）</strong></td>
+<td>Google・Meta・Yahoo!などの広告媒体に直接支払う費用。クリックされるたびに消費される</td>
+<td>Google広告費：月15万円、Meta広告費：月10万円</td>
+</tr>
+<tr>
+<td><strong>支援費（手数料・制作費）</strong></td>
+<td>代理店への運用手数料・LP制作費・SNS運用代行費・コンサル費など。サービスへの対価</td>
+<td>広告代理店手数料：月5万円、LP改善費：月3万円</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--warning highlight-card">
+<p><strong>注意：</strong>「月額10万円で広告運用します」という見積もりに「広告費（媒体費）は別途」と書いてある場合、実際には広告費10万円＋手数料10万円で月20万円の総コストになります。見積もり比較時は必ず<strong>「広告費込みの総コスト」</strong>で比較してください。</p>
+</div>
+<!-- ===== 月額10万円プラン ===== -->
+<h2 id="plan-10">月額10万円プランの使い方</h2>
+<div class="budget-plan">
+<div class="budget-plan__header">
+<div>
+<p class="budget-plan__label">月額総予算</p>
+<p class="budget-plan__amount">10万円</p>
+</div>
+<span class="budget-plan__tag">スタート期・検証フェーズ</span>
+</div>
+<div class="budget-plan__body">
+<div class="budget-plan__alloc">
+<div class="alloc-row">
+<span class="alloc-row__name">パターンA：広告テスト集中型</span>
+<span class="alloc-row__amount">広告費7万 ＋ 手数料3万</span>
+</div>
+<div class="alloc-row">
+<span class="alloc-row__name">パターンB：LP整備 ＋ 小額広告</span>
+<span class="alloc-row__amount">LP改善5万 ＋ 広告費5万</span>
+</div>
+<div class="alloc-row">
+<span class="alloc-row__name">パターンC：SNS運用のみ</span>
+<span class="alloc-row__amount">SNS運用代行8〜10万（広告なし）</span>
+</div>
+</div>
+<div class="budget-plan__actions">
+<h4>この予算帯でできること・おすすめの進め方</h4>
+<ul>
+<li>月広告費5〜7万円は「学習データが蓄積される最低ライン」。1媒体に集中してデータを取る</li>
+<li>LPのCVRが低い場合は広告より先にLP整備に予算を使う（LP改善の方がCPA改善インパクトが大きい）</li>
+<li>SNS運用代行は広告費なしで始められるため、ビジュアル訴求できる業種（飲食・美容）に向く</li>
+<li>この予算帯では「成果を出す」より「何が効くか学ぶ」テスト期間と位置づける</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="highlight-card">
+<p><strong>月10万円の現実的な目安：</strong>広告費7万円・手数料3万円の場合、Google検索広告のCPC200円で月350クリック。CVR2%なら月7件のCV。CPA1万円。この規模感を念頭に、目標CPAと照らし合わせて現実的かを判断してください。</p>
+</div>
+<!-- ===== 月額20万円プラン ===== -->
+<h2 id="plan-20">月額20万円プランの使い方</h2>
+<div class="budget-plan">
+<div class="budget-plan__header">
+<div>
+<p class="budget-plan__label">月額総予算</p>
+<p class="budget-plan__amount">20万円</p>
+</div>
+<span class="budget-plan__tag">安定化・改善フェーズ</span>
+</div>
+<div class="budget-plan__body">
+<div class="budget-plan__alloc">
+<div class="alloc-row">
+<span class="alloc-row__name">パターンA：広告運用に集中（BtoB・検索需要あり）</span>
+<span class="alloc-row__amount">広告費15万 ＋ 手数料5万</span>
+</div>
+<div class="alloc-row">
+<span class="alloc-row__name">パターンB：広告 ＋ LP改善のセット</span>
+<span class="alloc-row__amount">広告費10万 ＋ 手数料5万 ＋ LP改善5万</span>
+</div>
+<div class="alloc-row">
+<span class="alloc-row__name">パターンC：SNS運用 ＋ Meta広告</span>
+<span class="alloc-row__amount">SNS代行8万 ＋ Meta広告費8万 ＋ 手数料4万</span>
+</div>
+</div>
+<div class="budget-plan__actions">
+<h4>この予算帯でできること・おすすめの進め方</h4>
+<ul>
+<li>広告費15万円は、月間50CV前後のデータが取れる水準（CPAによる）。AIの学習が安定してきて改善サイクルが本格化する</li>
+<li>CPAが目標に近づいてきたらLP改善に投資してCVRを上げる「広告×LP一体型」が最も費用対効果が高い</li>
+<li>飲食・美容・アパレル系はSNS運用（オーガニック）でブランディングしながらMeta広告で来店・CVを取るパターンが有効</li>
+<li>月20万円は「広告を安定軌道に乗せる」ことを最優先の目標にする</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ===== 月額30万円プラン ===== -->
+<h2 id="plan-30">月額30万円プランの使い方</h2>
+<div class="budget-plan">
+<div class="budget-plan__header">
+<div>
+<p class="budget-plan__label">月額総予算</p>
+<p class="budget-plan__amount">30万円</p>
+</div>
+<span class="budget-plan__tag">拡大・複数施策連動フェーズ</span>
+</div>
+<div class="budget-plan__body">
+<div class="budget-plan__alloc">
+<div class="alloc-row">
+<span class="alloc-row__name">パターンA：Google ＋ Meta 2媒体運用</span>
+<span class="alloc-row__amount">Google15万 ＋ Meta10万 ＋ 手数料5万</span>
+</div>
+<div class="alloc-row">
+<span class="alloc-row__name">パターンB：広告 ＋ LP改善 ＋ 計測整備</span>
+<span class="alloc-row__amount">広告費20万 ＋ LP/計測支援10万</span>
+</div>
+<div class="alloc-row">
+<span class="alloc-row__name">パターンC：広告 ＋ SNS ＋ コンテンツ</span>
+<span class="alloc-row__amount">広告費15万 ＋ SNS5万 ＋ コンテンツ10万</span>
+</div>
+</div>
+<div class="budget-plan__actions">
+<h4>この予算帯でできること・おすすめの進め方</h4>
+<ul>
+<li>2媒体並行が可能になり「GoogleでCV獲得・MetaでリターゲティングまたはSNSで認知拡大」という役割分担ができる</li>
+<li>LP改善・計測整備に月10万円以上かけられることで、広告費の費用対効果を底上げするサイクルが回り始める</li>
+<li>SNS＋コンテンツへの投資で「広告依存を将来的に下げる中長期基盤」を並行して構築できる</li>
+<li>この予算帯からは「どのチャネルのCPAが低いか」のデータが取れ始め、翌月の予算配分最適化が可能になる</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ===== 費用相場と費用対効果 ===== -->
+<h2 id="cost-roi">施策別の費用相場と費用対効果</h2>
+<table class="cost-table">
+<thead>
+<tr>
+<th>施策</th>
+<th>月額費用の目安</th>
+<th>即効性</th>
+<th>費用対効果</th>
+<th>おすすめの予算帯</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google検索広告</strong></td>
+<td>広告費5〜30万＋手数料3〜8万</td>
+<td>高い（1〜2週間）</td>
+<td>高（特に検索需要がある業種）</td>
+<td>10万円〜</td>
+</tr>
+<tr>
+<td><strong>Meta広告（Instagram）</strong></td>
+<td>広告費5〜20万＋手数料3〜8万</td>
+<td>中（2〜4週間）</td>
+<td>高（BtoC・ビジュアル訴求）</td>
+<td>10万円〜</td>
+</tr>
+<tr>
+<td><strong>LP制作・改善</strong></td>
+<td>制作：10〜50万（初回）<br/>改善：月3〜15万</td>
+<td>中（改善後から即反映）</td>
+<td>非常に高（CVR改善でCPA半減も）</td>
+<td>広告と並行して必ず投資すべき</td>
+</tr>
+<tr>
+<td><strong>SNS運用代行</strong></td>
+<td>月3〜20万</td>
+<td>低（3〜6ヶ月）</td>
+<td>中（ブランド構築・長期資産）</td>
+<td>20万円〜（広告安定後に追加）</td>
+</tr>
+<tr>
+<td><strong>GA4・計測設定</strong></td>
+<td>初期5〜20万（1回のみ）</td>
+<td>即時（設定後すぐ計測開始）</td>
+<td>非常に高（全施策の精度が上がる）</td>
+<td>最初に必ず投資すべき</td>
+</tr>
+<tr>
+<td><strong>SEO・コンテンツ</strong></td>
+<td>月10〜50万</td>
+<td>低（6ヶ月〜1年）</td>
+<td>中長期的に非常に高（広告費ゼロで集客）</td>
+<td>30万円〜（広告安定後に追加）</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--success highlight-card">
+<p><strong>費用対効果の最強の組み合わせ：</strong>「LP改善＋計測設定」に最初に投資し、次に「広告運用」を追加するのが費用対効果最大の順番です。計測なしで広告を出すと判断材料がなく、LP整備なしで広告を出すとCVRが低くてCPAが高止まりします。</p>
+</div>
+<!-- ===== 予算を増やすタイミング ===== -->
+<h2 id="budget-up">予算を増やすべきタイミング</h2>
+<p>「今の予算から増やすべきか」を判断する基準を整理します。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>状況</th>
+<th>判断</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPAが目標を達成し安定している</td>
+<td><strong>増額OK</strong></td>
+<td>同じCPAで量を増やせる。予算を増やすと比例してCVが増える状態</td>
+</tr>
+<tr>
+<td>CPAが目標より高い</td>
+<td><strong>まず改善</strong></td>
+<td>CPAが高い状態で増額すると損失が拡大するだけ。LP・計測・クリエイティブを先に改善する</td>
+</tr>
+<tr>
+<td>1媒体の広告が頭打ちになってきた</td>
+<td><strong>2媒体目を追加</strong></td>
+<td>検索ボリュームの上限に達したら、Meta広告などの別チャネルで規模を拡大する</td>
+</tr>
+<tr>
+<td>季節需要・キャンペーン直前</td>
+<td><strong>一時的に増額</strong></td>
+<td>繁忙期・キャンペーン期間は通常の1.5〜2倍の予算配分が効果的</td>
+</tr>
+<tr>
+<td>CVRが低くLP改善が必要な状態</td>
+<td><strong>広告費より先にLP改善に投資</strong></td>
+<td>CVRを上げてからでないと増額してもCPAは変わらない</td>
+</tr>
+</tbody>
+</table>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">WEB集客 支援</p>
+<h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">予算と目標に合わせた施策設計をご提案します</h2>
+<p class="article-cta__lead">LnXでは月額10万円からの小規模予算でも、広告・LP・計測を一体で設計。現状と目標をヒアリングした上で、最適な予算配分をご提案します。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">Web集客を無料相談する</a>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>「月額10〜30万円の予算でWebマーケティングを始めたい」という相談で、私たちが最初に確認することは「広告費と支援費の配分をどう考えているか」です。「月20万円の広告運用」という言葉が「広告費20万円＋手数料別途」なのか「広告費込みで総額20万円」なのかで、実態が全く異なります。</p>
+<p>また、予算が限られているほど<strong>「LP・計測の整備に先に投資する」</strong>ことの重要性が高まります。CPAが高い状態で広告費を増やしても損失が拡大するだけです。LPのCVRを上げてCPAを下げてから広告費を拡大する順番の方が、同じ総コストで圧倒的に多くのCVが取れます。</p>
+<p>LnXでは月額3万円からの支援プランで「まず計測設定とLP診断から始め、安定したら広告を追加する」という段階的アプローチを提供しています。「少ない予算で始めたい」という段階からご相談いただけます。</p>
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              月額10万円で広告を始めた場合、何件くらいCVが取れますか？
+            </summary>
+<div class="article-faq__body">
+<p>業種・商材・CVRによって大きく異なります。仮に広告費7万円・CPC200円・CVR2%の場合、月350クリック×2%＝7件のCV、CPA約1万円です。BtoBで高額商材の場合はCPCが高くなるため同じ予算でもCVが少なくなります。まず「自社の目標CPA」を決め、「目標CPA×目標CV数＝必要な広告費」と逆算して予算を設定することをおすすめします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              予算が限られている場合、広告費と支援費はどのくらいの割合にすべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>一般的に「広告費70〜80%・支援費20〜30%」が目安です。月20万円なら広告費14〜16万円・手数料4〜6万円程度です。ただし初期のLP改善・計測設定は「先行投資」として一時的に支援費を多めに取ることが費用対効果を高めます。安定稼働後は広告費の比率を上げていく調整が理想的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              月20万円をGoogle広告1本に集中するのと、Google・Metaに分けるのはどちらが良いですか？
+            </summary>
+<div class="article-faq__body">
+<p>月20万円の場合は1媒体集中をおすすめします。2媒体に分けると各媒体への広告費が少なくなりAIの学習データが蓄積されにくくなります。また2媒体を並行管理するには運用コストも増えます。まず1媒体で安定したCPAを確立し、月30〜50万円以上の予算が確保できた段階で2媒体目を追加するのが実務的な進め方です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              SEOとコンテンツマーケティングはいつから始めるべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>広告での集客が安定軌道に乗ってから（概ね3〜6ヶ月後）追加することをおすすめします。SEO・コンテンツは効果が出るまで6ヶ月〜1年かかるため、今すぐの成果には繋がりません。ただし「長期的に広告費依存を下げる」という目標がある場合は、広告と並行して早めに始めることも有効です。月30万円以上の予算が確保できた段階からが現実的です。</p>
+</div>
+
+</details></div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/web-marketing/sme-web-marketing-first-step/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 中小企業がWeb集客で最初に取り組むべき施策とは？</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/meta-ads-cost/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告運用代行の費用相場は？月額・手数料・広告費別に解説</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/lp-improvement/lp-production-cost/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ LP制作・改善の費用相場はいくら？依頼前に知るべきポイント</a>
+</li>
+</ul>
+</div>
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#premise">広告費と支援費を分けて考える</a></li>
+<li><a href="#plan-10">月10万円プラン</a></li>
+<li><a href="#plan-20">月20万円プラン</a></li>
+<li><a href="#plan-30">月30万円プラン</a></li>
+<li><a href="#cost-roi">施策別費用と費用対効果</a></li>
+<li><a href="#budget-up">予算を増やすタイミング</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>予算に合わせた施策設計<br/>まずご相談ください</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<footer class="footer">
+<div class="container footer__grid">
+<div>© 2026 LnX合同会社</div>
+<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+</div>
+</footer>
+<div class="drawer-overlay" hidden="" id="js-overlay"></div>
+<nav aria-hidden="true" class="drawer" id="js-drawer">
+<ul class="drawer__list">
+<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+<li><a href="https://lnx.co.jp/works.html">実績</a></li>
+<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>

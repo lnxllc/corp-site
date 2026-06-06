@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>Web広告代理店の選び方｜失敗しないために見るべきポイント10選 | LnX合同会社</title>
+<meta content="Web広告代理店を選ぶときに失敗しないための10のチェックポイントを解説。アカウント所有権・担当者の実力・費用体系の透明性・LP対応など、実務視点での見極め方と、よくある失敗事例もあわせて紹介します。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+    }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* ポイントカード（番号付き） */
+    .check-list { display: grid; gap: 18px; margin: 0 0 32px; }
+    .check-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      align-items: flex-start;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.96);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow2);
+      transition: .2s ease;
+    }
+    .check-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .check-item__num {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 18px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      flex: 0 0 auto;
+    }
+    .check-item__body h4 {
+      margin: 0 0 8px; font-size: 16px; font-weight: 900;
+      letter-spacing: -.01em;
+    }
+    .check-item__body p {
+      margin: 0; font-size: 14px;
+      color: rgba(15,23,42,.70); line-height: 1.8;
+    }
+    .check-item__body .tag-bad {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 10px; padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(245,158,11,.10);
+      border: 1px solid rgba(245,158,11,.22);
+      font-size: 12px; font-weight: 800; color: #d97706;
+    }
+    .check-item__body .tag-good {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 10px; padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(16,185,129,.08);
+      border: 1px solid rgba(16,185,129,.22);
+      font-size: 12px; font-weight: 800; color: #059669;
+    }
+
+    /* 失敗事例カード */
+    .failure-card {
+      border: 1px solid rgba(239,68,68,.18);
+      background: rgba(239,68,68,.04);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 0 0 18px;
+    }
+    .failure-card__title {
+      font-size: 14px; font-weight: 900;
+      color: #dc2626; margin: 0 0 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .failure-card__title::before {
+      content: "✕";
+      width: 22px; height: 22px; border-radius: 999px;
+      background: #dc2626; color: #fff;
+      font-size: 11px; font-weight: 900;
+      display: grid; place-items: center; flex: 0 0 auto;
+    }
+    .failure-card p { margin: 0 0 10px; font-size: 14px; color: rgba(15,23,42,.72); line-height: 1.8; }
+    .failure-card p:last-child { margin: 0; }
+    .failure-card .lesson {
+      font-size: 13px; font-weight: 700;
+      color: #b91c1c; padding-top: 10px;
+      border-top: 1px solid rgba(239,68,68,.18);
+    }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* 最終チェックリスト */
+    .final-checklist {
+      border: 1px solid rgba(37,99,235,.20);
+      background: rgba(37,99,235,.04);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 0 0 28px;
+    }
+    .final-checklist__title {
+      font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px;
+    }
+    .final-checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .final-checklist li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14.5px; line-height: 1.7;
+    }
+    .final-checklist li::before {
+      content: "□";
+      font-size: 16px; color: var(--brand3);
+      flex: 0 0 auto; margin-top: 1px; font-weight: 900;
+    }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .check-item { grid-template-columns: 44px 1fr; gap: 14px; }
+      .check-item__num { width: 40px; height: 40px; font-size: 16px; border-radius: 10px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+    }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Web広告代理店の選び方｜失敗しないために見るべきポイント10選",
+  "description": "Web広告代理店を選ぶときに失敗しないための10のチェックポイントを解説。アカウント所有権・担当者の実力・費用体系の透明性・LP対応など、実務視点での見極め方と、よくある失敗事例もあわせて紹介します。",
+  "url": "https://lnx.co.jp/column/web-marketing/how-to-choose-ad-agency/",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/web-marketing/how-to-choose-ad-agency/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Webマーケ戦略",
+      "item": "https://lnx.co.jp/column/web-marketing/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Web広告代理店の選び方｜失敗しないために見るべきポイント10選",
+      "item": "https://lnx.co.jp/column/web-marketing/how-to-choose-ad-agency/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "相見積もりを取ることで、代理店に嫌な顔をされることはありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "信頼できる代理店であれば、相見積もりを嫌がることはありません。むしろ「複数社と比較検討してください」と積極的に言える代理店の方が自信の表れとも言えます。相見積もりを理由に対応が悪くなる代理店は、それ自体が選ばない理由になります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "代理店の変更（乗り換え）はどのタイミングが適切ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最低契約期間が終了するタイミングが最も現実的です。ただし乗り換えを決めたら、新しい代理店への引き継ぎに1〜2ヶ月かかることを見越して早めに動くことが重要です。「成果が出ない」と感じてから動き始めると、空白期間が長くなります。また現在の代理店への解約通知期限（多くは1〜2ヶ月前）も忘れずに確認しましょう。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "小規模な代理店やフリーランスに依頼するリスクはありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "個人のスキルへの依存度が高いため、担当者の実力次第で成果が大きく変わるリスクがあります。また担当者が体調不良・急な退職などで対応できなくなった場合のバックアップ体制が薄い場合があります。一方、コミュニケーションの速さや柔軟な対応が得られるメリットもあります。依頼前に「稼働できない場合の対応」について確認しておくことをおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "代理店から「成果保証」を提示されました。信用していいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "成果保証の条件を細かく確認することが重要です。「CPA〇〇円以下を保証」という場合、その条件（LP・クリエイティブ・予算・期間など）が自社にとって現実的かを検討しましょう。また「保証を下回った場合の対応」（返金か追加配信か）の内容も書面で確認が必要です。成果保証を大きく謳っている場合、月額手数料が高めに設定されているケースも多いです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "今の代理店が良いのか悪いのか判断できません。どうすればわかりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最もシンプルな判断基準は「CPAが改善され続けているか」です。毎月のCPAの推移を確認し、3ヶ月以上改善の傾向が見られない場合は、担当者に「なぜ改善されていないのか」「次にどんな施策を打つのか」を直接聞いてみましょう。具体的な回答が返ってこない場合は、乗り換えを検討するサインです。"
+      }
+    }
+  ]
+}</script></head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- ===== Header ===== -->
+<header class="nav">
+<div class="container nav__inner">
+<a class="brand" href="https://lnx.co.jp/index.html">
+<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
+<div class="brand__name">LnX合同会社</div>
+</a>
+<nav class="nav__menu">
+<a href="https://lnx.co.jp/index.html">TOP</a>
+<a href="https://lnx.co.jp/company.html">会社概要</a>
+<a href="https://lnx.co.jp/services.html">事業内容</a>
+<a href="https://lnx.co.jp/works.html">実績</a>
+</nav>
+<div class="nav__right">
+<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
+</div>
+<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<p class="article-hero__kicker"><span></span>Webマーケ戦略</p>
+<h1 class="article-hero__title">Web広告代理店の選び方<br/>｜失敗しないために見るべきポイント10選</h1>
+<div class="article-hero__meta">
+<time datetime="2026-06-03">2026年6月3日</time>
+<span class="article-hero__tag">Webマーケ戦略</span>
+<span class="article-hero__tag">広告代理店</span>
+<span class="article-hero__tag">選び方</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>Web広告代理店を選ぶときの10のチェックポイント（実務視点）</li>
+<li>よくある失敗事例3パターンとその教訓</li>
+<li>「いい代理店」と「ダメな代理店」を見分けるNG・OK行動の具体例</li>
+<li>初回相談・提案時に必ず確認すべき質問リスト</li>
+<li>代理店の規模・タイプ別の向き不向き</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#why-fail">代理店選びで失敗する本当の理由</a></li>
+<li><a href="#failure-cases">よくある失敗事例3パターン</a></li>
+<li><a href="#checklist">代理店選びの10チェックポイント</a></li>
+<li><a href="#type-comparison">代理店タイプ別の向き不向き</a></li>
+<li><a href="#question-list">初回相談で必ず聞くべき質問リスト</a></li>
+<li><a href="#final-check">契約前の最終確認チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 1. 失敗する理由 ===== -->
+<h2 id="why-fail">代理店選びで失敗する本当の理由</h2>
+<p>「有名な代理店に頼んだのに成果が出なかった」「半年で数百万円の広告費が消えた」——こうした相談は珍しくありません。代理店選びの失敗には共通したパターンがあります。</p>
+<p>最も多い失敗の根本原因は<strong>「費用・知名度・なんとなくの印象」だけで選んでしまうこと</strong>です。Web広告の運用は、設定よりも「継続的な改善の質」が成果を左右します。月1回のレポート送付しかしない代理店と、週次で入札・クリエイティブを改善し続ける代理店では、半年後の成果に天地の差が出ます。</p>
+<div class="highlight-card--warning highlight-card">
+<p><strong>注意：</strong>「Google認定パートナー」「Yahoo!認定パートナー」の資格は、一定の運用実績と試験合格を示すものですが、<strong>担当者個人の実力を保証するものではありません。</strong>資格の有無より、担当者が実際にどんな案件をどう改善してきたかを確認する方が重要です。</p>
+</div>
+<!-- ===== 2. 失敗事例 ===== -->
+<h2 id="failure-cases">よくある失敗事例3パターン</h2>
+<div class="failure-card">
+<p class="failure-card__title">失敗①：月50万円の広告費を投下したが来店ゼロ</p>
+<p>地方の飲食店がターゲット設定を代理店に丸投げし、幅広い層に広告が配信され続けた事例。「広告費さえかければ集客できる」という思い込みと、代理店側の戦略設計の甘さが重なり、広告費だけが消える結果に。</p>
+<p class="lesson">教訓：ターゲット・エリア・訴求内容は発注者側も主体的に関与する。「代理店に任せきり」は最大のリスク。</p>
+</div>
+<div class="failure-card">
+<p class="failure-card__title">失敗②：解約したらデータが消えた</p>
+<p>代理店名義のアカウントで2年間運用していたEC企業が、乗り換えを決めた瞬間に広告アカウントの閲覧権限を失い、蓄積されたコンバージョンデータ・オーディエンス・学習データがゼロに。新しい代理店でゼロスタートを余儀なくされた。</p>
+<p class="lesson">教訓：広告アカウントは必ず自社名義で持つ。「アカウントを開示しない代理店」は問答無用でNG。</p>
+</div>
+<div class="failure-card">
+<p class="failure-card__title">失敗③：担当者が変わってから成果が激減</p>
+<p>最初の担当者が優秀で成果が出ていたが、3ヶ月後に担当交代。新担当者はほぼ手を動かさず、月次レポートを送るだけ。CPAが2倍以上に悪化してから気づいたが、最低契約期間が残っており解約もできなかった。</p>
+<p class="lesson">教訓：「会社の実績」より「自分の担当者の実力」を見極める。担当者が変わったときの対応方針も事前確認が必要。</p>
+</div>
+<!-- ===== 3. 10チェックポイント ===== -->
+<h2 id="checklist">代理店選びの10チェックポイント</h2>
+<div class="check-list">
+<div class="check-item">
+<div class="check-item__num">1</div>
+<div class="check-item__body">
+<h4>アカウントは自社名義で持てるか</h4>
+<p>広告アカウント（Google広告・Meta広告マネージャーなど）の管理者権限を自社で持てるかを確認します。代理店名義での運用を求める会社は、解約時にデータが失われるリスクがあります。これは代理店選びで最も重要な確認事項です。</p>
+<span class="tag-bad">✕NG：「弊社アカウントで一括管理します」</span>
+<span class="tag-good">✓OK：「自社アカウントに代理店をユーザー追加して運用します」</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">2</div>
+<div class="check-item__body">
+<h4>実際に担当する人の実力を確認する</h4>
+<p>初回提案は営業担当者が行い、実際の運用は別の担当者というケースは珍しくありません。「誰が実際に管理画面を触るのか」「その人はどんな業種・規模の案件をどう改善してきたか」を直接ヒアリングすることが重要です。</p>
+<span class="tag-bad">✕NG：「実績は会社全体で〇〇件あります」（担当者不明）</span>
+<span class="tag-good">✓OK：担当者が自分の言葉で改善事例を語れる</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">3</div>
+<div class="check-item__body">
+<h4>改善の頻度・内容を具体的に確認する</h4>
+<p>月1回のレポート送付だけの代理店と、週次で入札調整・広告文改善・除外キーワード管理を行う代理店では、成果に大きな差が生まれます。「月に何回、何を確認・改善するか」を契約前に明確にしておきましょう。</p>
+<span class="tag-bad">✕NG：「月次でレポートをお送りします」（それだけ）</span>
+<span class="tag-good">✓OK：週次作業内容・月次改善提案の内訳が明示されている</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">4</div>
+<div class="check-item__body">
+<h4>費用体系が透明か（内掛け・外掛け・最低手数料）</h4>
+<p>「広告費の20%」という同じ表現でも、内掛け・外掛けの違いで実際に媒体に流れる広告費が変わります。また最低手数料の設定や、クリエイティブ制作費・レポート費などの追加費用が含まれるかも事前確認が必須です。</p>
+<span class="tag-bad">✕NG：見積もりに「別途費用が発生する場合があります」だけ記載</span>
+<span class="tag-good">✓OK：初期費用・月額手数料・追加費用の発生条件が明記されている</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">5</div>
+<div class="check-item__body">
+<h4>LP・計測への視点があるか</h4>
+<p>広告の成果はLP（ランディングページ）のCVRと計測の正確さに大きく左右されます。「広告だけ見ていればいい」という代理店ではなく、LP改善の提案・計測設定の確認まで視野に入れてくれる代理店を選ぶと、長期的に成果が出やすくなります。</p>
+<span class="tag-bad">✕NG：LPやGA4の話をすると「それは別担当です」と言われる</span>
+<span class="tag-good">✓OK：初回ヒアリングでLPのCVRや計測環境も確認してくれる</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">6</div>
+<div class="check-item__body">
+<h4>自社業種・商材の運用実績があるか</h4>
+<p>BtoB・BtoC、高単価・低単価、サービス業・EC、それぞれで有効なアプローチが異なります。「Webマーケ全般が得意」よりも、自社の業種に近い実績を持つ代理店の方が、立ち上げから安定するスピードが速いです。</p>
+<span class="tag-bad">✕NG：「あらゆる業種に対応しています」だけで具体的事例なし</span>
+<span class="tag-good">✓OK：類似業種での具体的なCPA改善事例を説明できる</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">7</div>
+<div class="check-item__body">
+<h4>レスポンスの速さ・コミュニケーション品質</h4>
+<p>広告運用では「今日中にクリエイティブを変えたい」「急いで配信を止めたい」といった緊急対応が発生することがあります。初回の問い合わせから契約前のやり取りで、レスポンスの速さ・回答の具体性・誠実さを見極めておきましょう。</p>
+<span class="tag-bad">✕NG：提案依頼から3日以上返信がない、回答が定型文</span>
+<span class="tag-good">✓OK：当日〜翌営業日以内に具体的な返答がある</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">8</div>
+<div class="check-item__body">
+<h4>解約条件・最低契約期間を確認する</h4>
+<p>多くの代理店では3〜6ヶ月の最低契約期間が設けられています。成果が出なかった場合でもこの期間は費用が発生し続けます。また解約通知が「1ヶ月前」か「2ヶ月前」かによっても実質的な縛り期間が変わります。</p>
+<span class="tag-bad">✕NG：契約書に解約条件の記載がない、または口頭説明のみ</span>
+<span class="tag-good">✓OK：最低契約期間・解約通知期限・データの引き渡し方法が書面で明示されている</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">9</div>
+<div class="check-item__body">
+<h4>複数媒体への対応力と優先順位の考え方</h4>
+<p>Google広告・Meta広告・Yahoo!広告・LINE広告など複数の媒体がありますが、すべてに均等に出稿すれば良いわけではありません。「自社の商材・ターゲットに最も合う媒体はどれか」を根拠を持って説明できる代理店を選びましょう。</p>
+<span class="tag-bad">✕NG：「まず全媒体で出稿しましょう」と根拠なく提案</span>
+<span class="tag-good">✓OK：商材・ターゲット・予算規模から優先媒体を論理的に説明できる</span>
+</div>
+</div>
+<div class="check-item">
+<div class="check-item__num">10</div>
+<div class="check-item__body">
+<h4>「成果へのコミット」の姿勢があるか</h4>
+<p>最終的に最も重要なのは、代理店が「レポートを出すこと」に満足しているのか、「クライアントの事業成果を上げること」にコミットしているのかの違いです。提案の中に「CPAをこの水準に下げるためにこうします」という具体的な改善仮説があるかを確認しましょう。</p>
+<span class="tag-bad">✕NG：「まず3ヶ月様子を見ましょう」だけで改善仮説なし</span>
+<span class="tag-good">✓OK：現状課題の仮説・初月の優先アクション・成果の目安を初回提案で語れる</span>
+</div>
+</div>
+</div>
+<!-- ===== 4. タイプ別比較 ===== -->
+<h2 id="type-comparison">代理店タイプ別の向き不向き</h2>
+<p>代理店は規模・得意領域・料金体系によってタイプが異なります。自社の状況に合ったタイプを選ぶことが、最初の成功への近道です。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>タイプ</th>
+<th>特徴</th>
+<th>向いているケース</th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大手総合代理店</strong></td>
+<td>規模・ブランド力あり。多媒体対応。手数料20〜30%</td>
+<td>月広告費100万円以上。複数媒体をまとめて管理したい</td>
+<td>担当者の当たり外れが大きい。少額案件は後回しにされやすい</td>
+</tr>
+<tr>
+<td><strong>中規模・専門型代理店</strong></td>
+<td>特定媒体や業種に特化。手数料15〜25%</td>
+<td>月広告費30〜100万円。得意業種が自社と一致している</td>
+<td>得意領域外は弱いケースも。確認が必要</td>
+</tr>
+<tr>
+<td><strong>少額対応・スタートアップ型</strong></td>
+<td>固定手数料5〜10万円。小回りが利く</td>
+<td>月広告費10〜30万円。まず始めたい中小企業</td>
+<td>担当者1名体制が多い。体制の安定性を確認する</td>
+</tr>
+<tr>
+<td><strong>フリーランス</strong></td>
+<td>固定3〜8万円。直接担当者と話せる</td>
+<td>コスト重視。密なコミュニケーションを希望</td>
+<td>個人スキルへの依存度が高い。稼働安定性のリスクあり</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--success highlight-card">
+<p><strong>LnXの立ち位置：</strong>LnXは少額〜中規模予算の中小企業向けに、広告・LP・計測を一気通貫で支援するタイプです。月広告費10万円〜の案件から対応し、「まず始めたい」という段階からご相談いただけます。</p>
+</div>
+<!-- ===== 5. 質問リスト ===== -->
+<h2 id="question-list">初回相談で必ず聞くべき質問リスト</h2>
+<p>代理店との初回相談・提案ヒアリングで、以下の質問を投げかけることで実力と姿勢を見極められます。回答の「具体性」と「正直さ」に注目してください。</p>
+<ol>
+<li><strong>「実際に私の担当となる方はどなたですか？その方の運用実績を教えてください」</strong>——営業担当者と運用担当者が異なる場合はここで分かります</li>
+<li><strong>「月に何回・何をしてもらえますか？週次作業の内容を具体的に教えてください」</strong>——「適宜対応します」は要注意。具体的な作業一覧が出てこない代理店は手を動かさない可能性が高いです</li>
+<li><strong>「広告アカウントは自社名義で持てますか？」</strong>——「はい」一択。「弊社での一括管理を推奨しています」と言われたら再考を</li>
+<li><strong>「解約する際のデータの引き渡し方法を教えてください」</strong>——契約前に乗り換え時の対応を確認しておくことで、いざというときのリスクを減らせます</li>
+<li><strong>「当社のLPを見ていただけますか？CVRを上げるためのアドバイスはありますか？」</strong>——LP・計測への視点を持っているかを確かめる質問。「それは広告の管轄外です」は要注意サイン</li>
+<li><strong>「成果が出なかった場合、どのような対応をしてもらえますか？」</strong>——曖昧な回答ではなく、「まずこの指標を確認し、こうした改善を行います」という具体的な答えが返ってくるかを確認します</li>
+</ol>
+<!-- ===== 6. 最終チェックリスト ===== -->
+<h2 id="final-check">契約前の最終確認チェックリスト</h2>
+<div class="final-checklist">
+<p class="final-checklist__title">以下をすべて確認してから契約しましょう</p>
+<ul>
+<li>広告アカウントは自社名義で持てることを書面で確認した</li>
+<li>実際に担当する人の名前・実績を確認した</li>
+<li>月次・週次の作業内容と改善サイクルの頻度が明示されている</li>
+<li>費用の内訳（初期費用・月額手数料・追加費用の条件）がすべて書面で明記されている</li>
+<li>内掛け・外掛けのどちらかを確認し、実際に媒体に流れる広告費を計算した</li>
+<li>最低契約期間・解約通知期限・解約後のデータ引き渡し方法を確認した</li>
+<li>LP・計測環境への対応方針を確認した</li>
+<li>複数の代理店（最低2〜3社）から見積もりを取り、総コストと提案内容で比較した</li>
+</ul>
+</div>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">WEB広告 運用代行</p>
+<h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">LnXは「代理店選びで迷っている」段階からご相談OKです</h2>
+<p class="article-cta__lead">広告・LP・計測を一気通貫で担当。アカウントは自社名義で、週次改善サイクルで成果にコミットします。まずは現状のヒアリングからどうぞ。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">広告運用を無料相談する</a>
+</div>
+<!-- ===== 7. LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>代理店選びで最も後悔しやすいのは、「最初の提案が良かった」「担当者が感じよかった」という印象だけで決めてしまうことです。提案の美しさと運用の実力は別物で、本当に重要なのは「契約後に何をしてくれるか」です。</p>
+<p>私たちが特に大切にしているのは<strong>「透明性」</strong>です。アカウントはすべて自社名義、管理画面は常時閲覧可能、週次で数値と改善内容を共有——これが最低限あるべき運用体制だと考えています。「見えない運用」は信頼できません。</p>
+<p>また、「広告だけ見る」代理店では成果に限界があります。LnXでは初回ヒアリングから必ずLPのCVRと計測設定を確認します。どれだけ優れた広告を出しても、LPが機能していなければCVには繋がりません。<strong>広告・LP・計測の三点が揃って初めて、費用対効果の高い運用が実現する</strong>というのが私たちの考え方です。</p>
+<!-- ===== 8. FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              相見積もりを取ることで、代理店に嫌な顔をされることはありますか？
+            </summary>
+<div class="article-faq__body">
+<p>信頼できる代理店であれば、相見積もりを嫌がることはありません。むしろ「複数社と比較検討してください」と積極的に言える代理店の方が自信の表れとも言えます。相見積もりを理由に対応が悪くなる代理店は、それ自体が選ばない理由になります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              代理店の変更（乗り換え）はどのタイミングが適切ですか？
+            </summary>
+<div class="article-faq__body">
+<p>最低契約期間が終了するタイミングが最も現実的です。ただし乗り換えを決めたら、新しい代理店への引き継ぎに1〜2ヶ月かかることを見越して早めに動くことが重要です。「成果が出ない」と感じてから動き始めると、空白期間が長くなります。また現在の代理店への解約通知期限（多くは1〜2ヶ月前）も忘れずに確認しましょう。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              小規模な代理店やフリーランスに依頼するリスクはありますか？
+            </summary>
+<div class="article-faq__body">
+<p>個人のスキルへの依存度が高いため、担当者の実力次第で成果が大きく変わるリスクがあります。また担当者が体調不良・急な退職などで対応できなくなった場合のバックアップ体制が薄い場合があります。一方、コミュニケーションの速さや柔軟な対応が得られるメリットもあります。依頼前に「稼働できない場合の対応」について確認しておくことをおすすめします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              代理店から「成果保証」を提示されました。信用していいですか？
+            </summary>
+<div class="article-faq__body">
+<p>成果保証の条件を細かく確認することが重要です。「CPA〇〇円以下を保証」という場合、その条件（LP・クリエイティブ・予算・期間など）が自社にとって現実的かを検討しましょう。また「保証を下回った場合の対応」（返金か追加配信か）の内容も書面で確認が必要です。成果保証を大きく謳っている場合、月額手数料が高めに設定されているケースも多いです。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              今の代理店が良いのか悪いのか判断できません。どうすればわかりますか？
+            </summary>
+<div class="article-faq__body">
+<p>最もシンプルな判断基準は「CPAが改善され続けているか」です。毎月のCPAの推移を確認し、3ヶ月以上改善の傾向が見られない場合は、担当者に「なぜ改善されていないのか」「次にどんな施策を打つのか」を直接聞いてみましょう。具体的な回答が返ってこない場合は、乗り換えを検討するサインです。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/outsource-ad-merit-demerit/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告運用代行を外注するメリット・デメリット｜自社運用との比較と判断基準</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/meta-ads-cost/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告運用代行の費用相場は？月額・手数料・広告費別に解説</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/listing-ads-cost/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ リスティング広告運用代行の費用相場はいくら？手数料・広告費・業種別に解説</a>
+</li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#why-fail">失敗する本当の理由</a></li>
+<li><a href="#failure-cases">よくある失敗事例3パターン</a></li>
+<li><a href="#checklist">10チェックポイント</a></li>
+<li><a href="#type-comparison">代理店タイプ別比較</a></li>
+<li><a href="#question-list">初回相談の質問リスト</a></li>
+<li><a href="#final-check">契約前の最終確認</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>代理店選びで迷ったら<br/>まずLnXへご相談を</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+<div class="container footer__grid">
+<div>© 2026 LnX合同会社</div>
+<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+</div>
+</footer>
+<div class="drawer-overlay" hidden="" id="js-overlay"></div>
+<nav aria-hidden="true" class="drawer" id="js-drawer">
+<ul class="drawer__list">
+<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+<li><a href="https://lnx.co.jp/works.html">実績</a></li>
+<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>

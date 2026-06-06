@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>GA4でコンバージョン計測できない原因と確認ポイント｜GTM設定トラブル対処法 | LnX合同会社</title>
+<meta content="GA4でコンバージョン（キーイベント）が計測されない・ゼロのままになる原因を徹底解説。GTMのタグ設定ミス・イベント未登録・キーイベント未設定・反映待ちなど原因別の確認手順と対処法、デバッグビューの使い方もまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+    }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 診断フロー */
+    .diagnosis-flow {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 24px; margin: 0 0 32px; box-shadow: var(--shadow2);
+    }
+    .diagnosis-flow__title { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0 0 18px; }
+    .diagnosis-step {
+      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px;
+    }
+    .diagnosis-step:last-child { margin-bottom: 0; }
+    .diagnosis-step__q {
+      flex: 0 0 auto; background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; border-radius: 8px; padding: 6px 10px;
+      font-size: 12px; font-weight: 900; white-space: nowrap;
+    }
+    .diagnosis-step__content { font-size: 14px; line-height: 1.7; }
+    .diagnosis-step__arrow {
+      font-size: 13px; color: var(--brand3); font-weight: 800;
+      display: block; margin-top: 4px;
+    }
+
+    /* 原因カード */
+    .cause-list { display: grid; gap: 20px; margin: 0 0 32px; }
+    .cause-item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2);
+      overflow: hidden; transition: .2s ease;
+    }
+    .cause-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .cause-item__head {
+      display: grid; grid-template-columns: 56px 1fr;
+      align-items: center; gap: 16px; padding: 16px 22px;
+      background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.04));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .cause-item__num {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 18px; color: #fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+    }
+    .cause-item__title { font-size: 16px; font-weight: 900; margin: 0; letter-spacing: -.01em; }
+    .cause-item__body { padding: 18px 22px; }
+    .cause-item__body p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.85; }
+    .cause-item__body p:last-child { margin: 0; }
+
+    .action-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .action-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.75;
+      padding: 10px 14px; border-radius: 10px;
+      background: rgba(16,185,129,.05); border: 1px solid rgba(16,185,129,.16);
+    }
+    .action-list li::before { content: "✓"; color: #059669; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
+
+    /* コードブロック風 */
+    .code-block {
+      background: rgba(15,23,42,.04); border: 1px solid rgba(15,23,42,.12);
+      border-radius: 10px; padding: 14px 16px; font-family: monospace;
+      font-size: 13px; line-height: 1.6; margin: 10px 0;
+      overflow-x: auto; color: rgba(15,23,42,.80);
+    }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .checklist-card {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist-card__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist-card__section { margin-bottom: 18px; }
+    .checklist-card__section:last-child { margin-bottom: 0; }
+    .checklist-card__section-title { font-size: 12px; font-weight: 800; letter-spacing: .10em; color: var(--muted); margin: 0 0 10px; }
+    .checklist-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .checklist-card li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.7; }
+    .checklist-card li::before { content: "□"; font-size: 15px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+      .cause-item__head { grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 16px; }
+      .cause-item__num { width: 40px; height: 40px; font-size: 16px; }
+      .cause-item__body { padding: 14px 16px; }
+    }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GA4でコンバージョン計測できない原因と確認ポイント｜GTM設定トラブル対処法",
+  "description": "GA4でコンバージョン（キーイベント）が計測されない・ゼロのままになる原因を徹底解説。GTMのタグ設定ミス・イベント未登録・キーイベント未設定・反映待ちなど原因別の確認手順と対処法、デバッグビューの使い方もまとめています。",
+  "url": "https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "計測・GA4",
+      "item": "https://lnx.co.jp/column/analytics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "GA4でコンバージョン計測できない原因と確認ポイント｜GTM設定トラブル対処法",
+      "item": "https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "GTMを使わずにGA4のコンバージョンを設定することはできますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、可能です。GA4のタグをサイトのHTMLに直接埋め込む方法（gtag.js）でも、コンバージョンイベントを計測できます。「ありがとうページ」のHTMLに直接イベント送信コードを記述する形です。ただし、GTMを使う方がコードの変更なしにイベント追加・修正ができるため、複数のタグを管理する場合や非エンジニアが設定する場合はGTMの方が管理しやすいです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "フォームが「ありがとうページ」に遷移しないタイプ（Ajax送信）の場合はどう設定しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GTMの「フォーム送信」トリガーを使う方法が最も一般的です。GTMの「変数」設定でフォーム関連の組み込み変数（Form ID、Form Classes等）を有効にし、対象フォームの送信完了時にトリガーが発火するよう設定します。Contact Form 7（WordPress）の場合は「document.addEventListener('wpcf7mailsent', ...)」というカスタムイベントをGTMで捕捉する方法が有効です。設定が複雑な場合は計測専門家への相談をおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GA4のキーイベントをGoogle広告にインポートするにはどうすればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google広告管理画面→ツール→コンバージョン→「+新しいコンバージョンアクション」→「インポート」→「Google Analyticsのプロパティからインポート」を選択し、GA4のキーイベントを選択します。反映まで最大3〜15時間かかります。インポートしたコンバージョンを「入札に使用するコンバージョン」に設定することで、Google広告の自動入札に活用できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GA4で計測できるコンバージョン（キーイベント）の数に上限はありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GA4の標準プロパティでは、キーイベントとして設定できるイベントの数に実質的な上限はありませんが、管理しやすいように重要なものに絞ることが推奨されます。ただし、GA4全体のイベント種類は1プロパティあたり500個まで、カスタムディメンションは50個まで、カスタム指標は50個までという制限があります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GA4のデータが突然ゼロになりました。何が原因ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "突然のゼロ計測の主な原因は4つです。①GTMの新バージョン公開時に測定ID設定のタグが誤って削除または無効化された、②サイトのリニューアル・CMSアップデートでGTMコンテナコードが消えた、③GA4プロパティに接続されているデータストリームが誤って削除された、④GTMのトリガーが誤って変更された。GA4リアルタイムレポートでアクセスが全くない場合はタグの設置自体に問題があります。"
+      }
+    }
+  ]
+}</script></head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- ===== Header ===== -->
+<header class="nav">
+<div class="container nav__inner">
+<a class="brand" href="https://lnx.co.jp/index.html">
+<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
+<div class="brand__name">LnX合同会社</div>
+</a>
+<nav class="nav__menu">
+<a href="https://lnx.co.jp/index.html">TOP</a>
+<a href="https://lnx.co.jp/company.html">会社概要</a>
+<a href="https://lnx.co.jp/services.html">事業内容</a>
+<a href="https://lnx.co.jp/works.html">実績</a>
+</nav>
+<div class="nav__right">
+<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
+</div>
+<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<p class="article-hero__kicker"><span></span>計測・GA4</p>
+<h1 class="article-hero__title">GA4でコンバージョン計測できない原因と確認ポイント<br/>｜GTM設定トラブル対処法</h1>
+<div class="article-hero__meta">
+<time datetime="2026-06-03">2026年6月3日</time>
+<span class="article-hero__tag">計測</span>
+<span class="article-hero__tag">GA4</span>
+<span class="article-hero__tag">GTM</span>
+<span class="article-hero__tag">コンバージョン</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>GA4でコンバージョン（キーイベント）がゼロのまま・計測されない主な原因8つ</li>
+<li>「GA4の計測2段階構造（イベント計測→キーイベント登録）」の仕組みと見落としやすいポイント</li>
+<li>GTMプレビュー・デバッグビュー・リアルタイムレポートを使った確認手順</li>
+<li>コンバージョンが計測されるまでの反映時間と「待つべき時間」の目安</li>
+<li>設定完了後の動作確認チェックリスト</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#structure">GA4のコンバージョン計測の仕組み：2段階構造を理解する</a></li>
+<li><a href="#diagnosis">原因特定の診断フロー</a></li>
+<li><a href="#causes">計測できない原因8つと対処法</a></li>
+<li><a href="#debug">確認ツールの使い方：GTMプレビュー・デバッグビュー・リアルタイム</a></li>
+<li><a href="#reflection-time">反映時間の目安：どのくらい待てばいいか</a></li>
+<li><a href="#checklist">設定完了後の確認チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 仕組み ===== -->
+<h2 id="structure">GA4のコンバージョン計測の仕組み：2段階構造を理解する</h2>
+<p>GA4のコンバージョン計測が「できない」問題を解決するには、まずGA4の計測が<strong>「2段階の設定」</strong>で成り立っていることを理解することが重要です。この構造を知らないと、どこで詰まっているかを特定できません。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>段階</th>
+<th>内容</th>
+<th>設定場所</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Step 1：イベント計測</strong></td>
+<td>「フォーム送信完了」「ページ表示」などのユーザー行動をGA4にイベントとして送信する</td>
+<td>GTM（タグ設定）またはLP・サイトへの直接タグ埋め込み</td>
+</tr>
+<tr>
+<td><strong>Step 2：キーイベント登録</strong></td>
+<td>Step 1で計測されたイベントを「コンバージョン（キーイベント）」としてマークする</td>
+<td>GA4管理画面（管理→イベント→キーイベントとしてマーク）</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--warning highlight-card">
+<p><strong>最も多い見落とし：</strong>GTMでイベントを送信する設定をしただけで「コンバージョン設定完了」と思っているケースです。<strong>GA4管理画面でそのイベントを「キーイベントとしてマーク」しなければ、コンバージョン数はゼロのままです。</strong>Step 1とStep 2の両方が必要です。</p>
+</div>
+<div class="highlight-card">
+<p><strong>用語の補足（GA4の名称変更について）：</strong>GA4では2024年から「コンバージョン」という名称が「キーイベント」に変更されました。GA4管理画面では「キーイベント」と表示されますが、Google広告への連携後はGoogle広告側で「コンバージョン」として扱われます。本記事では一般的な呼称として「コンバージョン」を使います。</p>
+</div>
+<!-- ===== 診断フロー ===== -->
+<h2 id="diagnosis">原因特定の診断フロー</h2>
+<div class="diagnosis-flow">
+<p class="diagnosis-flow__title">GA4コンバージョンが計測されないときの診断手順</p>
+<div class="diagnosis-step">
+<span class="diagnosis-step__q">Step 1</span>
+<div class="diagnosis-step__content">
+              GA4リアルタイムレポートで「ありがとうページ」を表示し、「page_view」イベントが発火しているか確認
+              <span class="diagnosis-step__arrow">↓ イベントが表示されない → GTMのタグ設定・測定ID・公開状態を確認（原因①②③）</span>
+</div>
+</div>
+<div class="diagnosis-step">
+<span class="diagnosis-step__q">Step 2</span>
+<div class="diagnosis-step__content">
+              GA4管理画面（管理→イベント）で対象のイベント名が一覧に表示されているか確認
+              <span class="diagnosis-step__arrow">↓ イベントが一覧にない → タグのイベント名が正しいか・GTMが公開されているかを確認（原因③④）</span>
+</div>
+</div>
+<div class="diagnosis-step">
+<span class="diagnosis-step__q">Step 3</span>
+<div class="diagnosis-step__content">
+              対象イベントの「キーイベントとしてマーク」スイッチがオンになっているか確認
+              <span class="diagnosis-step__arrow">↓ オフになっている → スイッチをオンにする（原因⑤）</span>
+</div>
+</div>
+<div class="diagnosis-step">
+<span class="diagnosis-step__q">Step 4</span>
+<div class="diagnosis-step__content">
+              設定後24〜48時間が経過しているか確認
+              <span class="diagnosis-step__arrow">↓ 設定直後 → 反映まで最大48時間かかる場合がある（原因⑥）</span>
+</div>
+</div>
+<div class="diagnosis-step">
+<span class="diagnosis-step__q">Step 5</span>
+<div class="diagnosis-step__content">
+              GTMデバッグビューで実際にCVタグが正しく発火しているか確認
+              <span class="diagnosis-step__arrow">↓ 発火していない・2回発火している → トリガー設定・タグの重複を確認（原因③⑦⑧）</span>
+</div>
+</div>
+</div>
+<!-- ===== 原因8つ ===== -->
+<h2 id="causes">計測できない原因8つと対処法</h2>
+<div class="cause-list">
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">1</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">GA4のタグ（測定ID）がサイトに設置されていない</h3>
+</div>
+<div class="cause-item__body">
+<p>最も基本的な原因です。GTMの管理画面でGA4の設定タグを作成しただけでGTMコンテナをHTMLに埋め込んでいない、または測定IDが間違っているケースです。GA4のデータストリームに表示される「G-XXXXXXXXXX」形式の測定IDがGTMに正しく設定されているかを確認します。</p>
+<ul class="action-list">
+<li>GA4管理画面（管理→データストリーム）で正しい測定ID（G-から始まる）を確認する</li>
+<li>GTMのGA4設定タグに入力されている測定IDと照合する</li>
+<li>GTMコンテナコード（&lt;!-- Google Tag Manager --&gt;）がサイトの&lt;head&gt;直後と&lt;body&gt;直後に設置されているか確認する</li>
+</ul>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">2</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">GTMのコンテナが「公開」されていない</h3>
+</div>
+<div class="cause-item__body">
+<p>GTMはプレビュー（テスト）モードで確認した後、「送信」→「公開」を実行して初めて本番環境に反映されます。タグを作成・設定してプレビューで動作確認しただけで「公開」を押し忘れているケースが非常に多い原因のひとつです。</p>
+<p>GTM管理画面右上の「送信」ボタンが青色で表示されている場合は未公開の変更があることを示しています。</p>
+<ul class="action-list">
+<li>GTM管理画面右上の「送信」ボタンをクリックし、最新バージョンが公開されているか確認する</li>
+<li>「バージョン」タブで最新のバージョン番号と公開日時を確認する</li>
+<li>プレビューモードでは動作するのに本番で計測されない場合は「公開忘れ」が最有力原因</li>
+</ul>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">3</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">トリガーの設定が間違っている</h3>
+</div>
+<div class="cause-item__body">
+<p>GTMでGA4イベントタグを作成しても、トリガー（どのページ・どの条件でタグを発火させるか）が正しく設定されていないと計測されません。主なミスパターンは次の通りです。</p>
+<ul>
+<li>「ありがとうページ」のURLでトリガーを設定したつもりが、URLの条件が「含む」になっていて別のページでも発火している</li>
+<li>「Page URL」の代わりに「Page Path」を使い、ドメインが含まれないパスで条件設定すべきだったのに完全URLで設定している</li>
+<li>トリガーが「All Pages（すべてのページ）」になっているため、LPを開くだけでCVがカウントされる</li>
+</ul>
+<ul class="action-list">
+<li>GTMプレビューで「ありがとうページ」を開き、CVタグが「このページのみ」で発火し、他のページでは発火しないことを確認する</li>
+<li>トリガー条件のURL設定を確認。「Page URL 次を含む /thanks」のように、ありがとうページに固有のパスを条件にする</li>
+<li>「All Pages」トリガーは一般的なページビュータグ専用で、CVタグには使わない</li>
+</ul>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">4</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">イベント名のスペルミス・大文字小文字の不一致</h3>
+</div>
+<div class="cause-item__body">
+<p>GA4はイベント名の大文字小文字を区別します。GTMで送信するイベント名が「form_complete」なのに、GA4管理画面でキーイベントに登録したのが「Form_Complete」や「form_Complete」だと、別のイベントとして扱われ計測が紐付きません。</p>
+<p>また、GTMでイベント名を「フォーム送信完了」（日本語）で設定し、GA4ではアルファベットの名前を期待しているケースもあります。GA4のイベント名は<strong>英数字・アンダースコアのみ</strong>使用が推奨されます。</p>
+<div class="code-block">
+                ✕ NG例：イベント名「Form_Submit」「form submit」「フォーム送信」<br/>
+                ✓ OK例：イベント名「form_submit」「contact_complete」「cv_complete」
+              </div>
+<ul class="action-list">
+<li>GTMのイベントタグで設定している「イベント名」を確認し、GA4管理画面のキーイベント名と一字一句一致しているか確認する</li>
+<li>GA4のリアルタイムレポートでイベントが発火した際に表示される正確なイベント名をコピーして、キーイベントに登録する</li>
+</ul>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">5</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">キーイベントの「マーク」がオンになっていない</h3>
+</div>
+<div class="cause-item__body">
+<p>GA4でイベントが計測されていても、「コンバージョン（キーイベント）」としてカウントされるためには、GA4管理画面でそのイベントを「キーイベントとしてマーク」する必要があります。この設定を忘れると、GA4のイベント数は増えているのにコンバージョン数は0のままという状態になります。</p>
+<p>GA4管理画面：管理 → データストリーム → 対象のストリーム → イベント → 対象のイベント名の「キーイベントとしてマーク」スイッチをオンにします。</p>
+<ul class="action-list">
+<li>GA4管理画面（管理→データストリーム→イベント）で対象イベントの「キーイベントとしてマーク」スイッチがオンになっているか確認する</li>
+<li>イベント一覧にイベント名が表示されていない場合は、まずGTMプレビューでテスト送信を行い、24時間後に再確認する</li>
+<li>キーイベントの設定は過去に遡っては反映されないため、設定後からのデータしか計測されない点に注意</li>
+</ul>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">6</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">設定直後で反映待ちの状態</h3>
+</div>
+<div class="cause-item__body">
+<p>GA4のコンバージョン設定は、設定直後にすぐ反映されません。一般的に設定から標準レポートへの反映まで<strong>最大24〜48時間</strong>かかることがあります。リアルタイムレポートでは設定直後から確認できますが、通常のレポート画面では反映に時間がかかります。</p>
+<p>「設定したのに翌日も0件のまま」という場合は、リアルタイムレポートでテスト送信してイベントが届いているかを確認し、それ以外の原因（原因①〜⑤⑦⑧）を疑います。</p>
+<ul class="action-list">
+<li>設定後すぐに確認したい場合はGA4のリアルタイムレポートを使う（リアルタイムは即時反映）</li>
+<li>通常レポートでは最低24時間後に再確認する</li>
+<li>リアルタイムでも計測されない場合は、反映待ちではなく設定ミスが原因</li>
+</ul>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">7</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">フォームがページ遷移なし（SPA・Ajax送信）で確認が困難</h3>
+</div>
+<div class="cause-item__body">
+<p>「ありがとうページ」に遷移せず、フォーム送信後に同じページ内で「送信完了しました」というメッセージが表示されるSPA（Single Page Application）やAjax送信のフォームでは、「ページビュー」トリガーではCVを計測できません。</p>
+<p>この場合、GTMの「フォーム送信」トリガーまたはカスタムHTMLタグ（JavaScriptイベントリスナー）を使って、フォーム送信成功時のみイベントを発火させる設定が必要です。</p>
+<ul class="action-list">
+<li>GTMのビルトイン変数「Form Submission」トリガーを使い、フォーム送信完了時にGA4イベントを発火させる</li>
+<li>「ありがとうページ」がない場合は、フォームの成功メッセージ要素の表示をMutation Observerで検知してトリガーを発火させる方法も有効</li>
+<li>WordPressの Contact Form 7・Gravity Forms などの主要プラグインにはGTM用のデータレイヤー連携が可能</li>
+</ul>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">8</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">内部トラフィック（自社アクセス）が計測に混入している</h3>
+</div>
+<div class="cause-item__body">
+<p>社内でのテスト送信や確認作業がGA4のコンバージョンとしてカウントされ、実態と異なる数値になっているケースです。逆に「計測されているはずなのに0件」という場合、内部IPがフィルターで除外されすぎていて実際のCVまで除外されているケースもあります。</p>
+<ul class="action-list">
+<li>GA4管理画面（管理→データストリーム→詳細設定→内部トラフィックの定義）で自社のIPアドレスを登録する</li>
+<li>フィルタリング設定（管理→データフィルタ）で「内部トラフィック」フィルタが「有効」になっているか確認する</li>
+<li>テスト送信はGA4デバッグビューを使い、本番計測に混入させない</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ===== デバッグツール ===== -->
+<h2 id="debug">確認ツールの使い方：GTMプレビュー・デバッグビュー・リアルタイム</h2>
+<p>GA4の計測確認には3つのツールを使い分けます。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>ツール</th>
+<th>確認できること</th>
+<th>使い方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GTMプレビューモード</strong></td>
+<td>タグが「どのページで・どのタイミングで発火しているか」をリアルタイムで可視化</td>
+<td>GTM管理画面右上「プレビュー」→サイトURLを入力→対象ページを操作してタグの発火を確認</td>
+</tr>
+<tr>
+<td><strong>GA4デバッグビュー</strong></td>
+<td>GA4に送信されたイベントのパラメータ・順序・タイムスタンプを詳細確認</td>
+<td>GTMプレビューモード起動中は自動的にデバッグビューに送信される。GA4管理画面→「DebugView」で確認</td>
+</tr>
+<tr>
+<td><strong>GA4リアルタイムレポート</strong></td>
+<td>過去30分以内のイベント・コンバージョン・ユーザー数の即時確認</td>
+<td>GA4管理画面→「リアルタイム」→イベントカードで発火しているイベント名を確認</td>
+</tr>
+</tbody>
+</table>
+<h3>GTMプレビューを使った確認手順</h3>
+<ol>
+<li>GTM管理画面右上の「プレビュー」をクリック</li>
+<li>確認したいサイトのURLを入力し「Connect」をクリック</li>
+<li>別タブでサイトが開くので、フォームを実際に送信する</li>
+<li>GTMプレビュー画面に戻り、「Summary」タブで「ありがとうページ表示（Container Loaded）」のイベントを選択</li>
+<li>「Tags Fired」（発火したタグ）に設定したGA4イベントタグが表示されているか確認する</li>
+<li>「Tags Not Fired」（発火しなかったタグ）に表示されている場合はトリガー条件を再確認する</li>
+</ol>
+<div class="highlight-card--success highlight-card">
+<p><strong>デバッグビューの活用：</strong>GA4デバッグビューではイベントが届いた順番・パラメータ値・イベント名を確認できます。<code>contact_complete</code>などのカスタムイベントが表示されていれば、GA4への送信は成功しています。表示されない場合はGTMの設定（タグ・トリガー）に問題があります。</p>
+</div>
+<!-- ===== 反映時間 ===== -->
+<h2 id="reflection-time">反映時間の目安：どのくらい待てばいいか</h2>
+<table class="cost-table">
+<thead>
+<tr>
+<th>確認方法</th>
+<th>反映時間</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>リアルタイムレポート</td>
+<td>ほぼ即時（数秒〜数分）</td>
+<td>設定直後の動作確認・テスト</td>
+</tr>
+<tr>
+<td>イベントレポート（標準）</td>
+<td>24〜48時間</td>
+<td>通常の運用確認・数値集計</td>
+</tr>
+<tr>
+<td>コンバージョン（キーイベント）レポート</td>
+<td>24〜48時間（設定後のデータのみ）</td>
+<td>キーイベント設定後からのCV数確認</td>
+</tr>
+<tr>
+<td>Google広告へのインポート反映</td>
+<td>最大3〜15時間</td>
+<td>GA4コンバージョンをGoogle広告に連携した場合</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--warning highlight-card">
+<p><strong>重要：</strong>GA4のキーイベント設定は<strong>設定後からのデータしか計測されません。</strong>過去に遡って「あのフォーム送信もCVとしてカウントしたい」ということはできません。設定を変更したい場合は早めに対応することが重要です。</p>
+</div>
+<!-- ===== チェックリスト ===== -->
+<h2 id="checklist">設定完了後の確認チェックリスト</h2>
+<div class="checklist-card">
+<p class="checklist-card__title">GA4コンバージョン計測 確認チェックリスト</p>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【基本設定確認】</p>
+<ul>
+<li>GA4の測定ID（G-XXXXXXXXXX）がGTMに正しく設定されている</li>
+<li>GTMコンテナコードがサイト全ページの&lt;head&gt;直後に設置されている</li>
+<li>GTMの最新バージョンが「公開」されている（未公開の変更が残っていない）</li>
+</ul>
+</div>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【イベント設定確認】</p>
+<ul>
+<li>CVタグのトリガーが「ありがとうページ」のみで発火するよう設定されている</li>
+<li>GTMプレビューでテスト送信し、CVタグが「Tags Fired」に表示されることを確認した</li>
+<li>イベント名が英数字・アンダースコアのみで設定されている</li>
+<li>GA4デバッグビューで対象のイベント名が届いていることを確認した</li>
+</ul>
+</div>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【キーイベント設定確認】</p>
+<ul>
+<li>GA4管理画面（管理→イベント）でイベント名の「キーイベントとしてマーク」がオンになっている</li>
+<li>設定後24〜48時間経過後にGA4のレポートでCV数が計測されていることを確認した</li>
+<li>リアルタイムレポートでテスト送信時にコンバージョンがカウントされていることを確認した</li>
+</ul>
+</div>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【品質確認】</p>
+<ul>
+<li>自社IPアドレスが内部トラフィックとして登録・フィルタリングされている</li>
+<li>CVタグが1回のフォーム送信で1回だけ発火している（二重発火なし）</li>
+<li>GA4の月次CV数と実際の問い合わせ件数が概ね一致していることを定期確認している</li>
+</ul>
+</div>
+</div>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">GA4・GTM 計測設定支援</p>
+<h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">GA4の計測設定、まとめてお任せください</h2>
+<p class="article-cta__lead">LnXではGA4・GTMのコンバージョン計測設定からトラブルシューティングまで対応。「計測できているか不安」という状態を解消します。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">計測設定を相談する</a>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>GA4のコンバージョン計測トラブルで最も多いのは、<strong>「GTMでタグを設定したのにGA4のキーイベントをオンにするのを忘れていた」</strong>というシンプルな見落としです。次いで多いのが「GTMを更新したが公開忘れ」と「トリガーのURL条件ミス（ありがとうページ以外でも発火している）」です。</p>
+<p>私たちが計測設定の確認を依頼された際に必ず行うのは、<strong>「GTMプレビュー + GA4デバッグビューの組み合わせでの実際のフォーム送信テスト」</strong>です。この2つを同時に使うことで、「GTMでタグが発火しているか」と「GA4にイベントが届いているか」の両方を一度に確認できます。どちらかが欠けていれば、その段階に問題があることが即座に分かります。</p>
+<p>また、計測設定は「一度設定したら終わり」ではありません。サイトのリニューアル・フォームの変更・GTMのバージョン更新・LPの追加などのたびに計測が壊れるリスクがあります。LnXでは月次で計測の動作確認（GA4のCV数とCRM件数の照合）を行い、ズレが発生した際に早期発見できる体制を維持しています。</p>
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              GTMを使わずにGA4のコンバージョンを設定することはできますか？
+            </summary>
+<div class="article-faq__body">
+<p>はい、可能です。GA4のタグをサイトのHTMLに直接埋め込む方法（gtag.js）でも、コンバージョンイベントを計測できます。「ありがとうページ」のHTMLに直接イベント送信コードを記述する形です。ただし、GTMを使う方がコードの変更なしにイベント追加・修正ができるため、複数のタグを管理する場合や非エンジニアが設定する場合はGTMの方が管理しやすいです。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              フォームが「ありがとうページ」に遷移しないタイプ（Ajax送信）の場合はどう設定しますか？
+            </summary>
+<div class="article-faq__body">
+<p>GTMの「フォーム送信」トリガーを使う方法が最も一般的です。GTMの「変数」設定でフォーム関連の組み込み変数（Form ID、Form Classes等）を有効にし、対象フォームの送信完了時にトリガーが発火するよう設定します。Contact Form 7（WordPress）の場合は「document.addEventListener('wpcf7mailsent', ...)」というカスタムイベントをGTMで捕捉する方法が有効です。設定が複雑な場合は計測専門家への相談をおすすめします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              GA4のキーイベントをGoogle広告にインポートするにはどうすればいいですか？
+            </summary>
+<div class="article-faq__body">
+<p>Google広告管理画面→ツール→コンバージョン→「+新しいコンバージョンアクション」→「インポート」→「Google Analyticsのプロパティからインポート」を選択し、GA4のキーイベントを選択します。反映まで最大3〜15時間かかります。インポートしたコンバージョンを「入札に使用するコンバージョン」に設定することで、Google広告の自動入札に活用できます。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              GA4で計測できるコンバージョン（キーイベント）の数に上限はありますか？
+            </summary>
+<div class="article-faq__body">
+<p>GA4の標準プロパティでは、キーイベントとして設定できるイベントの数に実質的な上限はありませんが、管理しやすいように重要なものに絞ることが推奨されます。ただし、GA4全体のイベント種類は1プロパティあたり500個まで、カスタムディメンションは50個まで、カスタム指標は50個までという制限があります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              GA4のデータが突然ゼロになりました。何が原因ですか？
+            </summary>
+<div class="article-faq__body">
+<p>突然のゼロ計測の主な原因は4つです。①GTMの新バージョン公開時に測定ID設定のタグが誤って削除または無効化された、②サイトのリニューアル・CMSアップデートでGTMコンテナコードが消えた、③GA4プロパティに接続されているデータストリームが誤って削除された、④GTMのトリガーが誤って変更された。GA4リアルタイムレポートでアクセスが全くない場合はタグの設置自体に問題があります。</p>
+</div>
+
+</details></div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/meta-ads-ga4-gap/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告とGA4の数値がずれる理由とは？原因と対処法</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/ad-crm-cv-gap/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告管理画面とCRMのCV数が合わない原因とは？</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/meta-ads-no-result/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告で成果が出ない原因10選｜改善チェックリスト付き</a>
+</li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#structure">GA4計測の2段階構造</a></li>
+<li><a href="#diagnosis">原因特定の診断フロー</a></li>
+<li><a href="#causes">計測できない原因8つ</a></li>
+<li><a href="#debug">確認ツールの使い方</a></li>
+<li><a href="#reflection-time">反映時間の目安</a></li>
+<li><a href="#checklist">設定確認チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>GA4・GTM計測設定<br/>まずご相談ください</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+<div class="container footer__grid">
+<div>© 2026 LnX合同会社</div>
+<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+</div>
+</footer>
+<div class="drawer-overlay" hidden="" id="js-overlay"></div>
+<nav aria-hidden="true" class="drawer" id="js-drawer">
+<ul class="drawer__list">
+<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+<li><a href="https://lnx.co.jp/works.html">実績</a></li>
+<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>

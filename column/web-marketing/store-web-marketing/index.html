@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>店舗集客に向いているWeb施策とは？広告・SNS・LPの使い分け | LnX合同会社</title>
+<meta content="実店舗・地域ビジネスの集客に向いているWeb施策（MEO・SNS・Web広告・LP）を使い分け方付きで解説。業種別の推奨施策、予算別のスタート方法、2026年のローカル集客トレンドまでまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 施策カード */
+    .tactic-list { display: grid; gap: 20px; margin: 0 0 32px; }
+    .tactic-item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; transition: .2s ease; }
+    .tactic-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .tactic-item__head { display: flex; align-items: center; gap: 16px; padding: 16px 22px; background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.04)); border-bottom: 1px solid rgba(15,23,42,.08); }
+    .tactic-item__icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 20px; flex: 0 0 auto; background: linear-gradient(135deg, var(--brand1), var(--brand3)); }
+    .tactic-item__info h4 { margin: 0 0 3px; font-size: 16px; font-weight: 900; }
+    .tactic-item__info p { margin: 0; font-size: 12px; font-weight: 700; color: var(--brand3); }
+    .tactic-item__body { padding: 18px 22px; font-size: 14.5px; line-height: 1.85; }
+    .tactic-item__body p { margin: 0 0 12px; }
+    .tactic-item__body p:last-child { margin: 0; }
+
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: var(--brand1); font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } .article-body { padding: 36px 0 56px; } }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "店舗集客に向いているWeb施策とは？広告・SNS・LPの使い分け",
+  "description": "実店舗・地域ビジネスの集客に向いているWeb施策（MEO・SNS・Web広告・LP）を使い分け方付きで解説。業種別の推奨施策、予算別のスタート方法、2026年のローカル集客トレンドまでまとめています。",
+  "url": "https://lnx.co.jp/column/web-marketing/store-web-marketing/",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/web-marketing/store-web-marketing/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Webマーケ戦略",
+      "item": "https://lnx.co.jp/column/web-marketing/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "店舗集客に向いているWeb施策とは？広告・SNS・LPの使い分け",
+      "item": "https://lnx.co.jp/column/web-marketing/store-web-marketing/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "MEOとSEOは何が違いますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEOはGoogle検索結果（通常の青いリンク一覧）での上位表示を狙う施策です。MEOはGoogleマップ上での上位表示を狙う施策です。「渋谷 カフェ」で検索すると、検索結果の上部に地図とマップ上のスポットが3件程度表示されますが、ここに表示されるための最適化がMEOです。地域ビジネスにとってはSEOよりMEOの方が即効性が高く、費用対効果も高いケースが多いです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Googleの口コミを増やすにはどうすれば良いですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最も効果的な方法は「来店後にお客様に直接お願いする」ことです。口コミ投稿用のQRコードをレシートやテーブルに設置する、LINEのメッセージで口コミのお願いを送るなどが実践的です。Googleビジネスプロフィールの管理画面から「口コミへのリンク」を取得し、QRコードを作成するだけで始められます。ただし、特典・金銭と引き換えに口コミを依頼することはGoogleのポリシー違反になりますので注意してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ホットペッパー・食べログなどのポータルサイトとMEO・Instagramはどちらが重要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "それぞれ異なる役割があります。ホットペッパー・食べログは「料金を払って掲載し、媒体内検索に表示される」仕組みです。MEOはGoogleマップでの無料表示です。2026年現在の傾向として、「直接Google検索→Googleマップ→来店」という流れが増えており、ポータルサイト依存より自社のMEO・SNS・予約ページを充実させる方が長期的に費用対効果が高いという考え方も増えています。ただし業種によってはポータルサイトが集客の主力になっている場合もあるため、自社の来店経路データを確認して判断することをおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "LINE公式アカウントと Instagram はどちらを優先すべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "目的が異なります。Instagramは「新規顧客への認知拡大・来店動機の醸成」に向き、LINE公式アカウントは「既存顧客へのリピート促進・顧客との関係維持」に向きます。まずInstagramで新規来店を増やし、来店後にLINE公式アカウントへ誘導するという流れが理想的です。両方を同時に始めるリソースがない場合は、現在の集客の課題（新規獲得か既存顧客のリピートか）に応じて優先する方を選んでください。"
+      }
+    }
+  ]
+}</script></head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<header class="nav">
+<div class="container nav__inner">
+<a class="brand" href="https://lnx.co.jp/index.html">
+<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
+<div class="brand__name">LnX合同会社</div>
+</a>
+<nav class="nav__menu">
+<a href="https://lnx.co.jp/index.html">TOP</a>
+<a href="https://lnx.co.jp/company.html">会社概要</a>
+<a href="https://lnx.co.jp/services.html">事業内容</a>
+<a href="https://lnx.co.jp/works.html">実績</a>
+</nav>
+<div class="nav__right">
+<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
+</div>
+<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header>
+<section class="article-hero">
+<div class="article-wrap">
+<p class="article-hero__kicker"><span></span>Webマーケ戦略</p>
+<h1 class="article-hero__title">店舗集客に向いているWeb施策とは？<br/>広告・SNS・LPの使い分け</h1>
+<div class="article-hero__meta">
+<time datetime="2026-06-03">2026年6月3日</time>
+<span class="article-hero__tag">Webマーケ戦略</span>
+<span class="article-hero__tag">店舗集客</span>
+<span class="article-hero__tag">MEO</span>
+<span class="article-hero__tag">地域ビジネス</span>
+</div>
+</div>
+</section>
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>実店舗・地域ビジネスに特に有効なWeb施策（MEO・SNS・Web広告・LP）の特徴と使い分け</li>
+<li>「まず無料で始められる」MEO（Googleビジネスプロフィール）の重要性と整備方法</li>
+<li>業種別（飲食・美容・士業・小売）の推奨施策の組み合わせ</li>
+<li>店舗集客における広告とSNSの役割分担</li>
+<li>2026年のローカル集客トレンド（AI検索・口コミの重要性）</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#store-web">店舗集客とWeb施策の基本的な考え方</a></li>
+<li><a href="#tactics">店舗集客に向いている4つのWeb施策</a></li>
+<li><a href="#meo-detail">MEO（Googleビジネスプロフィール）の整備方法</a></li>
+<li><a href="#combination">施策の組み合わせ：優先順位と連携</a></li>
+<li><a href="#industry">業種別の推奨施策</a></li>
+<li><a href="#2026-trend">2026年のローカル集客トレンド</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 基本的な考え方 ===== -->
+<h2 id="store-web">店舗集客とWeb施策の基本的な考え方</h2>
+<p>店舗集客のWeb施策は「オンライン上で来店のきっかけを作ること」が目的です。Web上での動線は大きく2種類あります。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>タイプ</th>
+<th>内容</th>
+<th>向いている施策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>検索型（プル型）</strong></td>
+<td>「渋谷 ランチ」「近くの美容院」など、すでに来店を検討しているユーザーが検索して発見する</td>
+<td>MEO・Google検索広告・SEO</td>
+</tr>
+<tr>
+<td><strong>発見型（プッシュ型）</strong></td>
+<td>SNSやWeb広告で偶然出会い、「行ってみたい」という気持ちが生まれる</td>
+<td>Instagram・Meta広告</td>
+</tr>
+</tbody>
+</table>
+<p>店舗集客では、まず<strong>「検索型」の施策で今すぐ来たいユーザーを確実に取りこぼさない状態を作り、次に「発見型」の施策で潜在顧客への認知を広げる</strong>という順番が費用対効果の高いアプローチです。</p>
+<!-- ===== 4つの施策 ===== -->
+<h2 id="tactics">店舗集客に向いている4つのWeb施策</h2>
+<div class="tactic-list">
+<div class="tactic-item">
+<div class="tactic-item__head">
+<div class="tactic-item__icon">📍</div>
+<div class="tactic-item__info">
+<h4>MEO（Googleビジネスプロフィール）</h4>
+<p>費用0円・即効性高・店舗集客の最重要施策</p>
+</div>
+</div>
+<div class="tactic-item__body">
+<p>MEO（Map Engine Optimization）とは、Googleマップの検索結果で自店舗を上位表示させるための施策です。「渋谷 カフェ」「近くの美容院」などのローカル検索で表示されることで、来店意向が高い（今まさに探している）ユーザーに届きます。</p>
+<p>Googleビジネスプロフィールの登録・最適化は無料で始められます。費用ゼロで即効性があり、地域ビジネスにとって最も費用対効果が高い施策のひとつです。2026年現在、口コミの数と評点がMEOの順位に大きく影響しており、競合より口コミが多く評点が高いほど上位表示されやすくなります。</p>
+</div>
+</div>
+<div class="tactic-item">
+<div class="tactic-item__head">
+<div class="tactic-item__icon">📱</div>
+<div class="tactic-item__info">
+<h4>Instagram・SNS運用</h4>
+<p>認知拡大・来店動機の醸成・ブランド構築</p>
+</div>
+</div>
+<div class="tactic-item__body">
+<p>飲食・美容・アパレルなどビジュアルで訴求できる業種では、Instagramのリールやカルーセルでターゲットエリアのユーザーにお店の雰囲気・料理・サービスを見せることで「行ってみたい」という来店動機を生み出せます。</p>
+<p>地域タグ（#渋谷カフェ など）の活用と、Googleマップとの連携（プロフィールリンクからGoogleマップに誘導）で、InstagramがMEOの入口としても機能します。</p>
+</div>
+</div>
+<div class="tactic-item">
+<div class="tactic-item__head">
+<div class="tactic-item__icon">📢</div>
+<div class="tactic-item__info">
+<h4>Meta広告（地域ターゲティング）</h4>
+<p>半径〇km以内への来店促進・即効性</p>
+</div>
+</div>
+<div class="tactic-item__body">
+<p>Meta広告の地域ターゲティングを使うと「店舗から半径5km以内」「特定の駅から徒歩圏内」など地理的に絞り込んだユーザーへの広告配信が可能です。来店を目的とした「ローカルウェアネスキャンペーン」では、地図・営業時間・電話番号を広告内に直接表示できます。</p>
+<p>特定のキャンペーン期間・新店オープン・季節イベントなど「今すぐ来店を促したい」タイミングに効果的です。</p>
+</div>
+</div>
+<div class="tactic-item">
+<div class="tactic-item__head">
+<div class="tactic-item__icon">📄</div>
+<div class="tactic-item__info">
+<h4>LP・公式サイトの整備</h4>
+<p>来店前の最後の判断材料・予約導線の確保</p>
+</div>
+</div>
+<div class="tactic-item__body">
+<p>MEOやSNSで興味を持ったユーザーが「もう少し詳しく知りたい」と思ったときに訪れるのが公式サイト・LPです。「アクセス・営業時間・メニュー・予約方法」が分かりやすく掲載されていることが最低条件です。特にスマートフォンでの表示・予約ボタンの設置・Google Mapsへのリンクが重要です。</p>
+</div>
+</div>
+</div>
+<!-- ===== MEO詳細 ===== -->
+<h2 id="meo-detail">MEO（Googleビジネスプロフィール）の整備方法</h2>
+<p>MEOはすべての店舗集客施策の中で「コストゼロ・即効性が高い」最優先施策です。まだ整備していない場合は、すべての施策より先にGoogleビジネスプロフィールを整備することを強く推奨します。</p>
+<h3>Googleビジネスプロフィールで必ず設定すること</h3>
+<ul>
+<li><strong>基本情報の完全入力：</strong>店名・住所・電話番号・営業時間・定休日・ウェブサイトURL・業種カテゴリ（正確に）</li>
+<li><strong>写真の充実：</strong>外観・内観・料理・スタッフ写真を最低10枚以上。写真が多いほど閲覧数・来店率が上がる</li>
+<li><strong>「ビジネスの説明」の記入：</strong>ターゲットが検索しそうなキーワードを自然に含めた説明文を750文字以内で記入</li>
+<li><strong>口コミへの返信：</strong>すべての口コミ（良い・悪い）に丁寧に返信。口コミへの返信率・速度もMEO順位に影響する</li>
+<li><strong>Googleビジネスへの投稿：</strong>週1回程度でお知らせ・キャンペーン・イベントを投稿することで鮮度を保ち、検索エンジンへのシグナルにもなる</li>
+</ul>
+<div class="highlight-card--success highlight-card">
+<p><strong>口コミの重要性：</strong>2026年現在、GoogleマップのMEO上位表示において口コミの数・評点・最新性が大きく影響します。競合店より口コミが多く（目標100件以上）、評点が高い（4.0以上）状態を目指すことが長期的な集客力の差につながります。来店後に口コミをお願いする「口コミ依頼カード」の設置・LINE公式アカウントからの依頼が有効です。</p>
+</div>
+<!-- ===== 組み合わせ ===== -->
+<h2 id="combination">施策の組み合わせ：優先順位と連携</h2>
+<table class="cost-table">
+<thead>
+<tr>
+<th>ステップ</th>
+<th>施策</th>
+<th>目的</th>
+<th>費用感</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Step 1（最優先）</strong></td>
+<td>Googleビジネスプロフィール整備・MEO最適化</td>
+<td>「今すぐ探しているユーザー」に確実に表示される</td>
+<td>無料</td>
+</tr>
+<tr>
+<td><strong>Step 2（並行）</strong></td>
+<td>公式サイト・LPの来店導線整備</td>
+<td>興味を持ったユーザーを予約・来店につなげる受け皿</td>
+<td>既存サイト改善なら低コスト</td>
+</tr>
+<tr>
+<td><strong>Step 3（予算あれば）</strong></td>
+<td>Instagram運用</td>
+<td>ターゲット層に「行きたい」という動機を生み出す</td>
+<td>自社運用は無料・代行は月3〜15万円</td>
+</tr>
+<tr>
+<td><strong>Step 4（加速したい）</strong></td>
+<td>Meta広告（地域ターゲティング）</td>
+<td>特定エリアへの即時リーチ拡大</td>
+<td>広告費月3〜10万円から</td>
+</tr>
+</tbody>
+</table>
+<!-- ===== 業種別 ===== -->
+<h2 id="industry">業種別の推奨施策</h2>
+<table class="cost-table">
+<thead>
+<tr>
+<th>業種</th>
+<th>最優先施策</th>
+<th>追加施策</th>
+<th>特記事項</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>飲食・カフェ</td>
+<td>MEO・Instagram</td>
+<td>Meta広告（地域）</td>
+<td>料理写真の質が最重要。ランチ・ディナー時間帯の投稿がエンゲージメント高い</td>
+</tr>
+<tr>
+<td>美容・サロン</td>
+<td>MEO・Instagram</td>
+<td>Google検索広告（「地域 脱毛」等）</td>
+<td>Before/After・施術動画がリールで拡散しやすい</td>
+</tr>
+<tr>
+<td>整体・整骨院</td>
+<td>MEO・Google検索広告</td>
+<td>Instagram</td>
+<td>「〇〇 整体」「腰痛 渋谷」など緊急性が高い検索需要あり</td>
+</tr>
+<tr>
+<td>歯科・クリニック</td>
+<td>MEO・Google検索広告</td>
+<td>LP整備（問い合わせ・予約）</td>
+<td>医療系は検索意図が強い。MEOの口コミが来院判断に大きく影響</td>
+</tr>
+<tr>
+<td>学習塾・スクール</td>
+<td>MEO・Google検索広告</td>
+<td>Instagram・LINE公式</td>
+<td>「地域 塾」「体験無料」の検索広告と、体験申込LPの整備が重要</td>
+</tr>
+<tr>
+<td>小売・アパレル店</td>
+<td>Instagram・MEO</td>
+<td>Meta広告</td>
+<td>商品・コーデのビジュアル投稿がInstagramと相性が高い</td>
+</tr>
+</tbody>
+</table>
+<!-- ===== 2026年トレンド ===== -->
+<h2 id="2026-trend">2026年のローカル集客トレンド</h2>
+<h3>① AI検索への対応（LLMO）</h3>
+<p>2026年現在、ChatGPTやGoogleのAI概要（Gemini）に「渋谷でおすすめのパスタ店を教えて」と質問するユーザーが増えています。AIが店舗を推薦する際は、Web上の情報量（口コミ・サイト・SNS）が根拠になります。MEOの口コミ充実・公式サイトへの豊富な情報掲載・SNSでの発信量が、AI推薦にも影響します。</p>
+<h3>② LINE公式アカウントによるリピーター育成</h3>
+<p>一度来店した顧客にLINE公式アカウントを友達登録してもらい、新メニュー情報・特典・クーポンを配信することで再来店を促します。新規集客コストより、既存顧客のリピート率を上げる方が費用対効果が高いことが多く、MEO・SNSで新規集客した後のLINE活用が店舗集客の重要なサイクルになります。</p>
+<h3>③ UGC（ユーザー生成コンテンツ）の活用</h3>
+<p>来店客がInstagramやGoogleマップに投稿した写真・口コミ（UGC）は、公式コンテンツより信頼性が高いとされています。ハッシュタグキャンペーン・インフルエンサー招待・口コミ依頼の仕組み化でUGCを増やすことが、2026年の店舗集客の差別化要因になっています。</p>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">店舗集客 Web支援</p>
+<h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">店舗集客の施策設計、まずご相談ください</h2>
+<p class="article-cta__lead">LnXでは店舗・地域ビジネスのWeb集客をMEO・SNS・広告・LPをまとめて設計・支援します。「何から始めれば良いか」という段階からご相談いただけます。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">Web集客を無料相談する</a>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>店舗集客のWeb施策でよく見られる失敗は「Instagramを始めたが来店につながらない」というパターンです。原因を確認すると、Googleビジネスプロフィールが未整備でGoogleマップに表示されていないか、サイト・LPに予約導線がないかのどちらかがほとんどです。</p>
+<p>費用ゼロで始められるGoogleビジネスプロフィールの最適化が、すべての店舗集客施策の中で最も費用対効果が高いと私たちは考えています。特に口コミの数と評点は「近くのお店を探している今すぐ客」への露出に直結します。まずGoogleビジネスプロフィールを完全に整えてから他の施策を追加することが、最短で来店数を増やすルートです。</p>
+<p>また、2026年現在はAI検索が浸透し始めており、「AIに店舗を推薦してもらえるか」という新しい集客の観点も出てきています。口コミ・公式サイト・SNSに豊富な情報を蓄積しておくことが、今後の集客力の差につながっていきます。</p>
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              MEOとSEOは何が違いますか？
+            </summary>
+<div class="article-faq__body">
+<p>SEOはGoogle検索結果（通常の青いリンク一覧）での上位表示を狙う施策です。MEOはGoogleマップ上での上位表示を狙う施策です。「渋谷 カフェ」で検索すると、検索結果の上部に地図とマップ上のスポットが3件程度表示されますが、ここに表示されるための最適化がMEOです。地域ビジネスにとってはSEOよりMEOの方が即効性が高く、費用対効果も高いケースが多いです。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              Googleの口コミを増やすにはどうすれば良いですか？
+            </summary>
+<div class="article-faq__body">
+<p>最も効果的な方法は「来店後にお客様に直接お願いする」ことです。口コミ投稿用のQRコードをレシートやテーブルに設置する、LINEのメッセージで口コミのお願いを送るなどが実践的です。Googleビジネスプロフィールの管理画面から「口コミへのリンク」を取得し、QRコードを作成するだけで始められます。ただし、特典・金銭と引き換えに口コミを依頼することはGoogleのポリシー違反になりますので注意してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              ホットペッパー・食べログなどのポータルサイトとMEO・Instagramはどちらが重要ですか？
+            </summary>
+<div class="article-faq__body">
+<p>それぞれ異なる役割があります。ホットペッパー・食べログは「料金を払って掲載し、媒体内検索に表示される」仕組みです。MEOはGoogleマップでの無料表示です。2026年現在の傾向として、「直接Google検索→Googleマップ→来店」という流れが増えており、ポータルサイト依存より自社のMEO・SNS・予約ページを充実させる方が長期的に費用対効果が高いという考え方も増えています。ただし業種によってはポータルサイトが集客の主力になっている場合もあるため、自社の来店経路データを確認して判断することをおすすめします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              LINE公式アカウントと Instagram はどちらを優先すべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>目的が異なります。Instagramは「新規顧客への認知拡大・来店動機の醸成」に向き、LINE公式アカウントは「既存顧客へのリピート促進・顧客との関係維持」に向きます。まずInstagramで新規来店を増やし、来店後にLINE公式アカウントへ誘導するという流れが理想的です。両方を同時に始めるリソースがない場合は、現在の集客の課題（新規獲得か既存顧客のリピートか）に応じて優先する方を選んでください。</p>
+</div>
+
+</details></div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/sns-marketing/restaurant-instagram-strategy/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 飲食店がInstagram集客で成果を出すための投稿設計</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/web-marketing/sme-web-marketing-first-step/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 中小企業がWeb集客で最初に取り組むべき施策とは？</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/meta-vs-google-ads/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告とGoogle広告の違い｜どちらを先に始めるべきか</a>
+</li>
+</ul>
+</div>
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#store-web">店舗集客の基本的な考え方</a></li>
+<li><a href="#tactics">4つのWeb施策</a></li>
+<li><a href="#meo-detail">MEOの整備方法</a></li>
+<li><a href="#combination">施策の組み合わせ</a></li>
+<li><a href="#industry">業種別推奨施策</a></li>
+<li><a href="#2026-trend">2026年のトレンド</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>店舗集客の施策設計<br/>まずご相談ください</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<footer class="footer">
+<div class="container footer__grid">
+<div>© 2026 LnX合同会社</div>
+<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+</div>
+</footer>
+<div class="drawer-overlay" hidden="" id="js-overlay"></div>
+<nav aria-hidden="true" class="drawer" id="js-drawer">
+<ul class="drawer__list">
+<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+<li><a href="https://lnx.co.jp/works.html">実績</a></li>
+<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>

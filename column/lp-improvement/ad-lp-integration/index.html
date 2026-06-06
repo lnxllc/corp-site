@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>広告運用とLP改善はセットで考えるべき理由｜成果を最大化する一体型運用 | LnX合同会社</title>
+<meta content="広告運用とLP改善を別々に考えることで起きる失敗と、一体型で運用することで成果が最大化する理由を解説。CPA改善の数値シミュレーション、分業体制の落とし穴、広告×LP×計測を一体で管理する実務的なアプローチをまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 失敗パターンカード */
+    .failure-card { border: 1px solid rgba(239,68,68,.18); background: rgba(239,68,68,.04); border-radius: var(--radius); padding: 20px 22px; margin: 0 0 16px; }
+    .failure-card__title { font-size: 14px; font-weight: 900; color: #dc2626; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+    .failure-card__title::before { content: "✕"; width: 22px; height: 22px; border-radius: 999px; background: #dc2626; color: #fff; font-size: 11px; font-weight: 900; display: grid; place-items: center; flex: 0 0 auto; }
+    .failure-card p { margin: 0 0 10px; font-size: 14px; color: rgba(15,23,42,.72); line-height: 1.8; }
+    .failure-card p:last-child { margin: 0; }
+    .failure-card .lesson { font-size: 13px; font-weight: 700; color: #b91c1c; padding-top: 10px; border-top: 1px solid rgba(239,68,68,.18); }
+
+    /* CPA計算カード */
+    .cpa-sim { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow2); margin: 0 0 28px; }
+    .cpa-sim__title { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0 0 16px; }
+    .cpa-sim__row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .cpa-sim__cell { text-align: center; padding: 14px 12px; border-radius: 12px; }
+    .cpa-sim__cell--base { background: rgba(15,23,42,.05); }
+    .cpa-sim__cell--cpc { background: rgba(37,99,235,.07); }
+    .cpa-sim__cell--cvr { background: rgba(16,185,129,.07); border: 2px solid rgba(16,185,129,.25); }
+    .cpa-sim__cell .label { font-size: 11px; font-weight: 800; color: var(--soft); display: block; margin-bottom: 4px; letter-spacing: .08em; }
+    .cpa-sim__cell .value { font-size: 18px; font-weight: 900; color: var(--txt); display: block; }
+    .cpa-sim__cell--cvr .value { color: #059669; }
+    .cpa-sim__note { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* 一体型運用ステップ */
+    .step-list { display: grid; gap: 14px; margin: 0 0 28px; }
+    .step-item { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: flex-start; border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2); }
+    .step-item__num { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-weight: 900; font-size: 16px; color: #fff; background: linear-gradient(135deg, var(--brand1), var(--brand3)); }
+    .step-item__body h4 { margin: 0 0 6px; font-size: 15px; font-weight: 900; }
+    .step-item__body p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: var(--brand1); font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .cpa-sim__row { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } .article-body { padding: 36px 0 56px; } .step-item { grid-template-columns: 40px 1fr; gap: 12px; } }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "広告運用とLP改善はセットで考えるべき理由｜成果を最大化する一体型運用",
+  "description": "広告運用とLP改善を別々に考えることで起きる失敗と、一体型で運用することで成果が最大化する理由を解説。CPA改善の数値シミュレーション、分業体制の落とし穴、広告×LP×計測を一体で管理する実務的なアプローチをまとめています。",
+  "url": "https://lnx.co.jp/column/lp-improvement/ad-lp-integration/",
+  "datePublished": "2026-06-03",
+  "dateModified": "2026-06-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/lp-improvement/ad-lp-integration/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "LP改善",
+      "item": "https://lnx.co.jp/column/lp-improvement/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "広告運用とLP改善はセットで考えるべき理由｜成果を最大化する一体型運用",
+      "item": "https://lnx.co.jp/column/lp-improvement/ad-lp-integration/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "すでに広告代理店とLP制作会社が別々にいます。一体化するにはどうすればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "すぐに乗り換えが難しい場合は、まず「週次の共有会議」を設けることから始めてください。広告担当者・LP担当者が同じ数値（CTR・CVR・CPA）を見ながら話す場を作るだけで、改善の連携が生まれます。中長期的には「どちらかに一本化する」か「LnXのようなワンストップで担う会社に切り替える」ことで根本的な改善が実現します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "広告の予算を増やすよりLP改善を優先すべきケースはいつですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "現在のCVRが同業種の平均の半分以下である場合、または広告のCTRは高いのにCVが少ない場合は、予算を増やすよりLP改善を優先することをおすすめします。CVRが低い状態で広告費を増やしても、質の低いCPAのまま消化量が増えるだけです。まずLP・フォームを改善してCVRを上げてから、安定したCPAの状態で広告費を拡大する順番が費用対効果を最大化します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "広告のターゲットとLPの内容が「合っているか」はどうやって確認しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最も簡単な確認方法は「自分が広告のターゲット層になりきってLPを見てみること」です。「この広告をクリックした人が期待している情報が、LPの最初の5秒で伝わるか」を確認します。数値では「直帰率（GA4）」が最も分かりやすい指標です。直帰率が70%以上の場合、多くのユーザーが「思っていた内容と違う」と感じて離脱しています。Microsoft Clarityのセッション録画を見ると、ユーザーが実際にどこで離脱しているかが視覚的に分かります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "「1クリエイティブ1LP」とは何ですか？効果はありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「1クリエイティブ1LP」とは、広告の訴求軸ごとに専用のLPを作るアプローチです。「価格訴求の広告には価格訴求のLP」「スピード訴求の広告にはスピード訴求のLP」という形で、広告とLPのメッセージを完全に一致させます。複数の訴求を1枚のLPで受けるより、訴求ごとに専用LPを作った方がCVRが向上するケースが多いです。ただしLP制作コストが増えるため、まず最も流入が多い訴求から専用LPを作るアプローチが現実的です。"
+      }
+    }
+  ]
+}</script></head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<header class="nav">
+<div class="container nav__inner">
+<a class="brand" href="https://lnx.co.jp/index.html">
+<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
+<div class="brand__name">LnX合同会社</div>
+</a>
+<nav class="nav__menu">
+<a href="https://lnx.co.jp/index.html">TOP</a>
+<a href="https://lnx.co.jp/company.html">会社概要</a>
+<a href="https://lnx.co.jp/services.html">事業内容</a>
+<a href="https://lnx.co.jp/works.html">実績</a>
+</nav>
+<div class="nav__right">
+<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
+</div>
+<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
+<span></span><span></span><span></span>
+</button>
+</div>
+</header>
+<section class="article-hero">
+<div class="article-wrap">
+<p class="article-hero__kicker"><span></span>LP改善</p>
+<h1 class="article-hero__title">広告運用とLP改善はセットで考えるべき理由<br/>｜成果を最大化する一体型運用</h1>
+<div class="article-hero__meta">
+<time datetime="2026-06-03">2026年6月3日</time>
+<span class="article-hero__tag">LP改善</span>
+<span class="article-hero__tag">広告運用</span>
+<span class="article-hero__tag">CPA改善</span>
+<span class="article-hero__tag">一体型運用</span>
+</div>
+</div>
+</section>
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>広告運用とLP改善を別々に考えると起きる失敗パターン3つ</li>
+<li>「CPC改善」より「CVR改善」の方がCPA改善インパクトが大きい理由（数値シミュレーション付き）</li>
+<li>広告・LP・計測を一体で運用することで起きる相乗効果</li>
+<li>分業体制（広告代理店と制作会社が別）がうまくいかない理由と解決策</li>
+<li>一体型運用で成果を最大化する実務ステップ</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#why-separate-fails">「広告だけ改善」「LPだけ改善」が機能しない理由</a></li>
+<li><a href="#cpc-vs-cvr">CPC改善よりCVR改善の方がインパクトが大きい</a></li>
+<li><a href="#failure-patterns">分業体制が招く失敗パターン3つ</a></li>
+<li><a href="#message-match">メッセージマッチ：広告とLPが一致することの重要性</a></li>
+<li><a href="#integrated-ops">一体型運用で生まれる5つの相乗効果</a></li>
+<li><a href="#how-to">一体型運用を実現するステップ</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 別々に考えると失敗する ===== -->
+<h2 id="why-separate-fails">「広告だけ改善」「LPだけ改善」が機能しない理由</h2>
+<p>Web広告での集客を「広告の仕事」と「LPの仕事」に分けて考えている限り、成果には上限があります。広告とLPは切り離せない一本の流れの中にあり、どちらかだけを改善しても効果が限定的です。</p>
+<p>広告のゴールは「クリックしてもらうこと」であり、LPのゴールは「クリックしてきたユーザーをCVさせること」です。この2つがズレていると、お互いの足を引っ張り合う状態になります。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>状況</th>
+<th>問題</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>広告CTRは高いのにCV少ない</td>
+<td>広告が機能しているがLPがCVさせられていない</td>
+<td>広告費は消えてもCPAが改善しない</td>
+</tr>
+<tr>
+<td>LPを改善したのにCVが増えない</td>
+<td>LPに流れてくる広告のターゲットがズレている</td>
+<td>質の低いトラフィックをどれだけ改善しても効果は出ない</td>
+</tr>
+<tr>
+<td>広告文とLPのメッセージが違う</td>
+<td>クリックしたユーザーが「思っていたのと違う」と離脱</td>
+<td>直帰率が高く、広告費が無駄になる</td>
+</tr>
+<tr>
+<td>計測が壊れている状態で改善</td>
+<td>正しいデータで判断できず、誤った方向に改善を続ける</td>
+<td>数ヶ月後も成果が出ず、原因が分からないまま</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card">
+<p><strong>本質：</strong>広告・LP・計測は「3点セット」です。この3つが揃って初めて費用対効果の高い集客が実現します。どれか1つだけを改善しても、残りの2つがボトルネックになって成果が出ません。</p>
+</div>
+<!-- ===== CPC vs CVR ===== -->
+<h2 id="cpc-vs-cvr">CPC改善よりCVR改善の方がインパクトが大きい</h2>
+<p>「CPAを下げるには広告の入札を最適化すれば良い」と考えている場合、より大きなインパクトを見落としている可能性があります。数値シミュレーションで確認します。</p>
+<div class="cpa-sim">
+<p class="cpa-sim__title">CPA改善シミュレーション（月広告費30万円の場合）</p>
+<div class="cpa-sim__row">
+<div class="cpa-sim__cell cpa-sim__cell--base">
+<span class="label">現状</span>
+<span class="value">CPA 15,000円</span>
+</div>
+<div class="cpa-sim__cell cpa-sim__cell--cpc">
+<span class="label">CPC改善（20%削減）</span>
+<span class="value">CPA 12,000円</span>
+</div>
+<div class="cpa-sim__cell cpa-sim__cell--cvr">
+<span class="label">CVR改善（2倍）</span>
+<span class="value">CPA 7,500円</span>
+</div>
+</div>
+<p class="cpa-sim__note">CPCを20%下げてもCPAの改善は20%にとどまります。一方、CVRを1%→2%に改善すると（同じ広告費でCVが2倍になるため）CPAは半分になります。同じ改善努力でも、<strong>CVR改善の方がCPA改善インパクトが圧倒的に大きい</strong>ことが分かります。</p>
+</div>
+<p>さらに、CVRを改善するのはLP（ランディングページ）の仕事です。広告だけを改善し続けてもCPCの改善には上限があります（競合環境に左右される）が、LPのCVRには理論上の上限がなく、改善の余地は常にあります。2026年現在、検索広告のCPCが多くの業種で3〜5年前の2倍まで上昇していることを考えると、CPCを下げる努力よりもCVRを上げる努力の方が費用対効果が高いフェーズに入っています。</p>
+<!-- ===== 失敗パターン ===== -->
+<h2 id="failure-patterns">分業体制が招く失敗パターン3つ</h2>
+<div class="failure-card">
+<p class="failure-card__title">失敗①：「広告代理店はLPが悪いと言い、制作会社は広告が悪いと言う」</p>
+<p>広告代理店と制作会社が別々に仕事をしている場合、CPAが悪化したときに責任の押し付け合いが起きやすいです。広告代理店は「LPのCVRが低い」と言い、制作会社は「広告のターゲットがズレている」と言う。誰も全体を最適化しようとしない「責任の空白地帯」が生まれます。</p>
+<p class="lesson">解決策：広告・LP・計測を同じ担当者または同じ会社が管理する。そうすれば「どこに問題があるか」の判断が速くなり、改善サイクルが早くなる。</p>
+</div>
+<div class="failure-card">
+<p class="failure-card__title">失敗②：広告のクリエイティブを変えたのにLPが更新されない</p>
+<p>「春キャンペーン・50%OFF」という広告クリエイティブに変えたが、LPはそのままで通常価格が表示されている——これは典型的なメッセージミスマッチです。ユーザーは「思っていた内容と違う」と感じて離脱し、直帰率が跳ね上がります。広告とLPが別の担当者・別の会社だと、この連動が起きにくくなります。</p>
+<p class="lesson">解決策：クリエイティブを変更するたびにLPのファーストビュー・キャッチコピーも合わせて更新する「メッセージマッチのルール」を設ける。</p>
+</div>
+<div class="failure-card">
+<p class="failure-card__title">失敗③：広告データを見ずにLPを改善し、効果が分からない</p>
+<p>LPを改善したがCVが増えたか分からない。広告のデータ（クリック数・CVR・どのキーワードから来ているか）を確認せずにLPだけを変えると、「どこが改善したか・なぜ改善したか」が分からず、改善の再現性がありません。</p>
+<p class="lesson">解決策：LP改善の前後で「広告のCV数・CVR・CPA」を比較する。GA4・広告管理画面・Microsoft Clarityを組み合わせてデータを統合して見る体制を作る。</p>
+</div>
+<!-- ===== メッセージマッチ ===== -->
+<h2 id="message-match">メッセージマッチ：広告とLPが一致することの重要性</h2>
+<p>「メッセージマッチ」とは、広告クリエイティブの訴求とLPのファーストビューの訴求が一致している状態のことです。これは広告とLP改善を一体で考える上で最も基本的かつ効果的な施策です。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>広告の訴求</th>
+<th>LPファーストビュー（NG）</th>
+<th>LPファーストビュー（OK）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「初回限定50%OFF」</td>
+<td>会社概要・サービス概要が並んでいる</td>
+<td>「初回限定50%OFFで始める〇〇」というキャッチが先頭にある</td>
+</tr>
+<tr>
+<td>「渋谷・即日対応可能」</td>
+<td>全国対応のLPで地域情報が見つからない</td>
+<td>「渋谷エリア・ご連絡後24時間以内に対応」が明示されている</td>
+</tr>
+<tr>
+<td>「無料相談で解決策を提案」</td>
+<td>「お問い合わせフォーム」と書かれているだけ</td>
+<td>「まず無料でご相談ください」とCTAに書いてある</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--success highlight-card">
+<p><strong>効果：</strong>メッセージマッチを徹底するだけで、同じ広告費・同じLPでもCVRが1.5〜2倍になるケースがあります。最もコストが低く、最も即効性が高い改善施策のひとつです。</p>
+</div>
+<!-- ===== 一体型の相乗効果 ===== -->
+<h2 id="integrated-ops">一体型運用で生まれる5つの相乗効果</h2>
+<ol>
+<li><strong>「どこが原因か」の特定が速くなる：</strong>CPAが悪化したとき、広告データ（CTR・CPC）とLP分析（CVR・直帰率・ヒートマップ）を同じ担当者が見るため、「広告の問題かLPの問題か」を即座に切り分けられる</li>
+<li><strong>A/BテストとLP改善が連動する：</strong>広告のクリエイティブA/Bテストで反応が良かった訴求軸を、そのままLPのコンテンツ改善に反映できる</li>
+<li><strong>広告のターゲットとLPのコンテンツが揃う：</strong>「このオーディエンスに合わせてLPのトーンを変える」という判断が即時にできる</li>
+<li><strong>計測の整合性が取れる：</strong>広告のCV計測とGA4・CRMの数値を統合して見ることで、「どの広告が実際のビジネス成果に貢献しているか」が正確に分かる</li>
+<li><strong>クリエイティブ制作コストが下がる：</strong>LP改善で反応が良かったコンテンツを広告クリエイティブに転用することで、制作コストを削減しながら高品質なクリエイティブが手に入る</li>
+</ol>
+<!-- ===== 実務ステップ ===== -->
+<h2 id="how-to">一体型運用を実現するステップ</h2>
+<div class="step-list">
+<div class="step-item">
+<div class="step-item__num">1</div>
+<div class="step-item__body">
+<h4>計測の土台を整える（GA4・CVタグ・UTM）</h4>
+<p>広告・LP・計測が一体で機能するためには、まず「正確なデータが取れる状態」が前提です。GA4のキーイベント設定・広告CVタグの動作確認・UTMパラメータの付与を最初に整えます。計測が壊れた状態での改善は方向性を誤ります。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">2</div>
+<div class="step-item__body">
+<h4>LPのCVRを把握してから広告を走らせる</h4>
+<p>広告を出稿する前に、LPのモバイルスコア・ファーストビューの明確さ・CTAの設置状況を確認します。CVRが著しく低いLPに広告費をかけても、バケツに穴が開いたまま水を注ぐ状態になります。LP → 広告の順で準備することが理想です。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">3</div>
+<div class="step-item__body">
+<h4>広告クリエイティブとLPのメッセージを揃える</h4>
+<p>広告の訴求軸（価格・スピード・品質・初回特典など）に合わせて、LPのファーストビュー・キャッチコピーを揃えます。クリエイティブを変えたら必ずLPも合わせて更新するルールを設けます。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">4</div>
+<div class="step-item__body">
+<h4>週次でCTR・CVR・CPAを並べて確認する</h4>
+<p>週次の改善会議で広告のCTR・CPC・CVRとLPのヒートマップを同時に確認します。「CTRが落ちているのにCVRは安定→クリエイティブ疲弊が原因」「CTRは安定しているのにCVRが下落→LP側に問題」という切り分けを習慣化します。</p>
+</div>
+</div>
+<div class="step-item">
+<div class="step-item__num">5</div>
+<div class="step-item__body">
+<h4>LP改善の結果を広告最適化に反映する</h4>
+<p>LP改善後に「どの変更がCVRを上げたか」を把握し、そのインサイトを広告のターゲティング・クリエイティブ・入札最適化に反映します。LPのA/Bテストで「価格訴求よりスピード訴求の方がCVRが高い」という知見が得られれば、広告クリエイティブもスピード訴求に寄せるという連携が生まれます。</p>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">WEB集客 一体型支援</p>
+<h2 class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px);">広告・LP・計測をまとめてご相談ください</h2>
+<p class="article-cta__lead">LnXでは広告運用・LP改善・GA4計測設定を同じ担当者が一体で担当。「分業体制でうまくいかない」という問題を解決します。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">Web集客を無料相談する</a>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>LnXが「広告・LP・計測の一気通貫」にこだわる理由は、現場での失敗パターンを何度も目にしてきたからです。広告代理店がCPAの悪化を「LPが悪い」と言い、LP制作会社が「広告のターゲットがズレている」と言い、誰も全体を最適化しない状態が数ヶ月続く——この間にも広告費は消え続けます。</p>
+<p>広告とLPを同じ担当者が見ることで得られる最大のメリットは、<strong>「改善の判断速度」</strong>です。CPAが悪化した翌日に「CTRは安定しているのでLPの問題だ。ヒートマップを確認して今週中にCTAを変える」という判断ができます。これが別々の担当者だと、連絡・確認・稟議のプロセスが加わり、改善に2〜4週間かかることもあります。</p>
+<p>また、私たちが現場で特に実感しているのが、<strong>「LP改善のインサイトを広告に活かすことの価値」</strong>です。LP改善でユーザーが反応した訴求を広告クリエイティブに転用することで、制作コストゼロで高品質なクリエイティブが手に入ります。広告とLPが同じ担当者の管理下にあることで、このフィードバックループが自然に回ります。</p>
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              すでに広告代理店とLP制作会社が別々にいます。一体化するにはどうすればいいですか？
+            </summary>
+<div class="article-faq__body">
+<p>すぐに乗り換えが難しい場合は、まず「週次の共有会議」を設けることから始めてください。広告担当者・LP担当者が同じ数値（CTR・CVR・CPA）を見ながら話す場を作るだけで、改善の連携が生まれます。中長期的には「どちらかに一本化する」か「LnXのようなワンストップで担う会社に切り替える」ことで根本的な改善が実現します。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              広告の予算を増やすよりLP改善を優先すべきケースはいつですか？
+            </summary>
+<div class="article-faq__body">
+<p>現在のCVRが同業種の平均の半分以下である場合、または広告のCTRは高いのにCVが少ない場合は、予算を増やすよりLP改善を優先することをおすすめします。CVRが低い状態で広告費を増やしても、質の低いCPAのまま消化量が増えるだけです。まずLP・フォームを改善してCVRを上げてから、安定したCPAの状態で広告費を拡大する順番が費用対効果を最大化します。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              広告のターゲットとLPの内容が「合っているか」はどうやって確認しますか？
+            </summary>
+<div class="article-faq__body">
+<p>最も簡単な確認方法は「自分が広告のターゲット層になりきってLPを見てみること」です。「この広告をクリックした人が期待している情報が、LPの最初の5秒で伝わるか」を確認します。数値では「直帰率（GA4）」が最も分かりやすい指標です。直帰率が70%以上の場合、多くのユーザーが「思っていた内容と違う」と感じて離脱しています。Microsoft Clarityのセッション録画を見ると、ユーザーが実際にどこで離脱しているかが視覚的に分かります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              「1クリエイティブ1LP」とは何ですか？効果はありますか？
+            </summary>
+<div class="article-faq__body">
+<p>「1クリエイティブ1LP」とは、広告の訴求軸ごとに専用のLPを作るアプローチです。「価格訴求の広告には価格訴求のLP」「スピード訴求の広告にはスピード訴求のLP」という形で、広告とLPのメッセージを完全に一致させます。複数の訴求を1枚のLPで受けるより、訴求ごとに専用LPを作った方がCVRが向上するケースが多いです。ただしLP制作コストが増えるため、まず最も流入が多い訴求から専用LPを作るアプローチが現実的です。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/lp-improvement/lp-cvr-improvement/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ LPのCVRを改善する方法｜広告成果を上げるチェックポイント完全版</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/cpa-high-cause/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ CPAが高い原因とは？広告改善で見るべきポイントを徹底解説</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/lp-improvement/ad-click-no-inquiry/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告はクリックされるのに問い合わせが増えない原因とは？</a>
+</li>
+</ul>
+</div>
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#why-separate-fails">別々に考えると失敗する理由</a></li>
+<li><a href="#cpc-vs-cvr">CVR改善の方がインパクト大</a></li>
+<li><a href="#failure-patterns">分業体制の失敗パターン</a></li>
+<li><a href="#message-match">メッセージマッチの重要性</a></li>
+<li><a href="#integrated-ops">一体型運用の相乗効果</a></li>
+<li><a href="#how-to">一体型運用の実務ステップ</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>広告・LP・計測<br/>一体でご相談ください</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<footer class="footer">
+<div class="container footer__grid">
+<div>© 2026 LnX合同会社</div>
+<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
+</div>
+</footer>
+<div class="drawer-overlay" hidden="" id="js-overlay"></div>
+<nav aria-hidden="true" class="drawer" id="js-drawer">
+<ul class="drawer__list">
+<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
+<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
+<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
+<li><a href="https://lnx.co.jp/works.html">実績</a></li>
+<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>
