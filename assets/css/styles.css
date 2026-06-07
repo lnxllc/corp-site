@@ -3518,3 +3518,20 @@ br.only-sp-br{ display:none !important; }
     max-width: 100%;
   }
 }
+
+
+/* =========================
+   Column article – CTA block fix
+   article-body h2 の !important がCTA内h2に干渉するのを防ぐ
+========================= */
+.article-cta h2,
+.article-cta .article-cta__title {
+  font-size: clamp(18px, 2.2vw, 24px) !important;
+  font-weight: 900 !important;
+  text-align: center !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin: 0 0 10px !important;
+  letter-spacing: -.01em !important;
+  color: var(--txt) !important;
+}
