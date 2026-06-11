@@ -4480,46 +4480,9 @@ br.only-sp-br{ display:none !important; }
 ========================================================= */
 @media (max-width: 640px){
 
-  /* Hero: マイクロコピーが画像と重ならないようチップ化 */
-  .hero-g__note{
-    gap:6px 10px;
-  }
-  .hero-g__note span{
-    padding:4px 10px;
-    border-radius:999px;
-    background:rgba(255,255,255,.88);
-    border:1px solid var(--line);
-    font-size:12px;
-  }
-
-  /* Hero: 実績カードは1カラム横長(ラベル左・数字右) */
-  .hero-stats{
-    flex-direction:column;
-    gap:10px;
-    margin-top:26px;
-    max-width:none;
-  }
-  .hero-stats__item{
-    flex:0 0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    min-width:0;
-    padding:13px 16px;
-  }
-  .hero-stats__item dt{
-    margin:0;
-    font-size:12.5px;
-    line-height:1.5;
-  }
-  .hero-stats__item dd{
-    font-size:23px;
-    white-space:nowrap;
-    text-align:right;
-  }
-  .hero-stats__item dd .u{font-size:15px;}
-  .hero-stats__item dd .s{font-size:11px;}
+  /* Hero: マイクロコピーと実績カードはSPでは非表示(PCのみ表示) */
+  .hero-g__note{display:none;}
+  .hero-stats{display:none;}
 
   /* 見出しサイズ調整(長文タイトルの孤立改行防止) */
   .v3-title{
