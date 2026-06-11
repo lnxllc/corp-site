@@ -21,25 +21,20 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=1" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.webp">
 </head>
-
-<!-- Favicon -->
-<link rel="icon" type="assets/image/png" sizes="32x32" href="assets/img/favicon-32.webp">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.webp">
-
 
 <body>
   <!-- =========================
        Header
   ========================= -->
 <header class="nav">
-
-
-
   <div class="container nav__inner">
-    
+
     <a href="index.html" class="brand">
 <img src="assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
       <div class="brand__name">LnX合同会社</div>
@@ -54,7 +49,7 @@
     </nav>
 
 <div class="nav__right">
-  <a href="contact.html" class="btn btn-primary">お問い合わせ</a>
+  <a href="contact.html" class="btn btn-primary">無料相談</a>
 </div>
 
 <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
@@ -79,13 +74,11 @@
       <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.26"/>
     </linearGradient>
 
-    <!-- ふわっとさせる -->
     <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="0.6" />
     </filter>
   </defs>
 
-  <!-- テーパーした“リボン”で ln(x)っぽい（左で急上昇→右でなだらか） -->
   <path
     d="
       M -120 640
@@ -112,24 +105,44 @@
 
         <h1 class="hero-g__title">
          迷いを成果に変える、<br>
-         集客ワンストップ支援。</span>
+         集客ワンストップ支援。
         </h1>
-
 
         <p class="hero-g__lead">
 中小企業様向けにWeb集客の戦略～サイト制作・SNSや<br class="only-sp-br">広告運用まで<br>トータルでサポートし、ビジネス成長に伴走する事業パートナーです。
         </p>
 
         <div class="hero-g__cta">
-          <a class="btn btn--primary" href="contact.html">お問い合わせ</a>
+          <a class="btn btn--primary" href="contact.html">無料で相談する</a>
           <a class="btn btn--ghost" href="services.html">提供サービスを見る</a>
         </div>
+
+        <p class="hero-g__note">
+          <span>✓ 相談無料</span>
+          <span>✓ オンライン対応可</span>
+          <span>✓ 1営業日以内に返信</span>
+        </p>
+
+        <!-- 実績ハイライト(FV内の信頼要素) -->
+        <dl class="hero-stats">
+          <div class="hero-stats__item">
+            <dt>Web集客支援で売上</dt>
+            <dd>+600<span class="u">万円</span><span class="s">/半年</span></dd>
+          </div>
+          <div class="hero-stats__item">
+            <dt>SNS施策での来店効果</dt>
+            <dd>300<span class="u">組</span><span class="s">以上</span></dd>
+          </div>
+          <div class="hero-stats__item">
+            <dt>Instagram運用</dt>
+            <dd>2.1<span class="u">万</span><span class="s">フォロワー達成</span></dd>
+          </div>
+        </dl>
       </div>
 
       <!-- 右側：円画像 -->
       <div class="hero-g__right" aria-hidden="true">
         <div class="hero-g__circle">
-          <!-- img方式（これが最優先で表示される） -->
           <img src="assets/img/hero.webp" alt="" loading="eager" decoding="async" />
         </div>
       </div>
@@ -153,7 +166,6 @@
         <img src="assets/img/c5.webp" alt="client">
         <img src="assets/img/c10.webp" alt="client">
         <img src="assets/img/c11.webp" alt="client">
-        <!-- 必要なだけ追加 -->
       </div>
 
       <!-- 2周目（同じ内容を複製） -->
@@ -174,7 +186,60 @@
 </section>
 
 
-  
+  <!-- =========================
+       課題共感
+  ========================= -->
+  <section class="section t-pain">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">こんなお悩み、ありませんか？</h2>
+      </div>
+
+      <ul class="t-pain__list">
+        <li class="t-pain__item">広告費をかけているのに、<b>成果が見えない</b></li>
+        <li class="t-pain__item">SNSを始めたものの、<b>伸びない・続かない</b></li>
+        <li class="t-pain__item">集客したいけれど、<b>何から手を付ければいいか分からない</b></li>
+        <li class="t-pain__item">社内に<b>Webの担当者がいない</b></li>
+      </ul>
+
+      <p class="t-pain__answer">
+        その「迷い」、<b>LnXがまるごと引き受けます。</b><br>
+        戦略設計から実行・改善まで、貴社専属のWeb集客チームとして伴走します。
+      </p>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       選ばれる理由
+  ========================= -->
+  <section class="section t-reasons">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">LnXが選ばれる理由</h2>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="card t-reason">
+          <p class="t-reason__label">One-stop</p>
+          <h3>戦略から実行まで<br>一気通貫</h3>
+          <p>戦略設計・サイト制作・SNS/広告運用・動画制作までワンチームで完結。複数の外注先をまとめる手間なく、施策全体を最適化できます。</p>
+        </div>
+        <div class="card t-reason">
+          <p class="t-reason__label">Result-driven</p>
+          <h3>事業の数字から<br>逆算する設計</h3>
+          <p>フォロワー数や表示回数ではなく、売上・問い合わせなど事業成果のKPIから逆算して施策を設計。成果につながらない施策はご提案しません。</p>
+        </div>
+        <div class="card t-reason">
+          <p class="t-reason__label">Small start</p>
+          <h3>月額3万円からの<br>スモールスタート</h3>
+          <p>「まずは小さく試したい」という中小企業様向けに、月額3万円から始められる広告運用プランをご用意。リスクを抑えて第一歩を踏み出せます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- =========================
        What We Do
   ========================= -->
@@ -215,8 +280,110 @@
     </div>
   </section>
 
+
+  <!-- =========================
+       Works
+  ========================= -->
+  <section class="section t-works">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Works（一部）</h2>
+      </div>
+
+  <article class="work">
+ <div class="work__content">
+    <div class="work__top">
+      <b>Webマーケ戦略～実行支援</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media">
+    <img src="assets/img/work7.webp" alt="Webマーケ戦略～実行支援（保険代理店様）">
+   </div>
+   <p class="work__result">売上 <b>+600万円</b><span>／半年</span></p>
+     <p>
+      保険代理店様の顧客獲得に向け、Web集客戦略の設計～実行管理までを一気通貫で行いました。<br>営業部隊による集客の仕組みを構築し、半年で600万円以上の売上増加に貢献しました。
+     </p>
+    </div>
+  </article>
+
+
+  <article class="work">
+ <div class="work__content">
+    <div class="work__top">
+      <b>インフルエンサー施策</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media">
+    <img src="assets/img/work5.webp" alt="インフルエンサーマーケ施策（渋谷のパスタ店様）">
+   </div>
+   <p class="work__result">来店効果 <b>300組</b><span>以上</span></p>
+     <p>
+      渋谷のターゲットに則した集客手法としてSNSインフルエンサー集客をご提案し、最適なインフルエンサーをアサインしバズを創出。<br>UGCの流れが生まれ、継続的に投稿→拡散の流れが発生し長期にわたる集客経路となりました。
+     </p>
+    </div>
+  </article>
+
+
+  <article class="work">
+   <div class="work__content">
+    <div class="work__top">
+      <b>SNSアカウント設計～運用</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media">
+    <img src="assets/img/work1.webp" alt="地域特化型デートアカウント運用（Instagram）">
+   </div>
+   <p class="work__result">フォロワー <b>2.1万</b><span>を0から達成</span></p>
+     <p>
+      東京のデートスポット紹介アカウントを0から立ち上げ、2.1万フォロワーまでグロースさせました。<br>また当初の戦略設計通り、20-30代の男性をメインフォロワーとして獲得。
+     </p>
+    </div>
+  </article>
+
+<article class="work">
+  <div class="work__content">
+    <div class="work__top">
+      <b>長尺動画撮影～制作</b>
+      <span>2025</span>
+    </div>
+  <div class="work__media work__media--video">
+  <a class="work__media work__media--link"
+     href="https://www.youtube.com/watch?v=5j_O3qfLy6E"
+     target="_blank" rel="noopener">
+
+    <img src="https://img.youtube.com/vi/5j_O3qfLy6E/maxresdefault.jpg"
+        alt="ポーカーYoutubeの撮影・ディレクション">
+
+    <span class="play" aria-hidden="true"></span>
+  </a>
+
+  </div>
+   <p class="work__result">有名人出演番組の<b>撮影・制作</b></p>
+    <p>
+      陣内智則等の有名人が出演するポーカー番組の撮影・ディレクションを行いました。
+    </p>
+  </div>
+</article>
+
+<div class="section__cta">
+  <a href="works.html" class="cta-wide cta-wide--ghost">
+    実績をもっと見る
+  </a>
+</div>
+
+      <!-- 実績直後の中間CTA -->
+      <div class="t-midcta">
+        <p class="t-midcta__title">「うちの業界でも成果が出る？」</p>
+        <p class="t-midcta__text">実績の詳細や、貴社の状況に合わせた進め方を無料でご説明します。</p>
+        <a href="contact.html" class="btn btn--primary">無料で相談する</a>
+      </div>
+
+    </div>
+  </section>
+
+
       <!-- =========================
-       サービス案内
+       AdStart
   ========================= -->
 <section class="section section--ad-banner">
   <div class="container">
@@ -234,123 +401,130 @@
   </div>
 </section>
 
+
   <!-- =========================
-       Works
+       料金の目安
   ========================= -->
-  <section class="section">
+  <section class="section t-price">
     <div class="container">
       <div class="section__head">
-        <h2 class="section__title">Works（一部）</h2>
+        <h2 class="section__title">料金の目安</h2>
+        <p class="section__desc">ご予算・課題に合わせて柔軟に設計します。まずは無料相談でお見積りください。</p>
       </div>
 
-  <article class="work">
- <div class="work__content">
-    <div class="work__top">
-      <b>Webマーケ戦略～実行支援①</b>
-      <span>2025</span>
-    </div>
-  <div class="work__media">
-    <img src="assets/img/work7.webp" alt="インフルエンサーマーケ施策（保険代理店様）">
-   </div>
-     <p>
-      保険代理店様の顧客獲得に向け、Web集客戦略の設計～実行管理までを一気通貫で行いました。<br>営業部隊による集客の仕組みを構築し、半年で600万円以上の売上増加に貢献しました。
-     </p>
-    </div>
-  </article>
-
-
-  <article class="work">
- <div class="work__content">
-    <div class="work__top">
-      <b>Webマーケ戦略～実行支援②</b>
-      <span>2025</span>
-    </div>
-  <div class="work__media">
-    <img src="assets/img/work5.webp" alt="インフルエンサーマーケ施策（渋谷のパスタ店様）">
-   </div>
-     <p>
-      渋谷のターゲットに則した集客手法としてSNSインフルエンサー集客をご提案し、最適なインフルエンサーをアサインしバズを創出。<br>UGCの流れが生まれ、継続的に投稿→拡散の流れが発生し長期にわたる集客経路となりました。（少なく見積もって来店効果は300組以上）
-     </p>
-    </div>
-  </article>
-
- 
-  <article class="work">
-   <div class="work__content">
-    <div class="work__top">
-      <b>SNSアカウント設計～運用</b>
-      <span>2025</span>
-    </div>
-  <div class="work__media">
-    <img src="assets/img/work1.webp" alt="地域特化型デートアカウント運用（Instagram）">
-   </div>
-     <p>
-      東京のデートスポット紹介アカウントを0から立ち上げ、2.1万フォロワーまでグロースさせました。<br>また当初の戦略設計通り、20-30代の男性をメインフォロワーとして獲得。
-     </p>
-    </div>
-  </article>
-
-  <article class="work">
- <div class="work__content">
-    <div class="work__top">
-      <b>コーポレートサイト設計～制作</b>
-      <span>2021</span>
-    </div>
-  <div class="work__media">
-    <img src="assets/img/work4.webp" alt="ホームページ制作（久保電商）">
-   </div>
-     <p>
-      コーポレートサイトの設計～実装まで一貫して対応いたしました。
-     </p>
-    </div>
-  </article>
-
-  <article class="work">
- <div class="work__content">
-    <div class="work__top">
-      <b>ランディングページ設計～制作</b>
-      <span>2025</span>
-    </div>
-  <div class="work__media">
-    <img src="assets/img/work17.webp" alt="ランディングページ制作（）">
-   </div>
-     <p>
-      ランディングページの設計～実装まで一貫して対応いたしました。
-     </p>
-    </div>
-  </article>
-
-<article class="work">
-  <div class="work__content">
-    <div class="work__top">
-      <b>長尺動画撮影～制作<br></b>
-      <span>2025</span>
-    </div>
-  <div class="work__media work__media--video">
-  <a class="work__media work__media--link"
-     href="https://www.youtube.com/watch?v=5j_O3qfLy6E"
-     target="_blank" rel="noopener">
-
-    <img src="https://img.youtube.com/vi/5j_O3qfLy6E/maxresdefault.jpg"
-        alt="ポーカーYoutubeの撮影・ディレクション">
-
-    <span class="play" aria-hidden="true"></span>
-  </a>
-
-  </div>
-    <p>
-      陣内智則等の有名人が出演するポーカー番組の撮影・ディレクションを行いました。
-    </p>
-  </div>
-</article>
+      <div class="grid grid--3">
+        <div class="card t-price__card">
+          <h3>広告運用代行</h3>
+          <p class="t-price__num">月額 <b>3万円</b>〜</p>
+          <p>AdStartプラン。Meta・Google等の広告アカウント設計から運用改善までお任せいただけます。</p>
+        </div>
+        <div class="card t-price__card">
+          <h3>SNS運用支援</h3>
+          <p class="t-price__num">個別お見積り</p>
+          <p>アカウント設計・投稿企画・運用改善まで。支援範囲に応じてご予算に合わせたプランをご提案します。</p>
+        </div>
+        <div class="card t-price__card">
+          <h3>Web制作 / 動画制作</h3>
+          <p class="t-price__num">個別お見積り</p>
+          <p>コーポレートサイト・LP・広告用映像など。目的と規模に応じてお見積りいたします。</p>
+        </div>
       </div>
 
-<div class="section__cta">
-  <a href="works.html" class="cta-wide">
-    実績をもっと見る
-  </a>
-</div>
+      <div class="section__cta">
+        <a href="services.html" class="cta-wide cta-wide--ghost">
+          料金・サービスの詳細を見る
+        </a>
+      </div>
+    </div>
+  </section>
 
+
+  <!-- =========================
+       支援の流れ
+  ========================= -->
+  <section class="section t-flow">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">ご相談から支援開始までの流れ</h2>
+      </div>
+
+      <ol class="t-flow__list">
+        <li class="t-flow__step">
+          <span class="t-flow__num">01</span>
+          <h3>お問い合わせ</h3>
+          <p>フォームから1分で送信。1営業日以内にご返信します。</p>
+        </li>
+        <li class="t-flow__step">
+          <span class="t-flow__num">02</span>
+          <h3>無料ヒアリング</h3>
+          <p>現状の課題と目標をお伺いします。オンライン対応可能です。</p>
+        </li>
+        <li class="t-flow__step">
+          <span class="t-flow__num">03</span>
+          <h3>ご提案・お見積り</h3>
+          <p>課題に合わせた施策プランと費用をご提示します。</p>
+        </li>
+        <li class="t-flow__step">
+          <span class="t-flow__num">04</span>
+          <h3>ご契約・支援開始</h3>
+          <p>戦略設計から実行まで、伴走支援がスタートします。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       代表メッセージ
+  ========================= -->
+  <section class="section t-ceo">
+    <div class="container t-ceo__inner">
+      <div class="t-ceo__photo">
+        <img src="assets/img/ceo.webp" alt="LnX合同会社 代表" loading="lazy">
+      </div>
+      <div class="t-ceo__body">
+        <h2 class="section__title">Message</h2>
+        <p class="t-ceo__copy">「何から始めればいいか分からない」<br>その一歩目から、一緒に。</p>
+        <p>
+          Web集客の選択肢が増えた今、本当に難しいのは「自社に合う打ち手を選ぶこと」だと考えています。私たちは施策の押し売りではなく、貴社の事業と数字に向き合い、最適な一手を共に考えるパートナーでありたい。迷われている段階でこそ、お気軽にご相談ください。
+        </p>
+        <p class="t-ceo__sign">LnX合同会社 代表</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       FAQ
+  ========================= -->
+  <section class="section t-faq">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">よくあるご質問</h2>
+      </div>
+
+      <div class="t-faq__list">
+        <details class="t-faq__item">
+          <summary>予算が少なくても相談できますか？</summary>
+          <p>はい。月額3万円から始められる広告運用プラン(AdStart)をご用意しているほか、ご予算に応じた施策の優先順位づけからご提案可能です。</p>
+        </details>
+        <details class="t-faq__item">
+          <summary>どんな業種・規模の会社が対象ですか？</summary>
+          <p>中小企業様を中心に、店舗ビジネスからBtoBまで幅広く支援しています。実績ページで具体的な事例をご覧いただけます。</p>
+        </details>
+        <details class="t-faq__item">
+          <summary>相談したら必ず契約しないといけませんか？</summary>
+          <p>いいえ。初回のご相談・お見積りは無料です。内容にご納得いただいてからのご契約となりますので、情報収集段階でもお気軽にどうぞ。</p>
+        </details>
+        <details class="t-faq__item">
+          <summary>地方の企業でも対応してもらえますか？</summary>
+          <p>はい。お打ち合わせはオンラインで完結できるため、全国どこからでもご相談いただけます。</p>
+        </details>
+        <details class="t-faq__item">
+          <summary>何から相談すればいいか分かりません。</summary>
+          <p>「集客に困っている」だけで大丈夫です。ヒアリングを通して課題を整理するところからが私たちの仕事です。</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -397,7 +571,7 @@
       </div>
 
       <div class="section__cta">
-        <a href="column/" class="cta-wide">
+        <a href="column/" class="cta-wide cta-wide--ghost">
           コラム一覧を見る
         </a>
       </div>
@@ -407,14 +581,54 @@
 
 
   <!-- =========================
+       最終CTA
+  ========================= -->
+  <section class="t-final">
+    <div class="container t-final__inner">
+      <h2 class="t-final__title">まずは無料相談から、<br class="only-sp-br">お気軽にどうぞ。</h2>
+      <p class="t-final__text">
+        「何から始めればいいか分からない」という段階のご相談こそ歓迎です。<br>
+        貴社の課題を整理し、最適な打ち手をご提案します。
+      </p>
+      <a href="contact.html" class="btn t-final__btn">無料で相談する</a>
+      <p class="t-final__note">
+        <span>✓ 相談無料</span>
+        <span>✓ オンライン対応可</span>
+        <span>✓ 1営業日以内に返信</span>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- =========================
        Footer
   ========================= -->
   <footer class="footer">
-    <div class="container footer__grid">
-      <div>© 2026 LnX合同会社</div>
-      <div><a href="privacy.html">プライバシーポリシー</a></div>
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="index.html">TOP</a>
+        <a href="company.html">会社概要</a>
+        <a href="services.html">事業内容</a>
+        <a href="works.html">実績</a>
+        <a href="column/">コラム</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </nav>
+      <div class="t-footer__cta">
+        <a href="contact.html" class="btn btn--primary">無料で相談する</a>
+      </div>
     </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
   </footer>
+
+  <!-- 追従CTA -->
+  <a href="contact.html" class="t-fab" id="js-fab" aria-hidden="true">
+    無料で相談する
+  </a>
 
 <div class="drawer-overlay" id="js-overlay" hidden></div>
 
@@ -430,12 +644,30 @@
 </nav>
 
 <script src="assets/js/main.js?v=3" defer></script>
+<script>
+  // 追従CTA: ヒーロー通過後に表示、最終CTA表示中は非表示
+  (function(){
+    var fab = document.getElementById('js-fab');
+    var hero = document.querySelector('.hero-g');
+    var finalCta = document.querySelector('.t-final');
+    if(!fab || !hero || !('IntersectionObserver' in window)) return;
 
-
+    var heroVisible = true, finalVisible = false;
+    function update(){
+      var show = !heroVisible && !finalVisible;
+      fab.classList.toggle('is-visible', show);
+      fab.setAttribute('aria-hidden', show ? 'false' : 'true');
+    }
+    new IntersectionObserver(function(es){
+      heroVisible = es[0].isIntersecting; update();
+    }, {threshold:0.1}).observe(hero);
+    if(finalCta){
+      new IntersectionObserver(function(es){
+        finalVisible = es[0].isIntersecting; update();
+      }, {threshold:0.05}).observe(finalCta);
+    }
+  })();
+</script>
 
 </body>
 </html>
-
-
-
-
