@@ -3942,10 +3942,11 @@ br.only-sp-br{ display:none !important; }
 /* ---- Footer ---- */
 .t-footer__grid{
   display:grid;
-  grid-template-columns:1.4fr 1fr auto;
+  grid-template-columns:1.4fr 1fr;
   gap:36px;
   align-items:start;
-  padding:54px 0 30px;
+  padding-top:54px;
+  padding-bottom:30px;
 }
 .t-footer__logo{height:34px;}
 .t-footer__brand p{margin:10px 0 0; font-weight:800;}
@@ -3963,7 +3964,8 @@ br.only-sp-br{ display:none !important; }
 .t-footer__nav a{color:var(--txt); text-decoration:none;}
 .t-footer__nav a:hover{color:var(--brand3);}
 .t-footer__copy{
-  padding:18px 0 26px;
+  padding-top:18px;
+  padding-bottom:26px;
   border-top:1px solid var(--line);
   font-size:13px;
   color:var(--muted);
@@ -4222,7 +4224,8 @@ br.only-sp-br{ display:none !important; }
   font-size:clamp(60px, 7vw, 96px);
   font-weight:900;
   font-style:italic;
-  line-height:1;
+  line-height:1.15;
+  padding:0.04em 0.16em 0.06em 0.10em;
   background:linear-gradient(135deg, var(--brand1), var(--brand3));
   -webkit-background-clip:text;
   background-clip:text;
@@ -4581,7 +4584,6 @@ br.only-sp-br{ display:none !important; }
   .t-final__btn{min-width:0; width:100%;}
 
   /* フッター */
-  .t-footer__grid{padding:42px 0 22px;}
-  .t-footer__cta .btn{width:100%; text-align:center; justify-content:center;}
+  .t-footer__grid{padding-top:42px; padding-bottom:22px;}
   .t-footer__copy{padding-bottom:84px;} /* 追従バーと被らない余白 */
 }
