@@ -3826,17 +3826,12 @@ br.only-sp-br{ display:none !important; }
 
 /* ---- 代表メッセージ ---- */
 .t-ceo__inner{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:48px;
-  align-items:center;
+  max-width:720px;
+  margin:0 auto;
+  text-align:center;
 }
-.t-ceo__photo img{
-  width:100%;
-  border-radius:var(--radius2);
-  box-shadow:var(--shadow);
-}
-.t-ceo__body .section__title{text-align:left;}
+.t-ceo__body .section__title{text-align:center;}
+.t-ceo__body .v3-eyebrow{text-align:center;}
 .t-ceo__copy{
   margin:6px 0 16px;
   font-size:clamp(20px, 2.2vw, 26px);
@@ -4008,11 +4003,6 @@ br.only-sp-br{ display:none !important; }
 @media (max-width: 900px){
   .t-flow__list{grid-template-columns:repeat(2, 1fr);}
   .t-flow__step:not(:last-child)::after{display:none;}
-  .t-ceo__inner{
-    grid-template-columns:1fr;
-    gap:28px;
-  }
-  .t-ceo__photo{max-width:280px; margin:0 auto;}
   .t-footer__grid{grid-template-columns:1fr; gap:26px;}
 }
 
@@ -4563,11 +4553,8 @@ br.only-sp-br{ display:none !important; }
   /* プラン */
   .v3-plan{padding:26px 20px;}
 
-  /* 代表写真をコンパクトに */
-  .t-ceo__photo{max-width:210px;}
+  /* 代表メッセージ */
   .t-ceo__copy{font-size:19px;}
-  .t-ceo__body{text-align:left;}
-  .t-ceo__body .v3-eyebrow{text-align:left;}
 
   /* FAQ */
   .t-faq__item summary{padding:15px 44px 15px 16px; font-size:14px;}
