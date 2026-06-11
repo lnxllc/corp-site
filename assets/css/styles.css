@@ -4467,6 +4467,17 @@ br.only-sp-br{ display:none !important; }
 .t-faq .section__title{
   margin-bottom:10px;
 }
+.v3-pain .section__desc,
+.v3-scope .section__desc,
+.v3-reasons .section__desc,
+.v3-compare .section__desc,
+.v3-cases .section__desc,
+.v3-plans .section__desc,
+.t-flow .section__desc,
+.t-faq .section__desc{
+  margin-left:auto;
+  margin-right:auto;
+}
 
 /* =========================================================
    Mobile fixes (v3.1)
