@@ -4474,3 +4474,151 @@ br.only-sp-br{ display:none !important; }
 .t-faq .section__title{
   margin-bottom:10px;
 }
+
+/* =========================================================
+   Mobile fixes (v3.1)
+========================================================= */
+@media (max-width: 640px){
+
+  /* Hero: マイクロコピーが画像と重ならないようチップ化 */
+  .hero-g__note{
+    gap:6px 10px;
+  }
+  .hero-g__note span{
+    padding:4px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.88);
+    border:1px solid var(--line);
+    font-size:12px;
+  }
+
+  /* Hero: 実績カードは1カラム横長(ラベル左・数字右) */
+  .hero-stats{
+    flex-direction:column;
+    gap:10px;
+    margin-top:26px;
+    max-width:none;
+  }
+  .hero-stats__item{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    min-width:0;
+    padding:13px 16px;
+  }
+  .hero-stats__item dt{
+    margin:0;
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .hero-stats__item dd{
+    font-size:23px;
+    white-space:nowrap;
+    text-align:right;
+  }
+  .hero-stats__item dd .u{font-size:15px;}
+  .hero-stats__item dd .s{font-size:11px;}
+
+  /* 見出しサイズ調整(長文タイトルの孤立改行防止) */
+  .v3-title{
+    font-size:25px;
+    line-height:1.6;
+  }
+  .v3-eyebrow{font-size:12px;}
+  .section__desc{font-size:13.5px;}
+
+  /* 解決宣言 */
+  .v3-solution__lead{font-size:17px;}
+  .v3-solution__main{font-size:29px; line-height:1.55;}
+  .v3-solution__main span{white-space:nowrap;}
+  .v3-solution__sub{font-size:13.5px; line-height:1.9; text-align:left;}
+  .v3-pain__arrow{width:42px; height:42px; margin:30px auto 24px;}
+
+  /* 吹き出し */
+  .v3-bubble{font-size:13.5px; padding:13px 17px;}
+
+  /* 対応範囲 */
+  .v3-scope__grid{gap:10px;}
+  .v3-scope__grid li{
+    padding:14px 10px 13px 34px;
+    font-size:12.5px;
+  }
+  .v3-scope__grid li::before{left:10px; top:13px;}
+  .v3-scope__note{font-size:13px;}
+
+  /* 選ばれる理由: 番号+見出しを1行に、本文・画像を下へ */
+  .v3-reason,
+  .v3-reason--rev{
+    display:block;
+    padding:30px 0;
+  }
+  .v3-reason__num{
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:14px;
+    font-size:46px;
+  }
+  .v3-reason__body{display:inline; }
+  .v3-reason__body h3{
+    display:inline-block;
+    vertical-align:middle;
+    max-width:calc(100% - 70px);
+    margin:0;
+    font-size:18px;
+    line-height:1.6;
+  }
+  .v3-reason__body p{
+    display:block;
+    margin-top:14px;
+    font-size:13.5px;
+    line-height:1.95;
+  }
+  .v3-reason__media{
+    max-width:none;
+    margin-top:18px;
+  }
+  .v3-cta-btn{min-width:0; width:100%;}
+
+  /* 比較表 */
+  .v3-table{min-width:640px; font-size:12px;}
+  .v3-table th, .v3-table td{padding:12px 8px;}
+  .v3-table thead .v3-table__lnx{font-size:14px;}
+  .mk{font-size:15px;}
+  .mk--best{font-size:19px;}
+
+  /* 実績 */
+  .v3-case{padding:28px 0;}
+  .v3-case__media{max-width:none;}
+  .v3-case__num b{font-size:30px;}
+  .v3-case__body > p:last-child{font-size:13.5px; line-height:1.95;}
+
+  /* プラン */
+  .v3-plan{padding:26px 20px;}
+
+  /* 代表写真をコンパクトに */
+  .t-ceo__photo{max-width:210px;}
+  .t-ceo__copy{font-size:19px;}
+  .t-ceo__body{text-align:left;}
+  .t-ceo__body .v3-eyebrow{text-align:left;}
+
+  /* FAQ */
+  .t-faq__item summary{padding:15px 44px 15px 16px; font-size:14px;}
+  .t-faq__item p{padding:0 16px 15px; font-size:13.5px;}
+
+  /* 中間CTA */
+  .t-midcta__title{font-size:18px;}
+  .t-midcta__text{font-size:13.5px;}
+  .t-midcta .btn{width:100%;}
+
+  /* 最終CTA */
+  .t-final{padding:72px 0 80px;}
+  .t-final__text{font-size:13.5px;}
+  .t-final__btn{min-width:0; width:100%;}
+
+  /* フッター */
+  .t-footer__grid{padding:42px 0 22px;}
+  .t-footer__cta .btn{width:100%; text-align:center; justify-content:center;}
+  .t-footer__copy{padding-bottom:84px;} /* 追従バーと被らない余白 */
+}

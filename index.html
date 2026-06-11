@@ -207,7 +207,7 @@
 
       <div class="v3-solution">
         <p class="v3-solution__lead">その悩み、</p>
-        <p class="v3-solution__main">LnXが<span>まるごと</span>引き受けます。</p>
+        <p class="v3-solution__main">LnXが<span>まるごと</span><br class="only-sp-br">引き受けます。</p>
         <p class="v3-solution__sub">
           戦略設計から制作・運用・改善まで、貴社専属のWeb集客チームとしてワンストップで実行。<br>
           バラバラだった外注先と施策を、ひとつの窓口にまとめられます。
@@ -224,7 +224,7 @@
     <div class="container">
       <div class="section__head">
         <p class="v3-eyebrow">SCOPE</p>
-        <h2 class="section__title v3-title">この範囲、ぜんぶ任せられます</h2>
+        <h2 class="section__title v3-title">この範囲、<br class="only-sp-br">ぜんぶ任せられます</h2>
         <p class="section__desc">単発の施策ではなく、Web集客に必要な業務をまとめてご依頼いただけます。</p>
       </div>
 
@@ -638,22 +638,26 @@
     var fab = document.getElementById('js-fab');
     var hero = document.querySelector('.hero-g');
     var finalCta = document.querySelector('.t-final');
+    var footer = document.querySelector('.footer');
     if(!fab || !hero || !('IntersectionObserver' in window)) return;
 
-    var heroVisible = true, finalVisible = false;
+    var heroVisible = true, finalVisible = false, footerVisible = false;
     function update(){
-      var show = !heroVisible && !finalVisible;
+      var show = !heroVisible && !finalVisible && !footerVisible;
       fab.classList.toggle('is-visible', show);
       fab.setAttribute('aria-hidden', show ? 'false' : 'true');
     }
     new IntersectionObserver(function(es){
       heroVisible = es[0].isIntersecting; update();
     }, {threshold:0.1}).observe(hero);
-    if(finalCta){
+    [finalCta, footer].forEach(function(el){
+      if(!el) return;
       new IntersectionObserver(function(es){
-        finalVisible = es[0].isIntersecting; update();
-      }, {threshold:0.05}).observe(finalCta);
-    }
+        if(el === finalCta) finalVisible = es[0].isIntersecting;
+        else footerVisible = es[0].isIntersecting;
+        update();
+      }, {threshold:0.05}).observe(el);
+    });
   })();
 </script>
 
