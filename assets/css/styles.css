@@ -4582,8 +4582,31 @@ br.only-sp-br{ display:none !important; }
   .t-final__btn{min-width:0; width:100%;}
 
   /* フッター */
-  .t-footer__grid{padding-top:42px; padding-bottom:22px; width:100%; box-sizing:border-box; overflow-x:hidden;}
-  .t-footer__nav{grid-template-columns: repeat(2, 1fr); width:100%;}
+  .footer{
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .t-footer__grid{
+    padding-top: 42px;
+    padding-bottom: 22px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .t-footer__nav{
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+  .t-footer__info{
+    font-size: 12px !important;
+  }
+  .t-footer__address{
+    display: block;
+    font-style: normal;
+    line-height: 1.9;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
   .t-footer__copy{padding-bottom:84px;} /* 追従バーと被らない余白 */
-  .footer{overflow-x:hidden; width:100%;}
 }
