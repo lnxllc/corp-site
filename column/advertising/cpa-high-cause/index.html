@@ -374,25 +374,33 @@
 <body>
 <!-- ===== Header ===== -->
 <header class="nav">
-<div class="container nav__inner">
-<a class="brand" href="https://lnx.co.jp/index.html">
-<img alt="LnX合同会社ロゴ" class="brand__logo" src="../../../assets/img/logo.webp"/>
-<div class="brand__name">LnX合同会社</div>
-</a>
-<nav class="nav__menu">
-<a href="https://lnx.co.jp/index.html">TOP</a>
-<a href="https://lnx.co.jp/company.html">会社概要</a>
-<a href="https://lnx.co.jp/services.html">事業内容</a>
-<a href="https://lnx.co.jp/works.html">実績</a>
-<a href="https://lnx.co.jp/column/">コラム</a>
-</nav>
-<div class="nav__right">
-<a class="btn btn-primary" href="https://lnx.co.jp/contact.html">お問い合わせ</a>
-</div>
-<button aria-controls="js-drawer" aria-expanded="false" aria-label="メニューを開く" class="hamburger" id="js-hamburger">
-<span></span><span></span><span></span>
-</button>
-</div>
+  <div class="container nav__inner">
+
+    <a href="../../../index.html" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../index.html">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
 </header>
 <!-- ===== 記事ヒーロー ===== -->
 <section class="article-hero">
@@ -836,22 +844,43 @@
 </aside>
 </div>
 <!-- ===== Footer ===== -->
-<footer class="footer">
-<div class="container footer__grid">
-<div>© 2026 LnX合同会社</div>
-<div><a href="https://lnx.co.jp/privacy.html">プライバシーポリシー</a></div>
-</div>
-</footer>
-<div class="drawer-overlay" hidden="" id="js-overlay"></div>
-<nav aria-hidden="true" class="drawer" id="js-drawer">
-<ul class="drawer__list">
-<li><a href="https://lnx.co.jp/index.html">TOP</a></li>
-<li><a href="https://lnx.co.jp/company.html">会社概要</a></li>
-<li><a href="https://lnx.co.jp/services.html">事業内容</a></li>
-<li><a href="https://lnx.co.jp/works.html">実績</a></li>
-<li><a href="https://lnx.co.jp/column/">コラム</a></li>
-<li><a href="https://lnx.co.jp/contact.html">お問い合わせ</a></li>
-</ul>
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../index.html">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+    <div class="container t-footer__info" style="font-size:13px;color:#aaa;padding:8px 0 0;line-height:1.8;">
+      <span>LnX合同会社</span>｜
+      <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+      <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>｜
+      <time datetime="2026-06-13">最終更新：2026年6月13日</time>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../index.html">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
 </nav>
 <script defer="" src="../../../assets/js/main.js?v=3"></script>
 </body>

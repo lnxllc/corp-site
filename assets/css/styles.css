@@ -2952,11 +2952,11 @@ h2{
    ========================= */
 
 h2::first-letter{
-  font-size: 2.2em;      /* ここで大きさ調整 */
-  font-weight: 900;
-  font-style: italic;    /* ←追加 */
-  line-height: 1;
-  margin-right: 2px;
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: normal;
+  line-height: inherit;
+  margin-right: 0;
 }
 
 /* 英語見出し用に少し強めに */
@@ -4582,6 +4582,8 @@ br.only-sp-br{ display:none !important; }
   .t-final__btn{min-width:0; width:100%;}
 
   /* フッター */
-  .t-footer__grid{padding-top:42px; padding-bottom:22px;}
+  .t-footer__grid{padding-top:42px; padding-bottom:22px; width:100%; box-sizing:border-box; overflow-x:hidden;}
+  .t-footer__nav{grid-template-columns: repeat(2, 1fr); width:100%;}
   .t-footer__copy{padding-bottom:84px;} /* 追従バーと被らない余白 */
+  .footer{overflow-x:hidden; width:100%;}
 }
