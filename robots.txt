@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /ad-lp/
 
 Sitemap: https://lnx.co.jp/sitemap.xml
