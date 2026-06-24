@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6EZF7Q7EC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y6EZF7Q7EC');
+</script>
+  <meta charset="UTF-8" />
+  <title>SNS運用のコラム一覧｜Web集客の実務ノウハウ | LnX合同会社</title>
+  <meta name="description" content="Instagram運用代行の費用・フォロワー増加・飲食店の集客投稿設計など、SNSマーケティングの実務ノウハウをまとめています。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://lnx.co.jp/column/sns-marketing/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=1" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "SNS運用のコラム一覧",
+    "description": "Instagram運用代行の費用・フォロワー増加・飲食店の集客投稿設計など、SNSマーケティングの実務ノウハウをまとめています。",
+    "url": "https://lnx.co.jp/column/sns-marketing/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "LnX合同会社",
+      "url": "https://lnx.co.jp"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "TOP", "item": "https://lnx.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://lnx.co.jp/column/" },
+      { "@type": "ListItem", "position": 3, "name": "SNS運用", "item": "https://lnx.co.jp/column/sns-marketing/" }
+    ]
+  }
+  </script>
+
+  <style>
+    .column-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 56px 0 44px;
+      text-align: center;
+    }
+    .cat-breadcrumb {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 6px;
+      font-size: 12.5px; font-weight: 700; color: var(--soft); margin-bottom: 20px;
+    }
+    .cat-breadcrumb a { color: var(--brand3); text-decoration: none; }
+    .cat-breadcrumb a:hover { text-decoration: underline; }
+    .cat-breadcrumb span.sep { color: rgba(15,23,42,.25); }
+    .column-hero__icon {
+      width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 18px;
+      display: grid; place-items: center; font-size: 26px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+    }
+    .column-hero__title {
+      font-size: clamp(26px, 3.6vw, 40px); font-weight: 900;
+      letter-spacing: -.02em; color: var(--txt); margin: 0 0 14px;
+    }
+    .column-hero__lead {
+      font-size: 15.5px; color: var(--muted); max-width: 56ch;
+      margin: 0 auto; line-height: 1.85;
+    }
+    .column-hero__count {
+      display: inline-block; margin-top: 18px; padding: 5px 16px; border-radius: 999px;
+      font-size: 12.5px; font-weight: 800; color: var(--brand3);
+      background: rgba(37,99,235,.08);
+    }
+
+    .column-body { padding: 48px 0 80px; }
+
+    .article-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .article-card {
+      border: 1px solid rgba(15,23,42,.09);
+      background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2);
+      padding: 20px; display: flex; flex-direction: column; gap: 10px;
+      transition: .2s ease; text-decoration: none; color: inherit;
+    }
+    .article-card:hover {
+      transform: translateY(-3px); box-shadow: var(--shadow);
+      border-color: rgba(37,99,235,.2);
+    }
+    .article-card__tag {
+      display: inline-block; padding: 3px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 800; letter-spacing: .08em;
+      background: rgba(37,99,235,.08); color: var(--brand3);
+    }
+    .article-card__title { font-size: 14px; font-weight: 900; line-height: 1.5; color: var(--txt); }
+    .article-card__desc {
+      font-size: 12.5px; color: var(--soft); line-height: 1.7;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .article-card__arrow { margin-top: auto; font-size: 12px; font-weight: 800; color: var(--brand3); }
+
+    /* 他カテゴリへの回遊 */
+    .cat-nav {
+      margin-top: 56px; padding-top: 36px; border-top: 1px solid rgba(15,23,42,.08);
+    }
+    .cat-nav__label { font-size: 13px; font-weight: 800; color: var(--soft); text-align:center; margin: 0 0 18px; letter-spacing: .04em; }
+    .cat-nav__list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .cat-nav__item {
+      padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 800;
+      border: 2px solid rgba(15,23,42,.12); background: transparent;
+      color: var(--muted); text-decoration: none; transition: .18s ease;
+    }
+    .cat-nav__item:hover {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; border-color: transparent;
+    }
+    .cat-nav__item.is-current {
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; border-color: transparent;
+    }
+
+    .column-cta {
+      background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.05));
+      border: 1px solid rgba(37,99,235,.14);
+      border-radius: 20px; padding: 40px; text-align: center; margin-top: 40px;
+    }
+    .column-cta__title { font-size: clamp(20px, 2.5vw, 28px); font-weight: 900; margin: 0 0 12px; }
+    .column-cta__lead { font-size: 15px; color: var(--muted); margin: 0 0 24px; }
+    .column-cta__btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(124,58,237,.22); transition: .2s ease; text-decoration: none;
+    }
+    .column-cta__btn:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) {
+      .article-grid { grid-template-columns: 1fr; }
+      .column-hero { padding: 44px 0 32px; }
+    }
+  </style>
+</head>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicon-180.webp">
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="nav">
+  <div class="container nav__inner">
+    <a href="../../index.html" class="brand">
+      <img src="../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+    <nav class="nav__menu">
+      <a href="../../index.html">TOP</a>
+      <a href="../../company.html">会社概要</a>
+      <a href="../../services.html">事業内容</a>
+      <a href="../../works.html">実績</a>
+      <a href="../../cases/">支援事例</a>
+      <a class="nav__active" href="../../column/">コラム</a>
+    </nav>
+    <div class="nav__right">
+      <a href="../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <!-- ===== ヒーロー ===== -->
+  <section class="column-hero">
+    <div class="container">
+      <nav class="cat-breadcrumb" aria-label="パンくずリスト">
+        <a href="../../index.html">TOP</a>
+        <span class="sep">/</span>
+        <a href="../../column/">コラム</a>
+        <span class="sep">/</span>
+        <span>SNS運用</span>
+      </nav>
+      <div class="column-hero__icon">📱</div>
+      <h1 class="column-hero__title">SNS運用のコラム</h1>
+      <p class="column-hero__lead">Instagram運用代行の費用・フォロワー増加・飲食店の集客投稿設計など、SNSマーケティングの実務ノウハウをまとめています。</p>
+      <span class="column-hero__count">記事 4本</span>
+    </div>
+  </section>
+
+  <!-- ===== 記事一覧 ===== -->
+  <div class="column-body">
+    <div class="container">
+
+      <div class="article-grid">
+
+          <a class="article-card" href="https://lnx.co.jp/column/sns-marketing/instagram-operation-cost/">
+            <span class="article-card__tag">SNS運用</span>
+            <p class="article-card__title">Instagram運用代行の費用相場は？依頼できる業務範囲も解説</p>
+            <p class="article-card__desc">Instagram運用代行の費用相場を業務範囲・契約形態別に解説。投稿代行のみ・戦略立案込み・広告運用セットなど、依頼パターン別の費用感と選び方のポイントをまとめています。</p>
+            <span class="article-card__arrow">→ 続きを読む</span>
+          </a>
+
+          <a class="article-card" href="https://lnx.co.jp/column/sns-marketing/sns-vs-ads/">
+            <span class="article-card__tag">SNS運用</span>
+            <p class="article-card__title">SNS運用代行と広告運用代行の違い｜どちらを優先すべき？</p>
+            <p class="article-card__desc">SNS運用代行と広告運用代行の違いを目的・費用・効果期間・向いているケースで徹底比較。中小企業がどちらを先に始めるべきかの判断基準と組み合わせ戦略を解説します。</p>
+            <span class="article-card__arrow">→ 続きを読む</span>
+          </a>
+
+          <a class="article-card" href="https://lnx.co.jp/column/sns-marketing/instagram-follower-not-growing/">
+            <span class="article-card__tag">SNS運用</span>
+            <p class="article-card__title">Instagramのフォロワーが増えない原因と改善策｜2026年最新アルゴリズム対応版</p>
+            <p class="article-card__desc">Instagramのフォロワーが増えない原因を2026年最新アルゴリズムをもとに解説。リール・カルーセル・ハッシュタグ・プロフィール・投稿戦略など領域別の改善策をまとめています。</p>
+            <span class="article-card__arrow">→ 続きを読む</span>
+          </a>
+
+          <a class="article-card" href="https://lnx.co.jp/column/sns-marketing/restaurant-instagram-strategy/">
+            <span class="article-card__tag">SNS運用</span>
+            <p class="article-card__title">飲食店がInstagram集客で成果を出すための投稿設計｜来店につながる実践ガイド</p>
+            <p class="article-card__desc">飲食店がInstagramで来店・予約につなげるための投稿設計を解説。リール・カルーセル・ストーリーズの使い分け、撮影のコツ、プロフィール設計、フォロワーを顧客に変える導線設計まで。</p>
+            <span class="article-card__arrow">→ 続きを読む</span>
+          </a>
+
+        </div>
+
+      <!-- 他カテゴリへの回遊 -->
+      <nav class="cat-nav" aria-label="コラムカテゴリ">
+        <p class="cat-nav__label">他のカテゴリを見る</p>
+        <div class="cat-nav__list">
+          <a class="cat-nav__item" href="../../column/advertising/">広告運用</a>
+          <a class="cat-nav__item" href="../../column/web-marketing/">Webマーケ戦略</a>
+          <a class="cat-nav__item" href="../../column/lp-improvement/">LP改善</a>
+          <a class="cat-nav__item is-current" href="../../column/sns-marketing/">SNS運用</a>
+          <a class="cat-nav__item" href="../../column/analytics/">計測・GA4</a>
+        </div>
+      </nav>
+
+      <!-- CTA -->
+      <div class="column-cta">
+        <h2 class="column-cta__title">Web集客の改善、まずご相談ください</h2>
+        <p class="column-cta__lead">LnXでは広告運用・LP改善・SNS運用・計測設定を一気通貫でサポート。<br>「何から始めればいいか分からない」という段階からご相談いただけます。</p>
+        <a href="https://lnx.co.jp/contact.html" class="column-cta__btn">無料相談する</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+    <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../index.html">TOP</a>
+        <a href="../../company.html">会社概要</a>
+        <a href="../../services.html">事業内容</a>
+        <a href="../../works.html">実績</a>
+        <a href="../../cases/">支援事例</a>
+        <a href="../../column/">コラム</a>
+        <a href="../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+
+  <div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../index.html">TOP</a></li>
+    <li><a href="../../company.html">会社概要</a></li>
+    <li><a href="../../services.html">事業内容</a></li>
+    <li><a href="../../works.html">実績</a></li>
+    <li><a href="../../cases/">支援事例</a></li>
+    <li><a href="../../column/">コラム</a></li>
+    <li><a href="../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+  <script src="../../assets/js/main.js?v=3" defer></script>
+</body>
+</html>

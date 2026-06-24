@@ -89,6 +89,17 @@
     .column-section__title::first-letter { font-size: 1em !important; font-style: normal !important; text-transform: none !important; }
     .column-section__count { font-size: 13px; font-weight: 700; color: var(--soft); }
 
+    .column-section__head { position: relative; }
+    .column-section__more {
+      margin-left: auto; font-size: 13px; font-weight: 800;
+      color: var(--brand3); text-decoration: none; white-space: nowrap;
+      transition: .15s ease;
+    }
+    .column-section__more:hover { opacity: .7; }
+    @media (max-width: 640px) {
+      .column-section__more { font-size: 12px; }
+    }
+
     /* 記事カードグリッド */
     .article-grid {
       display: grid;
@@ -225,8 +236,10 @@
       <section class="column-section" data-section="advertising">
         <div class="column-section__head">
           <div class="column-section__icon">📢</div>
+        </div>
           <h2 class="column-section__title">広告運用</h2>
           <span class="column-section__count">8本</span>
+          <a class="column-section__more" href="../column/advertising/">→ 広告運用の記事一覧</a>
         </div>
         <div class="article-grid">
 
@@ -294,8 +307,10 @@
       <section class="column-section" data-section="web-marketing">
         <div class="column-section__head">
           <div class="column-section__icon">🎯</div>
+        </div>
           <h2 class="column-section__title">Webマーケ戦略</h2>
           <span class="column-section__count">8本</span>
+          <a class="column-section__more" href="../column/web-marketing/">→ Webマーケ戦略の記事一覧</a>
         </div>
         <div class="article-grid">
 
@@ -363,8 +378,10 @@
       <section class="column-section" data-section="lp-improvement">
         <div class="column-section__head">
           <div class="column-section__icon">📄</div>
+        </div>
           <h2 class="column-section__title">LP改善</h2>
           <span class="column-section__count">6本</span>
+          <a class="column-section__more" href="../column/lp-improvement/">→ LP改善の記事一覧</a>
         </div>
         <div class="article-grid">
 
@@ -418,8 +435,10 @@
       <section class="column-section" data-section="sns-marketing">
         <div class="column-section__head">
           <div class="column-section__icon">📱</div>
+        </div>
           <h2 class="column-section__title">SNS運用</h2>
           <span class="column-section__count">4本</span>
+          <a class="column-section__more" href="../column/sns-marketing/">→ SNS運用の記事一覧</a>
         </div>
         <div class="article-grid">
 
@@ -459,8 +478,10 @@
       <section class="column-section" data-section="analytics">
         <div class="column-section__head">
           <div class="column-section__icon">📊</div>
+        </div>
           <h2 class="column-section__title">計測・GA4</h2>
           <span class="column-section__count">4本</span>
+          <a class="column-section__more" href="../column/analytics/">→ 計測・GA4の記事一覧</a>
         </div>
         <div class="article-grid">
 
