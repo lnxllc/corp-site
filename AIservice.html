@@ -415,7 +415,7 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:12.5px;color:va
       <div class="flow">
         <div class="step">1</div>
         <h3>フォームに回答（3分）</h3>
-        <p>8つの質問に答えるだけ。その場でAI活用余地の簡易スコアを表示します。</p>
+        <p>11の質問に答えるだけ。その場でAI活用余地の簡易スコアを表示します。</p>
       </div>
       <div class="flow">
         <div class="step">2</div>
@@ -452,7 +452,7 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:12.5px;color:va
       </details>
       <details>
         <summary>診断ではどんなことを聞かれますか？</summary>
-        <div class="a">業種・従業員数のほか、「時間がかかっている業務」「集客の現状」など8問です。機密情報や顧客情報の入力は不要です。</div>
+        <div class="a">業種・従業員数のほか、「時間がかかっている業務」「集客の現状」「問い合わせ件数」など11問です。機密情報や顧客情報の入力は不要です。</div>
       </details>
     </div>
   </div>
@@ -513,16 +513,44 @@ footer{border-top:1px solid var(--line);padding:36px 0;font-size:12.5px;color:va
           <label class="chip"><input type="radio" name="q5">一部業務で使っている</label>
         </div>
       </div>
+            <div class="q">
+        <label class="q-label">Q6. 月の新規問い合わせ・相談件数は？<span class="req">必須</span></label>
+        <div class="chips" data-single id="q-inquiries">
+          <label class="chip"><input type="radio" name="q6i">0〜2件</label>
+          <label class="chip"><input type="radio" name="q6i">3〜5件</label>
+          <label class="chip"><input type="radio" name="q6i">6〜10件</label>
+          <label class="chip"><input type="radio" name="q6i">11件以上</label>
+        </div>
+      </div>
       <div class="q">
-        <label class="q-label">Q6. 会社名<span class="req">必須</span></label>
+        <label class="q-label">Q7. 問い合わせから成約になる割合は？（ざっくりで大丈夫です）<span class="req">必須</span></label>
+        <div class="chips" data-single id="q-closerate">
+          <label class="chip"><input type="radio" name="q7c">〜2割</label>
+          <label class="chip"><input type="radio" name="q7c">3〜5割</label>
+          <label class="chip"><input type="radio" name="q7c">6割以上</label>
+          <label class="chip"><input type="radio" name="q7c">把握していない</label>
+        </div>
+      </div>
+      <div class="q">
+        <label class="q-label">Q8. 月の売上規模は？（任意）</label>
+        <div class="chips" data-single id="q-revenue">
+          <label class="chip"><input type="radio" name="q8r">〜50万円</label>
+          <label class="chip"><input type="radio" name="q8r">50〜200万円</label>
+          <label class="chip"><input type="radio" name="q8r">200〜500万円</label>
+          <label class="chip"><input type="radio" name="q8r">500万円以上</label>
+          <label class="chip"><input type="radio" name="q8r">回答しない</label>
+        </div>
+      </div>
+<div class="q">
+        <label class="q-label">Q9. 会社名<span class="req">必須</span></label>
         <input type="text" id="q-company" placeholder="例）〇〇保険サービス株式会社">
       </div>
       <div class="q">
-        <label class="q-label">Q7. お名前<span class="req">必須</span></label>
+        <label class="q-label">Q10. お名前<span class="req">必須</span></label>
         <input type="text" id="q-name" placeholder="例）山田 太郎">
       </div>
       <div class="q">
-        <label class="q-label">Q8. メールアドレス（診断レポートの送付先）<span class="req">必須</span></label>
+        <label class="q-label">Q11. メールアドレス（診断レポートの送付先）<span class="req">必須</span></label>
         <input type="email" id="q-email" placeholder="例）info@example.co.jp">
         <input type="text" id="q-website" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;overflow:hidden" aria-hidden="true">
       </div>
@@ -597,6 +625,9 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
     tasks:    chipValues('q-tasks').join('、'),
     channels: chipValues('q-channels').join('、'),
     ai:       chipValues('q-ai')[0]||'',
+    inquiries: chipValues('q-inquiries')[0]||'',
+    closerate: chipValues('q-closerate')[0]||'',
+    revenue:  chipValues('q-revenue')[0]||'',
     company:  document.getElementById('q-company').value.trim(),
     name:     document.getElementById('q-name').value.trim(),
     email:    document.getElementById('q-email').value.trim(),
@@ -608,9 +639,11 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
   if(!data.size) missing.push('Q2 従業員数');
   if(!data.tasks) missing.push('Q3 時間を取られている業務');
   if(!data.ai) missing.push('Q5 AI利用状況');
-  if(!data.company) missing.push('Q6 会社名');
-  if(!data.name) missing.push('Q7 お名前');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) missing.push('Q8 メールアドレス');
+  if(!data.inquiries) missing.push('Q6 月の問い合わせ件数');
+  if(!data.closerate) missing.push('Q7 成約の割合');
+  if(!data.company) missing.push('Q9 会社名');
+  if(!data.name) missing.push('Q10 お名前');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) missing.push('Q11 メールアドレス');
   if(missing.length){
     errEl.textContent='未入力の項目があります：'+missing.join(' / ');
     errEl.style.display='block';
