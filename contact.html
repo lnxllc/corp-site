@@ -207,10 +207,7 @@ src="https://www.facebook.com/tr?id=35180000744977204&ev=PageView&noscript=1"
     <div class="container">
       <h1 style="margin:0 0 22px;">お問い合わせ</h1>
 
-      <form class="contact-form"
-        action="https://formspree.io/f/mdalpqzy"
-        method="POST"
-      >
+      <form class="contact-form" id="contactForm">
         <div class="form-group">
           <label for="name">お名前</label>
           <input id="name" name="name" type="text" placeholder="山田 太郎" required />
@@ -256,7 +253,10 @@ src="https://www.facebook.com/tr?id=35180000744977204&ev=PageView&noscript=1"
           <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
         </div>
 
-        <button type="submit" onclick="gtag('event', 'generate_lead', { form_name: 'contact_form', method: 'button_click' });">送信する</button>
+        <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;overflow:hidden" aria-hidden="true" />
+
+        <button type="submit" id="contactSubmit">送信する</button>
+        <p id="contactStatus" style="display:none;margin:14px 0 0;font-weight:700;font-size:14px;"></p>
       </form>
     </div>
   </section>
@@ -309,5 +309,48 @@ src="https://www.facebook.com/tr?id=35180000744977204&ev=PageView&noscript=1"
 
 <script src="assets/js/main.js?v=3" defer></script>
 
+
+<script>
+// お問い合わせフォーム → GAS(スプレッドシート)送信 ※AI診断LPと同じ仕組み
+(function(){
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbw0or8jZLXeW_LpvchfWFFPoYUU6_8bYURq-wfvP2JuOFb0AJdl33Xz4DmsWwI0ZBxH/exec';
+  var form = document.getElementById('contactForm');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var btn = document.getElementById('contactSubmit');
+    var status = document.getElementById('contactStatus');
+    var checked = form.querySelector('input[name="inquiry_type"]:checked');
+    var data = new URLSearchParams({
+      form_type: 'contact',
+      name: form.querySelector('#name').value.trim(),
+      email: form.querySelector('#email').value.trim(),
+      inquiry_type: checked ? checked.value : '',
+      message: form.querySelector('#message').value.trim(),
+      website: document.getElementById('hp-website').value
+    });
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+    fetch(GAS_URL, {method:'POST', mode:'no-cors', body:data})
+      .then(function(){
+        btn.textContent = '送信済み ✓';
+        status.style.color = '#16a34a';
+        status.textContent = 'お問い合わせを受け付けました。担当より折り返しご連絡いたします。';
+        status.style.display = 'block';
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { form_name: 'contact_form', method: 'form_submit' });
+        }
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = '送信する';
+        status.style.color = '#dc2626';
+        status.textContent = '送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。';
+        status.style.display = 'block';
+      });
+  });
+})();
+</script>
 </body>
 </html>
