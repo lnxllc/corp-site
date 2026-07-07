@@ -701,6 +701,12 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
       const r=document.getElementById('result');
       r.classList.add('show');
       r.scrollIntoView({behavior:'smooth',block:'center'});
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        'event': 'ai_diagnosis_submit',
+        'form_name': 'ai_diagnosis',
+        'score_hours': hours
+      });
       // ここでGoogle広告のCVタグを発火（実装時にLP制作会社へ依頼）
       // gtag('event','conversion',{send_to:'AW-XXXXXXX/XXXXXXX'});
     })

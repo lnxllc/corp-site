@@ -325,9 +325,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         status.style.color = '#16a34a';
         status.textContent = 'お問い合わせを受け付けました。担当より折り返しご連絡いたします。';
         status.style.display = 'block';
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', { form_name: 'contact_form', method: 'form_submit' });
-        }
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+          'event': 'contact_form_submit',
+          'form_name': 'contact_form',
+          'inquiry_type': checked ? checked.value : ''
+        });
       })
       .catch(function(){
         btn.disabled = false;
