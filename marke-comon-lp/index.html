@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マーケティング顧問制度 | LnX合同会社</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #ffffff;
+    --color-text: #1a1a1a;
+    --color-sub: #5c5c5c;
+    --color-navy: #1c3352;
+    --color-navy-deep: #142842;
+    --color-navy-tint: #eef2f6;
+    --color-accent: #38b6dd;
+    --color-line: #dedad3;
+
+    --font-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: #fff;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .brand {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+
+  .brand span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--color-sub);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .site-nav a {
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: var(--color-text);
+  }
+
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-navy);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    padding: 12px 22px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 86vh;
+    background: var(--color-navy);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: stretch;
+  }
+
+  /* solid geometric accent shapes -- no blur, no gradient blend */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-navy-deep);
+    clip-path: polygon(0 0, 38% 0, 60% 100%, 0% 100%);
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 46%;
+    height: 100%;
+    background: var(--color-accent);
+    clip-path: polygon(58% 0, 100% 0, 100% 100%, 30% 100%);
+    opacity: 0.9;
+    z-index: 0;
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    min-height: 86vh;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 56px 32px 56px 40px;
+    max-width: 700px;
+    min-width: 0;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: #fff;
+    opacity: 0.85;
+    margin-bottom: 22px;
+  }
+
+  .hero-tag .mark {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+  }
+
+  .hero-title {
+    font-weight: 900;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    color: #fff;
+    margin-bottom: 26px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    line-height: 1.95;
+    color: #fff;
+    opacity: 0.92;
+    margin-bottom: 34px;
+    max-width: 480px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 34px;
+    max-width: 420px;
+  }
+
+  .cta-block { position: relative; }
+
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #fff;
+    color: var(--color-navy);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 21px 28px 15px;
+    border-radius: 999px;
+    text-align: center;
+  }
+
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    padding: 14px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.55);
+  }
+
+  .hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero-points li {
+    list-style: none;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--color-navy);
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+
+  /* ---------- Hero visual (office photo, feathered into background) ---------- */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .person-placeholder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .person-photo {
+    width: 92%;
+    height: 84%;
+    object-fit: cover;
+    object-position: 38% 32%;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 32%, #000 68%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 32%, #000 68%, transparent 100%);
+    -webkit-mask-composite: source-in, source-over;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 32%, #000 68%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 32%, #000 68%, transparent 100%);
+    mask-composite: intersect;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .site-header { padding: 16px 20px; }
+    .site-nav { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 44px 24px 32px; max-width: none; }
+    .hero-visual { padding: 0; min-height: 340px; }
+    .person-photo {
+      width: 100%;
+      height: 100%;
+      -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, #000 30%, #000 70%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+      -webkit-mask-composite: source-in, source-over;
+      mask-image:
+        linear-gradient(to right, transparent 0%, #000 30%, #000 70%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+      mask-composite: intersect;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .header-cta { padding: 10px 16px; font-size: 12px; }
+    .hero-title { font-size: 24px; }
+    .hero-ctas { max-width: none; }
+    .btn-primary { padding: 20px 22px 14px; }
+  }
+
+  /* ---------- Section: よくある課題 ---------- */
+  .problem {
+    background: var(--color-bg);
+    padding: 120px 40px;
+  }
+
+  .problem-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  .section-eyebrow .mark {
+    width: 20px;
+    height: 2px;
+    background: var(--color-accent);
+  }
+
+  .problem-title {
+    font-size: clamp(24px, 2.6vw, 34px);
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--color-text);
+    max-width: 720px;
+    margin-bottom: 72px;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .problem-item {
+    display: flex;
+    gap: 24px;
+    padding: 40px 32px 40px 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .problem-item:nth-child(odd) {
+    border-right: 1px solid var(--color-line);
+    padding-left: 0;
+  }
+
+  .problem-item:nth-child(even) {
+    padding-left: 32px;
+  }
+
+  .problem-num {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .problem-text {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-text);
+  }
+
+  .problem-text strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 900px) {
+    .problem { padding: 80px 24px; }
+    .problem-title { margin-bottom: 48px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .problem-item:nth-child(odd) {
+      border-right: none;
+      padding-left: 0;
+    }
+    .problem-item:nth-child(even) { padding-left: 0; }
+  }
+
+  /* ================= Shared section utilities ================= */
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Section: サービスの役割（支援フロー） ---------- */
+  .flow-section {
+    position: relative;
+    background: var(--color-navy-tint, #eef2f6);
+    padding: 120px 40px;
+    overflow: hidden;
+  }
+
+  .flow-section::before {
+    content: "";
+    position: absolute;
+    top: -8%;
+    right: -6%;
+    width: 34%;
+    height: 60%;
+    background: #fff;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  .flow-section .section-inner { position: relative; z-index: 1; }
+
+  .flow-title {
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 700;
+    color: var(--color-text);
+    max-width: 640px;
+    margin-bottom: 64px;
+    line-height: 1.6;
+  }
+
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+
+  .flow-step {
+    position: relative;
+    padding: 28px 20px 0 0;
+    border-top: 3px solid var(--color-navy);
+  }
+
+  .flow-step:nth-child(5n) { padding-right: 0; }
+
+  .flow-step .fs-num {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .flow-step .fs-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.6;
+  }
+
+  .flow-arrow {
+    position: absolute;
+    top: -3px;
+    right: -2px;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid var(--color-accent);
+    border-right: 3px solid var(--color-accent);
+    transform: rotate(45deg);
+  }
+
+  @media (max-width: 900px) {
+    .flow-section { padding: 80px 24px; }
+    .flow-steps { grid-template-columns: 1fr; gap: 24px; }
+    .flow-step { padding: 20px 0 0; }
+    .flow-arrow { display: none; }
+  }
+
+  /* ---------- Section: 3つの強み ---------- */
+  .strengths-section {
+    padding: 120px 40px;
+    background: var(--color-bg);
+  }
+
+  .strengths-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 700;
+    color: var(--color-text);
+    max-width: 700px;
+    margin-bottom: 72px;
+    line-height: 1.6;
+  }
+
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--color-line);
+    border-left: 1px solid var(--color-line);
+  }
+
+  .strength-card {
+    position: relative;
+    padding: 36px 28px 32px;
+    border-right: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    overflow: hidden;
+  }
+
+  .strength-card .sc-watermark {
+    position: absolute;
+    top: -6px;
+    right: 10px;
+    font-size: 76px;
+    font-weight: 900;
+    color: var(--color-navy);
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .strength-card .sc-bar {
+    width: 30px;
+    height: 4px;
+    background: var(--color-accent);
+    margin-bottom: 20px;
+  }
+
+  .strength-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .strength-card p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--color-sub);
+  }
+
+  @media (max-width: 900px) {
+    .strengths-section { padding: 80px 24px; }
+    .strengths-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Section: 支援内容 ---------- */
+  .scope-section {
+    position: relative;
+    background: var(--color-navy);
+    padding: 120px 40px;
+    overflow: hidden;
+  }
+
+  .scope-section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    height: 46%;
+    background: var(--color-navy-deep);
+    clip-path: polygon(0 100%, 100% 100%, 0 0);
+    z-index: 0;
+  }
+
+  .scope-section .section-inner { position: relative; z-index: 1; }
+
+  .scope-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 700;
+    color: #fff;
+    max-width: 640px;
+    margin-bottom: 56px;
+    line-height: 1.6;
+  }
+
+  .scope-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.18);
+  }
+
+  .scope-item {
+    background: var(--color-navy);
+    padding: 26px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .scope-item .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .scope-item span.label {
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 900px) {
+    .scope-section { padding: 80px 24px; }
+    .scope-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .scope-list { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Section: 料金プラン ---------- */
+  .plans-section {
+    padding: 120px 40px;
+    background: var(--color-bg);
+  }
+
+  .plans-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 700;
+    color: var(--color-text);
+    max-width: 640px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .plans-note {
+    font-size: 14px;
+    color: var(--color-sub);
+    margin-bottom: 56px;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .plan-card {
+    position: relative;
+    border: 1px solid var(--color-line);
+    padding: 36px 26px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan-card.is-featured {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 7px 16px;
+    clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .plan-tag {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    margin-bottom: 14px;
+  }
+
+  .plan-card.is-featured .plan-tag { color: #9fd6ea; }
+
+  .plan-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 18px;
+  }
+
+  .plan-card.is-featured .plan-name { color: #fff; }
+
+  .plan-price {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .plan-card.is-featured .plan-price { color: #fff; }
+
+  .plan-price small {
+    font-size: 13px;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+
+  .plan-role {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--color-sub);
+    margin: 18px 0 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .plan-card.is-featured .plan-role {
+    color: rgba(255,255,255,0.78);
+    border-top-color: rgba(255,255,255,0.2);
+  }
+
+  .plan-includes {
+    font-size: 13px;
+    line-height: 2;
+    color: var(--color-text);
+  }
+
+  .plan-card.is-featured .plan-includes { color: #fff; }
+
+  .plan-includes li { list-style: none; padding-left: 14px; position: relative; }
+  .plan-includes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 1px;
+    background: var(--color-accent);
+  }
+
+  .plans-cmo {
+    border: 1px dashed var(--color-line);
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .plans-cmo .cmo-text { font-size: 14px; color: var(--color-sub); }
+  .plans-cmo .cmo-text strong { color: var(--color-navy); font-size: 15px; display: block; margin-bottom: 4px; }
+
+  @media (max-width: 900px) {
+    .plans-section { padding: 80px 24px; }
+    .plans-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Section: 代表プロフィール ---------- */
+  .profile-section {
+    position: relative;
+    background: var(--color-navy-tint, #eef2f6);
+    padding: 120px 40px;
+    overflow: hidden;
+  }
+
+  .profile-section .section-inner {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .profile-photo-wrap {
+    position: relative;
+  }
+
+  .profile-photo-wrap::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: -14px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-accent);
+    z-index: 0;
+  }
+
+  .profile-photo-frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: var(--color-navy);
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .profile-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .profile-name {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--color-sub);
+  }
+
+  .profile-name strong {
+    display: block;
+    font-size: 18px;
+    color: var(--color-navy);
+    margin-bottom: 4px;
+  }
+
+  .profile-title {
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .profile-bio p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 18px;
+  }
+
+  .career-list {
+    margin-top: 8px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .career-list li {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--color-sub);
+    padding: 8px 0 8px 18px;
+    position: relative;
+  }
+
+  .career-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 8px;
+    height: 1px;
+    background: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .profile-section { padding: 80px 24px; }
+    .profile-section .section-inner { grid-template-columns: 1fr; gap: 40px; }
+    .profile-photo-wrap { max-width: 320px; }
+  }
+
+  /* ---------- Section: 実績・事例 ---------- */
+  .results-section {
+    padding: 120px 40px;
+    background: var(--color-bg);
+  }
+
+  .results-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 700;
+    color: var(--color-text);
+    max-width: 640px;
+    margin-bottom: 56px;
+    line-height: 1.6;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .result-stat {
+    border-top: 3px solid var(--color-navy);
+    padding-top: 18px;
+  }
+
+  .result-stat .stat-value {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+  }
+
+  .result-stat .stat-value span {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  .result-stat .stat-label {
+    font-size: 13px;
+    color: var(--color-sub);
+    line-height: 1.7;
+  }
+
+  .results-placeholder {
+    border: 1px dashed var(--color-line);
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--color-sub);
+    line-height: 1.9;
+  }
+
+  @media (max-width: 900px) {
+    .results-section { padding: 80px 24px; }
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Section: 支援開始の流れ ---------- */
+  .process-section {
+    position: relative;
+    background: var(--color-navy-tint, #eef2f6);
+    padding: 120px 40px;
+    overflow: hidden;
+  }
+
+  .process-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -4%;
+    width: 22%;
+    height: 100%;
+    background: #fff;
+    clip-path: polygon(40% 0, 100% 0, 60% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  .process-section .section-inner { position: relative; z-index: 1; }
+
+  .process-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 700;
+    color: var(--color-text);
+    max-width: 640px;
+    margin-bottom: 56px;
+    line-height: 1.6;
+  }
+
+  .process-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .process-row {
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .process-row .pr-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-accent);
+    width: 32px;
+    flex-shrink: 0;
+  }
+
+  .process-row .pr-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-navy);
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  .process-row .pr-desc {
+    font-size: 14px;
+    color: var(--color-sub);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .process-section { padding: 80px 24px; }
+    .process-row { flex-wrap: wrap; gap: 6px 20px; }
+    .process-row .pr-label { width: auto; }
+  }
+
+  /* ---------- Section: FAQ ---------- */
+  .faq-section {
+    padding: 120px 40px;
+    background: var(--color-bg);
+  }
+
+  .faq-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 56px;
+  }
+
+  .faq-list { border-top: 1px solid var(--color-line); }
+
+  .faq-item { border-bottom: 1px solid var(--color-line); }
+
+  .faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 4px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+
+  .faq-q .q-mark {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .faq-q .q-text {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-navy);
+    line-height: 1.7;
+  }
+
+  .faq-q .q-toggle {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .faq-q .q-toggle::before,
+  .faq-q .q-toggle::after {
+    content: "";
+    position: absolute;
+    background: var(--color-navy);
+    transition: transform 0.25s ease;
+  }
+
+  .faq-q .q-toggle::before {
+    top: 50%; left: 0; width: 100%; height: 2px; transform: translateY(-50%);
+  }
+
+  .faq-q .q-toggle::after {
+    left: 50%; top: 0; width: 2px; height: 100%; transform: translateX(-50%);
+  }
+
+  .faq-item.is-open .q-toggle::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-item.is-open .faq-a { max-height: 240px; }
+
+  .faq-a p {
+    padding: 0 4px 28px 35px;
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--color-sub);
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta {
+    position: relative;
+    background: var(--color-navy);
+    padding: 110px 40px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 45%;
+    height: 140%;
+    background: var(--color-navy-deep);
+    clip-path: polygon(0 0, 60% 0, 30% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  .final-cta::after {
+    content: "";
+    position: absolute;
+    bottom: -20%;
+    right: -8%;
+    width: 40%;
+    height: 140%;
+    background: var(--color-accent);
+    opacity: 0.85;
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 20% 100%);
+    z-index: 0;
+  }
+
+  .final-cta .section-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+
+  .final-cta-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: #9fd6ea;
+    margin-bottom: 20px;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .final-cta p.lead {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.9;
+    margin-bottom: 40px;
+  }
+
+  .final-cta .btn-primary {
+    display: inline-flex;
+    margin: 0 auto;
+  }
+
+  .final-cta .fc-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    padding: 40px;
+    text-align: center;
+    background: #fff;
+  }
+
+  .site-footer p {
+    font-size: 12px;
+    color: var(--color-sub);
+  }
+
+  @media (max-width: 900px) {
+    .results-grid { grid-template-columns: repeat(2, 1fr); }
+    .final-cta { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">LnX 合同会社<span>マーケティング顧問制度</span></div>
+    <nav class="site-nav">
+      <a href="#service">サービス内容</a>
+      <a href="#plan">料金プラン</a>
+      <a href="#profile">代表紹介</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="header-cta" href="#contact">無料相談はこちら</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="hero-tag"><span class="mark"></span>MARKETING ADVISORY</p>
+
+        <h1 class="hero-title">
+          マーケ会社の代表を、<br>
+          あなたの会社のマーケ顧問に。
+        </h1>
+
+        <p class="hero-sub">
+          上場事業会社でのマーケティング経験を持つ代表が、事業戦略から施策を逆算。戦略設計から実行ディレクション、AIを活用した業務効率化まで直接支援します。
+        </p>
+
+        <div class="hero-ctas">
+          <div class="cta-block">
+            <a class="btn-primary" href="#contact">無料相談で、課題を整理する</a>
+          </div>
+          <a class="btn-secondary" href="#service">サービス内容を見る ↓</a>
+        </div>
+
+        <ul class="hero-points">
+          <li>代表が直接支援</li>
+          <li>上場事業会社での経験</li>
+          <li>戦略〜実行・AI活用</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="person-placeholder">
+          <img src="profile2.webp" alt="LnX合同会社 代表 福井竜介がオフィスで打ち合わせをしている様子" class="person-photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem" id="challenges">
+    <div class="problem-inner">
+      <p class="section-eyebrow"><span class="mark"></span>よくある課題</p>
+      <h2 class="problem-title">マーケティングの判断を、<br>経営者ひとりで抱えていませんか？</h2>
+
+      <div class="problem-grid">
+        <div class="problem-item">
+          <span class="problem-num">01</span>
+          <p class="problem-text">
+            <strong>施策の優先順位が決まらない</strong>
+            広告・SNS・LPなど、何から手をつけるべきか判断する軸がない。
+          </p>
+        </div>
+        <div class="problem-item">
+          <span class="problem-num">02</span>
+          <p class="problem-text">
+            <strong>代理店や制作会社の提案を判断できない</strong>
+            提案の良し悪しを見極める専門知識が社内にない。
+          </p>
+        </div>
+        <div class="problem-item">
+          <span class="problem-num">03</span>
+          <p class="problem-text">
+            <strong>広告・SNS・LPがバラバラに動いている</strong>
+            施策ごとに担当や外注先が分かれ、事業成果につながる一つの戦略になっていない。
+          </p>
+        </div>
+        <div class="problem-item">
+          <span class="problem-num">04</span>
+          <p class="problem-text">
+            <strong>責任者を採用するほどの予算・体制がない</strong>
+            専任のマーケティング責任者を置きたいが、採用コストと見合わない。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= サービスの役割 ================= -->
+  <section class="flow-section" id="flow">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="mark"></span>サービスの役割</p>
+      <h2 class="flow-title">バラバラな施策を、<br>事業成果につながる一つの戦略へ。</h2>
+
+      <div class="flow-steps">
+        <div class="flow-step"><span class="fs-arrow flow-arrow"></span><span class="fs-num">STEP 01</span><span class="fs-label">事業目標の整理</span></div>
+        <div class="flow-step"><span class="fs-arrow flow-arrow"></span><span class="fs-num">STEP 02</span><span class="fs-label">KPI設計</span></div>
+        <div class="flow-step"><span class="fs-arrow flow-arrow"></span><span class="fs-num">STEP 03</span><span class="fs-label">施策選定</span></div>
+        <div class="flow-step"><span class="fs-arrow flow-arrow"></span><span class="fs-num">STEP 04</span><span class="fs-label">実行管理</span></div>
+        <div class="flow-step"><span class="fs-num">STEP 05</span><span class="fs-label">改善</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3つの強み ================= -->
+  <section class="strengths-section" id="strengths">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="mark"></span>3つの強み</p>
+      <h2 class="strengths-title">戦略だけで終わらない、<br>経営と現場をつなぐマーケティング支援。</h2>
+
+      <div class="strengths-grid">
+        <div class="strength-card">
+          <span class="sc-watermark">01</span>
+          <span class="sc-bar"></span>
+          <h3>マーケティング会社の代表が直接支援</h3>
+          <p>担当者への引き継ぎや丸投げはありません。マーケティング会社の代表が、戦略の整理から施策の判断、改善提案まで一貫して直接支援します。</p>
+        </div>
+        <div class="strength-card">
+          <span class="sc-watermark">02</span>
+          <span class="sc-bar"></span>
+          <h3>事業戦略から逆算したマーケティング設計</h3>
+          <p>上場事業会社でのマーケティング経験を活かし、広告やSNSなどの個別施策だけでなく、事業目標や売上計画から逆算して、施策の優先順位や予算配分を設計します。</p>
+        </div>
+        <div class="strength-card">
+          <span class="sc-watermark">03</span>
+          <span class="sc-bar"></span>
+          <h3>戦略・実行・AI活用までワンストップ</h3>
+          <p>マーケティング戦略、広告運用、SNS、LP、Webサイト、CRMなど、戦略から実行まで幅広い経験を保有。AIを活用した業務効率化や、少人数でも回る体制づくりまで支援します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 支援内容 ================= -->
+  <section class="scope-section" id="service">
+    <div class="section-inner">
+      <p class="section-eyebrow" style="color:#9fd6ea"><span class="mark" style="background:#9fd6ea"></span>支援内容</p>
+      <h2 class="scope-title">マーケティングに関する相談窓口を、<br>一本化できます。</h2>
+
+      <div class="scope-list">
+        <div class="scope-item"><span class="dot"></span><span class="label">戦略・KPI設計</span></div>
+        <div class="scope-item"><span class="dot"></span><span class="label">広告運用</span></div>
+        <div class="scope-item"><span class="dot"></span><span class="label">SNS</span></div>
+        <div class="scope-item"><span class="dot"></span><span class="label">LP・Webサイト</span></div>
+        <div class="scope-item"><span class="dot"></span><span class="label">CRM・計測設計</span></div>
+        <div class="scope-item"><span class="dot"></span><span class="label">実行ディレクション</span></div>
+        <div class="scope-item"><span class="dot"></span><span class="label">AI業務効率化</span></div>
+        <div class="scope-item"><span class="dot"></span><span class="label">月次改善レポート</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 料金プラン ================= -->
+  <section class="plans-section" id="plan">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="mark"></span>料金プラン</p>
+      <h2 class="plans-title">必要な関与度に合わせて、<br>3つのプランをご用意。</h2>
+      <p class="plans-note">価格は税別想定です。最低契約期間は原則3か月（1か月目に現状分析と方針設計、2か月目以降に実行・改善）。</p>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-tag">入口プラン</div>
+          <div class="plan-name">アドバイザリープラン</div>
+          <div class="plan-price">¥80,000<small>/ 月</small></div>
+          <div class="plan-role">経営者・担当者の判断を支える外部専門家として、月1回定例で数値・施策をレビューし、課題の優先順位と翌月アクションを整理します。</div>
+          <ul class="plan-includes">
+            <li>月1回定例</li>
+            <li>数値・施策レビュー</li>
+            <li>改善提案・チャット相談</li>
+          </ul>
+        </div>
+
+        <div class="plan-card is-featured">
+          <span class="plan-badge">おすすめ</span>
+          <div class="plan-tag">主力プラン</div>
+          <div class="plan-name">グロース伴走プラン</div>
+          <div class="plan-price">¥150,000<small>/ 月</small></div>
+          <div class="plan-role">社内担当者と一緒に成果改善を進めるリーダーとして、KPI・施策設計から制作物レビュー、担当者への具体的指示まで伴走します。</div>
+          <ul class="plan-includes">
+            <li>月2回定例</li>
+            <li>KPI・施策設計</li>
+            <li>広告・SNS・LP・CRM分析</li>
+            <li>月次改善レポート</li>
+          </ul>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-tag">上位プラン</div>
+          <div class="plan-name">マーケティング責任者プラン</div>
+          <div class="plan-price">¥300,000<small>/ 月</small></div>
+          <div class="plan-role">社外のマーケティング部長として施策全体を統括。戦略策定から予算・KPI・チャネル設計、社内外への指示・進行管理まで担います。</div>
+          <ul class="plan-includes">
+            <li>戦略策定・予算案設計</li>
+            <li>社内担当者・外注先への指示</li>
+            <li>経営陣への月次報告</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="plans-cmo">
+        <div class="cmo-text">
+          <strong>CMO代行（¥500,000〜 / 個別設計）</strong>
+          経営とマーケティングを接続する外部経営人材として、事業計画・組織構築まで踏み込んだ支援が必要な場合は、個別にご相談ください。
+        </div>
+        <a class="btn-secondary" href="#contact" style="color:var(--color-navy); border-color:var(--color-navy);">個別相談する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 代表プロフィール ================= -->
+  <section class="profile-section" id="profile">
+    <div class="section-inner">
+      <div class="profile-photo-wrap">
+        <div class="profile-photo-frame">
+          <img src="profile.webp" alt="LnX合同会社 代表 福井竜介">
+        </div>
+        <div class="profile-name">
+          <strong>福井 竜介</strong>
+          LnX合同会社 代表
+        </div>
+      </div>
+
+      <div>
+        <p class="section-eyebrow"><span class="mark"></span>代表プロフィール</p>
+        <h2 class="profile-title">マーケティング会社の代表が、<br>すべての案件を直接支援します。</h2>
+        <div class="profile-bio">
+          <p>名古屋大学大学院を修了後、株式会社みずほ銀行にて決済プロダクトのWeb販売戦略の企画・実行を担当。その後、株式会社エス・エム・エスにて人材紹介サービスのWebマーケティング責任者として、売上・利益の最大化に向けた戦略立案から実行管理までを担当し、2025年4月にLnX合同会社を設立しました。</p>
+          <p>広告運用・SNS・LP／Webサイト・CRMなど、戦略から実行まで幅広い領域を担当。案件は担当者に引き継がず、代表自身が戦略の整理から施策の判断、改善提案まで一貫して対応します。近年はAIを活用した業務効率化にも取り組み、少人数でも回るマーケティング体制づくりを支援しています。</p>
+          <ul class="career-list">
+            <li>名古屋大学大学院 修了</li>
+            <li>株式会社みずほ銀行 ── 決済プロダクトのWeb販売戦略 企画・実行</li>
+            <li>株式会社エス・エム・エス ── 人材紹介サービス Webマーケティング責任者</li>
+            <li>2025年4月 LnX合同会社 設立（東京都渋谷区）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 実績・事例 ================= -->
+  <section class="results-section" id="results">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="mark"></span>実績・事例</p>
+      <h2 class="results-title">戦略から実行まで、<br>現場で成果につなげてきました。</h2>
+
+      <div class="results-grid">
+        <div class="result-stat">
+          <div class="stat-value">売上+600<span>万円</span></div>
+          <div class="stat-label">保険代理店様 Web集客支援<br>売上増加（半年間）</div>
+        </div>
+        <div class="result-stat">
+          <div class="stat-value">LTV1.6<span>倍</span></div>
+          <div class="stat-label">上場人材会社様 リスティング広告<br>LTV改善（4か月間）</div>
+        </div>
+        <div class="result-stat">
+          <div class="stat-value">フォロワー2.1<span>万人</span></div>
+          <div class="stat-label">自社Instagramアカウント<br>0からのフォロワー成長</div>
+        </div>
+        <div class="result-stat">
+          <div class="stat-value">CPA8,000<span>円</span></div>
+          <div class="stat-label">人材紹介会社様 META広告<br>獲得単価（1か月で達成）</div>
+        </div>
+      </div>
+
+      <p class="results-placeholder">※ 上記はLnX合同会社の支援実績です。詳細な事例は自社サイトの支援事例ページに掲載しています。</p>
+    </div>
+  </section>
+
+  <!-- ================= 支援開始の流れ ================= -->
+  <section class="process-section" id="process">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="mark"></span>支援開始の流れ</p>
+      <h2 class="process-title">まずは現状の課題を、一緒に整理します。</h2>
+
+      <div class="process-list">
+        <div class="process-row">
+          <span class="pr-num">01</span>
+          <span class="pr-label">無料相談</span>
+          <span class="pr-desc">現在の課題や状況を、オンラインで気軽にお聞かせください。</span>
+        </div>
+        <div class="process-row">
+          <span class="pr-num">02</span>
+          <span class="pr-label">現状整理</span>
+          <span class="pr-desc">施策・体制・数値を整理し、課題の優先順位を明確にします。</span>
+        </div>
+        <div class="process-row">
+          <span class="pr-num">03</span>
+          <span class="pr-label">提案・見積もり</span>
+          <span class="pr-desc">課題に合わせて最適なプランと支援範囲をご提案します。</span>
+        </div>
+        <div class="process-row">
+          <span class="pr-num">04</span>
+          <span class="pr-label">契約締結</span>
+          <span class="pr-desc">最低契約期間は原則3か月。業務範囲を明確にした上で契約します。</span>
+        </div>
+        <div class="process-row">
+          <span class="pr-num">05</span>
+          <span class="pr-label">初月分析</span>
+          <span class="pr-desc">1か月目で現状分析と方針設計を行います。</span>
+        </div>
+        <div class="process-row">
+          <span class="pr-num">06</span>
+          <span class="pr-label">支援開始</span>
+          <span class="pr-desc">2か月目以降、実行・改善を継続的に進めます。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="faq-section" id="faq">
+    <div class="section-inner">
+      <p class="section-eyebrow"><span class="mark"></span>FAQ</p>
+      <h2 class="faq-title">よくあるご質問</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">どこまでの業務を対応してもらえますか？</span><span class="q-toggle"></span></button>
+          <div class="faq-a"><p>戦略立案・数値分析・改善提案・施策設計・ディレクション・軽微な設定/修正は基本料金に含まれます。広告運用の実作業、LP・Web制作、バナー・動画制作、SNS投稿制作、撮影、大規模な計測環境構築などの実務は別途お見積もりとなります。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">契約期間の縛りはありますか？</span><span class="q-toggle"></span></button>
+          <div class="faq-a"><p>原則3か月を最低契約期間としています。1か月目で現状分析と方針設計を行い、2か月目以降に実行・改善を進めます。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">オンラインでの支援は可能ですか？</span><span class="q-toggle"></span></button>
+          <div class="faq-a"><p>はい。定例ミーティングはオンラインを基本としており、全国どこからでもご利用いただけます。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">広告費や制作費は料金に含まれますか？</span><span class="q-toggle"></span></button>
+          <div class="faq-a"><p>含まれません。広告費・制作費・ツール利用料などの実費は別途発生します。顧問料は戦略策定・KPI管理・施策推進・改善実行に対する対価です。成果や売上を保証するものではありません。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span class="q-mark">Q</span><span class="q-text">社内にマーケティング担当者がいなくても依頼できますか？</span><span class="q-toggle"></span></button>
+          <div class="faq-a"><p>可能です。担当者が不在の場合も、現状整理から実行ディレクションまで一貫してサポートします。実務そのものが必要な場合は、外注先のご提案も可能です。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 最終CTA ================= -->
+  <section class="final-cta" id="contact">
+    <div class="section-inner">
+      <p class="final-cta-eyebrow">MARKETING ADVISORY</p>
+      <h2>マーケティングの課題と優先順位を、<br>無料相談で整理しませんか？</h2>
+      <p class="lead">現状の課題整理から、体制づくりまで。まずはお気軽にご相談ください。無理な営業は行いません。</p>
+      <a class="btn-primary" href="mailto:information.lnxllc@gmail.com">無料相談で、課題を整理する</a>
+      <p class="fc-note">LnX合同会社 / information.lnxllc@gmail.com</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 LnX合同会社</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('is-loaded');
+      });
+
+      document.querySelectorAll('.faq-item').forEach((item) => {
+        const btn = item.querySelector('.faq-q');
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('is-open');
+          document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('is-open'));
+          if (!isOpen) item.classList.add('is-open');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
