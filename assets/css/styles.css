@@ -138,8 +138,8 @@ img{max-width:100%;display:block}
   border:none;
   color:#fff;
   font-weight:800;
-  background:linear-gradient(135deg, var(--brand1), var(--brand3));
-  box-shadow:0 18px 44px rgba(124,58,237,.18);
+  background:var(--brand3);
+  box-shadow:0 18px 44px rgba(37,99,235,.18);
 }
 .btn--ghost{
   background:rgba(255,255,255,.92);
@@ -852,15 +852,15 @@ img{max-width:100%;display:block}
   letter-spacing:.04em;
 
   color:#fff;
-  background:linear-gradient(135deg, var(--brand1), var(--brand3));
+  background:var(--brand3);
 
-  box-shadow:0 18px 44px rgba(124,58,237,.20);
+  box-shadow:0 18px 44px rgba(37,99,235,.20);
   transition:.25s ease;
 }
 
 .cta-wide:hover{
   transform:translateY(-3px);
-  box-shadow:0 26px 60px rgba(124,58,237,.28);
+  box-shadow:0 26px 60px rgba(37,99,235,.28);
 }
 
 /* =========================
@@ -3981,8 +3981,8 @@ br.only-sp-br{ display:none !important; }
   font-weight:800;
   color:#fff;
   text-decoration:none;
-  background:linear-gradient(135deg, var(--brand1), var(--brand3));
-  box-shadow:0 18px 44px rgba(124,58,237,.35);
+  background:var(--brand3);
+  box-shadow:0 18px 44px rgba(37,99,235,.35);
   opacity:0;
   transform:translateY(14px);
   pointer-events:none;
@@ -4610,3 +4610,36 @@ br.only-sp-br{ display:none !important; }
   }
   .t-footer__copy{padding-bottom:84px;} /* 追従バーと被らない余白 */
 }
+
+/* =========================
+   LP内蔵フォーム(共通)
+   - AI診断/Adstart/マーケ顧問の各LPで共有
+========================= */
+.sec-eyebrow{text-align:center;display:block;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--brand3);margin:0 0 10px}
+.sec-title{text-align:center;font-size:clamp(24px,2.8vw,32px);font-weight:900;margin:0 0 14px;line-height:1.5;color:var(--txt)}
+.sec-lead{text-align:center;color:var(--muted);font-size:15px;max-width:38em;margin:0 auto 48px}
+.lp-form{background:linear-gradient(160deg,rgba(124,58,237,.07),rgba(6,182,212,.07));padding:80px 0}
+.lp-form .sec-lead{max-width:640px;margin:0 auto 8px}
+.lp-form-card{max-width:760px;margin:0 auto;background:#fff;border-radius:var(--radius2);box-shadow:var(--shadow);padding:44px 40px;border:1px solid var(--line)}
+@media(max-width:640px){.lp-form-card{padding:30px 22px}}
+.lp-form-card .q{margin-bottom:26px}
+.lp-form-card .q label.q-label{display:block;font-weight:800;font-size:14.5px;margin-bottom:10px;color:var(--txt)}
+.lp-form-card .q .req{color:#dc2626;font-size:11px;font-weight:800;margin-left:6px;vertical-align:2px}
+.lp-form-card .q input[type=text],.lp-form-card .q input[type=email],.lp-form-card .q select,.lp-form-card .q textarea{
+  width:100%;border:1px solid rgba(15,23,42,.18);border-radius:12px;padding:13px 16px;font-size:15px;font-family:var(--font-main);background:#fff;color:var(--txt)
+}
+.lp-form-card .q textarea{resize:vertical;min-height:100px}
+.lp-form-card .q input:focus,.lp-form-card .q select:focus,.lp-form-card .q textarea:focus{outline:3px solid rgba(37,99,235,.25);border-color:var(--brand3)}
+.lp-form-card .chips{display:flex;flex-wrap:wrap;gap:10px}
+.lp-form-card .chip{border:1px solid rgba(15,23,42,.18);border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:700;cursor:pointer;background:#fff;transition:.15s;user-select:none}
+.lp-form-card .chip input{display:none}
+.lp-form-card .chip.on{background:var(--brand3);color:#fff;border-color:transparent}
+.lp-form-card .form-note{font-size:12px;color:var(--soft);margin:18px 0 0;text-align:center}
+.lp-form-card .form-center{text-align:center}
+.lp-form-card .form-result{display:none;margin-top:34px;border-radius:var(--radius);border:1px solid rgba(37,99,235,.3);background:rgba(37,99,235,.06);padding:30px 28px;text-align:center}
+.lp-form-card .form-result.show{display:block}
+.lp-form-card .form-result p{font-size:14.5px;color:var(--muted);margin:0;font-weight:700}
+.lp-form-card .form-result p b{color:var(--brand3)}
+.lp-form-submit{display:inline-flex;align-items:center;justify-content:center;width:100%;border:none;background:var(--brand3);color:#fff;font-weight:800;font-size:16px;padding:17px 28px;border-radius:999px;cursor:pointer;box-shadow:0 18px 44px rgba(37,99,235,.25);transition:.2s ease}
+.lp-form-submit:hover{transform:translateY(-2px)}
+.lp-form-submit:disabled{opacity:.6;cursor:default;transform:none}

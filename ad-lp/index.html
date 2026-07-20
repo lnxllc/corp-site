@@ -15,6 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <title>AdStart | 月3万円からのMeta広告運用支援</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.webp">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon-180.webp">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=1">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,14 +30,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!-- Header -->
-    <header>
-        <div class="container header-inner">
-            <div class="logo">AdStart</div>
-            <nav class="header-nav">
-                <a href="#plans" class="btn-sm">料金プラン</a>
-                <a href="#contact" class="btn-main-sm">無料相談</a>
-            </nav>
+    <header class="nav">
+      <div class="container nav__inner">
+        <a href="../index.html" class="brand">
+          <img src="../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+          <div class="brand__name">LnX合同会社</div>
+        </a>
+        <nav class="nav__menu">
+          <a href="../index.html">TOP</a>
+          <a href="../company.html">会社概要</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../works.html">実績</a>
+          <a href="../cases/">支援事例</a>
+          <a href="../column/">コラム</a>
+        </nav>
+        <div class="nav__right">
+          <a href="#contact" class="btn-main-sm">無料相談</a>
         </div>
+        <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </header>
 
     <!-- Hero Section -->
@@ -255,29 +269,196 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section id="contact" class="cta">
-        <div class="container">
-            <div class="cta-inner">
-                <h2>
-                    <span class="keep-block">まずはお気軽に</span>
-                    <span class="keep-block">ご相談ください</span>
-                </h2>
-                <div class="cta-desc">
-                    <p class="keep-block">貴社の状況に合わせて、</p>
-                    <p class="keep-block">最適なプランをご提案いたします。</p>
-                    <p class="keep-block">ご相談は完全無料です。</p>
-                </div>
-                <a href="https://lnx.co.jp/contact.html" class="btn-white">お問い合わせフォームへ</a>
+    <!-- CTA / お問い合わせフォーム -->
+    <section id="contact" class="lp-form">
+      <div class="container">
+        <p class="sec-eyebrow">CONTACT</p>
+        <h2 class="sec-title">まずはお気軽にご相談ください</h2>
+        <p class="sec-lead">貴社の状況に合わせて最適なプランをご提案します。ご相談は完全無料です。</p>
+
+        <div class="lp-form-card">
+          <div class="q">
+            <label class="q-label">Q1. 現在の広告運用状況<span class="req">必須</span></label>
+            <div class="chips" data-single id="ad-q-status">
+              <label class="chip"><input type="radio" name="ad-status">未実施（これから始めたい）</label>
+              <label class="chip"><input type="radio" name="ad-status">過去に代理店へ依頼していた</label>
+              <label class="chip"><input type="radio" name="ad-status">自社で運用中</label>
+              <label class="chip"><input type="radio" name="ad-status">その他</label>
             </div>
+          </div>
+          <div class="q">
+            <label class="q-label">Q2. ご検討中のプラン<span class="req">必須</span></label>
+            <div class="chips" data-single id="ad-q-plan">
+              <label class="chip"><input type="radio" name="ad-plan">スタートプラン（¥30,000/月）</label>
+              <label class="chip"><input type="radio" name="ad-plan">スタンダードプラン（¥120,000/月）</label>
+              <label class="chip"><input type="radio" name="ad-plan">プレミアムプラン（¥200,000〜/月）</label>
+              <label class="chip"><input type="radio" name="ad-plan">まだ決めていない・相談したい</label>
+            </div>
+          </div>
+          <div class="q">
+            <label class="q-label">Q3. 月間広告予算の目安<span class="req">必須</span></label>
+            <div class="chips" data-single id="ad-q-budget">
+              <label class="chip"><input type="radio" name="ad-budget">〜10万円</label>
+              <label class="chip"><input type="radio" name="ad-budget">10〜30万円</label>
+              <label class="chip"><input type="radio" name="ad-budget">30〜80万円</label>
+              <label class="chip"><input type="radio" name="ad-budget">80万円以上・未定</label>
+            </div>
+          </div>
+          <div class="q">
+            <label class="q-label">Q4. ご希望の内容（複数選択可）</label>
+            <div class="chips" id="ad-q-purpose">
+              <label class="chip"><input type="checkbox">売上・問い合わせを増やしたい</label>
+              <label class="chip"><input type="checkbox">フォロワー・認知を広げたい</label>
+              <label class="chip"><input type="checkbox">LP制作もあわせて依頼したい</label>
+              <label class="chip"><input type="checkbox">他媒体（Google広告等）も相談したい</label>
+            </div>
+          </div>
+          <div class="q">
+            <label class="q-label">Q5. 会社名・屋号<span class="req">必須</span></label>
+            <input type="text" id="ad-q-company" placeholder="例）〇〇株式会社">
+          </div>
+          <div class="q">
+            <label class="q-label">Q6. お名前<span class="req">必須</span></label>
+            <input type="text" id="ad-q-name" placeholder="例）山田 太郎">
+          </div>
+          <div class="q">
+            <label class="q-label">Q7. メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="ad-q-email" placeholder="例）info@example.co.jp">
+          </div>
+          <div class="q">
+            <label class="q-label">Q8. ご相談内容（任意）</label>
+            <textarea id="ad-q-message" placeholder="現在の広告運用のお悩みなど、自由にご記入ください"></textarea>
+            <input type="text" id="ad-q-website" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;overflow:hidden" aria-hidden="true">
+          </div>
+
+          <div class="form-center">
+            <button class="btn-main" id="adSubmitBtn" type="button">無料相談を申し込む</button>
+            <p class="form-note">送信いただいた情報はご相談対応以外の目的では使用しません。<a href="../privacy.html" target="_blank" rel="noopener" style="text-decoration:underline">プライバシーポリシー</a></p>
+          </div>
+
+          <div class="form-result" id="ad-result">
+            <p>お問い合わせありがとうございます。<br>担当より<b>2営業日以内</b>にご連絡いたします。</p>
+          </div>
+          <p class="form-note" id="ad-form-error" style="display:none;color:#dc2626;font-weight:700"></p>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 AdStart All Rights Reserved.</p>
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="container t-footer__grid">
+        <div class="t-footer__brand">
+          <img src="../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+          <p>LnX合同会社</p>
+          <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
         </div>
+        <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+          <a href="../index.html">TOP</a>
+          <a href="../company.html">会社概要</a>
+          <a href="../services.html">事業内容</a>
+          <a href="../works.html">実績</a>
+          <a href="../cases/">支援事例</a>
+          <a href="../column/">コラム</a>
+          <a href="../privacy.html">プライバシーポリシー</a>
+        </nav>
+      </div>
+      <div class="container t-footer__info">
+        <address class="t-footer__address">
+          <span>LnX合同会社</span>｜
+          <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+          <a href="../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+        </address>
+      </div>
+      <div class="container t-footer__copy">© 2026 LnX合同会社</div>
     </footer>
+    <div class="drawer-overlay" id="js-overlay" hidden></div>
 
+    <nav class="drawer" id="js-drawer" aria-hidden="true">
+      <ul class="drawer__list">
+        <li><a href="../index.html">TOP</a></li>
+        <li><a href="../company.html">会社概要</a></li>
+        <li><a href="../services.html">事業内容</a></li>
+        <li><a href="../works.html">実績</a></li>
+        <li><a href="../cases/">支援事例</a></li>
+        <li><a href="../column/">コラム</a></li>
+        <li><a href="../contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+<script>
+// チップ選択のトグル
+document.querySelectorAll('.chips').forEach(group=>{
+  const single = group.hasAttribute('data-single');
+  group.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click',e=>{
+      e.preventDefault();
+      if(single){group.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));chip.classList.add('on');}
+      else{chip.classList.toggle('on');}
+    });
+  });
+});
+
+// ================= フォーム送信（GAS接続） =================
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbw0or8jZLXeW_LpvchfWFFPoYUU6_8bYURq-wfvP2JuOFb0AJdl33Xz4DmsWwI0ZBxH/exec';
+
+function chipValues(groupId){
+  return [...document.querySelectorAll('#'+groupId+' .chip.on')].map(c=>c.textContent.trim());
+}
+
+document.getElementById('adSubmitBtn').addEventListener('click',()=>{
+  const btn=document.getElementById('adSubmitBtn');
+  const errEl=document.getElementById('ad-form-error');
+  errEl.style.display='none';
+
+  const data={
+    form_type: 'adstart',
+    status:   chipValues('ad-q-status')[0]||'',
+    plan:     chipValues('ad-q-plan')[0]||'',
+    budget:   chipValues('ad-q-budget')[0]||'',
+    purpose:  chipValues('ad-q-purpose').join('、'),
+    company:  document.getElementById('ad-q-company').value.trim(),
+    name:     document.getElementById('ad-q-name').value.trim(),
+    email:    document.getElementById('ad-q-email').value.trim(),
+    message:  document.getElementById('ad-q-message').value.trim(),
+    website:  document.getElementById('ad-q-website').value // honeypot
+  };
+
+  const missing=[];
+  if(!data.status) missing.push('Q1 現在の広告運用状況');
+  if(!data.plan) missing.push('Q2 ご検討中のプラン');
+  if(!data.budget) missing.push('Q3 月間広告予算の目安');
+  if(!data.company) missing.push('Q5 会社名・屋号');
+  if(!data.name) missing.push('Q6 お名前');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) missing.push('Q7 メールアドレス');
+  if(missing.length){
+    errEl.textContent='未入力の項目があります：'+missing.join(' / ');
+    errEl.style.display='block';
+    return;
+  }
+
+  btn.disabled=true;
+  btn.textContent='送信中…';
+
+  fetch(GAS_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)})
+    .then(()=>{
+      btn.textContent='送信済み ✓';
+      const r=document.getElementById('ad-result');
+      r.classList.add('show');
+      r.scrollIntoView({behavior:'smooth',block:'center'});
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        'event': 'adstart_contact_submit',
+        'form_name': 'adstart_contact'
+      });
+    })
+    .catch(()=>{
+      btn.disabled=false;
+      btn.textContent='無料相談を申し込む';
+      errEl.textContent='送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。';
+      errEl.style.display='block';
+    });
+});
+</script>
+<script defer="" src="../assets/js/main.js?v=3"></script>
 </body>
 </html>
