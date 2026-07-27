@@ -3503,6 +3503,15 @@ br.only-sp-br{ display:none !important; }
   margin: 0 auto;
 }
 
+.package-note {
+  margin: 16px auto 0;
+  max-width: 1000px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(15,23,42,.68);
+  text-align: center;
+}
+
 /* SP */
 @media screen and (max-width: 767px) {
   .section--ad-banner {
@@ -3516,6 +3525,11 @@ br.only-sp-br{ display:none !important; }
   .ad-banner-img {
     width: 100%;
     max-width: 100%;
+  }
+
+  .package-note {
+    margin-top: 12px;
+    font-size: 13px;
   }
 }
 
