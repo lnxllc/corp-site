@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>リターゲティング広告は今も効くのか？Cookie規制後の実態と中小企業の設計 | LnX合同会社</title>
+<meta content="リターゲティング広告の仕組みと、2026年時点のCookie規制の現在地を整理。「効かなくなった」と言われる本当の理由、媒体別の最小オーディエンス条件、少額予算での予算配分と除外設定まで実務目線で解説します。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      text-align: left !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 2カラム比較 */
+    .compare-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 28px; }
+    .compare-col { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow2); }
+    .compare-col--google { border-top: 3px solid #4285F4; }
+    .compare-col--meta { border-top: 3px solid #0866FF; }
+    .compare-col__label { font-size: 11px; font-weight: 800; letter-spacing: .14em; margin: 0 0 8px; }
+    .compare-col--google .compare-col__label { color: #4285F4; }
+    .compare-col--meta .compare-col__label { color: #0866FF; }
+    .compare-col h4 { font-size: 16px; font-weight: 900; margin: 0 0 12px; }
+    .compare-col ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-col li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* チェックリスト */
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "□"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: var(--brand3); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: var(--brand1); font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .compare-2col { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } .article-body { padding: 36px 0 56px; } }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "リターゲティング広告は今も効くのか？Cookie規制後の実態と中小企業の設計",
+  "description": "リターゲティング広告の仕組みと、2026年時点のCookie規制の現在地を整理。「効かなくなった」と言われる本当の理由、媒体別の最小オーディエンス条件、少額予算での予算配分と除外設定まで実務目線で解説します。",
+  "url": "https://lnx.co.jp/column/advertising/retargeting-ads-guide/",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/advertising/retargeting-ads-guide/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "広告運用",
+      "item": "https://lnx.co.jp/column/advertising/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "リターゲティング広告は今も効くのか？Cookie規制後の実態と中小企業の設計",
+      "item": "https://lnx.co.jp/column/advertising/retargeting-ads-guide/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "サードパーティCookieが廃止されると、リターゲティング広告はできなくなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2026年8月時点で、Chromeのサードパーティcookieは廃止されていません。Googleは2024年に一律廃止の計画を撤回し、2025年4月には新たな選択プロンプトを導入せず現行方式を維持すると表明、さらに2025年10月にはPrivacy Sandbox関連APIの多くを終了する方針を発表しています。ただしSafariは以前からサードパーティcookieを既定でブロックしており、iOSのアプリトラッキング許諾（ATT）もあるため、「Chromeが廃止しないから今まで通り」という状態でもありません。リターゲティングは今も実施できますが、取りこぼしを前提に設計する必要があります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "リターゲティング広告に配信するには最低何人のリストが必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "媒体によって条件が異なります。Meta広告のカスタムオーディエンスは配信可能になるまでに一定の最小人数（おおむね100人程度）が必要とされ、Google広告のリマーケティングリストはディスプレイネットワークで100人以上、検索ネットワーク（RLSA）で1,000人以上といった条件が案内されています。月間セッションが数百程度のサイトでは、期間を30日ではなく90日や180日に広げないとリストが溜まりません。まずは自社の月間セッション数から逆算して、そもそもリターゲティングが成立する規模かを確認してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "リターゲティングにはいくら予算を割くべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "決まった正解はありませんが、実務上は広告費全体の1〜3割程度から始め、CPAとフリークエンシー（同一ユーザーへの平均表示回数）を見ながら調整する進め方が扱いやすいです。リターゲティングは母集団が小さいため、予算を増やしすぎると同じ人に何度も表示されるだけになり、CPAは良く見えても新規の見込み客は増えません。管理画面上のCPAが良いからと配分を寄せすぎると、全体の売上が伸びないまま数字だけが綺麗になるという状態に陥りやすい点に注意が必要です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "既存顧客や応募済みの人に広告が出てしまうのを防ぐには？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "コンバージョン完了ページの到達者（サンクスページ）を除外オーディエンスとして作成し、全キャンペーンで除外設定に入れてください。加えて、既存顧客リストをハッシュ化してアップロードしたカスタマーリストの除外、採用系であれば応募完了者の除外も有効です。除外設定は作っただけでは効かず、キャンペーンごとに適用されていなければ意味がありません。キャンペーンを複製したときに除外が引き継がれていないケースが非常に多いため、定期的な棚卸しをおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "リターゲティングで「追い回されている」と嫌がられないか心配です",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "フリークエンシーの上限設定と、リスト期間の設計で調整できます。一般に、検討期間の短い商材ほど短い期間（7〜14日）で区切り、検討期間の長いBtoBや高額商材は長め（60〜180日）に設定します。また、同じクリエイティブを出し続けると印象が悪化しやすいため、初回接触から日数が経つほど訴求を変える（機能訴求→事例→料金・比較）といった段階設計が有効です。"
+      }
+    }
+  ]
+}</script><style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../index.html" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../index.html">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../index.html">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/advertising/">広告運用</a>
+<span class="sep">/</span>
+<span class="cur">リターゲティング広告は今も効くのか？Cookie規制後の実態と中小企業の設計</span>
+</nav>
+<p class="article-hero__kicker"><span></span>広告運用</p>
+<h1 class="article-hero__title">リターゲティング広告は今も効くのか？<br/>Cookie規制後の実態と中小企業の設計</h1>
+<div class="article-hero__meta">
+<time datetime="2026-08-03">2026年8月3日</time>
+<span class="article-hero__tag">広告運用</span>
+<span class="article-hero__tag">リターゲティング</span>
+<span class="article-hero__tag">Cookie規制</span>
+<span class="article-hero__tag">少額予算</span>
+</div>
+</div>
+</section>
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>リターゲティング広告の仕組みと、サイト訪問者リスト以外の種類</li>
+<li>2026年8月時点のCookie規制の現在地（Chromeは結局どうなったのか）</li>
+<li>「リタゲが効かなくなった」と言われる本当の理由</li>
+<li>Google広告・Meta広告の最小オーディエンス条件と、成立するサイト規模の目安</li>
+<li>少額予算での予算配分・リスト期間・除外設定の考え方</li>
+<li>中小企業がやりがちな失敗5つと、導入前チェックリスト</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#what-is">リターゲティング広告とは：仕組みと種類</a></li>
+<li><a href="#cookie-status">Cookie規制の現在地：2026年時点で何が起きているか</a></li>
+<li><a href="#why-weak">「効かなくなった」と言われる本当の理由</a></li>
+<li><a href="#platform">媒体別の仕様と、成立するサイト規模の目安</a></li>
+<li><a href="#design">少額予算でのリターゲティング設計</a></li>
+<li><a href="#failures">中小企業がやりがちな失敗5つ</a></li>
+<li><a href="#checklist">導入前チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== リターゲティング広告とは ===== -->
+<h2 id="what-is">リターゲティング広告とは：仕組みと種類</h2>
+<p>リターゲティング広告（Google広告では「リマーケティング」と呼びます）は、<strong>一度自社サイトに訪れた人や、動画・SNSアカウントに接触した人に対して、あらためて広告を配信する手法</strong>です。まったく接点のない人に配信する新規獲得型の広告と比べ、すでに商品やサービスを認知している層に届くため、一般にコンバージョン率が高くなりやすいという特徴があります。</p>
+<p>ただし「サイトに来た人を追いかける広告」という理解だけでは、2026年の実務では不十分です。<strong>現在のリターゲティングは、Cookieに依存するサイト訪問者リストと、媒体内の行動データにもとづくリストの2系統に分かれており、後者の比重が年々高まっています。</strong></p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>リストの種類</th>
+<th>対象になる人</th>
+<th>Cookie規制の影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>サイト訪問者リスト</strong></td>
+<td>自社サイト・LPを閲覧した人、特定ページ（料金・事例など）を見た人</td>
+<td>受けやすい。ブラウザや端末の制約でリストに乗らない訪問者が発生する</td>
+</tr>
+<tr>
+<td><strong>顧客リスト（カスタマーリスト）</strong></td>
+<td>メールアドレス・電話番号をハッシュ化して媒体にアップロードした既存顧客・見込み客</td>
+<td>受けにくい。自社の一次データが起点のため、ブラウザ側の制約と切り離せる</td>
+</tr>
+<tr>
+<td><strong>媒体内エンゲージメントリスト</strong></td>
+<td>動画を一定時間視聴した人、Instagram・Facebookアカウントに反応した人、リード獲得フォームを開いた人</td>
+<td>受けにくい。媒体アプリ内での行動が起点になる</td>
+</tr>
+<tr>
+<td><strong>類似オーディエンス（拡張配信）</strong></td>
+<td>上記リストと行動傾向が近い未接触ユーザー</td>
+<td>元リストの精度に依存する（間接的に影響を受ける）</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card">
+<p><strong>ポイント：</strong>「リタゲ＝サイト訪問者を追う広告」と捉えている会社ほど、規制の影響を強く受けます。顧客リストと媒体内エンゲージメントを併用しているかどうかが、成果の差になっています。</p>
+</div>
+<!-- ===== Cookie規制の現在地 ===== -->
+<h2 id="cookie-status">Cookie規制の現在地：2026年時点で何が起きているか</h2>
+<p>「サードパーティCookieが廃止されるからリタゲは終わる」という話が数年前から繰り返されてきました。まず、この点の現在地を正確に押さえておきます。</p>
+<h3>Chromeは結局、一律廃止をしていない</h3>
+<p>Googleは長らくChromeでのサードパーティCookie廃止を計画していましたが、<strong>2024年にこの一律廃止の計画を撤回</strong>し、ユーザーの選択に委ねる方針へ転換しました。さらに<strong>2025年4月には、そのための独立した選択プロンプトも新たには導入せず、現行の設定方式を維持すると表明</strong>しています。加えて<strong>2025年10月には、Cookieの代替技術として開発されていたPrivacy Sandbox関連APIの多くを終了する方針が示されました。</strong></p>
+<p>つまり2026年8月時点で、<strong>Chromeにおけるサードパーティcookieは廃止されておらず、代替技術への一斉移行も起きていません。</strong>「来年には使えなくなる」という前提で焦って設計を変える必要はない、というのが現状の実態です。</p>
+<h3>それでも取りこぼしは確実に発生している</h3>
+<p>一方で、規制がなくなったわけでもありません。実務上の影響が大きいのは、Chrome以外の要因です。</p>
+<ul>
+<li><strong>Safariのトラッキング防止（ITP）</strong>：サードパーティCookieを既定でブロックしており、加えてスクリプト経由で発行されたファーストパーティCookieの有効期間も短く制限されます。iPhoneユーザーの比率が高い日本市場では影響が大きい領域です。</li>
+<li><strong>iOSのアプリトラッキング許諾（ATT）</strong>：アプリをまたいだトラッキングにユーザーの明示的な許諾が必要になり、許諾しないユーザーの行動はアプリ側では追えません。</li>
+<li><strong>ブラウザの標準設定・拡張機能</strong>：広告ブロックやトラッキング防止を有効にしているユーザーは、そもそも計測タグが発火しません。</li>
+<li><strong>改正電気通信事業法の外部送信規律</strong>：外部送信について利用者への通知・公表等が求められており、Cookie利用の同意管理を導入するサイトが増えています。同意しないユーザーは計測対象外になります。</li>
+</ul>
+<div class="highlight-card highlight-card--warning">
+<p><strong>結論：</strong>Chromeが廃止しなかったので「今まで通り」ではなく、<strong>「一定割合の訪問者はそもそもリストに乗らない」という前提で母数を見積もる</strong>——これが2026年のリターゲティング設計の出発点です。</p>
+</div>
+<!-- ===== 効かなくなった理由 ===== -->
+<h2 id="why-weak">「効かなくなった」と言われる本当の理由</h2>
+<p>ご相談をいただくなかで「昔はリタゲが一番効いたのに、最近は効かない」という声をよく聞きます。原因を分解すると、Cookie規制そのものよりも、次の3つが効いていることが大半です。</p>
+<h3>理由1：リストに乗る母数が減り、配信が回らない</h3>
+<p>前章のとおり、訪問者全員がリスト化されるわけではありません。月間セッションが少ないサイトでは、取りこぼしが乗った結果、<strong>そもそも配信に必要な最小人数に届かず、キャンペーンが動いていない</strong>ことがあります。管理画面上でインプレッションがほとんど出ていないのに気づかず「効かない」と判断しているケースです。</p>
+<h3>理由2：自動化の進展でリタゲ枠が吸収されている</h3>
+<p>Google広告のP-MAX、MetaのAdvantage+のように、<strong>新規獲得とリターゲティングを1つのキャンペーンでまとめて最適化する形式が主流になりつつあります。</strong>この構成では、リタゲ専用キャンペーンを別に立てると同じユーザーを社内で取り合い、どちらのCPAも読みづらくなります。「リタゲ単体で効かない」のではなく、役割分担の設計が古いまま、というパターンです。</p>
+<p>自動化にどこまで任せるかの判断軸は、<a href="https://lnx.co.jp/column/advertising/meta-advantage-plus-control/">Meta広告のAdvantage+はどこまで任せるべき？</a>で詳しく整理しています。</p>
+<h3>理由3：CPAは良いが、事業の売上が増えていない</h3>
+<p>これが最も見落とされやすい点です。リターゲティングは「もともと買う可能性が高かった人」に配信するため、<strong>管理画面上のCPAは構造的に良く出ます。</strong>しかし、その人がリタゲ広告を見なくても購入していたのであれば、広告費を払って成果を買い直しているだけになります。</p>
+<div class="highlight-card">
+<p><strong>見るべき指標：</strong>リタゲ単体のCPAではなく、<strong>「リタゲを止めたときに全体のCV数がどれだけ落ちるか」</strong>です。少額予算でもリタゲキャンペーンを2週間停止して全体CVの変化を見る、という簡易的な検証は実施可能です。</p>
+</div>
+<!-- ===== 媒体別 ===== -->
+<h2 id="platform">媒体別の仕様と、成立するサイト規模の目安</h2>
+<p>リターゲティングは、リストが一定規模に達しないとそもそも配信されません。媒体ごとの条件を押さえておきます。</p>
+<div class="compare-2col">
+<div class="compare-col compare-col--google">
+<p class="compare-col__label">GOOGLE ADS</p>
+<h4>リマーケティング</h4>
+<ul>
+<li>ディスプレイネットワークは100人以上、検索ネットワーク（RLSA）は1,000人以上が最小リストサイズとして案内されている</li>
+<li>YouTube視聴者・アプリ利用者もリスト化できる</li>
+<li>P-MAXでは「オーディエンスシグナル」として活用され、専用キャンペーンとは役割が異なる</li>
+<li>Google アナリティクス（GA4）と連携したオーディエンス作成が可能</li>
+</ul>
+</div>
+<div class="compare-col compare-col--meta">
+<p class="compare-col__label">META ADS</p>
+<h4>カスタムオーディエンス</h4>
+<ul>
+<li>配信可能になるまでに一定の最小人数（おおむね100人程度）が必要とされる</li>
+<li>サイト訪問者のほか、動画視聴・Instagramアカウントへの反応・リードフォーム開封などが使える</li>
+<li>コンバージョンAPI（CAPI）併用でブラウザ側の欠損を補える</li>
+<li>Advantage+ では「提案」として与える形になり、除外は「制御」側で設定する</li>
+</ul>
+</div>
+</div>
+<h3>自社サイトでリタゲが成立するかの逆算</h3>
+<p>目安として、<strong>「月間セッション数 × リスト化率 × リスト期間（月数）」</strong>で概算します。リスト化率は業種や端末構成で変わりますが、取りこぼしを考えると保守的に6〜8割程度で見積もっておくと安全です。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>月間セッション</th>
+<th>30日リストの概算規模</th>
+<th>実務上の判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>〜500</td>
+<td>数百人未満</td>
+<td>30日では配信が回りにくい。90〜180日に期間を広げるか、リタゲより先に流入を増やす</td>
+</tr>
+<tr>
+<td>500〜2,000</td>
+<td>数百〜1,500人程度</td>
+<td>ディスプレイ・Metaでは配信可能。検索リマーケティング（RLSA）は期間を延ばす必要がある</td>
+</tr>
+<tr>
+<td>2,000〜10,000</td>
+<td>1,500〜7,000人程度</td>
+<td>ページ別・期間別のリスト分割が意味を持ち始める規模</td>
+</tr>
+<tr>
+<td>10,000〜</td>
+<td>7,000人以上</td>
+<td>訴求の出し分け、フリークエンシー管理、除外設計を本格的に運用する段階</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card highlight-card--warning">
+<p><strong>注意：</strong>上表はあくまで概算の考え方です。実際のリスト規模は媒体の管理画面で確認できます。<strong>「リストが溜まっていないのに配信設計を作り込む」のは、最も費用対効果の悪い時間の使い方</strong>です。まず管理画面のオーディエンス人数を見てください。</p>
+</div>
+<!-- ===== 設計 ===== -->
+<h2 id="design">少額予算でのリターゲティング設計</h2>
+<h3>予算配分は「全体の1〜3割」から</h3>
+<p>月10万円の広告費であれば、まずは1〜3万円程度をリターゲティングに充て、残りを新規獲得に回す配分から始めるのが扱いやすい進め方です。<strong>リターゲティングは母集団が有限なので、予算を増やしても配信量は無限には伸びません。</strong>増やしすぎると同じ人への表示回数（フリークエンシー）が上がるだけになります。</p>
+<h3>リスト期間は検討期間に合わせる</h3>
+<table class="cost-table">
+<thead>
+<tr>
+<th>商材タイプ</th>
+<th>推奨するリスト期間の考え方</th>
+<th>訴求の方向性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>低単価・即決型（EC、来店予約など）</td>
+<td>7〜14日を中心に短く区切る</td>
+<td>再訪の後押し、限定性・在庫・キャンペーン</td>
+</tr>
+<tr>
+<td>中単価・比較検討型（サービス申込、見積依頼）</td>
+<td>14〜30日、必要に応じて60日</td>
+<td>他社比較の材料、事例、料金の透明性</td>
+</tr>
+<tr>
+<td>高単価・BtoB（法人契約、設備、士業など）</td>
+<td>60〜180日と長めに設定</td>
+<td>導入事例、資料ダウンロード、担当者の顔が見える情報</td>
+</tr>
+<tr>
+<td>採用・求人</td>
+<td>14〜60日（募集期間に合わせる）</td>
+<td>職場の雰囲気、待遇の具体化、応募のハードル下げ</td>
+</tr>
+</tbody>
+</table>
+<h3>除外設定は「作る」より「効いているか確認する」</h3>
+<p>リターゲティングで最も事故が起きやすいのが除外です。以下は最低限、除外オーディエンスとして用意しておきたい対象です。</p>
+<ul>
+<li><strong>コンバージョン完了ページ到達者</strong>（問い合わせ・購入・応募のサンクスページ）</li>
+<li><strong>既存顧客リスト</strong>（ハッシュ化してアップロードしたカスタマーリスト）</li>
+<li><strong>自社・関係者のアクセス</strong>（IP除外と併用）</li>
+<li><strong>直帰に近い滞在時間のごく短い訪問者</strong>（リスト条件で滞在時間・ページ数を指定できる場合）</li>
+</ul>
+<div class="highlight-card highlight-card--warning">
+<p><strong>よくある落とし穴：</strong>除外オーディエンスを作成したものの、<strong>キャンペーン側に適用されていない</strong>ケースが非常に多く見られます。特にキャンペーンを複製したとき、除外設定が引き継がれていないことがあります。月次で「除外が全キャンペーンに入っているか」を確認する運用にしてください。</p>
+</div>
+<h3>計測の土台がないとリストが痩せる</h3>
+<p>リターゲティングの質は、計測の質にそのまま比例します。タグが一部のページで発火していない、コンバージョン計測が二重になっている、といった状態では、リストも成果指標も歪みます。Meta広告であればコンバージョンAPI（CAPI）の併用でブラウザ側の欠損をサーバー側から補えます。詳しくは<a href="https://lnx.co.jp/column/analytics/meta-capi-guide/">Meta広告のコンバージョンAPI(CAPI)とは？</a>をご覧ください。</p>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">Meta広告運用支援 AdStart</p>
+<div class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px); text-align: center !important;">リターゲティングの配分・除外設計から、まとめてご相談ください</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">AdStartの詳細を見る（月3万円〜）</a>
+</div>
+<!-- ===== 失敗 ===== -->
+<h2 id="failures">中小企業がやりがちな失敗5つ</h2>
+<h3>失敗1：リタゲのCPAだけを見て予算を寄せる</h3>
+<p>前述のとおり、リターゲティングのCPAは構造的に良く出ます。ここに予算を寄せると、管理画面の数字は改善するのに新規の見込み客が減り、数か月後にリストが枯れて全体が失速します。<strong>新規獲得への投資を止めた時点で、リタゲの母集団も止まる</strong>という因果関係を押さえてください。</p>
+<h3>失敗2：全訪問者を1つのリストで扱う</h3>
+<p>トップページだけ見て離脱した人と、料金ページを3回見た人では、必要な情報がまったく違います。リストが十分に溜まっているなら、<strong>閲覧ページと訪問回数でリストを分け、訴求を変える</strong>だけでCVRは変わります。逆に規模が小さい段階で細かく分けると、どのリストも配信最低ラインに届かず全滅するため、規模に応じた判断が必要です。</p>
+<h3>失敗3：同じクリエイティブを出し続ける</h3>
+<p>リターゲティングは同一ユーザーへの接触が前提のため、クリエイティブの消耗が新規獲得より早く進みます。CTRとフリークエンシーを並べて見て、フリークエンシーが上がるのにCTRが落ちてきたら差し替えのタイミングです。</p>
+<h3>失敗4：遷移先LPが新規向けのまま</h3>
+<p>リタゲ広告のクリックは「一度見たことがある人」の再訪です。それなのに遷移先が新規向けの説明から始まるLPだと、同じ内容を読ませることになります。<strong>リタゲ専用のLPを作らないまでも、料金や事例のセクションへアンカーリンクで直接飛ばす</strong>だけでも改善します。広告とLPを一体で設計する考え方は<a href="https://lnx.co.jp/column/lp-improvement/ad-lp-integration/">広告運用とLP改善はセットで考えるべき理由</a>で解説しています。</p>
+<h3>失敗5：規制対応をせずに配信を続けている</h3>
+<p>Cookieの利用や外部送信に関する通知・公表、プライバシーポリシーへの記載は、広告配信の前提として整えておくべき項目です。ここが未整備のまま計測タグだけ入れている状態は、事業リスクとして放置しないでください。</p>
+<!-- ===== チェックリスト ===== -->
+<h2 id="checklist">導入前チェックリスト</h2>
+<div class="checklist">
+<p class="checklist__title">リターゲティングを始める前に確認したい項目</p>
+<ul>
+<li>媒体の管理画面で、リターゲティングリストの現在の人数を確認したか</li>
+<li>リストが配信可能な最小人数に達しているか（届かない場合、期間延長で足りるか）</li>
+<li>コンバージョン完了ページの除外オーディエンスを作成し、全キャンペーンに適用したか</li>
+<li>既存顧客リストの除外（またはアップサイクル用の別配信）を設計したか</li>
+<li>リスト期間が、自社商材の検討期間と合っているか</li>
+<li>新規獲得とリターゲティングの予算配分を決めているか（まずは全体の1〜3割）</li>
+<li>リタゲ用と新規用でクリエイティブ・遷移先を分けているか</li>
+<li>フリークエンシーの確認方法と、差し替えの判断基準を決めているか</li>
+<li>Cookie利用・外部送信に関する通知やプライバシーポリシーの記載を整えたか</li>
+<li>「リタゲを止めたときに全体CVがどう動くか」を検証する予定があるか</li>
+</ul>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>リターゲティングについて私たちがご相談を受けるとき、最初に確認するのは配信設定ではなく<strong>「そもそもリストが溜まる規模の流入があるか」</strong>です。月間セッションが数百のサイトでリターゲティングの設計を詰めても、配信量が出ないため成果は動きません。この段階でやるべきは、リタゲの最適化ではなく流入の確保です。</p>
+<p>次に見るのが、<strong>リタゲのCPAが全体の成果と連動しているか</strong>という点です。管理画面のCPAが良いキャンペーンほど、実は既存の需要を刈り取り直しているだけということが起こります。少額予算の会社ほど、この錯覚のコストは重くなります。数字の見え方ではなく、事業の売上が増えているかで判断する——これがリターゲティングを扱ううえでの原則だと考えています。</p>
+<p>Cookie規制については、<strong>「廃止されるから終わる」でも「廃止されなかったから安泰」でもない</strong>というのが実感です。一律廃止は起きていませんが、SafariやiOS由来の取りこぼしは着実に存在します。だからこそ、ブラウザの仕様変更に左右されにくい顧客リストや媒体内エンゲージメント、そしてCAPIのようなサーバー側の計測を組み合わせ、<strong>一次データを自社で持つ体制</strong>に寄せていくのが現実的な打ち手です。</p>
+<p>LnXの月3万円からのMeta広告運用支援「AdStart」では、リターゲティングの配分・除外設計だけでなく、計測環境とLPまで含めて一体でご提案しています。少額予算だからこそ、「増やす広告」と「守る広告」の役割分担をはっきりさせることが、限られた予算を最大限に活かす近道です。</p>
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              サードパーティCookieが廃止されると、リターゲティング広告はできなくなりますか？
+            </summary>
+<div class="article-faq__body">
+<p>2026年8月時点で、Chromeのサードパーティcookieは廃止されていません。Googleは2024年に一律廃止の計画を撤回し、2025年4月には新たな選択プロンプトを導入せず現行方式を維持すると表明、さらに2025年10月にはPrivacy Sandbox関連APIの多くを終了する方針を発表しています。ただしSafariは以前からサードパーティcookieを既定でブロックしており、iOSのアプリトラッキング許諾（ATT）もあるため、「Chromeが廃止しないから今まで通り」という状態でもありません。リターゲティングは今も実施できますが、取りこぼしを前提に設計する必要があります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              リターゲティング広告に配信するには最低何人のリストが必要ですか？
+            </summary>
+<div class="article-faq__body">
+<p>媒体によって条件が異なります。Meta広告のカスタムオーディエンスは配信可能になるまでに一定の最小人数（おおむね100人程度）が必要とされ、Google広告のリマーケティングリストはディスプレイネットワークで100人以上、検索ネットワーク（RLSA）で1,000人以上といった条件が案内されています。月間セッションが数百程度のサイトでは、期間を30日ではなく90日や180日に広げないとリストが溜まりません。まずは自社の月間セッション数から逆算して、そもそもリターゲティングが成立する規模かを確認してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              リターゲティングにはいくら予算を割くべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>決まった正解はありませんが、実務上は広告費全体の1〜3割程度から始め、CPAとフリークエンシー（同一ユーザーへの平均表示回数）を見ながら調整する進め方が扱いやすいです。リターゲティングは母集団が小さいため、予算を増やしすぎると同じ人に何度も表示されるだけになり、CPAは良く見えても新規の見込み客は増えません。管理画面上のCPAが良いからと配分を寄せすぎると、全体の売上が伸びないまま数字だけが綺麗になるという状態に陥りやすい点に注意が必要です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              既存顧客や応募済みの人に広告が出てしまうのを防ぐには？
+            </summary>
+<div class="article-faq__body">
+<p>コンバージョン完了ページの到達者（サンクスページ）を除外オーディエンスとして作成し、全キャンペーンで除外設定に入れてください。加えて、既存顧客リストをハッシュ化してアップロードしたカスタマーリストの除外、採用系であれば応募完了者の除外も有効です。除外設定は作っただけでは効かず、キャンペーンごとに適用されていなければ意味がありません。キャンペーンを複製したときに除外が引き継がれていないケースが非常に多いため、定期的な棚卸しをおすすめします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              リターゲティングで「追い回されている」と嫌がられないか心配です
+            </summary>
+<div class="article-faq__body">
+<p>フリークエンシーの上限設定と、リスト期間の設計で調整できます。一般に、検討期間の短い商材ほど短い期間（7〜14日）で区切り、検討期間の長いBtoBや高額商材は長め（60〜180日）に設定します。また、同じクリエイティブを出し続けると印象が悪化しやすいため、初回接触から日数が経つほど訴求を変える（機能訴求→事例→料金・比較）といった段階設計が有効です。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/meta-capi-guide/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告のコンバージョンAPI(CAPI)とは？Cookie規制時代に計測精度を守る導入ガイド</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/cpa-high-cause/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ CPAが高い原因とは？広告改善で見るべきポイントを徹底解説</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/lp-improvement/ad-lp-integration/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告運用とLP改善はセットで考えるべき理由｜成果を最大化する一体型運用</a>
+</li>
+</ul>
+</div>
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#what-is">リタゲとは：仕組みと種類</a></li>
+<li><a href="#cookie-status">Cookie規制の現在地</a></li>
+<li><a href="#why-weak">効かないと言われる理由</a></li>
+<li><a href="#platform">媒体別の仕様と規模の目安</a></li>
+<li><a href="#design">少額予算での設計</a></li>
+<li><a href="#failures">やりがちな失敗5つ</a></li>
+<li><a href="#checklist">導入前チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>Meta広告の運用改善<br/>まずご相談ください</p>
+<a href="https://lnx.co.jp/ad-lp/">AdStartを見る</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../index.html">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../index.html">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>
