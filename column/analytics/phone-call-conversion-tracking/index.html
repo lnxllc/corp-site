@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>広告の電話問い合わせを計測する方法｜通話コンバージョン設定の実務ガイド | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/analytics/phone-call-conversion-tracking/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="広告の電話問い合わせを計測する方法｜通話コンバージョン設定の実務ガイド｜LnX合同会社"/>
+<meta property="og:description" content="広告経由の電話問い合わせを成果として計測する方法を解説。GA4での電話タップ計測（GTM設定）、Google広告の通話コンバージョン、Meta広告への電話CV連携、コールトラッキング導入の判断基準と費用の考え方まで、中小企業向けに手順で整理しています。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/analytics/phone-call-conversion-tracking/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="広告の電話問い合わせを計測する方法｜通話コンバージョン設定の実務ガイド｜LnX合同会社"/>
+<meta name="twitter:description" content="広告経由の電話問い合わせを成果として計測する方法を解説。GA4での電話タップ計測（GTM設定）、Google広告の通話コンバージョン、Meta広告への電話CV連携、コールトラッキング導入の判断基準と費用の考え方まで、中小企業向けに手順で整理しています。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+
+<meta content="広告経由の電話問い合わせを成果として計測する方法を解説。GA4での電話タップ計測（GTM設定）、Google広告の通話コンバージョン、Meta広告への電話CV連携、コールトラッキング導入の判断基準と費用の考え方まで、中小企業向けに手順で整理しています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body > h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    /* 業務カードグリッド */
+    .service-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 14px; margin: 0 0 28px;
+    }
+    .service-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2);
+    }
+    .service-card__head {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    }
+    .service-card__icon {
+      width: 34px; height: 34px; border-radius: 10px;
+      display: grid; place-items: center; font-size: 16px; flex: 0 0 auto;
+      background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(124,58,237,.10));
+    }
+    .service-card__name { font-size: 14px; font-weight: 900; color: var(--txt); }
+    .service-card__desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0 0 8px; }
+    .service-card__fee {
+      font-size: 12px; font-weight: 800; color: var(--brand3);
+      padding: 3px 8px; border-radius: 6px;
+      background: rgba(37,99,235,.08); display: inline-block;
+    }
+
+    /* 依頼先タイプカード */
+    .provider-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; margin: 0 0 28px;
+    }
+    .provider-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow2);
+    }
+    .provider-card__type {
+      font-size: 12px; font-weight: 800; letter-spacing: .10em;
+      color: var(--brand3); margin: 0 0 6px;
+    }
+    .provider-card__fee {
+      font-size: 15px; font-weight: 900; color: var(--txt); margin: 0 0 8px;
+    }
+    .provider-card ul {
+      margin: 0; padding-left: 16px; display: grid; gap: 5px;
+    }
+    .provider-card li { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .point-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 16px; margin: 0 0 28px;
+    }
+    .point-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2);
+    }
+    .point-card__num {
+      width: 32px; height: 32px; border-radius: 10px;
+      display: grid; place-items: center; font-weight: 900; font-size: 13px;
+      color: #fff; background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      margin-bottom: 10px;
+    }
+    .point-card h4 { margin: 0 0 6px; font-size: 14px; font-weight: 900; }
+    .point-card p { margin: 0; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: var(--brand3);
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: var(--brand3);
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+      .service-grid { grid-template-columns: 1fr; }
+      .provider-grid { grid-template-columns: 1fr; }
+      .point-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+    }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "広告の電話問い合わせを計測する方法｜通話コンバージョン設定の実務ガイド",
+  "description": "広告経由の電話問い合わせを成果として計測する方法を解説。GA4での電話タップ計測（GTM設定）、Google広告の通話コンバージョン、Meta広告への電話CV連携、コールトラッキング導入の判断基準と費用の考え方まで、中小企業向けに手順で整理しています。",
+  "url": "https://lnx.co.jp/column/analytics/phone-call-conversion-tracking/",
+  "datePublished": "2026-08-06",
+  "dateModified": "2026-08-06",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/analytics/phone-call-conversion-tracking/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "計測・GA4",
+      "item": "https://lnx.co.jp/column/analytics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "広告の電話問い合わせを計測する方法｜通話コンバージョン設定の実務ガイド",
+      "item": "https://lnx.co.jp/column/analytics/phone-call-conversion-tracking/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "電話での問い合わせが多い業種でも、Web広告の効果は測れますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "測れます。ただし何もしなければ電話は計測対象外のままです。最低限、Webサイト上の電話番号タップをGA4のイベントとして計測し、キーイベントに設定するところから始めてください。そのうえで広告の成果として扱いたい場合は、Google広告なら通話コンバージョン、Meta広告ならコンバージョンAPI経由で電話由来のイベントを送る、という順序で拡張していくのが現実的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "電話番号のタップ数を計測すれば、それが電話件数と考えてよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同じではありません。タップは「発信画面を開いた」までの計測であり、実際に発信したか、通話がつながったか、何分話したかまでは分かりません。誤タップや、つながらずに切ったケースも含まれます。実務では、タップ数は「電話への意欲を示す指標」として扱い、実際の通話件数や商談化率を知りたい場合は通話計測（コールトラッキング）を検討する、という整理をおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Google広告の通話コンバージョンで表示される電話番号が変わるのはなぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google広告では、広告や自社サイトに掲載された番号を計測用の転送電話番号に置き換えることで通話を計測する仕組みがあります（日本では0800から始まる番号が使われます）。ユーザーがその番号にかけると自社の実際の番号に転送されるため、着信自体は通常どおり受けられます。ただし、サイト上の番号を書き換える他のJavaScriptがあると動作が競合することがあるため、導入後は必ず実機で表示と発信をテストしてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "コールトラッキングツールは中小企業でも導入すべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "電話が主要な問い合わせ経路で、かつ複数チャネル（広告・自然検索・チラシなど）を並行して回している場合は検討価値があります。逆に、月の電話件数が数件程度、あるいは広告以外の流入がほとんどない場合は、投資に見合わないことが多いです。料金体系は「基本料金＋計測用番号の利用料＋通話料」という構成が主流で、初期費用が無料のサービスもあれば別途かかるサービスもあります。見積時は直近の電話件数・平均通話時間・必要な番号本数を伝え、月額総額で比較してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "通話の録音や内容の記録に、法的な注意点はありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "通話録音や通話内容の記録を行う場合、取得する情報の内容によっては個人情報の取扱いにあたります。プライバシーポリシーへの記載、利用目的の明示、社内での保管ルールの整備が必要になるため、導入前に自社の規程を確認してください。判断に迷う内容や、業界固有の規制がある場合は、弁護士など専門家への確認をおすすめします。当社は法律の専門家ではないため、この記事の内容は一般的な留意点の紹介にとどまります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "電話CVとフォームCVは、同じコンバージョンとして合算してよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "合算する前に、1件あたりの価値が同じかどうかを確認してください。多くの業種で、電話問い合わせのほうが受注率が高く、フォーム送信より価値が大きい傾向があります。合算してCPAだけを見ると、電話が多いキャンペーンの評価を誤ることがあります。実務では、電話CVとフォームCVを別のコンバージョンとして計測したうえで、受注率をかけ合わせた「有効CV」で比較する方法が有効です。"
+      }
+    }
+  ]
+}</script><style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../index.html" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../index.html">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../index.html">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/analytics/">計測・GA4</a>
+<span class="sep">/</span>
+<span class="cur">広告の電話問い合わせを計測する方法｜通話コンバージョン設定の実務ガイド</span>
+</nav>
+<p class="article-hero__kicker"><span></span>計測・GA4</p>
+<h1 class="article-hero__title">広告の電話問い合わせを計測する方法<br/>通話コンバージョン設定の実務ガイド</h1>
+<div class="article-hero__meta">
+<time datetime="2026-08-06">2026年8月6日</time>
+<span class="article-hero__tag">計測・GA4</span>
+<span class="article-hero__tag">電話CV</span>
+<span class="article-hero__tag">広告運用</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>電話問い合わせが「広告の成果」から抜け落ちてしまう構造的な理由</li>
+<li>電話計測の3つのレベル（タップ計測／通話コンバージョン／コールトラッキング）の違い</li>
+<li>GA4で電話番号タップをキーイベントとして計測する設定手順</li>
+<li>Google広告の通話コンバージョン4パターンと、それぞれの向き・不向き</li>
+<li>Meta広告で電話由来のコンバージョンを扱う考え方（CAPIとaction_source）</li>
+<li>コールトラッキングを導入すべき会社・不要な会社の判断基準と費用の見方</li>
+<li>電話CVを計測し始めた会社がつまずきやすい落とし穴6つ</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#background">電話CVが「見えない成果」になってしまう理由</a></li>
+<li><a href="#levels">電話計測の3つのレベル</a></li>
+<li><a href="#ga4-tap">レベル1：GA4で電話タップを計測する</a></li>
+<li><a href="#google-ads">レベル2：Google広告の通話コンバージョン</a></li>
+<li><a href="#meta-ads">Meta広告で電話CVを扱う場合の考え方</a></li>
+<li><a href="#calltracking">レベル3：コールトラッキングの判断基準と費用</a></li>
+<li><a href="#pitfall">電話CV計測でつまずく6つの落とし穴</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== 1. 背景 ===== -->
+<h2 id="background">電話CVが「見えない成果」になってしまう理由</h2>
+<p>「広告を出しているが、CPAが高すぎる気がする」というご相談を受けて中身を確認すると、実際には成果が出ているのに計測されていなかった、というケースが一定の割合であります。その典型が<strong>電話問い合わせ</strong>です。</p>
+<p>店舗、士業事務所、医療・介護、リフォームや工務店、人材紹介など、「まず電話で聞いてみたい」という顧客行動が強い業種では、問い合わせの半分以上が電話というケースも珍しくありません。ところが広告の管理画面に記録されるのはフォーム送信だけ、という状態のまま運用が続いていることがあります。</p>
+<p>この状態で何が起きるかというと、次のような歪みです。</p>
+<ul>
+<li><strong>CPAが実態より高く見える</strong>：分母（コスト）はそのままで、分子（CV数）だけが欠けるため、実際より効率が悪く見えます。</li>
+<li><strong>本当は効いている広告を止めてしまう</strong>：電話問い合わせを多く生んでいるキーワードやクリエイティブほど、管理画面上は「成果ゼロ」に見えることがあります。</li>
+<li><strong>自動入札の学習が偏る</strong>：Google広告・Meta広告の自動入札は、送られたコンバージョンデータをもとに最適化します。電話CVが送られていなければ、AIはフォーム送信しやすい層だけを探しにいきます。</li>
+</ul>
+<div class="highlight-card--warning highlight-card">
+<p><strong>注意：</strong>3つ目の影響は見落とされがちですが、実務上は最も大きい問題です。計測は「振り返りのため」だけでなく、<strong>自動入札に正しい正解データを渡すため</strong>に行うものだと考えてください。計測漏れは、そのまま配信精度の劣化につながります。</p>
+</div>
+<p>加えて、Cookie規制やITPの影響でブラウザ側の計測が弱くなるほど、サイト外（電話・来店・商談）で起きた成果をどう拾うかの重要性が上がっています。電話CVの計測は、こうした流れの中で「後回しにしていたが実はリターンの大きい設定作業」に位置づけられます。</p>
+<!-- ===== 2. 3つのレベル ===== -->
+<h2 id="levels">電話計測の3つのレベル</h2>
+<p>「電話を計測する」と一口に言っても、実現できる精度と導入コストによって3段階に分かれます。まず自社がどのレベルを必要としているかを決めてから設定に入ると、無駄な投資を避けられます。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>レベル</th>
+<th>できること</th>
+<th>分からないこと</th>
+<th>導入負荷・費用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>レベル1</strong><br/>電話番号タップ計測<br/>（GA4＋GTM）</td>
+<td>サイト上の電話番号がタップされた回数、流入元（広告・自然検索など）の内訳</td>
+<td>実際に発信・通話したか、通話時間、内容</td>
+<td>GTM設定のみ／追加費用なし</td>
+</tr>
+<tr>
+<td><strong>レベル2</strong><br/>通話コンバージョン<br/>（Google広告の転送番号など）</td>
+<td>広告経由で実際に発信・着信があったか、一定秒数以上つながったか</td>
+<td>通話の中身、成約したかどうか</td>
+<td>タグ設置＋設定／広告媒体側の機能のため追加費用なし</td>
+</tr>
+<tr>
+<td><strong>レベル3</strong><br/>コールトラッキング<br/>（外部ツール）</td>
+<td>チャネル・キーワード単位の通話紐づけ、通話録音、担当者別の対応状況</td>
+<td>（ツール次第だが）ほぼカバー可能</td>
+<td>ツール契約が必要／月額課金＋通話料</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card">
+<p><strong>ポイント：</strong>いきなりレベル3から検討する必要はありません。<strong>レベル1は追加費用ゼロで今日から設定できる</strong>ため、まずここを埋めるだけでも「どの流入が電話を生んでいるか」の輪郭は掴めます。そのうえで、電話が事業の主要導線であればレベル2・3に進む、という順序が費用対効果の面で合理的です。</p>
+</div>
+<!-- ===== 3. GA4 ===== -->
+<h2 id="ga4-tap">レベル1：GA4で電話タップを計測する</h2>
+<p>スマートフォンサイトの電話番号は、多くの場合 <code>&lt;a href="tel:0312345678"&gt;</code> というリンクとして設置されています。GA4の拡張計測機能では、この <code>tel:</code> リンクのクリックは自動では計測されません。そのため、Googleタグマネージャー（GTM）で明示的にイベントを送る設定が必要です。</p>
+<h3>設定手順（GTMを使う場合）</h3>
+<ol>
+<li><strong>変数を有効化する</strong>：GTMの「変数」→組み込み変数の設定から、<code>Click Element</code>／<code>Click URL</code>／<code>Click Text</code> を有効にします。</li>
+<li><strong>トリガーを作る</strong>：トリガータイプ「クリック - リンクのみ」を選び、条件を「Click URL / 先頭が一致 / tel:」に設定します。これで電話リンクのクリックだけを拾えます。</li>
+<li><strong>タグを作る</strong>：GA4イベントタグを作成し、イベント名を <code>phone_call_tap</code> のような分かりやすい名前にします。パラメータとして、どのページからのタップかを判別できるよう <code>page_location</code> や <code>Click URL</code> を渡しておくと、後の分析が楽になります。</li>
+<li><strong>プレビューで検証する</strong>：GTMのプレビューモードで実機（スマートフォン）から電話番号をタップし、イベントが発火するか確認します。PCブラウザでは <code>tel:</code> リンクの挙動が異なるため、必ずスマートフォンでもテストしてください。</li>
+<li><strong>GA4でキーイベントに設定する</strong>：GA4の「管理」→「イベント」で <code>phone_call_tap</code> が計測されているのを確認したうえで、キーイベント（旧コンバージョン）としてマークします。イベントが管理画面に表示されるまで時間がかかる場合があります。</li>
+</ol>
+<h3>ヘッダー固定の電話ボタンには要注意</h3>
+<p>スマホサイトの下部や上部に固定表示される「電話する」ボタンは、視認性が高いぶん誤タップも起こりやすい要素です。固定ボタンと本文中の番号を同じイベントで計測すると、数字が実態より膨らみます。<code>Click Text</code> やボタンのIDでイベントパラメータを分け、<strong>設置場所ごとにタップ数を分解できるようにしておく</strong>ことをおすすめします。</p>
+<div class="highlight-card--success highlight-card">
+<p><strong>補足：</strong>PCサイトの電話番号がテキスト表示のみ（リンクになっていない）場合、そもそもクリックイベントを取得できません。BtoBなどPC比率が高いサイトでは、この時点で電話CVの大半が計測不能になっています。まずは<strong>電話番号をリンク化しているか</strong>を確認してください。</p>
+</div>
+<!-- ===== 4. Google広告 ===== -->
+<h2 id="google-ads">レベル2：Google広告の通話コンバージョン</h2>
+<p>Google広告には、電話による問い合わせをコンバージョンとして計測するための仕組みが用意されています。大きく4つのパターンがあり、それぞれ計測できる範囲が異なります。</p>
+<div class="point-grid">
+<div class="point-card">
+<div class="point-card__num">1</div>
+<h4>広告に表示した電話番号への通話</h4>
+<p>電話番号アセット（旧：電話番号表示オプション）や通話専用広告から、検索結果の広告上で直接発信された通話を計測します。ユーザーがサイトを訪問せずに電話するケースを拾えます。</p>
+</div>
+<div class="point-card">
+<div class="point-card__num">2</div>
+<h4>サイト上の番号への通話</h4>
+<p>広告からサイトに来たユーザーに対し、サイト上の電話番号を計測用の転送番号に置き換えることで、広告経由の通話を計測します。日本では0800から始まる番号が使われます。</p>
+</div>
+<div class="point-card">
+<div class="point-card__num">3</div>
+<h4>電話番号のタップ（クリック）</h4>
+<p>モバイルサイトの電話リンクのタップを計測します。実際に通話したかは分かりませんが、転送番号を使わずに導入できるため、最も手軽な選択肢です。</p>
+</div>
+<div class="point-card">
+<div class="point-card__num">4</div>
+<h4>通話コンバージョンのインポート</h4>
+<p>電話を受けた後に「実際に商談になった」「成約した」といった結果を、社内データやCRMから広告側に取り込む方法です。質の高いコンバージョンだけを学習させたい場合に有効です。</p>
+</div>
+</div>
+<h3>転送電話番号（動的差し替え）の導入時に確認すること</h3>
+<p>パターン2は精度が高い一方、サイト上の電話番号をJavaScriptで書き換える仕組みのため、導入時に確認すべき点があります。</p>
+<ul>
+<li><strong>他のスクリプトとの競合</strong>：チャットツール、A/Bテストツール、CMSのテンプレートなど、電話番号を動的に生成・書き換えている仕組みがあると、差し替えが効かない、あるいは二重に書き換わることがあります。</li>
+<li><strong>実機での発信テスト</strong>：表示が切り替わっていても、転送がうまくいっていなければ着信が取れません。導入直後に、必ず実際の端末から発信して着信を確認してください。</li>
+<li><strong>電話を受ける側への共有</strong>：見慣れない番号からの着信になるため、電話を受けるスタッフに「広告経由の問い合わせは0800番号からの転送で入る」と事前に伝えておかないと、営業電話と誤解されて対応が雑になることがあります。</li>
+<li><strong>広告以外の流入への影響</strong>：差し替えの対象範囲を確認し、自然検索やチラシ経由のユーザーの体験を損ねていないかをチェックします。</li>
+</ul>
+<div class="highlight-card--warning highlight-card">
+<p><strong>注意：</strong>広告媒体の仕様や機能名は更新されることがあります。設定に入る前に、必ずGoogle広告ヘルプの最新ページで現在の手順を確認してください。この記事は2026年8月時点の一般的な運用を前提に整理したものです。</p>
+</div>
+<!-- ===== 5. Meta広告 ===== -->
+<h2 id="meta-ads">Meta広告で電話CVを扱う場合の考え方</h2>
+<p>Meta広告には、Google広告のような「転送電話番号による自動計測」に相当する標準機能はありません。そのため、電話を成果として扱いたい場合は、次のいずれかで対応することになります。</p>
+<div class="service-grid">
+<div class="service-card">
+<div class="service-card__head">
+<div class="service-card__icon">📱</div>
+<div class="service-card__name">電話タップをPixel／CAPIで送る</div>
+</div>
+<p class="service-card__desc">サイト上の電話リンクのタップを、Pixel（ブラウザ側）とコンバージョンAPI（サーバー側）の両方でイベントとして送信します。GA4の設定と同じトリガーを流用でき、導入負荷が低い方法です。</p>
+<span class="service-card__fee">導入しやすい／精度は中</span>
+</div>
+<div class="service-card">
+<div class="service-card__head">
+<div class="service-card__icon">🔗</div>
+<div class="service-card__name">実際の通話結果をCAPIで送る</div>
+</div>
+<p class="service-card__desc">コールトラッキングやCRMで確認した「実際につながった通話」「商談化した通話」を、コンバージョンAPI経由でイベントとして送信します。Metaは発生元を示すaction_sourceにphone_callという値を用意しています。</p>
+<span class="service-card__fee">精度は高い／実装が必要</span>
+</div>
+</div>
+<p>Metaは、ブラウザ側のPixelとサーバー側のコンバージョンAPIを併用し、<code>event_id</code> による重複排除を行う構成を推奨しています。電話CVを追加で送る場合も、フォーム送信など既存のイベント設計と整合させないと、同じ問い合わせが二重にカウントされることがあります。</p>
+<p>コンバージョンAPIそのものの仕組みや導入手順については、<a href="https://lnx.co.jp/column/analytics/meta-capi-guide/">Meta広告のコンバージョンAPI(CAPI)とは？Cookie規制時代に計測精度を守る導入ガイド</a>で詳しく解説しています。</p>
+<h3>電話CVはイベントを分けて送る</h3>
+<p>実務上おすすめしているのは、<strong>フォーム送信と電話CVを別イベントとして送り、キャンペーンの最適化対象は事業フェーズに応じて選ぶ</strong>という設計です。件数が少ない段階で電話CVだけを最適化対象にすると、学習に必要なデータ量が足りず配信が不安定になります。まずは件数の多いイベントで学習させ、電話CVは評価指標として並行して見る、という進め方が安全です。</p>
+<!-- ===== 6. コールトラッキング ===== -->
+<h2 id="calltracking">レベル3：コールトラッキングの判断基準と費用</h2>
+<p>コールトラッキングは、チャネルやキーワードごとに異なる計測用電話番号を割り当て、「どの流入からの電話か」を通話単位で紐づけるツールです。通話録音や対応履歴の管理まで含むサービスもあります。</p>
+<h3>導入を検討すべき会社</h3>
+<div class="point-grid">
+<div class="point-card">
+<div class="point-card__num">A</div>
+<h4>問い合わせの半分以上が電話</h4>
+<p>電話が主要導線であるほど、計測できていない範囲が広告判断の精度に直結します。件数が多いほどツール費用も回収しやすくなります。</p>
+</div>
+<div class="point-card">
+<div class="point-card__num">B</div>
+<h4>複数チャネルを並行して回している</h4>
+<p>広告・自然検索・チラシ・ポータルサイトなど流入が分散している場合、どこからの電話かを番号で切り分ける価値が大きくなります。</p>
+</div>
+<div class="point-card">
+<div class="point-card__num">C</div>
+<h4>電話の「質」に差がある</h4>
+<p>営業電話や誤電話、既存顧客からの問い合わせが混ざる場合、件数だけでは判断できません。通話内容まで確認できると評価が正確になります。</p>
+</div>
+<div class="point-card">
+<div class="point-card__num">D</div>
+<h4>1件あたりの単価が大きい</h4>
+<p>リフォーム、不動産、医療、BtoBなど受注単価が高い業種では、1件の判断ミスによる損失がツール費用を大きく上回ります。</p>
+</div>
+</div>
+<h3>費用の見方</h3>
+<p>コールトラッキングの料金は、<strong>基本料金＋計測用番号の利用料＋通話料</strong>という構成が主流です。初期費用は無料のサービスもあれば、番号取得料や設定作業料が別途発生するサービスもあります。単純な月額だけで比較すると、番号本数や通話料の条件によって実際の支払額が変わってしまうため注意が必要です。</p>
+<div class="highlight-card">
+<p><strong>見積時に伝えるとよい3点：</strong>①直近3ヶ月の電話問い合わせ件数、②平均通話時間、③割り当てたい番号の本数（チャネル数）。この3つを提示すると、各社から比較可能な条件で見積もりが出てきます。比較は月額単体ではなく<strong>「想定通話量を含めた月額総額」</strong>で行ってください。</p>
+</div>
+<div class="highlight-card--warning highlight-card">
+<p><strong>注意：</strong>通話録音を行う場合、記録する情報の内容によっては個人情報の取扱いにあたります。プライバシーポリシーへの記載や利用目的の明示、社内での保管ルールの整備が必要です。判断に迷う場合は、導入前に専門家へ確認してください。</p>
+</div>
+<h3>導入しなくてよいケース</h3>
+<ul>
+<li>月の電話件数が数件程度で、記憶と手元のメモで十分に把握できる規模</li>
+<li>流入がほぼ1チャネルに限られており、番号を分ける意味が薄い場合</li>
+<li>まだレベル1（GA4での電話タップ計測）すら設定していない場合。まずは無料でできる範囲を埋めるのが先です</li>
+</ul>
+<!-- ===== 7. 落とし穴 ===== -->
+<h2 id="pitfall">電話CV計測でつまずく6つの落とし穴</h2>
+<ol>
+<li><strong>タップ数を通話件数として報告してしまう</strong>：タップは「発信画面を開いた」までの数字です。誤タップも含まれるため、実際の着信件数と乖離します。レポートでは必ず「タップ数」と明記し、通話件数と区別してください。</li>
+<li><strong>フォームCVと電話CVを無条件に合算する</strong>：多くの業種で電話問い合わせのほうが受注率が高く、1件の価値が異なります。合算したCPAだけで判断すると、電話を多く生む施策を過小評価します。</li>
+<li><strong>電話を受ける側の記録が残らない</strong>：計測できても、受電後に「どこからの問い合わせか」「どうなったか」が記録されなければ、受注につながる分析はできません。受電メモのフォーマットを先に決めておきます。</li>
+<li><strong>営業電話・既存顧客の問い合わせを除外していない</strong>：代表番号で受けている場合、新規問い合わせ以外の着信が大量に混ざります。番号を分けるか、受電時のヒアリング項目で切り分けます。</li>
+<li><strong>営業時間外の着信を無視している</strong>：計測を始めると、営業時間外の着信が想定より多いことに気づく会社が少なくありません。折り返し導線や留守電メッセージの整備で、取りこぼしを減らせる余地があります。</li>
+<li><strong>設定して終わりにする</strong>：サイトリニューアル、テンプレート変更、他ツールの導入などで、電話リンクの構造が変わると計測が止まります。四半期に一度は実機でテストし、GA4のイベント数が不自然に落ちていないかを確認してください。</li>
+</ol>
+<p>なお、「管理画面上のCV数と実際の問い合わせ数が合わない」という問題は電話に限りません。原因の切り分け方は<a href="https://lnx.co.jp/column/analytics/ad-crm-cv-gap/">広告管理画面とCRMのCV数が合わない原因とは？</a>で整理しています。</p>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">月3万円から始めるMeta広告運用支援</p>
+<div class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px); text-align: center !important;">計測が整っていない状態のまま、広告費を使い続けていませんか</div>
+<p class="article-cta__lead">電話CVが計測されていないと、CPAは実態より高く見え、自動入札の学習も偏ります。LnXの広告運用支援では、配信の前段として計測設計の確認から入り、成果が正しく見える状態を作ったうえで運用します。まずは現状の計測状況をご相談ください。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用支援の詳細を見る</a>
+</div>
+<!-- ===== 8. LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>広告の成果が出ないという相談を受けたとき、私たちが最初に確認するのは配信設定ではなく計測です。理由は単純で、<strong>計測が間違っている状態でいくら運用を改善しても、改善したかどうかが分からない</strong>からです。電話問い合わせが多い業種でこの確認を飛ばすと、判断のすべてが不確かな数字の上に乗ることになります。</p>
+<p>実際、電話タップの計測を入れただけで、それまで「成果ゼロ」に見えていた広告グループから月に十数件の問い合わせが発生していた、と分かるケースがあります。この場合に必要だったのは新しい施策ではなく、GTMのトリガー1つでした。費用対効果という意味では、これ以上に割のよい作業はそう多くありません。</p>
+<p>一方で、最初からコールトラッキングツールの導入を検討する必要はないと考えています。ツールは「電話が事業の主要導線で、かつチャネルが分散している」場合に効いてくるもので、そこに当てはまらない会社が導入すると、使わない機能に月額を払い続けることになります。<strong>レベル1を無料で埋め、足りない情報が具体的に言語化できてから次に進む</strong>。この順序を守るだけで、無駄な投資はかなり防げます。</p>
+<p>もうひとつ強調しておきたいのは、計測は「見るため」ではなく「渡すため」の作業だという点です。現在の広告配信は自動入札が前提であり、媒体側のAIに渡すコンバージョンデータの質が、そのまま配信の質になります。電話CVを送っていないということは、AIに不完全な正解データを渡し続けているのと同じです。Cookie規制でブラウザ側の計測が弱くなるほど、サイト外で起きた成果をどう拾って媒体に返すかが、運用力の差になっていきます。</p>
+<p>まずは自社サイトの電話番号がリンクになっているか、そしてそのタップがGA4に記録されているか。この2点を確認するところから始めてみてください。</p>
+<!-- ===== 9. FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              電話での問い合わせが多い業種でも、Web広告の効果は測れますか？
+            </summary>
+<div class="article-faq__body">
+<p>測れます。ただし何もしなければ電話は計測対象外のままです。最低限、Webサイト上の電話番号タップをGA4のイベントとして計測し、キーイベントに設定するところから始めてください。そのうえで広告の成果として扱いたい場合は、Google広告なら通話コンバージョン、Meta広告ならコンバージョンAPI経由で電話由来のイベントを送る、という順序で拡張していくのが現実的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              電話番号のタップ数を計測すれば、それが電話件数と考えてよいですか？
+            </summary>
+<div class="article-faq__body">
+<p>同じではありません。タップは「発信画面を開いた」までの計測であり、実際に発信したか、通話がつながったか、何分話したかまでは分かりません。誤タップや、つながらずに切ったケースも含まれます。実務では、タップ数は「電話への意欲を示す指標」として扱い、実際の通話件数や商談化率を知りたい場合は通話計測（コールトラッキング）を検討する、という整理をおすすめします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              Google広告の通話コンバージョンで表示される電話番号が変わるのはなぜですか？
+            </summary>
+<div class="article-faq__body">
+<p>Google広告では、広告や自社サイトに掲載された番号を計測用の転送電話番号に置き換えることで通話を計測する仕組みがあります（日本では0800から始まる番号が使われます）。ユーザーがその番号にかけると自社の実際の番号に転送されるため、着信自体は通常どおり受けられます。ただし、サイト上の番号を書き換える他のJavaScriptがあると動作が競合することがあるため、導入後は必ず実機で表示と発信をテストしてください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              コールトラッキングツールは中小企業でも導入すべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>電話が主要な問い合わせ経路で、かつ複数チャネル（広告・自然検索・チラシなど）を並行して回している場合は検討価値があります。逆に、月の電話件数が数件程度、あるいは広告以外の流入がほとんどない場合は、投資に見合わないことが多いです。料金体系は「基本料金＋計測用番号の利用料＋通話料」という構成が主流で、初期費用が無料のサービスもあれば別途かかるサービスもあります。見積時は直近の電話件数・平均通話時間・必要な番号本数を伝え、月額総額で比較してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              通話の録音や内容の記録に、法的な注意点はありますか？
+            </summary>
+<div class="article-faq__body">
+<p>通話録音や通話内容の記録を行う場合、取得する情報の内容によっては個人情報の取扱いにあたります。プライバシーポリシーへの記載、利用目的の明示、社内での保管ルールの整備が必要になるため、導入前に自社の規程を確認してください。判断に迷う内容や、業界固有の規制がある場合は、弁護士など専門家への確認をおすすめします。当社は法律の専門家ではないため、この記事の内容は一般的な留意点の紹介にとどまります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              電話CVとフォームCVは、同じコンバージョンとして合算してよいですか？
+            </summary>
+<div class="article-faq__body">
+<p>合算する前に、1件あたりの価値が同じかどうかを確認してください。多くの業種で、電話問い合わせのほうが受注率が高く、フォーム送信より価値が大きい傾向があります。合算してCPAだけを見ると、電話が多いキャンペーンの評価を誤ることがあります。実務では、電話CVとフォームCVを別のコンバージョンとして計測したうえで、受注率をかけ合わせた「有効CV」で比較する方法が有効です。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ GA4でコンバージョン計測できない原因と確認ポイント｜GTM設定トラブル対処法</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/ad-crm-cv-gap/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告管理画面とCRMのCV数が合わない原因とは？原因別の確認・対処法</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/meta-capi-guide/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告のコンバージョンAPI(CAPI)とは？Cookie規制時代に計測精度を守る導入ガイド</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/cpa-high-cause/index.html" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ CPAが高い原因とは？広告改善で見るべきポイントを徹底解説</a>
+</li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#background">電話CVが見えなくなる理由</a></li>
+<li><a href="#levels">電話計測の3つのレベル</a></li>
+<li><a href="#ga4-tap">GA4で電話タップを計測</a></li>
+<li><a href="#google-ads">Google広告の通話CV</a></li>
+<li><a href="#meta-ads">Meta広告での扱い方</a></li>
+<li><a href="#calltracking">コールトラッキングの判断</a></li>
+<li><a href="#pitfall">6つの落とし穴</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>電話CVを含めた計測設計<br/>ご相談はお気軽に</p>
+<a href="https://lnx.co.jp/contact.html">無料相談する</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../index.html">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../index.html">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>
