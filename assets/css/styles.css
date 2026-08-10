@@ -4657,3 +4657,20 @@ br.only-sp-br{ display:none !important; }
 .lp-form-submit{display:inline-flex;align-items:center;justify-content:center;width:100%;border:none;background:var(--brand3);color:#fff;font-weight:800;font-size:16px;padding:17px 28px;border-radius:999px;cursor:pointer;box-shadow:0 18px 44px rgba(37,99,235,.25);transition:.2s ease}
 .lp-form-submit:hover{transform:translateY(-2px)}
 .lp-form-submit:disabled{opacity:.6;cursor:default;transform:none}
+
+/* ===========================================
+   H1 設定に伴う見た目維持のための調整
+   2026-08-10 / company・services・works の h1 欠落対応
+   （タグ変更で失われる継承値のみを元の実測値に固定）
+   =========================================== */
+
+/* company.html: 「会社概要」を p → h1 に変更。h1 既定の太字を打ち消す */
+h1.section__desc{ font-weight:400; }
+
+/* services.html / works.html: セクション見出しを h2 → h1 に変更。
+   グローバル h2 ルールから継承していた line-height を引き継ぐ */
+h1.section__title{ line-height:1.15; }
+
+/* works.html: カテゴリ見出しを h3 → h2 に繰り上げ。
+   グローバル h2 の色（青）と行間を打ち消し、従来の見た目を維持 */
+h2.works-cat__title{ color:#0b0d12; line-height:1.7; }
