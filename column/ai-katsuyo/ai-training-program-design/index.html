@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>社内AI研修は何をやればいい？中小企業のAIリテラシー教育の設計手順 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/ai-katsuyo/ai-training-program-design/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="社内AI研修は何をやればいい？中小企業のAIリテラシー教育の設計手順｜LnX合同会社"/>
+<meta property="og:description" content="生成AIを配っても使われない状態を抜け出すための社内AI研修の設計手順を解説。全社リテラシー・部門別実務・推進担当の3階層設計、半日で組むカリキュラムの型、研修後に定着させる仕組み、人材開発支援助成金を検討する際の注意点までまとめています。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/ai-katsuyo/ai-training-program-design/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="社内AI研修は何をやればいい？中小企業のAIリテラシー教育の設計手順｜LnX合同会社"/>
+<meta name="twitter:description" content="生成AIを配っても使われない状態を抜け出すための社内AI研修の設計手順を解説。全社リテラシー・部門別実務・推進担当の3階層設計、半日で組むカリキュラムの型、研修後に定着させる仕組み、人材開発支援助成金を検討する際の注意点までまとめています。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+
+<meta content="生成AIを配っても使われない状態を抜け出すための社内AI研修の設計手順を解説。全社リテラシー・部門別実務・推進担当の3階層設計、半日で組むカリキュラムの型、研修後に定着させる仕組み、人材開発支援助成金を検討する際の注意点までまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body > h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 原因カード（番号付き） */
+    .cause-list { display: grid; gap: 20px; margin: 0 0 32px; }
+    .cause-item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2);
+      overflow: hidden; transition: .2s ease;
+    }
+    .cause-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .cause-item__head {
+      display: flex; align-items: center; gap: 16px;
+      padding: 18px 22px;
+      background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.04));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .cause-item__num {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 18px; color: #fff; flex: 0 0 auto;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+    }
+    .cause-item__title { font-size: 16px; font-weight: 900; margin: 0; letter-spacing: -.01em; }
+    .cause-item__body { padding: 18px 22px; }
+    .cause-item__body p { margin: 0 0 14px; font-size: 14.5px; line-height: 1.85; }
+    .cause-item__body p:last-child { margin: 0; }
+
+    /* 改善ポイントタグ */
+    .fix-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(16,185,129,.10); border: 1px solid rgba(16,185,129,.22);
+      font-size: 12px; font-weight: 800; color: #059669;
+      margin-top: 8px;
+    }
+    .fix-tag::before { content: "→ 改善："; }
+
+    /* 注意タグ */
+    .warn-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(245,158,11,.10); border: 1px solid rgba(245,158,11,.22);
+      font-size: 12px; font-weight: 800; color: #d97706;
+      margin-top: 8px;
+    }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* チェックリスト */
+    .checklist-card {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist-card__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist-card__section { margin-bottom: 20px; }
+    .checklist-card__section:last-child { margin-bottom: 0; }
+    .checklist-card__section-title {
+      font-size: 12px; font-weight: 800; letter-spacing: .10em;
+      color: var(--muted); margin: 0 0 10px;
+    }
+    .checklist-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .checklist-card li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.7;
+    }
+    .checklist-card li::before {
+      content: "□"; font-size: 15px; color: var(--brand3);
+      flex: 0 0 auto; margin-top: 1px; font-weight: 900;
+    }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: var(--brand3);
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: var(--brand3);
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+      .cause-item__head { gap: 12px; padding: 14px 16px; }
+      .cause-item__num { width: 38px; height: 38px; font-size: 16px; }
+      .cause-item__body { padding: 14px 16px; }
+    }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "社内AI研修は何をやればいい？中小企業のAIリテラシー教育の設計手順",
+  "description": "生成AIを配っても使われない状態を抜け出すための社内AI研修の設計手順を解説。全社リテラシー・部門別実務・推進担当の3階層設計、半日で組むカリキュラムの型、研修後に定着させる仕組み、人材開発支援助成金を検討する際の注意点までまとめています。",
+  "url": "https://lnx.co.jp/column/ai-katsuyo/ai-training-program-design/",
+  "datePublished": "2026-08-19",
+  "dateModified": "2026-08-19",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/ai-katsuyo/ai-training-program-design/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI活用",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "社内AI研修は何をやればいい？中小企業のAIリテラシー教育の設計手順",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/ai-training-program-design/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "社内にAIに詳しい人がいません。研修は外部に頼むべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "第1層の全社リテラシー研修は外部に任せても成立しやすい領域です。一方、第2層の部門別実務は自社の業務内容を題材にする必要があるため、外部に頼む場合でも「自社の業務を題材に差し替えてもらえるか」を必ず確認してください。汎用事例だけで構成された研修は、その場の理解では終わっても業務には接続しません。まずは業務の洗い出しを済ませ、題材を用意したうえで依頼するのが効率的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "研修は何人くらいで始めるのが適切ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "全社一斉より、関心の高い管理職と現場社員を合わせて5〜10名程度で始めるほうが定着しやすい傾向があります。少人数のほうがハンズオンで一人ひとりの業務に踏み込めますし、社内に成功例ができてから広げたほうが、他の社員の受け止め方も変わります。最初から全員に受けさせると、必要性を感じていない層の温度差が全体の空気を下げてしまうことがあります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "研修の効果はどう測ればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "満足度アンケートではなく、業務の変化で測ってください。具体的には、研修前に対象業務の所要時間や処理件数を記録しておき、1か月後・3か月後に同じ指標を確認します。あわせて「実際に業務で使っている人の割合」を部署別に把握すると、追加フォローが必要な部署が見えます。数値が取りにくい業務であれば、「その業務でAIを使った回数」を記録するだけでも十分な指標になります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AIに社外秘の情報を入力させないためのルールはどう作ればいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "抽象的な禁止事項ではなく、判断に迷わない粒度まで具体化することが重要です。たとえば「顧客の氏名・連絡先はマスクする」「契約書や見積書の原本ファイルはアップロードしない」「取引先名は伏せ字にする」といったレベルまで落とし込みます。あわせて、利用するツールの設定（入力内容を学習に使わせない設定が可能か）も確認しておきましょう。ルールは研修前に文書化し、研修中に実例で共有するのが定着の近道です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "研修費用に助成金は使えますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "厚生労働省の人材開発支援助成金には複数のコースがあり、企業内のDX化推進に必要な人材育成などが対象になり得る枠組みが案内されています。ただし、対象となる訓練の要件・助成率・上限額・受付状況は年度ごとに変わる可能性があるため、必ず厚生労働省および都道府県労働局の公式情報で最新の内容を確認してください。なお、活用する場合は訓練開始日から起算して1か月前までに計画届を提出する必要があるため、研修の企画段階でスケジュールに申請期間を組み込んでおく必要があります。"
+      }
+    }
+  ]
+}</script><style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/ai-katsuyo/">AI活用</a>
+<span class="sep">/</span>
+<span class="cur">社内AI研修は何をやればいい？中小企業のAIリテラシー教育の設計手順</span>
+</nav>
+<p class="article-hero__kicker"><span></span>AI活用</p>
+<h1 class="article-hero__title">社内AI研修は何をやればいい？<br/>中小企業のAIリテラシー教育の設計手順</h1>
+<div class="article-hero__meta">
+<time datetime="2026-08-19">2026年8月19日</time>
+<span class="article-hero__tag">AI活用</span>
+<span class="article-hero__tag">社内研修</span>
+<span class="article-hero__tag">人材育成</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>生成AIを配っても使われない3つの理由と、組織側で解決すべきこと</li>
+<li>全社リテラシー／部門別実務／推進担当の3階層で研修を設計する方法</li>
+<li>2〜3時間で組む研修カリキュラムの具体的な構成例</li>
+<li>研修後3か月で定着させるための4つの仕組み</li>
+<li>費用の考え方と、人材開発支援助成金を検討する際の注意点</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#why">ツールを配っただけでは使われない</a></li>
+<li><a href="#levels">対象を3階層に分けて設計する</a></li>
+<li><a href="#curriculum">カリキュラムの型｜半日で組む基本構成</a></li>
+<li><a href="#retention">研修後に定着させる仕組み</a></li>
+<li><a href="#cost">費用の考え方と助成金の活用</a></li>
+<li><a href="#mistakes">よくある失敗パターン</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+<!-- ===== なぜ研修が必要か ===== -->
+<h2 id="why">ツールを配っただけでは使われない</h2>
+<p>生成AIの社内導入で最も多いつまずきは、技術的な問題ではありません。<strong>アカウントを配布したのに、数か月後に使っているのが一部の社員だけになっている</strong>という状態です。ツール費用は全社分かかっているのに、効果は数人分しか出ていない——この状況は、投資対効果の議論以前に「導入が失敗した」と見なされてしまいます。</p>
+<p>原因を分解すると、だいたい次の3つに集約されます。</p>
+<ul>
+<li><strong>使い道が分からない</strong>——「便利らしい」は理解しているが、自分の仕事のどこに当てはめればいいか結びついていない</li>
+<li><strong>使っていいのか分からない</strong>——顧客情報や社外秘を入力していいのか判断できず、怖くて触らない</li>
+<li><strong>使う時間がない</strong>——日常業務の合間に試行錯誤する余白がなく、慣れた手作業に戻ってしまう</li>
+</ul>
+<p>この3つは、いずれもツールの性能では解決しません。<strong>「教える」「線を引く」「時間を確保する」という組織側の設計</strong>で解決する問題です。社内AI研修とは、この3点を埋めるための仕組みだと考えると設計しやすくなります。</p>
+<div class="highlight-card">
+<p><strong>前提の整理：</strong>研修の目的は「AIに詳しい人を増やすこと」ではありません。<strong>目的は「自分の業務でAIを使う人を増やすこと」</strong>です。この違いを曖昧にしたまま外部研修を発注すると、満足度は高いのに業務が何も変わらない研修になりがちです。</p>
+</div>
+
+<!-- ===== 3階層 ===== -->
+<h2 id="levels">対象を3階層に分けて設計する</h2>
+<p>全社員に同じ内容を一律で流す研修は、ほぼ確実に空回りします。必要な内容が階層によって大きく違うからです。中小企業の場合、次の3階層で分けると設計がシンプルになります。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>階層</th>
+<th>対象</th>
+<th>ゴール</th>
+<th>主な内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第1層<br/>全社リテラシー</strong></td>
+<td>全社員</td>
+<td>「触ってはいけないこと」が分かり、抵抗感がなくなる</td>
+<td>生成AIの仕組みのごく基本／情報の取り扱いルール／出力を鵜呑みにしないという原則／簡単な実演</td>
+</tr>
+<tr>
+<td><strong>第2層<br/>部門別実務</strong></td>
+<td>営業・事務・マーケなど部門ごと</td>
+<td>自分の担当業務でAIを使う型を1つ持ち帰る</td>
+<td>その部門の定型業務を題材にしたハンズオン／指示文のテンプレート化／成果物の品質チェック方法</td>
+</tr>
+<tr>
+<td><strong>第3層<br/>推進担当</strong></td>
+<td>1〜3名程度の旗振り役</td>
+<td>社内の相談を受け、横展開を回せる</td>
+<td>業務プロセスの分解／複数ツールの使い分け／ルール整備／効果測定の設計</td>
+</tr>
+</tbody>
+</table>
+<p>特に効果が出やすいのは第2層です。<strong>「自部門の実際の業務」を題材にできるかどうかが、研修後に使われるかどうかを分ける</strong>と言っても過言ではありません。一般的な事例で説明された研修は、その場では理解できても、翌日の業務に戻った瞬間に接続が切れます。</p>
+<h3>第3層（推進担当）を置かない研修は続かない</h3>
+<p>研修当日は盛り上がっても、その後に「これってどう書けばいいですか」と聞ける相手が社内にいないと、詰まった時点で全員が離脱します。専任である必要はありませんが、<strong>「困ったらこの人に聞けばいい」という窓口が社内に存在するかどうか</strong>は定着率を大きく左右します。</p>
+
+<!-- ===== カリキュラム ===== -->
+<h2 id="curriculum">カリキュラムの型｜半日で組む基本構成</h2>
+<p>1回の研修を長くしすぎると参加率が落ち、短すぎると手を動かす時間が取れません。中小企業では2〜3時間程度に収める構成が現実的です。以下は第1層＋第2層をまとめて実施する場合の一例です。</p>
+<div class="cause-list">
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">1</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">基礎と前提（約30分）</h3>
+</div>
+<div class="cause-item__body">
+<p>生成AIが何をしていて、何が苦手なのかを短く共有します。技術的な詳細は不要です。「事実確認は必要」「もっともらしい誤りが混ざる」という前提を全員が共有できていれば十分です。</p>
+<span class="fix-tag">専門用語を並べず、誤った出力の実例を1つ見せるだけで理解が進む</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">2</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">ルールと情報の取り扱い（約30分）</h3>
+</div>
+<div class="cause-item__body">
+<p>入力してよい情報・してはいけない情報の線引きを具体例で示します。「顧客名は伏せる」「契約書の原文は入れない」など、判断に迷わない粒度まで落とすことが重要です。抽象的な注意喚起で終わると、結局は各自の判断になり、怖くて使わない人と無自覚に使う人に二極化します。</p>
+<span class="warn-tag">利用ルールは研修当日までに文書化しておく。口頭説明だけでは残らない</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">3</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">自分の業務でのハンズオン（約60〜90分）</h3>
+</div>
+<div class="cause-item__body">
+<p>研修の中心はここです。参加者に事前に「時間がかかっている業務」を1つ持ち寄ってもらい、その場で実際に試します。メール文の作成、議事録の整理、資料のたたき台づくり、問い合わせ返信の下書きなど、頻度が高く失敗コストの低い業務から選ぶのがコツです。</p>
+<p>ここで大事なのは、うまくいかなかったケースも共有することです。「この業務には向かない」という判断ができることも、リテラシーの一部です。</p>
+<span class="fix-tag">事前アンケートで題材を集めておくと、当日の時間を無駄にせずに済む</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">4</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">持ち帰りの宿題設定（約15分）</h3>
+</div>
+<div class="cause-item__body">
+<p>研修の最後に「次の1週間で試すこと」を各自に1つ宣言してもらいます。研修と実務の間に橋を架けるための工程で、ここを省くと出席しただけで終わります。宣言内容は推進担当が控えておき、翌週に確認します。</p>
+<span class="fix-tag">「何を」「いつまでに」を紙かチャットに残す。口頭の決意表明は流れる</span>
+</div>
+</div>
+</div>
+
+<!-- ===== 定着 ===== -->
+<h2 id="retention">研修後に定着させる仕組み</h2>
+<p>研修そのものより、その後の数か月のほうが重要です。定着させるために有効なのは、次の4つです。</p>
+<h3>1. 良かった使い方を共有する場をつくる</h3>
+<p>チャットに専用チャンネルを1つ用意し、「こう使ったらうまくいった」を投稿できるようにします。他人の実例は、研修資料より遥かに強い動機づけになります。投稿が止まらないよう、最初の1か月は推進担当が意識的に投稿数を作ってください。</p>
+<h3>2. うまくいった指示文を資産として蓄積する</h3>
+<p>個人のチャット履歴に埋もれさせず、業務別のテンプレートとして共有ドキュメントに残します。これがあると、新しく入った人が最初から一定の水準で使い始められます。<strong>研修の成果物は「知識」ではなく「テンプレート」だと考える</strong>と、蓄積の意識が変わります。</p>
+<h3>3. 小さな改善プロジェクトを部署ごとに回す</h3>
+<p>各部署で2〜4週間で完結する小さなテーマを1つ決め、削減できた時間や作業回数を記録します。規模が大きすぎると途中で止まるので、「月次レポートの下書き作成を自動化する」程度の粒度に抑えるのがポイントです。</p>
+<h3>4. 3か月後に振り返りの場を持つ</h3>
+<p>研修から3か月後に、使われている業務・使われていない業務を棚卸しします。使われていない部署があれば、原因が「知らない」なのか「使えない」なのか「使う余裕がない」なのかを切り分け、追加のフォローを設計します。</p>
+<div class="highlight-card--success highlight-card">
+<p><strong>定着の目安：</strong>「全社員が毎日使っている」を最初のゴールにする必要はありません。<strong>まずは各部署に1人、日常的に使って周囲に教えられる人が生まれれば十分</strong>です。そこから横に広がるほうが、トップダウンで一斉に強制するより持続します。</p>
+</div>
+
+<!-- ===== 費用と助成金 ===== -->
+<h2 id="cost">費用の考え方と助成金の活用</h2>
+<p>社内AI研修のコストは、内製か外部委託か、対象人数、実施回数によって大きく変わります。判断軸としては次のように整理できます。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>実施形態</th>
+<th>向いているケース</th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>内製（社内の詳しい人が講師）</strong></td>
+<td>すでに社内に使いこなしている人がいる／少人数</td>
+<td>講師役の負担が本業を圧迫しやすい。資料作成の工数を軽視しない</td>
+</tr>
+<tr>
+<td><strong>外部研修（集合型・オンライン）</strong></td>
+<td>第1層のリテラシー教育を短期間で揃えたい</td>
+<td>汎用カリキュラムだと自社業務に接続しにくい。事例の差し替え可否を確認する</td>
+</tr>
+<tr>
+<td><strong>伴走型支援</strong></td>
+<td>業務の洗い出しからルール整備・定着まで一括で任せたい</td>
+<td>費用は高くなる。何をどこまで任せるかを契約前に明確にする</td>
+</tr>
+</tbody>
+</table>
+<h3>助成金の活用は「使えたら得」程度に見ておく</h3>
+<p>従業員への訓練費用については、厚生労働省の<strong>人材開発支援助成金</strong>に複数のコースが設けられており、そのうち「事業展開等リスキリング支援コース」は、企業内のDX化を推進するために必要な人材育成なども対象になり得る枠組みとして案内されています。同コースは令和4年度〜令和8年度の期間限定で創設された制度とされており、活用する場合は<strong>訓練開始日から起算して1か月前までに、事業所の所在地を管轄する都道府県労働局へ計画届を提出する必要があります</strong>。</p>
+<div class="highlight-card--warning highlight-card">
+<p><strong>必ず確認してください：</strong>助成対象となる訓練の要件・助成率・上限額・受付状況は年度ごとに変更される可能性があります。金額や要件を前提に計画を立てる場合は、必ず<strong>厚生労働省および都道府県労働局の公式情報</strong>で最新の内容を確認し、事前に労働局へ相談してください。本記事は制度の存在と申請時期の考え方を紹介するもので、支給を保証するものではありません。</p>
+</div>
+<p>実務上の注意として、<strong>計画届が事前提出である点</strong>は特に重要です。「研修を実施してから申請しよう」と考えていると対象外になります。助成金の活用を検討するなら、研修の企画段階でスケジュールに申請期間を組み込んでおいてください。</p>
+
+<!-- ===== 失敗 ===== -->
+<h2 id="mistakes">よくある失敗パターン</h2>
+<h3>全社一斉・一律の内容で実施してしまう</h3>
+<p>営業と経理と製造現場では、使いどころも懸念点も違います。共通部分（第1層）だけ一律にして、実務部分は分けてください。</p>
+<h3>ルールを決めずに研修だけ先に行う</h3>
+<p>「入力していい情報の線引き」が決まっていない状態で使い方だけ教えると、慎重な人ほど使わなくなります。ルールの整備が先、または同時です。</p>
+<h3>効果測定を「感想アンケート」で終わらせる</h3>
+<p>満足度は定着とほとんど相関しません。研修から1〜3か月後に「実際に業務で使っているか」「どの業務でどれくらい時間が変わったか」を確認する設計にしてください。</p>
+<h3>推進担当を任命せず現場任せにする</h3>
+<p>相談先がないまま各自に委ねると、詰まった時点で全員が元のやり方に戻ります。兼任でよいので窓口を明示しましょう。</p>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">無料AI業務診断</p>
+<div class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px); text-align: center !important;">研修の前に、AIで効率化できる業務を洗い出しませんか</div>
+<p class="article-cta__lead">「何を教えればいいか分からない」という状態のまま研修を組んでも、内容は一般論になりがちです。まずは自社のどの業務がAIに向いているかを整理するところから始められます。無料のAI業務診断でお手伝いします。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/ai-service/#diagnosis">無料でAI業務診断を受ける</a>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>AI研修の相談をいただくとき、私たちが最初にお伝えするのは<strong>「研修の前に、業務の棚卸しを済ませておきましょう」</strong>ということです。何を効率化したいのかが決まっていない状態で研修を組むと、内容は必ず一般論になります。一般論の研修は満足度こそ高く出ますが、翌週の業務は何も変わりません。</p>
+<p>逆に、「毎月の請求書処理に何時間かかっている」「見積書の作成に平均何分かかっている」といった数字が事前に見えていれば、研修の題材はその場で決まり、効果測定の基準も自動的に決まります。<strong>研修設計の8割は、研修前の業務整理で決まる</strong>というのが私たちの実感です。</p>
+<p>もう一点、経営者の方によくお伝えするのは「最初から全社展開を狙わない」ことです。関心の高い5〜10名で先に成功例を作り、社内で共有したほうが、全社一斉研修より結果的に速く広がります。人は上から指示されたツールより、隣の席の同僚が楽をしている様子のほうに動かされます。LnXでは業務の洗い出しからルール整備、研修、その後の定着支援までを一続きの流れとして設計しています。</p>
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              社内にAIに詳しい人がいません。研修は外部に頼むべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>第1層の全社リテラシー研修は外部に任せても成立しやすい領域です。一方、第2層の部門別実務は自社の業務内容を題材にする必要があるため、外部に頼む場合でも「自社の業務を題材に差し替えてもらえるか」を必ず確認してください。汎用事例だけで構成された研修は、その場の理解では終わっても業務には接続しません。まずは業務の洗い出しを済ませ、題材を用意したうえで依頼するのが効率的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              研修は何人くらいで始めるのが適切ですか？
+            </summary>
+<div class="article-faq__body">
+<p>全社一斉より、関心の高い管理職と現場社員を合わせて5〜10名程度で始めるほうが定着しやすい傾向があります。少人数のほうがハンズオンで一人ひとりの業務に踏み込めますし、社内に成功例ができてから広げたほうが、他の社員の受け止め方も変わります。最初から全員に受けさせると、必要性を感じていない層の温度差が全体の空気を下げてしまうことがあります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              研修の効果はどう測ればいいですか？
+            </summary>
+<div class="article-faq__body">
+<p>満足度アンケートではなく、業務の変化で測ってください。具体的には、研修前に対象業務の所要時間や処理件数を記録しておき、1か月後・3か月後に同じ指標を確認します。あわせて「実際に業務で使っている人の割合」を部署別に把握すると、追加フォローが必要な部署が見えます。数値が取りにくい業務であれば、「その業務でAIを使った回数」を記録するだけでも十分な指標になります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              AIに社外秘の情報を入力させないためのルールはどう作ればいいですか？
+            </summary>
+<div class="article-faq__body">
+<p>抽象的な禁止事項ではなく、判断に迷わない粒度まで具体化することが重要です。たとえば「顧客の氏名・連絡先はマスクする」「契約書や見積書の原本ファイルはアップロードしない」「取引先名は伏せ字にする」といったレベルまで落とし込みます。あわせて、利用するツールの設定（入力内容を学習に使わせない設定が可能か）も確認しておきましょう。ルールは研修前に文書化し、研修中に実例で共有するのが定着の近道です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              研修費用に助成金は使えますか？
+            </summary>
+<div class="article-faq__body">
+<p>厚生労働省の人材開発支援助成金には複数のコースがあり、企業内のDX化推進に必要な人材育成などが対象になり得る枠組みが案内されています。ただし、対象となる訓練の要件・助成率・上限額・受付状況は年度ごとに変わる可能性があるため、必ず厚生労働省および都道府県労働局の公式情報で最新の内容を確認してください。なお、活用する場合は訓練開始日から起算して1か月前までに計画届を提出する必要があるため、研修の企画段階でスケジュールに申請期間を組み込んでおく必要があります。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-adoption-5-steps/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 中小企業のAI導入は何から始める？失敗しない進め方を5ステップで解説</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-usage-policy-guideline/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIの社内利用ルールの作り方｜中小企業向け6章構成と運用手順</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-adoption-failure-patterns/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ AI導入で失敗する会社の共通点7つ｜ツール導入前の確認事項</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-roi-measurement/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ AI導入の効果はどう測る？中小企業のためのROI・効果測定の設計手順</a>
+</li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#why">配っただけでは使われない</a></li>
+<li><a href="#levels">3階層で設計する</a></li>
+<li><a href="#curriculum">カリキュラムの型</a></li>
+<li><a href="#retention">定着させる仕組み</a></li>
+<li><a href="#cost">費用と助成金</a></li>
+<li><a href="#mistakes">よくある失敗</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>AIで効率化できる業務を<br/>無料で洗い出します</p>
+<a href="https://lnx.co.jp/ai-service/#diagnosis">無料AI業務診断を受ける</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>
