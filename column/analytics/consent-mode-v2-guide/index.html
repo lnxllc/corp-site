@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>Google同意モード（コンセントモードv2）は日本の企業に必要か？判断基準とGTMでの設定手順 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/analytics/consent-mode-v2-guide/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Google同意モード（コンセントモードv2）は日本の企業に必要か？判断基準とGTMでの設定手順｜LnX合同会社"/>
+<meta property="og:description" content="Google同意モード（Consent Mode v2）の仕組みと、日本の中小企業が対応すべきかの判断基準を解説。EEA向けの必須要件、2026年6月15日のデータコントロール変更、CMPの選び方、GTMでの設定手順と確認方法、対応しない場合の注意点までまとめています。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/analytics/consent-mode-v2-guide/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Google同意モード（コンセントモードv2）は日本の企業に必要か？判断基準とGTMでの設定手順｜LnX合同会社"/>
+<meta name="twitter:description" content="Google同意モード（Consent Mode v2）の仕組みと、日本の中小企業が対応すべきかの判断基準を解説。EEA向けの必須要件、2026年6月15日のデータコントロール変更、CMPの選び方、GTMでの設定手順と確認方法、対応しない場合の注意点までまとめています。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+
+<meta content="Google同意モード（Consent Mode v2）の仕組みと、日本の中小企業が対応すべきかの判断基準を解説。EEA向けの必須要件、2026年6月15日のデータコントロール変更、CMPの選び方、GTMでの設定手順と確認方法、対応しない場合の注意点までまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body > h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 原因カード */
+    .cause-list { display: grid; gap: 20px; margin: 0 0 32px; }
+    .cause-item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2);
+      overflow: hidden; transition: .2s ease;
+    }
+    .cause-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .cause-item__head {
+      display: grid; grid-template-columns: 56px 1fr;
+      align-items: center; gap: 16px; padding: 16px 22px;
+      background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.04));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .cause-item__num {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 18px; color: #fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+    }
+    .cause-item__title { font-size: 16px; font-weight: 900; margin: 0; letter-spacing: -.01em; }
+    .cause-item__body { padding: 18px 22px; }
+    .cause-item__body p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.85; }
+    .cause-item__body p:last-child { margin: 0; }
+
+    .action-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .action-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.75;
+      padding: 10px 14px; border-radius: 10px;
+      background: rgba(16,185,129,.05); border: 1px solid rgba(16,185,129,.16);
+    }
+    .action-list li::before { content: "✓"; color: #059669; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .checklist-card {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist-card__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist-card__section { margin-bottom: 18px; }
+    .checklist-card__section:last-child { margin-bottom: 0; }
+    .checklist-card__section-title { font-size: 12px; font-weight: 800; letter-spacing: .10em; color: var(--muted); margin: 0 0 10px; }
+    .checklist-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .checklist-card li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.7; }
+    .checklist-card li::before { content: "□"; font-size: 15px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: var(--brand3);
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: var(--brand3);
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+      .cause-item__head { grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 16px; }
+      .cause-item__num { width: 40px; height: 40px; font-size: 16px; }
+      .cause-item__body { padding: 14px 16px; }
+    }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google同意モード（コンセントモードv2）は日本の企業に必要か？判断基準とGTMでの設定手順",
+  "description": "Google同意モード（Consent Mode v2）の仕組みと、日本の中小企業が対応すべきかの判断基準を解説。EEA向けの必須要件、2026年6月15日のデータコントロール変更、CMPの選び方、GTMでの設定手順と確認方法、対応しない場合の注意点までまとめています。",
+  "url": "https://lnx.co.jp/column/analytics/consent-mode-v2-guide/",
+  "datePublished": "2026-08-22",
+  "dateModified": "2026-08-22",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/analytics/consent-mode-v2-guide/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "計測・GA4",
+      "item": "https://lnx.co.jp/column/analytics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Google同意モード（コンセントモードv2）は日本の企業に必要か？判断基準とGTMでの設定手順",
+      "item": "https://lnx.co.jp/column/analytics/consent-mode-v2-guide/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "日本国内向けのサイトだけを運営しています。同意モードは設定しなくてよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Googleが必須としているのはEEA・英国・スイスのエンドユーザーからデータを取得する場合です。国内向けのみのサイトであれば、Googleのポリシー上の必須要件には該当しません。ただし「国内向けのつもりだが海外からの流入がある」ケースは珍しくないため、GA4の同意設定画面でEEAトラフィックの割合を一度確認したうえで判断することをおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "同意バナーを出すとコンバージョン計測の数字が減りませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同意を拒否したユーザーの分だけ、Cookieを使った計測はできなくなるため、見かけの数字は減る可能性があります。ここで重要なのは、減ったのが「実際の成果」ではなく「計測できた範囲」だという点です。導入する場合は、導入前後で数字が不連続になることを前提に、比較の基準日を記録しておいてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "同意モードの「基本」と「詳細」はどちらを選ぶべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同意を得るまでGoogleタグを一切発火させないのが基本（ベーシック）、同意前も識別子を含まない形でシグナルだけ送るのが詳細（アドバンスト）です。計測の欠損を抑えたい場合は詳細が選ばれることが多い一方、同意前に一切通信させたくないという方針であれば基本になります。技術的な優劣ではなく、自社のプライバシー方針として決める論点です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CMPを入れずに、自社でバナーを作って対応できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "技術的には可能です。ただし同意状態の保存、地域ごとの出し分け、同意の撤回導線、記録の保持といった実装をすべて自前で用意することになり、運用負荷は小さくありません。Google認定のCMPには同意モードとの連携部分が用意されているため、社内に専任のエンジニアがいない場合は既製ツールを選ぶほうが現実的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "同意モードを設定したのに、GA4のデータが増えも減りもしません。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EEAからのトラフィックがほとんどないサイトでは、設定してもレポート上の変化はほぼ発生しません。これは失敗ではなく想定どおりの挙動です。設定が反映されているかどうかは数字の増減ではなく、GTMのプレビューモードで同意状態を確認するか、GA4の管理画面の同意設定でシグナルの受信状況を見て判断してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "個人情報保護法の観点では、Cookieの利用に同意は必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "日本の個人情報保護法では、いわゆるクッキー同意バナーの設置が一律に義務づけられているわけではありません。一方で、Cookie等で取得した情報を第三者に提供し、提供先で個人データとして取得されることが想定される場合や、電気通信事業法の外部送信規律に該当する場合など、確認が必要な論点は別に存在します。個別の判断は自社の利用実態に依存するため、法務・専門家への確認をおすすめします。"
+      }
+    }
+  ]
+}</script><style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/analytics/">計測・GA4</a>
+<span class="sep">/</span>
+<span class="cur">Google同意モードは日本の企業に必要か？</span>
+</nav>
+<p class="article-hero__kicker"><span></span>計測・GA4</p>
+<h1 class="article-hero__title">Google同意モード（コンセントモードv2）は日本の企業に必要か？<br/>判断基準とGTMでの設定手順</h1>
+<div class="article-hero__meta">
+<time datetime="2026-08-22">2026年8月22日</time>
+<span class="article-hero__tag">同意モード</span>
+<span class="article-hero__tag">Cookie規制</span>
+<span class="article-hero__tag">GTM</span>
+<span class="article-hero__tag">GA4</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>同意モード（Consent Mode）が何を制御している仕組みなのか</li>
+<li>EEA向けと日本国内向けで「必須かどうか」がどう違うのか</li>
+<li>2026年6月15日のデータコントロール変更で何が変わったのか</li>
+<li>CMP（同意管理ツール）の選び方とGTMでの設定手順</li>
+<li>設定後に「効いているか」を確認する方法とチェックリスト</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#what">同意モードとは何を制御する仕組みか</a></li>
+<li><a href="#need">日本の企業に対応義務はあるのか</a></li>
+<li><a href="#change">2026年6月15日のデータコントロール変更</a></li>
+<li><a href="#cmp">CMP（同意管理ツール）の選び方</a></li>
+<li><a href="#setup">GTMでの設定手順</a></li>
+<li><a href="#verify">設定後の確認方法とよくある失敗</a></li>
+<li><a href="#checklist">対応判断チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="what">同意モードとは、Googleタグに「Cookieを使ってよいか」を伝える仕組み</h2>
+<p>同意モード（Consent Mode）は、サイト訪問者から得た同意の状態を、GA4やGoogle広告などのGoogleタグに伝えるための仕組みです。同意バナーそのものではなく、<strong>バナーで得た「はい／いいえ」をタグ側に渡す通信の作法</strong>だと捉えると分かりやすくなります。</p>
+<p>同意モードでは、次の4つのパラメータで同意状態を表現します。値は「granted（許可）」または「denied（拒否）」です。</p>
+<table class="cost-table">
+<thead>
+<tr><th>パラメータ</th><th>何に対する同意か</th><th>拒否されたときの主な影響</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ad_storage</strong></td>
+<td>広告目的でのCookie等の保存・読み取り</td>
+<td>広告のコンバージョン計測・リマーケティングが制限される</td>
+</tr>
+<tr>
+<td><strong>analytics_storage</strong></td>
+<td>アクセス解析目的でのCookie等の保存・読み取り</td>
+<td>GA4でユーザーを継続的に識別できなくなる</td>
+</tr>
+<tr>
+<td><strong>ad_user_data</strong></td>
+<td>広告目的でのユーザーデータのGoogleへの送信</td>
+<td>広告の測定に必要なデータが送られない</td>
+</tr>
+<tr>
+<td><strong>ad_personalization</strong></td>
+<td>広告のパーソナライズ（興味関心に基づく配信）</td>
+<td>リマーケティング・類似オーディエンスが使えない</td>
+</tr>
+</tbody>
+</table>
+<p>このうち後ろの2つ（ad_user_data / ad_personalization）が2024年に追加されたものが、いわゆる<strong>「同意モードv2」</strong>です。v1・v2という別の製品があるわけではなく、扱うパラメータが増えたバージョンだと考えてください。</p>
+<h3>基本（ベーシック）と詳細（アドバンスト）の違い</h3>
+<p>同意モードの実装方式には2種類あります。どちらを選ぶかで、同意前の挙動が変わります。</p>
+<div class="cause-list">
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">基本</div>
+<h3 class="cause-item__title">同意を得るまで、Googleタグを発火させない</h3>
+</div>
+<div class="cause-item__body">
+<p>同意が得られるまでタグ自体を読み込まないため、同意前の通信は発生しません。プライバシー方針として分かりやすい一方、同意しなかったユーザーの行動は完全に計測対象外になり、データの欠損は大きくなります。</p>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">詳細</div>
+<h3 class="cause-item__title">同意前も、識別子を含まない形でシグナルだけ送る</h3>
+</div>
+<div class="cause-item__body">
+<p>タグ自体は読み込み、同意が「denied」の間はCookieや識別子を使わない匿名の信号のみを送ります。同意状態の分布から欠損分を推計する「行動モデリング」の対象になり得るため、計測の連続性は保ちやすくなります。ただし同意前にも通信は発生します。</p>
+</div>
+</div>
+</div>
+<div class="highlight-card">
+<p><strong>選び方の考え方：</strong>技術的にどちらが正しいという話ではありません。「同意前に一切通信させない」という社内方針があるなら基本、「計測の欠損をできるだけ抑えたい」なら詳細、という<strong>方針の選択</strong>です。決めるのは情報システム担当者ではなく、経営またはマーケティングの責任者であるべき論点です。</p>
+</div>
+<h2 id="need">日本の企業に、同意モードの対応義務はあるのか</h2>
+<p>ここが最も誤解の多いところです。結論から整理します。</p>
+<h3>Googleが必須としているのはEEA・英国・スイスのユーザー</h3>
+<p>Googleのヘルプでは、同意設定に関する要件について「Googleのオンラインとオフラインのソリューションを使用して、<strong>欧州経済領域（EEA）のエンドユーザーからデータを取得しているお客様を対象</strong>」と明記されています。これはEUユーザーの同意ポリシー（EU User Consent Policy）に基づく要件で、対応しなかった場合、2024年3月初旬以降はEEA外のエンドユーザーのみがリンクされた広告サービスのオーディエンスに含められるようになる、という影響が案内されています。</p>
+<p>つまり<strong>「日本の法律で義務化されたから対応が必要」ではなく、「Googleのポリシー上、対象地域のユーザーを扱うなら必要」</strong>という性質のものです。</p>
+<h3>日本国内向けサイトでも対応を検討すべきケース</h3>
+<p>とはいえ、国内向けだから一切不要と決めつけるのも早計です。次のいずれかに当てはまる場合は、対応を検討する価値があります。</p>
+<ul class="action-list">
+<li><strong>越境ECや海外向けサービスがある</strong>：EEA・英国・スイスからの流入が実際にある場合は対象になります。</li>
+<li><strong>海外拠点・海外顧客を持つBtoB企業</strong>：問い合わせの一部が欧州経由というケースは実際にあります。</li>
+<li><strong>親会社・取引先からプライバシー対応を求められている</strong>：契約要件として同意管理を求められる例が増えています。</li>
+<li><strong>今後、海外展開の可能性がある</strong>：後から入れるより、サイトリニューアルのタイミングで入れるほうが安価です。</li>
+</ul>
+<h3>まず確認すべきは「自社にEEAからの流入があるか」</h3>
+<p>判断の材料はGA4の中にあります。管理画面の［管理］→［データの収集と修正］→［同意設定］を開くと、ページ上部にEEAからのウェブサイトトラフィックとコンバージョンの割合が表示されます。ここが実質ゼロであれば、同意モードの優先度は高くありません。逆に数%でも継続的に発生しているなら、放置せず方針を決めるべき段階です。</p>
+<div class="highlight-card highlight-card--warning">
+<p><strong>注意：</strong>「日本の個人情報保護法でCookie同意バナーが義務化された」という説明を見かけることがありますが、これは正確ではありません。国内法ではバナー設置が一律に義務づけられているわけではなく、外部送信規律（電気通信事業法）や第三者提供の考え方など、論点は別にあります。自社の実装内容に応じて、法務・専門家に確認する領域です。</p>
+</div>
+<h2 id="change">2026年6月15日のデータコントロール変更で何が変わったか</h2>
+<p>2026年に入ってから、同意モードの重要度が一段上がりました。Googleがアナウンスしたデータコントロールの変更が、2026年6月15日から適用されているためです。</p>
+<h3>変更の要点</h3>
+<p>これまで、GA4で収集した広告用のCookieや識別子をGoogle広告側で利用できるかどうかには、<strong>①GA4プロパティのGoogleシグナル設定</strong>と<strong>②同意モードのad_storageシグナル</strong>の2つが関与していました。この変更以降は制御が整理され、<strong>Google広告へのデータ連携はad_storageの同意状態が基準</strong>となり、Googleシグナルの設定は主にレポート側（ログイン中のGoogleユーザーの情報を行動分析に紐づけるか）を制御するものへと役割が変わりました。</p>
+<h3>実務上のインパクト</h3>
+<p>影響を受けやすいのは、次のような構成のサイトです。</p>
+<table class="cost-table">
+<thead>
+<tr><th>これまでの構成</th><th>変更後に起きうること</th><th>取るべき対応</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>同意モードは未設定。Googleシグナルはオン</td>
+<td>同意シグナルが送られていないため、広告側で使えるデータの範囲が変わる可能性がある</td>
+<td>EEA流入があるなら同意モードを設定。無ければ現状の数字の推移を記録して監視</td>
+</tr>
+<tr>
+<td>同意モードは設定済みだが、ad_storageの受け渡しが不完全</td>
+<td>これまで効いていた補完が働かず、広告の計測・リマーケティングが欠ける</td>
+<td>GTMのプレビューでad_storageの実際の値を確認し、実装を修正</td>
+</tr>
+<tr>
+<td>認定CMPを導入済みで、同意モードも有効</td>
+<td>大きな影響は想定しにくい</td>
+<td>CMP側が最新の同意モードに対応しているかをベンダーに確認</td>
+</tr>
+</tbody>
+</table>
+<p>なお、この変更は主にEEA向けの同意運用を前提とした整理です。<strong>EEAからの流入がほぼないサイトで、リマーケティングの母数が急減したというケースはあまり多くありません</strong>。ただ、「変更があったこと自体を知らずに、数字の変動を別の原因に帰属させてしまう」ことのほうがリスクなので、時期と内容は押さえておく価値があります。</p>
+<h2 id="cmp">CMP（同意管理ツール）の選び方</h2>
+<p>同意モードに対応する場合、実務上は同意バナーとその状態管理を担うCMP（Consent Management Platform）を導入するのが一般的です。Googleは認定CMPのパートナープログラムを公開しており、認定CMPであれば同意モードとの連携が前提として用意されています。</p>
+<h3>比較すべき5つの観点</h3>
+<div class="cause-list">
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">1</div>
+<h3 class="cause-item__title">Google認定CMPかどうか</h3>
+</div>
+<div class="cause-item__body">
+<p>認定CMPであれば、同意モードのパラメータ受け渡しがツール側で担保されます。自作や非認定ツールの場合、パラメータの実装を自分たちで面倒みることになります。</p>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">2</div>
+<h3 class="cause-item__title">地域による出し分けができるか</h3>
+</div>
+<div class="cause-item__body">
+<p>EEAからのアクセスにだけバナーを出し、国内からのアクセスには出さない、という運用ができるかどうか。国内向けサイトのCVRを落とさずに対応したい場合、この機能の有無が実務上いちばん効きます。</p>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">3</div>
+<h3 class="cause-item__title">日本語対応と、バナーの見た目の調整範囲</h3>
+</div>
+<div class="cause-item__body">
+<p>バナーはサイトのファーストビューに重なります。文言・色・位置がどこまで調整できるかは、CVRへの影響に直結します。ここを妥協して離脱が増えると本末転倒です。</p>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">4</div>
+<h3 class="cause-item__title">同意ログの保存と、撤回の導線</h3>
+</div>
+<div class="cause-item__body">
+<p>「いつ・どの同意を得たか」の記録が残るか、ユーザーが後から設定を変えられる導線が用意されるか。監査や問い合わせ対応の場面で必要になります。</p>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">5</div>
+<h3 class="cause-item__title">費用と、サイト規模の上限</h3>
+</div>
+<div class="cause-item__body">
+<p>多くのCMPはPV数やドメイン数で料金が変わります。無料プランがあるツールもありますが、PV上限や機能制限があるため、自社の規模で継続できる価格かを確認してください。</p>
+</div>
+</div>
+</div>
+<div class="highlight-card">
+<p><strong>中小企業での現実的な進め方：</strong>いきなり高機能なCMPを契約するより、まず<strong>「EEA流入が何%あるか」を確認し、対応が必要かどうかを決める</strong>のが先です。必要と判断したら、地域出し分けができる認定CMPを1つ選び、まずはEEAのみバナー表示から始める。この順番であれば、国内のCVRを損なわずに対応できます。</p>
+</div>
+<h2 id="setup">GTM（Googleタグマネージャー）での設定手順</h2>
+<p>ここからは、GTMでCMPと同意モードを連携させる標準的な流れです。CMPの管理画面側の設定はツールによって異なるため、GTM側の共通部分を整理します。</p>
+<h3>手順1：コンテナ設定で同意機能を有効にする</h3>
+<p>GTMの［管理］→［コンテナの設定］で同意関連の設定を有効にします。これを入れると、ワークスペースのタグ一覧に「同意」の列が追加され、各タグの同意設定を一覧で確認できるようになります。設定漏れの発見に有効なので、最初に入れておいてください。</p>
+<h3>手順2：CMPのタグを「同意の初期化」トリガーで発火させる</h3>
+<p>CMPが提供するタグ（またはスクリプト）は、他のどのタグよりも先に読み込まれる必要があります。GTMには<strong>「同意の初期化 - All Pages」</strong>という専用トリガーが用意されているので、CMPのタグにはこのトリガーを指定します。通常のAll Pagesトリガーを使うと、Googleタグより後に発火して同意状態が正しく渡らないことがあります。</p>
+<h3>手順3：デフォルトの同意状態を定義する</h3>
+<p>同意バナーを表示してからユーザーが選択するまでの間、タグはどう振る舞うべきかを決めておく必要があります。認定CMPを使う場合はCMP側の設定でデフォルト値を指定できることが多く、自前実装の場合はGoogleのデベロッパー向けドキュメントに従ってdefaultの指定を記述します。地域ごとにデフォルト値を変える設定も可能です。</p>
+<h3>手順4：各タグの同意設定を確認する</h3>
+<p>GA4やGoogle広告のタグは同意モードに標準対応しているため、個別設定は原則不要です。一方、<strong>Meta広告のピクセルやその他の外部タグは、GTMの「追加の同意チェック」で必要な同意タイプを指定</strong>しておく必要があります。ここを設定しないと、同意を拒否したユーザーに対してもタグが発火してしまいます。</p>
+<h3>手順5：プレビューモードで同意状態を確認する</h3>
+<p>GTMのプレビューモードには同意状態を表示するタブがあり、各イベント時点でのad_storage / analytics_storage / ad_user_data / ad_personalizationの値を確認できます。バナーで「拒否」を選んだときに値がdeniedになるか、「許可」を選んだ直後にgrantedへ更新されるかを、必ず目視で確認してください。</p>
+<div class="highlight-card highlight-card--warning">
+<p><strong>公開前の必須確認：</strong>同意モードの実装ミスで最も多いのは、<strong>「バナーは出ているが、同意状態がタグに渡っていない」</strong>状態です。この場合、見た目は対応済みなのに実態は未対応という、いちばん避けたい組み合わせになります。プレビューモードでの値の確認は、省略できない工程だと考えてください。</p>
+</div>
+<h2 id="verify">設定後の確認方法と、よくある失敗</h2>
+<h3>GA4側で受信状況を確認する</h3>
+<p>GA4の［管理］→［データの収集と修正］→［同意設定］では、データストリームごとに同意シグナルの受信状況が表示されます。広告関連の同意シグナル、行動分析の同意シグナルのそれぞれについて、問題が検出されるとアラートが出ます。なお、実装を更新してからGA4側の通知が変わるまでには最長で48〜72時間ほどかかるとされているため、直後に反映されなくても慌てないでください。</p>
+<h3>現場でよく起きる失敗4つ</h3>
+<table class="cost-table">
+<thead>
+<tr><th>症状</th><th>よくある原因</th><th>確認する場所</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>同意を拒否してもタグが発火している</td>
+<td>外部タグに「追加の同意チェック」が設定されていない</td>
+<td>GTMのタグ一覧「同意」列</td>
+</tr>
+<tr>
+<td>同意状態がずっとdeniedのまま</td>
+<td>CMPのタグが同意の初期化トリガーで動いていない</td>
+<td>GTMプレビューのタグ発火順</td>
+</tr>
+<tr>
+<td>バナー導入後にCVRが明確に落ちた</td>
+<td>ファーストビュー全面を覆う設定になっている／国内にも出している</td>
+<td>CMPの表示地域・表示形式の設定</td>
+</tr>
+<tr>
+<td>広告のリマーケティング母数が減った</td>
+<td>ad_personalizationがdeniedのまま更新されていない</td>
+<td>GTMプレビューの同意状態タブ</td>
+</tr>
+</tbody>
+</table>
+<h3>数字の断絶を記録しておく</h3>
+<p>同意バナーを導入すると計測できる範囲が変わるため、<strong>導入日を境にGA4の数値は不連続になります</strong>。前月比・前年同月比をそのまま比較すると誤った判断につながるので、導入日をGA4の注釈やレポートのメモに残し、社内共有資料にも一行書き添えておいてください。これをやっておくかどうかで、3か月後の振り返りの精度がまったく変わります。</p>
+<h2 id="checklist">対応判断チェックリスト</h2>
+<div class="checklist-card">
+<p class="checklist-card__title">同意モード対応チェックリスト</p>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【判断フェーズ】</p>
+<ul>
+<li>GA4の同意設定画面でEEAトラフィックの割合を確認した</li>
+<li>越境EC・海外顧客・取引先要件の有無を整理した</li>
+<li>対応する／しないを社内で明文化して決めた</li>
+<li>対応しない場合、いつ再判断するかを決めた</li>
+</ul>
+</div>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【実装フェーズ】</p>
+<ul>
+<li>Google認定CMPから、地域出し分け可能なものを選定した</li>
+<li>基本／詳細のどちらで実装するかを方針として決めた</li>
+<li>CMPタグを「同意の初期化 - All Pages」で発火させている</li>
+<li>外部タグに追加の同意チェックを設定した</li>
+<li>GTMプレビューで4つのパラメータの値を確認した</li>
+</ul>
+</div>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【運用フェーズ】</p>
+<ul>
+<li>導入日をGA4の注釈・社内資料に記録した</li>
+<li>導入前後でCVRが不自然に落ちていないか確認した</li>
+<li>GA4の同意設定画面にアラートが出ていないか確認した</li>
+<li>CMPの契約プランがPV数の上限内に収まっている</li>
+</ul>
+</div>
+</div>
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">AdStart｜月3万円からのMeta広告運用支援</p>
+<div class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px); text-align: center !important;">計測の前提づくりから、広告運用をご一緒します</div>
+<p class="article-cta__lead">AdStartは、月3万円からのMeta広告運用支援サービスです。同意管理やタグの設定を含めた計測の前提づくりから、配信・LP改善への接続まで含めてお任せいただけます。現在のGTMとGA4を拝見しての診断も可能です。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">AdStartの詳細を見る</a>
+</div>
+<h2 id="lnx-view">LnXの見解</h2>
+<p>同意モードのご相談をいただくとき、私たちが最初に確認するのは実装方法ではなく<strong>「そもそも御社は対象なのか」</strong>です。実際、国内のBtoC・地域密着サービスの多くはEEAからの流入がほぼゼロで、その場合の優先順位は決して高くありません。にもかかわらず「対応必須」という情報だけを受け取って、月額費用のかかるCMPを急いで契約してしまう例を何度か見てきました。</p>
+<p>一方で、対象なのに未対応のまま放置しているケースも同じくらいあります。特に越境ECや海外向けBtoBでは、気づかないうちに広告の計測とリマーケティングが痩せていきます。<strong>判断を避けて先送りにすることが、いちばん損失の読めない選択</strong>です。EEA流入の割合を見るだけなら10分もかかりません。まずそこを見て、白黒つけてしまうことをおすすめします。</p>
+<p>もう1点、実装した企業に共通してお伝えしているのは、<strong>同意バナーはCVRに影響する「LPの一部」だ</strong>という視点です。法対応の作業として情報システム側だけで進めると、ファーストビューを覆う巨大なバナーがそのまま本番に出てしまうことがあります。表示位置・面積・文言は、広告のランディング体験そのものに関わります。計測の担当者と広告・LPの担当者が同じテーブルで決めるべき論点だと考えています。</p>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              日本国内向けのサイトだけを運営しています。同意モードは設定しなくてよいですか？
+            </summary>
+<div class="article-faq__body">
+<p>Googleが必須としているのはEEA・英国・スイスのエンドユーザーからデータを取得する場合です。国内向けのみのサイトであれば、Googleのポリシー上の必須要件には該当しません。ただし「国内向けのつもりだが海外からの流入がある」ケースは珍しくないため、GA4の同意設定画面でEEAトラフィックの割合を一度確認したうえで判断することをおすすめします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              同意バナーを出すとコンバージョン計測の数字が減りませんか？
+            </summary>
+<div class="article-faq__body">
+<p>同意を拒否したユーザーの分だけ、Cookieを使った計測はできなくなるため、見かけの数字は減る可能性があります。ここで重要なのは、減ったのが「実際の成果」ではなく「計測できた範囲」だという点です。導入する場合は、導入前後で数字が不連続になることを前提に、比較の基準日を記録しておいてください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              同意モードの「基本」と「詳細」はどちらを選ぶべきですか？
+            </summary>
+<div class="article-faq__body">
+<p>同意を得るまでGoogleタグを一切発火させないのが基本（ベーシック）、同意前も識別子を含まない形でシグナルだけ送るのが詳細（アドバンスト）です。計測の欠損を抑えたい場合は詳細が選ばれることが多い一方、同意前に一切通信させたくないという方針であれば基本になります。技術的な優劣ではなく、自社のプライバシー方針として決める論点です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              CMPを入れずに、自社でバナーを作って対応できますか？
+            </summary>
+<div class="article-faq__body">
+<p>技術的には可能です。ただし同意状態の保存、地域ごとの出し分け、同意の撤回導線、記録の保持といった実装をすべて自前で用意することになり、運用負荷は小さくありません。Google認定のCMPには同意モードとの連携部分が用意されているため、社内に専任のエンジニアがいない場合は既製ツールを選ぶほうが現実的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              同意モードを設定したのに、GA4のデータが増えも減りもしません。
+            </summary>
+<div class="article-faq__body">
+<p>EEAからのトラフィックがほとんどないサイトでは、設定してもレポート上の変化はほぼ発生しません。これは失敗ではなく想定どおりの挙動です。設定が反映されているかどうかは数字の増減ではなく、GTMのプレビューモードで同意状態を確認するか、GA4の管理画面の同意設定でシグナルの受信状況を見て判断してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              個人情報保護法の観点では、Cookieの利用に同意は必要ですか？
+            </summary>
+<div class="article-faq__body">
+<p>日本の個人情報保護法では、いわゆるクッキー同意バナーの設置が一律に義務づけられているわけではありません。一方で、Cookie等で取得した情報を第三者に提供し、提供先で個人データとして取得されることが想定される場合や、電気通信事業法の外部送信規律に該当する場合など、確認が必要な論点は別に存在します。個別の判断は自社の利用実態に依存するため、法務・専門家への確認をおすすめします。</p>
+</div>
+</details>
+</div>
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/privacy-law-2026-web-marketing/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 改正個人情報保護法（令和8年改正）はWeb集客に何を求めるか｜広告・フォーム・計測の実務対応ガイド</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/meta-capi-guide/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告のコンバージョンAPI(CAPI)とは？Cookie規制時代に計測精度を守る導入ガイド</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ GA4でコンバージョン計測できない原因と確認ポイント｜GTM設定トラブル対処法</a>
+</li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#what">同意モードとは</a></li>
+<li><a href="#need">日本で必要か</a></li>
+<li><a href="#change">2026年6月の変更</a></li>
+<li><a href="#cmp">CMPの選び方</a></li>
+<li><a href="#setup">GTMでの設定手順</a></li>
+<li><a href="#verify">確認方法と失敗例</a></li>
+<li><a href="#checklist">チェックリスト</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>計測と広告運用を<br/>まとめて伴走します</p>
+<a href="https://lnx.co.jp/ad-lp/">AdStartを見る</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>
+
