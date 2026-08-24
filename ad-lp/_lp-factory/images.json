@@ -1,0 +1,73 @@
+{
+  "_comment": "LnX 広告運用代行LP。全画像 文字なし。コピーはHTML/CSSで重ねる。",
+  "model": "gpt-image-2",
+  "outdir": "img",
+  "images": [
+    {
+      "id": "hero",
+      "file": "hero.webp",
+      "role": "FVの背景写真（PC用・横長）。左45%を空けて見出しを重ねる",
+      "size": "2560x1440",
+      "quality": "high",
+      "output_format": "webp",
+      "output_compression": 88,
+      "text_in_image": false,
+      "prompt": "Premium B2B key visual for a Japanese web advertising agency, wide landscape composition, editorial corporate photography, 35mm lens, shallow depth of field. RIGHT side of the frame: a photorealistic scene of two Japanese business professionals in their thirties in a bright modern Tokyo office, a woman in a light grey blazer and a man in a navy shirt, both looking with focused confidence at a large monitor showing clean abstract analytics dashboards with rising line graphs and bar charts. The screen glow is soft violet and blue. Behind them, out-of-focus floor-to-ceiling windows with bright daylight and a faint city skyline. Subtle translucent violet-to-blue gradient light streaks drift across the upper right corner. CRITICAL COMPOSITION RULE: the entire LEFT 45 percent of the frame must be an almost empty, very soft, low-contrast pale gradient wash of white and the faintest lavender-blue, with no faces, no hands, no furniture, no screens and no busy detail at all, because large dark headline text will be overlaid there. Also keep the BOTTOM 14 percent calm and uncluttered for a call-to-action bar. Color palette: clean white, pale lavender, violet #7c3aed and blue #2563eb accents, light grey. Mood: intelligent, calm, trustworthy, premium but approachable. No text, no letters, no numbers, no logos anywhere in the image."
+    },
+    {
+      "id": "hero-sp",
+      "file": "hero-sp.webp",
+      "role": "FVの背景写真（スマホ用・縦長）。上42%を空ける",
+      "size": "1024x1280",
+      "quality": "high",
+      "output_format": "webp",
+      "output_compression": 88,
+      "text_in_image": false,
+      "prompt": "Vertical mobile version of the same premium B2B key visual for a Japanese web advertising agency. In the LOWER 58 percent of the frame: a photorealistic scene of two Japanese business professionals in their thirties in a bright modern Tokyo office, a woman in a light grey blazer and a man in a navy shirt, looking with focused confidence at a monitor showing clean abstract analytics dashboards with rising line graphs. Soft violet and blue screen glow, bright daylight from large out-of-focus windows behind them. CRITICAL COMPOSITION RULE: the TOP 42 percent must be an almost empty, very soft, low-contrast pale gradient wash of white and the faintest lavender-blue, with no faces, no hands, no objects and no busy detail, because a large headline will be overlaid there. Keep the BOTTOM 12 percent calm for a call-to-action bar. Same clean white, pale lavender, violet and blue palette. Editorial corporate photography, shallow depth of field. No text, no letters, no numbers, no logos anywhere in the image."
+    },
+    {
+      "id": "reason-1",
+      "file": "reason-1.webp",
+      "role": "理由01「CPAではなく利益で設計する」用のカット",
+      "size": "1280x960",
+      "quality": "medium",
+      "output_format": "webp",
+      "output_compression": 82,
+      "text_in_image": false,
+      "prompt": "Photorealistic close-up, editorial corporate photography, shallow depth of field. A Japanese business professional in their thirties in a light shirt, seen from a slight side angle, hand resting on a desk beside a laptop, thoughtfully studying a clean abstract profit-and-loss style chart on the screen where one segment is highlighted in violet and blue. Bright modern office, soft natural daylight from the left, calm and analytical mood. Clean white desk, minimal props. Color palette: white, pale grey, violet #7c3aed and blue #2563eb accents. No text, no letters, no numbers, no logos anywhere in the image."
+    },
+    {
+      "id": "reason-2",
+      "file": "reason-2.webp",
+      "role": "理由02「広告の外側まで直せる」用のカット",
+      "size": "1280x960",
+      "quality": "medium",
+      "output_format": "webp",
+      "output_compression": 82,
+      "text_in_image": false,
+      "prompt": "Photorealistic overhead flat-lay, editorial corporate photography, soft even daylight. A clean white desk seen from directly above with a laptop showing an abstract landing-page wireframe, a smartphone showing an abstract social feed, a tablet showing an abstract line-graph dashboard, and a notebook with hand-drawn boxes and arrows connecting ideas, arranged as one connected workflow. Subtle violet and blue accent colors across the three screens. Minimal, tidy, generous negative space. Color palette: white, pale grey, violet #7c3aed and blue #2563eb. No text, no letters, no numbers, no logos anywhere in the image."
+    },
+    {
+      "id": "reason-3",
+      "file": "reason-3.webp",
+      "role": "理由03「レポートは次の打ち手」用のカット",
+      "size": "1280x960",
+      "quality": "medium",
+      "output_format": "webp",
+      "output_compression": 82,
+      "text_in_image": false,
+      "prompt": "Photorealistic scene, editorial corporate photography, shallow depth of field. Two Japanese business professionals in their thirties sitting side by side at a bright meeting table in a modern office, one gesturing toward a printed abstract report page with clean bar and line charts while the other listens and takes notes, both in soft focus from the shoulders up so no face dominates the frame. Warm natural daylight from a window on the right, glass wall in the background. Collaborative, forward-looking mood. Color palette: white, pale wood, light grey, violet #7c3aed and blue #2563eb accents. No text, no letters, no numbers, no logos anywhere in the image."
+    },
+    {
+      "id": "case-matching",
+      "file": "case-matching.webp",
+      "role": "成果事例カード（マッチングアプリ／獲得単価1/2）のビジュアル。既存の実写素材が無いため抽象グラフィック",
+      "size": "1280x720",
+      "quality": "medium",
+      "output_format": "webp",
+      "output_compression": 82,
+      "text_in_image": false,
+      "prompt": "Clean abstract 3D graphic illustration on a soft white background. Two smooth rounded vertical bars side by side, the left one tall in pale grey and the right one exactly half its height in a vivid violet-to-blue gradient, with a slim curved arrow sweeping downward from the top of the tall bar to the top of the short one. Around them, a few small floating translucent glass panels suggesting mobile app cards, and soft violet and blue bokeh light. Minimal, modern, premium, generous negative space, soft studio lighting and gentle shadows. Color palette: white, pale grey, violet #7c3aed and blue #2563eb. No text, no letters, no numbers, no percent signs, no logos anywhere in the image."
+    }
+  ]
+}
