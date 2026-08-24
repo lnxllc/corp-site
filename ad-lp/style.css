@@ -300,9 +300,8 @@ html, body{ height:auto; min-height:100%; }
   gap:10px;                          /* 2枚並べたときの間隔 */
   padding:18px;
   overflow:hidden;
-  background:
-    radial-gradient(120% 90% at 50% 0%, rgba(124,58,237,.10), rgba(37,99,235,.05) 58%, rgba(255,255,255,0) 100%),
-    #f2f3f8;
+  background:#fff;                   /* グラデを外して無彩色に（白い素材が浮かないように） */
+  border-bottom:1px solid var(--line);
 }
 .ad-card__media img{
   display:block;
@@ -310,8 +309,9 @@ html, body{ height:auto; min-height:100%; }
   width:auto; height:auto;
   max-width:100%; max-height:100%;
   object-fit:contain;
+  border:1px solid rgba(15,23,42,.16);   /* 素材に枠を付けて輪郭を出す */
   border-radius:10px;
-  box-shadow:0 10px 28px rgba(15,23,42,.14);
+  box-shadow:0 4px 14px rgba(15,23,42,.07);
 }
 /* 1枠に2枚入れたとき（クリエイティブのA/B比較など）は自動で半分ずつに縮む */
 .ad-card__media:has(img:nth-child(2)) img,
@@ -322,7 +322,7 @@ html, body{ height:auto; min-height:100%; }
 .ad-card__media--cover img{
   width:100%; height:100%; max-width:none; max-height:none;
   object-fit:cover; object-position:center top;
-  border-radius:0; box-shadow:none;
+  border:none; border-radius:0; box-shadow:none;
 }
 
 .ad-card__metric{
