@@ -668,7 +668,7 @@ document.getElementById('adSubmitBtn').addEventListener('click', function(){
       r.classList.add('show');
       r.scrollIntoView({behavior:'smooth', block:'center'});
       window.dataLayer = window.dataLayer || [];
-      dataLayer.push({'event':'ad_contact_submit', 'form_name':'ad_operation_contact'});
+      dataLayer.push({'event':'adstart_contact_submit', 'form_name':'ad_operation_contact'});
     })
     .catch(function(){
       btn.disabled = false;
