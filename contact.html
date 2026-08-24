@@ -246,6 +246,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span>制作に関するお問い合わせ</span>
             </label>
             <label class="inquiry-option">
+              <input type="radio" name="inquiry_type" value="AIに関するお問い合わせ" />
+              <span>AIに関するお問い合わせ</span>
+            </label>
+            <label class="inquiry-option">
               <input type="radio" name="inquiry_type" value="その他" />
               <span>その他</span>
             </label>
@@ -315,7 +319,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script>
-// お問い合わせフォーム → GAS(スプレッドシート)送信 ※AI診断LPと同じ仕組み
+// お問い合わせフォーム → GAS(スプレッドシート)送信
 (function(){
   var GAS_URL = 'https://script.google.com/macros/s/AKfycbw0or8jZLXeW_LpvchfWFFPoYUU6_8bYURq-wfvP2JuOFb0AJdl33Xz4DmsWwI0ZBxH/exec';
   var form = document.getElementById('contactForm');
