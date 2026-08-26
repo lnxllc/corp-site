@@ -1271,6 +1271,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
   /* --- 修正版 追加スタイル --- */
+  .profile-main{min-width:0}
+  .profile-section .section-inner{grid-template-columns:1fr;gap:0}
+  .profile-bio p,.profile-bio ul{max-width:none}
   /* --- 検索トレンド図版 --- */
   .shift-lead{max-width:none;margin-top:18px;color:var(--color-sub);line-height:1.95;font-size:15px}
   .shift-figure{margin:36px 0 0;background:transparent;border:none;padding:0}
@@ -1730,7 +1733,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section class="profile-section" id="profile">
     <div class="section-inner">
-      <div>
+      <div class="profile-main">
         <p class="section-eyebrow"><span class="mark"></span>支援体制</p>
         <h2 class="profile-title">SEOの実務経験者が在籍し、<br>設計から構築まで担当します。</h2>
         <div class="profile-bio">
