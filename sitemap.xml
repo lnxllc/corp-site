@@ -205,6 +205,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/ai-katsuyo/ai-phone-reception-voicebot/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/column/ai-katsuyo/ai-copyright-output-check/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -751,6 +757,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/lp-improvement/lp-social-proof-design/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/column/lp-improvement/lp-cta-design/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -957,6 +969,12 @@
   <url>
     <loc>https://lnx.co.jp/column/seo/owned-media-stalls/</loc>
     <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/seo/branded-search-growth/</loc>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
