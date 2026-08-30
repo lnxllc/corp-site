@@ -3311,7 +3311,7 @@ html, body { overflow-x: hidden; }
 :root{
   --logo-speed: 48s;
   --logo-gap: 28px;
-  --logo-h: 56px;
+  --logo-h: 67px; /* 1.2x */
 }
 
 .logo-marquee__track{
@@ -3397,7 +3397,7 @@ html, body { overflow-x: hidden; }
   }
 
   .logo-marquee__group img{
-    height: 44px !important; /* 36〜52で調整 */
+    height: 53px !important; /* 1.2x（元44px） */
     width: auto !important;
     object-fit: contain !important;
   }
