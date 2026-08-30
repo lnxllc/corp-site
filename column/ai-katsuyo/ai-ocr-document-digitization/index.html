@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>AI-OCRで紙・PDFの書類をデータ化する｜請求書・注文書の処理を自動化する進め方と精度の考え方 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/ai-katsuyo/ai-ocr-document-digitization/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="AI-OCRで紙・PDFの書類をデータ化する｜請求書・注文書の処理を自動化する進め方と精度の考え方｜LnX合同会社"/>
+<meta property="og:description" content="AI-OCRと従来型OCRの違い、着手すべき書類の選び方、確信度による仕分けと検算を組み合わせた精度設計、導入5ステップ、つまずきやすい落とし穴までを中小企業の実務目線で解説します。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/ai-katsuyo/ai-ocr-document-digitization/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="AI-OCRで紙・PDFの書類をデータ化する｜請求書・注文書の処理を自動化する進め方と精度の考え方｜LnX合同会社"/>
+<meta name="twitter:description" content="AI-OCRと従来型OCRの違い、着手すべき書類の選び方、確信度による仕分けと検算を組み合わせた精度設計、導入5ステップ、つまずきやすい落とし穴までを中小企業の実務目線で解説します。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
+
+<meta content="AI-OCRと従来型OCRの違い、着手すべき書類の選び方、確信度による仕分けと検算を組み合わせた精度設計、導入5ステップ、つまずきやすい落とし穴までを中小企業の実務目線で解説します。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body > h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 原因カード（番号付き） */
+    .cause-list { display: grid; gap: 20px; margin: 0 0 32px; }
+    .cause-item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2);
+      overflow: hidden; transition: .2s ease;
+    }
+    .cause-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .cause-item__head {
+      display: flex; align-items: center; gap: 16px;
+      padding: 18px 22px;
+      background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.04));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .cause-item__num {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 18px; color: #fff; flex: 0 0 auto;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+    }
+    .cause-item__title { font-size: 16px; font-weight: 900; margin: 0; letter-spacing: -.01em; }
+    .cause-item__body { padding: 18px 22px; }
+    .cause-item__body p { margin: 0 0 14px; font-size: 14.5px; line-height: 1.85; }
+    .cause-item__body p:last-child { margin: 0; }
+
+    /* 改善ポイントタグ */
+    .fix-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(16,185,129,.10); border: 1px solid rgba(16,185,129,.22);
+      font-size: 12px; font-weight: 800; color: #059669;
+      margin-top: 8px;
+    }
+    .fix-tag::before { content: "→ 改善："; }
+
+    /* 注意タグ */
+    .warn-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(245,158,11,.10); border: 1px solid rgba(245,158,11,.22);
+      font-size: 12px; font-weight: 800; color: #d97706;
+      margin-top: 8px;
+    }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* チェックリスト */
+    .checklist-card {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist-card__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist-card__section { margin-bottom: 20px; }
+    .checklist-card__section:last-child { margin-bottom: 0; }
+    .checklist-card__section-title {
+      font-size: 12px; font-weight: 800; letter-spacing: .10em;
+      color: var(--muted); margin: 0 0 10px;
+    }
+    .checklist-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .checklist-card li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.7;
+    }
+    .checklist-card li::before {
+      content: "□"; font-size: 15px; color: var(--brand3);
+      flex: 0 0 auto; margin-top: 1px; font-weight: 900;
+    }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: var(--brand3);
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: var(--brand3);
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: var(--brand1);
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+      .cause-item__head { gap: 12px; padding: 14px 16px; }
+      .cause-item__num { width: 38px; height: 38px; font-size: 16px; }
+      .cause-item__body { padding: 14px 16px; }
+    }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI-OCRで紙・PDFの書類をデータ化する｜請求書・注文書の処理を自動化する進め方と精度の考え方",
+  "description": "AI-OCRと従来型OCRの違い、着手すべき書類の選び方、確信度による仕分けと検算を組み合わせた精度設計、導入5ステップ、つまずきやすい落とし穴までを中小企業の実務目線で解説します。",
+  "url": "https://lnx.co.jp/column/ai-katsuyo/ai-ocr-document-digitization/",
+  "datePublished": "2026-08-30",
+  "dateModified": "2026-08-30",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/ai-katsuyo/ai-ocr-document-digitization/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI活用",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "AI-OCRで紙・PDFの書類をデータ化する｜請求書・注文書の処理を自動化する進め方と精度の考え方",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/ai-ocr-document-digitization/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "AI-OCRの読み取り精度はどのくらいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "製品や書類の状態によって大きく変わるため、一律の数字は申し上げられません。同じ製品でも、印字がきれいな定型帳票と、かすれたFAXや手書きの追記がある書類とでは結果がまったく違います。カタログの精度表記で比較するのではなく、自社に実際に届いている書類を数十枚使ってトライアルし、どういう書類で外すのかという傾向を掴むことをお勧めします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "全件を人が確認するなら、手入力と変わらないのではないですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "全件確認を前提にすると、おっしゃるとおり効果は限定的です。多くの製品は項目ごとに確信度を返すため、確信度が高い項目は自動で通し、低い項目だけを確認画面に回す仕分けを組んでください。あわせて、明細合計と合計金額の一致、取引先マスタとの照合といった業務側の検算を挟むと、確認すべき件数はさらに絞り込めます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "会計ソフトや販売管理システムと連携できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "製品によって異なります。API連携ができるもの、CSVの取込に対応しているもの、手動アップロード前提のものがあり、「連携できます」という表記の中身も一様ではありません。読み取れても受け側の項目名と合わなければ変換作業が残りますので、契約前に受け側システムの取込仕様と突き合わせて確認してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "請求書や履歴書など、機密情報を含む書類を扱っても問題ありませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "扱えますが、事前にルールを決めてください。データがどこで処理・保存されるのか、保存期間はどうなるのか、入力内容が学習に使われるのかを利用規約で確認し、社内の利用ルールに反映することをお勧めします。生成AIの社内利用ルールを整備している場合は、その枠組みに組み込むのが実務的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "導入効果はどう測ればよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "導入前に、対象業務の処理枚数・1枚あたりの所要時間・担当者数を実測しておいてください。導入後は、処理枚数、1枚あたりの所要時間、修正が必要だった率の3つを記録すれば、削減できた工数と残っている手作業の量が見えます。削減した時間を何に充てるのかを事前に決めておくと、社内での評価もしやすくなります。"
+      }
+    }
+  ]
+}</script><style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/ai-katsuyo/">AI活用</a>
+<span class="sep">/</span>
+<span class="cur">AI-OCRで紙・PDFの書類をデータ化する｜請求書・注文書の処理を自動化する進め方と精度の考え方</span>
+</nav>
+<p class="article-hero__kicker"><span></span>AI活用</p>
+<h1 class="article-hero__title">AI-OCRで紙・PDFの書類をデータ化する<br/>請求書・注文書の処理を自動化する進め方と精度の考え方</h1>
+<div class="article-hero__meta">
+<time datetime="2026-08-30">2026年8月30日</time>
+<span class="article-hero__tag">AI活用</span>
+<span class="article-hero__tag">AI-OCR</span>
+<span class="article-hero__tag">業務効率化</span>
+<span class="article-hero__tag">バックオフィス</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>AI-OCRが従来型OCRと何が違い、どこで差が出るのか</li>
+<li>どの書類から着手すべきか／慎重に扱うべきか</li>
+<li>「100%読める」を前提にしない精度設計の考え方</li>
+<li>導入から定着までの5ステップ</li>
+<li>現場で実際に起きる5つの落とし穴と回避策</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#basic">AI-OCRは従来のOCRと何が違うのか</a></li>
+<li><a href="#target">どの書類から始めるか</a></li>
+<li><a href="#accuracy">精度の考え方｜100%を前提にしない設計</a></li>
+<li><a href="#steps">導入の進め方｜5ステップ</a></li>
+<li><a href="#pitfall">つまずきやすい5つの落とし穴</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<!-- ===== 基礎 ===== -->
+<h2 id="basic">AI-OCRは、従来のOCRと何が違うのか</h2>
+<p>OCR（光学的文字認識）自体は以前からある技術で、スキャンした紙やPDFから文字を読み取るものです。ただし従来型は<strong>「この位置に、この項目がある」という帳票レイアウトを事前に登録する</strong>方式が中心でした。取引先ごとに請求書の様式が違う中小企業では、この登録作業が終わらず、結局使われなくなる——というのが典型的な結末です。</p>
+<p>AI-OCRは、文字の形だけでなく<strong>項目の意味と配置の関係を学習する</strong>ため、様式が統一されていない書類でも「日付」「金額」「取引先名」といった項目を抽出しやすくなります。この違いが、実務で使えるかどうかを分けます。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>観点</th>
+<th>従来型OCR</th>
+<th>AI-OCR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>事前準備</strong></td>
+<td>帳票ごとにレイアウト定義が必要</td>
+<td>定義なしでも項目を推定できる場合が多い</td>
+</tr>
+<tr>
+<td><strong>様式のばらつき</strong></td>
+<td>取引先が増えるほど運用が破綻しやすい</td>
+<td>初見の様式にもある程度対応できる</td>
+</tr>
+<tr>
+<td><strong>手書き文字</strong></td>
+<td>苦手なことが多い</td>
+<td>製品によっては実用水準に届く</td>
+</tr>
+<tr>
+<td><strong>精度の伸び方</strong></td>
+<td>定義を作り込んだ分だけ上がる</td>
+<td>修正・確認を重ねるほど自社の書類に馴染む製品もある</td>
+</tr>
+<tr>
+<td><strong>向いている使い方</strong></td>
+<td>様式が固定された自社帳票</td>
+<td>取引先から届く多様な帳票</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card">
+<p><strong>「AIだから100%読める」ではありません：</strong>製品の性能差はもちろん、<strong>元の書類の状態（かすれ、傾き、押印との重なり、スキャン解像度）で結果は大きく変わります。</strong>導入検討で最も大事なのは、カタログの精度表記ではなく、<strong>自社に実際に届いている書類を数十枚使って試すこと</strong>です。この一手間を飛ばした導入は、ほぼ確実にうまくいきません。</p>
+</div>
+
+<!-- ===== 対象 ===== -->
+<h2 id="target">どの書類から始めるか</h2>
+<p>「紙をなくす」から始めると、たいてい途中で止まります。<strong>効果が出やすく、失敗しても被害が小さい書類から着手する</strong>のが定石です。次の3軸で優先順位を付けてください。</p>
+<div class="cause-list">
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">1</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">量が多く、毎月同じ形で発生するか</h3>
+</div>
+<div class="cause-item__body">
+<p>月に数枚の書類を自動化しても、設定と検証の手間のほうが大きくなります。<strong>月間で数十枚以上、かつ定期的に発生する</strong>ものを選んでください。請求書・注文書・納品書・検収書あたりが該当しやすい領域です。</p>
+<span class="fix-tag">まず「毎月必ず来る、量の多い1種類」に絞る</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">2</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">読み取り後の行き先が決まっているか</h3>
+</div>
+<div class="cause-item__body">
+<p>データ化しても、それを流し込む先（会計ソフト、販売管理システム、スプレッドシート）が決まっていなければ、<strong>結局は人が転記することになります。</strong>「読み取る」よりも「読み取った後どうするか」を先に設計してください。</p>
+<span class="warn-tag">CSVで出力できても、受け側の項目名と合わなければ手作業が残る</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">3</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">誤りが致命傷にならないか</h3>
+</div>
+<div class="cause-item__body">
+<p>入金消込や支払処理のように<strong>金額の誤りが即座に事故になる業務</strong>は、最初の対象としては重すぎます。まずは社内で完結する集計や一次入力から始め、確認フローが安定してから重い業務に広げるのが安全です。</p>
+<span class="fix-tag">「間違えても社内で気付ける業務」から広げる</span>
+</div>
+</div>
+</div>
+<h3>始めやすい書類・慎重に扱う書類</h3>
+<table class="cost-table">
+<thead>
+<tr>
+<th>領域</th>
+<th>書類の例</th>
+<th>着手のしやすさ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>受発注</strong></td>
+<td>取引先から届く注文書・FAX注文</td>
+<td>量が多く様式が固定されやすい。効果を出しやすい</td>
+</tr>
+<tr>
+<td><strong>経理（入力側）</strong></td>
+<td>請求書・領収書のデータ化</td>
+<td>製品の選択肢が多い。ただし確認フローは必須</td>
+</tr>
+<tr>
+<td><strong>営業・現場</strong></td>
+<td>手書きの日報・点検表・アンケート</td>
+<td>手書き精度に左右される。試読が必須</td>
+</tr>
+<tr>
+<td><strong>人事・総務</strong></td>
+<td>履歴書・申請書・各種届出</td>
+<td>個人情報を含むため、取扱いルールを先に決める</td>
+</tr>
+<tr>
+<td><strong>契約・法務</strong></td>
+<td>契約書</td>
+<td>誤読の影響が大きい。全件人手確認が前提</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ===== 精度 ===== -->
+<h2 id="accuracy">精度の考え方｜「100%」を前提にしない設計</h2>
+<p>AI-OCRの導入で最も多い失敗は、<strong>読み取り精度を100%前提で業務を組んでしまう</strong>ことです。現実的な設計は「大半は自動で通し、怪しいものだけ人が見る」という形になります。</p>
+<h3>確信度で仕分ける</h3>
+<p>多くの製品は、項目ごとに<strong>「どれくらい自信を持って読めたか」を示す値（確信度・信頼度）</strong>を返します。これを使って、次のように処理を分けます。</p>
+<ol>
+<li><strong>確信度が高い項目</strong>——そのまま自動で登録する</li>
+<li><strong>確信度が低い項目</strong>——人の確認画面に回す</li>
+<li><strong>そもそも読めなかった項目</strong>——元画像とともに担当者へ送る</li>
+</ol>
+<p>この仕分けがないと、<strong>「全件チェックするなら手入力と変わらない」</strong>という結論になり、運用が続きません。</p>
+<h3>業務ルールで二重にチェックする</h3>
+<p>読み取り精度そのものより効くのが、<strong>業務側の整合性チェック</strong>です。金額の項目であれば、次のような検算を自動で挟むだけで、誤りの多くは検出できます。</p>
+<div class="checklist-card">
+<p class="checklist-card__title">読み取り結果の自動チェック例</p>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【金額まわり】</p>
+<ul>
+<li>明細の合計と、記載されている合計金額が一致するか</li>
+<li>消費税額が税率から計算した値とずれていないか</li>
+<li>過去の同一取引先の請求額から極端に外れていないか</li>
+</ul>
+</div>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【取引先・日付】</p>
+<ul>
+<li>取引先名が既存マスタに存在するか（表記ゆれを含む）</li>
+<li>日付が未来日・極端な過去日になっていないか</li>
+<li>同じ請求書番号がすでに登録されていないか（二重計上の防止）</li>
+</ul>
+</div>
+<div class="checklist-card__section">
+<p class="checklist-card__section-title">【運用】</p>
+<ul>
+<li>チェックに引っかかった件の確認担当者が決まっている</li>
+<li>元画像と読み取り結果を並べて確認できる画面がある</li>
+<li>修正した内容が記録として残る</li>
+</ul>
+</div>
+</div>
+<div class="highlight-card--success highlight-card">
+<p><strong>目標は「ゼロにする」ではなく「見つけられるようにする」：</strong>手入力にもミスはあります。比較すべきは<strong>「AI-OCRの誤読率」対「手入力の誤入力率」ではなく、それぞれの体制でミスをどれだけ検出できるか</strong>です。検算とマスタ照合を仕込んだAI-OCRのほうが、目視の手入力より早く誤りに気付ける、というケースは珍しくありません。</p>
+</div>
+
+<!-- ===== 手順 ===== -->
+<h2 id="steps">導入の進め方｜5ステップ</h2>
+<h3>ステップ1：対象業務の現状を数える</h3>
+<p>「月に何枚を、誰が、何分かけて処理しているか」を実測してください。<strong>ここを数えずに始めると、後で効果を説明できません。</strong>1枚あたりの処理時間×枚数が、削減できる工数の上限になります。同時に、その工数を削って何に充てるのかも先に決めておきます。</p>
+<h3>ステップ2：実物の書類でトライアルする</h3>
+<p>候補製品の無料トライアルに、<strong>実際に届いている書類をそのまま</strong>投入します。きれいなサンプルではなく、かすれたFAX、押印が重なったもの、手書きの追記があるものを必ず混ぜてください。<strong>ここで見るのは平均精度ではなく、どういう書類で外すかという傾向</strong>です。</p>
+<h3>ステップ3：読み取り後の流れを設計する</h3>
+<p>出力形式（CSV／API／各種システム連携）と、受け側のシステムの項目を突き合わせます。<strong>「読み取れるが、連携できない」が最大の落とし穴</strong>です。既存の会計ソフト・販売管理システムとの連携可否は、契約前に必ず確認してください。</p>
+<h3>ステップ4：確認フローと担当を決める</h3>
+<p>誰が、いつ、何を確認するのか。確認画面はどこで開くのか。差し戻しの手順はどうするのか。<strong>この運用設計を飛ばすと、読み取り結果が誰にも見られないまま溜まります。</strong>最初の1〜2か月は、あえて全件確認しながら誤りの傾向を掴む期間に充てるのが安全です。</p>
+<h3>ステップ5：範囲を広げる</h3>
+<p>1種類の書類で運用が回るようになってから、次の書類、次の部署へ広げます。<strong>同時に複数種類を立ち上げると、どこで詰まったのかが分からなくなります。</strong>広げる際は、ステップ1の実測をもう一度行い、効果を記録として残してください。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>時期</th>
+<th>やること</th>
+<th>この時点で見る指標</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>導入前</strong></td>
+<td>対象業務の枚数・所要時間・担当者数を実測する</td>
+<td>月間処理枚数、1枚あたりの所要時間</td>
+</tr>
+<tr>
+<td><strong>1〜2か月目</strong></td>
+<td>全件確認しながら、外しやすい書類の傾向を掴む</td>
+<td>修正が必要だった率、修正の中身</td>
+</tr>
+<tr>
+<td><strong>3か月目</strong></td>
+<td>確信度による仕分けと検算ルールを設定する</td>
+<td>自動で通った割合</td>
+</tr>
+<tr>
+<td><strong>4か月目以降</strong></td>
+<td>次の書類・次の部署へ展開する</td>
+<td>削減できた時間、残っている手作業の内容</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card">
+<p><strong>最初の2か月は「効果が出ない期間」と割り切る：</strong>導入直後から工数が減ることはまずありません。全件確認しながら傾向を掴む期間が必要です。<strong>ここを飛ばして即座に自動化に切り替えると、誤りが下流の業務に流れ、信頼を失って使われなくなります。</strong>社内には「最初の2か月は検証期間」と先に伝えておいてください。</p>
+</div>
+
+<!-- ===== 落とし穴 ===== -->
+<h2 id="pitfall">つまずきやすい5つの落とし穴</h2>
+<div class="cause-list">
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">1</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">スキャンの品質を軽視する</h3>
+</div>
+<div class="cause-item__body">
+<p>読み取り精度の問題だと思っていたら、原因は<strong>解像度の低いスキャン設定や、傾いたまま取り込まれた画像</strong>だった——という例は非常に多いです。製品を比較する前に、まず取り込み手順を揃えてください。</p>
+<span class="fix-tag">スキャン解像度・向き・原稿の状態を先に標準化する</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">2</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">出力はできるが、次のシステムに入らない</h3>
+</div>
+<div class="cause-item__body">
+<p>CSVは出るが、会計ソフトの取込形式と項目名が合わない。結果、変換作業という新しい手作業が生まれます。<strong>受け側の仕様確認は、製品選定と同じ比重で行ってください。</strong></p>
+<span class="warn-tag">「連携できます」の中身が、手動アップロード前提のこともある</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">3</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">個人情報・機密情報の扱いを決めていない</h3>
+</div>
+<div class="cause-item__body">
+<p>履歴書、契約書、取引条件——AI-OCRに通す書類には機微な情報が含まれます。<strong>データがどこで処理・保存されるのか、学習に使われるのかを利用規約で確認し、社内の利用ルールに反映してください。</strong></p>
+<span class="warn-tag">生成AIの社内利用ルールと同じ枠組みで整理するのが早い</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">4</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">現場が使わない</h3>
+</div>
+<div class="cause-item__body">
+<p>「今までのやり方のほうが早い」と言われて終わるパターンです。原因はたいてい、<strong>確認画面が使いづらい、差し戻し手順が決まっていない、そもそも相談なく決まった</strong>のいずれかです。トライアル段階から実務担当者を巻き込んでください。</p>
+<span class="fix-tag">選定に現場担当者を必ず1人入れる</span>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head">
+<div class="cause-item__num">5</div>
+<h3 class="cause-item__title" style="border:none;margin:0;padding:0;">効果を測っていない</h3>
+</div>
+<div class="cause-item__body">
+<p>導入後に「なんとなく楽になった」で終わると、継続の判断も拡大の判断もできません。<strong>処理枚数、1枚あたりの所要時間、修正が必要だった率</strong>——この3つだけでも記録しておけば、翌年の判断材料になります。</p>
+<span class="fix-tag">効果測定の指標を、導入前に3つだけ決めておく</span>
+</div>
+</div>
+</div>
+<div class="highlight-card--warning highlight-card">
+<p><strong>費用と補助金について：</strong>AI-OCRの費用は、クラウド型・API型・個別開発型など提供形態によって大きく変わり、枚数課金か定額かでも総額の見え方が変わります。また、こうしたシステム導入が公的な補助制度の対象になる場合がありますが、<strong>対象経費・補助率・申請要件は年度ごとに変わります。必ずその年の公募要領など一次情報でご確認ください。</strong></p>
+</div>
+
+<!-- CTA -->
+<div class="article-cta">
+<p class="article-cta__label">AI活用のご相談</p>
+<div class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px); text-align: center !important;">どの書類から自動化すべきか、一緒に整理します</div>
+<p class="article-cta__lead">「紙の処理を減らしたいが、どこから手を付ければいいか分からない」——対象業務の棚卸しから、確認フローの設計、効果の測り方までご相談ください。お問い合わせフォームの項目で「AIに関するお問い合わせ」をお選びいただけます。</p>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html">AI活用について相談する</a>
+</div>
+<!-- ===== LnXの見解 ===== -->
+<h2 id="lnx-view">LnXの見解</h2>
+<p>AI-OCRのご相談で、私たちが最初にお聞きするのは製品名ではなく<strong>「その書類は、読み取ったあとどこへ行くのか」</strong>です。ここが決まっていない状態で製品を選ぶと、精度は十分なのに現場の作業が減らない、という結果になります。データ化はゴールではなく、<strong>転記をなくすための手段</strong>です。転記の行き先が定まっていなければ、手段だけが増えます。</p>
+<p>もう一つ、実際に効果が出ている会社に共通しているのは、<strong>「9割自動・1割は人が確認」という前提を最初から受け入れている</strong>ことです。100%を求めた会社は全件チェック体制になり、結局は工数が減りません。逆に、確信度による仕分けと合計金額の検算を仕込んだ会社は、確認対象が絞られ、担当者の負担が目に見えて軽くなります。<strong>精度を上げる努力より、誤りを見つけられる仕組みを作る努力のほうが、投資対効果は高い</strong>というのが現場の実感です。</p>
+<p>そして、AI-OCRは単体の施策として見るより、<strong>社内のAI活用全体のなかで最も成果を数字で示しやすい入口</strong>として位置づけるのが有効です。処理枚数と時間という分かりやすい指標があるため、「AIで何が変わったのか」を社内に説明しやすく、次の取り組みへの理解も得やすくなります。まずは月に何枚を何分かけて処理しているかを数えるところから始めてください。<strong>その数字がないまま製品を比較しても、良し悪しの判断はできません。</strong></p>
+
+<!-- ===== FAQ ===== -->
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              AI-OCRの読み取り精度はどのくらいですか？
+            </summary>
+<div class="article-faq__body">
+<p>製品や書類の状態によって大きく変わるため、一律の数字は申し上げられません。同じ製品でも、印字がきれいな定型帳票と、かすれたFAXや手書きの追記がある書類とでは結果がまったく違います。カタログの精度表記で比較するのではなく、自社に実際に届いている書類を数十枚使ってトライアルし、どういう書類で外すのかという傾向を掴むことをお勧めします。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              全件を人が確認するなら、手入力と変わらないのではないですか？
+            </summary>
+<div class="article-faq__body">
+<p>全件確認を前提にすると、おっしゃるとおり効果は限定的です。多くの製品は項目ごとに確信度を返すため、確信度が高い項目は自動で通し、低い項目だけを確認画面に回す仕分けを組んでください。あわせて、明細合計と合計金額の一致、取引先マスタとの照合といった業務側の検算を挟むと、確認すべき件数はさらに絞り込めます。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              会計ソフトや販売管理システムと連携できますか？
+            </summary>
+<div class="article-faq__body">
+<p>製品によって異なります。API連携ができるもの、CSVの取込に対応しているもの、手動アップロード前提のものがあり、「連携できます」という表記の中身も一様ではありません。読み取れても受け側の項目名と合わなければ変換作業が残りますので、契約前に受け側システムの取込仕様と突き合わせて確認してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              請求書や履歴書など、機密情報を含む書類を扱っても問題ありませんか？
+            </summary>
+<div class="article-faq__body">
+<p>扱えますが、事前にルールを決めてください。データがどこで処理・保存されるのか、保存期間はどうなるのか、入力内容が学習に使われるのかを利用規約で確認し、社内の利用ルールに反映することをお勧めします。生成AIの社内利用ルールを整備している場合は、その枠組みに組み込むのが実務的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+              導入効果はどう測ればよいですか？
+            </summary>
+<div class="article-faq__body">
+<p>導入前に、対象業務の処理枚数・1枚あたりの所要時間・担当者数を実測しておいてください。導入後は、処理枚数、1枚あたりの所要時間、修正が必要だった率の3つを記録すれば、削減できた工数と残っている手作業の量が見えます。削減した時間を何に充てるのかを事前に決めておくと、社内での評価もしやすくなります。</p>
+</div>
+</details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-adoption-5-steps/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 中小企業のAI導入は何から始める？失敗しない進め方を5ステップで解説</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-roi-measurement/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ AI導入の効果はどう測る？中小企業のためのROI・効果測定の設計手順</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-usage-policy-guideline/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIの社内利用ルールの作り方｜中小企業向け6章構成と運用手順</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-adoption-subsidy-2026/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ デジタル化・AI導入補助金2026とは？対象・補助額・申請の流れを解説</a>
+</li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#basic">従来OCRとの違い</a></li>
+<li><a href="#target">どの書類から始めるか</a></li>
+<li><a href="#accuracy">精度の考え方</a></li>
+<li><a href="#steps">導入5ステップ</a></li>
+<li><a href="#pitfall">5つの落とし穴</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+<div class="sidebar-cta">
+<p>AI活用の相談<br/>まずLnXへどうぞ</p>
+<a href="https://lnx.co.jp/contact.html">AI活用について相談する</a>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=3"></script>
+</body>
+</html>
