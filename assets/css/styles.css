@@ -4674,3 +4674,20 @@ h1.section__title{ line-height:1.15; }
 /* works.html: カテゴリ見出しを h3 → h2 に繰り上げ。
    グローバル h2 の色（青）と行間を打ち消し、従来の見た目を維持 */
 h2.works-cat__title{ color:#0b0d12; line-height:1.7; }
+
+/* =========================
+   Article CTA: リード文削除後の余白調整
+========================= */
+.article-cta .article-cta__title{
+  margin-bottom: 4px !important;
+}
+
+.article-cta .article-cta__btn{
+  margin-top: 26px !important;
+}
+
+@media (max-width: 768px){
+  .article-cta .article-cta__btn{
+    margin-top: 20px !important;
+  }
+}
