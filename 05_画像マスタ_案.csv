@@ -1,0 +1,37 @@
+画像ファイル,事例ID,案件名・内容,画像内の数値（焼き込み）,対応数値ID,掲載ページ,状態,要対応
+assets/img/work1.webp,C-05,自社運営 東京デートグルメInstagram,フォロワー2.1万人 / 月間リーチ約150万 / 男女比65:35,M-11 M-12,index.html:528 / works.html:264,使用中,月間リーチ約150万が台帳に未登録
+assets/img/work2.webp,C-05,グルメIGのタイアップ動画（導入→訴求）,なし（投稿画面のみ）,-,なし,未使用,2026-08-31にworks.html:554から外した（マッチングアプリ事例への貼り違いのため）
+assets/img/work3.webp,C-11,CLOFT様 ECサイト制作,なし,-,works.html:349,使用中,-
+assets/img/work4.webp,C-11,久保電商様 コーポレートサイト制作,なし,-,works.html:335,使用中,-
+assets/img/work5.webp,C-02,渋谷パスタ店のインフルエンサー施策,総再生約600万回 / 総保存約3.5万 / 想定集客300組以上,M-04 M-05,index.html:517 / works.html:198,使用中,総保存約3.5万が台帳に未登録
+assets/img/work6.webp,C-11,ビビ美様 オウンドメディア制作,なし,-,works.html:363,使用中,-
+assets/img/work7.webp,C-01,保険代理店のWeb集客,半年で売上600万円以上UP,M-01,index.html:506 / works.html:184,使用中,-
+assets/img/work8.webp,C-07,Webエンジニア向け発信アカウント（X）,フォロワー2.9千人 / リスト獲得500人 / 商品販売191部,M-17 M-18,works.html:279,使用中,リスト獲得500人が台帳に未登録
+assets/img/work9.webp,C-08,京都御池メディカルクリニック Instagram運用,予約リンク遷移率2倍,M-19,works.html:294,使用中,-
+assets/img/work10.webp,C-06,しらたまちゃん Instagram運用,2か月でフォロワー4千人,M-15,works.html:308,使用中,-
+assets/img/work11.webp,C-11,弊社コーポレートサイト,なし,-,works.html:419,使用中,-
+assets/img/work12.webp,C-12,渋谷炉端焼き店様PR,フィード3.1万PV / リール10.2万PV / 総保存2197,台帳に行なし,works.html:569,使用中,数値マスタへ行追加候補（3項目）
+assets/img/work13.webp,C-12,吉祥寺焼肉店様PR,フィード24.1万PV / リール11.7万PV / 総保存9102,台帳に行なし,works.html:584,使用中,数値マスタへ行追加候補（3項目）
+assets/img/work14.webp,C-11,FUN SMILE株式会社様 サイト制作,なし,-,works.html:377,使用中,-
+assets/img/work15.webp,C-11,lilisコンサル様 サイト制作,なし,-,works.html:391,使用中,works.html:387の見出しが「liisコンサル様」と誤記
+assets/img/work16.webp,C-11,lilis Design様 サイト制作,220000円（クライアントの提供価格。LnX実績ではない）,対象外,works.html:405,使用中,台帳対象外の数値
+assets/img/work17.webp,C-11,司法試験合格支援サービスLP,なし,-,works.html:433,使用中,-
+assets/img/work19.webp,C-03,上場人材会社のリスティング広告 LTV最適化,LTV 1.6倍,M-07,index.html:539 / works.html:224,使用中,-
+assets/img/work20.webp,C-04,人材紹介会社のMETA広告 LP・クリエイティブ,なし（クライアントLPの数値のみ）,-,index.html:550 / works.html:238,使用中,-
+assets/img/work21.webp,C-06,しらたまちゃん ファンサイト成果,有料会員74名 / 年間売上300万円,M-14（74名は台帳に行なし）,なし,未使用・保留,cases/fansite-marketingには既にsales-fansite.webpが載っており74名が重複。掲載可否は要判断
+assets/img/work22.webp,C-10,SEO/AIOによるリード獲得最大化,約113記事 / 表示回数約7倍 / 問い合わせ約15倍,M-22 M-23 M-24,index.html:495 / works.html:170 / cases/seo-aio-owned-media:163 / aio-lp:1722,使用中,-
+assets/img/work23.webp,C-04,新卒就活向けMETA広告クリエイティブ,なし,-,ad-lp:242,使用中,-
+assets/img/work24.webp,C-04,新卒就活向けLP,なし（クライアントLPの数値のみ）,-,ad-lp:243,使用中,-
+assets/img/work25.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,ad-lp:258,使用中・alt不一致,altが「獲得単価が半分に下がった抽象グラフィック」で実物と不一致
+assets/img/work26.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,ad-lp:259,使用中・alt不一致,同上
+assets/img/work27.webp,C-04?,Google検索のスポンサー広告スクショ,なし,-,ad-lp:273,使用中・alt不一致,altが「リスティング広告改善フロー図・LTV1.6倍」で実物と不一致。フロー図はwork19
+assets/img/work28.webp,C-10,AIO施策の効果,生成AIインプレッション約7倍 / AIOスコア91点（Bランク）＋内訳,M-25 M-26,cases/seo-aio-owned-media:189 / aio-lp:1726,使用中,-
+ad-lp/img/result1.png,C-06,しらたまちゃん ファンサイト成果,フォロワー4千人 / 「月間売上300万円」,M-15（売上表記が誤り）,なし,未使用・数値誤り,台帳は月間25万円・年換算300万円。画像の表記が誤りのため掲載しない
+ad-lp/img/result2.png,C-09,マッチングアプリの獲得単価最適化,アプリDL単価 50%削減,M-20,works.html:554 / ad-lp:259,使用中,2026-08-31に掲載開始
+ad-lp/img/case-matching.webp,C-09,棒グラフが半減する抽象グラフィック,なし,-,ad-lp:258,使用中,2026-08-31に掲載開始（work25/26と差し替え）
+assets/img/report-sample.webp,C-01（引用）,AI活用診断レポートのサンプル,半年で売上+600万円（同業種支援実績として引用）,M-01,なし,未使用・保留,サイトに診断レポートの導線が存在しないため掲載先なし
+assets/img/hero-report.webp,-,AI活用診断レポートのサンプル（診断サマリー）,月間18時間削減 / 年間216時間 / 人件費86万円相当（サンプル値）,対象外,なし,未使用・保留,同上。サンプル値のため台帳対象外
+cases/img/sales-fansite.webp,C-06,ファンサイト売上ダッシュボード,支援者数74 / フォロワー108 / 支援額269500円,台帳に行なし,cases/fansite-marketing:140,使用中,3項目とも台帳に未登録。行追加候補
+cases/img/profile-instagram.webp,C-05,グルメIGプロフィール画面,フォロワー2.1万 / 投稿579 / 月間150万人,M-11 M-12,cases/instagram-food-account:234,使用中,投稿579・月間150万人が台帳に未登録
+cases/img/reach-attr-jinzai2.webp,C-04,META広告のリーチ属性グラフ,男性40%(2327) / 女性58%(3320) / 単価4029円,台帳に行なし,cases/jinzai-meta-ads:148,使用中,クライアント配信データ。台帳登録の要否は要判断
+cases/img/creative-jinzai2.webp,C-04,新卒就活META広告クリエイティブ,なし,-,cases/jinzai-meta-ads:153,使用中,-
