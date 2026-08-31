@@ -13,7 +13,7 @@ assets/img/work11.webp,C-11,弊社コーポレートサイト,なし,-,works.htm
 assets/img/work12.webp,C-12,渋谷炉端焼き店様PR,フィード3.1万PV / リール10.2万PV / 総保存2197,台帳に行なし,works.html:569,使用中,数値マスタへ行追加候補（3項目）
 assets/img/work13.webp,C-12,吉祥寺焼肉店様PR,フィード24.1万PV / リール11.7万PV / 総保存9102,台帳に行なし,works.html:584,使用中,数値マスタへ行追加候補（3項目）
 assets/img/work14.webp,C-11,FUN SMILE株式会社様 サイト制作,なし,-,works.html:377,使用中,-
-assets/img/work15.webp,C-11,lilisコンサル様 サイト制作,なし,-,works.html:391,使用中,works.html:387の見出しが「liisコンサル様」と誤記
+assets/img/work15.webp,C-11,lilisコンサル様 サイト制作,なし,-,works.html:391,使用中,-
 assets/img/work16.webp,C-11,lilis Design様 サイト制作,220000円（クライアントの提供価格。LnX実績ではない）,対象外,works.html:405,使用中,台帳対象外の数値
 assets/img/work17.webp,C-11,司法試験合格支援サービスLP,なし,-,works.html:433,使用中,-
 assets/img/work19.webp,C-03,上場人材会社のリスティング広告 LTV最適化,LTV 1.6倍,M-07,index.html:539 / works.html:224,使用中,-
@@ -22,13 +22,13 @@ assets/img/work21.webp,C-06,しらたまちゃん ファンサイト成果,有�
 assets/img/work22.webp,C-10,SEO/AIOによるリード獲得最大化,約113記事 / 表示回数約7倍 / 問い合わせ約15倍,M-22 M-23 M-24,index.html:495 / works.html:170 / cases/seo-aio-owned-media:163 / aio-lp:1722,使用中,-
 assets/img/work23.webp,C-04,新卒就活向けMETA広告クリエイティブ,なし,-,ad-lp:242,使用中,-
 assets/img/work24.webp,C-04,新卒就活向けLP,なし（クライアントLPの数値のみ）,-,ad-lp:243,使用中,-
-assets/img/work25.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,ad-lp:258,使用中・alt不一致,altが「獲得単価が半分に下がった抽象グラフィック」で実物と不一致
-assets/img/work26.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,ad-lp:259,使用中・alt不一致,同上
-assets/img/work27.webp,C-04?,Google検索のスポンサー広告スクショ,なし,-,ad-lp:273,使用中・alt不一致,altが「リスティング広告改善フロー図・LTV1.6倍」で実物と不一致。フロー図はwork19
+assets/img/work25.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,なし,未使用,2026-08-31にad-lpから外した（マッチングアプリ事例への貼り違いのため）
+assets/img/work26.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,なし,未使用,同上
+assets/img/work27.webp,-,Google検索のスポンサー広告スクショ,なし,-,なし,未使用,2026-08-31にad-lpから外した（altと実物が不一致だったため）。どの事例の素材か要確認
 assets/img/work28.webp,C-10,AIO施策の効果,生成AIインプレッション約7倍 / AIOスコア91点（Bランク）＋内訳,M-25 M-26,cases/seo-aio-owned-media:189 / aio-lp:1726,使用中,-
 ad-lp/img/result1.png,C-06,しらたまちゃん ファンサイト成果,フォロワー4千人 / 「月間売上300万円」,M-15（売上表記が誤り）,なし,未使用・数値誤り,台帳は月間25万円・年換算300万円。画像の表記が誤りのため掲載しない
-ad-lp/img/result2.png,C-09,マッチングアプリの獲得単価最適化,アプリDL単価 50%削減,M-20,works.html:554 / ad-lp:259,使用中,2026-08-31に掲載開始
-ad-lp/img/case-matching.webp,C-09,棒グラフが半減する抽象グラフィック,なし,-,ad-lp:258,使用中,2026-08-31に掲載開始（work25/26と差し替え）
+ad-lp/img/result2.png,C-09,マッチングアプリの獲得単価最適化,アプリDL単価 50%削減,M-20,works.html:554 / ad-lp:258,使用中,2026-08-31に掲載開始（抽象素材は使わず1枚構成）
+ad-lp/img/case-matching.webp,C-09,棒グラフが半減する抽象グラフィック,なし,-,なし,未使用,意味を持たない抽象素材のため掲載しない
 assets/img/report-sample.webp,C-01（引用）,AI活用診断レポートのサンプル,半年で売上+600万円（同業種支援実績として引用）,M-01,なし,未使用・保留,サイトに診断レポートの導線が存在しないため掲載先なし
 assets/img/hero-report.webp,-,AI活用診断レポートのサンプル（診断サマリー）,月間18時間削減 / 年間216時間 / 人件費86万円相当（サンプル値）,対象外,なし,未使用・保留,同上。サンプル値のため台帳対象外
 cases/img/sales-fansite.webp,C-06,ファンサイト売上ダッシュボード,支援者数74 / フォロワー108 / 支援額269500円,台帳に行なし,cases/fansite-marketing:140,使用中,3項目とも台帳に未登録。行追加候補
