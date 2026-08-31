@@ -1,0 +1,37 @@
+画像ファイル,画像の中身（見たままの説明）,事例ID,事例名,画像が示している実績・数値,掲載ページ,判断根拠
+assets/img/work1.webp,fallingourmetのIGプロフィール画面＋数値パネル＋ユーザー属性の円グラフ,C-05,自社運営 東京デートグルメInstagram,フォロワー2.1万人／月間リーチ約150万／男女比65:35／25-34歳39%・35-44歳22.5%,index.html / works.html,HTML＋画像
+assets/img/work2.webp,fallingourmet×bachelor_dateのタイアップ動画2カット（導入→訴求）,C-09,マッチングアプリの獲得単価最適化（META広告）,実績数値なし。広告クリエイティブそのもの,works.html,HTML＋画像（altは誤り）
+assets/img/work3.webp,CLOFTのECサイトをPCとスマホで表示,C-11,サイト制作実績,実績数値なし,works.html,HTML＋画像
+assets/img/work4.webp,KDS（久保電商）のコーポレートサイトをPCとスマホで表示,C-11,サイト制作実績,実績数値なし,works.html,HTML＋画像
+assets/img/work5.webp,数値パネル3つ＋パスタ動画のスマホ画面,C-02,渋谷パスタ店のインフルエンサー施策,総再生約600万回／総保存約3.5万／想定集客300組以上,index.html / works.html,HTML＋画像
+assets/img/work6.webp,ビビ美のオウンドメディアをPCとスマホで表示,C-11,サイト制作実績,実績数値なし,works.html,HTML＋画像
+assets/img/work7.webp,施策内容3行＋棒グラフ（施策前→施策後）,C-01,保険代理店のWeb集客／インフルエンサー施策再設計,半年で売上600万円以上UP,index.html / works.html,HTML＋画像
+assets/img/work8.webp,XプロフィールとBrain商品画面＋数値パネル,C-07,Webエンジニア向け発信アカウント運用（X）,フォロワー2.9千人／リスト獲得500人／商品販売191部,works.html,HTML＋画像
+assets/img/work9.webp,クリニックのIGプロフィール＋数値パネル,C-08,京都御池メディカルクリニック Instagram運用,モニター予約リンクの遷移率2倍,works.html,HTML＋画像
+assets/img/work10.webp,sake_tokyo_girlのIGプロフィール＋フォロワー推移グラフ,C-06,ファンサイト×SNS×META広告（個人事業主）,投稿開始から2か月でフォロワー4千人,works.html,HTML＋画像
+assets/img/work11.webp,LnX自社サイトをPCとスマホで表示,C-11,サイト制作実績（自社）,実績数値なし,works.html,HTML＋画像
+assets/img/work12.webp,炉端焼きのIG投稿2枚＋PR結果パネル,C-12,渋谷炉端焼き店様PR（動画制作）,フィード3.1万PV／リール10.2万PV／総保存2197,works.html,HTML＋画像
+assets/img/work13.webp,焼肉のIG投稿2枚＋PR結果パネル,C-12,吉祥寺焼肉店様PR（動画制作）,フィード24.1万PV／リール11.7万PV／総保存9102,works.html,HTML＋画像
+assets/img/work14.webp,FUN SMILE株式会社のサイトをPCとスマホで表示,C-11,サイト制作実績,実績数値なし,works.html,HTML＋画像
+assets/img/work15.webp,lilisコンサル（Webデザイナー育成スクール）のサイト,C-11,サイト制作実績,実績数値なし,works.html,HTML＋画像
+assets/img/work16.webp,lilis Designの制作実績一覧サイト,C-11,サイト制作実績,「ホームページ制作220000円」はクライアントの提供価格。LnXの実績数値ではない,works.html,HTML＋画像
+assets/img/work17.webp,司法試験合格支援サービスのLP全景,C-11,サイト制作実績（LP）,実績数値なし,works.html,HTML＋画像
+assets/img/work19.webp,4ステップのフロー図＋改善前後の棒グラフ,C-03,上場人材会社のリスティング広告 LTV最適化,LTV 1.6倍,index.html / works.html,HTML＋画像
+assets/img/work20.webp,エノサポ就活のLPと広告クリエイティブを並べた図,C-04,人材紹介会社のMETA広告 新規立ち上げ,実績数値なし。LP設計と配信クリエイティブの説明,index.html / works.html,HTML＋画像
+assets/img/work21.webp,sake_tokyo_girlのIGプロフィール＋数値パネル＋支援者推移グラフ,C-06,ファンサイト×SNS×META広告（個人事業主）,有料会員74名／年間売上300万円,未使用,画像のみ
+assets/img/work22.webp,オウンドメディアの記事一覧画面＋数値パネル＋表示回数の推移グラフ,C-10,SEO/AIOによるリード獲得最大化,約113記事／ページ表示回数約7倍／問い合わせ約15倍,index.html / works.html / cases/seo-aio-owned-media / aio-lp,HTML＋画像
+assets/img/work23.webp,「内定ゼロ」訴求のMETA広告クリエイティブ（スマホ枠）,C-04,人材紹介会社のMETA広告 新規立ち上げ,実績数値なし。広告クリエイティブそのもの,ad-lp,HTML＋画像
+assets/img/work24.webp,エノサポ就活のLPファーストビュー（スマホ枠）,C-04,人材紹介会社のMETA広告 新規立ち上げ,実績数値なし。LPの実物,ad-lp,HTML＋画像
+assets/img/work25.webp,fallingourmet×bachelor_dateのタイアップ動画（導入部分・231万再生）,C-09,マッチングアプリの獲得単価最適化（META広告）,実績数値なし。広告クリエイティブそのもの,ad-lp,HTML＋画像（altは誤り）
+assets/img/work26.webp,同タイアップ動画（訴求部分「デート1回無料」・231万再生）,C-09,マッチングアプリの獲得単価最適化（META広告）,実績数値なし。広告クリエイティブそのもの,ad-lp,HTML＋画像（altは誤り）
+assets/img/work27.webp,Google検索結果のスポンサー広告枠のスクショ（社名はマスク済み）,C-03,上場人材会社のリスティング広告 LTV最適化,実績数値なし。実際の広告掲載状態,ad-lp,HTML＋画像（altは誤り）
+assets/img/work28.webp,生成AIインプレッションの推移グラフ＋AIOスコアの内訳,C-10,SEO/AIOによるリード獲得最大化,生成AIインプレッション約7倍／AIOスコア91点（100点満点・Bランク）,cases/seo-aio-owned-media / aio-lp,HTML＋画像
+cases/img/sales-fansite.webp,ファンサイトの売上ダッシュボード（支援者数の推移グラフ付き）,C-06,ファンサイト×SNS×META広告（個人事業主）,支援者数74／フォロワー108／支援額269500円,cases/fansite-marketing,HTML＋画像
+cases/img/profile-instagram.webp,fallingourmetのIGプロフィール画面（拡大）,C-05,自社運営 東京デートグルメInstagram,フォロワー2.1万／投稿579／月間150万人が見るアカウント,cases/instagram-food-account,HTML＋画像
+cases/img/reach-attr-jinzai2.webp,META広告管理画面の年齢・性別リーチ分布グラフ,C-04,人材紹介会社のMETA広告 新規立ち上げ,18-24歳に集中／男性40%(2327)・女性58%(3320)／結果の単価4029円,cases/jinzai-meta-ads,HTML＋画像
+cases/img/creative-jinzai2.webp,「内定ゼロ」訴求のMETA広告クリエイティブ（原寸）,C-04,人材紹介会社のMETA広告 新規立ち上げ,実績数値なし。広告クリエイティブそのもの,cases/jinzai-meta-ads,HTML＋画像
+ad-lp/img/result1.png,sake_tokyo_girlのIGプロフィール＋数値パネル＋フォロワー推移グラフ,C-06,ファンサイト×SNS×META広告（個人事業主）,フォロワー4千人／「月間売上300万円」と表記（台帳は月間25万円・年換算300万円。画像側が誤り）,未使用,画像のみ
+ad-lp/img/result2.png,タイアップ動画2カット＋「アプリDL単価50%削減」のパネル,C-09,マッチングアプリの獲得単価最適化（META広告）,アプリDL単価50%削減,未使用,画像のみ
+ad-lp/img/case-matching.webp,白い棒が小さい紫の棒に変わる抽象CG,-,どの事例にも紐づかない汎用素材,実績数値なし,未使用,画像のみ
+assets/img/report-sample.webp,AI活用診断レポートのサンプル2ページ（SAMPLE透かし入り）,-,サービス紹介用（AI活用診断レポート）,提案月10時間・月8時間の削減目安／改善インパクト試算。自社実績として「半年で売上+600万円」を引用,未使用,画像のみ
+assets/img/hero-report.webp,AI活用診断レポートのサンプル（診断サマリー画面）,-,サービス紹介用（AI活用診断レポート）,月間18時間削減／年間216時間／人件費86万円相当。すべてサンプル値,未使用,画像のみ
