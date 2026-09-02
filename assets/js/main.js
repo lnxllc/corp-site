@@ -28,6 +28,8 @@ console.log("main.js active");
     catch (e) { /* プライベートモード等では保存できない。無視して続行 */ }
   }
 
+  var MAX_PATH = 30; // 保持する閲覧ページ数の上限（sessionStorage肥大化の防止）
+
   var here = location.pathname + location.search;
   var st = loadState();
 
@@ -39,12 +41,18 @@ console.log("main.js active");
       landing: here,
       ref: isExternal ? ref : "(direct)",
       prev: "",
-      last: here
+      last: here,
+      path: [here]
     };
   } else if (st.last !== here) {
-    // 2ページ目以降：直前ページを更新
+    // 2ページ目以降：直前ページと閲覧経路を更新
     st.prev = st.last;
     st.last = here;
+    // 旧バージョンのセッション（pathを持たない）でも壊れないようガード
+    st.path = (st.path || [st.prev]).concat(here).slice(-MAX_PATH);
+  } else if (!st.path) {
+    // リロード時など、pathだけ欠けている場合の補完
+    st.path = [here];
   }
   saveState(st);
 
@@ -53,6 +61,7 @@ console.log("main.js active");
       lnx_landing: st.landing,
       lnx_prev: st.prev,
       lnx_ref: st.ref,
+      lnx_path: (st.path || [here]).join(" > ").substring(0, 4000),
       lnx_dwell: String(Math.round((Date.now() - loadedAt) / 1000)),
       lnx_ua: navigator.userAgent
     };
