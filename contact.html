@@ -315,7 +315,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 
-<script src="assets/js/main.js?v=3" defer></script>
+<script src="assets/js/main.js?v=4" defer></script>
 
 
 <script>
@@ -338,6 +338,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       message: form.querySelector('#message').value.trim(),
       website: document.getElementById('hp-website').value
     });
+    // 流入経路トラッキング（main.jsのwindow.lnxTrack）を付与
+    var trk = (typeof window.lnxTrack === 'function') ? window.lnxTrack() : {};
+    Object.keys(trk).forEach(function(k){ data.append(k, trk[k]); });
+
     btn.disabled = true;
     btn.textContent = '送信中…';
     fetch(GAS_URL, {method:'POST', mode:'no-cors', body:data})

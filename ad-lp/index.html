@@ -660,6 +660,9 @@ document.getElementById('adSubmitBtn').addEventListener('click', function(){
     return;
   }
 
+  // 流入経路トラッキング（main.jsのwindow.lnxTrack）を付与
+  if (typeof window.lnxTrack === 'function') { Object.assign(data, window.lnxTrack()); }
+
   btn.disabled = true;
   btn.textContent = '送信中…';
 
@@ -680,6 +683,6 @@ document.getElementById('adSubmitBtn').addEventListener('click', function(){
     });
 });
 </script>
-<script defer src="../assets/js/main.js?v=3"></script>
+<script defer src="../assets/js/main.js?v=4"></script>
 </body>
 </html>
