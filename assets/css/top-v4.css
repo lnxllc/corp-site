@@ -1,0 +1,985 @@
+@charset "utf-8";
+/* =========================================================
+   ■ よく触る箇所（ここだけ見れば調整できます）
+
+   見出し
+     大きさ      …  .cwh__title の font-size
+     傾き        …  .cwh__title の transform（今は none＝水平）
+     重なり対策  …  .cwh__title の text-shadow（ロゴに重なる部分の白いにじみ）
+
+   ヒーローの3Dロゴ
+     厚み        …  --v4-sp（下の .cwh__mark）× 層の数
+                    層の数は index.html の div.cwh__lay の個数（現在22枚）
+     大きさ      …  .cwh__stage の width
+     浮き具合    …  .cwh__shadow（落ち影）と @keyframes v4Float（上下の振れ幅）
+     回転の速さ  …  .cwh__solid の animation: v4Spin 32s（数字を大きくすると遅くなる）
+     構えの角度  …  @keyframes v4Spin の rotateX / rotateZ
+     回転を止める…  .cwh__solid に animation:none を足し、
+                    transform:rotateX(14deg) rotateZ(-3deg) rotateY(-26deg) を指定
+     ※スマホ（720px以下）は最初から回転させていません
+
+   ヒーローの背景
+     波          …  index.html の svg.cwh__sea（1枚のベジェ曲線。白塗りで下端を切る）
+                    高さは .cwh__sea の height、揺れは @keyframes v4SeaDrift
+     y=ln x      …  index.html の svg.cwh__bg / svg.cwh__fx（Pythonで生成した固定パス）
+     太さ        …  同SVG内 stroke-width（帯は .cwh__lnxBand の 78 / 34）
+     濃さ        …  同SVG内 linearGradient #v4band #v4line #v4wv の stop-opacity
+     流れる速さ  …  .cwh__waves の v4Drift / .cwh__lnxBand の v4Breathe
+     走る光      …  .cwh__lnxTrace の v4Trace（消すならこの1行を削除）
+
+     光沢        …  .cwh__gloss の白グラデーション（回転がハイライトを動かす）
+
+   動作モード
+     重い端末では読み込み後に実測して自動で「軽量モード」（回転と背景の動きを止める）
+     に切り替わる。判定は top-v4.js の autoLite。
+     URLに ?v4mode=full を付けると強制的に通常モード、?v4mode=lite で強制的に軽量、
+     ?v4debug=1 でコンソールに実測値が出る。
+
+   ※ここに手を入れるときの注意
+     box-shadow / background-position / filter を animation で動かすと
+     毎フレーム再描画が走ってヒーロー全体が一気に重くなる。
+     動かすのは transform と opacity だけにすること。
+
+   ========================================================= */
+
+/* =========================================================
+   LnX TOP v4  —  TOPページ専用スタイル
+   - styles.css の後に読み込む。TOP以外のページには一切影響しない
+   - HTMLの文言・セクション順は変更していない（見た目と動きのみ）
+   ========================================================= */
+
+body.top-v4{
+  /* --- カラー --- */
+  --v4-ink:#0A2545;          /* 見出し・本文 */
+  --v4-ink-2:#4B6488;        /* サブテキスト */
+  --v4-ink-3:#8AA0BE;        /* さらに薄い */
+  --v4-brand:#1E6BFF;        /* ロゴの青 */
+  --v4-brand-d:#0A2FA8;      /* ロゴの濃紺 */
+  --v4-cyan:#35C0F2;         /* ロゴの水色 */
+  --v4-pale:#EDF5FF;         /* 淡い面 */
+  --v4-pale-2:#F6FAFF;
+  --v4-deep:#0A2A73;         /* 反転セクション */
+  --v4-line:rgba(10,37,69,.10);
+  --v4-line-2:rgba(10,37,69,.16);
+  --v4-card:#fff;
+  /* 等幅はラベル（英単語）専用。日本語と数字には当てない */
+  --v4-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --v4-sans:"Inter","Noto Sans JP",system-ui,-apple-system,"Segoe UI",sans-serif;
+  /* 数字は従来フォント（Inter / Noto Sans JP）で統一 */
+  --v4-num:var(--v4-sans);
+  --v4-r:14px;               /* 角丸（cosawell風に小さめ） */
+  --v4-r-s:8px;
+  --v4-shadow:0 20px 50px rgba(10,37,69,.08);
+  --v4-shadow-h:0 26px 64px rgba(10,37,69,.14);
+
+  background:#fff;
+  color:var(--v4-ink);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------------------------------------------------------
+   [重要] 既存 styles.css の
+     html, body { height:100% }
+     html, body { overflow-x:hidden }
+   の組み合わせで <body> 自身がスクロールコンテナになり、
+   window.scrollY / pageYOffset が常に 0 になっている。
+   （スクロール量を見る処理がすべて動かない）
+   TOPページだけ body 側の overflow を解除して、
+   はみ出しは html 側の overflow-x:hidden に任せる。
+   横スクロール防止は各セクションの overflow:hidden でも二重に担保している。
+   --------------------------------------------------------- */
+body.top-v4{
+  overflow-x:visible!important;
+  height:auto!important;
+}
+
+/* ---------------------------------------------------------
+   1. タイポグラフィの作法
+   --------------------------------------------------------- */
+
+/* セクション見出し：太く・詰めて・濃紺 */
+body.top-v4 .section__title{
+  color:var(--v4-ink)!important;
+  font-size:clamp(28px,3.4vw,46px)!important;
+  font-weight:900!important;
+  letter-spacing:-.035em!important;
+  line-height:1.18!important;
+}
+body.top-v4 .section__desc{
+  color:var(--v4-ink-2)!important;
+  font-size:14.5px!important;
+  line-height:1.9!important;
+}
+
+/* eyebrow：等幅＋「>」プレフィックス。これがテック感の核 */
+body.top-v4 .v3-eyebrow{
+  font-family:var(--v4-mono)!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  letter-spacing:.16em!important;
+  color:var(--v4-brand)!important;
+  margin:0 0 14px!important;
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+}
+body.top-v4 .v3-eyebrow::before{
+  content:">";
+  color:var(--v4-cyan);
+  font-weight:700;
+}
+/* eyebrow の後ろに伸びる破線 */
+body.top-v4 .section__head .v3-eyebrow::after{
+  content:"";
+  width:clamp(28px,6vw,72px);
+  height:1px;
+  background:repeating-linear-gradient(90deg,var(--v4-brand) 0 4px,transparent 4px 8px);
+  opacity:.5;
+}
+
+/* ---------------------------------------------------------
+   2. セクションの器：番号・巨大ウォーターマーク
+   （data-v4-wm / data-v4-no は top-v4.js が付与）
+   --------------------------------------------------------- */
+body.top-v4 .section{
+  position:relative;
+  padding:clamp(72px,9vw,132px) 0!important;
+  overflow:hidden;
+}
+
+/* 巨大アウトライン文字 */
+body.top-v4 .section[data-v4-wm]::before{
+  content:attr(data-v4-wm);
+  position:absolute;
+  left:-.035em;
+  bottom:-.26em;
+  font-family:var(--v4-mono);
+  font-size:clamp(88px,15vw,230px);
+  font-weight:800;
+  line-height:.8;
+  letter-spacing:-.03em;
+  white-space:nowrap;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(30,107,255,.11);
+  pointer-events:none;
+  z-index:0;
+  transform:translateX(var(--v4-wm-shift,0px));
+  will-change:transform;
+}
+/* ゴースト番号 */
+body.top-v4 .section[data-v4-no]::after{
+  content:attr(data-v4-no);
+  position:absolute;
+  right:clamp(8px,3vw,56px);
+  top:clamp(24px,4vw,56px);
+  font-family:var(--v4-num);
+  font-size:clamp(72px,11vw,168px);
+  font-weight:700;
+  line-height:1;
+  color:rgba(30,107,255,.06);
+  pointer-events:none;
+  z-index:0;
+}
+body.top-v4 .section > .container{position:relative;z-index:1}
+
+/* 反転セクション（SCOPE） */
+body.top-v4 .v3-scope{
+  background:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(237,245,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,
+    radial-gradient(1000px 520px at 88% -10%,rgba(53,192,242,.28),transparent 60%),
+    linear-gradient(160deg,#0A2A73 0%,#123DA8 58%,#1552C8 100%)!important;
+  color:#fff;
+}
+body.top-v4 .v3-scope .section__title{color:#fff!important}
+body.top-v4 .v3-scope .section__desc{color:rgba(255,255,255,.76)!important}
+body.top-v4 .v3-scope .v3-eyebrow{color:#8FE0FF!important}
+body.top-v4 .v3-scope .v3-eyebrow::before{color:#8FE0FF}
+body.top-v4 .v3-scope .section__head .v3-eyebrow::after{
+  background:repeating-linear-gradient(90deg,#8FE0FF 0 4px,transparent 4px 8px)}
+body.top-v4 .v3-scope[data-v4-wm]::before{-webkit-text-stroke:1px rgba(255,255,255,.11)}
+body.top-v4 .v3-scope[data-v4-no]::after{color:rgba(255,255,255,.09)}
+
+/* 淡い面のセクション */
+/* 淡色セクション。境界に波を敷くぶん、地の色は白と差が出る濃さにする
+   （詳細は末尾「10. セクションの境目の波」） */
+body.top-v4 .v3-pain{
+  background:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
+    #EDF5FF!important;
+}
+body.top-v4 .v3-cases{
+  background:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,
+    #EDF5FF!important;
+}
+
+/* ---------------------------------------------------------
+   3. ヒーロー（新クラス cwh：既存 hero-g のCSSと干渉しない）
+   構成： キッカー → 大きく傾けた見出し（右上） → 下段に本文＋3Dロゴ
+   --------------------------------------------------------- */
+body.top-v4 .cwh{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  padding:clamp(76px,7.2vw,104px) 0 clamp(104px,11.5vw,176px);
+  /* 下端を白で切り抜く（.cwh__sea）ので、地の色は下までしっかり残す */
+  background:
+    radial-gradient(1200px 700px at 78% 6%,rgba(53,192,242,.26),transparent 62%),
+    radial-gradient(940px 640px at 96% 58%,rgba(30,107,255,.20),transparent 66%),
+    linear-gradient(172deg,#EAF4FF 0%,#F3FAFF 34%,#DCEBFF 78%,#D2E5FF 100%);
+}
+body.top-v4 .cwh__grid{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(10,37,69,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(10,37,69,.05) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(120% 90% at 60% 20%,#000 30%,transparent 78%);
+          mask-image:radial-gradient(120% 90% at 60% 20%,#000 30%,transparent 78%);
+}
+body.top-v4 .cwh__diag{
+  position:absolute;inset:-20% -10%;z-index:0;pointer-events:none;opacity:.42;
+  background:repeating-linear-gradient(58deg,rgba(30,107,255,.13) 0 1px,transparent 1px 128px);
+}
+body.top-v4 .cwh__wm{
+  position:absolute;left:-.03em;bottom:-.12em;z-index:0;pointer-events:none;
+  font-family:var(--v4-mono);font-weight:800;
+  font-size:clamp(140px,22vw,340px);line-height:.78;letter-spacing:-.04em;
+  color:transparent;-webkit-text-stroke:1px rgba(30,107,255,.10);
+  white-space:nowrap;
+}
+
+body.top-v4 .cwh__inner{position:relative;z-index:2}
+
+/* キッカー */
+body.top-v4 .cwh__kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  margin:0 0 clamp(12px,1.8vw,22px);padding:7px 14px 7px 11px;
+  border:1px solid rgba(30,107,255,.28);border-radius:999px;
+  /* backdrop-filter を付けると、中の点が脈動するたびに背景ぼかしを
+     再計算して極端に重くなる（実測 8fps → 34fps）。不透明度を上げて代用する */
+  background:rgba(255,255,255,.88);
+  font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--v4-brand-d);
+}
+body.top-v4 .cwh__kicker .kdot{
+  position:relative;
+  width:7px;height:7px;border-radius:999px;flex:0 0 auto;
+  background:var(--v4-cyan);
+}
+/* この小さな点を脈動させると、親の外にはみ出すぶんヒーロー全体の再描画が
+   毎フレーム走り、背景SVGごと描き直して致命的に重くなる（実測 8fps → 61fps）。
+   動きはロゴの回転・浮遊・背景のドリフトに任せ、ここは静止のリングにする */
+body.top-v4 .cwh__kicker .kdot::after{
+  content:"";position:absolute;inset:-3px;border-radius:999px;
+  border:1px solid rgba(53,192,242,.5);
+}
+
+/* 見出し：大きく・右寄せ・斜め上に傾ける */
+body.top-v4 .cwh__title{
+  position:relative;z-index:3;
+  margin:0 0 clamp(10px,1.2vw,16px);
+  text-align:left;
+  font-size:clamp(31px,5.6vw,82px);
+  font-weight:900;line-height:1.12;letter-spacing:-.05em;
+  color:var(--v4-ink);
+  /* 水平（傾けない） */
+  transform:none;
+  /* 3Dロゴに重なる部分でも読めるように、白いにじみを敷く */
+  text-shadow:
+    0 0 22px rgba(255,255,255,.85),
+    0 0 10px rgba(255,255,255,.95),
+    0 1px 0 rgba(255,255,255,.7);
+}
+body.top-v4 .cwh__title .v4-line{display:block;overflow:hidden}
+body.top-v4 .cwh__title .v4-line > span{
+  display:block;
+  transform:translateY(105%);opacity:0;
+  transition:transform .95s cubic-bezier(.16,1,.3,1),opacity .95s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--d,0s);
+}
+body.top-v4.is-ready .cwh__title .v4-line > span{transform:translateY(0);opacity:1}
+
+/* 下段：本文（左）＋3Dロゴ（右） */
+body.top-v4 .cwh__body{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(18px,2.6vw,40px);
+  align-items:center;
+}
+/* ロゴは行の上端基準。見出しの高さぶん引き上げて右上に食い込ませる */
+body.top-v4 .cwh__mark{align-self:start}
+body.top-v4 .cwh__lead{
+  margin:0 0 26px;max-width:52ch;
+  font-size:15px;line-height:2;color:var(--v4-ink-2);
+}
+body.top-v4 .cwh__cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+body.top-v4 .cwh__note{
+  display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;
+  font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--v4-ink-2);
+}
+body.top-v4 .cwh__stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;margin:28px 0 0;padding:0;
+  border:1px solid var(--v4-line);border-radius:var(--v4-r);
+  background:rgba(255,255,255,.74);backdrop-filter:blur(8px);
+  overflow:hidden;
+}
+body.top-v4 .cwh__stat{padding:17px 18px;border-left:1px solid var(--v4-line)}
+body.top-v4 .cwh__stat:first-child{border-left:0}
+body.top-v4 .cwh__stat dt{margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:.02em;color:var(--v4-ink-3)}
+body.top-v4 .cwh__stat dd{
+  margin:0;font-family:var(--v4-num);
+  font-size:clamp(24px,2.3vw,34px);font-weight:900;line-height:1.1;letter-spacing:-.03em;
+  color:var(--v4-brand-d);
+}
+body.top-v4 .cwh__stat dd .u{font-size:.5em;font-weight:800;margin-left:2px}
+body.top-v4 .cwh__stat dd .s{
+  display:block;margin:5px 0 0;
+  font-family:var(--v4-sans);font-size:11px;font-weight:700;color:var(--v4-ink-3);
+}
+
+/* ---------------------------------------------------------
+   3-b. 背景の波と y = ln x の曲線（数式ラベルは出さず、線だけ残す）
+   --------------------------------------------------------- */
+/* 太い帯や波は「動かさない代わりに、SVGごと1枚のテクスチャとしてゆっくり動かす」。
+   同じSVGの中に動くものと重いものを混ぜると、毎フレームSVG全体を描き直して
+   一気に重くなる（実測 60fps → 7fps）。だから静止レイヤーと動くレイヤーを分けている。 */
+/* 波：1枚の緩やかな曲線でヒーローの下端を切る。
+   塗りは白なので、下に続くクライアントロゴ帯（白）と地続きに見える。
+   z-index は本文より上（下端を確実に切るため）だがクリックは透過させる */
+body.top-v4 .cwh__sea{
+  position:absolute;left:-4%;bottom:-1px;z-index:3;
+  width:108%;height:clamp(104px,13.5vw,190px);
+  pointer-events:none;
+}
+body.top-v4 .cwh__seaEdge{
+  /* ゆっくり上下に呼吸させる（transformのみなので軽い） */
+  animation:v4SeaDrift 20s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes v4SeaDrift{
+  from{transform:translate(0,0)}
+  to  {transform:translate(-26px,-7px)}
+}
+/* 波が白なので、直下のロゴ帯の上罫線は消して地続きにする */
+body.top-v4 .clients{border-top:0!important}
+
+body.top-v4 .cwh__bg,
+body.top-v4 .cwh__fx{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;
+  /* 全画面の mask レイヤーを重ねると合成コストが高いので、
+     減衰は各SVG内のグラデーション側で行っている */
+}
+/* 静止レイヤー（太い帯＋波）をまるごとゆっくり漂わせる。transformだけなので軽い */
+body.top-v4 .cwh__bg{
+  will-change:transform;
+  animation:v4Drift 46s ease-in-out infinite alternate;
+}
+@keyframes v4Drift{
+  from{transform:translate(0,0)}
+  to  {transform:translate(-58px,-16px)}
+}
+
+body.top-v4 .cwh__lnxLine{
+  stroke-dasharray:1800;stroke-dashoffset:1800;
+  transition:stroke-dashoffset 2.8s cubic-bezier(.22,1,.28,1) .3s;
+}
+body.top-v4.is-ready .cwh__lnxLine{stroke-dashoffset:0}
+body.top-v4 .cwh__lnxTrace{opacity:0;animation:v4Trace 7s linear 2.6s infinite}
+@keyframes v4Trace{
+  0%  {stroke-dashoffset:1800;opacity:0}
+  8%  {opacity:.95}
+  86% {opacity:.95}
+  100%{stroke-dashoffset:-170;opacity:0}
+}
+
+/* ---------------------------------------------------------
+   3-c. ヒーローの3Dロゴ（マスク22枚の立体・落ち影と浮遊で浮かせる）
+   --------------------------------------------------------- */
+body.top-v4 .cwh__mark{
+  --v4-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 489'%3E%3Cg transform='translate(0,489) scale(.1,-.1)'%3E%3Cpath fill='black' stroke='black' stroke-width='7.4' stroke-linejoin='round' d='M1603 4845 c-618 -205 -852 -500 -979 -1230 -63 -362 -78 -450 -129 -730 -15 -77 -35 -192 -45 -255 -10 -63 -40 -232 -65 -375 -26 -143 -62 -348 -81 -455 -61 -346 -85 -483 -105 -595 -28 -161 -54 -311 -84 -475 -34 -187 -49 -271 -69 -400 -10 -58 -24 -134 -32 -170 -22 -100 -19 -148 9 -155 72 -18 1974 2 2083 22 579 107 913 450 1018 1045 10 58 -10 56 -72 -4 -173 -168 -391 -267 -671 -303 -152 -20 -1285 -23 -1309 -3 -16 14 -15 17 18 203 47 263 61 346 86 485 28 162 41 239 79 450 14 80 34 192 44 250 36 205 91 516 106 595 8 44 40 222 70 395 30 173 66 378 80 455 21 119 91 518 165 950 10 61 27 157 38 216 27 153 36 148 -155 84z M3680 3260 c-350 -44 -679 -204 -912 -444 -221 -227 -341 -489 -418 -915 -17 -91 -39 -213 -50 -271 -22 -118 -47 -257 -85 -470 -14 -80 -30 -162 -35 -184 -16 -70 24 -82 190 -56 469 74 751 351 836 820 110 610 292 825 684 807 334 -15 475 -239 401 -637 -12 -63 -28 -151 -36 -195 -8 -44 -22 -120 -30 -170 -8 -49 -33 -189 -55 -310 -23 -121 -51 -281 -64 -355 -87 -493 -143 -801 -152 -831 -14 -48 0 -49 446 -49 419 0 419 0 445 23 28 25 21 -8 110 507 30 173 62 353 70 400 8 47 35 202 60 345 24 143 59 343 76 445 94 539 4 898 -299 1197 -271 267 -730 401 -1182 343z'/%3E%3C/g%3E%3C/svg%3E");
+  --v4-mask-face:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 489'%3E%3Cg transform='translate(0,489) scale(.1,-.1)'%3E%3Cpath fill='black' d='M1603 4845 c-618 -205 -852 -500 -979 -1230 -63 -362 -78 -450 -129 -730 -15 -77 -35 -192 -45 -255 -10 -63 -40 -232 -65 -375 -26 -143 -62 -348 -81 -455 -61 -346 -85 -483 -105 -595 -28 -161 -54 -311 -84 -475 -34 -187 -49 -271 -69 -400 -10 -58 -24 -134 -32 -170 -22 -100 -19 -148 9 -155 72 -18 1974 2 2083 22 579 107 913 450 1018 1045 10 58 -10 56 -72 -4 -173 -168 -391 -267 -671 -303 -152 -20 -1285 -23 -1309 -3 -16 14 -15 17 18 203 47 263 61 346 86 485 28 162 41 239 79 450 14 80 34 192 44 250 36 205 91 516 106 595 8 44 40 222 70 395 30 173 66 378 80 455 21 119 91 518 165 950 10 61 27 157 38 216 27 153 36 148 -155 84z M3680 3260 c-350 -44 -679 -204 -912 -444 -221 -227 -341 -489 -418 -915 -17 -91 -39 -213 -50 -271 -22 -118 -47 -257 -85 -470 -14 -80 -30 -162 -35 -184 -16 -70 24 -82 190 -56 469 74 751 351 836 820 110 610 292 825 684 807 334 -15 475 -239 401 -637 -12 -63 -28 -151 -36 -195 -8 -44 -22 -120 -30 -170 -8 -49 -33 -189 -55 -310 -23 -121 -51 -281 -64 -355 -87 -493 -143 -801 -152 -831 -14 -48 0 -49 446 -49 419 0 419 0 445 23 28 25 21 -8 110 507 30 173 62 353 70 400 8 47 35 202 60 345 24 143 59 343 76 445 94 539 4 898 -299 1197 -271 267 -730 401 -1182 343z'/%3E%3C/g%3E%3C/svg%3E");
+  --v4-sp:3.7px;   /* 層の間隔。20枚 × これ ＝ 押し出しの厚み（約74px） */
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  min-height:clamp(280px,34vw,490px);
+  margin-top:clamp(-260px,-17vw,0px);   /* 見出しの右横まで持ち上げる */
+}
+/* 落ち影：これがあると「面から浮いている」ように見える */
+body.top-v4 .cwh__shadow{
+  position:absolute;left:50%;top:78%;
+  width:78%;aspect-ratio:1/.28;
+  transform:translate(-46%,-50%) rotate(-3deg);
+  /* filter:blur は animation と併用すると毎フレーム再ブラーされて重い。
+     グラデーションの段階を細かく切って、ぼかしなしで柔らかく見せる */
+  background:radial-gradient(closest-side,
+    rgba(10,37,69,.30) 0%, rgba(10,37,69,.22) 30%,
+    rgba(10,37,69,.12) 54%, rgba(10,37,69,.05) 74%, transparent 100%);
+  will-change:transform,opacity;
+  animation:v4ShadowBreathe 7s ease-in-out infinite;
+}
+@keyframes v4ShadowBreathe{
+  0%,100%{transform:translate(-46%,-50%) rotate(-3deg) scale(1);opacity:1}
+  50%    {transform:translate(-46%,-50%) rotate(-3deg) scale(.88);opacity:.66}
+}
+/* 後光 */
+body.top-v4 .cwh__mark::before{
+  content:"";position:absolute;left:52%;top:44%;
+  width:94%;aspect-ratio:1/.8;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,
+    rgba(53,192,242,.34) 0%, rgba(41,150,250,.22) 34%,
+    rgba(30,107,255,.10) 58%, transparent 78%);
+}
+/* 浮遊（回転と transform が衝突しないよう層を分ける） */
+body.top-v4 .cwh__float{
+  position:relative;width:100%;display:flex;justify-content:flex-end;
+  animation:v4Float 7s ease-in-out infinite;will-change:transform;
+}
+@keyframes v4Float{
+  0%,100%{transform:translateY(6px)}
+  50%    {transform:translateY(-14px)}
+}
+body.top-v4 .cwh__stage{
+  position:relative;
+  width:min(108%,560px);
+  aspect-ratio:520/489;
+  perspective:1600px;
+  perspective-origin:50% 42%;
+  transform:translate(var(--v4-mx,0px), calc(var(--v4-my,0px) + var(--v4-mark-y,0px)));
+  transition:transform .6s cubic-bezier(.16,1,.3,1);
+}
+body.top-v4 .cwh__solid{
+  position:absolute;inset:0;
+  transform-style:preserve-3d;
+  animation:v4Spin 32s linear infinite;
+  will-change:transform;
+}
+/* 一定方向の時計回り。正面を長く見せ、背面は速く通過させる配分 */
+@keyframes v4Spin{
+  0%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(-30.0deg)}
+  5%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(-24.4deg)}
+  10%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(-17.5deg)}
+  15%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(-8.7deg)}
+  20%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(2.5deg)}
+  25%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(20.0deg)}
+  30%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(39.9deg)}
+  35%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(62.9deg)}
+  40%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(88.9deg)}
+  45%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(117.6deg)}
+  50%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(150.0deg)}
+  55%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(182.4deg)}
+  60%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(211.1deg)}
+  65%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(237.1deg)}
+  70%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(260.1deg)}
+  75%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(280.0deg)}
+  80%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(297.5deg)}
+  85%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(308.7deg)}
+  90%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(317.5deg)}
+  95%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(324.4deg)}
+  100%{transform:rotateX(14deg) rotateZ(-3deg) rotateY(330.0deg)}
+}
+
+/* 軽量モード：JSが実測40fps未満と判断したときに body へ付く。
+   構え（断面が見える角度）はそのままで、動きだけ止める */
+body.top-v4.is-lite .cwh__solid{
+  animation:none;
+  transform:rotateX(14deg) rotateZ(-3deg) rotateY(-26deg);
+}
+body.top-v4.is-lite .cwh__float,
+body.top-v4.is-lite .cwh__shadow,
+body.top-v4.is-lite .cwh__seaEdge,
+body.top-v4.is-lite .cwh__glossBar,
+body.top-v4.is-lite .cwh__bg{animation:none}
+body.top-v4.is-lite .cwh__lnxTrace{display:none}
+
+/* ヒーローが画面外に出たら回転・波・浮遊を止める（読んでいる間ずっと描かないため） */
+body.top-v4.is-hero-out .cwh__solid,
+body.top-v4.is-hero-out .cwh__float,
+body.top-v4.is-hero-out .cwh__shadow,
+body.top-v4.is-hero-out .cwh__bg,
+body.top-v4.is-hero-out .cwh__seaEdge,
+body.top-v4.is-hero-out .cwh__glossBar,
+body.top-v4.is-hero-out .cwh__lnxTrace{animation-play-state:paused}
+
+body.top-v4 .cwh__lay{
+  --c:hsl(222 70% calc(32% - var(--i) * 0.62%));
+  position:absolute;inset:0;
+  background:var(--c);
+  transform:translateZ(calc(var(--i) * var(--v4-sp) * -1));
+  -webkit-mask-image:var(--v4-mask);        mask-image:var(--v4-mask);
+  -webkit-mask-size:contain;                mask-size:contain;
+  -webkit-mask-repeat:no-repeat;            mask-repeat:no-repeat;
+  -webkit-mask-position:center;             mask-position:center;
+  backface-visibility:visible;
+}
+body.top-v4 .cwh__lay--face{
+  background:
+    /* 上端の鋭いハイライト */
+    linear-gradient(128deg,rgba(255,255,255,.80) 0%,rgba(255,255,255,.22) 8%,rgba(255,255,255,0) 19%),
+    /* 下端の照り返し */
+    linear-gradient(305deg,rgba(255,255,255,.34) 0%,rgba(255,255,255,.08) 11%,rgba(255,255,255,0) 22%),
+    /* 中間に一段明るい帯を入れて樹脂っぽい艶を作る */
+    linear-gradient(47deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.16) 50%,rgba(255,255,255,0) 60%),
+    /* 本体 */
+    linear-gradient(47deg,#07227F 0%,#1655E8 32%,#2C97E6 64%,#5FD8FF 90%,#8DEBFF 100%);
+  -webkit-mask-image:var(--v4-mask-face);   mask-image:var(--v4-mask-face);
+}
+
+/* 光沢：面の上を白い帯がゆっくり通る */
+/* 艶：光源は空間に固定なので、面が回るほどハイライトは面の上をずれていく。
+   その動きを回転と同じ32秒周期・同じ時間配分で再現している。
+   白帯は transform で動かす（background-position を animation で動かすと
+   毎フレーム再描画になって重い）。mix-blend-mode / opacity をここに付けると
+   親の preserve-3d が flat 扱いになって立体が潰れるので使わない。 */
+body.top-v4 .cwh__gloss{
+  position:absolute;inset:0;
+  transform:translateZ(1.2px);
+  pointer-events:none;
+  -webkit-mask-image:var(--v4-mask-face);   mask-image:var(--v4-mask-face);
+  -webkit-mask-size:contain;                mask-size:contain;
+  -webkit-mask-repeat:no-repeat;            mask-repeat:no-repeat;
+  -webkit-mask-position:center;             mask-position:center;
+}
+body.top-v4 .cwh__glossBar{
+  position:absolute;top:-32%;left:-70%;
+  width:240%;height:164%;
+  background:linear-gradient(116deg,
+    rgba(255,255,255,0)   42%,
+    rgba(255,255,255,.12) 46.5%,
+    rgba(255,255,255,.30) 48.6%,
+    rgba(255,255,255,.72) 50%,
+    rgba(255,255,255,.30) 51.4%,
+    rgba(255,255,255,.12) 53.5%,
+    rgba(255,255,255,0)   58%);
+  animation:v4Sheen 32s linear infinite;
+  will-change:transform;
+}
+@keyframes v4Sheen{
+  0%{transform:translate(-31.0%,2.1%)}
+  5%{transform:translate(-25.6%,1.4%)}
+  10%{transform:translate(-18.7%,0.7%)}
+  15%{transform:translate(-9.0%,0.2%)}
+  20%{transform:translate(4.3%,0.0%)}
+  25%{transform:translate(21.2%,1.0%)}
+  30%{transform:translate(39.8%,3.7%)}
+  35%{transform:translate(55.6%,8.9%)}
+  40%{transform:translate(62.0%,16.1%)}
+  45%{transform:translate(53.9%,23.9%)}
+  50%{transform:translate(31.0%,29.9%)}
+  55%{transform:translate(-0.4%,32.0%)}
+  60%{transform:translate(-30.5%,29.9%)}
+  65%{transform:translate(-51.6%,24.9%)}
+  70%{transform:translate(-61.1%,18.8%)}
+  75%{transform:translate(-61.1%,13.2%)}
+  80%{transform:translate(-55.7%,9.0%)}
+  85%{transform:translate(-48.6%,6.1%)}
+  90%{transform:translate(-41.9%,4.2%)}
+  95%{transform:translate(-36.1%,3.0%)}
+  100%{transform:translate(-31.0%,2.1%)}
+}
+
+/* ---------------------------------------------------------
+   4. ボタン
+   --------------------------------------------------------- */
+body.top-v4 .btn,
+body.top-v4 .cta-wide{
+  border-radius:999px!important;
+  font-weight:800!important;
+  letter-spacing:.01em;
+  transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s ease,background .22s ease,color .22s ease!important;
+}
+body.top-v4 .btn--primary,
+body.top-v4 .nav__right .btn--primary,
+body.top-v4 .t-final__btn{
+  background:linear-gradient(120deg,var(--v4-brand-d),var(--v4-brand) 55%,var(--v4-cyan))!important;
+  border:none!important;color:#fff!important;
+  box-shadow:0 16px 38px rgba(10,47,168,.26)!important;
+}
+body.top-v4 .btn--primary:hover{box-shadow:0 22px 52px rgba(10,47,168,.34)!important;transform:translateY(-2px)}
+body.top-v4 .btn--ghost,
+body.top-v4 .cta-wide--ghost{
+  background:#fff!important;
+  border:1px solid var(--v4-line-2)!important;
+  color:var(--v4-ink)!important;
+}
+body.top-v4 .btn--ghost:hover{border-color:var(--v4-brand)!important;color:var(--v4-brand)!important}
+/* 矢印 */
+body.top-v4 .cwh__cta .btn::after,
+body.top-v4 .section__cta .btn::after,
+body.top-v4 .section__cta .cta-wide::after,
+body.top-v4 .v3-plan__btn::after{
+  content:"→";margin-left:.7em;font-family:var(--v4-mono);
+  transition:transform .22s cubic-bezier(.16,1,.3,1);
+}
+body.top-v4 .btn:hover::after{transform:translateX(4px)}
+
+/* ---------------------------------------------------------
+   5. 各セクションの見た目
+   --------------------------------------------------------- */
+
+/* PROBLEM：吹き出し */
+body.top-v4 .v3-bubble{
+  border-radius:var(--v4-r)!important;
+  border:1px solid var(--v4-line)!important;
+  background:#fff!important;
+  box-shadow:var(--v4-shadow)!important;
+  color:var(--v4-ink-2)!important;
+  line-height:1.9!important;
+}
+body.top-v4 .v3-bubble b{color:var(--v4-ink)!important}
+body.top-v4 .v3-solution__main{
+  color:var(--v4-ink)!important;letter-spacing:-.035em!important;font-weight:900!important;
+}
+/* background ショートハンドに !important を付けると background-clip も
+   border-box !important になり文字抜きが壊れる。background-image で指定する */
+body.top-v4 .v3-solution__main span{
+  background-image:linear-gradient(120deg,var(--v4-brand),var(--v4-cyan))!important;
+  -webkit-background-clip:text!important;
+          background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+}
+body.top-v4 .v3-pain__arrow{
+  background:linear-gradient(135deg,var(--v4-brand-d),var(--v4-cyan))!important;
+  opacity:.9!important;
+}
+body.top-v4 .v3-solution__lead{color:var(--v4-brand)!important;letter-spacing:.14em!important;font-weight:800!important}
+
+/* SCOPE：反転セクションのチップ */
+body.top-v4 .v3-scope__grid > li{
+  background:rgba(255,255,255,.07)!important;
+  border:1px solid rgba(255,255,255,.22)!important;
+  border-radius:var(--v4-r-s)!important;
+  color:#fff!important;
+  font-weight:700!important;
+  backdrop-filter:blur(4px);
+  transition:background .22s ease,transform .22s cubic-bezier(.16,1,.3,1);
+}
+body.top-v4 .v3-scope__grid > li:hover{background:rgba(255,255,255,.16)!important;transform:translateY(-3px)}
+body.top-v4 .v3-scope__grid > li::before,
+body.top-v4 .v3-scope__grid > li::marker{
+  background:linear-gradient(135deg,#35C0F2,#8FE0FF)!important;
+  color:#0A2A73!important;
+  border:none!important;
+  box-shadow:0 0 0 3px rgba(53,192,242,.18)!important;
+}
+body.top-v4 .v3-scope__grid > li small{color:rgba(255,255,255,.7)!important}
+body.top-v4 .v3-scope__note{color:rgba(255,255,255,.78)!important}
+
+/* REASON：番号を等幅の巨大数字に */
+body.top-v4 .v3-reason__num{
+  font-family:var(--v4-num)!important;
+  background:none!important;color:transparent!important;
+  -webkit-text-stroke:1.5px var(--v4-brand);
+  font-weight:700!important;
+  box-shadow:none!important;border:none!important;
+}
+body.top-v4 .v3-reason h3{
+  color:var(--v4-ink)!important;letter-spacing:-.03em!important;font-weight:900!important;
+}
+body.top-v4 .v3-reason p{color:var(--v4-ink-2)!important;line-height:2!important}
+body.top-v4 .v3-reason__media img{
+  border-radius:var(--v4-r)!important;
+  border:1px solid var(--v4-line)!important;
+  box-shadow:var(--v4-shadow)!important;
+}
+
+/* COMPARISON：テーブル */
+body.top-v4 .v3-table{
+  border-radius:var(--v4-r)!important;overflow:hidden;
+  border:1px solid var(--v4-line)!important;
+  font-size:13px!important;
+}
+body.top-v4 .v3-table thead th{
+  background:var(--v4-deep)!important;color:#fff!important;
+  font-weight:700!important;letter-spacing:.06em!important;
+}
+body.top-v4 .v3-table thead th.v3-table__lnx{
+  background:linear-gradient(120deg,var(--v4-brand),var(--v4-cyan))!important;
+  font-weight:700!important;
+}
+body.top-v4 .v3-table td,
+body.top-v4 .v3-table tbody th{
+  border-color:var(--v4-line)!important;color:var(--v4-ink-2)!important;
+}
+body.top-v4 .v3-table tbody th{color:var(--v4-ink)!important;font-weight:800!important}
+body.top-v4 .v3-table td.v3-table__lnx{
+  background:rgba(30,107,255,.05)!important;color:var(--v4-ink)!important;font-weight:700!important;
+}
+body.top-v4 .v3-table .mk{color:var(--v4-ink)!important;opacity:.85}
+body.top-v4 .v3-table .mk--best{color:var(--v4-brand)!important;opacity:1}
+body.top-v4 .v3-table .mk--low{color:#C2415A!important;opacity:.9}
+
+/* CASE */
+body.top-v4 .v3-case{
+  background:#fff!important;
+  border:1px solid var(--v4-line)!important;
+  border-radius:var(--v4-r)!important;
+  box-shadow:none!important;
+  overflow:hidden;
+  transition:box-shadow .28s ease,transform .28s cubic-bezier(.16,1,.3,1),border-color .28s ease;
+}
+body.top-v4 .v3-case:hover{
+  box-shadow:var(--v4-shadow-h)!important;transform:translateY(-4px);border-color:rgba(30,107,255,.3)!important;
+}
+body.top-v4 .v3-case__tag{
+  font-size:11.5px!important;font-weight:800!important;
+  letter-spacing:.06em!important;color:var(--v4-brand)!important;
+}
+body.top-v4 .v3-case__num{color:var(--v4-ink)!important;letter-spacing:-.02em!important}
+body.top-v4 .v3-case__num b{
+  font-family:var(--v4-num)!important;font-weight:900!important;
+  background-image:linear-gradient(120deg,var(--v4-brand-d),var(--v4-cyan))!important;
+  -webkit-background-clip:text!important;
+          background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+}
+body.top-v4 .v3-case__num span{color:var(--v4-ink-3)!important}
+body.top-v4 .v3-case__body p{color:var(--v4-ink-2)!important;line-height:2!important}
+body.top-v4 .v3-case__media img{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+body.top-v4 .v3-case:hover .v3-case__media img{transform:scale(1.04)}
+
+/* PLAN */
+body.top-v4 .v3-plan{
+  background:#fff!important;
+  border:1px solid var(--v4-line)!important;
+  border-radius:var(--v4-r)!important;
+  box-shadow:none!important;
+  transition:box-shadow .28s ease,transform .28s cubic-bezier(.16,1,.3,1);
+}
+body.top-v4 .v3-plan:hover{box-shadow:var(--v4-shadow-h)!important;transform:translateY(-4px)}
+body.top-v4 .v3-plan--featured{
+  border-color:transparent!important;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(140deg,var(--v4-brand-d),var(--v4-cyan)) border-box!important;
+  border:2px solid transparent!important;
+  box-shadow:0 26px 64px rgba(10,47,168,.14)!important;
+}
+body.top-v4 .v3-plan__badge{
+  background:linear-gradient(120deg,var(--v4-brand-d),var(--v4-cyan))!important;
+  color:#fff!important;letter-spacing:.08em!important;font-weight:800!important;
+}
+body.top-v4 .v3-plan__name{letter-spacing:.08em!important;color:var(--v4-brand)!important;font-weight:800!important}
+body.top-v4 .v3-plan__price b{color:var(--v4-ink)!important;letter-spacing:-.03em!important}
+body.top-v4 .v3-plan__for{color:var(--v4-ink-3)!important}
+body.top-v4 .v3-plan ul li{color:var(--v4-ink-2)!important;line-height:1.85!important}
+
+/* FLOW：ステップ */
+body.top-v4 .t-flow{
+  background:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,
+    rgb(229,240,255)!important;
+}
+body.top-v4 .t-flow__step{
+  background:#fff!important;
+  border:1px solid var(--v4-line)!important;
+  border-radius:var(--v4-r)!important;
+  box-shadow:none!important;
+  transition:transform .28s cubic-bezier(.16,1,.3,1),box-shadow .28s ease;
+}
+body.top-v4 .t-flow__step:hover{transform:translateY(-4px);box-shadow:var(--v4-shadow)!important}
+body.top-v4 .t-flow__num{
+  font-family:var(--v4-num)!important;font-weight:900!important;
+  background:none!important;color:var(--v4-brand)!important;
+  -webkit-text-fill-color:var(--v4-brand)!important;
+  opacity:.9;letter-spacing:-.02em!important;
+}
+body.top-v4 .t-flow__step h3{color:var(--v4-ink)!important;letter-spacing:-.02em!important}
+body.top-v4 .t-flow__step p{color:var(--v4-ink-2)!important}
+
+/* MESSAGE */
+body.top-v4 .t-ceo__copy{
+  color:var(--v4-ink)!important;font-weight:900!important;letter-spacing:-.035em!important;
+  font-size:clamp(22px,2.8vw,38px)!important;line-height:1.45!important;
+}
+body.top-v4 .t-ceo__body > p{color:var(--v4-ink-2)!important;line-height:2.1!important}
+body.top-v4 .t-ceo__sign{color:var(--v4-ink-3)!important;letter-spacing:.1em!important;font-weight:700!important}
+
+/* FAQ */
+body.top-v4 .t-faq__item{
+  background:#fff!important;
+  border:1px solid var(--v4-line)!important;
+  border-radius:var(--v4-r)!important;
+  box-shadow:none!important;
+  transition:border-color .22s ease;
+}
+body.top-v4 .t-faq__item[open]{border-color:rgba(30,107,255,.32)!important}
+body.top-v4 .t-faq__item summary{color:var(--v4-ink)!important;font-weight:800!important}
+body.top-v4 .t-faq__item p{color:var(--v4-ink-2)!important;line-height:2!important}
+
+/* 最終CTA：反転 */
+body.top-v4 .t-final{
+  position:relative;overflow:hidden;
+  background:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,
+    radial-gradient(900px 480px at 12% 110%,rgba(53,192,242,.32),transparent 62%),
+    linear-gradient(150deg,#08205C 0%,#0F3A9E 56%,#1552C8 100%)!important;
+}
+body.top-v4 .t-final::before{
+  content:"CONTACT";
+  position:absolute;right:-.04em;bottom:-.2em;
+  font-family:var(--v4-mono);font-size:clamp(96px,17vw,260px);font-weight:800;
+  line-height:.78;letter-spacing:-.04em;white-space:nowrap;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.14);pointer-events:none;
+}
+body.top-v4 .t-final__inner{position:relative;z-index:1}
+body.top-v4 .t-final__title{
+  color:#fff!important;font-weight:900!important;letter-spacing:-.035em!important;
+  font-size:clamp(26px,3.6vw,48px)!important;line-height:1.3!important;
+}
+body.top-v4 .t-final__text{color:rgba(255,255,255,.8)!important;line-height:2!important}
+body.top-v4 .t-final__note{color:rgba(255,255,255,.66)!important;letter-spacing:.04em!important}
+body.top-v4 .t-final__btn{background:#fff!important;color:var(--v4-brand-d)!important;box-shadow:0 18px 44px rgba(0,0,0,.24)!important}
+body.top-v4 .t-final__btn::after{content:"→";margin-left:.7em;font-family:var(--v4-mono)}
+
+/* ヘッダー：スクロールで細く／ぼかし */
+body.top-v4 .nav{
+  transition:background .3s ease,box-shadow .3s ease,backdrop-filter .3s ease;
+}
+body.top-v4.is-scrolled .nav{
+  background:rgba(255,255,255,.82)!important;
+  backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--v4-line),0 12px 34px rgba(10,37,69,.06);
+}
+body.top-v4 .nav__menu a{font-size:12.5px!important;font-weight:700!important;letter-spacing:.04em!important}
+body.top-v4 .nav__menu a:hover{color:var(--v4-brand)!important}
+
+/* クライアントロゴ帯 */
+body.top-v4 .clients{
+  background:#fff!important;border-block:1px solid var(--v4-line);padding:26px 0!important;
+}
+/* クライアントロゴはカラーのまま見せる（グレースケールにしない） */
+body.top-v4 .clients img{filter:none;opacity:1}
+
+/* フッター */
+body.top-v4 .footer{
+  margin-top:0!important;
+  border-top:1px solid var(--v4-line)!important;
+  color:var(--v4-ink-2)!important;
+  background:#fff;
+}
+body.top-v4 .footer a{color:var(--v4-ink-2)!important}
+body.top-v4 .footer a:hover{color:var(--v4-brand)!important}
+body.top-v4 .t-footer__address a{color:var(--v4-ink-2)!important}
+body.top-v4 .t-footer__copy{font-size:11.5px!important;letter-spacing:.06em!important;color:var(--v4-ink-3)!important}
+body.top-v4 .t-footer__desc{color:var(--v4-ink-2)!important}
+
+/* ---------------------------------------------------------
+   6. 右端のセクションインジケータ
+   --------------------------------------------------------- */
+body.top-v4 .v4-rail{
+  position:fixed;right:26px;top:50%;transform:translateY(-50%);
+  z-index:40;display:flex;flex-direction:column;gap:11px;
+  pointer-events:none;opacity:0;transition:opacity .4s ease;
+}
+body.top-v4.is-scrolled .v4-rail{opacity:1}
+body.top-v4.is-bottom .v4-rail{opacity:0}
+body.top-v4 .v4-rail__i{
+  display:flex;align-items:center;gap:8px;justify-content:flex-end;
+  font-size:9.5px;font-weight:700;
+  color:var(--v4-ink-3);letter-spacing:.06em;
+}
+body.top-v4 .v4-rail__i span{font-family:var(--v4-mono);font-weight:600}
+body.top-v4 .v4-rail__i i{
+  display:block;width:14px;height:1px;background:currentColor;opacity:.45;
+  transition:width .3s cubic-bezier(.16,1,.3,1),opacity .3s ease;
+}
+body.top-v4 .v4-rail__i.is-on{color:var(--v4-brand)}
+body.top-v4 .v4-rail__i.is-on i{width:30px;opacity:1}
+body.top-v4 .v4-rail__i b{font:inherit;font-weight:800;font-variant-numeric:tabular-nums}
+body.top-v4 .v4-rail__i span{opacity:0;transition:opacity .3s ease}
+body.top-v4 .v4-rail__i.is-on span{opacity:1}
+
+/* ---------------------------------------------------------
+   7. スクロールリビール
+   --------------------------------------------------------- */
+body.top-v4 [data-v4-rv]{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--v4-d,0s);
+}
+body.top-v4 [data-v4-rv].is-in{opacity:1;transform:none}
+
+/* ---------------------------------------------------------
+   8. レスポンシブ
+   --------------------------------------------------------- */
+@media (max-width:1080px){
+  /* 縦積み。見出し → 3Dロゴ → 本文 の順に見せる */
+  body.top-v4 .cwh__body{grid-template-columns:1fr;gap:22px}
+  body.top-v4 .cwh__mark{order:-1;margin-top:0;min-height:auto;align-self:auto}
+  body.top-v4 .cwh__stage{width:min(84%,470px)}
+  body.top-v4 .cwh__lead br:not(.only-sp-br){display:none}
+  body.top-v4 .cwh__title{font-size:clamp(31px,7.2vw,62px)}
+  body.top-v4 .v4-rail{display:none}
+}
+@media (max-width:720px){
+  body.top-v4 .cwh{padding:80px 0 48px}
+  /* 「集客ワンストップ支援。」が2行に折れないサイズに収める */
+  body.top-v4 .cwh__title{font-size:min(30px,7.7vw);letter-spacing:-.05em}
+  body.top-v4 .cwh__lead{font-size:14px;line-height:1.95}
+  body.top-v4 .cwh__lead br,
+  body.top-v4 .cwh__lead br.only-sp-br{display:none!important}
+  body.top-v4 .cwh__stats{grid-template-columns:1fr}
+  body.top-v4 .cwh__stat{border-left:0;border-top:1px solid var(--v4-line)}
+  body.top-v4 .cwh__stat:first-child{border-top:0}
+  body.top-v4 .cwh__note{font-size:10.5px;gap:4px 12px}
+  /* スマホでは3Dロゴを出さない（縦に長くなるうえ描画コストが重い） */
+  body.top-v4 .cwh__mark{display:none}
+  body.top-v4 .cwh__body{grid-template-columns:1fr}
+  body.top-v4 .section[data-v4-no]::after{font-size:64px;opacity:.7}
+  body.top-v4 .section[data-v4-wm]::before{font-size:74px}
+}
+
+/* ---------------------------------------------------------
+   10. セクションの境目の波
+   ヒーローと同じ制御点（＝同じ波長）の曲線を、隣のセクションの色で
+   上端／下端に敷いて境界を切る。背景画像なのでHTMLは触っていない。
+   上下反転・左右反転を織り交ぜて、同じ形の繰り返しに見えないようにしている。
+   高さは下の --v4-wv 1か所で変えられる。
+   ※データURI内の色は rgb() で書くこと。'#' はデータURIの断片記号になり、
+     %23 と書いても quote で %2523 に化けて色が黒に落ちる。
+   --------------------------------------------------------- */
+body.top-v4{
+  --v4-wv:clamp(46px,5.4vw,92px);
+}
+/* 波のぶんだけ境界側の余白を足して、見出しが波に乗らないようにする */
+body.top-v4 .v3-pain,
+body.top-v4 .v3-scope,
+body.top-v4 .v3-cases,
+body.top-v4 .t-flow{
+  padding-top:calc(clamp(72px,9vw,132px) + var(--v4-wv) * .5)!important;
+  padding-bottom:calc(clamp(72px,9vw,132px) + var(--v4-wv) * .5)!important;
+}
+body.top-v4 .t-final{
+  padding-top:calc(clamp(64px,7vw,96px) + var(--v4-wv) * .55);
+  padding-bottom:calc(clamp(64px,7vw,96px) + var(--v4-wv) * .55);
+}
+/* 巨大ウォーターマークとゴースト番号が波に乗ると濁るので内側へ寄せる */
+body.top-v4 .section[data-v4-wm]::before{bottom:calc(-.26em + var(--v4-wv) * .3)}
+body.top-v4 .section[data-v4-no]::after{top:calc(clamp(24px,4vw,56px) + var(--v4-wv) * .45)}
+body.top-v4 .t-final::before{bottom:calc(-.2em + var(--v4-wv) * .28)}
+
+/* ---------------------------------------------------------
+   9. モーション設定を尊重
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  body.top-v4 *,body.top-v4 *::before,body.top-v4 *::after{
+    animation:none!important;transition:none!important;
+  }
+  body.top-v4 [data-v4-rv]{opacity:1!important;transform:none!important}
+  body.top-v4 .cwh__title .v4-line > span{transform:none!important;opacity:1!important}
+  body.top-v4 .cwh__solid{
+    animation:none!important;
+    transform:rotateX(14deg) rotateZ(-3deg) rotateY(-26deg)!important;
+  }
+  body.top-v4 .cwh__lnxLine{stroke-dashoffset:0!important}
+  body.top-v4 .cwh__lnxTrace{display:none!important}
+  body.top-v4 .cwh__glossBar{transform:translate(-22%,4%)!important}
+}
