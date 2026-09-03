@@ -1,5 +1,5 @@
 画像ファイル,事例ID,案件名・内容,画像内の数値（焼き込み）,対応数値ID,掲載ページ,状態,要対応
-assets/img/work1.webp,C-05,自社運営 東京デートグルメInstagram,フォロワー2.1万人 / 月間リーチ約150万 / 男女比65:35,M-11 M-12,index.html:528 / works.html:264,使用中,月間リーチ約150万が台帳に未登録
+assets/img/work1.webp,C-05,自社運営 東京デートグルメInstagram,フォロワー2.1万人 / 月間リーチ約150万 / 男女比65:35,M-11 M-12,index.html:528 / works.html:264 / cases/instagram-food-account:234,使用中,月間リーチ約150万が台帳に未登録（2026-09-03に事例ページでも掲載開始。行追加候補）
 assets/img/work2.webp,C-05,グルメIGのタイアップ動画（導入→訴求）,なし（投稿画面のみ）,-,なし,未使用,2026-08-31にworks.html:554から外した（マッチングアプリ事例への貼り違いのため）
 assets/img/work3.webp,C-11,CLOFT様 ECサイト制作,なし,-,works.html:349,使用中,-
 assets/img/work4.webp,C-11,久保電商様 コーポレートサイト制作,なし,-,works.html:335,使用中,-
@@ -20,8 +20,8 @@ assets/img/work19.webp,C-03,上場人材会社のリスティング広告 LTV最
 assets/img/work20.webp,C-04,人材紹介会社のMETA広告 LP・クリエイティブ,なし（クライアントLPの数値のみ）,-,index.html:550 / works.html:238,使用中,-
 assets/img/work21.webp,C-06,しらたまちゃん ファンサイト成果,有料会員74名 / 年間売上300万円,M-14（74名は台帳に行なし）,なし,未使用・保留,cases/fansite-marketingには既にsales-fansite.webpが載っており74名が重複。掲載可否は要判断
 assets/img/work22.webp,C-10,SEO/AIOによるリード獲得最大化,約113記事 / 表示回数約7倍 / 問い合わせ約15倍,M-22 M-23 M-24,index.html:495 / works.html:170 / cases/seo-aio-owned-media:163 / aio-lp:1722,使用中,-
-assets/img/work23.webp,C-04,新卒就活向けMETA広告クリエイティブ,なし,-,ad-lp:242,使用中,-
-assets/img/work24.webp,C-04,新卒就活向けLP,なし（クライアントLPの数値のみ）,-,ad-lp:243,使用中,-
+assets/img/work23.webp,C-04,新卒就活向けMETA広告クリエイティブ,なし,-,ad-lp:242 / cases/jinzai-meta-ads:152,使用中,2026-09-03にcases/img/creative-jinzai2.webpの代替として事例ページに掲載
+assets/img/work24.webp,C-04,新卒就活向けLP,なし（クライアントLPの数値のみ）,-,ad-lp:243 / cases/jinzai-meta-ads:155,使用中,2026-09-03に事例ページのLP改善セクションに追加
 assets/img/work25.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,なし,未使用,2026-08-31にad-lpから外した（マッチングアプリ事例への貼り違いのため）
 assets/img/work26.webp,C-05,グルメIGタイアップ動画（231万再生）,なし,-,なし,未使用,同上
 assets/img/work27.webp,-,Google検索のスポンサー広告スクショ,なし,-,なし,未使用,2026-08-31にad-lpから外した（altと実物が不一致だったため）。どの事例の素材か要確認
@@ -31,7 +31,7 @@ ad-lp/img/result2.png,C-09,マッチングアプリの獲得単価最適化,ア�
 ad-lp/img/case-matching.webp,C-09,棒グラフが半減する抽象グラフィック,なし,-,なし,未使用,意味を持たない抽象素材のため掲載しない
 assets/img/report-sample.webp,C-01（引用）,AI活用診断レポートのサンプル,半年で売上+600万円（同業種支援実績として引用）,M-01,なし,未使用・保留,サイトに診断レポートの導線が存在しないため掲載先なし
 assets/img/hero-report.webp,-,AI活用診断レポートのサンプル（診断サマリー）,月間18時間削減 / 年間216時間 / 人件費86万円相当（サンプル値）,対象外,なし,未使用・保留,同上。サンプル値のため台帳対象外
-cases/img/sales-fansite.webp,C-06,ファンサイト売上ダッシュボード,支援者数74 / フォロワー108 / 支援額269500円,台帳に行なし,cases/fansite-marketing:140,使用中,3項目とも台帳に未登録。行追加候補
-cases/img/profile-instagram.webp,C-05,グルメIGプロフィール画面,フォロワー2.1万 / 投稿579 / 月間150万人,M-11 M-12,cases/instagram-food-account:234,使用中,投稿579・月間150万人が台帳に未登録
-cases/img/reach-attr-jinzai2.webp,C-04,META広告のリーチ属性グラフ,男性40%(2327) / 女性58%(3320) / 単価4029円,台帳に行なし,cases/jinzai-meta-ads:148,使用中,クライアント配信データ。台帳登録の要否は要判断
-cases/img/creative-jinzai2.webp,C-04,新卒就活META広告クリエイティブ,なし,-,cases/jinzai-meta-ads:153,使用中,-
+cases/img/sales-fansite.webp,C-06,ファンサイト売上ダッシュボード,支援者数74 / フォロワー108 / 支援額269500円,台帳に行なし,なし,未使用,cases/fansite-marketingは既にassets/img/work21.webpを使用。cases/img廃止に伴い削除予定
+cases/img/profile-instagram.webp,C-05,グルメIGプロフィール画面,フォロワー2.1万 / 投稿579 / 月間150万人,M-11 M-12,なし,未使用,2026-09-03にassets/img/work1.webpへ差し替え。cases/img廃止に伴い削除予定
+cases/img/reach-attr-jinzai2.webp,C-04,META広告のリーチ属性グラフ,男性40%(2327) / 女性58%(3320) / 単価4029円,台帳に行なし,なし,未使用,2026-09-03に掲載終了（assets/imgに同等画像がないため画像を外し本文を文章に変更）。cases/img廃止に伴い削除予定
+cases/img/creative-jinzai2.webp,C-04,新卒就活META広告クリエイティブ,なし,-,なし,未使用,2026-09-03にassets/img/work23.webp（同一クリエイティブ・スマホ枠）へ差し替え。cases/img廃止に伴い削除予定
