@@ -709,6 +709,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/sns-marketing/sns-risk-management-guideline/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/column/lp-improvement/lp-heatmap-analysis/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -807,6 +813,12 @@
   <url>
     <loc>https://lnx.co.jp/column/lp-improvement/lp-variant-split-decision/</loc>
     <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/lp-improvement/article-lp-advertorial/</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1053,6 +1065,12 @@
   <url>
     <loc>https://lnx.co.jp/column/seo/internal-link-topic-cluster/</loc>
     <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/seo/eeat-author-credibility/</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

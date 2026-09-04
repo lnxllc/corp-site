@@ -43,11 +43,21 @@
    ========================================================= */
 
 /* =========================================================
-   LnX TOP v4  —  TOPページ専用スタイル
-   - styles.css の後に読み込む。TOP以外のページには一切影響しない
-   - HTMLの文言・セクション順は変更していない（見た目と動きのみ）
+   LnX v4  —  サイト共通スタイル（1ファイルに統合）
+   ---------------------------------------------------------
+   読み込み位置：styles.css の直後。styles.css は一行も触っていない。
+                 ページ固有のCSS（ad-lp/style.css、各ページの <style>）
+                 より前に置くので、各ページ独自の作り込みは優先される。
+
+   スコープは body のクラスで切り替える：
+     body.site-v4 … 全ページ共通（配色・見出し・ボタン・ナビ・フッター）
+     body.top-v4  … TOPページ限定（ヒーロー、3Dロゴ、波、セクション装飾）
+   TOPページは両方を付ける： <body class="top-v4 site-v4">
+
+   外し方：<link> を1行消すだけで完全に元に戻る。
    ========================================================= */
 
+body.site-v4,
 body.top-v4{
   /* --- カラー --- */
   --v4-ink:#0A2545;          /* 見出し・本文 */
@@ -72,9 +82,13 @@ body.top-v4{
   --v4-shadow:0 20px 50px rgba(10,37,69,.08);
   --v4-shadow-h:0 26px 64px rgba(10,37,69,.14);
 
+  -webkit-font-smoothing:antialiased;
+}
+/* 本文の色と地の色はTOPだけ。ここを全ページに広げると
+   各ページ・各LPの本文の色まで濃紺に置き換わってしまう */
+body.top-v4{
   background:#fff;
   color:var(--v4-ink);
-  -webkit-font-smoothing:antialiased;
 }
 
 /* ---------------------------------------------------------
@@ -83,11 +97,11 @@ body.top-v4{
      html, body { overflow-x:hidden }
    の組み合わせで <body> 自身がスクロールコンテナになり、
    window.scrollY / pageYOffset が常に 0 になっている。
-   （スクロール量を見る処理がすべて動かない）
-   TOPページだけ body 側の overflow を解除して、
-   はみ出しは html 側の overflow-x:hidden に任せる。
-   横スクロール防止は各セクションの overflow:hidden でも二重に担保している。
+   （スクロール量を見る処理がすべて動かない。GTMのスクロール深度トリガーを含む）
+   body 側の overflow を解除して、はみ出しは html 側の overflow-x:hidden に任せる。
+   TOPでは各セクションの overflow:hidden でも二重に担保している。
    --------------------------------------------------------- */
+body.site-v4,
 body.top-v4{
   overflow-x:visible!important;
   height:auto!important;
@@ -98,36 +112,52 @@ body.top-v4{
    --------------------------------------------------------- */
 
 /* セクション見出し：太く・詰めて・濃紺 */
+/* 色と太さは全ページ共通。字の大きさはTOPだけ変える（他ページのレイアウトを動かさないため） */
+body.site-v4 .section__title,
 body.top-v4 .section__title{
   color:var(--v4-ink)!important;
-  font-size:clamp(28px,3.4vw,46px)!important;
   font-weight:900!important;
   letter-spacing:-.035em!important;
-  line-height:1.18!important;
 }
+body.site-v4 .section__desc,
 body.top-v4 .section__desc{
   color:var(--v4-ink-2)!important;
-  font-size:14.5px!important;
   line-height:1.9!important;
 }
+body.top-v4 .section__title{
+  font-size:clamp(28px,3.4vw,46px)!important;
+  line-height:1.18!important;
+}
+body.top-v4 .section__desc{font-size:14.5px!important}
 
 /* eyebrow：等幅＋「>」プレフィックス。これがテック感の核 */
+/* 書体・色・「>」は全ページ共通。display は変えない
+   （ad-lp では中央寄せのブロックとして組まれており、inline-flex にすると
+     寄せと高さが変わってレイアウトが動く）。TOPだけ箱の作りも整える。 */
+body.site-v4 .v3-eyebrow,
 body.top-v4 .v3-eyebrow{
   font-family:var(--v4-mono)!important;
-  font-size:12px!important;
   font-weight:500!important;
   letter-spacing:.16em!important;
   color:var(--v4-brand)!important;
+}
+/* 等幅は行の高さが変わりやすいので、TOP以外では行送りを固定して
+   レイアウトが動かないようにする（TOPは自前で組んでいるので触らない） */
+body.site-v4:not(.top-v4) .v3-eyebrow{line-height:1.6!important}
+body.site-v4 .v3-eyebrow::before,
+body.top-v4 .v3-eyebrow::before{
+  content:"> ";
+  color:var(--v4-cyan);
+  font-weight:700;
+}
+body.top-v4 .v3-eyebrow{
+  font-size:12px!important;
   margin:0 0 14px!important;
   display:inline-flex;
   align-items:center;
   gap:.5em;
 }
-body.top-v4 .v3-eyebrow::before{
-  content:">";
-  color:var(--v4-cyan);
-  font-weight:700;
-}
+body.top-v4 .v3-eyebrow::before{content:">"}
 /* eyebrow の後ろに伸びる破線 */
 body.top-v4 .section__head .v3-eyebrow::after{
   content:"";
@@ -583,6 +613,8 @@ body.top-v4 .cwh__glossBar{
 /* ---------------------------------------------------------
    4. ボタン
    --------------------------------------------------------- */
+body.site-v4 .btn,
+body.site-v4 .cta-wide,
 body.top-v4 .btn,
 body.top-v4 .cta-wide{
   border-radius:999px!important;
@@ -590,6 +622,9 @@ body.top-v4 .cta-wide{
   letter-spacing:.01em;
   transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s ease,background .22s ease,color .22s ease!important;
 }
+body.site-v4 .btn--primary,
+body.site-v4 .btn-primary,
+body.site-v4 .nav__right .btn--primary,
 body.top-v4 .btn--primary,
 body.top-v4 .nav__right .btn--primary,
 body.top-v4 .t-final__btn{
@@ -597,13 +632,19 @@ body.top-v4 .t-final__btn{
   border:none!important;color:#fff!important;
   box-shadow:0 16px 38px rgba(10,47,168,.26)!important;
 }
+body.site-v4 .btn--primary:hover,
+body.site-v4 .btn-primary:hover,
 body.top-v4 .btn--primary:hover{box-shadow:0 22px 52px rgba(10,47,168,.34)!important;transform:translateY(-2px)}
+body.site-v4 .btn--ghost,
+body.site-v4 .cta-wide--ghost,
 body.top-v4 .btn--ghost,
 body.top-v4 .cta-wide--ghost{
   background:#fff!important;
   border:1px solid var(--v4-line-2)!important;
   color:var(--v4-ink)!important;
 }
+body.site-v4 .btn--ghost:hover,
+body.site-v4 .cta-wide--ghost:hover,
 body.top-v4 .btn--ghost:hover{border-color:var(--v4-brand)!important;color:var(--v4-brand)!important}
 /* 矢印 */
 body.top-v4 .cwh__cta .btn::after,
@@ -854,8 +895,19 @@ body.top-v4.is-scrolled .nav{
   backdrop-filter:blur(14px);
   box-shadow:0 1px 0 var(--v4-line),0 12px 34px rgba(10,37,69,.06);
 }
-body.top-v4 .nav__menu a{font-size:12.5px!important;font-weight:700!important;letter-spacing:.04em!important}
-body.top-v4 .nav__menu a:hover{color:var(--v4-brand)!important}
+/* 文字の太さ・字間・現在地の色は全ページ共通。字の大きさはTOPだけ */
+body.site-v4 .nav__menu a,
+body.top-v4 .nav__menu a{
+  font-weight:700!important;letter-spacing:.04em!important;
+  color:var(--v4-ink-2)!important;transition:color .2s ease;
+}
+body.site-v4 .nav__menu a:hover,
+body.site-v4 .nav__menu a.nav__active,
+body.top-v4 .nav__menu a:hover,
+body.top-v4 .nav__menu a.nav__active{color:var(--v4-brand)!important}
+body.site-v4 .brand__name,
+body.top-v4 .brand__name{color:var(--v4-ink)!important;letter-spacing:-.01em}
+body.top-v4 .nav__menu a{font-size:12.5px!important}
 
 /* クライアントロゴ帯 */
 body.top-v4 .clients{
@@ -864,18 +916,33 @@ body.top-v4 .clients{
 /* クライアントロゴはカラーのまま見せる（グレースケールにしない） */
 body.top-v4 .clients img{filter:none;opacity:1}
 
-/* フッター */
+/* フッター：色は全ページ共通。余白と地の色はTOPだけ（波と接するため） */
+body.site-v4 .footer,
+body.top-v4 .footer{color:var(--v4-ink-2)!important}
+body.site-v4 .footer a,
+body.top-v4 .footer a{color:var(--v4-ink-2)!important;transition:color .2s ease}
+body.site-v4 .footer a:hover,
+body.top-v4 .footer a:hover{color:var(--v4-brand)!important}
+/* 住所行のリンクが #aaa のインライン指定でコントラスト不足だったので上書き */
+body.site-v4 .t-footer__address a,
+body.top-v4 .t-footer__address a{color:var(--v4-ink-2)!important}
 body.top-v4 .footer{
   margin-top:0!important;
   border-top:1px solid var(--v4-line)!important;
-  color:var(--v4-ink-2)!important;
   background:#fff;
 }
-body.top-v4 .footer a{color:var(--v4-ink-2)!important}
-body.top-v4 .footer a:hover{color:var(--v4-brand)!important}
-body.top-v4 .t-footer__address a{color:var(--v4-ink-2)!important}
+body.site-v4 .t-footer__copy,
 body.top-v4 .t-footer__copy{font-size:11.5px!important;letter-spacing:.06em!important;color:var(--v4-ink-3)!important}
+body.site-v4 .t-footer__desc,
 body.top-v4 .t-footer__desc{color:var(--v4-ink-2)!important}
+
+/* 追従CTA（あるページのみ） */
+body.site-v4 .t-fab,
+body.top-v4 .t-fab{
+  background:linear-gradient(120deg,var(--v4-brand-d),var(--v4-brand) 55%,var(--v4-cyan))!important;
+  box-shadow:0 16px 38px rgba(10,47,168,.28)!important;
+  font-weight:800!important;
+}
 
 /* ---------------------------------------------------------
    6. 右端のセクションインジケータ
@@ -977,6 +1044,7 @@ body.top-v4 .t-final::before{bottom:calc(-.2em + var(--v4-wv) * .28)}
    9. モーション設定を尊重
    --------------------------------------------------------- */
 @media (prefers-reduced-motion:reduce){
+  body.site-v4 *,body.site-v4 *::before,body.site-v4 *::after,
   body.top-v4 *,body.top-v4 *::before,body.top-v4 *::after{
     animation:none!important;transition:none!important;
   }
