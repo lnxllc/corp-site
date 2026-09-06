@@ -1039,6 +1039,16 @@ body.top-v4 [data-v4-rv].is-in{opacity:1;transform:none}
   body.top-v4 .cwh__gloss{display:none}
   /* 背景の巨大な "LnX" と二重になるので、そちらを控えめにする */
   body.top-v4 .cwh__wm{opacity:.55}
+
+  /* ロゴ帯：SPは上の余白と帯の内側余白を詰める。
+     styles.css のSP指定（margin-top:90px / padding:10px）が
+     上の body.top-v4 .clients（padding:26px）に負けて効いていなかったので、
+     ここでSP用の値を明示する。上罫線は白い波と地続きに見せたいので出さない。 */
+  body.top-v4 .clients{
+    margin-top:6px!important;
+    padding:12px 0!important;
+    border-top:0!important;
+  }
   body.top-v4 .cwh__body{grid-template-columns:1fr}
   body.top-v4 .section[data-v4-no]::after{font-size:64px;opacity:.7}
   body.top-v4 .section[data-v4-wm]::before{font-size:74px}
