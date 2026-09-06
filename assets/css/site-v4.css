@@ -1058,3 +1058,448 @@ body.top-v4 .t-final::before{bottom:calc(-.2em + var(--v4-wv) * .28)}
   body.top-v4 .cwh__lnxTrace{display:none!important}
   body.top-v4 .cwh__glossBar{transform:translate(-22%,4%)!important}
 }
+
+
+/* =========================================================
+   事例ページ（cases 配下の各 index.html）共通スタイル
+   もともと各ページの <style> に直書きされていた 113 ルールを
+   ここへ統合した。7ページ間の差分は3件だけで、内訳は下記。
+     ・.result-card__num  … 保険事例だけ数字が大きい → 見た目維持のため
+                            body.case-v4:where(.case-insurance-influencer-marketing) に退避
+     ・.voice-card::before … 3ページで content が文字化けして 'C' に
+                            なっていた（本来は開き二重引用符）。'\201C' に統一。
+     ・.article-cta__title … 保険事例だけ color 指定が抜けていた → var(--txt) に統一
+     ※ ページ限定の指定に :where() を使っているのは、クラスを1つ足すと
+        詳細度が上がり styles.css / 共通ルールとの勝ち負けが変わってしまうため。
+        :where() は詳細度ゼロなので、共通ルールと同じ強さのまま後勝ちにできる。
+   スコープ： <body class="site-v4 case-v4"> を各事例ページに付ける。
+   ========================================================= */
+body.case-v4 .article-wrap{max-width:860px;margin:0 auto;padding:0 var(--hpad)}
+body.case-v4 .article-hero{background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(124,58,237,.06));border-bottom:1px solid rgba(15,23,42,.08);padding:64px 0 48px}
+body.case-v4 .article-hero__kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--brand3);margin-bottom:16px}
+body.case-v4 .article-hero__kicker span{width:6px;height:6px;border-radius:999px;background:var(--brand3);display:inline-block}
+body.case-v4 .article-hero__title{font-size:clamp(24px,3.8vw,38px);font-weight:900;line-height:1.25;letter-spacing:-.02em;color:var(--txt);margin:0 0 20px}
+body.case-v4 .article-hero__meta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--soft)}
+body.case-v4 .article-hero__meta time{font-weight:600}
+body.case-v4 .article-hero__tag{padding:4px 10px;border-radius:999px;background:rgba(37,99,235,.10);color:var(--brand3);font-size:12px;font-weight:800}
+body.case-v4 .article-container{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;max-width:1100px;margin:0 auto;padding:0 var(--hpad)}
+body.case-v4 .article-body{padding:56px 0 80px;font-size:15.5px;line-height:1.9;color:rgba(15,23,42,.80)}
+body.case-v4 .article-body > h2{font-size:clamp(20px,2.4vw,26px)!important;font-weight:900!important;letter-spacing:-.02em!important;color:var(--txt)!important;margin:56px 0 20px!important;padding-bottom:10px!important;border-bottom:2px solid rgba(37,99,235,.18)!important}
+body.case-v4 .article-body h3{font-size:17px;font-weight:900;color:var(--txt);margin:36px 0 14px;padding-left:14px;border-left:3px solid var(--brand3)}
+body.case-v4 .article-body p{margin:0 0 20px}
+body.case-v4 .article-body ul,
+body.case-v4 .article-body ol{margin:0 0 20px;padding-left:22px;display:grid;gap:8px}
+body.case-v4 .article-body li{line-height:1.75}
+body.case-v4 .toc{background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.14);border-radius:var(--radius);padding:24px 28px;margin:0 0 40px}
+body.case-v4 .toc__title{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--brand3);margin:0 0 14px}
+body.case-v4 .toc ol{margin:0;padding-left:18px;display:grid;gap:6px}
+body.case-v4 .toc li{font-size:14px;font-weight:600;line-height:1.5}
+body.case-v4 .toc a{color:rgba(15,23,42,.75);text-decoration:none;border-bottom:1px solid transparent;transition:.15s ease}
+body.case-v4 .toc a:hover{color:var(--brand3);border-bottom-color:rgba(37,99,235,.3)}
+body.case-v4 .lead-box{background:rgba(255,255,255,.96);border:1px solid rgba(15,23,42,.10);border-radius:var(--radius);padding:24px 28px;margin:0 0 40px;box-shadow:var(--shadow2)}
+body.case-v4 .lead-box__title{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--muted);margin:0 0 12px}
+body.case-v4 .lead-box ul{margin:0;padding-left:20px;display:grid;gap:6px}
+body.case-v4 .lead-box li{font-size:14.5px;font-weight:500}
+body.case-v4 .result-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 40px}
+body.case-v4 .result-card{border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.96);border-radius:var(--radius);padding:20px 16px;box-shadow:var(--shadow2);text-align:center}
+body.case-v4 .result-card__label{font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--soft);margin:0 0 8px}
+body.case-v4 .result-card__num{font-size:clamp(22px,3.5vw,32px);font-weight:900;letter-spacing:-.03em;color:var(--brand3);line-height:1;margin:0 0 6px}
+body.case-v4:where(.case-insurance-influencer-marketing) .result-card__num{font-size:clamp(26px,4vw,34px);font-weight:900;letter-spacing:-.03em;color:var(--brand3);line-height:1;margin:0 0 6px}
+body.case-v4 .result-card__sub{font-size:12px;color:var(--muted);margin:0}
+body.case-v4 .client-table{width:100%;border-collapse:collapse;font-size:14px;margin:0 0 28px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow2)}
+body.case-v4 .client-table th{background:linear-gradient(135deg,var(--brand3),var(--brand1));color:#fff;font-weight:800;font-size:12px;letter-spacing:.06em;padding:10px 16px;text-align:left;width:30%}
+body.case-v4 .client-table td{padding:12px 16px;border-bottom:1px solid rgba(15,23,42,.08);vertical-align:top;line-height:1.7;background:rgba(255,255,255,.96)}
+body.case-v4 .client-table tr:last-child td{border-bottom:none}
+body.case-v4 .client-table tr:nth-child(even) td{background:rgba(37,99,235,.03)}
+body.case-v4 .step-list{display:grid;gap:14px;margin:0 0 28px}
+body.case-v4 .step-item{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:flex-start;border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.96);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow2)}
+body.case-v4 .step-item__num{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--brand1),var(--brand3));flex:0 0 auto}
+body.case-v4 .step-item__body h4{margin:0 0 6px;font-size:15px;font-weight:900}
+body.case-v4 .step-item__body p{margin:0;font-size:14px;color:var(--muted);line-height:1.75}
+body.case-v4 .hl{border-left:4px solid var(--brand3);background:rgba(37,99,235,.05);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:24px 0}
+body.case-v4 .hl--success{border-left-color:#10b981;background:rgba(16,185,129,.06)}
+body.case-v4 .hl--warning{border-left-color:#f59e0b;background:rgba(245,158,11,.06)}
+body.case-v4 .hl p{margin:0;font-size:14.5px}
+body.case-v4 .hl strong{color:var(--brand3)}
+body.case-v4 .hl--success strong{color:#059669}
+body.case-v4 .hl--warning strong{color:#d97706}
+body.case-v4 .voice-card{border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.96);border-radius:var(--radius);padding:24px 28px;box-shadow:var(--shadow2);margin:0 0 24px;position:relative}
+body.case-v4 .voice-card::before{content:'\201C';font-size:64px;line-height:1;color:rgba(37,99,235,.15);font-family:Georgia,serif;position:absolute;top:10px;left:18px}
+body.case-v4 .voice-card__text{font-size:15px;line-height:1.85;color:var(--txt);font-style:italic;margin:0 0 14px;padding-left:8px}
+body.case-v4 .voice-card__meta{font-size:12px;color:var(--soft);font-weight:700}
+body.case-v4 .case-img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow2);margin:16px 0 24px;border:1px solid rgba(15,23,42,.08)}
+body.case-v4 .article-cta{border-radius:20px;border:1px solid rgba(124,58,237,.20);background:radial-gradient(closest-side at 20% 30%,rgba(37,99,235,.10),transparent 65%),radial-gradient(closest-side at 80% 70%,rgba(124,58,237,.08),transparent 70%),rgba(255,255,255,.96);padding:40px 32px;text-align:center;margin:48px 0}
+body.case-v4 .article-cta__label{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--brand1);margin-bottom:10px}
+body.case-v4 .article-cta__title{font-size:clamp(18px,2.2vw,24px);font-weight:900;letter-spacing:-.01em;margin:0 0 10px;color:var(--txt)}
+body.case-v4 .article-cta__lead{font-size:14px;color:var(--muted);margin:0 0 22px;max-width:52ch;margin-left:auto;margin-right:auto}
+body.case-v4 .article-cta__btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;border-radius:999px;background:var(--brand3);color:#fff;font-weight:800;font-size:15px;box-shadow:0 18px 44px rgba(37,99,235,.22);transition:.2s ease;text-decoration:none}
+body.case-v4 .article-cta__btn:hover{transform:translateY(-2px)}
+body.case-v4 .article-faq{display:grid;gap:12px;margin:0 0 32px}
+body.case-v4 .article-faq__item{border:1px solid rgba(15,23,42,.10);border-radius:var(--radius);background:rgba(255,255,255,.96);overflow:hidden}
+body.case-v4 .article-faq__item summary{display:flex;align-items:flex-start;gap:12px;padding:18px 20px;font-size:15px;font-weight:700;cursor:pointer;list-style:none;color:var(--txt)}
+body.case-v4 .article-faq__item summary::-webkit-details-marker{display:none}
+body.case-v4 .faq-q-badge{width:24px;height:24px;border-radius:6px;flex-shrink:0;background:linear-gradient(135deg,var(--brand1),var(--brand3));color:#fff;font-size:13px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
+body.case-v4 .article-faq__body{padding:0 20px 18px 56px;font-size:14px;color:var(--muted);line-height:1.8}
+body.case-v4 .article-author{display:flex;align-items:center;gap:16px;padding:20px 24px;border-radius:var(--radius);border:1px solid rgba(15,23,42,.08);background:rgba(255,255,255,.94);margin:40px 0 0}
+body.case-v4 .article-author__icon{font-size:36px;flex-shrink:0}
+body.case-v4 .article-author__name{font-size:14px;font-weight:900;margin:0 0 4px}
+body.case-v4 .article-author__bio{font-size:13px;color:var(--muted);margin:0;line-height:1.7}
+body.case-v4 .article-sidebar{position:sticky;top:90px}
+body.case-v4 .sidebar-card{border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.96);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow2);margin-bottom:18px}
+body.case-v4 .sidebar-card__title{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--soft);margin:0 0 12px}
+body.case-v4 .sidebar-toc ol{margin:0;padding-left:16px;display:grid;gap:8px}
+body.case-v4 .sidebar-toc li{font-size:13px;line-height:1.5}
+body.case-v4 .sidebar-toc a{color:rgba(15,23,42,.68);text-decoration:none;transition:.15s ease}
+body.case-v4 .sidebar-toc a:hover{color:var(--brand3)}
+body.case-v4 .sidebar-cta{background:var(--brand3);color:#fff;border-radius:var(--radius);padding:20px;text-align:center}
+body.case-v4 .sidebar-cta p{font-size:13px;margin:0 0 14px;opacity:.92}
+body.case-v4 .sidebar-cta a{display:block;background:#fff;color:var(--brand1);font-weight:800;font-size:13px;padding:10px;border-radius:999px;transition:.18s ease;text-decoration:none}
+body.case-v4 .sidebar-cta a:hover{transform:translateY(-2px)}
+body.case-v4 .breadcrumb{font-size:12px;color:var(--soft);padding:14px 0 0;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+body.case-v4 .breadcrumb a{color:var(--soft);text-decoration:none}
+body.case-v4 .breadcrumb a:hover{color:var(--brand3)}
+body.case-v4 .breadcrumb__sep{opacity:.5}
+body.case-v4 .client-info-table{width:100%;border-collapse:collapse;font-size:14px;margin:0 0 28px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow2)}
+body.case-v4 .client-info-table th{background:linear-gradient(135deg,var(--brand3),var(--brand1));color:#fff;font-weight:800;font-size:12px;letter-spacing:.06em;padding:10px 16px;text-align:left;width:30%}
+body.case-v4 .client-info-table td{padding:12px 16px;border-bottom:1px solid rgba(15,23,42,.08);vertical-align:top;line-height:1.7;background:rgba(255,255,255,.96)}
+body.case-v4 .client-info-table tr:last-child td{border-bottom:none}
+body.case-v4 .client-info-table tr:nth-child(even) td{background:rgba(37,99,235,.03)}
+body.case-v4 .kpi-tree{background:rgba(37,99,235,.04);border:1px solid rgba(37,99,235,.14);border-radius:var(--radius);padding:24px 28px;margin:0 0 28px}
+body.case-v4 .kpi-tree__title{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--brand3);margin:0 0 16px}
+body.case-v4 .kpi-formula{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}
+body.case-v4 .kpi-item{background:#fff;border:1.5px solid rgba(37,99,235,.25);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--brand3)}
+body.case-v4 .kpi-op{font-size:18px;font-weight:900;color:var(--soft)}
+body.case-v4 .kpi-sub-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0}
+body.case-v4 .kpi-sub-item{background:rgba(37,99,235,.06);border-radius:8px;padding:12px 14px;font-size:13px;text-align:center}
+body.case-v4 .kpi-sub-item strong{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--brand3);margin-bottom:4px}
+body.case-v4 .highlight-card{border-left:4px solid var(--brand3);background:rgba(37,99,235,.05);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:24px 0}
+body.case-v4 .highlight-card--success{border-left-color:#10b981;background:rgba(16,185,129,.06)}
+body.case-v4 .highlight-card--warning{border-left-color:#f59e0b;background:rgba(245,158,11,.06)}
+body.case-v4 .highlight-card p{margin:0;font-size:14.5px}
+body.case-v4 .highlight-card strong{color:var(--brand3)}
+body.case-v4 .highlight-card--success strong{color:#059669}
+body.case-v4 .highlight-card--warning strong{color:#d97706}
+@media(max-width:980px){
+  body.case-v4 .article-container{grid-template-columns:1fr}
+  body.case-v4 .article-sidebar{display:none}
+  body.case-v4 .result-summary{grid-template-columns:1fr 1fr}
+  body.case-v4 .kpi-sub-list{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  body.case-v4 .result-summary{grid-template-columns:1fr}
+  /* SP時のヒーロー余白詰めは、もともと保険事例だけに入っていた指定。
+     他6ページの見た目を変えないようそのページ限定のまま残している。 */
+  body.case-v4:where(.case-insurance-influencer-marketing) .article-hero{padding:40px 0 32px}
+}
+
+/* ---------------------------------------------------------
+   事例一覧（cases/index.html）— 旧 <style> から移設
+   スコープ： <body class="site-v4 cases-v4">
+   --------------------------------------------------------- */
+body.cases-v4 .cases-hero{background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(124,58,237,.06));border-bottom:1px solid rgba(15,23,42,.08);padding:64px 0 48px;text-align:center}
+body.cases-v4 .cases-hero__kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--brand3);margin-bottom:16px}
+body.cases-v4 .cases-hero__kicker span{width:6px;height:6px;border-radius:999px;background:var(--brand3);display:inline-block}
+body.cases-v4 .cases-hero__title{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.02em;color:var(--txt);margin:0 0 16px}
+body.cases-v4 .cases-hero__lead{font-size:16px;color:var(--muted);max-width:52ch;margin:0 auto;line-height:1.8}
+body.cases-v4 .cases-body{padding:48px 0 80px}
+body.cases-v4 .cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px}
+body.cases-v4 .case-card{border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.96);border-radius:16px;overflow:hidden;box-shadow:var(--shadow2);transition:.2s ease;display:flex;flex-direction:column;text-decoration:none}
+body.cases-v4 .case-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+body.cases-v4 .case-card__head{background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(124,58,237,.06));padding:24px 24px 16px;border-bottom:1px solid rgba(15,23,42,.06)}
+body.cases-v4 .case-card__tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+body.cases-v4 .case-tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;background:rgba(37,99,235,.10);color:var(--brand3)}
+body.cases-v4 .case-card__title{font-size:16px;font-weight:900;color:var(--txt);line-height:1.45;margin:0}
+body.cases-v4 .case-card__body{padding:18px 24px;flex:1;display:flex;flex-direction:column}
+body.cases-v4 .case-card__desc{font-size:13.5px;color:var(--muted);line-height:1.75;margin:0 0 16px;flex:1}
+body.cases-v4 .case-card__results{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+body.cases-v4 .case-result__num{font-size:20px;font-weight:900;color:var(--brand3);letter-spacing:-.02em;line-height:1}
+body.cases-v4 .case-result__label{font-size:11px;color:var(--soft);font-weight:600;margin-top:2px}
+body.cases-v4 .case-card__link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--brand3);transition:gap .18s ease}
+body.cases-v4 .case-card:hover .case-card__link{gap:10px}
+body.cases-v4 .cases-cta{border-radius:20px;border:1px solid rgba(124,58,237,.20);background:radial-gradient(closest-side at 20% 30%,rgba(37,99,235,.10),transparent 65%),radial-gradient(closest-side at 80% 70%,rgba(124,58,237,.08),transparent 70%),rgba(255,255,255,.96);padding:40px 32px;text-align:center}
+body.cases-v4 .cases-cta__label{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--brand1);margin-bottom:10px}
+body.cases-v4 .cases-cta__title{font-size:clamp(18px,2.2vw,26px);font-weight:900;margin:0 0 10px;color:var(--txt)}
+body.cases-v4 .cases-cta__lead{font-size:14px;color:var(--muted);margin:0 0 22px}
+body.cases-v4 .cases-cta__btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;border-radius:999px;background:var(--brand3);color:#fff;font-weight:800;font-size:15px;box-shadow:0 18px 44px rgba(37,99,235,.22);transition:.2s ease;text-decoration:none}
+body.cases-v4 .cases-cta__btn:hover{transform:translateY(-2px)}
+@media(max-width:768px){
+  body.cases-v4 .cases-grid{grid-template-columns:1fr}
+}
+
+/* ---------------------------------------------------------
+   お問い合わせ（contact.html）— 旧 <style> から移設
+   元から body.page-contact でスコープ済みのためそのまま
+   --------------------------------------------------------- */
+body.page-contact .contact-form{max-width:640px!important;margin:48px auto 90px!important;padding:36px!important;border-radius:20px!important;background:rgba(255,255,255,.78)!important;backdrop-filter:blur(8px)!important;box-shadow:0 30px 80px rgba(0,0,0,.08)!important;border:1px solid rgba(0,0,0,.06)!important;display:flex!important;flex-direction:column!important;gap:18px!important}
+body.page-contact .contact-form .form-group{display:flex!important;flex-direction:column!important;gap:8px!important}
+body.page-contact .contact-form label{font-size:14px!important;font-weight:700!important;color:#111!important;margin:0!important}
+body.page-contact .contact-form input,
+body.page-contact .contact-form textarea{width:100%!important;box-sizing:border-box!important;padding:14px 16px!important;border-radius:14px!important;border:1px solid rgba(0,0,0,.12)!important;background:rgba(255,255,255,.95)!important;font-size:16px!important;outline:none!important}
+body.page-contact .contact-form textarea{min-height:170px!important;resize:vertical!important}
+body.page-contact .contact-form input:focus,
+body.page-contact .contact-form textarea:focus{border-color:rgba(37,99,235,.85)!important;box-shadow:0 0 0 4px rgba(37,99,235,.15)!important}
+body.page-contact .contact-form button{width:100%!important;margin-top:6px!important;padding:14px 20px!important;border-radius:999px!important;border:none!important;cursor:pointer!important;font-weight:800!important;font-size:16px!important;color:#fff!important;background:linear-gradient(90deg,#6d28d9,#2563eb)!important;box-shadow:0 20px 40px rgba(37,99,235,.25)!important}
+.inquiry-options{display:flex;flex-direction:column;gap:10px}
+.contact-form label.inquiry-option{display:flex!important;flex-direction:row!important;align-items:center!important;gap:12px!important;padding:12px 16px!important;border-radius:12px!important;border:1px solid rgba(0,0,0,.10)!important;background:rgba(255,255,255,.95)!important;cursor:pointer!important;transition:border-color .15s,background .15s!important;font-weight:500!important;font-size:14.5px!important;color:#111!important;margin:0!important;box-sizing:border-box!important}
+.contact-form label.inquiry-option input[type="radio"]{flex:0 0 20px!important;width:20px!important;height:20px!important;margin:0!important;padding:0!important;accent-color:#2563eb!important;cursor:pointer!important}
+.contact-form label.inquiry-option span{flex:1!important;line-height:1.5!important}
+.contact-form label.inquiry-option:hover{border-color:rgba(37,99,235,.4)!important;background:rgba(37,99,235,.04)!important}
+.contact-form label.inquiry-option:has(input:checked){border-color:rgba(37,99,235,.7)!important;background:rgba(37,99,235,.06)!important}
+@media(max-width:768px){
+  body.page-contact .contact-form{padding:22px!important;margin:28px 16px 70px!important}
+}
+
+/* ---------------------------------------------------------
+   404ページ — 旧 <style> から移設
+   スコープ： <body class="site-v4 err-v4">
+   --------------------------------------------------------- */
+body.err-v4 .nf-wrap{min-height:70vh;display:flex;align-items:center;justify-content:center;padding:80px 24px}
+body.err-v4 .nf-inner{max-width:720px;width:100%;text-align:center}
+body.err-v4 .nf-code{font-size:clamp(56px,10vw,96px);font-weight:900;line-height:1;letter-spacing:-.03em;margin:0 0 8px;background:linear-gradient(135deg,#2563eb,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+body.err-v4 .nf-title{font-size:clamp(20px,3vw,28px);font-weight:900;margin:0 0 16px;letter-spacing:-.02em;color:#0b0d12}
+body.err-v4 .nf-text{font-size:15px;line-height:1.9;color:rgba(15,23,42,.66);margin:0 0 36px}
+body.err-v4 .nf-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:36px}
+body.err-v4 .nf-link{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:1px solid rgba(15,23,42,.12);font-size:14px;font-weight:700;color:#0b0d12;text-decoration:none;transition:.2s}
+body.err-v4 .nf-link:hover{border-color:#2563eb;color:#2563eb}
+body.err-v4 .nf-cta{display:inline-flex;align-items:center;justify-content:center;padding:16px 40px;border-radius:999px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 8px 24px rgba(37,99,235,.28);transition:.2s}
+body.err-v4 .nf-cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,.34)}
+body.err-v4 .nf-note{font-size:13px;color:rgba(15,23,42,.46);margin-top:20px}
+
+
+/* =========================================================
+   11. TOPの文法を下層ページへ（works / services / company / cases）
+   TOPは .v3-pain / .t-flow といった固有クラスに直接あてていたので、
+   下層でも使い回せるよう、意味だけを持つクラスに整理し直した層。
+   TOP側（body.top-v4）の記述はそのまま残してあり、ここでは触っていない。
+
+     .sec-v4              セクションの器。番号とウォーターマークの土台
+     .sec-v4--pale        淡い面。上下に白い波で境界を切る
+     .sec-v4--pale-top    上だけ波（次が淡色のとき）
+     .sec-v4--pale-bottom 下だけ波
+     .sec-v4--deep        濃紺の反転面。文字は白に寄せる
+     data-v4-no="01"      右上のゴースト番号
+     data-v4-wm="WORKS"   下端の巨大アウトライン文字
+     data-v4-rv           スクロールで浮かび上がる（site-v4.js が .is-in を付ける）
+
+   ウォーターマークの語は、そのページに既に出ている英字見出しだけを使う。
+   新しい言葉を足さないため（works の各カテゴリは番号だけにしてある）。
+   ========================================================= */
+body.site-v4{
+  --v4-wv:clamp(46px,5.4vw,92px);
+}
+
+body.site-v4 .sec-v4{position:relative;overflow:hidden}
+body.site-v4 .sec-v4 > .container{position:relative;z-index:1}
+
+body.site-v4 .sec-v4--pale[data-v4-no]::after,
+body.site-v4 .sec-v4--pale-top[data-v4-no]::after,
+body.site-v4 .sec-v4--deep[data-v4-no]::after{
+  top:calc(clamp(24px,4vw,56px) + var(--v4-wv) * .45);
+}
+body.site-v4 .sec-v4--pale[data-v4-no]::after,
+body.site-v4 .sec-v4--pale-top[data-v4-no]::after,
+body.site-v4 .sec-v4--pale-bottom[data-v4-no]::after{
+  color:rgba(30,107,255,.06);
+}
+/* 下端に波がある面では、文字が波の上に半分だけ乗って濁って見えるので
+   波の高さぶん持ち上げて、波にかからない位置に置く */
+body.site-v4 .sec-v4--pale[data-v4-wm]::before,
+body.site-v4 .sec-v4--pale-bottom[data-v4-wm]::before,
+body.site-v4 .sec-v4--deep[data-v4-wm]::before{
+  bottom:calc(var(--v4-wv) * 1.04);
+}
+
+
+/* 巨大アウトライン文字（TOPと同じ値） */
+body.site-v4 .sec-v4[data-v4-wm]::before{
+  content:attr(data-v4-wm);
+  position:absolute;
+  left:-.035em;
+  /* 下端に半分沈める。下層ページは中身が詰まっていて、TOPと同じ大きさ・位置だと
+     セクション末尾のボタンに文字が重なって読みにくくなる。 */
+  bottom:-.30em;
+  font-family:var(--v4-mono);
+  font-size:clamp(64px,9.5vw,158px);
+  font-weight:800;
+  line-height:.8;
+  letter-spacing:-.03em;
+  white-space:nowrap;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(30,107,255,.11);
+  pointer-events:none;
+  z-index:0;
+}
+/* ゴースト番号（TOPと同じ値） */
+body.site-v4 .sec-v4[data-v4-no]::after{
+  content:attr(data-v4-no);
+  position:absolute;
+  right:clamp(8px,3vw,56px);
+  /* 波を敷く面だけ、波のぶん下げる。白い面で同じだけ下げると
+     見出しの副題に数字が重なってしまう。 */
+  top:clamp(24px,4vw,56px);
+  font-family:var(--v4-num);
+  font-size:clamp(72px,11vw,168px);
+  font-weight:700;
+  line-height:1;
+  /* 白地では .06 だとほぼ見えないので少しだけ濃くする */
+  color:rgba(30,107,255,.075);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* 淡色の面。波のぶんだけ境界側の余白を足して見出しが波に乗らないようにする。
+   ※データURI内の色は rgb() で書くこと（'#' は %2523 に化けて黒になる） */
+body.site-v4 .sec-v4--pale,
+body.site-v4 .sec-v4--pale-top,
+body.site-v4 .sec-v4--pale-bottom{
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,#EDF5FF!important;
+}
+body.site-v4 .sec-v4--pale-top{background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,#EDF5FF!important}
+body.site-v4 .sec-v4--pale-bottom{background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,#EDF5FF!important}
+body.site-v4 .sec-v4--pale,
+body.site-v4 .sec-v4--pale-top,
+body.site-v4 .sec-v4--pale-bottom{
+  padding-top:calc(clamp(72px,9vw,132px) + var(--v4-wv) * .5)!important;
+  padding-bottom:calc(clamp(72px,9vw,132px) + var(--v4-wv) * .5)!important;
+}
+
+/* 反転（濃紺）の面 */
+body.site-v4 .sec-v4--deep{
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,linear-gradient(160deg,var(--v4-deep),#06195A 60%,#04123F)!important;
+  padding-top:calc(clamp(72px,9vw,132px) + var(--v4-wv) * .5)!important;
+  padding-bottom:calc(clamp(72px,9vw,132px) + var(--v4-wv) * .5)!important;
+  color:#fff;
+}
+body.site-v4 .sec-v4--deep .section__title{color:#fff!important}
+body.site-v4 .sec-v4--deep .section__desc{color:rgba(255,255,255,.76)!important}
+body.site-v4 .sec-v4--deep[data-v4-wm]::before{-webkit-text-stroke:1px rgba(255,255,255,.11)}
+body.site-v4 .sec-v4--deep[data-v4-no]::after{color:rgba(255,255,255,.09)}
+
+/* スクロールリビール。
+   JSが動かない環境で中身が消えないよう、site-v4.js が
+   <html> に .v4-rv を付けたときだけ初期状態を隠す。 */
+html.v4-rv body.site-v4 [data-v4-rv]{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--v4-d,0s);
+}
+html.v4-rv body.site-v4 [data-v4-rv].is-in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  html.v4-rv body.site-v4 [data-v4-rv]{opacity:1;transform:none;transition:none}
+}
+@media (max-width:720px){
+  body.site-v4 .sec-v4[data-v4-no]::after{font-size:64px;opacity:.7}
+  body.site-v4 .sec-v4[data-v4-wm]::before{font-size:74px}
+}
+
+
+/* =========================================================
+   12. 事例ページの面づくり（cases 一覧 / 事例詳細）
+   記事レイアウトなので TOP のようなセクション交互配色は入れず、
+   ・ヒーロー＝淡色＋下端の波
+   ・キッカー＝TOPと同じ「> 」付きの等幅ラベル
+   ・カード＝v4の角丸・枠線・影
+   ・末尾のCTA＝濃紺の反転面
+   の4点だけを合わせている。本文の文字組みは元のまま。
+   ========================================================= */
+body.case-v4 .article-hero,
+body.cases-v4 .cases-hero{
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,#EDF5FF!important;
+  border-bottom:0!important;
+  padding-bottom:calc(clamp(36px,4.5vw,56px) + var(--v4-wv) * .7)!important;
+}
+body.case-v4 .article-hero__kicker,
+body.cases-v4 .cases-hero__kicker{
+  font-family:var(--v4-mono)!important;
+  font-size:11.5px!important;
+  letter-spacing:.14em!important;
+  color:var(--v4-brand)!important;
+}
+body.case-v4 .article-hero__kicker::before,
+body.cases-v4 .cases-hero__kicker::before{content:">";color:var(--v4-cyan);font-weight:700}
+body.case-v4 .article-hero__kicker span,
+body.cases-v4 .cases-hero__kicker span{display:none}
+body.case-v4 .article-hero__title,
+body.cases-v4 .cases-hero__title{color:var(--v4-ink)!important;letter-spacing:-.03em!important}
+body.case-v4 .article-hero__meta{color:var(--v4-ink-3)!important}
+body.case-v4 .article-hero__meta time{font-family:var(--v4-num);font-variant-numeric:tabular-nums}
+body.case-v4 .article-hero__tag{
+  background:rgba(30,107,255,.10)!important;color:var(--v4-brand-d)!important;
+  font-family:var(--v4-mono)!important;letter-spacing:.06em!important;
+}
+body.case-v4 .breadcrumb{color:var(--v4-ink-3)!important}
+body.case-v4 .breadcrumb a{color:var(--v4-ink-3)!important}
+
+/* カード類をv4の面に揃える */
+body.case-v4 .result-card,
+body.case-v4 .voice-card,
+body.case-v4 .lead-box,
+body.case-v4 .step-item,
+body.case-v4 .sidebar-card,
+body.case-v4 .article-faq__item,
+body.case-v4 .client-table,
+body.case-v4 .client-info-table,
+body.cases-v4 .case-card{
+  border:1px solid var(--v4-line)!important;
+  border-radius:var(--v4-r)!important;
+  box-shadow:var(--v4-shadow)!important;
+}
+body.cases-v4 .case-card{transition:box-shadow .28s ease,transform .28s cubic-bezier(.16,1,.3,1),border-color .28s ease}
+body.cases-v4 .case-card:hover{
+  box-shadow:var(--v4-shadow-h)!important;transform:translateY(-4px);
+  border-color:rgba(30,107,255,.3)!important;
+}
+body.case-v4 .result-card__num,
+body.cases-v4 .case-result__num{
+  font-family:var(--v4-num)!important;
+  font-variant-numeric:tabular-nums;
+  color:var(--v4-brand)!important;
+}
+body.case-v4 .result-card__label,
+body.cases-v4 .case-result__label{font-family:var(--v4-mono)!important;color:var(--v4-ink-3)!important}
+body.case-v4 .article-body > h2{border-bottom-color:rgba(30,107,255,.18)!important}
+body.case-v4 .article-body h3{border-left-color:var(--v4-brand)!important}
+
+/* 末尾のCTAは反転面に */
+body.case-v4 .article-cta,
+body.cases-v4 .cases-cta{
+  background:linear-gradient(160deg,var(--v4-deep),#06195A 60%,#04123F)!important;
+  border:0!important;
+  box-shadow:0 30px 70px rgba(10,42,115,.28)!important;
+}
+body.case-v4 .article-cta__label,
+body.cases-v4 .cases-cta__label{color:#8FE0FF!important;font-family:var(--v4-mono)!important}
+body.case-v4 .article-cta__title,
+body.cases-v4 .cases-cta__title{color:#fff!important}
+body.case-v4 .article-cta__lead,
+body.cases-v4 .cases-cta__lead{color:rgba(255,255,255,.8)!important}
+body.case-v4 .article-cta__btn,
+body.cases-v4 .cases-cta__btn{
+  background:#fff!important;color:var(--v4-brand-d)!important;
+  box-shadow:0 18px 44px rgba(0,0,0,.24)!important;
+}
+body.case-v4 .article-cta__btn::after,
+body.cases-v4 .cases-cta__btn::after{content:"\2192";margin-left:.7em;font-family:var(--v4-mono)}
+
+/* サイドバーのCTAもブランド面に寄せる */
+body.case-v4 .sidebar-cta{background:linear-gradient(150deg,var(--v4-brand),var(--v4-brand-d))!important;border-radius:var(--v4-r)!important}
+body.case-v4 .sidebar-cta a{color:var(--v4-brand-d)!important}
+body.case-v4 .sidebar-card__title,
+body.case-v4 .toc__title,
+body.case-v4 .lead-box__title{font-family:var(--v4-mono)!important;letter-spacing:.14em!important}
+body.case-v4 .toc{border-radius:var(--v4-r)!important;border-color:rgba(30,107,255,.14)!important}
+
+/* 旧パレットの紫寄りグラデが事例ページだけに残っていたので、v4の青に寄せる。
+   （表ヘッダ・ステップ番号・FAQバッジの3か所） */
+body.case-v4 .client-table th,
+body.case-v4 .client-info-table th,
+body.case-v4 .step-item__num,
+body.case-v4 .faq-q-badge{
+  background:linear-gradient(135deg,var(--v4-brand),var(--v4-brand-d))!important;
+}
+body.case-v4 .client-table th,
+body.case-v4 .client-info-table th{
+  font-family:var(--v4-mono)!important;letter-spacing:.04em!important;
+}

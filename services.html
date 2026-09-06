@@ -71,7 +71,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- CSS（TOPと同じファイル） -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <!-- 全ページ共通の見た目（段階1）。この1行を消せば元に戻る -->
-  <link rel="stylesheet" href="assets/css/site-v4.css?v=2">
+  <link rel="stylesheet" href="assets/css/site-v4.css?v=3">
 <!-- SEO: パンくず構造化データ -->
 <script type="application/ld+json">
 {
@@ -137,7 +137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Service List -->
 
 
-<section class="services-detail section">
+<section class="services-detail section sec-v4" id="service" data-v4-no="01">
   <div class="container">
 
     <h1 class="section__title">Service</h1>
@@ -242,9 +242,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- Pricing -->
-  <section class="section svc-section" id="pricing">
+  <section class="section svc-section sec-v4 sec-v4--pale" id="pricing" data-v4-no="02">
     <div class="container">
-      <div class="section__head">
+      <div class="section__head" data-v4-rv>
         <h2 class="section__title">Price</h2>
         <p class="section__desc">目的と体制に合わせて変動します(下記は目安）。</p>
       </div>
@@ -359,9 +359,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- Package -->
-  <section class="section svc-section section--ad-banner" id="package">
+  <section class="section svc-section section--ad-banner sec-v4" id="package" data-v4-wm="PACKAGE" data-v4-no="03">
     <div class="container">
-      <div class="section__head">
+      <div class="section__head" data-v4-rv>
         <h2 class="section__title">Package</h2>
         <p class="section__desc">マーケティング組織の強化にはこちらもおすすめです。</p>
       </div>
@@ -377,9 +377,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- Process -->
-  <section class="section svc-section" id="process">
+  <section class="section svc-section sec-v4 sec-v4--pale" id="process" data-v4-wm="FLOW" data-v4-no="04">
     <div class="container">
-      <div class="section__head">
+      <div class="section__head" data-v4-rv>
         <h2 class="section__title">Flow</h2>
         <p class="section__desc">以下の流れで進めさせていただきます。</p>
       </div>
@@ -424,9 +424,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-<section class="section section--faq" id="faq">
+<section class="section section--faq sec-v4" id="faq" data-v4-no="05">
   <div class="container">
-    <div class="section__head">
+    <div class="section__head" data-v4-rv>
       <h2 class="section__title">Questions</h2>
       <p class="section__desc">ご相談前に多い質問をまとめました。</p>
     </div>
@@ -526,6 +526,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 
 <script src="assets/js/main.js?v=5" defer></script>
+<script src="assets/js/site-v4.js?v=1" defer></script>
 </body>
 </html>
 
