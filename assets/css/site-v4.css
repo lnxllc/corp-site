@@ -907,7 +907,9 @@ body.top-v4 .nav__menu a:hover,
 body.top-v4 .nav__menu a.nav__active{color:var(--v4-brand)!important}
 body.site-v4 .brand__name,
 body.top-v4 .brand__name{color:var(--v4-ink)!important;letter-spacing:-.01em}
-body.top-v4 .nav__menu a{font-size:12.5px!important}
+/* ここでTOPだけ 12.5px にしていたが、他ページは styles.css の 16px のままで
+   ヘッダーの見た目が揃っていなかった。共通パーツなので指定を外し、
+   全ページ styles.css の寸法をそのまま使う。 */
 
 /* クライアントロゴ帯 */
 body.top-v4 .clients{
@@ -994,7 +996,9 @@ body.top-v4 [data-v4-rv].is-in{opacity:1;transform:none}
   body.top-v4 .v4-rail{display:none}
 }
 @media (max-width:720px){
-  body.top-v4 .cwh{padding:80px 0 48px}
+  /* 下端の白い波（.cwh__sea）は高さ104px。実績3枚を外したぶん
+     「✓相談無料…」の行が下がって波に潜るので、波の高さぶん余白を確保する */
+  body.top-v4 .cwh{padding:80px 0 112px}
   /* 「集客ワンストップ支援。」が2行に折れないサイズに収める */
   body.top-v4 .cwh__title{font-size:min(30px,7.7vw);letter-spacing:-.05em}
   body.top-v4 .cwh__lead{font-size:14px;line-height:1.95}
@@ -1004,8 +1008,37 @@ body.top-v4 [data-v4-rv].is-in{opacity:1;transform:none}
   body.top-v4 .cwh__stat{border-left:0;border-top:1px solid var(--v4-line)}
   body.top-v4 .cwh__stat:first-child{border-top:0}
   body.top-v4 .cwh__note{font-size:10.5px;gap:4px 12px}
-  /* スマホでは3Dロゴを出さない（縦に長くなるうえ描画コストが重い） */
-  body.top-v4 .cwh__mark{display:none}
+  /* SPではFV内の実績3枚を出さない（縦に伸びてCTAが押し下がる） */
+  body.top-v4 .cwh__stats{display:none}
+
+  /* 3Dロゴは消さず、文字の後ろに薄く敷く。
+     .cwh__inner が position:relative + z-index:2 でスタッキングコンテキストを
+     作っているので、その中で z-index:-1 に置くと
+     「本文より後ろ・.cwh の背景より前」に入る。
+     グリッドから外すため position:absolute にしている（左カラムが全幅になる）。 */
+  body.top-v4 .cwh__mark{
+    display:flex;
+    position:absolute;
+    left:50%;
+    top:46%;
+    width:min(124vw,520px);
+    aspect-ratio:520/489;
+    transform:translate(-50%,-50%);
+    margin:0;
+    min-height:0;
+    z-index:-1;
+    opacity:.15;
+    pointer-events:none;
+  }
+  /* 落ち影と後光は、背景として敷くと文字の下が濁るので出さない */
+  body.top-v4 .cwh__shadow,
+  body.top-v4 .cwh__mark::before{display:none}
+  body.top-v4 .cwh__float{justify-content:center;animation:none}
+  body.top-v4 .cwh__stage{width:100%}
+  /* 不透明度15%では艶は見えない。描画コストだけ残るので切る */
+  body.top-v4 .cwh__gloss{display:none}
+  /* 背景の巨大な "LnX" と二重になるので、そちらを控えめにする */
+  body.top-v4 .cwh__wm{opacity:.55}
   body.top-v4 .cwh__body{grid-template-columns:1fr}
   body.top-v4 .section[data-v4-no]::after{font-size:64px;opacity:.7}
   body.top-v4 .section[data-v4-wm]::before{font-size:74px}
