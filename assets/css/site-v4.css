@@ -1171,6 +1171,13 @@ body.case-v4 .voice-card::before{content:'\201C';font-size:64px;line-height:1;co
 body.case-v4 .voice-card__text{font-size:15px;line-height:1.85;color:var(--txt);font-style:italic;margin:0 0 14px;padding-left:8px}
 body.case-v4 .voice-card__meta{font-size:12px;color:var(--soft);font-weight:700}
 body.case-v4 .case-img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow2);margin:16px 0 24px;border:1px solid rgba(15,23,42,.08)}
+/* 縦長のスマホスクショ（work23〜27 は 1080×1920）は width:100% だと
+   本文幅860pxで高さ1500px超になり、本文が分断されてしまう。
+   高さで上限を決めて中央に置く。 */
+body.case-v4 .case-img--tall{
+  width:auto;max-width:100%;max-height:560px;
+  margin-inline:auto;display:block;
+}
 body.case-v4 .article-cta{border-radius:20px;border:1px solid rgba(124,58,237,.20);background:radial-gradient(closest-side at 20% 30%,rgba(37,99,235,.10),transparent 65%),radial-gradient(closest-side at 80% 70%,rgba(124,58,237,.08),transparent 70%),rgba(255,255,255,.96);padding:40px 32px;text-align:center;margin:48px 0}
 body.case-v4 .article-cta__label{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--brand1);margin-bottom:10px}
 body.case-v4 .article-cta__title{font-size:clamp(18px,2.2vw,24px);font-weight:900;letter-spacing:-.01em;margin:0 0 10px;color:var(--txt)}
@@ -1545,4 +1552,31 @@ body.case-v4 .faq-q-badge{
 body.case-v4 .client-table th,
 body.case-v4 .client-info-table th{
   font-family:var(--v4-mono)!important;letter-spacing:.04em!important;
+}
+
+/* =========================================================
+   13. 実績キャプション付き図版 .result-figure
+   コラム記事で自社実績に言及している段落の直後に置く図版。
+   もともと2記事の <style> に直書きされていたものをここへ集約した。
+   コラムのページは body に v4 のクラスを付けていないため、
+   このブロックだけスコープを付けずに書いている
+   （site-v4.css の他のルールは全て body.〜 でスコープ済みなので、
+    コラムに読み込んでも .result-figure 以外は一切効かない）。
+   色は styles.css の :root 変数をそのまま使う。
+   ========================================================= */
+.result-figure{
+  margin:28px 0 32px;padding:0;
+  border:1px solid rgba(15,23,42,.10);border-radius:var(--radius);
+  background:rgba(255,255,255,.96);box-shadow:var(--shadow2);overflow:hidden;
+}
+.result-figure img{width:100%;height:auto;display:block}
+.result-figure figcaption{
+  font-size:13px;line-height:1.75;color:var(--muted);
+  padding:14px 18px;border-top:1px solid rgba(15,23,42,.08);
+  background:rgba(37,99,235,.03);
+}
+.result-figure figcaption strong{color:var(--brand3);font-weight:800}
+.result-figure__source{display:block;margin-top:6px;font-size:12px;color:var(--soft)}
+@media (max-width:768px){
+  .result-figure figcaption{font-size:12.5px;padding:12px 14px}
 }

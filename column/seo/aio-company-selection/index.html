@@ -32,6 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=3" rel="stylesheet"/>
 <style>
     .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
 
@@ -252,12 +253,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
     .sidebar-toc a:hover { color: var(--brand3); }
     .sidebar-cta {
-      background: var(--brand3);
+      background: linear-gradient(150deg, #1E6BFF, #0A2FA8);
       color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
     }
     .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
     .sidebar-cta a {
-      display: block; background: #fff; color: var(--brand1);
+      display: block; background: #fff; color: #0A2FA8;
       font-weight: 800; font-size: 13px; padding: 10px;
       border-radius: 999px; transition: .18s ease;
     }
@@ -555,45 +556,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="lnx-view">LnXの見解</h2>
 <p>AIO対策の会社選びで最も重要なのは、<strong>その会社が自社のメディアで実践しているか</strong>だと考えています。この領域はまだ手法が確立しておらず、社内で検証していない会社は一般論の提案にならざるを得ないためです。</p>
 <p>LnXでは自社のオウンドメディアで、記事構成の設計から作成・入稿、SEOレポートまでをAIの定常タスクとして実装し、約3ヶ月で113記事を入稿しました。その結果、<strong>ページ表示回数は約7倍、問い合わせは約15倍、生成AIからのインプレッションは約7倍、AIOスコアは91点</strong>という状態まで到達しています。</p>
+<figure class="result-figure">
+<img alt="LnX自社オウンドメディアの記事一覧画面と、113記事・ページ表示回数約7倍・問い合わせ約15倍を示す数値パネルおよび表示回数の推移グラフ" loading="lazy" decoding="async" width="1600" height="1000" src="../../../assets/img/work22.webp"/>
+<figcaption><strong>約3ヶ月で113記事を入稿／ページ表示回数 約7倍／問い合わせ 約15倍</strong>。（LnX自社オウンドメディア「Web集客の実務ノウハウ」・2026年6月〜）記事構成の設計から本文生成・HTML入稿・内部リンク・sitemap.xml／llms.txtの更新までをAIの日次タスクとして定義し、キーワード選定と記事の狙い・一次情報の判断は人が担当しています。<span class="result-figure__source">出典：LnX合同会社 支援実績（<a href="https://lnx.co.jp/cases/seo-aio-owned-media/">事例詳細はこちら</a>）</span></figcaption>
+</figure>
+
 <p>この過程で分かったのは、AIO対策として特別なことをするより、SEOとAIOを同時に満たす設計を最初から入れておくほうが結果的に早いということです。構造化データも内部リンクも一次情報も、どちらか一方のためだけの施策ではありません。ご相談いただく際は、この検証で得た手順をそのままお渡ししています。</p>
 <h2 id="faq">よくある質問</h2>
 <div class="article-faq">
-<div class="article-faq__item">
-<p class="article-faq__q">いま依頼しているSEO会社にAIO対策も頼めますか？</p>
-<div class="article-faq__body">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+いま依頼しているSEO会社にAIO対策も頼めますか？
+</summary><div class="article-faq__body">
 <p>対応できるかは会社によります。判断材料としては、構造化データの実装経験があるか、AI検索での引用状況を計測する手段を持っているか、この2点を聞いてみてください。SEOの土台はAIOでも引き続き必要なため、既存の会社が対応できるならそのほうが施策の一貫性は保てます。できないと回答された場合に、初めて別会社を検討する順番が現実的です。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">AIO対策だけを単独で依頼することはできますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+AIO対策だけを単独で依頼することはできますか？
+</summary><div class="article-faq__body">
 <p>可能ですが、推奨はしません。AI検索が参照する情報の多くは検索結果の上位にあるコンテンツであり、SEOの土台がない状態でAIO施策だけを行っても効果が限定的になります。既存メディアがすでに一定の評価を得ている場合は、AIO特化の改修だけを切り出す意味がありますが、そうでなければ両方を同じ設計思想で進めるほうが効率的です。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">「AI検索で1位を保証」という提案をどう判断すべきですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+「AI検索で1位を保証」という提案をどう判断すべきですか？
+</summary><div class="article-faq__body">
 <p>AI検索の回答は同じ質問でも生成のたびに変動し、順位という概念自体が従来の検索と異なります。保証できる性質のものではないため、この種の提案は根拠を確認してください。何をもって1位とするのか、どのプロンプトで、どの頻度で計測するのかを聞けば、実態のある指標かどうかが判別できます。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">費用相場はどのくらいを見ておけばよいですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+費用相場はどのくらいを見ておけばよいですか？
+</summary><div class="article-faq__body">
 <p>支援範囲によって大きく変わります。構造化データの実装や既存記事の改修といったスポット対応であれば数十万円規模、記事制作を含む継続支援では月額15万円から50万円程度が一つの目安です。詳しくはAIO対策（LLMO）の費用相場の記事にまとめています。金額より、その費用で毎月何本・何時間の作業が発生するのかを確認してください。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">社内に担当者がいなくても依頼できますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+社内に担当者がいなくても依頼できますか？
+</summary><div class="article-faq__body">
 <p>依頼自体は可能です。ただし、自社の商品・サービスに関する一次情報を提供できる方は最低1名必要です。AI検索に引用されるコンテンツは、他所にない情報を含んでいるかが分かれ目になるため、外部だけで完結させると一般論の記事になりがちです。月に数時間、取材に応じられる方を確保できるかを目安にしてください。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">契約期間はどのくらいが妥当でしょうか。</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+契約期間はどのくらいが妥当でしょうか。
+</summary><div class="article-faq__body">
 <p>効果の判断には最低でも3〜6ヶ月が必要なため、その程度の期間を前提とした契約は合理的です。確認すべきは期間の長さより、その間に何を報告してもらえるかです。月次でどの指標を追い、何ヶ月目に何を評価するのかが決まっていない契約は、期間が短くても長くても判断ができません。</p>
 </div>
-</div>
+</details>
 </div><div class="article-related">
 <p style="font-size:15px;font-weight:800;margin:32px 0 12px;">あわせて読みたい</p>
 <ul style="list-style:none;padding:0;display:grid;gap:10px;">

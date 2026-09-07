@@ -32,6 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=3" rel="stylesheet"/>
 <style>
     .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
 
@@ -252,12 +253,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
     .sidebar-toc a:hover { color: var(--brand3); }
     .sidebar-cta {
-      background: var(--brand3);
+      background: linear-gradient(150deg, #1E6BFF, #0A2FA8);
       color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
     }
     .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
     .sidebar-cta a {
-      display: block; background: #fff; color: var(--brand1);
+      display: block; background: #fff; color: #0A2FA8;
       font-weight: 800; font-size: 13px; padding: 10px;
       border-radius: 999px; transition: .18s ease;
     }
@@ -628,45 +629,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="lnx-view">LnXの見解</h2>
 <p>キーワード選定は、AIに任せやすい工程だと思われがちです。実際に候補の洗い出しと分類はAIで大幅に短縮できます。ただし、<strong>「この語で来た人が自社の顧客になるか」の判断だけは、事業を知っている人間が持っていないと精度が出ません</strong>。ここを外すと、量産しても数字が動かない状態になります。</p>
 <p>LnXでは自社のオウンドメディアで、記事の構成設計から作成・入稿、SEOレポートまでをAIの定常タスクとして実装し、約3ヶ月で113記事を運用してきました。その結果として、生成AIからのインプレッションは約7倍、ページ表示回数は約7倍、問い合わせは約15倍、AIOスコアは91点という数字を得ています。この過程で分かったのは、<strong>作業をAIに寄せるほど、選定と判断の質がそのまま成果に出る</strong>ということでした。</p>
+<figure class="result-figure">
+<img alt="LnX自社オウンドメディアの記事一覧画面と、113記事・ページ表示回数約7倍・問い合わせ約15倍を示す数値パネルおよび表示回数の推移グラフ" loading="lazy" decoding="async" width="1600" height="1000" src="../../../assets/img/work22.webp"/>
+<figcaption><strong>約3ヶ月で113記事を入稿／ページ表示回数 約7倍／問い合わせ 約15倍</strong>。（LnX自社オウンドメディア「Web集客の実務ノウハウ」・2026年6月〜）記事構成の設計から本文生成・HTML入稿・内部リンク・sitemap.xml／llms.txtの更新までをAIの日次タスクとして定義し、キーワード選定と記事の狙い・一次情報の判断は人が担当しています。<span class="result-figure__source">出典：LnX合同会社 支援実績（<a href="https://lnx.co.jp/cases/seo-aio-owned-media/">事例詳細はこちら</a>）</span></figcaption>
+</figure>
+
 <p>記事を増やしているのに問い合わせが増えていないなら、原因は文章ではなくキーワードの一覧にある可能性が高いと考えています。何を書くかの判断と、書き続ける仕組みの両方をご相談いただけます。</p>
 <h2 id="faq">よくある質問</h2>
 <div class="article-faq">
-<div class="article-faq__item">
-<p class="article-faq__q">キーワード選定にはどのくらい時間をかけるべきですか？</p>
-<div class="article-faq__body">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+キーワード選定にはどのくらい時間をかけるべきですか？
+</summary><div class="article-faq__body">
 <p>初回は1〜2日を見込んでください。記事を10本書く前に丸1日使うほうが、結果的に短期間で成果が出ます。一度作れば半年から1年は使えるため、記事1本あたりに換算すると小さな工数です。以降は四半期に一度、Search Consoleの実績を見て並べ替える運用で足ります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">検索ボリュームが0の語は書かないほうがよいですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+検索ボリュームが0の語は書かないほうがよいですか？
+</summary><div class="article-faq__body">
 <p>商談や問い合わせで実際に出た質問であれば、書く価値があります。ツールの数値は広告出稿データに基づく推計で、少数の語は0や区間表示になることがあります。中小企業のBtoBでは、月間10〜100程度の語に商談につながる検索が集中する傾向があります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">1記事にキーワードは何語まで入れてよいですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+1記事にキーワードは何語まで入れてよいですか？
+</summary><div class="article-faq__body">
 <p>メインキーワードは1語、サブキーワードは3〜5語までを目安にしてください。それ以上詰め込むと、記事の主題がぼやけて検索意図とずれます。入りきらない語は別記事に分け、内部リンクでつなぐほうが結果が出ます。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">競合が強い語は完全に避けるべきですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+競合が強い語は完全に避けるべきですか？
+</summary><div class="article-faq__body">
 <p>最初の10本では避けてください。ただし完全に捨てる必要はありません。サイトの評価が積み上がってから、関連する記事を複数本そろえた状態で改めて挑むほうが順位が付きやすくなります。着手順の問題であって、対象外という意味ではありません。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">AI検索を意識すると、従来のキーワード選定は不要になりますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+AI検索を意識すると、従来のキーワード選定は不要になりますか？
+</summary><div class="article-faq__body">
 <p>不要にはなりません。検索エンジン経由の流入は依然として大きく、単語ベースの検索も残っています。実務では、従来どおり選定したキーワードに対して、見込み客が生成AIに投げそうな質問文を紐づけ、見出しやFAQに反映する上乗せの形が扱いやすくなります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">キーワード選定をAIに任せてもよいですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+キーワード選定をAIに任せてもよいですか？
+</summary><div class="article-faq__body">
 <p>候補の洗い出しと検索意図の分類までは、AIを使って大幅に短縮できます。一方で「その語で来た人が自社の顧客になるか」の判断は、事業と商談の実態を知っている人が担う必要があります。ここを外すと、記事を増やしても問い合わせが増えない状態になります。</p>
 </div>
-</div>
+</details>
 </div><div class="article-related">
 <p style="font-size:15px;font-weight:800;margin:32px 0 12px;">あわせて読みたい</p>
 <ul style="list-style:none;padding:0;display:grid;gap:10px;">

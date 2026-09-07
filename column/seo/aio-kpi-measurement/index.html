@@ -32,6 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=3" rel="stylesheet"/>
 <style>
     .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
 
@@ -252,12 +253,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
     .sidebar-toc a:hover { color: var(--brand3); }
     .sidebar-cta {
-      background: var(--brand3);
+      background: linear-gradient(150deg, #1E6BFF, #0A2FA8);
       color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
     }
     .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
     .sidebar-cta a {
-      display: block; background: #fff; color: var(--brand1);
+      display: block; background: #fff; color: #0A2FA8;
       font-weight: 800; font-size: 13px; padding: 10px;
       border-radius: 999px; transition: .18s ease;
     }
@@ -572,45 +573,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="lnx-view">LnXの見解</h2>
 <p>AIO対策の効果測定について、現時点で業界標準と呼べる手法は確立していません。だからこそ、<strong>自社で計測して数字を持っている会社かどうか</strong>が、支援先を選ぶ際の判断材料になると考えています。</p>
 <p>LnXでは自社のオウンドメディアで、記事の構成設計から作成・入稿、SEOレポートまでをAIの定常タスクとして実装し、約3ヶ月で113記事を運用してきました。その結果として、<strong>生成AIからのインプレッションは約7倍、ページ表示回数は約7倍、問い合わせは約15倍、AIOスコアは91点</strong>という数字を得ています。</p>
+<figure class="result-figure">
+<img alt="LnX自社オウンドメディアの記事一覧画面と、113記事・ページ表示回数約7倍・問い合わせ約15倍を示す数値パネルおよび表示回数の推移グラフ" loading="lazy" decoding="async" width="1600" height="1000" src="../../../assets/img/work22.webp"/>
+<figcaption><strong>約3ヶ月で113記事を入稿／ページ表示回数 約7倍／問い合わせ 約15倍</strong>。（LnX自社オウンドメディア「Web集客の実務ノウハウ」・2026年6月〜）記事構成の設計から本文生成・HTML入稿・内部リンク・sitemap.xml／llms.txtの更新までをAIの日次タスクとして定義し、キーワード選定と記事の狙い・一次情報の判断は人が担当しています。<span class="result-figure__source">出典：LnX合同会社 支援実績（<a href="https://lnx.co.jp/cases/seo-aio-owned-media/">事例詳細はこちら</a>）</span></figcaption>
+</figure>
+
 <p>この過程で分かったのは、指標を増やすより<strong>同じ条件で毎月測り続けることのほうが難しく、かつ価値がある</strong>ということです。凝った仕組みを最初から作ろうとすると、3ヶ月目には誰も更新しなくなります。月1時間で回る形から始めて、必要になってから拡張してください。</p>
 <h2 id="faq">よくある質問</h2>
 <div class="article-faq">
-<div class="article-faq__item">
-<p class="article-faq__q">引用率は何%あれば良いのでしょうか。</p>
-<div class="article-faq__body">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+引用率は何%あれば良いのでしょうか。
+</summary><div class="article-faq__body">
 <p>業種と競合状況によって基準が変わるため、絶対値の目標を先に置くことは推奨しません。計測を始めた月の数値を基準点とし、そこからの推移を見てください。実務上は、自社の主要テーマ20〜30プロンプトで計測を始め、3ヶ月後に基準点を上回っているかを見る進め方が扱いやすくなります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">AI経由の流入はGA4で正確に取れますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+AI経由の流入はGA4で正確に取れますか？
+</summary><div class="article-faq__body">
 <p>完全には取れません。ChatGPTなどからのリンク経由の流入は参照元として記録されますが、AIの回答を読んで社名を覚え、後から検索して訪問した場合は直接流入や指名検索に混ざります。そのためAI経由流入だけを追うのではなく、指名検索数と併せて見る必要があります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">計測用のプロンプトはどう決めればよいですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+計測用のプロンプトはどう決めればよいですか？
+</summary><div class="article-faq__body">
 <p>実際に見込み客が生成AIに入力しそうな質問を、そのままの形で並べます。検索キーワードのような単語の羅列ではなく、「中小企業が広告代理店を選ぶときの基準は」といった文章形式にしてください。自社サービスの検討段階で出る質問を10問、比較段階で出る質問を10問といった配分にすると、ファネル別の状況が見えます。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">毎月手動で計測するのは負担が大きいのですが。</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+毎月手動で計測するのは負担が大きいのですが。
+</summary><div class="article-faq__body">
 <p>最初は20プロンプト程度に絞り、月1回の計測から始めることを推奨します。1プロンプトあたり1分程度なので、20問で30分前後です。この規模で3ヶ月続けて傾向が掴めてから、ツール導入や本数の拡大を検討するほうが、費用対効果の判断がしやすくなります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">AI Overviewsが表示されているかは、どう確認しますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+AI Overviewsが表示されているかは、どう確認しますか？
+</summary><div class="article-faq__body">
 <p>Search Consoleでは現時点でAI Overviews専用の指標は提供されていません。実務では、対象クエリで実際に検索してAI Overviewsの有無を目視で記録する方法と、表示回数が伸びているのにクリックが伸びないクエリを抽出して候補を絞る方法を併用します。後者は近似的な推定であり、断定はできません。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">効果測定はいつから始めるべきですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+効果測定はいつから始めるべきですか？
+</summary><div class="article-faq__body">
 <p>施策を始める前です。着手前の数値がないと、変化があったかどうかを判断できません。最低限、Search Consoleの表示回数・クリック数・平均掲載順位と、GA4のセッション数・参照元の内訳を、着手前の1ヶ月分は記録しておいてください。</p>
 </div>
-</div>
+</details>
 </div><div class="article-related">
 <p style="font-size:15px;font-weight:800;margin:32px 0 12px;">あわせて読みたい</p>
 <ul style="list-style:none;padding:0;display:grid;gap:10px;">

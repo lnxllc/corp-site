@@ -32,6 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=3" rel="stylesheet"/>
 <style>
     .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
 
@@ -252,12 +253,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
     .sidebar-toc a:hover { color: var(--brand3); }
     .sidebar-cta {
-      background: var(--brand3);
+      background: linear-gradient(150deg, #1E6BFF, #0A2FA8);
       color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
     }
     .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
     .sidebar-cta a {
-      display: block; background: #fff; color: var(--brand1);
+      display: block; background: #fff; color: #0A2FA8;
       font-weight: 800; font-size: 13px; padding: 10px;
       border-radius: 999px; transition: .18s ease;
     }
@@ -572,45 +573,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="lnx-view">LnXの見解</h2>
 <p>内製か外注かというご相談をいただくとき、最初にお伝えしているのは<strong>「一次情報だけは社内に残してください」</strong>ということです。それ以外の工程は状況次第でどちらにも寄せられますが、ここを外に出すと差別化の根拠がなくなります。</p>
 <p>LnXでは自社のオウンドメディアで、記事構成の設計から作成・入稿、SEOレポートまでをAIの定常タスクとして実装しました。約3ヶ月で113記事を入稿し、<strong>ページ表示回数は約7倍、問い合わせは約15倍、生成AIからのインプレッションは約7倍、AIOスコアは91点</strong>に達しています。</p>
+<figure class="result-figure">
+<img alt="LnX自社オウンドメディアの記事一覧画面と、113記事・ページ表示回数約7倍・問い合わせ約15倍を示す数値パネルおよび表示回数の推移グラフ" loading="lazy" decoding="async" width="1600" height="1000" src="../../../assets/img/work22.webp"/>
+<figcaption><strong>約3ヶ月で113記事を入稿／ページ表示回数 約7倍／問い合わせ 約15倍</strong>。（LnX自社オウンドメディア「Web集客の実務ノウハウ」・2026年6月〜）記事構成の設計から本文生成・HTML入稿・内部リンク・sitemap.xml／llms.txtの更新までをAIの日次タスクとして定義し、キーワード選定と記事の狙い・一次情報の判断は人が担当しています。<span class="result-figure__source">出典：LnX合同会社 支援実績（<a href="https://lnx.co.jp/cases/seo-aio-owned-media/">事例詳細はこちら</a>）</span></figcaption>
+</figure>
+
 <p>この規模を少人数で回せた理由は、書く速度を上げたからではなく、<strong>判断が必要な工程と作業の工程を分離した</strong>ことにあります。テーマ設計と一次情報の付加には人が時間を使い、構成の量産と入稿はAIに任せる。この切り分けができると、内製のコスト構造は根本から変わります。ご相談いただければ、この切り分けの設計からお手伝いしています。</p>
 <h2 id="faq">よくある質問</h2>
 <div class="article-faq">
-<div class="article-faq__item">
-<p class="article-faq__q">社内にライターがいなくても内製できますか？</p>
-<div class="article-faq__body">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+社内にライターがいなくても内製できますか？
+</summary><div class="article-faq__body">
 <p>記事を書く工程だけを外注し、それ以外を内製する形であれば可能です。むしろ重要なのは、書き手より一次情報を出せる人がいるかどうかです。自社の商品・サービス・事例について答えられる方が月に数時間確保できれば、執筆自体は外部に任せても質は保てます。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">生成AIを使えば記事制作は内製できますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+生成AIを使えば記事制作は内製できますか？
+</summary><div class="article-faq__body">
 <p>下書きの作成までは十分に可能です。ただし、そのまま公開できる品質にはなりません。AIが生成した文章には、事実確認が必要な記述と、自社の一次情報に置き換えるべき一般論が必ず含まれます。この確認と差し替えの工程を誰が担うかを決めないまま導入すると、量は増えても成果につながらない記事が積み上がります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">構造化データの実装は社内でできますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+構造化データの実装は社内でできますか？
+</summary><div class="article-faq__body">
 <p>サイトの作りによります。WordPressでプラグインを使える環境であれば、設定だけで基本的なスキーマは実装できます。静的サイトや独自CMSの場合は、テンプレートへの実装作業が必要になるため、一度は外部の手を借りるほうが早いことが多くなります。ただし一度実装すれば以降は自動化できるため、継続的な外注は不要です。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">外注から内製に切り替えるタイミングはいつですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+外注から内製に切り替えるタイミングはいつですか？
+</summary><div class="article-faq__body">
 <p>記事の型が固まり、月次の運用フローが回っていることが条件です。具体的には、キーワード選定から公開までの手順が文書化されていて、担当が変わっても再現できる状態を指します。この状態になる前に切り替えると、外注時の品質を維持できずに更新が止まります。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">内製したほうがコストは安くなりますか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+内製したほうがコストは安くなりますか？
+</summary><div class="article-faq__body">
 <p>記事本数が少ないうちは外注のほうが安くなります。専任者を1名置くコストは月45万円前後になるため、月4本程度の記事制作であれば外注のほうが安価です。内製が有利になるのは、記事以外の業務（LP改善、広告連携、データ分析）も同じ人が担える場合です。</p>
 </div>
-</div>
-<div class="article-faq__item">
-<p class="article-faq__q">更新が止まってしまった場合、どう立て直せばよいですか？</p>
-<div class="article-faq__body">
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+更新が止まってしまった場合、どう立て直せばよいですか？
+</summary><div class="article-faq__body">
 <p>本数の目標を下げることから始めてください。月8本で止まったなら月2本に落とします。止まる原因の多くは、目標本数が体制に対して過大なことです。詳しくはオウンドメディアの更新が止まる5つの原因の記事にまとめています。</p>
 </div>
-</div>
+</details>
 </div><div class="article-related">
 <p style="font-size:15px;font-weight:800;margin:32px 0 12px;">あわせて読みたい</p>
 <ul style="list-style:none;padding:0;display:grid;gap:10px;">
