@@ -247,6 +247,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/ai-katsuyo/ai-image-video-workflow/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/column/web-marketing/clinic-dental-web-marketing/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -985,6 +991,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/analytics/ga4-gtm-setup-outsourcing/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/cases/</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1299,6 +1311,12 @@
   <url>
     <loc>https://lnx.co.jp/column/seo/aio-estimate-comparison/</loc>
     <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/seo/owned-media-contract-terms/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
