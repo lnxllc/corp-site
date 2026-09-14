@@ -16,17 +16,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="canonical" href="https://lnx.co.jp/column/web-marketing/ad-agency-no-result-causes/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="広告代理店に任せているのに成果が出ない7つの原因｜LnX合同会社"/>
-<meta property="og:description" content="広告代理店に運用を任せているのに成果が出ない主な原因を7つ整理。代理店側の問題だけでなく、発注側が見直すべきポイントも含めて実務視点で解説します。"/>
+<meta property="og:description" content="広告代理店に任せているのに成果が出ない原因を7つ整理。さらに、表示回数・CTR・CVR・商談化率のどの段階で詰まっているかを数値で切り分ける手順と、見直しを判断すべき時間軸まで、発注側の視点でまとめました。"/>
 <meta property="og:url" content="https://lnx.co.jp/column/web-marketing/ad-agency-no-result-causes/"/>
 <meta property="og:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
 <meta property="og:site_name" content="LnX合同会社"/>
 <meta property="og:locale" content="ja_JP"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="広告代理店に任せているのに成果が出ない7つの原因｜LnX合同会社"/>
-<meta name="twitter:description" content="広告代理店に運用を任せているのに成果が出ない主な原因を7つ整理。代理店側の問題だけでなく、発注側が見直すべきポイントも含めて実務視点で解説します。"/>
+<meta name="twitter:description" content="広告代理店に任せているのに成果が出ない原因を7つ整理。さらに、表示回数・CTR・CVR・商談化率のどの段階で詰まっているかを数値で切り分ける手順と、見直しを判断すべき時間軸まで、発注側の視点でまとめました。"/>
 <meta name="twitter:image" content="https://lnx.co.jp/assets/img/hero.webp"/>
 
-<meta content="広告代理店に運用を任せているのに成果が出ない主な原因を7つ整理。代理店側の問題だけでなく、発注側が見直すべきポイントも含めて実務視点で解説します。" name="description"/>
+<meta content="広告代理店に任せているのに成果が出ない原因を7つ整理。さらに、表示回数・CTR・CVR・商談化率のどの段階で詰まっているかを数値で切り分ける手順と、見直しを判断すべき時間軸まで、発注側の視点でまとめました。" name="description"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -105,13 +105,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
     .sidebar-cta a:hover { transform: translateY(-2px); }
     @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } }
-    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .article-body { padding: 36px 0 56px; } }
+        .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .article-body { padding: 36px 0 56px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } }
   </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "広告代理店に任せているのに成果が出ない7つの原因",
-  "description": "広告代理店に運用を任せているのに成果が出ない主な原因を7つ整理。代理店側の問題だけでなく、発注側が見直すべきポイントも含めて実務視点で解説します。",
+  "description": "広告代理店に任せているのに成果が出ない原因を7つ整理。さらに、表示回数・CTR・CVR・商談化率のどの段階で詰まっているかを数値で切り分ける手順と、見直しを判断すべき時間軸まで、発注側の視点でまとめました。",
   "url": "https://lnx.co.jp/column/web-marketing/ad-agency-no-result-causes/",
   "datePublished": "2026-07-20",
   "dateModified": "2026-07-20",
@@ -218,6 +235,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><a href="#reasons">成果が出ない7つの原因</a></li>
 <li><a href="#check">代理店を変える前に確認すべきこと</a></li>
 <li><a href="#second-opinion">セカンドオピニオンという選択肢</a></li>
+<li><a href="#diagnose">どこで詰まっているかを数値で切り分ける</a></li>
+<li><a href="#timeline">いつ判断すべきか</a></li>
 <li><a href="#lnx-view">LnXの見解</a></li>
 <li><a href="#faq">よくある質問</a></li>
 </ol>
@@ -284,6 +303,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="article-cta__title" style="color: var(--txt); margin-bottom: 10px; font-size: clamp(18px, 2.2vw, 24px); text-align: center !important;">成果が出ない原因、外部の目線で整理しませんか</div>
 <a class="article-cta__btn" href="https://lnx.co.jp/marke-comon-lp/#contact">マーケティング顧問を無料相談する</a>
 </div>
+<h2 id="diagnose">どこで詰まっているかを数値で切り分ける</h2>
+<p>原因を7つ挙げましたが、実際には「どれが自社に当てはまるのか」が分からないまま代理店と話すことになりがちです。切り分けは、広告費が売上に変わるまでを段階に分け、どこで数字が落ちているかを見るのが最短です。</p>
+<table class="cost-table">
+<tr><th>段階</th><th>見る数値</th><th>ここが低いときに疑うこと</th></tr>
+<tr><td>① 配信されているか</td><td>表示回数、インプレッションシェア</td><td>予算不足、入札が弱い、ターゲットが狭すぎる</td></tr>
+<tr><td>② 興味を持たれているか</td><td>CTR</td><td>クリエイティブと見出し、ターゲットと訴求のズレ</td></tr>
+<tr><td>③ 読まれているか</td><td>直帰率、滞在時間</td><td>広告とLPの内容の食い違い、表示速度、スマホ表示</td></tr>
+<tr><td>④ 申し込まれているか</td><td>CVR、フォーム離脱率</td><td>オファーが弱い、入力項目が多い、価格の不安</td></tr>
+<tr><td>⑤ 商談になっているか</td><td>商談化率、一次接触までの時間</td><td>リードの質、社内のフォロー体制</td></tr>
+<tr><td>⑥ 受注しているか</td><td>受注率、平均単価</td><td>商材の競争力、価格設定、営業プロセス</td></tr>
+</table>
+<p>おおまかに、①②は代理店の責任範囲、③④は共同、⑤⑥は発注側の領域です。<strong>代理店を変えて改善するのは基本的に①②だけ</strong>で、③以降がボトルネックの場合は代理店を変えても数字は動きません。逆に、①②が明らかに悪いのに改善提案が出てこないのであれば、代理店側の問題として扱ってよい根拠になります。</p>
+<p>この切り分けは、フォーム到達やコンバージョンが正しく計測できていることが前提です。計測が怪しい状態で議論すると、事実ではなく印象の言い合いになります。計測の確認は<a href="https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/">GA4でコンバージョンが計測されない原因</a>を参照してください。</p>
+
+<h2 id="timeline">いつ判断すべきか</h2>
+<p>「成果が出ない」と感じ始めてから、どのくらいで見直しを判断するのか。この時間軸をあらかじめ決めておくと、感情的な判断を避けられます。</p>
+<ul>
+<li><strong>配信開始から1か月以内：</strong>まだ判断しません。自動入札には学習期間があり、この間は数値が安定しません</li>
+<li><strong>2〜3か月：</strong>①②（表示回数とCTR）が改善しているかを見ます。ここが動いていないのは問題です</li>
+<li><strong>3〜6か月：</strong>CPAと商談化率で評価します。あわせて、改善の打ち手が毎月出てきているかも確認します</li>
+<li><strong>6か月以降：</strong>改善が頭打ちで、かつ新しい提案も出てこない場合は、体制の見直しを検討する段階です</li>
+</ul>
+<p>ただし検討期間の長いBtoB商材では、受注までのリードタイムを足して考える必要があります。検討期間が3か月かかる商材で、広告開始から3か月で受注がないことを理由に判断するのは早すぎます。</p>
+
 <h2 id="lnx-view">LnXの見解</h2>
 <p>「代理店に任せているのに成果が出ない」というご相談を受ける際、実際に診断してみると<strong>代理店の運用自体は大きな問題がなく、LPや計測環境、目標設定に原因があるケース</strong>も少なくありません。代理店だけを変えても、これらの根本原因が解決されなければ同じ結果になってしまいます。</p>
 <p>LnXでは、広告運用そのものだけでなく、LP・計測・戦略設計までを横断して診断することで、「本当の原因がどこにあるか」を切り分けるところから支援しています。</p>
@@ -329,6 +372,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><a href="#reasons">7つの原因</a></li>
 <li><a href="#check">変える前に確認すべきこと</a></li>
 <li><a href="#second-opinion">セカンドオピニオン</a></li>
+<li><a href="#diagnose">数値での切り分け</a></li>
+<li><a href="#timeline">判断の時間軸</a></li>
 <li><a href="#lnx-view">LnXの見解</a></li>
 <li><a href="#faq">よくある質問</a></li>
 </ol>
