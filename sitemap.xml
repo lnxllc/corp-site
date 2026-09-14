@@ -781,6 +781,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/sns-marketing/sns-agency-selection-guide/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/column/lp-improvement/lp-price-display-decision/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -1321,6 +1327,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/web-marketing/marketing-monthly-review-meeting/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/column/advertising/ad-agency-contract-check/</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -1329,6 +1341,12 @@
   <url>
     <loc>https://lnx.co.jp/column/advertising/ad-agency-performance-guarantee/</loc>
     <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/advertising/small-budget-ad-outsourcing/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
