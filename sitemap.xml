@@ -919,6 +919,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lnx.co.jp/column/lp-improvement/lp-value-proposition-design/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lnx.co.jp/column/analytics/meta-ads-ga4-gap/</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -1407,6 +1413,12 @@
   <url>
     <loc>https://lnx.co.jp/column/seo/owned-media-client-workload/</loc>
     <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/seo/seika-hoshu-vs-monthly-fixed-seo/</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
