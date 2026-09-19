@@ -1,10 +1,19 @@
 /* ===========================================================
    ad-lp/style.css — 広告運用代行LP
    トンマナは ../assets/css/styles.css の :root をそのまま使用
-   （--brand1 violet / --brand2 cyan / --brand3 blue / --radius 等）
+   （配色は site-v4.css の --v4-* トークンに揃えている）
    =========================================================== */
 
-:root{ --ad-grad: linear-gradient(135deg, var(--brand1), var(--brand3)); }
+/* 他ページ（site-v4）と同じ青のグラデーション。
+   以前は --brand1(violet) → --brand3(blue) の紫系だった。
+
+   定義先は :root ではなく body。
+   --v4-* は site-v4.css で body.site-v4 に定義されているので、
+   :root（=html）で var(--v4-brand) を参照すると未定義→値が無効になり、
+   background-clip:text を使っている「まるっと」や実績の数字、CTAボタンが
+   丸ごと透明になる。 */
+:root{ --ad-grad: linear-gradient(135deg, #1E6BFF, #0A2FA8); }  /* フォールバック */
+body{ --ad-grad: linear-gradient(135deg, var(--v4-brand), var(--v4-brand-d)); }
 
 /* ===========================================================
    スクロール土台の補正（このページ限定）
@@ -19,28 +28,28 @@ html, body{ height:auto; min-height:100%; }
 /* 共通ボタン（既存ad-lpと同じクラス名を維持） */
 .btn-main{
   display:inline-flex; align-items:center; justify-content:center;
-  background:var(--brand3); color:#fff;
+  background:var(--v4-brand); color:#fff;
   padding:17px 46px; border-radius:999px;
   font-weight:800; font-size:16px; letter-spacing:.02em;
   border:none; cursor:pointer;
-  box-shadow:0 18px 44px rgba(37,99,235,.28);
+  box-shadow:0 18px 44px rgba(30,107,255,.28);
   transition:.2s ease;
 }
-.btn-main:hover{ background:#1d4ed8; transform:translateY(-2px); }
+.btn-main:hover{ background:var(--v4-brand-d); transform:translateY(-2px); }
 .btn-main:disabled{ opacity:.6; cursor:default; transform:none; }
 
 .btn-main-sm{
   display:inline-flex; align-items:center; justify-content:center;
-  background:var(--brand3); color:#fff;
+  background:var(--v4-brand); color:#fff;
   padding:10px 22px; border-radius:999px;
   font-size:14px; font-weight:800; white-space:nowrap; flex-shrink:0;
   transition:.2s ease;
 }
-.btn-main-sm:hover{ background:#1d4ed8; }
+.btn-main-sm:hover{ background:var(--v4-brand-d); }
 
 .btn-white-sm{
   display:inline-flex; align-items:center; justify-content:center;
-  background:#fff; color:var(--brand3);
+  background:#fff; color:var(--v4-brand);
   padding:15px 34px; border-radius:999px;
   font-weight:800; font-size:15px; white-space:nowrap;
   box-shadow:0 14px 34px rgba(15,23,42,.16);
@@ -62,33 +71,36 @@ html, body{ height:auto; min-height:100%; }
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  min-height:min(760px, 84vh);
   display:flex; align-items:center;
-  padding:76px 0 84px;
-  background:#f7f8fc;
-}
-.ad-hero__media{ position:absolute; inset:0; z-index:-3; display:block; }
-.ad-hero__media img{
-  width:100%; height:100%; object-fit:cover; object-position:72% 50%;
-}
-/* 文字を確実に読ませるための幕（画像に依存せず 4.5:1 以上を確保） */
-.ad-hero__wash{
-  position:absolute; inset:0; z-index:-2; display:block; pointer-events:none;
-  background:linear-gradient(100deg,
-    #ffffff 0%,
-    rgba(255,255,255,.985) 30%,
-    rgba(255,255,255,.90) 44%,
-    rgba(255,255,255,.42) 58%,
-    rgba(255,255,255,0) 72%);
+  padding:64px 0 72px;
+  /* 写真を敷く方式をやめ、他ページと同じ v4 の淡い青い面にする。 */
+  background:linear-gradient(180deg, #fff 0%, var(--v4-pale-2) 42%, var(--v4-pale) 100%);
 }
 .ad-hero__glow{
   position:absolute; inset:0; z-index:-1; display:block; pointer-events:none;
   background:
-    radial-gradient(760px 460px at -6% 24%, rgba(124,58,237,.13), transparent 64%),
-    radial-gradient(620px 420px at 18% 96%, rgba(37,99,235,.10), transparent 62%);
+    radial-gradient(760px 460px at -6% 24%, rgba(30,107,255,.10), transparent 64%),
+    radial-gradient(620px 420px at 82% 4%, rgba(53,192,242,.16), transparent 62%);
 }
-.ad-hero__inner{ position:relative; width:100%; }
-.ad-hero__copy{ max-width:700px; }
+/* コピー左・イラスト右の2カラム。
+   差し替えた ad-hero.webp は画面全体に絵柄があるアイソメトリ図なので、
+   cover で敷くと上下が大きく欠け、白幕をかけると左半分が消える。
+   縮めずに丸ごと見せるためにグリッドへ変更した。 */
+.ad-hero__inner{
+  position:relative; width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+  align-items:center;
+  gap:clamp(20px, 3.2vw, 52px);
+}
+.ad-hero__copy{ max-width:640px; }
+.ad-hero__art{ margin:0; min-width:0; }
+/* height:auto は必須。無いと img の height 属性がそのまま使われ、
+   幅だけ縮んで縦に伸びた画像になる。 */
+.ad-hero__art img{
+  width:100%; height:auto; display:block;
+  border-radius:var(--v4-r);
+}
 
 /* --- eyebrow --- */
 
@@ -102,7 +114,9 @@ html, body{ height:auto; min-height:100%; }
 }
 .ad-hero__l2{ display:block; font-weight:900; }
 .ad-hero__l2 strong{
-  font-size:clamp(38px, 4.7vw, 61px);
+  /* 2カラム化でコピー側が約600pxになったため、
+     61px のままだと「巻き取ります。」が折り返って崩れる。 */
+  font-size:clamp(30px, 3.3vw, 45px);
   font-weight:900; color:var(--txt);
   letter-spacing:-.03em;
 }
@@ -110,7 +124,7 @@ html, body{ height:auto; min-height:100%; }
 .ad-hero__mark{
   position:relative; display:inline-block;
   font-style:normal; font-weight:900;
-  font-size:clamp(38px, 4.7vw, 61px);
+  font-size:clamp(30px, 3.3vw, 45px);
   letter-spacing:-.03em;
   background:var(--ad-grad);
   -webkit-background-clip:text; background-clip:text; color:transparent;
@@ -120,7 +134,7 @@ html, body{ height:auto; min-height:100%; }
   content:""; position:absolute; z-index:-1;
   left:-.02em; right:-.02em; bottom:.1em; height:.26em;
   border-radius:.13em;
-  background:linear-gradient(90deg, rgba(124,58,237,.22), rgba(37,99,235,.20));
+  background:linear-gradient(90deg, rgba(53,192,242,.22), rgba(30,107,255,.20));
 }
 
 /* --- リード --- */
@@ -132,7 +146,7 @@ html, body{ height:auto; min-height:100%; }
 .ad-hero__lead b{
   color:var(--txt); font-weight:800;
   padding:0 .1em;
-  background:linear-gradient(transparent 58%, rgba(37,99,235,.20) 58%, rgba(124,58,237,.18) 100%);
+  background:linear-gradient(transparent 58%, rgba(30,107,255,.20) 58%, rgba(53,192,242,.18) 100%);
 }
 
 /* --- 実績スタッツ --- */
@@ -144,7 +158,7 @@ html, body{ height:auto; min-height:100%; }
   position:relative;
   background:rgba(255,255,255,.86);
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-  border:1px solid rgba(37,99,235,.16);
+  border:1px solid rgba(30,107,255,.16);
   border-radius:16px;
   box-shadow:0 10px 30px rgba(15,23,42,.07);
   padding:16px 14px 14px;
@@ -160,7 +174,7 @@ html, body{ height:auto; min-height:100%; }
   line-height:1.2; white-space:nowrap;
 }
 .ad-stat__num b{
-  font-size:clamp(26px, 2.9vw, 36px); font-weight:900; letter-spacing:-.03em;
+  font-size:clamp(23px, 2.2vw, 31px); font-weight:900; letter-spacing:-.03em;
   background:var(--ad-grad);
   -webkit-background-clip:text; background-clip:text; color:transparent;
   margin:0 1px;
@@ -172,7 +186,7 @@ html, body{ height:auto; min-height:100%; }
 .ad-hero__btn{
   gap:14px; padding:19px 40px; font-size:17px;
   background:var(--ad-grad);
-  box-shadow:0 20px 46px rgba(37,99,235,.34);
+  box-shadow:0 20px 46px rgba(30,107,255,.34);
 }
 .ad-hero__btn:hover{ background:var(--ad-grad); filter:brightness(1.06); }
 .ad-hero__arrow{
@@ -190,8 +204,8 @@ html, body{ height:auto; min-height:100%; }
   padding:15px 30px; border-radius:999px;
   background:rgba(255,255,255,.9);
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-  border:1.5px solid rgba(37,99,235,.32);
-  color:var(--brand3); font-weight:800; font-size:15px;
+  border:1.5px solid rgba(30,107,255,.32);
+  color:var(--v4-brand); font-weight:800; font-size:15px;
   box-shadow:0 10px 26px rgba(15,23,42,.10);
   transition:.2s ease;
 }
@@ -209,8 +223,8 @@ html, body{ height:auto; min-height:100%; }
 .ad-reasons, .ad-cases, .ad-scope, .ad-flow, .ad-price, .ad-faq, .ad-column{
   padding:78px 0;
 }
-.ad-scope, .ad-price{ background:linear-gradient(180deg, rgba(37,99,235,.045), rgba(6,182,212,.03)); }
-.ad-column{ background:#fafbfe; }
+.ad-scope, .ad-price{ background:linear-gradient(180deg, rgba(30,107,255,.045), rgba(53,192,242,.03)); }
+.ad-column{ background:var(--v4-pale-2); }
 
 /* ========== 選ばれる理由（画像つき・交互） ========== */
 .ad-reason{
@@ -239,7 +253,7 @@ html, body{ height:auto; min-height:100%; }
   width:72px; height:72px; border-radius:50%;
   background:var(--ad-grad);
   border:4px solid #fff;
-  box-shadow:0 14px 34px rgba(37,99,235,.32);
+  box-shadow:0 14px 34px rgba(30,107,255,.32);
   color:#fff;
   font-size:26px; font-weight:900; font-style:italic; line-height:1.2;
   letter-spacing:-.02em;
@@ -250,7 +264,7 @@ html, body{ height:auto; min-height:100%; }
 .ad-reason__label{
   margin:0 0 10px;
   font-size:11.5px; font-weight:800; letter-spacing:.2em;
-  color:var(--brand3);
+  color:var(--v4-brand);
 }
 .ad-reason__body h3{
   margin:0 0 16px;
@@ -266,11 +280,11 @@ html, body{ height:auto; min-height:100%; }
   -webkit-overflow-scrolling:touch;
   scroll-snap-type:x mandatory;
   padding:6px 0 24px;
-  scrollbar-color:rgba(37,99,235,.5) rgba(15,23,42,.07);
+  scrollbar-color:rgba(30,107,255,.5) rgba(15,23,42,.07);
 }
 .ad-cases__scroller::-webkit-scrollbar{ height:8px; }
 .ad-cases__scroller::-webkit-scrollbar-track{ background:rgba(15,23,42,.07); border-radius:999px; }
-.ad-cases__scroller::-webkit-scrollbar-thumb{ background:rgba(37,99,235,.5); border-radius:999px; }
+.ad-cases__scroller::-webkit-scrollbar-thumb{ background:rgba(30,107,255,.5); border-radius:999px; }
 
 .ad-cases__track{
   display:flex; gap:22px;
@@ -329,7 +343,7 @@ html, body{ height:auto; min-height:100%; }
   display:flex; align-items:baseline; justify-content:space-between; gap:10px;
   padding:14px 22px 12px;
   border-bottom:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(37,99,235,.05), rgba(255,255,255,0));
+  background:linear-gradient(180deg, rgba(30,107,255,.05), rgba(255,255,255,0));
 }
 .ad-card__num{
   margin:0; font-size:13px; font-weight:800; color:var(--soft);
@@ -349,8 +363,8 @@ html, body{ height:auto; min-height:100%; }
 .ad-card__body{ padding:20px 22px 22px; display:flex; flex-direction:column; flex:1; }
 .ad-card__tags{ display:flex; flex-wrap:wrap; gap:6px; margin:0 0 12px; }
 .ad-card__tags span{
-  font-size:11px; font-weight:700; color:var(--brand3);
-  background:rgba(37,99,235,.09);
+  font-size:11px; font-weight:700; color:var(--v4-brand);
+  background:rgba(30,107,255,.09);
   border-radius:999px; padding:4px 11px; line-height:1.5;
 }
 .ad-card__title{ margin:0 0 10px; font-size:16px; font-weight:800; line-height:1.65; }
@@ -404,8 +418,8 @@ html, body{ height:auto; min-height:100%; }
 .ad-flow__step + .ad-flow__step::before{
   content:""; position:absolute; left:-11px; top:50%;
   width:8px; height:8px; margin-top:-4px;
-  border-top:2px solid rgba(37,99,235,.45);
-  border-right:2px solid rgba(37,99,235,.45);
+  border-top:2px solid rgba(30,107,255,.45);
+  border-right:2px solid rgba(30,107,255,.45);
   transform:rotate(45deg);
 }
 .ad-flow__num{
@@ -429,7 +443,7 @@ html, body{ height:auto; min-height:100%; }
 .ad-price__label{
   display:inline-block; margin:0 0 18px;
   font-size:12px; font-weight:800; letter-spacing:.14em;
-  color:var(--brand3); background:rgba(37,99,235,.09);
+  color:var(--v4-brand); background:rgba(30,107,255,.09);
   border-radius:999px; padding:6px 18px;
 }
 .ad-price__main{ margin:0 0 18px; }
@@ -481,12 +495,12 @@ html, body{ height:auto; min-height:100%; }
 .ad-faq__item summary::-webkit-details-marker{ display:none; }
 .ad-faq__item summary::before{
   content:"Q"; position:absolute; left:22px; top:19px;
-  font-size:16px; font-weight:900; font-style:italic; color:var(--brand3);
+  font-size:16px; font-weight:900; font-style:italic; color:var(--v4-brand);
 }
 .ad-faq__item summary::after{
   content:""; position:absolute; right:24px; top:26px;
   width:9px; height:9px;
-  border-right:2px solid var(--brand3); border-bottom:2px solid var(--brand3);
+  border-right:2px solid var(--v4-brand); border-bottom:2px solid var(--v4-brand);
   transform:rotate(45deg); transition:transform .2s ease;
 }
 .ad-faq__item[open] summary::after{ transform:rotate(-135deg); top:30px; }
@@ -497,7 +511,7 @@ html, body{ height:auto; min-height:100%; }
 }
 .ad-faq__item p::before{
   content:"A"; position:absolute; left:22px; top:0;
-  font-size:16px; font-weight:900; font-style:italic; color:var(--brand1);
+  font-size:16px; font-weight:900; font-style:italic; color:var(--v4-brand-d);
 }
 
 /* ========== コラム ========== */
@@ -513,9 +527,9 @@ html, body{ height:auto; min-height:100%; }
   font-size:14px; font-weight:700; line-height:1.75;
   transition:.2s ease;
 }
-.ad-column__list li a:hover{ transform:translateY(-2px); border-color:rgba(37,99,235,.3); }
+.ad-column__list li a:hover{ transform:translateY(-2px); border-color:rgba(30,107,255,.3); }
 .ad-column__more{ margin:26px 0 0; text-align:center; }
-.ad-column__more a{ font-size:14px; font-weight:800; color:var(--brand3); }
+.ad-column__more a{ font-size:14px; font-weight:800; color:var(--v4-brand); }
 
 /* ========== スマホ固定CTA ========== */
 .ad-fab{
@@ -533,7 +547,7 @@ html, body{ height:auto; min-height:100%; }
   background:var(--ad-grad); color:#fff;
   padding:15px 20px; border-radius:999px;
   font-weight:800; font-size:15px;
-  box-shadow:0 12px 30px rgba(37,99,235,.3);
+  box-shadow:0 12px 30px rgba(30,107,255,.3);
 }
 
 /* ========== フッター内リンク色 ========== */
@@ -543,13 +557,11 @@ html, body{ height:auto; min-height:100%; }
    Responsive
    =========================================================== */
 @media (max-width:1024px){
-  .ad-hero{ min-height:0; padding:64px 0 70px; }
+  .ad-hero{ padding:56px 0 62px; }
+  /* 約960pxを割るとコピー側が狭すぎるので縦積みに戻す */
+  .ad-hero__inner{ grid-template-columns:1fr; gap:34px; }
   .ad-hero__copy{ max-width:none; }
-  .ad-hero__wash{
-    background:linear-gradient(104deg,
-      #ffffff 0%, rgba(255,255,255,.985) 40%, rgba(255,255,255,.88) 58%,
-      rgba(255,255,255,.40) 76%, rgba(255,255,255,.05) 100%);
-  }
+  .ad-hero__art{ max-width:620px; margin-inline:auto; }
   .ad-reason{ gap:0 34px; }
   .ad-br-pc{ display:none; }
 
@@ -564,18 +576,10 @@ html, body{ height:auto; min-height:100%; }
   .ad-br-pc{ display:none; }
 
   /* --- HERO（スマホ）：写真を下に、文字を上に --- */
-  .ad-hero{ min-height:0; padding:44px 0 96px; align-items:flex-start; }
-  .ad-hero__media img{ object-position:50% 62%; }
-  .ad-hero__wash{
-    background:linear-gradient(180deg,
-      rgba(255,255,255,.99) 0%,
-      rgba(255,255,255,.975) 46%,
-      rgba(255,255,255,.90) 66%,
-      rgba(255,255,255,.55) 82%,
-      rgba(255,255,255,.18) 100%);
-  }
+  .ad-hero{ padding:36px 0 72px; align-items:flex-start; }
+  .ad-hero__inner{ gap:26px; }
   .ad-hero__glow{
-    background:radial-gradient(520px 380px at 88% 2%, rgba(124,58,237,.14), transparent 62%);
+    background:radial-gradient(520px 380px at 88% 2%, rgba(53,192,242,.16), transparent 62%);
   }
   .ad-hero__title{ margin-bottom:20px; padding-top:0; line-height:1.3; }
   .ad-hero__l1{ font-size:clamp(16px, 4.6vw, 21px); margin-bottom:4px; }
@@ -653,3 +657,27 @@ html, body{ height:auto; min-height:100%; }
 
 /* 旧アンカー(#contact)互換用 */
 .ad-anchor{ display:block; height:0; overflow:hidden; }
+
+
+/* ===========================================================
+   共通CSS（styles.css）由来の紫を、このページだけ青に戻す
+   共通CSS自体を書き換えると他LP（aio-lp 等）にも波及するので、
+   ad-lp しか読まないこのファイルで上書きする。
+   =========================================================== */
+.v3-pain__arrow{ background:var(--ad-grad); }
+.v3-solution__main span{
+  background:var(--ad-grad);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.lp-form{
+  background:linear-gradient(160deg, rgba(30,107,255,.07), rgba(53,192,242,.09));
+}
+.lp-form-card .q input:focus,
+.lp-form-card .q select:focus,
+.lp-form-card .q textarea:focus{
+  outline-color:rgba(30,107,255,.25); border-color:var(--v4-brand);
+}
+.lp-form-card .chip.on{ background:var(--v4-brand); }
+.lp-form-card .form-result{
+  border-color:rgba(30,107,255,.3); background:rgba(30,107,255,.06);
+}

@@ -1718,3 +1718,22 @@ body.col-v4 .article-card__arrow,
 body.col-v4 .column-section__more{color:var(--v4-brand)!important}
 body.col-v4 .article-card__tag{background:rgba(30,107,255,.10)!important;color:var(--v4-brand-d)!important;font-family:var(--v4-mono)!important}
 body.col-v4 .column-section__title{color:var(--v4-ink)!important;letter-spacing:-.02em!important}
+
+
+/* =========================================================
+   15. ロゴ帯の c13（白抜きロゴ）
+   c13.webp は「白 100%（255,255,255）＋透過」の1色ロゴで、
+   ロゴ帯の面は rgba(255,255,255,.92) の白。そのまま置くと見えない。
+   invert(1) で白→黒に反転させ、c12 と同じ黒1色ロゴとして並べる。
+   （色を作り変えているのではなく、1色ロゴの濃色版を出しているだけ）
+
+   打ち消しに注意：
+     body.top-v4 .clients img{filter:none}  … (0,2,2)
+     .lp-clients img{filter:none}           … (0,1,1)
+   が先にあるので、クラス3つ分の詳細度で確実に勝たせる。
+   ========================================================= */
+.clients .logo-marquee__group img[src$="c13.webp"],
+.lp-clients .logo-marquee__group img[src$="c13.webp"]{
+  filter:invert(1);
+  opacity:.82;      /* 他の黒ロゴ（c12）と黒の濃さを揃える */
+}
