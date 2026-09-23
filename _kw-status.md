@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-09-22
+- 最終更新：2026-09-23
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -16,7 +16,7 @@
 
 ## スプシA：AIO/LLMO/SEO顕在KW（全45行）
 
-作成済み17／要リライト0／一部カバー8／未着手20
+作成済み18／要リライト0／一部カバー8／未着手19
 
 | 行 | 検索キーワード | ステータス | 該当記事 | メモ |
 |---|---|---|---|---|
@@ -24,13 +24,13 @@
 | 2 | AIO対策 会社 | 作成済み | column/seo/aio-company-selection/ | 2026-09-21におすすめ6選へリライト |
 | 3 | AIO対策 おすすめ | 作成済み | column/seo/aio-company-selection/ | 同記事がおすすめ形式でカバー |
 | 4 | AIO対策 比較 | 作成済み | column/seo/aio-service-comparison/ | 2026-09-22に「おすすめ5社」へリライト。社名比較表＋個別セクション追加 |
-| 5 | AIO対策 コンサル | 未着手 | | コンサルの支援内容を主題にした記事なし |
+| 5 | AIO対策 コンサル | 作成済み | column/seo/aio-consulting-guide/ | 2026-09-23に新規作成。支援内容6項目・コンサルと運用代行の境界線・費用相場3パターン・内製外注判断軸 |
 | 6 | AIO対策 運用代行 | 未着手 | | AIO運用代行を主題にした記事なし |
 | 7 | AIO対策 外注 | 作成済み | column/seo/aio-inhouse-vs-outsource/ | |
 | 8 | AIO対策 費用 | 作成済み | column/seo/aio-llmo-cost/ | |
 | 9 | AIO対策 相場 | 作成済み | column/seo/aio-llmo-cost/ | |
 | 10 | AIO対策 料金 | 作成済み | column/seo/aio-llmo-cost/ | |
-| 11 | AIO コンサル 費用 | 一部カバー | column/seo/aio-llmo-cost/ | コンサル費用に特化した章がない |
+| 11 | AIO コンサル 費用 | 一部カバー | column/seo/aio-llmo-cost/ | 2026-09-23作成のaio-consulting-guideで費用相場3パターンの概要はカバーしたが、コンサル費用に特化した深掘り記事はまだ無い |
 | 12 | LLMO対策 | 作成済み | column/web-marketing/ai-search-llmo-guide/ | |
 | 13 | LLMO対策 会社 | 作成済み | column/seo/aio-company-selection/ | |
 | 14 | LLMO対策 おすすめ | 作成済み | column/seo/aio-company-selection/ | |
@@ -70,7 +70,7 @@
 
 ## スプシB：広告運用代行KW（全39行）
 
-作成済み11／要リライト1／一部カバー12／未着手15
+作成済み12／要リライト0／一部カバー12／未着手15
 
 | 行 | 検索キーワード | ステータス | 該当記事 | メモ |
 |---|---|---|---|---|
@@ -78,7 +78,7 @@
 | 2 | 広告運用代行 おすすめ | 作成済み | column/advertising/ad-agency-recommended/ | 2026-09-22に新規作成。社名比較表6社＋個別セクション |
 | 3 | 広告運用代行 会社 | 作成済み | column/advertising/ad-agency-recommended/ | 実名リストの検索意図は新記事でカバー。comparison-guideは「とは」軸で維持 |
 | 4 | 広告運用代行 比較 | 作成済み | column/advertising/ad-agency-recommended/ | 同上。費用・最低予算・対応媒体・支援範囲の4軸比較表あり |
-| 5 | 広告運用代行 安い | 要リライト | column/advertising/cheap-ad-agency-comparison/ | 社名比較表の追加が必要 |
+| 5 | 広告運用代行 安い | 作成済み | column/advertising/cheap-ad-agency-comparison/ | 2026-09-23にリライト。実在6社（グラタス・アドバインド・カルテット・ジャックアンドビーンズ・クロスバズ・LnX）の社名比較表＋個別セクションを追加 |
 | 6 | 広告運用代行 少額 | 作成済み | column/advertising/small-budget-ad-outsourcing/ | |
 | 7 | 広告運用代行 中小企業 | 一部カバー | column/advertising/small-budget-ad-outsourcing/ | 予算軸。中小企業軸では未 |
 | 8 | 広告運用代行 費用 | 一部カバー | column/advertising/ad-agency-comparison-guide/ | 料金体系の章あり。費用単独記事は未 |
@@ -116,13 +116,13 @@
 
 ---
 
-## 次に着手する順番（2026-09-22時点）
+## 次に着手する順番（2026-09-23時点）
 
-1. スプシA 5行目「AIO対策 コンサル」（新規・コンサルの支援内容を主題に）
-2. スプシB 5行目「広告運用代行 安い」（cheap-ad-agency-comparison をリライト・社名比較表を追加）
-3. スプシA 6行目「AIO対策 運用代行」（新規）
-4. スプシB 7行目「広告運用代行 中小企業」（新規・中小企業軸）
-5. スプシA 11行目「AIO コンサル 費用」（新規またはaio-llmo-costに章追加）
+1. スプシA 6行目「AIO対策 運用代行」（新規）
+2. スプシB 7行目「広告運用代行 中小企業」（新規・中小企業軸）
+3. スプシA 11行目「AIO コンサル 費用」（新規・コンサル費用に特化した深掘り記事、またはaio-llmo-costに章追加）
+4. スプシB 8〜10行目「広告運用代行 費用／相場／手数料」（新規、またはad-agency-comparison-guideの費用章を独立記事化）
+5. スプシA 16〜17行目「LLMO対策 コンサル／運用代行」（新規。aio-consulting-guideと同型でLLMO表記に寄せる）
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
