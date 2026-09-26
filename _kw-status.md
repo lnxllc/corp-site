@@ -70,7 +70,7 @@
 
 ## スプシB：広告運用代行KW（全39行）
 
-作成済み13／要リライト0／一部カバー12／未着手14
+作成済み24／要リライト0／一部カバー6／未着手9
 
 | 行 | 検索キーワード | ステータス | 該当記事 | メモ |
 |---|---|---|---|---|
@@ -81,22 +81,22 @@
 | 5 | 広告運用代行 安い | 作成済み | column/advertising/cheap-ad-agency-comparison/ | 2026-09-23にリライト。実在6社（グラタス・アドバインド・カルテット・ジャックアンドビーンズ・クロスバズ・LnX）の社名比較表＋個別セクションを追加 |
 | 6 | 広告運用代行 少額 | 作成済み | column/advertising/small-budget-ad-outsourcing/ | |
 | 7 | 広告運用代行 中小企業 | 作成済み | column/advertising/ad-agency-sme-recommended/ | 2026-09-26に新規作成。ASUE・ヴァンテージマネジメント・グラッドキューブ・ジオコード・プライムナンバーズ＋LnXの社名比較表＋個別セクション |
-| 8 | 広告運用代行 費用 | 一部カバー | column/advertising/ad-agency-comparison-guide/ | 料金体系の章あり。費用単独記事は未 |
-| 9 | 広告運用代行 相場 | 一部カバー | column/advertising/ad-agency-comparison-guide/ | |
-| 10 | 広告運用代行 手数料 | 一部カバー | column/advertising/ad-agency-comparison-guide/ | 手数料を主題にした記事は未 |
+| 8 | 広告運用代行 費用 | 作成済み | column/advertising/ad-agency-cost-guide/ | 2026-09-26に新規作成（費用/相場/手数料をまとめて消化） |
+| 9 | 広告運用代行 相場 | 作成済み | column/advertising/ad-agency-cost-guide/ | 2026-09-26に新規作成（8行目と同記事） |
+| 10 | 広告運用代行 手数料 | 作成済み | column/advertising/ad-agency-cost-guide/ | 2026-09-26に新規作成（8行目と同記事） |
 | 11 | 広告運用 外注 費用 | 作成済み | column/advertising/ad-inhouse-breakeven/ | |
 | 12 | 広告運用代行 選び方 | 作成済み | column/web-marketing/how-to-choose-ad-agency/ | |
 | 13 | 広告運用代行 メリット デメリット | 作成済み | column/advertising/outsource-ad-merit-demerit/ | |
-| 14 | 広告代理店 運用 手数料 | 一部カバー | column/advertising/ad-agency-comparison-guide/ | |
+| 14 | 広告代理店 運用 手数料 | 作成済み | column/advertising/ad-agency-cost-guide/ | 2026-09-26に新規作成。8〜10行目と同記事で消化（同一検索意図と判断） |
 | 15 | 広告運用 代理店 乗り換え | 作成済み | column/advertising/ad-agency-switch-timing/ | |
-| 16 | Web広告 運用代行 | 一部カバー | column/advertising/ad-agency-comparison-guide/ | Web広告表記の記事は未 |
-| 17 | Web広告 運用代行 おすすめ | 未着手 | | 社名リスト必要 |
+| 16 | Web広告 運用代行 | 作成済み | column/advertising/web-ad-outsourcing-guide/ | 2026-09-26に新規作成。対応媒体の全体像・業務範囲6項目・依頼の流れ |
+| 17 | Web広告 運用代行 おすすめ | 作成済み | column/advertising/web-ad-agency-recommended/ | 2026-09-26に新規作成。アユダンテ・オプト・CyberACE・ソウルドアウト・デジタリフト＋LnXの社名比較表 |
 | 18 | Web広告 運用代行 費用 | 一部カバー | column/advertising/ad-agency-comparison-guide/ | |
-| 19 | Web広告 代理店 おすすめ | 一部カバー | column/web-marketing/how-to-choose-ad-agency/ | 既存は選び方。社名リストは未 |
-| 20 | インターネット広告 代理店 おすすめ | 未着手 | | 社名リスト必要 |
-| 21 | Meta広告 運用代行 | 一部カバー | column/advertising/meta-ads-cost/ | 費用軸のみ。支援範囲は未 |
-| 22 | Meta広告 運用代行 おすすめ | 未着手 | | 社名リスト必要 |
-| 23 | Meta広告 代理店 おすすめ | 未着手 | | 社名リスト必要 |
+| 19 | Web広告 代理店 おすすめ | 作成済み | column/advertising/web-ad-agency-recommended/ | 2026-09-26に新規作成。17行目と同記事（表記違いのみ） |
+| 20 | インターネット広告 代理店 おすすめ | 作成済み | column/advertising/web-ad-agency-recommended/ | 2026-09-26に新規作成。17行目と同記事（表記違いのみ） |
+| 21 | Meta広告 運用代行 | 作成済み | column/advertising/meta-ads-outsourcing-scope/ | 2026-09-26に新規作成。業務範囲6項目・依頼の流れ・自社運用との判断軸 |
+| 22 | Meta広告 運用代行 おすすめ | 作成済み | column/advertising/meta-ads-agency-recommended/ | 2026-09-26に新規作成。アノマリーマーケティング・Shinker・デジマール・バリューエージェント・Five＋LnXの社名比較表 |
+| 23 | Meta広告 代理店 おすすめ | 作成済み | column/advertising/meta-ads-agency-recommended/ | 2026-09-26に新規作成。22行目と同記事（表記違いのみ） |
 | 24 | Meta広告 運用代行 費用 | 作成済み | column/advertising/meta-ads-cost/ | |
 | 25 | Instagram広告 運用代行 | 一部カバー | column/advertising/instagram-ads-cost/ | 費用軸のみ。運用代行は未 |
 | 26 | Facebook広告 運用代行 | 未着手 | | |
@@ -116,13 +116,16 @@
 
 ---
 
-## 次に着手する順番（2026-09-26時点）
+## 次に着手する順番（2026-09-26 追加分反映後）
 
 1. スプシA 11行目「AIO コンサル 費用」（一部カバー・新規：コンサル費用に特化した深掘り記事、またはaio-llmo-costに章追加）
-2. スプシB 8〜10行目「広告運用代行 費用／相場／手数料」（一部カバー・新規、またはad-agency-comparison-guideの費用章を独立記事化）
+2. スプシB 18行目「Web広告 運用代行 費用」（一部カバー。8〜10行目のad-agency-cost-guideに統合済みと見なせるか要確認。統合できなければ新規）
 3. スプシA 16〜17行目「LLMO対策 コンサル／運用代行」（未着手・新規。aio-consulting-guideと同型でLLMO表記に寄せる）
-4. スプシB 14行目「広告代理店 運用 手数料」（一部カバー・新規：手数料に特化した記事）
-5. スプシA 21〜25行目「GEO対策」系（未着手・新規。GEO表記での言い換え記事群）
+4. スプシB 25行目「Instagram広告 運用代行」（一部カバー・新規：instagram-ads-costは費用軸のみのため支援範囲記事を検討）
+5. スプシB 27行目「リスティング広告 運用代行」（一部カバー・新規：listing-ads-costは費用軸のみのため支援範囲記事を検討）
+6. スプシA 21〜25行目「GEO対策」系（未着手・新規。GEO表記での言い換え記事群）
+7. スプシB 28〜29行目「リスティング広告 運用代行／代理店 おすすめ」（未着手・新規：社名比較記事）
+8. スプシB 32〜34行目「Google広告 運用代行」系（未着手・新規）
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
