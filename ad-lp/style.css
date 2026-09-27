@@ -23,7 +23,7 @@ body{ --ad-grad: linear-gradient(135deg, var(--v4-brand), var(--v4-brand-d)); }
    このページでは body を通常フローに戻す。
    =========================================================== */
 html, body{ height:auto; min-height:100%; }
-#cta, #contact, #cases{ scroll-margin-top:76px; }
+#cta, #contact, #cases, #price{ scroll-margin-top:76px; }
 
 /* 共通ボタン（既存ad-lpと同じクラス名を維持） */
 .btn-main{
@@ -759,4 +759,20 @@ html, body{ height:auto; min-height:100%; }
     margin-top:0!important;
     padding:12px 0!important;
   }
+}
+
+
+/* 理由ブロック内の注記（手数料の下限・制作費の別建てなど） */
+.ad-reason__note{
+  display:block;
+  margin-top:12px;
+  font-size:12px;
+  font-weight:600;
+  line-height:1.85;
+  color:var(--soft);
+}
+.ad-reason__note a{
+  color:var(--v4-brand);
+  text-decoration:underline;
+  text-underline-offset:2px;
 }
