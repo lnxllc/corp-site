@@ -107,13 +107,27 @@ html, body{ height:auto; min-height:100%; }
 /* --- 見出し（大小の強弱） --- */
 /* --- FV：月3社限定バッジ --- */
 .ad-hero__limit{
+  position:relative;
   display:inline-flex; align-items:center; gap:10px;
-  margin:0 0 16px; padding:7px 18px 7px 8px;
-  border-radius:999px;
+  margin:0 0 22px; padding:8px 18px 8px 8px;
+  border-radius:16px;
   background:#fff;
-  border:1px solid rgba(30,107,255,.26);
-  box-shadow:0 8px 22px rgba(30,107,255,.14);
+  border:1px solid rgba(30,107,255,.28);
+  box-shadow:0 10px 26px rgba(30,107,255,.16);
   font-size:13px; font-weight:800; color:var(--txt); line-height:1.5;
+}
+/* 吹き出しのしっぽ（外＝枠線色 → 内＝白 の順で重ねる） */
+.ad-hero__limit::before{
+  content:""; position:absolute; left:28px; top:100%;
+  width:19px; height:11px;
+  background:rgba(30,107,255,.28);
+  clip-path:polygon(0 0, 100% 0, 16% 100%);
+}
+.ad-hero__limit::after{
+  content:""; position:absolute; left:29px; top:calc(100% - 1.5px);
+  width:17px; height:10px;
+  background:#fff;
+  clip-path:polygon(0 0, 100% 0, 16% 100%);
 }
 .ad-hero__limit span{
   display:inline-block; padding:4px 12px;
@@ -176,11 +190,43 @@ html, body{ height:auto; min-height:100%; }
 }
 
 /* --- 実績スタッツ --- */
-.ad-hero__stats--2{ grid-template-columns:repeat(2, 1fr)!important; max-width:460px; }
 .ad-hero__stats{
   display:grid; grid-template-columns:repeat(3, 1fr);
   gap:10px; margin:0 0 22px; padding:0; list-style:none;
 }
+
+/* 月桂冠タイプ（2枚構成）。カードの装飾を外して月桂樹で囲う。
+   display は !important を付けない（SPの display:none を残すため） */
+.ad-hero__stats--2{
+  display:flex; flex-wrap:wrap; align-items:flex-start;
+  gap:clamp(16px, 2.6vw, 36px);
+  grid-template-columns:none; max-width:none;
+  margin:0 0 26px;
+}
+.ad-hero__stats--2 .ad-stat{
+  background:none; border:0; box-shadow:none;
+  -webkit-backdrop-filter:none; backdrop-filter:none;
+  padding:0;
+  display:flex; align-items:center; gap:2px;
+}
+.ad-hero__stats--2 .ad-stat::before{ display:none; }
+.ad-stat__laurel{
+  flex:0 0 auto;
+  width:clamp(19px, 1.8vw, 25px); height:auto;
+  color:rgba(30,107,255,.42);
+}
+.ad-stat__laurel--r{ transform:scaleX(-1); }
+.ad-stat__body{ display:block; text-align:center; padding:0 2px; }
+.ad-hero__stats--2 .ad-stat__cap{
+  display:block; margin:0 0 1px;
+  font-size:clamp(10.5px, .95vw, 12px); font-weight:800;
+  color:var(--v4-ink-2); line-height:1.45; letter-spacing:.01em;
+}
+.ad-hero__stats--2 .ad-stat__num{
+  display:block; margin:0; font-size:12px;
+}
+.ad-hero__stats--2 .ad-stat__num b{ font-size:clamp(26px, 2.5vw, 34px); }
+.ad-hero__stats--2 .ad-stat__num i{ font-size:14px; }
 .ad-stat{
   position:relative;
   background:rgba(255,255,255,.86);
