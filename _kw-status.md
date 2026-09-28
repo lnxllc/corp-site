@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-09-26（運用方式変更：スプシBは完了、スプシ①に切替）
+- 最終更新：2026-09-28（スプシA 11・16・17行目を消化）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -16,7 +16,7 @@
 
 ## スプシA：AIO/LLMO/SEO顕在KW（全45行）
 
-作成済み19／要リライト0／一部カバー8／未着手18
+作成済み22／要リライト0／一部カバー7／未着手16
 
 | 行 | 検索キーワード | ステータス | 該当記事 | メモ |
 |---|---|---|---|---|
@@ -30,13 +30,13 @@
 | 8 | AIO対策 費用 | 作成済み | column/seo/aio-llmo-cost/ | |
 | 9 | AIO対策 相場 | 作成済み | column/seo/aio-llmo-cost/ | |
 | 10 | AIO対策 料金 | 作成済み | column/seo/aio-llmo-cost/ | |
-| 11 | AIO コンサル 費用 | 一部カバー | column/seo/aio-llmo-cost/ | 2026-09-23作成のaio-consulting-guideで費用相場3パターンの概要はカバーしたが、コンサル費用に特化した深掘り記事はまだ無い |
+| 11 | AIO コンサル 費用 | 作成済み | column/seo/aio-consulting-cost/ | 2026-09-28に新規作成。料金体系3パターン・費用に含まれる範囲/含まれない範囲・費用が変わる5要因・自社運用の人件費試算との比較・見積書内訳と6か月総額比較・発注先チェックリスト |
 | 12 | LLMO対策 | 作成済み | column/web-marketing/ai-search-llmo-guide/ | |
 | 13 | LLMO対策 会社 | 作成済み | column/seo/aio-company-selection/ | |
 | 14 | LLMO対策 おすすめ | 作成済み | column/seo/aio-company-selection/ | |
 | 15 | LLMO対策 比較 | 作成済み | column/seo/aio-service-comparison/ | 同記事がコンサル型／ツール型／運用型の3分類＋社名比較表でカバー |
-| 16 | LLMO対策 コンサル | 未着手 | | |
-| 17 | LLMO対策 運用代行 | 未着手 | | |
+| 16 | LLMO対策 コンサル | 作成済み | column/seo/aio-company-selection/ | 2026-09-28判定：上位競合記事も「LLMO対策会社おすすめ19社比較」等の社名比較型で、成果物は会社の実名リスト。既存のaio-company-selection（AIO・LLMO対策会社おすすめ6選、H1にLLMOを明記）が同じ検索意図をカバー済みと判断しスキップ |
+| 17 | LLMO対策 運用代行 | 作成済み | column/seo/llmo-unyo-daiko-guide/ | 2026-09-28に新規作成。aio-unyo-daiko-guideのLLMO版。業務範囲7項目・導入フロー・料金体系3パターン・「引用」と「言及」の2軸での効果測定・向いている会社/向かない会社 |
 | 18 | LLMO対策 外注 | 作成済み | column/seo/aio-inhouse-vs-outsource/ | |
 | 19 | LLMO対策 費用 | 作成済み | column/seo/aio-llmo-cost/ | |
 | 20 | LLMO対策 相場 | 作成済み | column/seo/aio-llmo-cost/ | |
@@ -170,13 +170,16 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 
 スプシ①（全30行）の判定・対応が完了。新規作成7本（リスティング・SNS・Google・Instagram・TikTok・Facebook・LINE・Yahoo・フリーランスvs代理店＝実質9記事、うち一部は同一記事で複数行を消化）、作業不要19行（既存記事でカバー済み、またはシート側で優先度C＝中長期/参考扱いに指定）。
 
-## 次に着手する順番（2026-09-26 スプシ①全30行完了後）
+## 次に着手する順番（2026-09-28 スプシA 11・16・17行目消化後）
 
-スプシ①（広告運用代行シート）は全30行の判定・対応が完了。次回はスプシAの残タスクを上から順に対応する。
+2026-09-28に、スプシA 11行目「AIOコンサル費用」（新規：column/seo/aio-consulting-cost/）と17行目「LLMO対策運用代行」（新規：column/seo/llmo-unyo-daiko-guide/）の2本を作成。16行目「LLMO対策コンサル」は既存のaio-company-selection（AIO・LLMO対策会社おすすめ6選）が同じ会社比較の検索意図をカバー済みと判定しスキップ（作成済み扱いに更新）。
 
-1. スプシA 11行目「AIO コンサル 費用」（一部カバー・新規：コンサル費用に特化した深掘り記事、またはaio-llmo-costに章追加）
-2. スプシA 16〜17行目「LLMO対策 コンサル／運用代行」（未着手・新規。aio-consulting-guideと同型でLLMO表記に寄せる）
-3. スプシA 21〜25行目「GEO対策」系（未着手・新規。GEO表記での言い換え記事群）
+次回は21行目「GEO対策」からスプシAの残タスクを上から順に対応する。
+
+1. スプシA 21行目「GEO対策」（未着手・新規：GEO表記でのAIO/LLMO対策解説記事。aio-taisaku-guideのGEO言い換え版）
+2. スプシA 22〜23行目「GEO対策 会社／おすすめ」（未着手・新規：KWに「会社/おすすめ」を含むため6.3ルールの社名比較表が必須。実在他社の調査が必要）
+3. スプシA 24〜25行目「GEO対策 コンサル／費用」（未着手・新規）
+4. その後、27・30・34・35・37・38行目（一部カバー：AI検索最適化／AI検索対策費用／ChatGPT引用対策／ChatGPTおすすめ表示会社／Google AIモード対策／AIO LLMO違い）の深掘り記事を検討
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
