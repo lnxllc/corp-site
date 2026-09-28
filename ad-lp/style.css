@@ -13,7 +13,11 @@
    background-clip:text を使っている「まるっと」や実績の数字、CTAボタンが
    丸ごと透明になる。 */
 :root{ --ad-grad: linear-gradient(135deg, #1E6BFF, #0A2FA8); }  /* フォールバック */
-body{ --ad-grad: linear-gradient(135deg, var(--v4-brand), var(--v4-brand-d)); }
+body{
+  --ad-grad: linear-gradient(135deg, var(--v4-brand), var(--v4-brand-d));
+  --ad-gold: #C8A23C;
+  --ad-gold-d: #9C7A1E;
+}
 
 /* ===========================================================
    スクロール土台の補正（このページ限定）
@@ -106,8 +110,20 @@ html, body{ height:auto; min-height:100%; }
 
 /* --- 見出し（大小の強弱） --- */
 /* --- FV：月3社限定バッジ --- */
+@keyframes adLimitBob{
+  0%, 100%{ transform:translateY(0); }
+  50%     { transform:translateY(-5px); }
+}
+/* タグから波紋が広がる */
+@keyframes adLimitPulse{
+  0%  { box-shadow:0 0 0 0 rgba(30,107,255,.45); }
+  70% { box-shadow:0 0 0 11px rgba(30,107,255,0); }
+  100%{ box-shadow:0 0 0 0 rgba(30,107,255,0); }
+}
 .ad-hero__limit{
   position:relative;
+  animation:adLimitBob 2.8s ease-in-out infinite;
+  will-change:transform;
   display:inline-flex; align-items:center; gap:10px;
   margin:0 0 22px; padding:8px 18px 8px 8px;
   border-radius:16px;
@@ -131,6 +147,7 @@ html, body{ height:auto; min-height:100%; }
 }
 .ad-hero__limit span{
   display:inline-block; padding:4px 12px;
+  animation:adLimitPulse 2.8s ease-out infinite;
   border-radius:999px;
   background:var(--ad-grad); color:#fff;
   font-size:12px; font-weight:800; letter-spacing:.04em;
@@ -213,7 +230,7 @@ html, body{ height:auto; min-height:100%; }
 .ad-stat__laurel{
   flex:0 0 auto;
   width:clamp(19px, 1.8vw, 25px); height:auto;
-  color:rgba(30,107,255,.42);
+  color:var(--ad-gold);
 }
 .ad-stat__laurel--r{ transform:scaleX(-1); }
 .ad-stat__body{ display:block; text-align:center; padding:0 2px; }
@@ -758,6 +775,7 @@ html, body{ height:auto; min-height:100%; }
 
 @media (prefers-reduced-motion: reduce){
   .ad-card, .ad-fab, .ad-column__list li a, .btn-main, .btn-white-sm{ transition:none; }
+  .ad-hero__limit, .ad-hero__limit span{ animation:none; }
 }
 
 /* 旧アンカー(#contact)互換用 */
