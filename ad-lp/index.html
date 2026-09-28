@@ -36,7 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="../assets/css/styles.css?v=2">
   <!-- 全ページ共通の見た目（段階1）。この1行を消せば元に戻る -->
   <link rel="stylesheet" href="../assets/css/site-v4.css?v=3">
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -356,25 +356,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============ 0円制作イメージ ============ -->
 <section id="lp-sample" class="ad-sample">
   <div class="container">
+
+    <div class="ad-camp">
+      <p class="ad-camp__label">キャンペーン実施中！</p>
+      <p class="ad-camp__main">
+        <span class="ad-camp__limit">月<b>3</b>社限定</span>
+        <span class="ad-camp__free">LP制作費<strong>0<small>円</small></strong></span>
+      </p>
+      <p class="ad-camp__note">広告運用をご契約の方が対象です（最低契約6ヶ月）。枠が埋まり次第、翌月のご案内となります。</p>
+    </div>
+
     <div class="ad-head">
       <p class="v3-eyebrow">LP SAMPLE</p>
       <h2 class="sec-title">0円で制作するLPのイメージ</h2>
-      <p class="sec-lead">構成・コピー・写真・デザイン・スマホ対応・問い合わせ導線まで。<br class="ad-br-pc">広告の受け皿として必要なものを、ひと通り揃えてお渡しします。</p>
+      <p class="sec-lead">構成・コピー・写真・デザイン・問い合わせ導線まで。<br class="ad-br-pc">広告の受け皿として必要なものを、ひと通り揃えてお渡しします。</p>
     </div>
 
     <div class="ad-sample__list">
-      <article class="ad-sample__item">
-        <div class="ad-sample__stage">
-          <div class="ad-sample__pc" aria-label="PC表示のイメージ（枠内をスクロールできます）">
-            <div class="ad-sample__bar" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="ad-sample__screen" tabindex="0">
-              <img src="img/sample-tk-pc.webp" alt="転職エージェントのLP制作イメージ（PC表示）。年収アップを訴求するファーストビューと、3つの質問に答えるスライド式の転職診断フォームで構成" width="800" height="940" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="ad-sample__sp" aria-label="スマホ表示のイメージ（枠内をスクロールできます）">
-            <div class="ad-sample__screen" tabindex="0">
-              <img src="img/sample-tk-sp.webp" alt="転職エージェントのLP制作イメージ（スマホ表示）" width="360" height="1338" loading="lazy" decoding="async">
-            </div>
+      <article class="ad-sample__card">
+        <div class="ad-sample__phone" aria-label="スマホ表示のイメージ（枠内をスクロールできます）">
+          <div class="ad-sample__screen" tabindex="0">
+            <img src="img/sample-tk-sp.webp" alt="転職エージェントのLP制作イメージ（スマホ表示）。年収アップを訴求するファーストビューと、3つの質問に答えるスライド式の転職診断フォームで構成" width="360" height="1338" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="ad-sample__body">
@@ -389,18 +391,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </article>
 
-      <article class="ad-sample__item ad-sample__item--rev">
-        <div class="ad-sample__stage">
-          <div class="ad-sample__pc" aria-label="PC表示のイメージ（枠内をスクロールできます）">
-            <div class="ad-sample__bar" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="ad-sample__screen" tabindex="0">
-              <img src="img/sample-amb-pc.webp" alt="人材サービスのLP制作イメージ（PC表示）。キャッチコピー、課題提起、比較表、報酬例、LINE登録への導線までを1ページで構成" width="800" height="4421" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="ad-sample__sp" aria-label="スマホ表示のイメージ（枠内をスクロールできます）">
-            <div class="ad-sample__screen" tabindex="0">
-              <img src="img/sample-amb-sp.webp" alt="人材サービスのLP制作イメージ（スマホ表示）" width="360" height="7751" loading="lazy" decoding="async">
-            </div>
+      <article class="ad-sample__card">
+        <div class="ad-sample__phone" aria-label="スマホ表示のイメージ（枠内をスクロールできます）">
+          <div class="ad-sample__screen" tabindex="0">
+            <img src="img/sample-amb-sp.webp" alt="人材サービスのLP制作イメージ（スマホ表示）。キャッチコピー、課題提起、比較表、報酬例、LINE登録への導線までを1ページで構成" width="360" height="7751" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="ad-sample__body">
@@ -415,7 +409,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </article>
     </div>
 
-    <p class="ad-sample__note">※枠内はスクロールしてご覧いただけます。掲載内容は制作イメージです。</p>
+    <p class="ad-sample__note">※画面内はスクロールしてご覧いただけます。掲載内容は制作イメージです。</p>
+
+    <div class="ad-sample__cta">
+      <a href="#cta" class="btn-main ad-hero__btn">
+        <span>0円制作の枠を相談する</span>
+        <i class="ad-hero__arrow" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 </section>
 
