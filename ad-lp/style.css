@@ -899,3 +899,126 @@ html, body{ height:auto; min-height:100%; }
   text-decoration:underline;
   text-underline-offset:2px;
 }
+
+/* --- FV：1段目に青の下線（2段目「少額」の下敷きマーカーは廃止） --- */
+.ad-hero__l1{
+  display:table;            /* 文字幅ぶんだけ下線を引くため */
+  position:relative;
+  padding-bottom:.28em;
+  margin-bottom:14px;
+}
+.ad-hero__l1::after{
+  content:""; position:absolute;
+  left:0; right:0; bottom:0; height:4px;
+  border-radius:2px;
+  background:var(--ad-grad);
+}
+.ad-hero__mark::before{ content:none; display:none; }
+@media (max-width:768px){
+  .ad-hero__l1{ margin-bottom:10px; padding-bottom:.3em; }
+  .ad-hero__l1::after{ height:3px; }
+}
+
+/* ===========================================================
+   0円制作イメージ（LPサンプル）
+   PC枠・スマホ枠の中を実際にスクロールして見られる
+   =========================================================== */
+.ad-sample{
+  padding:78px 0;
+  background:linear-gradient(180deg, rgba(30,107,255,.045), rgba(53,192,242,.03));
+}
+.ad-sample__list{ max-width:1080px; margin:0 auto; }
+.ad-sample__item{
+  display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+  gap:0 56px; align-items:center;
+  padding:40px 0;
+}
+.ad-sample__item + .ad-sample__item{ border-top:1px solid var(--line); }
+.ad-sample__item--rev .ad-sample__stage{ order:2; }
+.ad-sample__item--rev .ad-sample__body{ order:1; }
+
+/* 端末フレーム */
+.ad-sample__stage{ position:relative; padding:0 34px 34px 0; }
+.ad-sample__item--rev .ad-sample__stage{ padding:0 0 34px 34px; }
+
+.ad-sample__pc{
+  position:relative;
+  border-radius:14px; overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(10,47,168,.12);
+  box-shadow:0 22px 50px rgba(10,47,168,.14);
+}
+.ad-sample__bar{
+  display:flex; gap:6px; align-items:center;
+  height:28px; padding:0 12px;
+  background:#EEF2F8; border-bottom:1px solid rgba(10,47,168,.08);
+}
+.ad-sample__bar i{ width:9px; height:9px; border-radius:50%; background:#C9D2E2; }
+.ad-sample__pc .ad-sample__screen{ aspect-ratio:16/10.5; }
+
+.ad-sample__sp{
+  position:absolute; right:0; bottom:0;
+  width:30%; max-width:170px;
+  padding:7px; border-radius:26px;
+  background:#1B2233;
+  box-shadow:0 20px 44px rgba(10,20,50,.30);
+}
+.ad-sample__item--rev .ad-sample__sp{ right:auto; left:0; }
+.ad-sample__sp .ad-sample__screen{ aspect-ratio:9/19; border-radius:20px; background:#fff; }
+
+.ad-sample__screen{
+  overflow-y:auto; overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-width:thin; scrollbar-color:rgba(10,47,168,.25) transparent;
+}
+.ad-sample__screen::-webkit-scrollbar{ width:6px; }
+.ad-sample__screen::-webkit-scrollbar-thumb{ background:rgba(10,47,168,.25); border-radius:3px; }
+.ad-sample__screen:focus-visible{ outline:3px solid var(--v4-brand); outline-offset:-3px; }
+.ad-sample__screen img{ display:block; width:100%; height:auto; }
+
+/* テキスト */
+.ad-sample__tag{
+  display:inline-block; margin:0 0 12px;
+  padding:4px 12px; border-radius:999px;
+  background:rgba(30,107,255,.08);
+  color:var(--v4-brand-d);
+  font-size:12px; font-weight:800; letter-spacing:.04em;
+}
+.ad-sample__body h3{
+  margin:0 0 18px;
+  font-size:clamp(20px, 2vw, 25px); font-weight:900; line-height:1.45;
+  color:var(--txt);
+}
+.ad-sample__points{ list-style:none; margin:0; padding:0; }
+.ad-sample__points li{
+  position:relative; padding:0 0 0 26px;
+  font-size:15px; line-height:1.8; color:var(--txt);
+}
+.ad-sample__points li + li{ margin-top:10px; }
+.ad-sample__points li::before{
+  content:""; position:absolute; left:2px; top:.45em;
+  width:14px; height:8px;
+  border-left:3px solid var(--v4-brand); border-bottom:3px solid var(--v4-brand);
+  transform:rotate(-45deg);
+}
+.ad-sample__note{
+  margin:22px 0 0; text-align:center;
+  font-size:12.5px; color:var(--muted, #6B7280);
+}
+
+@media (max-width:900px){
+  .ad-sample{ padding:60px 0; }
+  .ad-sample__item,
+  .ad-sample__item--rev{ grid-template-columns:minmax(0,1fr); gap:26px 0; padding:32px 0; }
+  .ad-sample__item--rev .ad-sample__stage{ order:0; padding:0 34px 34px 0; }
+  .ad-sample__item--rev .ad-sample__body{ order:1; }
+  .ad-sample__item--rev .ad-sample__sp{ left:auto; right:0; }
+  .ad-sample__sp{ width:32%; max-width:150px; border-radius:22px; padding:6px; }
+  .ad-sample__sp .ad-sample__screen{ border-radius:17px; }
+  .ad-sample__points li{ font-size:14px; }
+}
+@media (max-width:480px){
+  .ad-sample__stage,
+  .ad-sample__item--rev .ad-sample__stage{ padding:0 18px 26px 0; }
+  .ad-sample__sp{ width:34%; }
+}
