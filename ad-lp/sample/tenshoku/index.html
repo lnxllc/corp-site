@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>営業職の転職支援｜あなたの営業力を正しく評価する会社へ</title>
+<meta name="description" content="営業職に特化した転職支援サービス。20代〜30代前半の営業職の方へ、経験を正しく評価する企業をご紹介します。相談無料・オンライン面談対応。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-shell">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo">SalesCareer<span class="logo-dot">.</span></a>
+    <nav class="header-nav">
+      <a href="#diagnosis" class="btn-small">無料面談を予約</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. ファーストビュー -->
+  <section class="hero">
+    <img src="images/fv-hero.webp" alt="年収アップ級の求人が多数。若手特化の転職エージェント。営業経験者が転職サポート、年収1,000万円超え事例あり、年収アップ率95%。" class="hero-visual">
+  </section>
+
+  <!-- 2. 転職診断フォーム（悩み・特徴・実績・料金・FAQをこの中に集約） -->
+  <section id="diagnosis" class="diagnosis">
+
+    <div class="container diag-head">
+      <p class="diag-eyebrow">かんたん60秒／転職診断</p>
+      <h2 class="diag-heading">3つの質問に答えるだけ。<br>あなたに合う求人の方向性が見えてきます。</h2>
+    </div>
+
+    <div class="diag-progress">
+      <div class="container diag-progress-inner">
+        <div class="progress-step is-active" data-step="1">
+          <span class="progress-num">1</span>
+          <span class="progress-label">気になるテーマ</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2">
+          <span class="progress-num">2</span>
+          <span class="progress-label">現在の状況</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3">
+          <span class="progress-num">3</span>
+          <span class="progress-label">ご連絡先</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="4">
+          <span class="progress-num">4</span>
+          <span class="progress-label">完了</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="diag-banner">
+      <div class="container">
+        <p class="diag-banner-text" id="diagBannerText">まずは、気になるテーマを教えてください</p>
+      </div>
+    </div>
+
+    <div class="diag-viewport" id="diagViewport">
+      <div class="diag-track" id="diagTrack">
+
+        <!-- SLIDE 1：悩み・興味テーマ -->
+        <div class="diag-slide" data-slide="1">
+          <div class="container">
+            <p class="diag-slide-note">※ひとつ選択すると次に進みます</p>
+            <div class="option-grid">
+              <button type="button" class="option-card" data-value="income">年収を上げたい</button>
+              <button type="button" class="option-card" data-value="unexperienced">未経験の業界・商材に挑戦したい</button>
+              <button type="button" class="option-card" data-value="worklife">残業や休日など働き方を変えたい</button>
+              <button type="button" class="option-card" data-value="career">このままのキャリアに不安がある</button>
+              <button type="button" class="option-card" data-value="consult">まずは相談だけしたい</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2：現在の状況 -->
+        <div class="diag-slide" data-slide="2">
+          <div class="container">
+            <div class="field-group">
+              <p class="field-label">営業経験年数</p>
+              <div class="chip-row" data-group="experience">
+                <button type="button" class="chip" data-value="none">未経験</button>
+                <button type="button" class="chip" data-value="1-3">1〜3年</button>
+                <button type="button" class="chip" data-value="3-5">3〜5年</button>
+                <button type="button" class="chip" data-value="5plus">5年以上</button>
+              </div>
+            </div>
+            <div class="field-group">
+              <p class="field-label">転職希望時期</p>
+              <div class="chip-row" data-group="timing">
+                <button type="button" class="chip" data-value="now">すぐにでも</button>
+                <button type="button" class="chip" data-value="3m">3ヶ月以内</button>
+                <button type="button" class="chip" data-value="6m">半年以内</button>
+                <button type="button" class="chip" data-value="research">情報収集中</button>
+              </div>
+            </div>
+            <div class="diag-actions">
+              <button type="button" class="btn-back" data-back>1つ戻る</button>
+              <button type="button" class="btn-next" id="step2NextBtn" disabled>次へ</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3：連絡先入力 -->
+        <div class="diag-slide" data-slide="3">
+          <div class="container diag-contact-layout">
+            <form id="diagForm" class="diag-form" novalidate>
+              <label class="form-field">
+                <span>お名前<em>必須</em></span>
+                <input type="text" name="name" placeholder="山田 太郎" required>
+              </label>
+              <label class="form-field">
+                <span>電話番号（ハイフンなし）<em>必須</em></span>
+                <input type="tel" name="phone" placeholder="08012345678" required pattern="^0\d{9,10}$">
+              </label>
+              <label class="form-field">
+                <span>メールアドレス<em class="optional">任意</em></span>
+                <input type="email" name="email" placeholder="you@example.com">
+              </label>
+              <div class="form-field">
+                <span>ご希望の相談方法</span>
+                <div class="chip-row" data-group="method">
+                  <button type="button" class="chip" data-value="online">オンライン</button>
+                  <button type="button" class="chip" data-value="phone">電話</button>
+                  <button type="button" class="chip" data-value="office">対面（来社）</button>
+                </div>
+              </div>
+              <p class="form-note">ご入力いただいた情報は面談のご案内以外に使用しません。相談・書類添削・求人紹介まで、求職者様の費用は一切かかりません。</p>
+              <div class="diag-actions">
+                <button type="button" class="btn-back" data-back>1つ戻る</button>
+                <button type="submit" class="btn-primary">この内容で無料面談を予約する</button>
+              </div>
+            </form>
+
+            <div class="diag-faq-mini">
+              <p class="diag-faq-mini-title">よくある質問</p>
+              <details class="faq-item">
+                <summary>本当に費用はかかりませんか？</summary>
+                <p>はい。登録・相談・求人紹介まで求職者様の費用は一切かかりません。採用が決まった企業様からの成功報酬でサービスを運営しているためです。</p>
+              </details>
+              <details class="faq-item">
+                <summary>営業経験が浅くても相談できますか？</summary>
+                <p>未経験に近い方のご相談も歓迎しています。ポテンシャル採用に積極的な企業も多数ご紹介可能です。</p>
+              </details>
+              <details class="faq-item">
+                <summary>在職中でも利用できますか？</summary>
+                <p>平日夜間・土日のオンライン面談にも対応しています。在職中の方も無理のない範囲で進められます。</p>
+              </details>
+              <details class="faq-item">
+                <summary>しつこい連絡はありますか？</summary>
+                <p>ご希望のペースに合わせてご連絡します。合わないと感じた場合はいつでもお断りいただけます。</p>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4：完了画面 -->
+        <div class="diag-slide" data-slide="4">
+          <div class="container diag-done">
+            <p class="diag-done-eyebrow">送信完了</p>
+            <h3 class="diag-done-title">ご予約ありがとうございました。</h3>
+            <p class="diag-done-text">
+              担当のキャリアアドバイザーより、1営業日以内にご連絡いたします。<br>
+              お急ぎの場合はお電話でもご案内可能です。
+            </p>
+            <div class="diag-done-stats">
+              <div class="stat">
+                <span class="stat-num">3,200<span class="stat-unit">名</span></span>
+                <span class="stat-label">転職支援実績</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">0<span class="stat-unit">円</span></span>
+                <span class="stat-label">相談・紹介費用</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">92<span class="stat-unit">%</span></span>
+                <span class="stat-label">面談後の満足度</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-logo">SalesCareer<span class="logo-dot">.</span></p>
+    <ul class="footer-links">
+      <li><a href="#">運営会社</a></li>
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#diagnosis">無料面談を予約</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 SalesCareer</p>
+  </div>
+</footer>
+
+</div><!-- /.site-shell -->
+
+<script src="script.js"></script>
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:9999;padding:8px 12px;background:rgba(20,28,48,.92);color:#fff;font:600 12px/1.5 sans-serif;text-align:center">LnX合同会社のLP制作イメージ（サンプル表示）です。フォームは送信されません。<a href="../../#lp-sample" style="color:#8FC1FF;margin-left:8px">広告運用LPに戻る</a></div>
+</body>
+</html>
