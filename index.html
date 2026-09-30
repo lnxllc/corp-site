@@ -23,6 +23,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="assets/css/styles.css?v=2" />
   <!-- サイト共通スタイル（1ファイルに統合） -->
   <link rel="stylesheet" href="assets/css/site-v4.css?v=3" />
+  <!-- TOPヒーロー：BG-03 星座ネットワーク -->
+  <link rel="stylesheet" href="assets/css/top-bg03.css?v=2" />
+  <!-- DEC-29 紐ライン -->
+  <link rel="stylesheet" href="assets/css/top-rope.css?v=2" />
+  <!-- FV以下のモーション・メッセージ -->
+  <link rel="stylesheet" href="assets/css/top-motion.css?v=2" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.webp">
@@ -178,7 +184,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- =========================
        Hero
   ========================= -->
-<section class="cwh">
+<section class="cwh fv--bg bg-constellation">
+  <div class="bg-host" data-bg="constellation" aria-hidden="true"></div>
+  <div class="bg-scrim" aria-hidden="true"></div>
   <div class="cwh__grid" aria-hidden="true"></div>
   <div class="cwh__diag" aria-hidden="true"></div>
   <svg class="cwh__bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -216,52 +224,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       L1500,240 L-60,240 Z" fill="#fff"/>
   </svg>
   <div class="cwh__wm" aria-hidden="true">LnX</div>
+  <div class="cwh__dmc" aria-hidden="true">
+    <div class="cwh__dmcTrack"><span>DIGITAL MARKETING COMPANY</span><span>DIGITAL MARKETING COMPANY</span></div>
+  </div>
 
   <div class="container cwh__inner">
 
-    <p class="cwh__kicker">
-      <span class="kdot" aria-hidden="true"></span>
-      集客、何から始めればいいか分からない企業へ
+    <p class="cwh__brand">
+      <span class="cwh__brandLine" aria-hidden="true"></span>
+      <span class="cwh__brandText">Digital Marketing Company</span>
     </p>
 
     <h1 class="cwh__title">
-     迷いを成果に変える、<br>
-     集客ワンストップ支援。
+     良いサービスが、<br>
+     選ばれる世界へ。
     </h1>
 
     <div class="cwh__body">
       <div class="cwh__left">
 
         <p class="cwh__lead">
-中小企業様向けにWeb集客の戦略～サイト制作・SNSや<br class="only-sp-br">広告運用まで<br>トータルでサポートし、ビジネス成長に伴走する事業パートナーです。
+          弊社のWeb集客で御社のサービスが選ばれる仕組みを構築します。
         </p>
 
         <div class="cwh__cta">
           <a class="btn btn--primary" href="contact.html">無料で相談する</a>
-          <a class="btn btn--ghost" href="services.html">提供サービスを見る</a>
+          <a class="btn btn--ghost" href="#case">支援実績を見る</a>
         </div>
-
-        <p class="cwh__note">
-          <span>✓ 相談無料</span>
-          <span>✓ オンライン対応可</span>
-          <span>✓ 1営業日以内に返信</span>
-        </p>
-
-        <!-- 実績ハイライト(FV内の信頼要素) -->
-        <dl class="cwh__stats">
-          <div class="cwh__stat">
-            <dt>Web集客支援で売上</dt>
-            <dd>+600<span class="u">万円</span><span class="s">/半年</span></dd>
-          </div>
-          <div class="cwh__stat">
-            <dt>SNS施策での来店効果</dt>
-            <dd>300<span class="u">組</span><span class="s">以上</span></dd>
-          </div>
-          <div class="cwh__stat">
-            <dt>Instagram運用</dt>
-            <dd>2.1<span class="u">万</span><span class="s">フォロワー達成</span></dd>
-          </div>
-        </dl>
 
       </div>
 
@@ -341,33 +330,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- =========================
-       課題 (チャット風)
+       メッセージ（旧：課題）
   ========================= -->
-  <section class="section v3-pain">
+  <section class="section has-rope v3-pain t-msg">
     <div class="container">
-      <div class="section__head">
-        <p class="v3-eyebrow">PROBLEM</p>
-        <h2 class="section__title v3-title">Web集客、こんな状態に<br class="only-sp-br">なっていませんか？</h2>
-      </div>
+      <div class="t-msg__grid">
+        <div class="t-msg__head">
+          <p class="v3-eyebrow">ISSUE</p>
+          <h2 class="t-msg__title">
+            <span class="t-msg__line"><span>予算をかけられず、</span></span>
+            <span class="t-msg__line"><span><em>良いサービス</em>の<br class="only-sp-br">集客ができない。</span></span>
+          </h2>
+          <p class="t-msg__lead">そんな悩みを、沢山の経営者から聞いてきました。</p>
+        </div>
 
-      <div class="v3-pain__bubbles">
-        <p class="v3-bubble v3-bubble--l">広告もSNSもやった方がいいのは分かるけど、<b>どれが自社に合うのか分からない…</b></p>
-        <p class="v3-bubble v3-bubble--r">制作会社・広告代理店・SNS代行…<b>外注先がバラバラで管理しきれない</b></p>
-        <p class="v3-bubble v3-bubble--l">毎月お金は出ていくのに、<b>売上につながっているのか見えない</b></p>
-        <p class="v3-bubble v3-bubble--r">社内にWeb担当がいなくて、<b>提案の良し悪しも判断できない</b></p>
-      </div>
-
-      <div class="v3-pain__arrow" aria-hidden="true"></div>
-
-      <div class="v3-solution">
-        <p class="v3-solution__lead">その悩み</p>
-        <p class="v3-solution__main">LnXが<span>まるごと</span><br class="only-sp-br">引き受けます。</p>
-        <p class="v3-solution__sub">
-          戦略設計から制作・運用・改善まで、貴社専属のWeb集客チームとしてワンストップで実行。<br>
-          バラバラだった外注先と施策を、ひとつの窓口にまとめられます。
-        </p>
+        <div class="t-msg__body">
+          <div class="t-msg__formula" aria-hidden="true">
+            <span class="t-msg__chip">Webマーケティング</span>
+            <span class="t-msg__op">×</span>
+            <span class="t-msg__chip t-msg__chip--ai">AI</span>
+            <span class="t-msg__res"><span class="t-msg__op t-msg__op--eq">＝</span><span class="t-msg__chip t-msg__chip--res">低予算での運用</span></span>
+          </div>
+          <p class="t-msg__text">
+            弊社はWebマーケティングにAIを掛け合わせて原価を抑えることで、<b>低予算での運用</b>を実現しています。
+          </p>
+        </div>
       </div>
     </div>
+    <!-- DEC-29 紐ライン：メッセージ → SCOPE -->
+    <svg class="rope" data-rope="reveal" viewBox="0 0 1440 360" style="bottom:-170px;--rope:url(#rg1)" aria-hidden="true">
+      <defs><linearGradient id="rg1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0"><stop offset="0" stop-color="#35C0F2" stop-opacity="0"/><stop offset=".18" stop-color="#35C0F2" stop-opacity=".85"/><stop offset=".6" stop-color="#1E6BFF" stop-opacity=".9"/><stop offset="1" stop-color="#8FE0FF" stop-opacity=".15"/></linearGradient></defs>
+      <path class="rope__body" d="M-60,320 C260,40 640,380 960,170 C1180,30 1340,70 1500,150"/>
+    </svg>
   </section>
 
 
@@ -399,131 +393,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-
-  <!-- =========================
-       選ばれる理由
-  ========================= -->
-  <section class="section v3-reasons">
-    <div class="container">
-      <div class="section__head">
-        <p class="v3-eyebrow">REASON</p>
-        <h2 class="section__title v3-title">LnXが選ばれる3つの理由</h2>
-      </div>
-
-      <div class="v3-reason">
-        <div class="v3-reason__num">1</div>
-        <div class="v3-reason__body">
-          <h3>窓口ひとつで、戦略から実行まで完結</h3>
-          <p>
-            戦略設計・サイト制作・SNS/広告運用・動画制作までワンチームで対応します。複数の外注先に同じ説明を繰り返したり、施策間の連携が取れずチグハグになったりする問題から解放されます。
-          </p>
-        </div>
-        <div class="v3-reason__media">
-          <img src="assets/img/strategy.webp" alt="Web集客戦略から実行まで一気通貫で対応するLnXの支援イメージ" loading="lazy">
-        </div>
-      </div>
-
-      <div class="v3-reason v3-reason--rev">
-        <div class="v3-reason__num">2</div>
-        <div class="v3-reason__body">
-          <h3>「売上」から逆算して施策を選ぶ</h3>
-          <p>
-            フォロワー数や表示回数ではなく、売上・問い合わせなど事業の数字をゴールに置き、そこから逆算して施策を設計します。成果につながらない施策は、たとえ流行っていてもご提案しません。実際に、成果の出ていなかったインフルエンサー集客をKPIから分解して再設計し、半年で売上600万円以上の増加につなげています。
-          </p>
-        </div>
-        <div class="v3-reason__media">
-          <img src="assets/img/service-strategy.webp" alt="ノートPCを操作するビジネスパーソンと、データ分析・AI・自動化を表すアイコンが浮かぶイメージ写真" loading="lazy">
-        </div>
-      </div>
-
-      <div class="v3-reason">
-        <div class="v3-reason__num">3</div>
-        <div class="v3-reason__body">
-          <h3>広告の「外側」まで、ひと続きで直せる</h3>
-          <p>
-            成果が出ない原因は、広告の中だけにあるとは限りません。LP・計測設定・SNSまで自社で対応できるため、原因のある場所を切り分けて直せます。
-          </p>
-        </div>
-        <div class="v3-reason__media">
-          <img src="assets/img/sns.webp" alt="広告・LP・計測・SNSをまとめて改善するイメージ" loading="lazy">
-        </div>
-      </div>
-
-      <div class="section__cta">
-        <a href="contact.html" class="btn btn--primary v3-cta-btn">無料で相談する</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================
-       他社比較
-  ========================= -->
-  <section class="section v3-compare">
-    <div class="container">
-      <div class="section__head">
-        <p class="v3-eyebrow">COMPARISON</p>
-        <h2 class="section__title v3-title">よくある外注先との違い</h2>
-      </div>
-
-      <div class="v3-table-wrap">
-        <table class="v3-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th class="v3-table__lnx">LnX</th>
-              <th>大手代理店</th>
-              <th>制作会社</th>
-              <th>フリーランス</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>対応範囲</th>
-              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>戦略〜実行まで一括</td>
-              <td><span class="mk">○</span>広いが分業制</td>
-              <td><span class="mk mk--mid">△</span>制作のみ</td>
-              <td><span class="mk mk--mid">△</span>得意領域のみ</td>
-            </tr>
-            <tr>
-              <th>戦略設計</th>
-              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>事業数字から逆算</td>
-              <td><span class="mk">○</span>対応可</td>
-              <td><span class="mk mk--low">×</span>原則対象外</td>
-              <td><span class="mk mk--mid">△</span>人による</td>
-            </tr>
-            <tr>
-              <th>費用感</th>
-              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>手数料20%（最低10万円）</td>
-              <td><span class="mk mk--low">×</span>最低数十万円〜</td>
-              <td><span class="mk">○</span>案件による</td>
-              <td><span class="mk">○</span>比較的安価</td>
-            </tr>
-            <tr>
-              <th>窓口</th>
-              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>1つに集約</td>
-              <td><span class="mk mk--mid">△</span>担当が分かれる</td>
-              <td><span class="mk mk--mid">△</span>施策ごとに別</td>
-              <td><span class="mk mk--low">×</span>個別に管理が必要</td>
-            </tr>
-            <tr>
-              <th>柔軟性・スピード</th>
-              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>少数精鋭で即対応</td>
-              <td><span class="mk mk--mid">△</span>社内承認に時間</td>
-              <td><span class="mk">○</span>案件による</td>
-              <td><span class="mk">○</span>速いが品質に幅</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-
   <!-- =========================
        実績
   ========================= -->
-  <section class="section v3-cases">
+  <section class="section has-rope v3-cases" id="case">
     <div class="container">
       <div class="section__head">
         <p class="v3-eyebrow">CASE</p>
@@ -612,100 +485,90 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
     </div>
+    <!-- DEC-29 紐ライン：実績 → 比較表 -->
+    <svg class="rope rope--main rope--thin" data-rope="reveal" viewBox="0 0 1440 280" style="bottom:-120px;--rope:url(#rg2)" aria-hidden="true">
+      <defs><linearGradient id="rg2" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0"><stop offset="0" stop-color="#1E6BFF" stop-opacity="0"/><stop offset=".2" stop-color="#35C0F2" stop-opacity=".8"/><stop offset=".7" stop-color="#1E6BFF" stop-opacity=".85"/><stop offset="1" stop-color="#0A2FA8" stop-opacity="0"/></linearGradient></defs>
+      <path class="rope__body" d="M-60,160 C140,40 300,40 480,150 S820,260 1000,150 S1300,40 1500,120"/>
+    </svg>
   </section>
-
 
   <!-- =========================
-       料金プラン
+       他社比較
   ========================= -->
-  <section class="section v3-plans">
+  <section class="section has-rope v3-compare">
     <div class="container">
       <div class="section__head">
-        <p class="v3-eyebrow">PLAN</p>
-        <h2 class="section__title v3-title">ご予算に合わせた3つの入口</h2>
-        <p class="section__desc">どのプランも初回のご相談・お見積りは無料です。</p>
+        <p class="v3-eyebrow">COMPARISON</p>
+        <h2 class="section__title v3-title">よくある外注先との違い</h2>
       </div>
 
-      <div class="v3-plans__grid">
-        <div class="v3-plan">
-          <p class="v3-plan__name">広告運用代行</p>
-          <p class="v3-plan__price"><b>出稿額の20%</b></p>
-          <p class="v3-plan__for">広告が初めての方・少額から試したい方に</p>
-          <ul>
-            <li>LP制作0円（月3社限定）</li>
-            <li>広告出稿額の下限なし・少額から配信</li>
-            <li>広告戦略・アカウント設計</li>
-            <li>Google / Meta 広告運用</li>
-            <li>月次MTG・レポーティング</li>
-            <li>出稿50万円未満は10万円（税込）／最低6ヶ月</li>
-          </ul>
-          <a href="https://lnx.co.jp/ad-lp/" class="btn btn--ghost v3-plan__btn">LP制作0円の詳細を見る</a>
-        </div>
-
-        <div class="v3-plan v3-plan--featured">
-          <p class="v3-plan__badge">人気</p>
-          <p class="v3-plan__name">伴走支援プラン</p>
-          <p class="v3-plan__price"><b>個別お見積り</b></p>
-          <p class="v3-plan__for">集客をまるごと任せたい方に</p>
-          <ul>
-            <li>集客戦略・KPI設計</li>
-            <li>広告 / SNSの運用実行</li>
-            <li>サイト・LPの改善</li>
-            <li>定例での改善サイクル</li>
-          </ul>
-          <a href="contact.html" class="btn btn--primary v3-plan__btn">無料で相談する</a>
-        </div>
-
-        <div class="v3-plan">
-          <p class="v3-plan__name">制作プラン</p>
-          <p class="v3-plan__price"><b>個別お見積り</b></p>
-          <p class="v3-plan__for">サイト・LP・動画を作りたい方に</p>
-          <ul>
-            <li>コーポレートサイト制作</li>
-            <li>LP制作・改善</li>
-            <li>広告用映像・PV制作</li>
-          </ul>
-          <a href="contact.html" class="btn btn--ghost v3-plan__btn">無料で相談する</a>
-        </div>
+      <div class="v3-table-wrap">
+        <table class="v3-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="v3-table__lnx">LnX</th>
+              <th>大手代理店</th>
+              <th>制作会社</th>
+              <th>フリーランス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>対応範囲</th>
+              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>戦略〜実行まで一括</td>
+              <td><span class="mk">○</span>広いが分業制</td>
+              <td><span class="mk mk--mid">△</span>制作のみ</td>
+              <td><span class="mk mk--mid">△</span>得意領域のみ</td>
+            </tr>
+            <tr>
+              <th>戦略設計</th>
+              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>事業数字から逆算</td>
+              <td><span class="mk">○</span>対応可</td>
+              <td><span class="mk mk--low">×</span>原則対象外</td>
+              <td><span class="mk mk--mid">△</span>人による</td>
+            </tr>
+            <tr>
+              <th>費用感</th>
+              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>手数料20%（最低10万円）</td>
+              <td><span class="mk mk--low">×</span>最低数十万円〜</td>
+              <td><span class="mk">○</span>案件による</td>
+              <td><span class="mk">○</span>比較的安価</td>
+            </tr>
+            <tr>
+              <th>窓口</th>
+              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>1つに集約</td>
+              <td><span class="mk mk--mid">△</span>担当が分かれる</td>
+              <td><span class="mk mk--mid">△</span>施策ごとに別</td>
+              <td><span class="mk mk--low">×</span>個別に管理が必要</td>
+            </tr>
+            <tr>
+              <th>柔軟性・スピード</th>
+              <td class="v3-table__lnx"><span class="mk mk--best">◎</span>少数精鋭で即対応</td>
+              <td><span class="mk mk--mid">△</span>社内承認に時間</td>
+              <td><span class="mk">○</span>案件による</td>
+              <td><span class="mk">○</span>速いが品質に幅</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+    <!-- DEC-29 紐ライン：比較表 → 代表メッセージ -->
+    <svg class="rope rope--brand" data-rope="scrub" viewBox="0 0 1440 420" style="bottom:-150px;--rope:url(#rg3)" aria-hidden="true">
+      <defs><linearGradient id="rg3" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0"><stop offset="0" stop-color="#0A2FA8" stop-opacity="0"/><stop offset=".25" stop-color="#1E6BFF" stop-opacity=".85"/><stop offset=".65" stop-color="#35C0F2" stop-opacity=".85"/><stop offset="1" stop-color="#8FE0FF" stop-opacity="0"/></linearGradient></defs>
+      <path class="rope__body" d="M-60,330 C240,330 430,110 640,150 C840,190 820,370 680,340 C540,310 600,90 840,80 C1080,70 1200,300 1500,230"/>
+    </svg>
   </section>
 
 
-  <!-- =========================
-       支援の流れ
-  ========================= -->
-  <section class="section t-flow">
-    <div class="container">
-      <div class="section__head">
-        <p class="v3-eyebrow">FLOW</p>
-        <h2 class="section__title v3-title">ご相談から支援開始まで</h2>
-      </div>
 
-      <ol class="t-flow__list">
-        <li class="t-flow__step">
-          <span class="t-flow__num">01</span>
-          <h3>お問い合わせ</h3>
-          <p>フォームから1分で送信。1営業日以内にご返信します。</p>
-        </li>
-        <li class="t-flow__step">
-          <span class="t-flow__num">02</span>
-          <h3>無料ヒアリング</h3>
-          <p>現状の課題と目標をお伺いします。オンライン対応可能です。</p>
-        </li>
-        <li class="t-flow__step">
-          <span class="t-flow__num">03</span>
-          <h3>ご提案・お見積り</h3>
-          <p>課題に合わせた施策プランと費用をご提示します。</p>
-        </li>
-        <li class="t-flow__step">
-          <span class="t-flow__num">04</span>
-          <h3>ご契約・支援開始</h3>
-          <p>戦略設計から実行まで、伴走支援がスタートします。</p>
-        </li>
-      </ol>
-    </div>
-  </section>
+
+
+
+
+
+
+
 
 
   <!-- =========================
@@ -832,6 +695,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="assets/js/main.js?v=5" defer></script>
 <script src="assets/js/top-v4.js?v=1" defer></script>
+<script src="assets/js/bg-constellation.js?v=2" defer></script>
+<script src="assets/js/rope.js?v=1" defer></script>
+<script src="assets/js/top-motion.js?v=2" defer></script>
 <script>
   // 追従CTA: ヒーロー通過後に表示、最終CTA表示中は非表示
   (function(){

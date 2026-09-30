@@ -1,0 +1,59 @@
+/* =========================================================
+   TOP × DEC-29 スクロールで描かれる紐ライン（LP設計辞典 v2.2）
+   3本だけ置く（辞典の上限は3〜5本）。
+     ① 悩み → SCOPE      … 型A 大きなうねり／水色／reveal
+     ② 理由 → 比較表     … 型B 途中で輪になる／ブランド青／scrub
+     ③ 料金 → 流れ       … 型C 細い波／濃紺／reveal
+   元に戻すときは index.html の svg.rope 3つと、
+   このCSS・rope.js の読み込みを外すだけでよい。
+   ========================================================= */
+
+/* ══ Rope：スクロールで描かれる紐ライン ══
+   セクションの中に絶対配置で置き、上下のセクションをまたがせる。本文は z-index:2 以上で紐の上に出す */
+.rope{position:absolute;left:50%;translate:-50% 0;width:max(1100px,100%);height:auto;
+  z-index:1;pointer-events:none;overflow:visible}
+.rope path{fill:none;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1 2;stroke-dashoffset:var(--draw,1.05)}
+/* 紐の本体と、上側に乗るつやの線（ホースのような立体感を出す） */
+.rope__body{stroke:var(--rope,var(--c-acc,#e8542a));stroke-width:var(--rope-w,26)}
+.rope__hl{stroke:#fff;stroke-opacity:.4;stroke-width:calc(var(--rope-w,26) * .16);
+  transform:translateY(calc(var(--rope-w,26) * -.2px))}
+/* 紐を置いた親：横のはみ出しだけ切り、縦は隣のセクションへまたがせる */
+:where(*:has(> .rope)){overflow-x:clip;overflow-y:visible}
+/* reveal：入ったら一度だけ描く */
+.rope[data-rope="reveal"] path{transition:stroke-dashoffset 1.8s cubic-bezier(.65,0,.35,1)}
+.rope[data-rope="reveal"] .rope__hl{transition-delay:.12s}
+.rope.is-drawn path{--draw:0}
+/* 色違い・細い版 */
+.rope--main{--rope:var(--c-main,#1f5140)}
+.rope--thin{--rope-w:12}
+@media(prefers-reduced-motion:reduce){.rope path{transition:none;--draw:0}}
+
+/* ── LnX TOP 向けの調整 ── */
+/* 紐の色は下部の配色から取る */
+body.top-v4{--c-acc:#35C0F2;--c-main:#0A2FA8}
+.rope--brand{--rope:#1E6BFF}
+
+/* 紐を置いたセクション：
+   site-v4.css の .section{overflow:hidden} は :where() より強いので、ここで明示的に上書きする。
+   横は切り、縦は次のセクションへはみ出させる */
+body.top-v4 .section.has-rope{overflow-x:clip;overflow-y:visible}
+/* 本文は紐より上（紐 z-index:1 → 本文 z-index:2） */
+body.top-v4 .section.has-rope > .container{z-index:2}
+/* はみ出した紐は、次のセクションの地より上・本文より下に入る */
+body.top-v4 .section.has-rope + .section > .container,
+body.top-v4 .section.has-rope + .t-final > *{position:relative;z-index:2}
+
+/* SPは線を細くし、はみ出しを小さくする */
+@media (max-width:720px){
+  .rope{--rope-w:18}
+  .rope--thin{--rope-w:9}
+}
+/* 型B（輪）はSPだと輪が次の見出しに重なるので、SPでは出さない */
+@media (max-width:720px){
+  .rope[data-rope="scrub"]{display:none}
+}
+
+/* v5：紐は立体に見せない。つやの線を外し、両端が地に溶けるグラデーションにする（色は各SVGの linearGradient） */
+.rope__hl{display:none}
+.rope__body{stroke-width:calc(var(--rope-w,26) * .7)}

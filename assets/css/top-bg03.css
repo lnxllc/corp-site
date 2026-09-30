@@ -1,0 +1,101 @@
+/* =========================================================
+   TOP ヒーロー × BG-03 星座ネットワーク
+   LP設計辞典 v2.1「BG-03 constellation」＋ BG共通ベースを .cwh に適用。
+   site-v4.css の後に読み込む。元に戻すときは
+   index.html からこのCSSと bg-constellation.js の読み込み、
+   .cwh の fv--bg / bg-constellation クラス、.bg-host / .bg-scrim を外すだけでよい。
+   ========================================================= */
+
+/* ── BG 共通ベース（辞典 bases.BG） ── */
+.fv--bg{background:var(--bg-base,#05070d)}
+.bg-host{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg-host canvas{display:block}
+.bg-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,var(--bg-scrim) 0%,var(--bg-scrim) 34%,transparent 66%)}
+@media(max-width:767px){
+  .bg-scrim{background:linear-gradient(0deg,var(--bg-scrim) 0%,var(--bg-scrim) 48%,transparent 88%)}
+}
+
+/* ── BG-03 固有 ── */
+.bg-constellation{--bg-base:#0A2A73;--bg-scrim:rgba(8,32,92,.62)}
+
+/* ── ヒーローを暗面に切り替える ── */
+body.top-v4 .cwh.fv--bg{
+  background:linear-gradient(135deg,#08205C 0%,#0F3A9E 34%,#1E6BFF 66%,#35C0F2 100%);
+  color:#fff;
+}
+/* 紙目ノイズ（TASTE-01）：幕の上・本文の下 */
+body.top-v4 .cwh.fv--bg::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:140px;
+}
+/* 旧背景（方眼・斜線・y=ln x の帯・透かし文字）と3Dロゴは、球体と役割が重なるので出さない */
+body.top-v4 .cwh.fv--bg .cwh__grid,
+body.top-v4 .cwh.fv--bg .cwh__diag,
+body.top-v4 .cwh.fv--bg .cwh__bg,
+body.top-v4 .cwh.fv--bg .cwh__fx,
+body.top-v4 .cwh.fv--bg .cwh__wm,
+body.top-v4 .cwh.fv--bg .cwh__mark{display:none!important}
+
+/* 本文は幕とノイズより上 */
+body.top-v4 .cwh.fv--bg .cwh__inner{z-index:3}
+/* 下端の白い波は本文よりさらに上（元の設計どおり） */
+body.top-v4 .cwh.fv--bg .cwh__sea{z-index:4}
+
+/* 左カラムだけで組む（右半分は球体に明け渡す） */
+body.top-v4 .cwh.fv--bg .cwh__body{grid-template-columns:minmax(0,1fr)}
+body.top-v4 .cwh.fv--bg .cwh__left{max-width:680px}
+body.top-v4 .cwh.fv--bg .cwh__lead{max-width:none}
+
+/* キッカー */
+body.top-v4 .cwh.fv--bg .cwh__kicker{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(143,224,255,.45);
+  color:#8FE0FF;
+}
+body.top-v4 .cwh.fv--bg .cwh__kicker .kdot{background:#35C0F2}
+body.top-v4 .cwh.fv--bg .cwh__kicker .kdot::after{border-color:rgba(143,224,255,.55)}
+
+/* 見出し：白いにじみ（旧3Dロゴ対策）を外し、暗い影で星の上でも読めるようにする */
+body.top-v4 .cwh.fv--bg .cwh__title{
+  color:#fff;
+  text-shadow:0 2px 24px rgba(8,32,92,.7);
+}
+/* 2行目の「集客ワンストップ支援。」だけ光の色を引く */
+body.top-v4 .cwh.fv--bg .cwh__title .v4-line:last-child > span{
+  background-image:linear-gradient(100deg,#FFFFFF 0%,#CFEFFF 40%,#8FE0FF 72%,#35C0F2 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  text-shadow:none;
+  filter:drop-shadow(0 2px 18px rgba(8,32,92,.6));
+}
+
+body.top-v4 .cwh.fv--bg .cwh__lead{color:rgba(232,238,255,.84)}
+body.top-v4 .cwh.fv--bg .cwh__note{color:rgba(232,238,255,.74)}
+
+/* ゴーストボタンは暗面用に反転 */
+body.top-v4 .cwh.fv--bg .btn--ghost{
+  background:rgba(255,255,255,.04)!important;
+  border:1px solid rgba(255,255,255,.34)!important;
+  color:#fff!important;
+}
+body.top-v4 .cwh.fv--bg .btn--ghost:hover{
+  border-color:#8FE0FF!important;color:#8FE0FF!important;
+}
+
+
+/* ── SP ── */
+@media (max-width:767px){
+  /* SPは文字が全幅に乗るので、幕は全面に薄く敷いて球体を透かす */
+  .bg-constellation .bg-scrim{background:linear-gradient(180deg,rgba(8,32,92,.55) 0%,rgba(8,32,92,.4) 60%,rgba(8,32,92,.2) 100%)}
+}
+
+/* グラデーション文字は行の幅ではなく文字の幅で塗る */
+body.top-v4 .cwh.fv--bg .cwh__title .v4-line:last-child > span{display:inline-block}
+
+/* 主ボタン：青地に青グラデだと沈むので、最終CTA（.t-final__btn）と同じ白地に揃える */
+body.top-v4 .cwh.fv--bg .btn--primary{
+  background:#fff!important;color:#0A2FA8!important;
+  box-shadow:0 18px 44px rgba(0,0,0,.24)!important;
+}
