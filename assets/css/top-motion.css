@@ -53,22 +53,23 @@ body.top-v4 .t-msg__body{
   border:1px solid rgba(30,107,255,.12);
 }
 body.top-v4 .t-msg__formula{
-  display:flex;flex-wrap:wrap;align-items:center;gap:10px 10px;margin:0 0 22px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px;margin:0 0 22px;
 }
+/* 式の要素は枠なし。文字の色と太さだけで見せる */
 body.top-v4 .t-msg__chip{
-  display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;
-  font-size:13.5px;font-weight:800;letter-spacing:.02em;white-space:nowrap;
-  background:#EDF5FF;color:var(--v4-brand-d);border:1px solid rgba(30,107,255,.2);
+  display:inline-block;padding:0;border:0;background:none;border-radius:0;
+  font-size:clamp(15px,1.25vw,18px);font-weight:900;letter-spacing:-.01em;white-space:nowrap;
+  color:var(--v4-brand-d);line-height:1.3;
 }
 body.top-v4 .t-msg__chip--ai{
-  background:linear-gradient(120deg,var(--v4-brand-d),var(--v4-brand) 55%,var(--v4-cyan));
-  color:#fff;border-color:transparent;font-family:var(--v4-sans);letter-spacing:.08em;
+  font-family:var(--v4-sans);letter-spacing:.02em;
+  background-image:linear-gradient(120deg,var(--v4-brand),var(--v4-cyan));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
 }
-body.top-v4 .t-msg__chip--res{
-  background:var(--v4-ink);color:#fff;border-color:transparent;
-}
-body.top-v4 .t-msg__op{font-size:20px;font-weight:900;color:var(--v4-brand)}
-body.top-v4 .t-msg__res{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+body.top-v4 .t-msg__chip--res{color:var(--v4-ink)}
+body.top-v4 .t-msg__op{font-size:18px;font-weight:700;color:var(--v4-cyan)}
+body.top-v4 .t-msg__res{display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
 body.top-v4 .t-msg__text{margin:0;font-size:15.5px;line-height:2.05;color:var(--v4-ink-2)}
 body.top-v4 .t-msg__text b{color:var(--v4-ink);font-weight:900;
   background:linear-gradient(transparent 62%,rgba(53,192,242,.3) 62%)}
@@ -87,8 +88,10 @@ body.top-v4 .t-msg__note::before{
 @media (max-width:720px){
   body.top-v4 .t-msg__title{font-size:min(26px,6.7vw)}
   body.top-v4 .t-msg__lead{font-size:14px}
-  body.top-v4 .t-msg__chip{font-size:12.5px;padding:7px 12px}
-  body.top-v4 .t-msg__op{font-size:16px}
+  body.top-v4 .t-msg__chip{font-size:13px}
+  body.top-v4 .t-msg__formula{gap:4px 6px}
+  body.top-v4 .t-msg__res{gap:6px}
+  body.top-v4 .t-msg__op{font-size:14px}
   body.top-v4 .t-msg__text{font-size:14.5px}
 }
 
@@ -140,7 +143,6 @@ html.t-motion body.top-v4 .t-msg__chip--ai{
 }
 @keyframes tAiFlow{from{background-position:0 0}to{background-position:100% 0}}
 /* 「×」はゆっくり回る */
-html.t-motion body.top-v4 .t-msg.is-in .t-msg__op:not(.t-msg__op--eq){animation:tSpin 6s linear 2s infinite}
 @keyframes tSpin{to{rotate:360deg}}
 
 /* 2-c. 写真：幕が上がるように現れ、少し寄った状態から引く。スクロールで上下にゆっくりずれる */
