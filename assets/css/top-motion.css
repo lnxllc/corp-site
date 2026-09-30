@@ -378,7 +378,8 @@ html{scroll-behavior:smooth}
 
 /* ── 並び替えに合わせて境目の波を付け直す ──
    SCOPE（濃紺）の下は CASE（淡い青）に続くので、下端の波を淡い青で切る。
-   CASE の上端の白い波は不要になる */
+   CASE の上端の白い波は不要になる。
+   CASE の下は COMPARISON（上端 #F4F7FE）に続くので、下端の波もその色で切る */
 body.top-v4 .v3-scope{
   background:
     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(237,245,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
@@ -388,6 +389,457 @@ body.top-v4 .v3-scope{
 }
 body.top-v4 .v3-cases{
   background:
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g transform='translate(1440,0) scale(-1,1)'><path fill='rgb(244,247,254)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,
     #EDF5FF!important;
 }
+
+/* =========================================================
+   v7 実績（CASE）：画像を見切れさせない／カードを離して枠をはっきり
+   ========================================================= */
+/* 画像は拡大・パララックス・ホバー拡大をやめ、全体をそのまま見せる */
+body.top-v4 .v3-case__media{overflow:visible!important;align-self:center}
+body.top-v4 .v3-case__media img,
+html.t-motion body.top-v4 .v3-case__media img,
+html.t-motion body.top-v4 .v3-case.is-in .v3-case__media img{
+  display:block;width:100%;height:auto!important;max-height:none!important;
+  object-fit:contain!important;
+  scale:1!important;translate:none!important;transform:none!important;
+  border-radius:10px;
+}
+body.top-v4 .v3-case:hover .v3-case__media img{transform:none!important}
+/* 出現は幕上げだけ残す（切り取りは出現中のみで、出たあとは全体が見える） */
+html.t-motion body.top-v4 .v3-case__media img{transition:clip-path 1.1s cubic-bezier(.65,0,.35,1) .1s}
+
+/* カード：間をあけ、枠と影をはっきり付ける */
+body.top-v4 .v3-case{
+  border:1.5px solid rgba(30,107,255,.22)!important;
+  border-radius:18px!important;
+  box-shadow:0 2px 0 rgba(30,107,255,.06),0 22px 48px -26px rgba(10,47,168,.35)!important;
+  overflow:visible!important;
+  position:relative;
+}
+body.top-v4 .v3-case + .v3-case{
+  margin-top:clamp(28px,3.4vw,44px);
+  border-top:1.5px solid rgba(30,107,255,.22)!important;
+}
+/* 左端のアクセント帯 */
+body.top-v4 .v3-case::before{
+  content:"";position:absolute;left:-1.5px;top:22px;bottom:22px;width:4px;border-radius:0 4px 4px 0;
+  background:linear-gradient(180deg,var(--v4-brand),var(--v4-cyan));
+}
+body.top-v4 .v3-case:hover{border-color:rgba(30,107,255,.45)!important}
+body.top-v4 .v3-case .section__cta{margin-top:0}
+/* 「実績をもっと見る」との間も少しあける */
+body.top-v4 .v3-cases .section__cta{margin-top:clamp(32px,4vw,52px)}
+
+@media (max-width:760px){
+  body.top-v4 .v3-case{padding:18px 16px 22px!important;border-radius:14px!important}
+  body.top-v4 .v3-case + .v3-case{margin-top:24px}
+  body.top-v4 .v3-case::before{top:16px;bottom:auto;height:44px}
+}
+/* 「／運用初月」などの補足が1文字だけ次の行に落ちないようにする */
+body.top-v4 .v3-case__num span{white-space:nowrap;display:inline-block}
+
+/* COMPARISON の下端：次の MESSAGE（白）とのあいだに水平の境目が出ないよう、白い波で切る */
+body.top-v4 .v3-compare{
+  background:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,120 C 150,168 320,190 540,172 C 740,155 870,72 1100,64 C 1280,58 1380,90 1500,112 L1500,240 L-60,240 Z'/></g></svg>") bottom center / 100% var(--v4-wv) no-repeat,
+    linear-gradient(180deg,#F4F7FE,#F5FCFD)!important;
+}
+
+/* =========================================================
+   v9 ISSUE：悩み → くねくね矢印（スクロールで伸びる）→ 答えのカード
+   ========================================================= */
+body.top-v4 .t-msg__grid{
+  grid-template-columns:minmax(0,1fr)!important;
+  max-width:820px;margin:0 auto;gap:0!important;align-items:start;
+}
+body.top-v4 .t-msg__flow{width:100%;margin:clamp(6px,1vw,14px) 0 clamp(4px,.8vw,10px)}
+body.top-v4 .t-msg__flow svg{display:block;width:100%;height:auto;overflow:visible}
+body.top-v4 .t-msg__flow path{
+  fill:none;stroke:url(#msgArrow);stroke-linecap:round;stroke-linejoin:round;
+}
+body.top-v4 .t-msg__flowPath{stroke-width:5}
+body.top-v4 .t-msg__flowHead{stroke-width:5;stroke:#1E6BFF}
+body.top-v4 .t-msg__body{max-width:620px;width:100%;margin:0 auto}
+
+/* 動くとき：線は --draw（1→0）で伸び、先端の矢じりは最後に出る */
+html.t-motion body.top-v4 .t-msg__flowPath{
+  stroke-dasharray:1 1;stroke-dashoffset:var(--draw,1);
+}
+html.t-motion body.top-v4 .t-msg__flowHead{
+  stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset .35s ease;
+}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__flowHead{stroke-dashoffset:0}
+
+/* 答えのカードは、矢印が届いてから出る（それまでは is-in でも隠したまま） */
+html.t-motion body.top-v4 .t-msg.is-in .t-msg__body{
+  opacity:0;transform:translateY(24px) scale(.97);
+  transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1);transition-delay:0s;
+}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__body{opacity:1;transform:none}
+html.t-motion body.top-v4 .t-msg.is-in .t-msg__formula > *{opacity:0;transform:translateY(12px) scale(.7)}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__formula > *{opacity:1;transform:none}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__formula > :nth-child(1){transition-delay:.25s}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__formula > :nth-child(2){transition-delay:.4s}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__formula > :nth-child(3){transition-delay:.55s}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__formula > :nth-child(4){transition-delay:.75s}
+
+@media (max-width:720px){
+  body.top-v4 .t-msg__flowPath,
+  body.top-v4 .t-msg__flowHead{stroke-width:7}
+}
+body.top-v4 .t-msg__text b{white-space:nowrap}
+
+/* =========================================================
+   v10 ISSUE をダイナミックに
+   悩み ＝ 濃紺の大きなパネル（少し傾けて左から飛び込む）
+   矢印 ＝ 極太のグラデーション
+   答え ＝ 白いパネル＋グラデの縁（逆に傾けて弾んで出る）
+   ========================================================= */
+body.top-v4 .t-msg__grid{max-width:980px!important}
+
+/* ── 悩みパネル ── */
+body.top-v4 .t-msg__head{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:clamp(34px,5vw,64px) clamp(24px,5vw,64px) clamp(28px,4vw,48px);
+  border-radius:28px;
+  background:
+    radial-gradient(600px 300px at 90% 0%,rgba(53,192,242,.35),transparent 60%),
+    linear-gradient(140deg,#08205C 0%,#0F3A9E 60%,#1552C8 100%);
+  color:#fff;
+  box-shadow:0 40px 80px -40px rgba(8,32,92,.7);
+  transform:rotate(-1.2deg);
+}
+body.top-v4 .t-msg__head::after{      /* 紙目ノイズ */
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.06;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body.top-v4 .t-msg__quote{
+  position:absolute;right:clamp(10px,3vw,40px);top:clamp(-40px,-3vw,-20px);z-index:-1;
+  font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:1;
+  font-size:clamp(180px,24vw,340px);color:rgba(53,192,242,.22);pointer-events:none;
+}
+body.top-v4 .t-msg__ghost{
+  position:absolute;left:-.04em;bottom:-.22em;z-index:-1;pointer-events:none;white-space:nowrap;
+  font-family:var(--v4-sans);font-weight:900;letter-spacing:-.03em;line-height:.8;
+  font-size:clamp(80px,13vw,180px);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12);
+}
+body.top-v4 .t-msg__head .v3-eyebrow{color:#8FE0FF!important}
+body.top-v4 .t-msg__title{
+  color:#fff;font-size:clamp(28px,3.7vw,50px)!important;line-height:1.28!important;letter-spacing:-.045em;
+}
+body.top-v4 .t-msg__title em{
+  background-image:linear-gradient(100deg,#8FE0FF,#35C0F2 50%,#FFFFFF)!important;
+  font-size:1.18em;
+}
+body.top-v4 .t-msg__title em::after{
+  background:rgba(53,192,242,.35)!important;height:.16em!important;bottom:.06em!important;
+}
+body.top-v4 .t-msg__lead{
+  margin:clamp(20px,2.4vw,30px) 0 0!important;padding:0!important;border:0!important;
+  color:#fff!important;
+}
+body.top-v4 .t-msg__lead span{
+  display:inline-block;padding:10px 18px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  font-size:clamp(13px,1.2vw,16px);font-weight:700;
+}
+
+/* ── 矢印：極太 ── */
+body.top-v4 .t-msg__flow{margin:clamp(-6px,-.5vw,0px) 0 clamp(-10px,-1vw,-4px)!important;position:relative;z-index:2}
+body.top-v4 .t-msg__flowPath{stroke-width:22!important}
+body.top-v4 .t-msg__flow .t-msg__flowHead{stroke:none!important;fill:#1E6BFF!important;stroke-width:0!important}
+html.t-motion body.top-v4 .t-msg__flowHead{
+  stroke-dasharray:none!important;
+  opacity:0;transform-box:fill-box;transform-origin:50% 0;transform:scale(.3);
+  transition:opacity .25s ease,transform .45s cubic-bezier(.34,1.56,.64,1)!important;
+}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__flowHead{opacity:1;transform:none}
+
+/* ── 答えパネル ── */
+body.top-v4 .t-msg__body{
+  max-width:none!important;isolation:isolate;overflow:hidden;
+  padding:clamp(30px,4.6vw,60px) clamp(22px,5vw,64px)!important;
+  border-radius:28px!important;
+  border:0!important;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(120deg,#0A2FA8,#1E6BFF 45%,#35C0F2) border-box!important;
+  border:3px solid transparent!important;
+  box-shadow:0 50px 90px -40px rgba(10,47,168,.55)!important;
+  transform:rotate(.8deg);
+  text-align:center;
+}
+body.top-v4 .t-msg__ghost--ans{
+  left:auto;right:-.04em;-webkit-text-stroke:1px rgba(30,107,255,.1);
+}
+body.top-v4 .t-msg__tag{
+  display:inline-block;margin:0 0 clamp(14px,1.8vw,22px);padding:6px 16px;border-radius:999px;
+  background:linear-gradient(120deg,#0A2FA8,#1E6BFF 55%,#35C0F2);color:#fff;
+  font-family:var(--v4-sans);font-size:12px;font-weight:800;letter-spacing:.24em;
+}
+body.top-v4 .t-msg__formula{
+  justify-content:center;gap:4px 14px!important;margin:0 0 clamp(18px,2.4vw,28px)!important;
+}
+body.top-v4 .t-msg__chip{font-size:clamp(22px,2.9vw,40px)!important;letter-spacing:-.03em!important}
+body.top-v4 .t-msg__chip--ai{font-size:clamp(28px,3.8vw,52px)!important}
+body.top-v4 .t-msg__op{font-size:clamp(22px,2.6vw,36px)!important;font-weight:800!important}
+/* 「＝ 低予算での運用」は2行目に大きく */
+body.top-v4 .t-msg__res{flex-basis:100%;justify-content:center;gap:14px!important}
+body.top-v4 .t-msg__chip--res{
+  font-size:clamp(34px,5.6vw,76px)!important;letter-spacing:-.05em!important;
+  background-image:linear-gradient(100deg,#08205C,#1E6BFF 55%,#35C0F2);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent!important;
+  padding-bottom:.06em;
+}
+body.top-v4 .t-msg__text{font-size:clamp(14.5px,1.35vw,17px)!important;max-width:36em;margin:0 auto!important}
+
+/* ── 出現：悩みは左から傾いて飛び込み、答えは弾む ── */
+html.t-motion body.top-v4 .t-msg .t-msg__head{
+  opacity:0;transform:translateX(-60px) rotate(-5deg);
+  transition:opacity .8s ease,transform 1.1s cubic-bezier(.16,1,.3,1);
+}
+html.t-motion body.top-v4 .t-msg.is-in .t-msg__head{opacity:1;transform:rotate(-1.2deg)}
+html.t-motion body.top-v4 .t-msg.is-in .t-msg__lead{transition-delay:.6s}
+html.t-motion body.top-v4 .t-msg.is-in .t-msg__body{
+  opacity:0;transform:translateY(40px) scale(.9) rotate(3deg);
+  transition:opacity .6s ease,transform .9s cubic-bezier(.34,1.45,.64,1)!important;
+}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__body{opacity:1;transform:rotate(.8deg)}
+html.t-motion body.top-v4 .t-msg .t-msg__tag{opacity:0;transform:translateY(-8px);transition:opacity .4s ease .15s,transform .5s ease .15s}
+html.t-motion body.top-v4 .t-msg.is-arrived .t-msg__tag{opacity:1;transform:none}
+
+@media (max-width:720px){
+  body.top-v4 .t-msg__head,body.top-v4 .t-msg__body{border-radius:20px!important}
+  body.top-v4 .t-msg__title{font-size:min(26px,6.9vw)!important}
+  body.top-v4 .t-msg__lead span{font-size:12.5px;padding:8px 14px;border-radius:14px}
+  body.top-v4 .t-msg__flowPath{stroke-width:26!important}
+  body.top-v4 .t-msg__chip{font-size:20px!important}
+  body.top-v4 .t-msg__chip--ai{font-size:26px!important}
+  body.top-v4 .t-msg__op{font-size:20px!important}
+  body.top-v4 .t-msg__chip--res{font-size:min(34px,9vw)!important}
+  body.top-v4 .t-msg__formula{gap:2px 10px!important}
+}
+
+/* =========================================================
+   v11 ISSUE：黒帯に白文字（1行ずつ帯が伸びて、文字が出る）
+   悩み（左寄せ）→ 極太の矢印 → 答え（中央）
+   ========================================================= */
+body.top-v4 .t-say{position:relative}
+body.top-v4 .t-say--q{text-align:left}
+body.top-v4 .t-say--a{text-align:center}
+body.top-v4 .t-say .v3-eyebrow{margin:0 0 18px}
+body.top-v4 .t-say__h{
+  margin:0;font-weight:900;letter-spacing:.02em;
+  font-size:clamp(24px,3.5vw,50px);line-height:1.95;
+}
+body.top-v4 .t-say__s{margin:clamp(22px,2.6vw,34px) 0 0;line-height:2}
+body.top-v4 .t-say__tag{margin:0 0 14px;line-height:1}
+
+/* 帯：行が折り返しても1行ずつ帯になる */
+body.top-v4 .t-band{
+  display:inline;
+  padding:.14em .42em .16em;
+  color:#fff;
+  background-color:transparent;
+  background-image:linear-gradient(#0B1020,#0B1020);
+  background-repeat:no-repeat;background-position:0 0;background-size:100% 100%;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  border-radius:2px;
+}
+body.top-v4 .t-band em{font-style:normal;color:#5FD4FF}
+body.top-v4 .t-band b{font-weight:900;color:#5FD4FF}
+body.top-v4 .t-band--sm{font-size:clamp(14px,1.35vw,18px);font-weight:800;letter-spacing:.04em;padding:.3em .6em}
+body.top-v4 .t-band--xs{font-family:var(--v4-sans);font-size:12px;font-weight:800;letter-spacing:.26em;padding:.55em 1em}
+body.top-v4 .t-band--blue{background-image:linear-gradient(100deg,#0A2FA8,#1E6BFF 55%,#35C0F2)}
+body.top-v4 .t-band--xl{font-size:1.45em;letter-spacing:-.01em;padding:.06em .4em .1em}
+body.top-v4 .t-say--a .t-say__h{line-height:2.05}
+
+/* 矢印の余白（帯の左端に合わせて始まる） */
+body.top-v4 .t-msg__flow{margin:clamp(10px,1.4vw,18px) 0 clamp(6px,1vw,14px)!important}
+
+/* PCだけ改行 */
+body.top-v4 .only-pc-br{display:inline}
+@media (max-width:720px){
+  body.top-v4 .only-pc-br{display:none}
+  body.top-v4 .t-say__h{font-size:min(22px,5.8vw);line-height:2}
+  body.top-v4 .t-band--xl{font-size:1.3em}
+  body.top-v4 .t-band--sm{font-size:13px;padding:.35em .55em}
+  body.top-v4 .t-say__s{line-height:2.2}
+}
+
+/* ── 動き：帯が左から伸び、そのあと文字が出る ── */
+html.t-motion body.top-v4 .t-band{
+  background-size:0% 100%;color:transparent;
+  transition:background-size .55s cubic-bezier(.65,0,.35,1),color .3s ease;
+  transition-delay:calc(var(--i,0) * .16s),calc(var(--i,0) * .16s + .42s);
+}
+html.t-motion body.top-v4 .t-band em,
+html.t-motion body.top-v4 .t-band b{color:transparent;transition:color .3s ease calc(var(--i,0) * .16s + .42s)}
+html.t-motion body.top-v4 .t-msg.is-in .t-say--q .t-band,
+html.t-motion body.top-v4 .t-msg.is-arrived .t-say--a .t-band{background-size:100% 100%;color:#fff}
+html.t-motion body.top-v4 .t-msg.is-in .t-say--q .t-band em,
+html.t-motion body.top-v4 .t-msg.is-in .t-say--q .t-band b,
+html.t-motion body.top-v4 .t-msg.is-arrived .t-say--a .t-band em,
+html.t-motion body.top-v4 .t-msg.is-arrived .t-say--a .t-band b{color:#5FD4FF}
+/* 答えは中央寄せなので帯も中央から左右へ */
+html.t-motion body.top-v4 .t-say--a .t-band{background-position:50% 0}
+
+/* =========================================================
+   v12 窓：FVの球体を背景に固定し、ところどころ切り抜いて見せる
+   .t-window に clip-path をかけると、中の position:fixed の層も
+   その形に切り抜かれる。スクロールすると窓だけが動き、球体は画面に
+   貼り付いたままなので「奥にある球体をのぞく」ように見える。
+   ========================================================= */
+.t-window{
+  position:relative;overflow:hidden;
+  clip-path:inset(0 round var(--r,32px));
+  -webkit-clip-path:inset(0 round var(--r,32px));
+  background:#08205C;              /* 球体が描かれる前の地 */
+}
+.t-window__bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(135deg,#08205C 0%,#0F3A9E 34%,#1E6BFF 66%,#35C0F2 100%);
+}
+.t-window__bg canvas{display:block}
+
+/* 窓①：ISSUE の右側（悩みの帯と並ぶ縦長の窓） */
+body.top-v4 .t-window--issue{
+  position:absolute;z-index:1;
+  right:clamp(-60px,-3vw,-24px);top:clamp(120px,12vw,180px);
+  width:clamp(220px,30vw,440px);height:clamp(300px,34vw,520px);
+  --r:clamp(28px,4vw,56px);
+}
+/* 窓の出現：丸く開く */
+html.t-motion body.top-v4 .t-window--issue,
+html.t-motion body.top-v4 .t-window--ceo{
+  clip-path:circle(0% at 50% 50%);-webkit-clip-path:circle(0% at 50% 50%);
+  transition:clip-path 1.4s cubic-bezier(.65,0,.35,1),-webkit-clip-path 1.4s cubic-bezier(.65,0,.35,1);
+}
+html.t-motion body.top-v4 .t-window--issue.is-open{
+  clip-path:inset(0 round var(--r,32px));-webkit-clip-path:inset(0 round var(--r,32px));
+}
+
+/* 窓②：SCOPE と CASE のあいだの帯 */
+body.top-v4 .t-portal{
+  position:relative;background:#EDF5FF;
+  padding:clamp(8px,1.5vw,20px) clamp(16px,4vw,56px) 0;
+}
+body.top-v4 .t-portal__win{
+  height:clamp(300px,58vh,600px);--r:clamp(28px,4vw,64px);
+  display:flex;align-items:center;justify-content:center;
+}
+body.top-v4 .t-portal__txt{
+  position:relative;z-index:1;margin:0;text-align:center;
+  display:flex;flex-direction:column;
+  font-family:var(--v4-sans);font-weight:900;letter-spacing:-.03em;line-height:.9;
+  font-size:clamp(46px,9.5vw,150px);color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.75);
+}
+body.top-v4 .t-portal__txt span:nth-child(2){color:#fff;-webkit-text-stroke:0}
+html.t-motion body.top-v4 .t-portal__win{
+  clip-path:inset(12% 30% 12% 30% round var(--r,32px));-webkit-clip-path:inset(12% 30% 12% 30% round var(--r,32px));
+  transition:clip-path 1.4s cubic-bezier(.65,0,.35,1),-webkit-clip-path 1.4s cubic-bezier(.65,0,.35,1);
+}
+html.t-motion body.top-v4 .t-portal__win.is-open{
+  clip-path:inset(0 round var(--r,32px));-webkit-clip-path:inset(0 round var(--r,32px));
+}
+html.t-motion body.top-v4 .t-portal__txt span{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .8s ease,transform 1s cubic-bezier(.16,1,.3,1);
+}
+html.t-motion body.top-v4 .t-portal__win.is-open .t-portal__txt span{opacity:1;transform:none}
+html.t-motion body.top-v4 .t-portal__win.is-open .t-portal__txt span:nth-child(1){transition-delay:.5s}
+html.t-motion body.top-v4 .t-portal__win.is-open .t-portal__txt span:nth-child(2){transition-delay:.65s}
+html.t-motion body.top-v4 .t-portal__win.is-open .t-portal__txt span:nth-child(3){transition-delay:.8s}
+/* CASE の上端の余白を少し詰める（帯と同じ淡い青でつながる） */
+body.top-v4 .t-portal + .v3-cases{padding-top:clamp(56px,7vw,100px)!important}
+
+/* 窓③：MESSAGE の左上の丸窓 */
+body.top-v4 .t-ceo{position:relative}
+body.top-v4 .t-window--ceo{
+  position:absolute;z-index:0;
+  left:clamp(-120px,-6vw,-40px);top:clamp(40px,6vw,90px);
+  width:clamp(200px,24vw,360px);aspect-ratio:1;--r:50%;
+  clip-path:circle(50% at 50% 50%);-webkit-clip-path:circle(50% at 50% 50%);
+}
+html.t-motion body.top-v4 .t-window--ceo.is-open{clip-path:circle(50% at 50% 50%);-webkit-clip-path:circle(50% at 50% 50%)}
+body.top-v4 .t-ceo > .container{position:relative;z-index:1}
+
+@media (max-width:720px){
+  body.top-v4 .t-window--issue{
+    right:-44px;top:28px;bottom:auto;width:34vw;height:40vw;--r:24px;
+  }
+  body.top-v4 .t-portal__win{height:62vw;min-height:260px}
+  body.top-v4 .t-window--ceo{left:auto;right:-60px;top:-10px;width:150px}
+}
+@media (prefers-reduced-motion:reduce){
+  .t-window--issue,.t-portal__win{clip-path:inset(0 round var(--r,32px))!important}
+}
+
+/* =========================================================
+   v13 穴：FVの球体を画面に固定した1枚のキャンバスに描き、
+   ページ内に散らした不規則な多角形（.t-hole）の中だけ見せる。
+   形は各 .t-hole の data-shape（%で書いた多角形の頂点）。
+   ========================================================= */
+.t-holes{position:fixed;inset:0;z-index:0;pointer-events:none}
+.t-holes canvas{display:block}
+.t-hole{position:absolute;pointer-events:none;z-index:0}
+/* 穴は画面に入ると中心からひらく（キャンバスは毎フレーム穴の大きさを読む） */
+html.t-motion .t-hole{transform:scale(0) rotate(-12deg);transition:transform 1.2s cubic-bezier(.34,1.3,.64,1)}
+html.t-motion .t-hole.is-open{transform:none}
+
+/* SCOPE と CASE のあいだの帯：帯全体が1つの大きな不規則な穴 */
+body.top-v4 .t-portal{
+  position:relative;background:#EDF5FF;
+  height:clamp(300px,58vh,600px);
+  margin:0;padding:0;
+  display:flex;align-items:center;justify-content:center;
+}
+body.top-v4 .t-portal__hole{inset:clamp(8px,1.5vw,20px) clamp(16px,4vw,56px) 0}
+body.top-v4 .t-portal__txt{position:relative;z-index:1}
+html.t-motion body.top-v4 .t-portal__hole{transform:scale(.4) rotate(-4deg)}
+html.t-motion body.top-v4 .t-portal__hole.is-open{transform:none}
+html.t-motion body.top-v4 .t-portal .t-portal__txt span{opacity:0;transform:translateY(30px);
+  transition:opacity .8s ease,transform 1s cubic-bezier(.16,1,.3,1)}
+html.t-motion body.top-v4 .t-portal__hole.is-open + .t-portal__txt span{opacity:1;transform:none}
+html.t-motion body.top-v4 .t-portal__hole.is-open + .t-portal__txt span:nth-child(1){transition-delay:.45s}
+html.t-motion body.top-v4 .t-portal__hole.is-open + .t-portal__txt span:nth-child(2){transition-delay:.6s}
+html.t-motion body.top-v4 .t-portal__hole.is-open + .t-portal__txt span:nth-child(3){transition-delay:.75s}
+
+@media (max-width:720px){
+  .t-hole--pc{display:none}
+  /* スマホは穴を大きめに（端に寄せてあるので本文にはかかりにくい） */
+  body.top-v4 .t-portal{height:64vw;min-height:260px}
+}
+@media (prefers-reduced-motion:reduce){.t-hole{transform:none!important}}
+
+/* v13 矢印：カクカクした折れ線 */
+
+/* =========================================================
+   v14 穴を「画面の端から差し込む鋭い破片」に
+   参考：大きく細長い三角形が画面の端から斜めに入り込む
+   出現は、端を起点に鋭く伸びる（--o が起点）
+   ========================================================= */
+body.top-v4 .t-portal__hole{inset:0!important}
+html.t-motion .t-shard{transform:scale(0,.2);transform-origin:var(--o,50% 50%);
+  transition:transform 1.1s cubic-bezier(.7,0,.2,1)}
+html.t-motion .t-shard.is-open{transform:none}
+html.t-motion body.top-v4 .t-portal__hole{transform:scaleY(0);transform-origin:50% 50%;transition:transform 1.1s cubic-bezier(.7,0,.2,1)}
+html.t-motion body.top-v4 .t-portal__hole.is-open{transform:none}
+@media (max-width:720px){
+  body.top-v4 .t-portal{height:70vw}
+}
+
+/* v15 矢印：カクカクした折れ線／破片は必ず1辺が画面の端にくっつく */
+body.top-v4 .t-msg__flow .t-msg__flowPath{stroke-linejoin:miter!important;stroke-linecap:butt!important;stroke-miterlimit:10}
+@media (max-width:720px){
+  /* スマホは破片を大きく（起点が画面の端なので、端にくっついたまま大きくなる） */
+  body.top-v4 .t-shard{scale:1.6}
+}
+
+/* v16 窓（三角・帯）は出現アニメーションなし。最初からその形で置いておく
+   （中の球体の回転はそのまま） */
+html.t-motion .t-hole,
+html.t-motion .t-shard,
+html.t-motion body.top-v4 .t-portal__hole{transform:none!important;transition:none!important}

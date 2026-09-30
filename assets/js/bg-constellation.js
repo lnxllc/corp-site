@@ -11,10 +11,38 @@
   REG.constellation = function (host) {
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     /* LnX配色：左上の紺 → 右下の水色 */
-    host.style.background = 'linear-gradient(135deg, #08205C 0%, #0F3A9E 34%, #1E6BFF 66%, #35C0F2 100%)';
+    /* 穴あきモード（data-holes="セレクタ"）：画面に固定した1枚のキャンバスに描き、
+       そのセレクタの要素の形（data-shape の多角形）の中だけを見せる */
+    var holesSel = host.dataset.holes || '';
+    host.style.background = holesSel ? 'none' : 'linear-gradient(135deg, #08205C 0%, #0F3A9E 34%, #1E6BFF 66%, #35C0F2 100%)';
     var stars = document.createElement('canvas'), c = document.createElement('canvas');
     stars.style.cssText = c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+    if (holesSel) stars.style.display = 'none';
     host.appendChild(stars); host.appendChild(c);
+    var holes = holesSel ? [].slice.call(document.querySelectorAll(holesSel)).map(function (el) {
+      return { el: el, pts: (el.dataset.shape || '0 0,100 0,100 100,0 100').split(',').map(function (p) {
+        var v = p.trim().split(/\s+/); return [parseFloat(v[0]) / 100, parseFloat(v[1]) / 100];
+      }) };
+    }) : [];
+    function clipHoles() {   /* 見えている穴だけでクリップ。1つも無ければ false */
+      var any = false;
+      ctx.beginPath();
+      for (var h = 0; h < holes.length; h++) {
+        var r = holes[h].el.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > H || r.right < 0 || r.left > W || !r.width) continue;
+        var pts = holes[h].pts;
+        ctx.moveTo(r.left + pts[0][0] * r.width, r.top + pts[0][1] * r.height);
+        for (var k = 1; k < pts.length; k++) ctx.lineTo(r.left + pts[k][0] * r.width, r.top + pts[k][1] * r.height);
+        ctx.closePath(); any = true;
+      }
+      if (!any) return false;
+      ctx.clip();
+      var g = ctx.createLinearGradient(0, 0, W, H);
+      g.addColorStop(0, '#08205C'); g.addColorStop(.34, '#0F3A9E'); g.addColorStop(.66, '#1E6BFF'); g.addColorStop(1, '#35C0F2');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      ctx.drawImage(stars, 0, 0, W, H);
+      return true;
+    }
     var sctx = stars.getContext('2d'), ctx = c.getContext('2d');
 
     var W, H, dpr, N, P, pairs, adj, pulses, cx, cy, R;
@@ -50,6 +78,10 @@
       var wide = W > 900;
       cx = wide ? W * 0.68 : W * 0.5; cy = wide ? H * 0.5 : H * 0.6;
       R = wide ? Math.min(W, H) * 0.36 : Math.min(W, H) * 0.44;
+      /* 位置と大きさの上書き（FV以降の「窓」用）：data-cx / data-cy / data-r */
+      if (host.dataset.cx) cx = W * parseFloat(host.dataset.cx);
+      if (host.dataset.cy) cy = H * parseFloat(host.dataset.cy);
+      if (host.dataset.r) R = Math.min(W, H) * parseFloat(host.dataset.r);
       build(); paintStars();
       if (reduce) draw(6);
     }
@@ -71,10 +103,11 @@
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
-      ctx.lineWidth = 1;
+      if (holesSel) { ctx.save(); if (!clipHoles()) { ctx.restore(); return; } }
+      ctx.lineWidth = holesSel ? 1.4 : 1;
       for (var p = 0; p < pairs.length; p += 2) {
         var a = pairs[p], b = pairs[p + 1], d = (D[a] + D[b]) / 2;
-        ctx.strokeStyle = 'rgba(170,225,255,' + (0.05 + 0.36 * d * d).toFixed(3) + ')';
+        ctx.strokeStyle = 'rgba(170,225,255,' + (holesSel ? 0.16 + 0.5 * d * d : 0.05 + 0.36 * d * d).toFixed(3) + ')';
         ctx.beginPath(); ctx.moveTo(X[a], Y[a]); ctx.lineTo(X[b], Y[b]); ctx.stroke();
       }
       for (var j = 0; j < N; j++) {
@@ -91,6 +124,7 @@
         ctx.fillStyle = 'rgba(190,240,255,' + (0.5 + 0.5 * pd).toFixed(3) + ')';
         ctx.beginPath(); ctx.arc(px, py, 1.2 + 1.3 * pd, 0, 6.283); ctx.fill();
       }
+      if (holesSel) ctx.restore();
     }
     function stepPulses(dt) {
       for (var k = 0; k < pulses.length; k++) {
@@ -106,13 +140,17 @@
 
     resize();
     addEventListener('resize', resize);
+    /* 穴はスクロールで動くので、止まっている設定のときもスクロールのたびに描き直す */
+    var lastT = 6, sTick = false;
+    function onScrollHoles() { if (sTick) return; sTick = true; requestAnimationFrame(function () { sTick = false; draw(lastT); }); }
+    if (holesSel && reduce) addEventListener('scroll', onScrollHoles, { passive: true });
     addEventListener('pointermove', onMove);
     var raf = 0, last = performance.now(), t = 6;
     function frame(now) {
       raf = requestAnimationFrame(frame);
       var dt = Math.min((now - last) / 1000, 0.05); last = now;
       if (document.hidden) return;
-      t += dt; stepPulses(dt); draw(t);
+      t += dt; lastT = t; stepPulses(dt); draw(t);
     }
     if (!reduce) raf = requestAnimationFrame(frame);
     return {
@@ -120,6 +158,7 @@
         cancelAnimationFrame(raf);
         removeEventListener('resize', resize);
         removeEventListener('pointermove', onMove);
+        removeEventListener('scroll', onScrollHoles);
         host.innerHTML = ''; host.style.background = '';
       }
     };

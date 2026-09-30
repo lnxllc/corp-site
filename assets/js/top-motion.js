@@ -41,6 +41,21 @@
 
   /* 3. メッセージ・比較表は自前で .is-in を付ける */
   once($all('.t-msg, .v3-table-wrap'), function (el) { el.classList.add('is-in'); });
+  /* 窓は画面に入ったら開く */
+  /* 窓は画面に入ったら開く。窓自体は閉じている間 clip-path で面積0になり
+     IntersectionObserver が反応しないので、同じ位置に置いた透明の目印で判定する */
+  $all('.t-hole').forEach(function (w) {
+    var probe = document.createElement('span');
+    probe.className = 't-window__probe';
+    probe.setAttribute('aria-hidden', 'true');
+    w.parentNode.insertBefore(probe, w);
+    var sync = function () {
+      probe.style.cssText = 'position:absolute;pointer-events:none;visibility:hidden;' +
+        'left:' + w.offsetLeft + 'px;top:' + w.offsetTop + 'px;width:' + w.offsetWidth + 'px;height:' + w.offsetHeight + 'px';
+    };
+    sync(); addEventListener('resize', sync);
+    once([probe], function () { w.classList.add('is-open'); }, { rootMargin: '0px 0px -15% 0px', threshold: 0.05 });
+  });
 
   /* 4. 実績の数字（<b>の中の数字）をカウントアップ */
   function counter(b) {
@@ -138,11 +153,26 @@
     brand.dataset.split = '1';
   }
 
+  /* ISSUE の矢印：スクロール量に合わせて伸ばし、届いたら答えのカードを出す */
+  var flow = document.querySelector('.t-msg__flow');
+  var msg = document.querySelector('.t-msg');
+  function updateFlow() {
+    if (!flow || !msg) return;
+    var r = flow.getBoundingClientRect(), vh = innerHeight;
+    /* 矢印の上端が画面の90%に来たら描き始め、下端が画面の50%まで上がったら描き終わる */
+    var p = (vh * 0.9 - r.top) / (vh * 0.4 + r.height);
+    p = Math.max(0, Math.min(1, p));
+    flow.style.setProperty('--draw', (1 - p).toFixed(4));
+    if (p >= 0.98) msg.classList.add('is-arrived');
+    else if (p < 0.6) msg.classList.remove('is-arrived');
+  }
+
   /* 7. スクロール連動：バーと写真のパララックス */
-  var imgs = $all('.v3-case__media img');
+  var imgs = [];   /* 実績の画像は見切れを防ぐため動かさない */
   var ticking = false;
   function update() {
     ticking = false;
+    updateFlow();
     var de = document.documentElement;
     var y = window.pageYOffset || de.scrollTop || 0;
     var max = Math.max(1, de.scrollHeight - innerHeight);

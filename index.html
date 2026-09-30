@@ -28,7 +28,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- DEC-29 紐ライン -->
   <link rel="stylesheet" href="assets/css/top-rope.css?v=2" />
   <!-- FV以下のモーション・メッセージ -->
-  <link rel="stylesheet" href="assets/css/top-motion.css?v=3" />
+  <link rel="stylesheet" href="assets/css/top-motion.css?v=13" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.webp">
@@ -244,7 +244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cwh__left">
 
         <p class="cwh__lead">
-          Webマーケティングの力で、御社のサービスが選ばれる仕組みを構築します。
+          デジタルマーケティングの力で、御社のサービスが選ばれる仕組みを構築します。
         </p>
 
         <div class="cwh__cta">
@@ -333,27 +333,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        メッセージ（旧：課題）
   ========================= -->
   <section class="section has-rope v3-pain t-msg">
+    <div class="t-hole t-shard" data-shape="0 0,100 0,100 100" style="right:0;top:0;width:62vw;height:34%;--o:100% 0" aria-hidden="true"></div>
+    <div class="t-hole t-shard" data-shape="0 0,100 55,0 100" style="left:0;top:40%;width:24vw;height:24vw;--o:0 50%" aria-hidden="true"></div>
+    <div class="t-hole t-shard t-hole--pc" data-shape="100 0,100 100,0 70" style="right:0;bottom:4%;width:34vw;height:36vw;--o:100% 50%" aria-hidden="true"></div>
     <div class="container">
       <div class="t-msg__grid">
-        <div class="t-msg__head">
+        <!-- 悩み：黒い帯に白文字（1行ずつ帯が伸びて文字が出る） -->
+        <div class="t-say t-say--q">
           <p class="v3-eyebrow">ISSUE</p>
-          <h2 class="t-msg__title">
-            <span class="t-msg__line"><span>予算をかけられず、</span></span>
-            <span class="t-msg__line"><span><em>良いサービス</em>の<br class="only-sp-br">集客ができない。</span></span>
+          <h2 class="t-say__h">
+            <span class="t-band" style="--i:0">予算をかけられず、</span><br>
+            <span class="t-band" style="--i:1"><em>良いサービス</em>の<br class="only-sp-br">集客ができない。</span>
           </h2>
-          <p class="t-msg__lead">そんな悩みを、沢山の経営者から聞いてきました。</p>
+          <p class="t-say__s"><span class="t-band t-band--sm" style="--i:2">そんな悩みを、沢山の経営者から聞いてきました。</span></p>
         </div>
 
-        <div class="t-msg__body">
-          <div class="t-msg__formula" aria-hidden="true">
-            <span class="t-msg__chip">Webマーケティング</span>
-            <span class="t-msg__op">×</span>
-            <span class="t-msg__chip t-msg__chip--ai">AI</span>
-            <span class="t-msg__res"><span class="t-msg__op t-msg__op--eq">＝</span><span class="t-msg__chip t-msg__chip--res">低予算での運用</span></span>
-          </div>
-          <p class="t-msg__text">
-            弊社はWebマーケティングにAIを掛け合わせて原価を抑えることで、<b>低予算での運用</b>を実現しています。
+        <!-- スクロールに合わせて伸びる矢印（悩み → 答え） -->
+        <div class="t-msg__flow" aria-hidden="true">
+          <svg viewBox="0 0 760 320" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="msgArrow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="320">
+                <stop offset="0" stop-color="#35C0F2"/><stop offset="1" stop-color="#1E6BFF"/>
+              </linearGradient>
+            </defs>
+            <path class="t-msg__flowPath" pathLength="1"
+              d="M120,0 L120,64 L300,64 L300,150 L160,150 L160,222 L380,222 L380,266"/>
+            <path class="t-msg__flowHead" d="M342,256 L380,310 L418,256 Z"/>
+          </svg>
+        </div>
+
+        <!-- 答え：矢印が届いたら帯が伸びて出る -->
+        <div class="t-say t-say--a">
+          <p class="t-say__tag"><span class="t-band t-band--blue t-band--xs" style="--i:0">OUR ANSWER</span></p>
+          <p class="t-say__h">
+            <span class="t-band" style="--i:1">デジタルマーケティング × <b>AI</b></span><br>
+            <span class="t-band t-band--blue t-band--xl" style="--i:2">＝ 低予算での運用</span>
           </p>
+          <p class="t-say__s"><span class="t-band t-band--sm" style="--i:3">弊社はデジタルマーケティングにAIを掛け合わせて原価を抑えることで、<br class="only-pc-br">低予算での運用を実現しています。</span></p>
         </div>
       </div>
     </div>
@@ -394,9 +410,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- =========================
+       窓（FVの球体をのぞく帯）
+  ========================= -->
+  <div class="t-portal" aria-hidden="true">
+    <div class="t-hole t-portal__hole" data-shape="0 26,100 0,100 74,0 100"></div>
+    <p class="t-portal__txt"><span>DIGITAL</span><span>MARKETING</span><span>COMPANY</span></p>
+  </div>
+
+  <!-- =========================
        実績
   ========================= -->
   <section class="section has-rope v3-cases" id="case">
+    <div class="t-hole t-shard" data-shape="0 0,100 40,0 100" style="left:0;top:14%;width:30vw;height:44vw;--o:0 50%" aria-hidden="true"></div>
+    <div class="t-hole t-shard t-hole--pc" data-shape="100 0,100 100,0 30" style="right:0;top:48%;width:28vw;height:24vw;--o:100% 50%" aria-hidden="true"></div>
     <div class="container">
       <div class="section__head">
         <p class="v3-eyebrow">CASE</p>
@@ -485,6 +511,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        他社比較
   ========================= -->
   <section class="section has-rope v3-compare">
+    <div class="t-hole t-shard" data-shape="100 0,100 100,0 20" style="right:0;top:2%;width:44vw;height:17vw;--o:100% 50%" aria-hidden="true"></div>
     <div class="container">
       <div class="section__head">
         <p class="v3-eyebrow">COMPARISON</p>
@@ -564,6 +591,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        代表メッセージ
   ========================= -->
   <section class="section t-ceo">
+    <div class="t-hole t-shard t-hole--pc" data-shape="0 0,100 80,0 100" style="left:0;top:6%;width:24vw;height:30vw;--o:0 50%" aria-hidden="true"></div>
+    <div class="t-hole t-shard" data-shape="100 0,100 100,0 60" style="right:0;bottom:0;width:26vw;height:28vw;--o:100% 50%" aria-hidden="true"></div>
     <div class="container t-ceo__inner">
       <div class="t-ceo__body">
         <p class="v3-eyebrow">MESSAGE</p>
@@ -581,6 +610,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        FAQ
   ========================= -->
   <section class="section t-faq">
+    <div class="t-hole t-shard" data-shape="100 0,100 100,0 45" style="right:0;top:8%;width:34vw;height:15vw;--o:100% 50%" aria-hidden="true"></div>
+    <div class="t-hole t-shard t-hole--pc" data-shape="0 0,100 60,0 100" style="left:0;bottom:6%;width:18vw;height:16vw;--o:0 50%" aria-hidden="true"></div>
     <div class="container">
       <div class="section__head">
         <p class="v3-eyebrow">FAQ</p>
@@ -681,11 +712,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
 </nav>
 
+<!-- FV以降：画面に固定した球体。.t-hole の形の中だけ見える -->
+<div class="t-holes" data-holes=".t-hole" aria-hidden="true"></div>
+
 <script src="assets/js/main.js?v=5" defer></script>
 <script src="assets/js/top-v4.js?v=1" defer></script>
-<script src="assets/js/bg-constellation.js?v=2" defer></script>
+<script src="assets/js/bg-constellation.js?v=5" defer></script>
 <script src="assets/js/rope.js?v=1" defer></script>
-<script src="assets/js/top-motion.js?v=2" defer></script>
+<script src="assets/js/top-motion.js?v=6" defer></script>
+<script src="assets/js/bg-holes.js?v=2" defer></script>
 <script>
   // 追従CTA: ヒーロー通過後に表示、最終CTA表示中は非表示
   (function(){
