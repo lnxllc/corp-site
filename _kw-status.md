@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-10-01（スプシA 28・29行目を消化）
+- 最終更新：2026-10-02（スプシA 31〜33行目・36行目を消化）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -16,7 +16,7 @@
 
 ## スプシA：AIO/LLMO/SEO顕在KW（全45行）
 
-作成済み29／要リライト0／一部カバー7／未着手9
+作成済み33／要リライト0／一部カバー7／未着手5
 
 | 行 | 検索キーワード | ステータス | 該当記事 | メモ |
 |---|---|---|---|---|
@@ -50,12 +50,12 @@
 | 28 | AI検索 対策 会社 | 作成済み | column/seo/ai-search-taisaku-company-recommended/ | 2026-10-01に新規作成。ジオコード・ナイル・グラッドキューブ(LLMOA)・PLAN-B・LANY＋LnXの社名比較表6社＋個別セクション。work28.webp使用。対応AI比較表・会社4タイプ・確認6項目あり |
 | 29 | AI検索 コンサル | 作成済み | column/seo/ai-search-consulting-guide/ | 2026-10-01に新規作成。調査・改善・計測の3フェーズと成果物・月次レポートの3層指標・最初の90日・料金契約の公開例・自社でできる範囲。work22.webp使用。会社名の実名リストは28行目記事に任せ、本記事は解説型 |
 | 30 | AI検索 対策 費用 | 一部カバー | column/seo/aio-llmo-cost/ | AI検索対策の表記なし |
-| 31 | ChatGPT SEO対策 | 未着手 | | |
-| 32 | ChatGPT 検索 対策 | 未着手 | | |
-| 33 | ChatGPT 表示 対策 | 未着手 | | |
+| 31 | ChatGPT SEO対策 | 作成済み | column/seo/chatgpt-seo-taisaku/ | 2026-10-02に新規作成。OAI-SearchBot/GPTBot/ChatGPT-Userの違い・robots.txt確認・施策7つ・utm_source=chatgpt.com計測。work28.webp使用 |
+| 32 | ChatGPT 検索 対策 | 作成済み | column/seo/chatgpt-seo-taisaku/ | 31行目と同記事 |
+| 33 | ChatGPT 表示 対策 | 作成済み | column/seo/chatgpt-seo-taisaku/ | 31行目と同記事 |
 | 34 | ChatGPT 引用 対策 | 一部カバー | column/seo/check-ai-citation/ | 既存は確認方法。引用される対策は未 |
 | 35 | ChatGPT おすすめ 表示 会社 | 一部カバー | column/seo/ai-recommended-marketing-companies/ | 既存は調査結果。表示させる方法は未 |
-| 36 | AI Overview 対策 | 未着手 | | |
+| 36 | AI Overview 対策 | 作成済み | column/seo/ai-overview-taisaku/ | 2026-10-02に新規作成。Google公式の前提条件・クエリファンアウト・自社20KW調査・施策7つ・Search Console計測。work22.webp使用 |
 | 37 | Google AIモード 対策 | 一部カバー | column/seo/google-vs-ai-search-comparison/ | 既存は調査。対策は未 |
 | 38 | AIO LLMO 違い | 一部カバー | column/seo/aio-taisaku-guide/ | 違いを主題にした記事なし |
 | 39 | AIO GEO 違い | 未着手 | | |
@@ -170,17 +170,17 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 
 スプシ①（全30行）の判定・対応が完了。新規作成7本（リスティング・SNS・Google・Instagram・TikTok・Facebook・LINE・Yahoo・フリーランスvs代理店＝実質9記事、うち一部は同一記事で複数行を消化）、作業不要19行（既存記事でカバー済み、またはシート側で優先度C＝中長期/参考扱いに指定）。
 
-## 次に着手する順番（2026-10-01 スプシA 28〜29行目消化後）
+## 次に着手する順番（2026-10-02 スプシA 31〜33・36行目消化後）
 
-2026-10-01に、スプシA 28行目「AI検索 対策 会社」（新規：column/seo/ai-search-taisaku-company-recommended/）と29行目「AI検索 コンサル」（新規：column/seo/ai-search-consulting-guide/）の2本を作成。
+2026-10-02に、スプシA 31〜33行目（ChatGPT SEO対策／検索 対策／表示 対策を1本に集約）と36行目「AI Overview 対策」の2本を作成。
 
-次回は31行目からスプシAの残タスクを上から順に対応する（30行目は一部カバーのため後回し）。
+次回は39行目からスプシAの残タスクを上から順に対応する。
 
-1. スプシA 31〜33行目「ChatGPT SEO対策／検索 対策／表示 対策」、36行目「AI Overview 対策」
-2. 39・40行目（AIO GEO 違い／LLMO SEO 違い）、42・43行目（ツール）、44・45行目（東京）
-3. その後、27・30・34・35・37・38行目（一部カバー）の深掘り記事を検討
+1. スプシA 39・40行目（AIO GEO 違い／LLMO SEO 違い）。38行目「AIO LLMO 違い」（一部カバー）とまとめて「用語の違い」記事で消化する案も可
+2. 42・43行目（AIO対策／LLMO対策 ツール）、44・45行目（東京）
+3. その後、27・30・34・35・37・38行目（一部カバー）の深掘り記事を検討（34行目は実質ChatGPT対策記事と近接、37行目はAI Overview記事と近接のため、内容を見て作成済み判定へ変更も可）
 
-**メモ（2026-10-01）**：column/seo の記事数は38本、column合計250本、sitemapのcolumn URLは258件（カテゴリindex等8件を含む）。社名記事の会社確認は、aspicjapan.org・boxil.jpの一覧から候補を拾い、各社の公式ページ（または公式サービスサイト）を WebFetch で開いて確認する運用。公式ページに料金が無い場合は「公開なし」と書く。
+**メモ（2026-10-02）**：column/seo の記事数は40本、column合計252本、sitemapのcolumn URLは260件（カテゴリindex等8件を含む）。ChatGPT関連の公式情報は developers.openai.com/docs/bots と help.openai.com の Publishers and developers FAQ、Google側は developers.google.com/search/docs/appearance/ai-features を確認済み。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
