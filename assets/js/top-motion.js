@@ -19,6 +19,15 @@
 
   document.documentElement.classList.add('t-motion');
 
+  /* FV見出し：ISSUEの帯と同じ動き（帯が左から伸び、そのあと文字が出る）を読み込み直後に再生 */
+  (function () {
+    var fvTitle = document.querySelector('.cwh__title--band');
+    if (!fvTitle) return;
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { fvTitle.classList.add('is-in'); });
+    });
+  })();
+
   function $all(sel, root) { return [].slice.call((root || document).querySelectorAll(sel)); }
   function once(els, cb, opt) {
     var io = new IntersectionObserver(function (es) {

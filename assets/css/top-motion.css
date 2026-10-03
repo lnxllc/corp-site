@@ -843,3 +843,18 @@ body.top-v4 .t-msg__flow .t-msg__flowPath{stroke-linejoin:miter!important;stroke
 html.t-motion .t-hole,
 html.t-motion .t-shard,
 html.t-motion body.top-v4 .t-portal__hole{transform:none!important;transition:none!important}
+
+
+/* =========================================================
+   FV見出し：ISSUE（.t-say__h）と同じ黒帯デザイン
+   動きは .t-band の共通ルール（帯が左から伸びる→文字が出る）をそのまま使い、
+   top-motion.js が読み込み直後に .is-in を付けて再生する
+   ========================================================= */
+body.top-v4 .cwh.fv--bg .cwh__title--band{
+  text-shadow:none;
+  line-height:1.62;
+  letter-spacing:-.02em;
+}
+body.top-v4 .cwh__title--band .t-band{padding:.08em .32em .12em}
+html.t-motion body.top-v4 .cwh__title--band.is-in .t-band{background-size:100% 100%;color:#fff}
+html.t-motion body.top-v4 .cwh__title--band.is-in .t-band em{color:#5FD4FF}

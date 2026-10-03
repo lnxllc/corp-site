@@ -14,7 +14,7 @@
   /* ---------- 1. ヒーロー見出しを行ごとに包む ---------- */
   (function wrapHeroTitle() {
     var t = document.querySelector('.cwh__title');
-    if (!t || t.dataset.v4Wrapped) return;
+    if (!t || t.dataset.v4Wrapped || t.querySelector('.t-band')) return;
     var lines = t.innerHTML.split(/<br\s*\/?>/i);
     t.innerHTML = lines.map(function (l, i) {
       return '<span class="v4-line"><span style="--d:' + (0.08 + i * 0.11).toFixed(2) + 's">' +
