@@ -28,7 +28,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- DEC-29 紐ライン -->
   <link rel="stylesheet" href="assets/css/top-rope.css?v=2" />
   <!-- FV以下のモーション・メッセージ -->
-  <link rel="stylesheet" href="assets/css/top-motion.css?v=14" />
+  <link rel="stylesheet" href="assets/css/top-motion.css?v=15" />
+  <script>
+  /* FV見出し：初回描画の前に「隠した状態」を決めておき、読み込み後に左→右で出す */
+  (function(){
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.documentElement.classList.add('fv-anim');
+    function go(){
+      var t=document.querySelector('.cwh__title--band'); if(!t) return;
+      requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('is-in');});});
+    }
+    if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',go); else go();
+  })();
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.webp">
@@ -236,8 +248,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
 
     <h1 class="cwh__title cwh__title--band">
-      <span class="t-band" style="--i:0">良いサービスが</span><br>
-      <span class="t-band" style="--i:1">選ばれる<em>世界へ</em>。</span>
+      <span class="t-band" style="--i:0"><span class="t-band__txt">良いサービスが</span></span><br>
+      <span class="t-band" style="--i:1"><span class="t-band__txt">選ばれる<em>世界へ</em>。</span></span>
     </h1>
 
     <div class="cwh__body">
@@ -719,7 +731,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="assets/js/top-v4.js?v=2" defer></script>
 <script src="assets/js/bg-constellation.js?v=5" defer></script>
 <script src="assets/js/rope.js?v=1" defer></script>
-<script src="assets/js/top-motion.js?v=7" defer></script>
+<script src="assets/js/top-motion.js?v=8" defer></script>
 <script src="assets/js/bg-holes.js?v=2" defer></script>
 <script>
   // 追従CTA: ヒーロー通過後に表示、最終CTA表示中は非表示
