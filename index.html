@@ -28,15 +28,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- DEC-29 紐ライン -->
   <link rel="stylesheet" href="assets/css/top-rope.css?v=2" />
   <!-- FV以下のモーション・メッセージ -->
-  <link rel="stylesheet" href="assets/css/top-motion.css?v=15" />
+  <link rel="stylesheet" href="assets/css/top-motion.css?v=16" />
   <script>
   /* FV見出し：初回描画の前に「隠した状態」を決めておき、読み込み後に左→右で出す */
   (function(){
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     document.documentElement.classList.add('fv-anim');
     function go(){
-      var t=document.querySelector('.cwh__title--band'); if(!t) return;
-      requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('is-in');});});
+      var t=document.querySelector('.cwh__title--band');
+      if(t) requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('is-in');});});
+      /* MESSAGEなど、スクロールで画面に入ったときに再生する帯 */
+      var ws=[].slice.call(document.querySelectorAll('.t-bandwrap'));
+      if(!('IntersectionObserver' in window)){ws.forEach(function(w){w.classList.add('is-in');});return;}
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}
+      });},{rootMargin:'0px 0px -15% 0px',threshold:0.08});
+      ws.forEach(function(w){io.observe(w);});
     }
     if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',go); else go();
   })();
@@ -608,7 +615,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container t-ceo__inner">
       <div class="t-ceo__body">
         <p class="v3-eyebrow">MESSAGE</p>
-        <p class="t-ceo__copy">「何から始めるか分からない」<br>その一歩目から、一緒に。</p>
+        <p class="t-ceo__copy t-bandwrap"><span class="t-band" style="--i:0"><span class="t-band__txt">「何から始めるか分からない」</span></span><br><span class="t-band" style="--i:1"><span class="t-band__txt">その<em>一歩目</em>から、一緒に。</span></span></p>
         <p>
           Web集客の選択肢が増えた今、本当に難しいのは「自社に合う打ち手を選ぶこと」だと考えています。私たちは施策の押し売りではなく、貴社の事業と数字に向き合い、最適な一手を共に考えるパートナーでありたい。迷われている段階でこそ、お気軽にご相談ください。
         </p>

@@ -855,19 +855,24 @@ body.top-v4 .cwh.fv--bg .cwh__title--band{
   line-height:1.62;
   letter-spacing:-.02em;
 }
-body.top-v4 .cwh__title--band .t-band{padding:.08em .32em .12em}
-body.top-v4 .cwh__title--band .t-band__txt{display:inline-block}
+body.top-v4 :is(.cwh__title--band,.t-bandwrap) .t-band{padding:.08em .32em .12em}
+body.top-v4 :is(.cwh__title--band,.t-bandwrap) .t-band__txt{display:inline-block}
 
-html.fv-anim body.top-v4 .cwh__title--band .t-band{
+html.fv-anim body.top-v4 :is(.cwh__title--band,.t-bandwrap) .t-band{
   background-size:0% 100%;background-position:0 0;color:#fff;
   transition:background-size .6s cubic-bezier(.65,0,.35,1);
   transition-delay:calc(var(--i,0) * .16s + .1s);
 }
-html.fv-anim body.top-v4 .cwh__title--band .t-band em{color:#5FD4FF;transition:none}
-html.fv-anim body.top-v4 .cwh__title--band .t-band__txt{
+html.fv-anim body.top-v4 :is(.cwh__title--band,.t-bandwrap) .t-band em{color:#5FD4FF;transition:none}
+html.fv-anim body.top-v4 :is(.cwh__title--band,.t-bandwrap) .t-band__txt{
   clip-path:inset(-.3em 100% -.3em 0);
   transition:clip-path .55s cubic-bezier(.65,0,.35,1);
   transition-delay:calc(var(--i,0) * .16s + .45s);
 }
-html.fv-anim body.top-v4 .cwh__title--band.is-in .t-band{background-size:100% 100%}
-html.fv-anim body.top-v4 .cwh__title--band.is-in .t-band__txt{clip-path:inset(-.3em 0 -.3em 0)}
+html.fv-anim body.top-v4 :is(.cwh__title--band,.t-bandwrap).is-in .t-band{background-size:100% 100%}
+html.fv-anim body.top-v4 :is(.cwh__title--band,.t-bandwrap).is-in .t-band__txt{clip-path:inset(-.3em 0 -.3em 0)}
+
+/* MESSAGE（代表メッセージ）のコピーも同じ黒帯＋左→右の動き */
+body.top-v4 .t-ceo__copy.t-bandwrap{line-height:1.95!important;letter-spacing:.01em!important}
+/* 既存の「コピー全体を拭き取り」は帯の動きと重なるので外す */
+html.t-motion body.top-v4 .t-ceo__inner[data-v4-rv] .t-ceo__copy.t-bandwrap{clip-path:none;transition:none}
