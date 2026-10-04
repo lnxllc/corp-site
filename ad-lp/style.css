@@ -597,6 +597,24 @@ html, body{ height:auto; min-height:100%; }
 }
 .ad-price__notes li b{ color:var(--txt); }
 
+/* 注意事項：最初は閉じておき、押すと開く */
+.ad-price__more{ border-top:1px solid var(--line); text-align:left; }
+.ad-price__more summary{
+  position:relative; cursor:pointer; list-style:none;
+  padding:18px 32px 18px 0;
+  font-size:13px; font-weight:700; color:var(--txt); line-height:1.6;
+}
+.ad-price__more summary::-webkit-details-marker{ display:none; }
+.ad-price__more summary::after{
+  content:""; position:absolute; right:6px; top:50%;
+  width:8px; height:8px; margin-top:-6px;
+  border-right:2px solid currentColor; border-bottom:2px solid currentColor;
+  transform:rotate(45deg); transition:transform .25s ease, margin-top .25s ease;
+}
+.ad-price__more[open] summary::after{ transform:rotate(-135deg); margin-top:-2px; }
+.ad-price__more summary:focus-visible{ outline:2px solid #1E6BFF; outline-offset:4px; border-radius:4px; }
+.ad-price__more .ad-price__notes{ border-top:0; padding:0 0 4px; }
+
 /* ========== FAQ ========== */
 .ad-faq__list{ max-width:820px; margin:0 auto; }
 .ad-faq__item{
