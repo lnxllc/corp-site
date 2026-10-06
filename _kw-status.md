@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-10-05（スプシA 38〜40行目・42〜43行目を消化。※この回はスプシAがアクセス拒否で読めず、台帳の行情報で進行）
+- 最終更新：2026-10-06（スプシA 30行目・44〜45行目を消化）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -16,7 +16,7 @@
 
 ## スプシA：AIO/LLMO/SEO顕在KW（全45行）
 
-作成済み38／要リライト0／一部カバー5／未着手2
+作成済み41／要リライト0／一部カバー4／未着手0
 
 | 行 | 検索キーワード | ステータス | 該当記事 | メモ |
 |---|---|---|---|---|
@@ -49,7 +49,7 @@
 | 27 | AI検索 最適化 | 一部カバー | column/web-marketing/ai-search-llmo-guide/ | |
 | 28 | AI検索 対策 会社 | 作成済み | column/seo/ai-search-taisaku-company-recommended/ | 2026-10-01に新規作成。ジオコード・ナイル・グラッドキューブ(LLMOA)・PLAN-B・LANY＋LnXの社名比較表6社＋個別セクション。work28.webp使用。対応AI比較表・会社4タイプ・確認6項目あり |
 | 29 | AI検索 コンサル | 作成済み | column/seo/ai-search-consulting-guide/ | 2026-10-01に新規作成。調査・改善・計測の3フェーズと成果物・月次レポートの3層指標・最初の90日・料金契約の公開例・自社でできる範囲。work22.webp使用。会社名の実名リストは28行目記事に任せ、本記事は解説型 |
-| 30 | AI検索 対策 費用 | 一部カバー | column/seo/aio-llmo-cost/ | AI検索対策の表記なし |
+| 30 | AI検索 対策 費用 | 作成済み | column/seo/ai-search-taisaku-cost/ | 2026-10-06に新規作成。他社相場記事（仁頼・StockSun）＋公式公開料金（and media・メディアグロース・StockSun・ナイル）＋LnX。費用の3作業・施策別単価・人件費試算・見積チェック。work28.webp使用 |
 | 31 | ChatGPT SEO対策 | 作成済み | column/seo/chatgpt-seo-taisaku/ | 2026-10-02に新規作成。OAI-SearchBot/GPTBot/ChatGPT-Userの違い・robots.txt確認・施策7つ・utm_source=chatgpt.com計測。work28.webp使用 |
 | 32 | ChatGPT 検索 対策 | 作成済み | column/seo/chatgpt-seo-taisaku/ | 31行目と同記事 |
 | 33 | ChatGPT 表示 対策 | 作成済み | column/seo/chatgpt-seo-taisaku/ | 31行目と同記事 |
@@ -63,8 +63,8 @@
 | 41 | AIO SEO 違い | 作成済み | column/seo/aio-taisaku-guide/ | |
 | 42 | AIO対策 ツール | 作成済み | column/seo/aio-llmo-tools-recommended/ | 2026-10-05に新規作成。Semrush・Ahrefs Brand Radar・Peec AI・Answer IO(フィードフォース)・DolphinX AIO(メディアリーチ)・AIsearchmap(CINC)＋LnX(無料診断)の7選比較表＋個別セクション。work28.webp使用。Peec・AIsearchmap有料の金額は公式で未取得のため「確認できず/公開なし」と記載 |
 | 43 | LLMO対策 ツール | 作成済み | column/seo/aio-llmo-tools-recommended/ | 42行目と同記事 |
-| 44 | AIO対策 東京 | 未着手 | | 地域KWの記事なし |
-| 45 | LLMO対策 東京 | 未着手 | | 地域KWの記事なし |
+| 44 | AIO対策 東京 | 作成済み | column/seo/aio-llmo-taisaku-tokyo-recommended/ | 2026-10-06に新規作成。and media・StockSun・ナイル・PLAN-B・メディアグロース・メディアリーチ＋LnXの社名比較表7社＋個別セクション。work22.webp使用。ナイルは所在地が公式で未確認のため「公開なし」 |
+| 45 | LLMO対策 東京 | 作成済み | column/seo/aio-llmo-taisaku-tokyo-recommended/ | 44行目と同記事 |
 
 ---
 
@@ -170,18 +170,18 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 
 スプシ①（全30行）の判定・対応が完了。新規作成7本（リスティング・SNS・Google・Instagram・TikTok・Facebook・LINE・Yahoo・フリーランスvs代理店＝実質9記事、うち一部は同一記事で複数行を消化）、作業不要19行（既存記事でカバー済み、またはシート側で優先度C＝中長期/参考扱いに指定）。
 
-## 次に着手する順番（2026-10-05 スプシA 38〜40・42〜43行目消化後）
+## 次に着手する順番（2026-10-06 スプシA 30・44・45行目消化後）
 
-2026-10-05に、スプシA 38〜40行目（AIO/LLMO/GEO/SEOの違いを1本に集約）と42〜43行目（AIO・LLMO対策ツール比較を1本に集約）の2本を作成。この回はスプシAがブラウザで「アクセスが拒否されました」となり、Drive MCPでも見つからず読めなかったため、台帳の行情報だけで進行した（K列・I列の確認はできていない）。
+2026-10-06に、スプシA 44・45行目（東京のAIO/LLMO対策会社7選）と30行目（AI検索対策の費用相場）の2本を作成。スプシAはgviz HTMLをbuilt-in browserで読めた（K列・I列を確認）。
 
-次回の対象：
-1. スプシA 44・45行目（AIO対策 東京／LLMO対策 東京）。地域KW。社名比較表が必要（東京のAIO/LLMO対策会社を実在確認して掲載）。1本にまとめる案
-2. その後は一部カバー行（27・30・34・35・37行目）の深掘り。34行目はchatgpt-seo-taisaku、37行目はai-overview-taisakuと近接のため、内容を見て作成済み判定へ変更も可。27行目は「AI検索 最適化」、30行目は「AI検索 対策 費用」（aio-llmo-cost／ai-search系で未カバー表記）
-3. 全行消化後は手順13（プロンプトの差し替え）を実行
+次回の対象：未着手は0。残りは一部カバー4行（27・34・35・37）のみ。
+1. 27行目「AI検索 最適化」：column/web-marketing/ai-search-llmo-guide/ と近接。主題が重複するため、新規にするか作成済み判定に変えるか、記事のh2を読んで判断
+2. 34行目「ChatGPT 引用 対策」：既存 check-ai-citation（確認方法）。引用される対策は chatgpt-seo-taisaku と近接のため、作成済み判定へ変更も可
+3. 35行目「ChatGPT おすすめ 表示 会社」：既存 ai-recommended-marketing-companies は調査結果。表示させる方法が未
+4. 37行目「Google AIモード 対策」：既存 google-vs-ai-search-comparison は調査。対策記事が未
+5. 全行消化後は手順13（プロンプトの差し替え）を実行
 
-**追記（2026-10-05）**：スプシAが読めるようになったためI列・K列と照合し、「違い」記事に測る指標(KPI)の比較セクション、「ツール」記事にツール費用の目安と運用代行・コンサルとの違いのセクションを追記済み。残りは44・45行(東京)＋一部カバー5行(27・30・34・35・37)。
-
-**メモ（2026-10-05）**：column/seo は42本、column合計254本、sitemapのcolumn URLは262件（カテゴリindex等8件を含む）。ツール記事の根拠はSemrush KB(1493-ai-visibility-toolkit)、Ahrefs Brand Radar、Peec料金ページ、answer-io.jp、dolphinx.jp/aio、aisearchmap.jp＋PR TIMES(2026-05-18)。Bing Webmaster ToolsのAI Performanceはベータで公式未確認のため記事に載せていない。
+**メモ（2026-10-06）**：column/seo は44本、column合計256本、sitemapのcolumn URLは264件（カテゴリindex等8件を含む）。東京記事の確認URL：stock-sun.com/service/llmo/、andmedia.co.jp/and-llmo/、media-growth.co.jp/llmo-service/、www.seohacks.net/service/llmo-consulting/（ナイル）、www.plan-b.co.jp/solution/seo/llmo-consulting/、mediareach.co.jp/seo-consulting/llmo-service。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
