@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-10-07（スプシA 27・34・35・37行目を消化。スプシAは全45行完了）
+- 最終更新：2026-10-08（スプシA完了後の自由テーマ枠：2本作成。週10本・1回2本ペース）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -177,6 +177,15 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 **次回の対応：手順13（完了条件）により、スケジュールタスクのpromptを「付録：全KW消化後に戻すプロンプト」に差し替える。** ただし2026-10-07の実行ではタスク更新用ツール（mcp__scheduled-tasks__update_scheduled_task）がこのセッションに無く、差し替えは未実施。次回以降に実施するか、ユーザーに確認すること。
 
 **メモ（2026-10-07）**：column/seo は46本、column合計258本、sitemapのcolumn URLは266件（カテゴリindex等8件を含む）。確認URL：developers.google.com/search/docs/appearance/ai-features、blog.google/intl/ja-jp/products/explore-get-answers/ai-mode-search/、webtan.impress.co.jp/n/2026/06/09/52774、developers.openai.com/docs/bots、help-lb.openai.com/en/articles/12627856-publishers-and-developers-faq。
+
+## 自由テーマ枠の作成記録（スプシA完了後・1回2本／週10本）
+
+| 日付 | 記事 | カテゴリ | 送客先 | 狙った検索クエリ | メモ |
+|---|---|---|---|---|---|
+| 2026-10-08 | column/web-marketing/marketing-advisor-company-recommended/ | web-marketing | marke-comon-lp | マーケティング顧問 おすすめ | 比較検討層。KikkA・バリューエージェント・FlyEdge・グローカル・シェアボス＋LnXの社名比較表6社＋個別セクション。ギャップ＝「対象外・別料金の明記」列と契約期間の公開有無。work7.webp（半年で売上600万円以上UP／成果報酬型の事例と明記）。確認日2026-10-08 |
+| 2026-10-08 | column/ai-katsuyo/ai-adoption-ringi-writing/ | ai-katsuyo | contact.html | AI導入 稟議書 | 稟議書の1枚11項目＋記入例（架空の仮置き明記）・費用の入れ忘れ5つ・回収期間の計算例・想定問答。出典＝IPA「テキスト生成AIの導入・運用ガイドライン」、総務省・経産省「AI事業者ガイドライン第1.1版」。work22.webp使用 |
+
+**メモ（2026-10-08）**：前回(10-07)の送客先はaio-lpだったため、今回はmarke-comon-lpとcontact.htmlを使用。column合計260本（seo46／ai-katsuyo36／advertising60／web-marketing48／lp-improvement23／sns-marketing23／analytics24）、sitemapのcolumn記事URLは260件（index等8件を含め268件）。次回は未使用に近い送客先（ad-lp：advertising／lp-improvement／analytics）を優先。競合確認URL：boxil.jp/mag/a9458、shopowner-support.net（cmo-agent-service）、biz.ne.jp/matome/2003129、cro-co.co.jp/media/web-maketing/web-marketing-consultant、ai-revolution.co.jp/media/ai-internal-approval、uravation.com/media/ai-adoption-ringi-approval-guide-2026、aipicks.jp/mag/ai-adoption-roi-approval-template-2026、a-x.inc/blog/ai-approval-document-creation-benefits。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
