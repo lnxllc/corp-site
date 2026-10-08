@@ -490,6 +490,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><a href="#budget">予算規模別の組み方</a></li>
 <li><a href="#searchterms">検索語句レポートで除外を育てる</a></li>
 <li><a href="#mistakes">やりがちな失敗5つ</a></li>
+<li><a href="#cheatsheet">マッチタイプ別・実務での使い分け早見表</a></li>
+<li><a href="#intent-gap">インテントのズレをどう検知して除外に回すか</a></li>
 <li><a href="#lnx-view">LnXの見解</a></li>
 <li><a href="#faq">よくある質問</a></li>
 </ol>
@@ -695,6 +697,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">LP制作0円の詳細を見る</a>
 </div>
 <!-- ===== LnXの見解 ===== -->
+<!-- 追記：マッチタイプ別・実務での使い分け早見表 -->
+<h2 id="cheatsheet">マッチタイプ別・実務での使い分け早見表</h2>
+<p>マッチタイプは、状況に応じて使い分けます。前の節で整理した配信範囲をもとに、実務での使いどころを早見表にまとめました。</p>
+<table class="cost-table">
+<thead>
+<tr><th>状況</th><th>基本の選び方</th><th>注意すること</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>指名検索や、成果に直結する語を確実に押さえたい</strong></td><td>完全一致</td><td>同じ意図の言い換えにも配信される。検索語句レポートで実際の語を確認する</td></tr>
+<tr><td><strong>成果の出ている語から、周辺の語へ広げたい</strong></td><td>フレーズ一致</td><td>広げた分だけ、無関係な語が混ざりやすい。配信後1〜2週間は検索語句を頻繁に見る</td></tr>
+<tr><td><strong>新しい需要を見つけたい。自動入札を併用している</strong></td><td>インテントマッチ</td><td>除外キーワードの整備が前提。広げるのは除外を整えてから</td></tr>
+<tr><td><strong>広告予算が小さい</strong></td><td>完全一致とフレーズ一致を中心に</td><td>予算が小さいと、初月の数万円が判断材料にならないまま消えやすい</td></tr>
+</tbody>
+</table>
+<p>迷ったときは、守りたい語を完全一致で押さえ、広げたい語だけを別の広告グループでフレーズ一致やインテントマッチにする、という分け方にしておくと、配信の結果を読み取りやすくなります。</p>
+<!-- 追記：インテントのズレをどう検知して除外に回すか -->
+<h2 id="intent-gap">インテントのズレをどう検知して除外に回すか</h2>
+<p>インテントマッチは、登録した語とは違う意図の検索にも配信されます。ズレは、検索語句レポートで次の順に見つけます。</p>
+<ol>
+<li>登録したキーワードと、実際の検索語句を並べ、意図が違う語を拾う（同名の別業種、無料や求人を探す検索など）</li>
+<li>クリックはあるのにコンバージョンがゼロの語が、一定のクリック数を超えて続いていないか見る</li>
+<li>拾った語を、除外キーワードに追加する。成果が出ている語は、完全一致のキーワードとして登録し直す</li>
+</ol>
+<p>除外キーワードにもマッチタイプがあり、登録した語と同じ語を含む検索を止める性質です。言い換えや類義語の検索までは止まらないため、除外は一度の設定で終わらず、検索語句レポートを見ながら少しずつ足していきます。除外の優先順位や設定の手順は<a href="https://lnx.co.jp/column/advertising/google-ads-exclusion-settings/">Google広告の除外設定｜5種類の優先順位と手順</a>で整理しています。</p>
+<div class="highlight-card--warning highlight-card">
+<p><strong>広告媒体の仕様や名称は更新されることがあります。</strong>設定に入る前に、Google広告ヘルプで最新の手順を確認してください。</p>
+</div>
+
 <h2 id="lnx-view">LnXの見解</h2>
 <p>Google広告のアカウントを引き継いで最初に見るのは、キーワードの一覧ではなく<strong>除外キーワードのリストと検索語句レポート</strong>です。成果の出ていないアカウントは、ほぼ例外なくここが手つかずになっています。キーワードは何十語も登録されているのに除外は数件、という状態が非常に多く、そのぶんの費用が無関係な検索に流れ続けています。</p>
 <p>マッチタイプの名称がインテントマッチに変わったことも、実務上は「Googleの判断に委ねる範囲が広がっている」という文脈で捉えるべきだと考えています。<strong>自動化が進むほど、人が握るべきなのは「出したくない検索を止めること」に寄っていきます。</strong>キーワードを足す作業より、除外を育てる作業のほうが成果への寄与が大きい局面が増えています。</p>
@@ -788,6 +818,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><a href="#budget">予算規模別の組み方</a></li>
 <li><a href="#searchterms">検索語句レポート運用</a></li>
 <li><a href="#mistakes">よくある失敗</a></li>
+<li><a href="#cheatsheet">使い分け早見表</a></li>
+<li><a href="#intent-gap">インテントのズレと除外</a></li>
 <li><a href="#lnx-view">LnXの見解</a></li>
 <li><a href="#faq">よくある質問</a></li>
 </ol>

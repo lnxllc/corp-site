@@ -764,6 +764,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="article-cta__btn" href="https://lnx.co.jp/contact.html">AI活用について相談する</a>
 </div>
 <!-- ===== LnXの見解 ===== -->
+<!-- 追記：AI開発を外部に委託するときの進め方——要件・データ・成果物の権利 -->
+<h2 id="dev-outsourcing">AI開発を外部に委託するときの進め方——要件・データ・成果物の権利</h2>
+<p>4タイプのうち、受託開発・SIer型に頼む場合は、決めることが他のタイプより多くなります。「作ってください」と依頼する前に、次の5つを発注側で整理しておくと、見積もりの比較も契約もしやすくなります。</p>
+<table class="cost-table">
+<thead>
+<tr><th>決めること</th><th>具体的な内容</th><th>決めないと起きやすいこと</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>契約形態</strong></td><td>一般に、請負は成果物の完成が対象、準委任は業務の遂行が対象です。要件が固まっていない段階は、小さな検証を準委任で進める選択肢があります</td><td>完成の定義が曖昧なまま請負で進み、仕様変更のたびに追加費用が出る</td></tr>
+<tr><td><strong>要件</strong></td><td>解きたい業務課題、入力と出力、精度の合格ライン、使う人と使う場面</td><td>作ったものが現場で使われない</td></tr>
+<tr><td><strong>入力データ</strong></td><td>誰がどのデータをどの形式で用意するか。個人情報や機密情報を含む場合の扱い</td><td>データの準備で工程が止まる。情報管理で問題が出る</td></tr>
+<tr><td><strong>成果物と権利</strong></td><td>納品物の範囲（プログラム・プロンプト・設定・ドキュメントなど）と、利用や改修の権利の帰属</td><td>改修のたびに開発会社に依存し、他社へ移せない</td></tr>
+<tr><td><strong>検収と保守</strong></td><td>検収の基準（精度をどう測るか）、納品後の保守や改修の費用と期間</td><td>納品後に想定外の費用が出る</td></tr>
+</tbody>
+</table>
+<p>進め方としては、最初から本開発に入らず、対象を1業務に絞った小さな検証から始めるのが堅実です。検証で効果と課題を確認してから本開発に進めば、要件定義の費用が無駄になりにくくなります。自社でも1業務だけ試す進め方は<a href="#inhouse-first">見積もりを取る前に、1業務だけ自社で試す</a>で整理しています。契約で確認する項目は<a href="https://lnx.co.jp/column/ai-katsuyo/ai-outsourcing-contract-checklist/">AI導入・業務自動化を外注する前に確認すべき契約7項目</a>に詳しくまとめています。</p>
+<div class="highlight-card--warning highlight-card">
+<p><strong>契約書の条項の解釈や、権利の帰属に関する個別の判断は、弁護士等の専門家にご確認ください。</strong>この記事は一般的な整理であり、個別の契約内容に対する法的な助言ではありません。</p>
+</div>
+
 <h2 id="lnx-view">LnXの見解</h2>
 <p>AI活用の外注で失敗するパターンは、技術的な難しさよりも<strong>「何を頼んでいるのか、発注側も受注側も曖昧なまま始まっている」</strong>ことに寄っています。設計を頼んだつもりが仕組みだけ納品された、構築を頼んだつもりが研修が届いた——どちらも、領域の切り分けをせずに「AI導入をお願いします」と言ってしまったことが出発点です。</p>
 <p>だからこの記事では、会社の一覧ではなく領域の分け方から書きました。<strong>設計・構築・定着のどれを、自社のどのリソースで、いつまでにやるのか。ここが決まっていれば、どのタイプに当たるべきかは自動的に決まります。</strong>決まっていない状態で提案を受けると、各社が自分の得意な領域の話をしてきて、比較になりません。</p>
@@ -866,6 +886,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><a href="#cost">費用の出方</a></li>
 <li><a href="#combination">1社か、分けるか</a></li>
 <li><a href="#checklist">質問リスト</a></li>
+<li><a href="#dev-outsourcing">AI開発を外部に委託するときの進め方——要件・データ・成果物の権利</a></li>
+<li><a href="#dev-outsourcing">AI開発委託の進め方</a></li>
 <li><a href="#lnx-view">LnXの見解</a></li>
 <li><a href="#faq">よくある質問</a></li>
 </ol>
