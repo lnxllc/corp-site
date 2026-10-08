@@ -94,6 +94,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .fv__dots{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.14) 1px,transparent 1.5px) 0 0/26px 26px;-webkit-mask:linear-gradient(90deg,transparent 30%,#000 75%);mask:linear-gradient(90deg,transparent 30%,#000 75%);pointer-events:none}
 .fv__wave{position:absolute;left:0;right:0;bottom:-1px;height:110px;width:100%}
 .fv__in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,3vw,48px);align-items:center}
+.fv__bubble{position:relative;display:inline-block;margin:0 0 22px;padding:10px 20px;border-radius:999px;background:#fff;color:var(--b1);font-size:clamp(15px,1.5vw,19px);font-weight:900;line-height:1.4;letter-spacing:.02em;box-shadow:0 12px 28px rgba(4,16,60,.35);transform-origin:20% 100%;animation:bubbleIn .6s cubic-bezier(.2,.9,.3,1.4) .2s both}
+.fv__bubble::after{content:"";position:absolute;left:30px;bottom:-11px;width:22px;height:13px;background:#fff;clip-path:polygon(0 0,100% 0,15% 100%)}
+@keyframes bubbleIn{from{opacity:0;scale:.6;translate:0 10px}to{opacity:1;scale:1;translate:0 0}}
 .fv h1{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 .fv h1 span{display:inline-block;background:var(--ink);padding:.06em .32em .1em;font-size:clamp(30px,4vw,56px);white-space:nowrap;font-weight:900;line-height:1.3;letter-spacing:-.01em}
 .fv h1 em{font-style:normal;color:var(--cyan)}
@@ -413,6 +416,8 @@ button,input,select,textarea{font:inherit;color:inherit}
   .hd__logo img{height:26px}
   .fv{padding:100px 0 130px}
   .fv h1 span{font-size:clamp(28px,8.4vw,40px)}
+  .fv__bubble{font-size:14px;padding:8px 16px;margin-bottom:18px}
+  .fv__bubble::after{left:24px}
   .fv__act .btn{width:100%}
   .crew__grid{gap:9px}
   .st{padding:9px 8px 8px;border-radius:12px}
@@ -494,6 +499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="fv__dots" aria-hidden="true"></div>
   <div class="wrap fv__in">
     <div>
+      <p class="fv__bubble">SEOも広告もフォーム営業も</p>
       <h1><span>AIで、リード獲得を</span><span><em>自動化</em>する。</span></h1>
       <p class="fv__sub">Webで見込み顧客を獲得するまでの業務をAIで効率化・自動化。<br>人は、商談・顧客対応・サービス改善など、本来注力すべき仕事へ。</p>
       <div class="fv__act">
