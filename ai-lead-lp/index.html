@@ -936,7 +936,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cv__bot"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-bot"/></svg><p>何をAI化すべきか決まっていなくてもOK。<br>担当者からご連絡し、日程を調整します。</p></div>
       </div>
       <form class="form" data-form="consultation" data-event="generate_lead_consultation" novalidate>
-        <div class="form__body">
+        <div class="form__body"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <p class="form__hd">無料相談フォーム<small>1営業日以内にご連絡します</small></p>
           <div class="form__rows">
             <div class="form__row"><label for="c-co">会社名<span class="req">必須</span></label><input id="c-co" name="company" type="text" autocomplete="organization" required></div>
@@ -979,7 +979,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <form class="form" data-form="document" data-event="generate_lead_document" novalidate>
-        <div class="form__body">
+        <div class="form__body"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <p class="form__hd">資料請求フォーム<small>入力は3項目だけ。AI活用事例・支援内容をまとめた資料をお送りします</small></p>
           <div class="form__rows">
             <div class="form__row"><label for="d-co">会社名<span class="req">必須</span></label><input id="d-co" name="company" type="text" autocomplete="organization" required></div>
@@ -989,7 +989,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="form__agree"><a href="../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意のうえ送信してください。</p>
           <button class="btn btn--grad" type="submit">サービス資料を無料で受け取る</button>
         </div>
-        <div class="form__ok" role="status"><strong>資料をお送りしました</strong><p>ご入力のメールアドレス宛にお届けします。<br>読んでみて気になる点があれば、<a href="#contact" style="color:#1E6BFF;text-decoration:underline">無料相談</a>もご利用ください。</p></div>
+        <div class="form__ok" role="status"><strong>資料請求を受け付けました</strong><p>担当者より、ご入力のメールアドレス宛に資料をお送りします。<br>読んでみて気になる点があれば、<a href="#contact" style="color:#1E6BFF;text-decoration:underline">無料相談</a>もご利用ください。</p></div>
       </form>
     </div>
   </div>
@@ -1175,8 +1175,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       company: v('company').trim(), name: v('name').trim(), email: v('email').trim(), tel: v('tel').trim(),
       area: [...f.querySelectorAll('[name="area"]:checked')].map(c => c.value).join('、'),
       message: v('message').trim(),
-      lp: 'ai-lead-lp', ref: params.get('r') || '', page_url: location.href, referrer: document.referrer
+      lp: 'ai-lead-lp', ref: params.get('r') || '', page_url: location.href, referrer: document.referrer,
+      website: v('website') // honeypot
     };
+    // 流入経路トラッキング（main.jsのwindow.lnxTrack）を付与。他LPと同じ計測列に入る
+    if (typeof window.lnxTrack === 'function') { Object.assign(data, window.lnxTrack()); }
     const btn = f.querySelector('button[type=submit]'), label = btn.textContent;
     btn.disabled = true; btn.textContent = '送信中…';
     try {
@@ -1190,5 +1193,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }));
 })();
 </script>
+<script defer src="../assets/js/main.js?v=5"></script>
 </body>
 </html>
