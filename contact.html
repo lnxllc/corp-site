@@ -250,5 +250,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 })();
 </script>
+<script>
+// ?type=sns|ad|ai で問い合わせ項目を事前選択（記事・事例からの導線用）
+(function(){var m={sns:'SNS運用に関するお問い合わせ',ad:'広告運用に関するお問い合わせ',ai:'AIに関するお問い合わせ'};try{var t=new URLSearchParams(location.search).get('type');if(t&&m[t]){var r=document.querySelector('input[name="inquiry_type"][value="'+m[t]+'"]');if(r)r.checked=true;}}catch(e){}})();
+</script>
 </body>
 </html>
