@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-10-09（スプシA完了後の自由テーマ枠：2本作成。週10本・1回2本ペース）
+- 最終更新：2026-10-12（スプシA完了後の自由テーマ枠：2本作成。週10本・1回2本ペース）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -186,10 +186,14 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-10-08 | column/ai-katsuyo/ai-adoption-ringi-writing/ | ai-katsuyo | contact.html | AI導入 稟議書 | 稟議書の1枚11項目＋記入例（架空の仮置き明記）・費用の入れ忘れ5つ・回収期間の計算例・想定問答。出典＝IPA「テキスト生成AIの導入・運用ガイドライン」、総務省・経産省「AI事業者ガイドライン第1.1版」。work22.webp使用 |
 | 2026-10-09 | column/advertising/tokyo-ad-agency-recommended/ | advertising | ad-lp | 広告運用代行 東京 | 比較検討層。アナグラム・デジタリフト・デジタルアイデンティティ・デジタルアスリート＋LnXの社名比較表5社＋個別セクション。ギャップ＝「料金・最低出稿額・契約期間が公式に載っているか」の公開状況マトリクス。work19.webp（上場人材会社リスティングLTV1.6倍）。確認日2026-10-09。ジオコード・グラッドキューブ・ソウルドアウトは公式サイトがrobots制限で取得不可のため除外。Unionは公式が山梨県表記で東京でないため除外 |
 | 2026-10-09 | column/seo/llms-txt-guide/ | seo | aio-lp | llms.txt 書き方 | 書き方・置き場所・robots/sitemapとの違い・更新運用・種類別判断表。出典＝Google検索セントラル(AI機能ドキュメント 2025-12-10更新)、llmstxt.org、OpenAI Developers(Crawlers)。自社llms.txtは約77KB。work28.webp使用（llms.txt単体の効果ではない旨を明記） |
+| 2026-10-12 | column/sns-marketing/sns-agency-recommended/ | sns-marketing | contact.html?type=sns | SNS運用代行 おすすめ | 比較検討層。コムニコ・ガイアックス・サイバー・バズ・テテマーチ・トライバルメディアハウス＋LnXの社名比較表6社＋個別セクション。ギャップ＝料金例/契約期間/所在地/対応SNSが公式に載っているかの公開状況マトリクスと、契約終了後のアカウント・素材・データの引き継ぎ4点。work1.webp（自社運営IG フォロワー2.1万人／月間リーチ約150万。自社運営で成果保証でない旨を明記）。確認日2026-10-12。料金例を公開していたのはコムニコのみ。pamxy・メンバーズはSNS運用の記載が確認できず除外、ホットリンク・SAKIYOMIはrobots制限で取得不可 |
+| 2026-10-12 | column/web-marketing/marketing-advisor-first-3-months/ | web-marketing | marke-comon-lp | マーケティング顧問 最初の3か月 | 契約後の進め方。月ごとの目的・成果物・社内の役割、準備物5点、初月の週次作業、3か月目の3つの問い、役割分担表、うまくいかないサイン5つ、3か月の費用総額（LP記載の8/15/30万円×3）。work7.webp（成果報酬型の事例で顧問契約の成果でない旨を明記）。外部の統計・法令は使用せず |
 
 **メモ（2026-10-08）**：前回(10-07)の送客先はaio-lpだったため、今回はmarke-comon-lpとcontact.htmlを使用。column合計260本（seo46／ai-katsuyo36／advertising60／web-marketing48／lp-improvement23／sns-marketing23／analytics24）、sitemapのcolumn記事URLは260件（index等8件を含め268件）。次回は未使用に近い送客先（ad-lp：advertising／lp-improvement／analytics）を優先。競合確認URL：boxil.jp/mag/a9458、shopowner-support.net（cmo-agent-service）、biz.ne.jp/matome/2003129、cro-co.co.jp/media/web-maketing/web-marketing-consultant、ai-revolution.co.jp/media/ai-internal-approval、uravation.com/media/ai-adoption-ringi-approval-guide-2026、aipicks.jp/mag/ai-adoption-roi-approval-template-2026、a-x.inc/blog/ai-approval-document-creation-benefits。
 
 **メモ（2026-10-09）**：前回(10-08)の送客先はmarke-comon-lp/contact.htmlだったため、今回はad-lpとaio-lpを使用。column合計262本（seo47／ai-katsuyo36／advertising61／web-marketing48／lp-improvement23／sns-marketing23／analytics24）、sitemapのcolumn記事URLは262件（index等8件を含め270件）。次回はmarke-comon-lp／contact.html（web-marketing・ai-katsuyo・sns-marketing）を優先。競合確認URL：biz.ne.jp/matome/2010215、webtan.impress.co.jp/u/2021/01/12/38743、imitsu.jp（akasaka-advertising-agency）、koukoku.jp(suketto llms.txt解説)、zenn.dev/nwn/articles/1dc5ce03343580。**気づき**：(1)column/advertising/web-ad-agency-recommendedはデジタリフトの料金を「非公開」としているが、公式のLIFT+ページ(lp01.digitalift.co.jp)に手数料1万円〜等の記載あり→週次リライトで要整合。(2)aio-lpの「llms.txtによるサイト要約」の記述は、Google公式がAI機能に不要としている点との温度差あり。(3)llms.txtは約77KBでコラムの新記事2本は未反映。
+
+**メモ（2026-10-12）**：前回(10-09)の送客先はad-lp/aio-lpだったため、今回はcontact.html（SNS）とmarke-comon-lpを使用。column合計264本（seo47／ai-katsuyo36／advertising61／web-marketing49／lp-improvement23／sns-marketing24／analytics24）、sitemapのcolumn記事URLは264件。次回はad-lp（advertising／lp-improvement／analytics）、aio-lp（seo）を優先。競合確認URL：atsoho.com/blog/sns-compare、stock-sun.com/column/sns-management-tokyo/、boxil.jp/mag/a6415/、onamae.com/business/article/30541。公式確認URL：comnico.jp/services/consulting、gaiax-socialmedialab.jp/service/、tetemarche.co.jp/service、tribalmedia.co.jp/service/、cyberbuzz.co.jp/service/、lnx.co.jp/services.html。**気づき**：services.htmlのSNS運用代行は月額15万円〜（目安）で専用LPなし。SNS運用専用LPが無いため、sns-marketingの送客先はcontact.html?type=snsのまま。LnXの顧問プランの定例頻度はマーケティング責任者プランのみLPに記載なし。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
