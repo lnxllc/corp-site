@@ -733,48 +733,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="q">
-        <label class="q-label">Q2. ご検討中の媒体（複数選択可）<span class="req">必須</span></label>
-        <div class="chips" id="ad-q-media">
-          <label class="chip"><input type="checkbox">リスティング広告（Google / Yahoo!）</label>
-          <label class="chip"><input type="checkbox">SNS広告（META / Tiktok / X / LINE /Youtube）</label>
-          <label class="chip"><input type="checkbox">ディスプレイ広告（GDN / YDN）</label>
-          <label class="chip"><input type="checkbox">まだ決めていない・相談したい</label>
-        </div>
+        <label class="q-label" for="ad-q-company">Q2. 会社名・屋号<span class="req">必須</span></label>
+        <input type="text" id="ad-q-company" autocomplete="organization" placeholder="例）〇〇株式会社">
       </div>
       <div class="q">
-        <label class="q-label">Q3. 月間の広告予算の目安<span class="req">必須</span></label>
-        <div class="chips" data-single id="ad-q-budget">
-          <label class="chip"><input type="radio" name="ad-budget">〜50万円</label>
-          <label class="chip"><input type="radio" name="ad-budget">50〜100万円</label>
-          <label class="chip"><input type="radio" name="ad-budget">100〜500万円</label>
-          <label class="chip"><input type="radio" name="ad-budget">500万円以上・未定</label>
-        </div>
+        <label class="q-label" for="ad-q-name">Q3. お名前<span class="req">必須</span></label>
+        <input type="text" id="ad-q-name" autocomplete="name" placeholder="例）山田 太郎">
       </div>
       <div class="q">
-        <label class="q-label">Q4. ご希望の内容（複数選択可）</label>
-        <div class="chips" id="ad-q-purpose">
-          <label class="chip"><input type="checkbox">問い合わせ・売上を増やしたい</label>
-          <label class="chip"><input type="checkbox">いまのCPA・ROASを改善したい</label>
-          <label class="chip"><input type="checkbox">LP制作・改善もあわせて依頼したい</label>
-          <label class="chip"><input type="checkbox">バナー・動画などのクリエイティブも作ってほしい</label>
-          <label class="chip"><input type="checkbox">計測（GA4・タグ）を整えたい</label>
-          <label class="chip"><input type="checkbox">SNS・SEOなど他チャネルも相談したい</label>
-        </div>
+        <label class="q-label" for="ad-q-email">Q4. メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="ad-q-email" autocomplete="email" placeholder="例）info@example.co.jp">
       </div>
       <div class="q">
-        <label class="q-label">Q5. 会社名・屋号<span class="req">必須</span></label>
-        <input type="text" id="ad-q-company" placeholder="例）〇〇株式会社">
+        <label class="q-label" for="ad-q-tel">Q5. 電話番号（任意）</label>
+        <input type="tel" id="ad-q-tel" autocomplete="tel" inputmode="tel" placeholder="例）03-1234-5678">
       </div>
       <div class="q">
-        <label class="q-label">Q6. お名前<span class="req">必須</span></label>
-        <input type="text" id="ad-q-name" placeholder="例）山田 太郎">
-      </div>
-      <div class="q">
-        <label class="q-label">Q7. メールアドレス<span class="req">必須</span></label>
-        <input type="email" id="ad-q-email" placeholder="例）info@example.co.jp">
-      </div>
-      <div class="q">
-        <label class="q-label">Q8. ご相談内容（任意）</label>
+        <label class="q-label" for="ad-q-message">Q6. ご相談内容（任意）</label>
         <textarea id="ad-q-message" placeholder="現在の広告運用のお悩みなど、自由にご記入ください"></textarea>
         <input type="text" id="ad-q-website" name="website" tabindex="-1" autocomplete="off" class="ad-honeypot" aria-hidden="true">
       </div>
@@ -909,26 +884,29 @@ document.getElementById('adSubmitBtn').addEventListener('click', function(){
   var errEl = document.getElementById('ad-form-error');
   errEl.classList.remove('is-shown');
 
+  var tel = document.getElementById('ad-q-tel').value.trim();
+  var msg = document.getElementById('ad-q-message').value.trim();
   var data = {
     form_type: 'ad_operation',
     status:  chipValues('ad-q-status')[0] || '',
-    media:   chipValues('ad-q-media').join('、'),
-    budget:  chipValues('ad-q-budget')[0] || '',
-    purpose: chipValues('ad-q-purpose').join('、'),
+    media:   '',
+    budget:  '',
+    purpose: '',
     company: document.getElementById('ad-q-company').value.trim(),
     name:    document.getElementById('ad-q-name').value.trim(),
     email:   document.getElementById('ad-q-email').value.trim(),
-    message: document.getElementById('ad-q-message').value.trim(),
+    tel:     tel,
+    // 電話番号はスプレッドシートに専用列がないため、ご相談内容の先頭にも入れる
+    message: (tel ? '電話番号：' + tel + (msg ? '\n\n' : '') : '') + msg,
     website: document.getElementById('ad-q-website').value // honeypot
   };
 
   var missing = [];
   if(!data.status) missing.push('Q1 現在の広告運用状況');
-  if(!data.media) missing.push('Q2 ご検討中の媒体');
-  if(!data.budget) missing.push('Q3 月間の広告予算の目安');
-  if(!data.company) missing.push('Q5 会社名・屋号');
-  if(!data.name) missing.push('Q6 お名前');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) missing.push('Q7 メールアドレス');
+  if(!data.company) missing.push('Q2 会社名・屋号');
+  if(!data.name) missing.push('Q3 お名前');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) missing.push('Q4 メールアドレス');
+  if(tel && !/^[0-9０-９+\-－ー()（）\s]{10,20}$/.test(tel)) missing.push('Q5 電話番号（数字とハイフンで入力してください）');
   if(missing.length){
     errEl.textContent = '未入力の項目があります：' + missing.join(' / ');
     errEl.classList.add('is-shown');
