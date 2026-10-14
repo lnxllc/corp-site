@@ -207,7 +207,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </h1>
 
       <p class="ad-hero__lead">
-        LPは本ページからお申し込みのBtoC事業者様に<b>無料で制作</b>。<br>
+        LPは<b>無料で制作</b>。<br>
         広告費の下限もないため、<b>最低限の費用</b>で広告を試せます。
       </p>
 
@@ -308,7 +308,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="v3-solution__lead">LnXは、広告の配信だけを代行する会社ではありません。</p>
       <p class="v3-solution__main"><span>LP制作0円・広告出稿額に下限なし。</span></p>
       <p class="v3-solution__sub">
-        本ページからお申し込みいただいたBtoC事業者様には、受け皿となるLPを無料で制作します（各月先着3社・最低契約6ヶ月が前提）。<br>
+        本ページからお申し込みいただいた方には、受け皿となるLPを無料で制作します。<br>
         広告費の最低出稿額も設けていないため、費用を抑えてテストが可能です。
       </p>
     </div>
@@ -331,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ad-reason__body">
         <p class="ad-reason__label">REASON 01</p>
         <h3>LP制作は無料。<br class="ad-br-pc">少額から試せる</h3>
-        <p>「いきなり大きな予算をかけるのは怖い」という段階から始められます。広告の受け皿となるLPは本ページからお申し込みのBtoC事業者様に無料で制作し（各月先着3社・最低契約6ヶ月が前提）、広告費の最低出稿額も設けていません。GA4やコンバージョン計測といった広告計測環境の構築もこちらで実施するため、制作・設定に初期費用をかけずに配信を開始できます。</p>
+        <p>「いきなり大きな予算をかけるのは怖い」という段階から始められます。広告の受け皿となるLPは本ページからお申し込みの方に無料で制作し、広告費の最低出稿額も設けていません。GA4やコンバージョン計測といった広告計測環境の構築もこちらで実施するため、制作・設定に初期費用をかけずに配信を開始できます。</p>
       </div>
     </div>
 
@@ -371,7 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="ad-camp__limit">月<b>3</b>社限定</span>
         <span class="ad-camp__free">LP制作費<strong>0<small>円</small></strong></span>
       </p>
-      <p class="ad-camp__note">本ページからお申し込みのBtoC事業者様が対象です（最低契約6ヶ月・各月先着3社）。枠が埋まり次第、翌月のご案内となります。適用条件は料金欄をご確認ください。</p>
+      <p class="ad-camp__note">本ページからお申し込みのBtoC事業者様が対象です（最低契約6ヶ月・各月先着3社）。<br>枠が埋まり次第、翌月のご案内となります。適用条件は料金欄をご確認ください。</p>
     </div>
 
     <div class="ad-head">
@@ -531,7 +531,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container ad-midcta__inner">
     <div>
       <p class="ad-midcta__title">まずは、集客を無料で診断します。</p>
-      <p class="ad-midcta__text">ページのURLと、分かる範囲の獲得単価を送るだけ。獲得単価の見通しと最初に直すべき点を、レポートにして2営業日以内にお送りします。広告を出したことがない状態でも構いません。</p>
+      <p class="ad-midcta__text">ページのURLと、分かる範囲の獲得単価を送るだけ。<br>獲得単価の見通しと最初に直すべき点を、レポートにして2営業日以内にお送りします。広告を出したことがない状態でも構いません。</p>
     </div>
     <a href="#cta" class="btn-white-sm ad-midcta__btn">無料で診断を受ける</a>
   </div>
@@ -734,7 +734,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <p class="sec-eyebrow">CONTACT</p>
     <h2 class="sec-title">無料診断・お問い合わせ</h2>
-    <p class="ad-form-lead">URLと数字を1つ送るだけで、いまの集客を診断したレポートを無料でお送りします。すぐに相談したい方は「相談する」を選んでください。</p>
+    <p class="ad-form-lead">いまの集客を診断したレポートを無料でお送りします。<br>すぐに相談したい方は「相談する」を選んでください。</p>
     <div class="lp-form-card">
       <div class="q">
         <label class="q-label">ご希望の内容<span class="req">必須</span></label>
@@ -1008,6 +1008,51 @@ document.getElementById('adSubmitBtn').addEventListener('click', function(){
       errEl.classList.add('is-shown');
     });
 });
+</script>
+<script>
+// ================= 行動の計測（GTMへ合図を送る） =================
+// GTM側で「カスタムイベント」トリガーを作り、Metaピクセル・GA4に送る。
+//   adlp_scroll      … ページの50%・90%までスクロールした（scroll_depth: 50 / 90）
+//   adlp_cta_click   … フォームへ飛ぶボタンを押した（cta_location: どのボタンか）
+//   adlp_form_view   … フォームが画面に入った（1回だけ）
+//   adlp_form_start  … フォームに入力を始めた（1回だけ。form_mode: diag / consult）
+(function(){
+  window.dataLayer = window.dataLayer || [];
+  var sent = {};
+  function once(key, payload){ if (sent[key]) return; sent[key] = true; dataLayer.push(payload); }
+  // スクロール
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h <= 0) return;
+    var pct = window.scrollY / h * 100;
+    if (pct >= 50) once('s50', {event: 'adlp_scroll', scroll_depth: 50});
+    if (pct >= 90) once('s90', {event: 'adlp_scroll', scroll_depth: 90});
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  // フォームへ飛ぶボタン
+  var labels = {'ad-hero__cta': 'hero', 'ad-sample__cta': 'lp_sample', 'ad-midcta': 'middle', 'ad-fab': 'sp_fixed'};
+  document.querySelectorAll('a[href="#cta"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var loc = 'header';
+      for (var k in labels) { if (a.closest('.' + k)) { loc = labels[k]; break; } }
+      dataLayer.push({event: 'adlp_cta_click', cta_location: loc});
+    });
+  });
+  var form = document.querySelector('#cta .lp-form-card');
+  if (!form) return;
+  // フォームが画面に入った
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if (en.isIntersecting) { once('fv', {event: 'adlp_form_view'}); io.disconnect(); } });
+    }, {threshold: 0.3});
+    io.observe(form);
+  }
+  // 入力を始めた
+  function mode(){ var on = document.querySelector('#ad-q-mode .chip.on'); return on && on.textContent.indexOf('相談') !== -1 ? 'consult' : 'diag'; }
+  function start(){ once('fs', {event: 'adlp_form_start', form_mode: mode()}); }
+  form.addEventListener('input', start);
+  form.querySelectorAll('#ad-q-route .chip, #ad-q-status .chip').forEach(function(c){ c.addEventListener('click', start); });
+})();
 </script>
 <script defer src="../assets/js/main.js?v=5"></script>
 </body>
