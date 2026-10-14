@@ -1093,3 +1093,10 @@ html, body{ height:auto; min-height:100%; }
 @media (prefers-reduced-motion: reduce){
   .ad-camp__label{ animation:none; }
 }
+
+/* 無料診断フォーム：URL欄・説明文 */
+.lp-form-card .q input[type=url]{
+  width:100%;border:1px solid rgba(15,23,42,.18);border-radius:12px;padding:13px 16px;font-size:15px;font-family:var(--font-main);background:#fff;color:var(--txt);
+}
+.lp-form .ad-form-lead{max-width:640px;margin:-8px auto 28px;text-align:center;font-size:14.5px;color:var(--muted);line-height:1.8}
+.lp-form-card .ad-mode-note{margin:12px 0 0;font-size:13px;color:var(--muted);line-height:1.7}

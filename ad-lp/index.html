@@ -36,7 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="../assets/css/styles.css?v=2">
   <!-- 全ページ共通の見た目（段階1）。この1行を消せば元に戻る -->
   <link rel="stylesheet" href="../assets/css/site-v4.css?v=3">
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=14">
 
   <script type="application/ld+json">
   {
@@ -721,46 +721,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="cta" class="lp-form">
   <div class="container">
     <p class="sec-eyebrow">CONTACT</p>
-    <h2 class="sec-title">お問い合わせ</h2>
+    <h2 class="sec-title">無料診断・お問い合わせ</h2>
+    <p class="ad-form-lead">URLと数字を1つ送るだけで、いまの集客を診断したレポートを無料でお送りします。すぐに相談したい方は「相談する」を選んでください。</p>
     <div class="lp-form-card">
       <div class="q">
-        <label class="q-label">Q1. 現在の広告運用状況<span class="req">必須</span></label>
-        <div class="chips" data-single id="ad-q-status">
-          <label class="chip"><input type="radio" name="ad-status">未実施（これから始めたい）</label>
-          <label class="chip"><input type="radio" name="ad-status">代理店に依頼している</label>
-          <label class="chip"><input type="radio" name="ad-status">自社で運用中</label>
-          <label class="chip"><input type="radio" name="ad-status">過去に実施し、現在は停止中</label>
+        <label class="q-label">ご希望の内容<span class="req">必須</span></label>
+        <div class="chips" data-single id="ad-q-mode">
+          <label class="chip on"><input type="radio" name="ad-mode" checked>無料診断を申し込む</label>
+          <label class="chip"><input type="radio" name="ad-mode">相談する</label>
+        </div>
+        <p class="ad-mode-note" id="ad-mode-note">集客の現状を拝見し、獲得単価の見通しと最初に直すべき点をまとめたレポート（PDF）を、2営業日以内にメールでお送りします。営業のお電話はしません。</p>
+      </div>
+      <div id="ad-diag">
+        <div class="q">
+          <label class="q-label" for="ad-q-url">診断するページのURL<span class="req">必須</span></label>
+          <input type="url" id="ad-q-url" inputmode="url" placeholder="例）https://example.com/recruit/">
+          <p class="ad-mode-note">求人ページ・LP・サイトのトップなど、集客の受け皿になっているページ</p>
+        </div>
+        <div class="q">
+          <label class="q-label" for="ad-q-cpa">いまの獲得単価（分かる範囲で）</label>
+          <input type="text" id="ad-q-cpa" placeholder="例）応募1件あたり15,000円／問い合わせ1件あたり2万円くらい">
+        </div>
+        <div class="q">
+          <label class="q-label">主な集客経路（複数選択可）</label>
+          <div class="chips" id="ad-q-route">
+            <label class="chip"><input type="checkbox">求人媒体・ポータルサイト</label>
+            <label class="chip"><input type="checkbox">送客・紹介サービス</label>
+            <label class="chip"><input type="checkbox">Web広告</label>
+            <label class="chip"><input type="checkbox">SNS</label>
+            <label class="chip"><input type="checkbox">自社サイト・検索</label>
+            <label class="chip"><input type="checkbox">紹介・口コミ</label>
+          </div>
+        </div>
+      </div>
+      <div id="ad-consult" hidden>
+        <div class="q">
+          <label class="q-label">現在の広告運用状況<span class="req">必須</span></label>
+          <div class="chips" data-single id="ad-q-status">
+            <label class="chip"><input type="radio" name="ad-status">未実施（これから始めたい）</label>
+            <label class="chip"><input type="radio" name="ad-status">代理店に依頼している</label>
+            <label class="chip"><input type="radio" name="ad-status">自社で運用中</label>
+            <label class="chip"><input type="radio" name="ad-status">過去に実施し、現在は停止中</label>
+          </div>
         </div>
       </div>
       <div class="q">
-        <label class="q-label" for="ad-q-company">Q2. 会社名・屋号<span class="req">必須</span></label>
+        <label class="q-label" for="ad-q-company">会社名・屋号<span class="req">必須</span></label>
         <input type="text" id="ad-q-company" autocomplete="organization" placeholder="例）〇〇株式会社">
       </div>
       <div class="q">
-        <label class="q-label" for="ad-q-name">Q3. お名前<span class="req">必須</span></label>
+        <label class="q-label" for="ad-q-name">お名前<span class="req">必須</span></label>
         <input type="text" id="ad-q-name" autocomplete="name" placeholder="例）山田 太郎">
       </div>
       <div class="q">
-        <label class="q-label" for="ad-q-email">Q4. メールアドレス<span class="req">必須</span></label>
+        <label class="q-label" for="ad-q-email">メールアドレス<span class="req">必須</span></label>
         <input type="email" id="ad-q-email" autocomplete="email" placeholder="例）info@example.co.jp">
       </div>
       <div class="q">
-        <label class="q-label" for="ad-q-tel">Q5. 電話番号（任意）</label>
+        <label class="q-label" for="ad-q-tel">電話番号（任意）</label>
         <input type="tel" id="ad-q-tel" autocomplete="tel" inputmode="tel" placeholder="例）03-1234-5678">
       </div>
       <div class="q">
-        <label class="q-label" for="ad-q-message">Q6. ご相談内容（任意）</label>
-        <textarea id="ad-q-message" placeholder="現在の広告運用のお悩みなど、自由にご記入ください"></textarea>
+        <label class="q-label" for="ad-q-message" id="ad-msg-label">気になっていること（任意）</label>
+        <textarea id="ad-q-message" placeholder="集客や広告で気になっていることがあれば、自由にご記入ください"></textarea>
         <input type="text" id="ad-q-website" name="website" tabindex="-1" autocomplete="off" class="ad-honeypot" aria-hidden="true">
       </div>
 
       <div class="form-center">
-        <button class="btn-main" id="adSubmitBtn" type="button">無料相談を申し込む</button>
+        <button class="btn-main" id="adSubmitBtn" type="button">無料診断を申し込む</button>
         <p class="form-note">送信いただいた情報はご相談対応以外の目的では使用しません。<a href="../privacy.html" target="_blank" rel="noopener" class="ad-underline">プライバシーポリシー</a></p>
       </div>
 
       <div class="form-result" id="ad-result">
-        <p>お問い合わせありがとうございます。<br>担当より<b>2営業日以内</b>にご連絡いたします。</p>
+        <p id="ad-result-text">お申し込みありがとうございます。<br><b>2営業日以内</b>に診断レポートをメールでお送りします。</p>
       </div>
       <p class="form-note ad-form-error" id="ad-form-error"></p>
     </div>
@@ -879,34 +912,58 @@ function chipValues(groupId){
   return [].slice.call(document.querySelectorAll('#'+groupId+' .chip.on')).map(function(c){return c.textContent.trim();});
 }
 
+// 無料診断／相談の切り替え
+function adMode(){ var on = document.querySelector('#ad-q-mode .chip.on'); return on && on.textContent.indexOf('相談') !== -1 ? 'consult' : 'diag'; }
+function applyAdMode(){
+  var m = adMode();
+  document.getElementById('ad-diag').hidden = m !== 'diag';
+  document.getElementById('ad-consult').hidden = m !== 'consult';
+  document.getElementById('adSubmitBtn').textContent = m === 'diag' ? '無料診断を申し込む' : '無料相談を申し込む';
+  document.getElementById('ad-mode-note').textContent = m === 'diag'
+    ? '集客の現状を拝見し、獲得単価の見通しと最初に直すべき点をまとめたレポート（PDF）を、2営業日以内にメールでお送りします。営業のお電話はしません。'
+    : 'オンライン（30分ほど）で、いまの集客の状況を伺い、広告が合うかどうかも含めてお話しします。2営業日以内に日程のご連絡をいたします。';
+  document.getElementById('ad-msg-label').textContent = m === 'diag' ? '気になっていること（任意）' : 'ご相談内容（任意）';
+}
+document.querySelectorAll('#ad-q-mode .chip').forEach(function(c){ c.addEventListener('click', function(){ setTimeout(applyAdMode, 0); }); });
+applyAdMode();
+
 document.getElementById('adSubmitBtn').addEventListener('click', function(){
   var btn = document.getElementById('adSubmitBtn');
   var errEl = document.getElementById('ad-form-error');
   errEl.classList.remove('is-shown');
+  var mode = adMode();
 
   var tel = document.getElementById('ad-q-tel').value.trim();
   var msg = document.getElementById('ad-q-message').value.trim();
+  var url = document.getElementById('ad-q-url').value.trim();
+  var cpa = document.getElementById('ad-q-cpa').value.trim();
+  var routes = chipValues('ad-q-route').join('、');
+  // スプレッドシートの列はこれまでどおり。診断の情報は各列に「何の値か」を書いて入れる
+  var lines = [];
+  if (mode === 'diag') lines.push('【無料診断の申し込み】', '診断するURL：' + url);
+  if (tel) lines.push('電話番号：' + tel);
   var data = {
     form_type: 'ad_operation',
-    status:  chipValues('ad-q-status')[0] || '',
-    media:   '',
-    budget:  '',
-    purpose: '',
+    status:  mode === 'diag' ? '（無料診断）' : (chipValues('ad-q-status')[0] || ''),
+    media:   mode === 'diag' ? (routes ? '集客経路：' + routes : '') : '',
+    budget:  mode === 'diag' ? (cpa ? '獲得単価：' + cpa : '') : '',
+    purpose: mode === 'diag' ? '無料診断' : '無料相談',
     company: document.getElementById('ad-q-company').value.trim(),
     name:    document.getElementById('ad-q-name').value.trim(),
     email:   document.getElementById('ad-q-email').value.trim(),
     tel:     tel,
-    // 電話番号はスプレッドシートに専用列がないため、ご相談内容の先頭にも入れる
-    message: (tel ? '電話番号：' + tel + (msg ? '\n\n' : '') : '') + msg,
+    diag_url: mode === 'diag' ? url : '',
+    message: (lines.length ? lines.join('\n') + (msg ? '\n\n' : '') : '') + msg,
     website: document.getElementById('ad-q-website').value // honeypot
   };
 
   var missing = [];
-  if(!data.status) missing.push('Q1 現在の広告運用状況');
-  if(!data.company) missing.push('Q2 会社名・屋号');
-  if(!data.name) missing.push('Q3 お名前');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) missing.push('Q4 メールアドレス');
-  if(tel && !/^[0-9０-９+\-－ー()（）\s]{10,20}$/.test(tel)) missing.push('Q5 電話番号（数字とハイフンで入力してください）');
+  if (mode === 'diag' && !/^https?:\/\/[^\s.]+\.[^\s]+$/i.test(url)) missing.push('診断するページのURL（https://から）');
+  if (mode === 'consult' && !data.status) missing.push('現在の広告運用状況');
+  if(!data.company) missing.push('会社名・屋号');
+  if(!data.name) missing.push('お名前');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) missing.push('メールアドレス');
+  if(tel && !/^[0-9０-９+\-－ー()（）\s]{10,20}$/.test(tel)) missing.push('電話番号（数字とハイフンで入力してください）');
   if(missing.length){
     errEl.textContent = '未入力の項目があります：' + missing.join(' / ');
     errEl.classList.add('is-shown');
@@ -922,15 +979,16 @@ document.getElementById('adSubmitBtn').addEventListener('click', function(){
   fetch(GAS_URL, {method:'POST', mode:'no-cors', body:new URLSearchParams(data)})
     .then(function(){
       btn.textContent = '送信済み ✓';
+      document.getElementById('ad-result-text').innerHTML = mode === 'diag' ? 'お申し込みありがとうございます。<br><b>2営業日以内</b>に診断レポートをメールでお送りします。' : 'お問い合わせありがとうございます。<br>担当より<b>2営業日以内</b>にご連絡いたします。';
       var r = document.getElementById('ad-result');
       r.classList.add('show');
       r.scrollIntoView({behavior:'smooth', block:'center'});
       window.dataLayer = window.dataLayer || [];
-      dataLayer.push({'event':'adstart_contact_submit', 'form_name':'ad_operation_contact'});
+      dataLayer.push({'event':'adstart_contact_submit', 'form_name': mode === 'diag' ? 'ad_operation_diagnosis' : 'ad_operation_contact'});
     })
     .catch(function(){
       btn.disabled = false;
-      btn.textContent = '無料相談を申し込む';
+      applyAdMode();
       errEl.textContent = '送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。';
       errEl.classList.add('is-shown');
     });
