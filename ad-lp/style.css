@@ -1200,8 +1200,6 @@ html, body{ height:auto; min-height:100%; }
 .ad-plans__cta{ margin:34px 0 0; text-align:center; }
 .ad-plans__btn{ background:var(--ad-grad); box-shadow:0 16px 36px rgba(30,107,255,.28); }
 
-/* --- 資料請求フォーム：送信後の資料ボタン --- */
-.ad-doc-btn{ margin-top:18px; background:var(--ad-grad); }
 
 @media (max-width:768px){
   .ad-camp__link{ width:100%; max-width:320px; justify-content:center; padding:12px 20px; font-size:14px; }
