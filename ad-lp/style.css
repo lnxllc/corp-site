@@ -1100,3 +1100,115 @@ html, body{ height:auto; min-height:100%; }
 }
 .lp-form .ad-form-lead{max-width:640px;margin:-8px auto 28px;text-align:center;font-size:14.5px;color:var(--muted);line-height:1.8}
 .lp-form-card .ad-mode-note{margin:12px 0 0;font-size:13px;color:var(--muted);line-height:1.7}
+
+/* ===========================================================
+   2026-10-16 修正
+   =========================================================== */
+
+/* --- FV実績：PCでは3つを横一列に --- */
+@media (min-width:769px){
+  .ad-hero__stats--2{
+    flex-wrap:nowrap;
+    gap:clamp(6px, 1.3vw, 22px);
+  }
+  .ad-hero__stats--2 .ad-stat{ flex:0 1 auto; min-width:0; }
+  .ad-hero__stats--2 .ad-stat__num b{ font-size:clamp(24px, 2.3vw, 34px); }
+  .ad-stat__laurel{ width:clamp(16px, 1.6vw, 25px); }
+}
+
+/* --- スタートプラン告知 → 料金への導線 --- */
+.ad-camp__link{
+  display:inline-flex; align-items:center; gap:12px;
+  margin-top:18px; padding:13px 30px;
+  border-radius:999px;
+  background:#fff; color:var(--v4-brand-d);
+  font-size:15px; font-weight:800; letter-spacing:.02em;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.ad-camp__link:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(0,0,0,.2); }
+.ad-camp__arrow{
+  display:block; width:8px; height:8px; margin-top:-4px;
+  border-right:2.5px solid currentColor; border-bottom:2.5px solid currentColor;
+  transform:rotate(45deg); transition:transform .2s ease;
+}
+.ad-camp__link:hover .ad-camp__arrow{ transform:rotate(45deg) translate(2px,2px); }
+
+/* --- 料金：2つのプラン --- */
+.ad-price .sec-title{ color:var(--v4-brand-d); }
+.ad-plans__accent{ color:#35C0F2; white-space:nowrap; }
+.ad-plans{
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:28px; max-width:1000px; margin:0 auto;
+}
+.ad-plan{
+  display:flex; flex-direction:column;
+  padding:34px 34px 26px;
+  border-radius:32px;
+  background:#EEF5FF;
+  border:2px solid #CFE1FB;
+  box-shadow:0 14px 34px rgba(15,23,42,.06);
+}
+.ad-plan__name{
+  display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px;
+  margin:0 0 6px; font-size:17px; font-weight:900; letter-spacing:.04em;
+}
+.ad-plan--start .ad-plan__name{ color:#F29A1E; }
+.ad-plan--std   .ad-plan__name{ color:#35B5E8; }
+.ad-plan__tag{
+  padding:3px 11px; border-radius:999px;
+  background:#FF4D2E; color:#fff;
+  font-size:11.5px; font-weight:800; letter-spacing:.04em;
+}
+.ad-plan__price{
+  margin:0; line-height:1.15; color:var(--v4-brand);
+  font-family:"Inter","Noto Sans JP",sans-serif;
+}
+.ad-plan__price b{ font-size:clamp(40px, 4.6vw, 56px); font-weight:800; letter-spacing:-.02em; }
+.ad-plan__price i{ font-style:normal; font-size:clamp(17px, 1.7vw, 22px); font-weight:800; margin-left:2px; }
+.ad-plan__sub{
+  margin:6px 0 0; padding-bottom:16px;
+  border-bottom:2px solid #C9DBF6;
+  font-size:13px; font-weight:700; color:var(--muted); line-height:1.7;
+}
+.ad-plan__list{ list-style:none; margin:0; padding:18px 0 18px 6px; flex:1; }
+.ad-plan__list li{
+  position:relative; padding-left:28px; margin:0 0 8px;
+  font-size:17px; font-weight:700; color:var(--v4-brand-d); line-height:1.6;
+}
+.ad-plan__list li::before{
+  content:""; position:absolute; left:4px; top:.62em;
+  width:8px; height:8px; border-radius:50%; background:var(--v4-brand-d);
+}
+.ad-plan__foot{
+  margin:0; padding-top:14px; border-top:1px solid #D6E4F8;
+  font-size:13px; font-weight:700; color:var(--muted);
+}
+.ad-plans__lp{
+  display:flex; align-items:baseline; justify-content:center; flex-wrap:wrap;
+  gap:6px 18px;
+  max-width:1000px; margin:28px auto 0; padding:16px 24px;
+  border-radius:10px;
+  background:var(--v4-brand); color:#fff; text-align:center;
+}
+.ad-plans__lp b{ font-size:17px; font-weight:900; }
+.ad-plans__lp-val{ font-size:clamp(24px, 2.6vw, 30px); font-weight:900; letter-spacing:-.01em; font-family:"Inter","Noto Sans JP",sans-serif; }
+.ad-plans__lp-val i{ font-style:normal; font-size:.62em; margin-left:2px; }
+.ad-plans__lp small{ font-size:13px; font-weight:700; opacity:.95; }
+.ad-plans__more{ max-width:1000px; margin:26px auto 0; }
+.ad-plans__more .ad-price__more{ border-bottom:1px solid var(--line); }
+.ad-plans__cta{ margin:34px 0 0; text-align:center; }
+.ad-plans__btn{ background:var(--ad-grad); box-shadow:0 16px 36px rgba(30,107,255,.28); }
+
+/* --- 資料請求フォーム：送信後の資料ボタン --- */
+.ad-doc-btn{ margin-top:18px; background:var(--ad-grad); }
+
+@media (max-width:768px){
+  .ad-camp__link{ width:100%; max-width:320px; justify-content:center; padding:12px 20px; font-size:14px; }
+  .ad-plans{ grid-template-columns:1fr; gap:20px; }
+  .ad-plan{ padding:26px 22px 20px; border-radius:24px; }
+  .ad-plan__list li{ font-size:15.5px; }
+  .ad-plans__lp{ padding:16px 18px; }
+  .ad-plans__lp small{ flex-basis:100%; font-size:12.5px; }
+  .ad-plans__btn{ width:100%; max-width:360px; font-size:15px; padding-left:18px; padding-right:18px; }
+}
