@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-10-15（スプシA完了後の自由テーマ枠：2本作成。週10本・1回2本ペース）
+- 最終更新：2026-10-16（スプシA完了後の自由テーマ枠：2本作成。週10本・1回2本ペース）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -194,6 +194,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-10-14 | column/web-marketing/customer-journey-map-guide/ | web-marketing | marke-comon-lp | カスタマージャーニー 作り方 | 作る前に決める3つ・5ステップ・最小テンプレ6項目・架空の記入例（税理士事務所、仮と明記）・社内データの集め先・失敗5つ。競合確認＝miro.com/ja・engagelab.com（手順は共通、ペルソナ/KPIまで。ギャップ＝失注理由/最初の質問から作る点）。外部統計・法令なし、実績画像なし（該当なし） |
 | 2026-10-15 | column/lp-improvement/lp-agency-recommended/ | lp-improvement | ad-lp | LP制作会社 おすすめ | 比較検討層。TONOSAMA・Bgreen・ZERO・クロスバズ・StockSun・ポストスケイプ＋LnXの社名比較表7社＋個別セクション。ギャップ＝料金の裏の「含まれないもの」5項目（原稿・修正・ドメイン・納品データ・公開後）と、公開料金から計算した12か月総額。相場帯はCREX・Grillを出典明記。確認日2026-10-15。LIG・ジオコード・ニュートラルワークスはrobots制限で取得不可のため除外。画像マスタに該当する数値実績なし（work24はLP実物で数値なし）→result-figure省略。LnXはLP単体料金が非公開である旨を正直に記載 |
 | 2026-10-15 | column/seo/indexing-not-registered-guide/ | seo | aio-lp | インデックス未登録 対処 | 「検出」「クロール済み」の違い・設定確認(noindex/robots/canonical/sitemap)・URLごと5択の判断表・公開ペースと独自性の見直し(管理表)・リクエストの使い方・公開前7項目。出典＝Search Consoleヘルプ(7440203)、Google検索セントラル(クロールバジェット/再クロール依頼/noindex/検索の基本事項)。競合確認＝seocrawl.ai・issoh.co.jp・tetsu7017.com。work22.webp使用 |
+| 2026-10-16 | column/web-marketing/web-marketing-company-recommended/ | web-marketing | marke-comon-lp | Webマーケティング会社 おすすめ | 比較検討層。バリューエージェント・テクロ・ナイル・LANY・ベイジ＋LnXの社名比較表6社＋個別セクション。ギャップ＝料金の出し方4種（手数料率/月額/制作費一括/非公開）と、バリューエージェント公開値での月額試算、「公開なし」の読み方（公式で比べられる範囲）、同条件の見積もり依頼文6項目。work7.webp（成果報酬型の事例と明記）。確認日2026-10-16。ウィルゲート・フルスピード・才流はrobots制限/所在地等の記載なしで除外。ナイルは料金・契約期間を確認できず「公開なし」 |
+| 2026-10-16 | column/ai-katsuyo/ai-poc-guide-sme/ | ai-katsuyo | contact.html?type=ai | 生成AI PoC 進め方 | PoC要否の3択・始める前に固定する4点・1か月の週次表・時間/品質/利用の3軸・仮置きの計算例・題材の向き不向き・入力データ線引き・Go/No-Go判定表・外部依頼時の契約確認。競合確認＝start-link.jp・a-x.inc・funnel-ai.jp・aipicks.jp（KPI/スコープ/Go-NoGoは共通。ギャップ＝担当者兼務・週2〜3時間前提の工数設計とPoC不要判定）。外部統計・法令なし、実績画像なし（該当なし） |
 
 **メモ（2026-10-08）**：前回(10-07)の送客先はaio-lpだったため、今回はmarke-comon-lpとcontact.htmlを使用。column合計260本（seo46／ai-katsuyo36／advertising60／web-marketing48／lp-improvement23／sns-marketing23／analytics24）、sitemapのcolumn記事URLは260件（index等8件を含め268件）。次回は未使用に近い送客先（ad-lp：advertising／lp-improvement／analytics）を優先。競合確認URL：boxil.jp/mag/a9458、shopowner-support.net（cmo-agent-service）、biz.ne.jp/matome/2003129、cro-co.co.jp/media/web-maketing/web-marketing-consultant、ai-revolution.co.jp/media/ai-internal-approval、uravation.com/media/ai-adoption-ringi-approval-guide-2026、aipicks.jp/mag/ai-adoption-roi-approval-template-2026、a-x.inc/blog/ai-approval-document-creation-benefits。
 
@@ -206,6 +208,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 **メモ（2026-10-14）**：前回(10-13)の送客先はaio-lp/ad-lpだったため、今回はcontact.html(sns)とmarke-comon-lpを使用。当初はAI研修会社比較（contact?type=ai）を検討したが、LnXに研修サービスがなく自社行が不自然になるため見送り。column合計268本（seo48＋クロス掲載1／ai-katsuyo36／advertising62／web-marketing50／lp-improvement23／sns-marketing25／analytics24）、sitemapのcolumn記事URLは268件。次回はad-lp（advertising/lp-improvement/analytics）・aio-lp（seo）を優先。titleは両記事とも全角換算32以内（半角0.5換算で30.0／32.0）。公式確認URL：snsdaiko.jp/(instagram)、sns-agency.rc-group.co.jp、ripuca.co.jp(/lp/)、sns-sakiyomi.com、instagram.tryhatch.co.jp、lnx.co.jp/services.html。競合確認URL：boxil.jp/mag/a9028/、onamae.com/business/article/226333/、kigyolog.com/article.php?id=1966、shopowner-support.net(instagram-operation-agency)。**気づき**：services.htmlにAI研修の提供記載なし（AI活用はcontactの「AIに関するお問い合わせ」）。
 
 **メモ（2026-10-15）**：前回(10-14)の送客先はcontact.html(sns)/marke-comon-lpだったため、今回はad-lp（lp-improvement）とaio-lp（seo）を使用。column合計270本（seo49＋クロス掲載1／ai-katsuyo36／advertising62／web-marketing50／lp-improvement24／sns-marketing25／analytics24）、sitemapのcolumn記事URLは270件（index等8件を含め278件）。次回はmarke-comon-lp（web-marketing）・contact.html（ai-katsuyo/sns-marketing）を優先。titleは全角換算でLP記事30.5／インデックス記事31.0（半角0.5換算・32以内）。競合確認URL：crexgroup.com(best-lp-agencies)、imitsu.jp(Landingpage-optimization)、boater.jp/article/2817、grill.co.jp/marketing-log/178/。公式確認URL：fukui-hp.net/lp/、bgreen.jp/lp、zero-s.jp/service/lp/、x-buzz.co.jp/lp/、stock-sun.com/bansou/lp/、conversion-labo.jp、lnx.co.jp/ad-lp/。**気づき**：(1)StockSun伴走LPは初期費用が「1万円(50%OFF)」と「0円」で記載が混在。(2)LnXのad-lpにはLP単体の通常料金・納期・ページ長の記載なし。(3)スプシA消化後のプロンプト差し替え（台帳記載の手順13）は未実施のまま、本プロンプトで運用継続。
+
+**メモ（2026-10-16）**：前回(10-15)の送客先はad-lp/aio-lpだったため、今回はmarke-comon-lp（web-marketing）とcontact.html?type=ai（ai-katsuyo）を使用。column合計272本（seo49＋クロス掲載1／ai-katsuyo37／advertising62／web-marketing51／lp-improvement24／sns-marketing25／analytics24）、sitemapのcolumn記事URLは272件。次回はad-lp（advertising/lp-improvement/analytics）・aio-lp（seo）を優先。titleは全角換算でWeb会社記事32.0／PoC記事31.0。競合確認URL：jinrai.co.jp/blog/2026/03/24/webmarketing-kaisha-osusume/、biz.ne.jp/matome/2002873/、sungrove.co.jp、webtan.impress.co.jp/u/2021/02/21/39186。公式確認URL：valueagent.co.jp/plan、techro.co.jp/service/・/company/、nyle.co.jp/company/about/、lany.co.jp/service/digitalmarketing・/company、baigie.me。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
