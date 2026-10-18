@@ -7,6 +7,10 @@
    ========================================================= */
 
 /* ---------- ① 広告運用代行バナー（全体が /ad-lp/ へのリンク） ---------- */
+/* 見出し（POPULAR SERVICE／人気のサービス）＋バナーのまとまり */
+body.top-v4 .t-adpop{max-width:1040px;margin:clamp(72px,9vw,128px) auto 0}
+body.top-v4 .t-adpop .section__head{margin-bottom:clamp(24px,3vw,40px)}
+body.top-v4 .t-adpop .t-adban{margin-top:0!important}
 body.top-v4 .t-adban{
   position:relative;overflow:hidden;
   display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:stretch;
