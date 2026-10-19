@@ -27,7 +27,7 @@
     if (me) {
       var link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = me.src.replace(/js\/column-sidebar-form\.js.*$/, "css/column-sidebar-form.css?v=1");
+      link.href = me.src.replace(/js\/column-sidebar-form\.js.*$/, "css/column-sidebar-form.css?v=2");
       document.head.appendChild(link);
     }
     var root = me ? me.src.replace(/assets\/js\/column-sidebar-form\.js.*$/, "") : "/";
