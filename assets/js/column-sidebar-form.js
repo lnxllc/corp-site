@@ -8,6 +8,7 @@
 (function () {
   "use strict";
   var GAS_URL = "https://script.google.com/macros/s/AKfycbw0or8jZLXeW_LpvchfWFFPoYUU6_8bYURq-wfvP2JuOFb0AJdl33Xz4DmsWwI0ZBxH/exec";
+  var HEARD = ["ランサーズ", "検索（Google・Yahoo!など）", "AI（ChatGPT・Geminiなど）", "SNS", "知人・取引先の紹介", "その他"];
   var ITEMS = [
     "集客全般の相談",
     "広告運用代行のお問い合わせ／資料請求",
@@ -69,6 +70,8 @@
           '<select id="sbcType" name="inquiry_type" required>' + opts + "</select></div>" +
         '<div class="sbc__field"><label class="sbc__label" for="sbcMsg">お問い合わせ内容<span class="sbc__req">必須</span></label>' +
           '<textarea id="sbcMsg" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea></div>' +
+        '<div class="sbc__field"><label class="sbc__label" for="sbcHeard">どちらでLnXを知りましたか（任意）</label>' +
+          '<select id="sbcHeard" name="heard_from"><option value="">選択してください</option>' + HEARD.map(function (t) { return "<option>" + t + "</option>"; }).join("") + "</select></div>" +
         '<input type="text" name="website" id="sbcHp" class="sbc__hp" tabindex="-1" autocomplete="off" aria-hidden="true">' +
         '<button type="submit" class="sbc__btn" id="sbcSubmit">送信する</button>' +
         '<p class="sbc__status" id="sbcStatus" role="status"></p>' +
@@ -89,6 +92,7 @@
         email: form.querySelector("#sbcEmail").value.trim(),
         inquiry_type: type,
         message: form.querySelector("#sbcMsg").value.trim(),
+        heard_from: form.querySelector("#sbcHeard").value,
         website: form.querySelector("#sbcHp").value
       });
       var trk = (typeof window.lnxTrack === "function") ? window.lnxTrack() : {};

@@ -1298,6 +1298,8 @@ body.page-contact .contact-form button{width:100%!important;margin-top:6px!impor
 .contact-form label.inquiry-option span{flex:1!important;line-height:1.5!important}
 .contact-form label.inquiry-option:hover{border-color:rgba(37,99,235,.4)!important;background:rgba(37,99,235,.04)!important}
 .contact-form label.inquiry-option:has(input:checked){border-color:rgba(37,99,235,.7)!important;background:rgba(37,99,235,.06)!important}
+body.page-contact .contact-form select{width:100%!important;box-sizing:border-box!important;padding:14px 16px!important;border-radius:14px!important;border:1px solid rgba(0,0,0,.12)!important;background:rgba(255,255,255,.95)!important;font-size:16px!important;outline:none!important;color:#111!important}
+body.page-contact .contact-form select:focus{border-color:rgba(37,99,235,.85)!important;box-shadow:0 0 0 4px rgba(37,99,235,.15)!important}
 @media(max-width:768px){
   body.page-contact .contact-form{padding:22px!important;margin:28px 16px 70px!important}
 }

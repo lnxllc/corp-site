@@ -144,6 +144,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
         </div>
 
+        <div class="form-group">
+          <label for="heardFrom">どちらでLnXを知りましたか <span style="color:#6b7280;font-size:12px;font-weight:500;">（任意）</span></label>
+          <select id="heardFrom" name="heard_from">
+            <option value="">選択してください</option>
+            <option value="ランサーズ">ランサーズ</option>
+            <option value="検索（Google・Yahoo!など）">検索（Google・Yahoo!など）</option>
+            <option value="AI（ChatGPT・Geminiなど）">AI（ChatGPT・Geminiなど）</option>
+            <option value="SNS">SNS</option>
+            <option value="知人・取引先の紹介">知人・取引先の紹介</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
         <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;overflow:hidden" aria-hidden="true" />
 
         <button type="submit" id="contactSubmit">送信する</button>
@@ -219,6 +232,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       email: form.querySelector('#email').value.trim(),
       inquiry_type: checked ? checked.value : '',
       message: form.querySelector('#message').value.trim(),
+      heard_from: form.querySelector('#heardFrom').value,
       website: document.getElementById('hp-website').value
     });
     // 流入経路トラッキング（main.jsのwindow.lnxTrack）を付与
