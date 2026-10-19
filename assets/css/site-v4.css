@@ -1737,3 +1737,20 @@ body.col-v4 .column-section__title{color:var(--v4-ink)!important;letter-spacing:
   filter:invert(1);
   opacity:.82;      /* 他の黒ロゴ（c12）と黒の濃さを揃える */
 }
+
+
+/* =========================================================
+   15. 比較記事の各社トップページ画像 .site-shot
+   おすすめ・比較記事で、社名（h3）の直下に置く公式サイトのスクリーンショット。
+   ========================================================= */
+.site-shot{
+  margin:4px 0 18px;padding:0;
+  border:1px solid rgba(15,23,42,.10);border-radius:var(--radius);
+  background:#fff;box-shadow:var(--shadow2);overflow:hidden;
+}
+.site-shot img{width:100%;height:auto;display:block}
+.site-shot figcaption{
+  font-size:12px;line-height:1.6;color:var(--soft);
+  padding:8px 14px;border-top:1px solid rgba(15,23,42,.08);
+  background:rgba(15,23,42,.02);
+}
