@@ -18,6 +18,25 @@
     "その他"
   ];
 
+  // 見ている記事のカテゴリ（/column/<カテゴリ>/<記事>/）から、問い合わせ項目の初期値を決める。
+  // SEO・Webマーケ・分析カテゴリのうち、AIO・LLMO・GEO・AIの記事は「AI」を選ぶ。どれにも当たらなければ未選択のまま。
+  function defaultItem() {
+    var m = location.pathname.match(/\/column\/([^\/]+)\/([^\/]+)/);
+    if (!m) return "";
+    var cat = m[1], slug = m[2];
+    if (cat === "ai-katsuyo") return "AIに関するお問い合わせ";
+    if (/^(seo|web-marketing|analytics)$/.test(cat) && /(^|-)(aio|llmo|geo|ai)(-|$)/.test(slug)) return "AIに関するお問い合わせ";
+    var map = {
+      "advertising": "広告運用に関するお問い合わせ",
+      "sns-marketing": "SNS運用に関するお問い合わせ",
+      "lp-improvement": "制作に関するお問い合わせ",
+      "seo": "集客全般の相談",
+      "web-marketing": "集客全般の相談",
+      "analytics": "集客全般の相談"
+    };
+    return map[cat] || "";
+  }
+
   function init() {
     var aside = document.querySelector(".article-sidebar");
     if (!aside || document.getElementById("sbcForm")) return;
@@ -27,13 +46,14 @@
     if (me) {
       var link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = me.src.replace(/js\/column-sidebar-form\.js.*$/, "css/column-sidebar-form.css?v=2");
+      link.href = me.src.replace(/js\/column-sidebar-form\.js.*$/, "css/column-sidebar-form.css?v=3");
       document.head.appendChild(link);
     }
     var root = me ? me.src.replace(/assets\/js\/column-sidebar-form\.js.*$/, "") : "/";
 
-    var opts = '<option value="" disabled selected>選択してください</option>' +
-      ITEMS.map(function (t) { return "<option>" + t + "</option>"; }).join("");
+    var def = defaultItem();
+    var opts = '<option value="" disabled' + (def ? "" : " selected") + '>選択してください</option>' +
+      ITEMS.map(function (t) { return "<option" + (t === def ? " selected" : "") + ">" + t + "</option>"; }).join("");
 
     var box = document.createElement("div");
     box.className = "sbc";

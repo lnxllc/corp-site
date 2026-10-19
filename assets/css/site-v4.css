@@ -1677,9 +1677,8 @@ body.col-v4 .article-cta__btn::after{content:"\2192";margin-left:.7em;font-famil
 
 /* --- 本文中の目次は、サイドバーに同じものが出るPCでは隠す --- */
 /* 目次が1ページに2つ出て本文が間延びしていた。サイドバーが消えるSPだけ残す */
-@media (min-width:981px){
-  body.col-v4 .article-container .toc{display:none}
-}
+/* 2026-10-19：サイドバーの目次を廃止（右カラムは問い合わせフォームのみ）したため、
+   本文中の目次はPCでも表示する。 */
 
 /* --- 長い英数字トークンのはみ出し対策 --- */
 /* 「utm_source・utm_medium・utm_campaign…」のように区切りのない英数字が続くと
@@ -1843,4 +1842,37 @@ body.col-v4 .col-adban .t-adban:hover .t-adban__go::after{transform:translateX(3
   body.col-v4 .col-adban .t-adban__text{padding:14px 14px 40px}
   body.col-v4 .col-adban .t-adban__flag{display:none}
   body.col-v4 .col-adban .t-adban__row{justify-content:flex-start;gap:12px}
+}
+
+
+/* =========================================================
+   17. コラムの角丸・CTAをシンプルに（2026-10-19）
+   ・表は角丸なし
+   ・記事内CTA（.article-cta）は反転面・小見出しラベル・説明文をやめ、
+     1行の見出し＋ボタンだけの平らな枠にする
+   ========================================================= */
+body.col-v4 .cost-table,
+body.col-v4 .compare-table{border-radius:0!important}
+body.col-v4 .article-cta{
+  background:#F5F8FD!important;
+  border:1px solid rgba(30,107,255,.22)!important;border-left:4px solid var(--v4-brand)!important;
+  border-radius:0!important;box-shadow:none!important;
+  padding:24px 28px!important;margin:40px 0!important;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left!important;
+}
+body.col-v4 .article-cta__label,
+body.col-v4 .article-cta__lead{display:none!important}
+body.col-v4 .article-cta__title{
+  margin:0!important;color:var(--v4-ink)!important;text-align:left!important;
+  font-size:17px!important;font-weight:800!important;line-height:1.6!important;letter-spacing:0!important;
+}
+body.col-v4 .article-cta__btn{
+  flex:none;padding:13px 22px!important;border-radius:4px!important;
+  background:var(--v4-brand)!important;color:#fff!important;
+  box-shadow:none!important;font-size:14px!important;font-weight:800!important;transform:none!important;
+}
+body.col-v4 .article-cta__btn:hover{background:var(--v4-brand-d)!important;transform:none!important}
+@media (max-width:640px){
+  body.col-v4 .article-cta{flex-direction:column;align-items:stretch;padding:20px!important}
+  body.col-v4 .article-cta__btn{justify-content:center}
 }
