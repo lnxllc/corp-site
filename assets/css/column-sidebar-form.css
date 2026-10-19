@@ -1,0 +1,55 @@
+/* =========================================================
+   コラム記事：PC版サイドバーのお問い合わせフォーム
+   assets/js/column-sidebar-form.js が .article-sidebar の末尾に差し込む。
+   送信先は contact.html と同じGAS（同じスプレッドシート）。
+   目次・CTAは通常どおりスクロールし、フォームだけが追従する。
+   980px以下ではサイドバーごと非表示（各記事の既存CSS）。
+   ========================================================= */
+body.col-v4 .article-sidebar{position:relative!important;top:auto!important;align-self:stretch}
+body.col-v4 .sbc{
+  position:sticky;top:88px;margin-top:18px;
+  border:1px solid rgba(30,107,255,.18);border-radius:var(--radius,14px);
+  background:#fff;box-shadow:var(--shadow2,0 10px 30px rgba(10,37,69,.08));overflow:hidden;
+}
+body.col-v4 .sbc__head{
+  padding:14px 18px 12px;text-align:center;color:#fff;
+  background:linear-gradient(150deg,#1E6BFF,#0A2FA8);
+}
+body.col-v4 .sbc__title{margin:0;font-size:15px;font-weight:900;letter-spacing:.02em;line-height:1.4}
+body.col-v4 .sbc__lead{margin:4px 0 0;font-size:11.5px;font-weight:700;opacity:.9;line-height:1.5}
+body.col-v4 .sbc__form{padding:14px 16px 16px;display:grid;gap:10px}
+body.col-v4 .sbc__field{display:grid;gap:4px}
+body.col-v4 .sbc__label{font-size:12px;font-weight:800;color:rgba(15,23,42,.78);line-height:1.4}
+body.col-v4 .sbc__req{margin-left:6px;padding:1px 6px;border-radius:4px;background:#dc2626;color:#fff;font-size:10px;font-weight:800;vertical-align:1px}
+body.col-v4 .sbc input[type=text],
+body.col-v4 .sbc input[type=email],
+body.col-v4 .sbc select,
+body.col-v4 .sbc textarea{
+  width:100%;box-sizing:border-box;margin:0;
+  padding:9px 10px;border:1px solid rgba(15,23,42,.18);border-radius:8px;
+  background:#F8FAFD;font:inherit;font-size:13.5px;color:#0A2545;line-height:1.5;
+  transition:border-color .15s ease,background .15s ease;
+}
+body.col-v4 .sbc select{
+  appearance:none;-webkit-appearance:none;padding-right:30px;cursor:pointer;
+  background:#F8FAFD url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%230A2FA8' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 11px center;
+}
+body.col-v4 .sbc select:invalid{color:rgba(15,23,42,.45)}
+body.col-v4 .sbc textarea{min-height:86px;resize:vertical}
+body.col-v4 .sbc input:focus,
+body.col-v4 .sbc select:focus,
+body.col-v4 .sbc textarea:focus{outline:none;border-color:#1E6BFF;background:#fff}
+body.col-v4 .sbc__hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+body.col-v4 .sbc__btn{
+  margin-top:2px;width:100%;padding:12px;border:0;border-radius:999px;cursor:pointer;
+  background:linear-gradient(135deg,#FF8A1F,#F25C05);color:#fff;font:inherit;font-size:14px;font-weight:900;letter-spacing:.04em;
+  box-shadow:0 10px 22px rgba(242,92,5,.25);transition:transform .18s ease,opacity .18s ease;
+}
+body.col-v4 .sbc__btn:hover{transform:translateY(-2px)}
+body.col-v4 .sbc__btn:disabled{opacity:.6;cursor:default;transform:none}
+body.col-v4 .sbc__note{margin:0;font-size:10.5px;line-height:1.6;color:rgba(15,23,42,.55);text-align:center}
+body.col-v4 .sbc__note a{color:inherit;text-decoration:underline}
+body.col-v4 .sbc__status{display:none;margin:0;font-size:12.5px;font-weight:700;line-height:1.6}
+@media (max-height:760px){
+  body.col-v4 .sbc{position:static}
+}
