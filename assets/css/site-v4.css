@@ -1953,3 +1953,48 @@ body.col-v4.case-v4 .article-author__name{font-size:15px}
 body.col-v4.case-v4 .article-author__bio{color:var(--soft);line-height:1.6}
 /* 事例のCTA見出しは <p> なので、コラム側の「.article-cta p は白文字」に巻き込まれる。コラムと同じ濃色に戻す */
 body.col-v4.case-v4 .article-cta .article-cta__title{color:var(--v4-ink)!important}
+
+/* =========================================================
+   18. 反転面（紺）のCTAを全ページで廃止（2026-10-20）
+   コラム記事（17番）と同じ「平らな枠＋見出し1行＋ボタン」に揃える。
+   対象：事例詳細 .article-cta（case-v4）／事例一覧 .cases-cta／コラム一覧 .column-cta
+   ========================================================= */
+body.case-v4 .article-cta,
+body.cases-v4 .cases-cta,
+body.col-v4 .column-cta{
+  background:#F5F8FD!important;
+  border:1px solid rgba(30,107,255,.22)!important;border-left:4px solid var(--v4-brand)!important;
+  border-radius:0!important;box-shadow:none!important;
+  padding:24px 28px!important;margin:40px 0!important;
+  display:flex!important;align-items:center;justify-content:space-between;gap:20px;text-align:left!important;
+}
+body.case-v4 .article-cta__label,
+body.case-v4 .article-cta__lead,
+body.cases-v4 .cases-cta__label,
+body.cases-v4 .cases-cta__lead,
+body.col-v4 .column-cta__lead,
+body.col-v4 .column-cta p:not([class*="title"]){display:none!important}
+body.case-v4 .article-cta__title,
+body.cases-v4 .cases-cta__title,
+body.col-v4 .column-cta__title{
+  margin:0!important;color:var(--v4-ink)!important;text-align:left!important;
+  font-size:17px!important;font-weight:800!important;line-height:1.6!important;letter-spacing:0!important;
+}
+body.cases-v4 .cases-cta__title br{display:none}
+body.case-v4 .article-cta__btn,
+body.cases-v4 .cases-cta__btn,
+body.col-v4 .column-cta a{
+  flex:none;display:inline-flex!important;align-items:center;justify-content:center;
+  padding:13px 22px!important;border-radius:4px!important;
+  background:var(--v4-brand)!important;color:#fff!important;text-decoration:none!important;
+  box-shadow:none!important;font-size:14px!important;font-weight:800!important;transform:none!important;
+}
+body.case-v4 .article-cta__btn:hover,
+body.cases-v4 .cases-cta__btn:hover,
+body.col-v4 .column-cta a:hover{background:var(--v4-brand-d)!important;transform:none!important}
+body.col-v4 .column-cta a::after{content:"\2192";margin-left:.7em;font-family:var(--v4-mono)}
+@media (max-width:640px){
+  body.case-v4 .article-cta,
+  body.cases-v4 .cases-cta,
+  body.col-v4 .column-cta{flex-direction:column;align-items:stretch;padding:20px!important}
+}
