@@ -1889,3 +1889,67 @@ body.cases-v4 .case-card:hover .case-card__thumb img{transform:scale(1.03)}
 body.cases-v4 .case-card__thumb--duo{display:flex;justify-content:center;gap:12px;padding:12px}
 body.cases-v4 .case-card__thumb--duo img{width:auto;height:100%;object-fit:contain}
 body.cases-v4 .case-tag{border-radius:0!important}
+
+
+/* =========================================================
+   18. コラム一覧（/column/ と各カテゴリ一覧）を支援事例一覧のカードに揃える（2026-10-20）
+   ・2列グリッド、角ばった枠
+   ・カード上部に淡色の帯（タグ＋タイトル）、下部に説明文＋リンク
+   ・サムネイルは無し
+   ========================================================= */
+body.col-v4 .article-grid{grid-template-columns:repeat(2,1fr)!important;gap:24px!important}
+body.col-v4 .article-grid .article-card{
+  padding:0!important;gap:0!important;border-radius:0!important;
+  border:1px solid var(--v4-line)!important;background:rgba(255,255,255,.96)!important;
+  box-shadow:var(--v4-shadow)!important;overflow:hidden;
+}
+body.col-v4 .article-grid .article-card:hover{box-shadow:var(--v4-shadow-h)!important;transform:translateY(-4px);border-color:rgba(30,107,255,.3)!important}
+body.col-v4 .article-card__head{
+  background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(124,58,237,.06));
+  padding:24px 24px 16px;border-bottom:1px solid rgba(15,23,42,.06);
+}
+body.col-v4 .article-grid .article-card__tag{
+  display:inline-block;margin:0 0 10px;padding:3px 9px;border-radius:0!important;
+  font-size:11px;font-weight:800;letter-spacing:.04em;
+}
+body.col-v4 .article-grid .article-card__title{font-size:16px;font-weight:900;line-height:1.45;color:var(--txt);margin:0}
+body.col-v4 .article-card__body{padding:18px 24px;flex:1;display:flex;flex-direction:column}
+body.col-v4 .article-grid .article-card__desc{
+  font-size:13.5px;color:var(--muted);line-height:1.75;margin:0 0 16px;
+  -webkit-line-clamp:4;
+}
+body.col-v4 .article-grid .article-card__arrow{
+  margin-top:auto;display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:800;transition:gap .18s ease;
+}
+body.col-v4 .article-grid .article-card:hover .article-card__arrow{gap:10px}
+body.col-v4 .filter-btn{border-radius:0!important}
+@media (max-width:768px){
+  body.col-v4 .article-grid{grid-template-columns:1fr!important}
+}
+
+
+/* =========================================================
+   19. 支援事例の各記事をコラム記事の体裁に揃える（2026-10-20）
+   スコープ： <body class="site-v4 col-v4 case-v4">
+   ・col-v4 を併記してコラムと同じ見た目の層（CTA・カード・見出し）を当てる
+   ・右カラムはコラムと同じ問い合わせフォーム（column-sidebar-form.js）
+   ・ここでは事例ページ側に残る差分だけを打ち消す
+   ========================================================= */
+body.col-v4.case-v4 .article-hero__title{font-size:clamp(26px,4vw,40px)!important}
+body.col-v4.case-v4 .client-table,
+body.col-v4.case-v4 .client-info-table{border-radius:0!important}
+body.col-v4.case-v4 .lnx-cta-sub{display:none!important}
+body.col-v4.case-v4 .article-faq__item{box-shadow:var(--shadow2)}
+body.col-v4.case-v4 .article-faq__item summary{font-size:14.5px;font-weight:800;color:rgba(15,23,42,.90)}
+body.col-v4.case-v4 .faq-q-badge{width:26px;height:26px;border-radius:8px;font-size:12px;display:grid;place-items:center;margin-top:1px}
+body.col-v4.case-v4 .article-faq__body{padding:0 20px 18px 58px;border-top:1px solid rgba(15,23,42,.08)}
+body.col-v4.case-v4 .article-faq__body p{margin:14px 0 0;font-size:14px;color:var(--muted);line-height:1.8}
+body.col-v4.case-v4 .article-author__icon{
+  width:48px;height:48px;border-radius:999px;display:grid;place-items:center;font-size:18px;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--brand1),var(--brand3));
+}
+body.col-v4.case-v4 .article-author__name{font-size:15px}
+body.col-v4.case-v4 .article-author__bio{color:var(--soft);line-height:1.6}
+/* 事例のCTA見出しは <p> なので、コラム側の「.article-cta p は白文字」に巻き込まれる。コラムと同じ濃色に戻す */
+body.col-v4.case-v4 .article-cta .article-cta__title{color:var(--v4-ink)!important}
