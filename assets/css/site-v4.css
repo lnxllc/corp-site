@@ -1878,3 +1878,14 @@ body.col-v4 .article-cta__btn:hover{background:var(--v4-brand-d)!important;trans
   body.col-v4 .article-cta{flex-direction:column;align-items:stretch;padding:20px!important}
   body.col-v4 .article-cta__btn{justify-content:center}
 }
+
+/* ---------------------------------------------------------
+   支援事例一覧：サムネイル追加＋角ばった枠
+   --------------------------------------------------------- */
+body.cases-v4 .case-card{border-radius:0!important}
+body.cases-v4 .case-card__thumb{aspect-ratio:16/10;background:#F3F5F9;border-bottom:1px solid var(--v4-line);overflow:hidden}
+body.cases-v4 .case-card__thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+body.cases-v4 .case-card:hover .case-card__thumb img{transform:scale(1.03)}
+body.cases-v4 .case-card__thumb--duo{display:flex;justify-content:center;gap:12px;padding:12px}
+body.cases-v4 .case-card__thumb--duo img{width:auto;height:100%;object-fit:contain}
+body.cases-v4 .case-tag{border-radius:0!important}
