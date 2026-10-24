@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>ヒートマップツールおすすめ6選｜保存期間と上限比較 | LnX合同会社</title>
+<link rel="canonical" href="https://lnx.co.jp/column/lp-improvement/heatmap-tool-recommended/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="ヒートマップツールおすすめ6選｜保存期間と上限比較｜LnX合同会社"/>
+<meta property="og:description" content="ヒートマップツール6つ（Microsoft Clarity・Contentsquare・ミエルカヒートマップ・SiTest・User Heat・LnX）を、無料枠・保存期間・上限・入力欄の扱いで比較。2026年10月24日時点で公式ページを実際に開いて確認した内容のみを掲載し、1社ずつ特徴・向いているケース・注意点も解説しています。順位は付けていません。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/lp-improvement/heatmap-tool-recommended/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ヒートマップツールおすすめ6選｜保存期間と上限比較｜LnX合同会社"/>
+<meta name="twitter:description" content="ヒートマップツール6つ（Microsoft Clarity・Contentsquare・ミエルカヒートマップ・SiTest・User Heat・LnX）を、無料枠・保存期間・上限・入力欄の扱いで比較。2026年10月24日時点で公式ページを実際に開いて確認した内容のみを掲載し、1社ずつ特徴・向いているケース・注意点も解説しています。順位は付けていません。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+
+<meta content="ヒートマップツール6つ（Microsoft Clarity・Contentsquare・ミエルカヒートマップ・SiTest・User Heat・LnX）を、無料枠・保存期間・上限・入力欄の扱いで比較。2026年10月24日時点で公式ページを実際に開いて確認した内容のみを掲載し、1社ずつ特徴・向いているケース・注意点も解説しています。順位は付けていません。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body > h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 原因カード */
+    .cause-list { display: grid; gap: 20px; margin: 0 0 32px; }
+    .cause-item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2);
+      overflow: hidden; transition: .2s ease;
+    }
+    .cause-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .cause-item__head {
+      display: grid; grid-template-columns: 56px 1fr;
+      align-items: center; gap: 16px; padding: 16px 22px;
+      background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.04));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .cause-item__num {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 18px; color: #fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+    }
+    .cause-item__title { font-size: 16px; font-weight: 900; margin: 0; letter-spacing: -.01em; }
+    .cause-item__body { padding: 18px 22px; }
+    .cause-item__body p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.85; }
+    .cause-item__body p:last-child { margin: 0; }
+
+    .action-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .action-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.75;
+      padding: 10px 14px; border-radius: 10px;
+      background: rgba(16,185,129,.05); border: 1px solid rgba(16,185,129,.16);
+    }
+    .action-list li::before { content: "✓"; color: #059669; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .checklist-card {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist-card__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist-card__section { margin-bottom: 18px; }
+    .checklist-card__section:last-child { margin-bottom: 0; }
+    .checklist-card__section-title { font-size: 12px; font-weight: 800; letter-spacing: .10em; color: var(--muted); margin: 0 0 10px; }
+    .checklist-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .checklist-card li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.7; }
+    .checklist-card li::before { content: "□"; font-size: 15px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: var(--brand3);
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: linear-gradient(150deg, #1E6BFF, #0A2FA8);
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: #0A2FA8;
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+      .cause-item__head { grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 16px; }
+      .cause-item__num { width: 40px; height: 40px; font-size: 16px; }
+      .cause-item__body { padding: 14px 16px; }
+    }
+  </style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ヒートマップツールおすすめ6選｜保存期間と上限比較",
+  "description": "ヒートマップツール6つ（Microsoft Clarity・Contentsquare・ミエルカヒートマップ・SiTest・User Heat・LnX）を、無料枠・保存期間・上限・入力欄の扱いで比較。2026年10月24日時点で公式ページを実際に開いて確認した内容のみを掲載し、1社ずつ特徴・向いているケース・注意点も解説しています。順位は付けていません。",
+  "url": "https://lnx.co.jp/column/lp-improvement/heatmap-tool-recommended/",
+  "datePublished": "2026-10-24",
+  "dateModified": "2026-10-24",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/lp-improvement/heatmap-tool-recommended/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "LP改善",
+      "item": "https://lnx.co.jp/column/lp-improvement/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "ヒートマップツールおすすめ6選｜保存期間と上限比較",
+      "item": "https://lnx.co.jp/column/lp-improvement/heatmap-tool-recommended/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ヒートマップツールは無料で足りますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "公式ページで確認できた範囲では、Microsoft Clarityは無料のままトラフィック制限なしと明記されており、1プロジェクトあたり1日10万セッションまで録画、ヒートマップは1つあたり10万ページビューまでという機能上の上限があります。LP数枚から中規模のサイトであれば足りることが多い一方、録画の通常の保存が30日である点は運用で補う必要があります。前年同月との比較など長期の保存が必要になった段階で、有料プランを検討してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "無料ツールのデータは、どのくらいの期間見られますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ツールによって異なります。Microsoft Clarityはヒートマップを最大9か月、セッション録画は記録から30日（お気に入りに入れた録画と無作為抽出のサンプルは最大9か月）と記載されています。Contentsquareの無料プランは1か月、月額39ドル〜のGrowthプランは13か月です。ミエルカヒートマップ・SiTest・User Heatは、今回取得した公式ページに保存期間の記載を確認できませんでした。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "入力フォームに打ち込まれた内容も記録されてしまいますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microsoft Clarityでは、入力欄の内容はどのマスキングモードでもマスクされ、カスタマイズできないと公式に記載されています。ドロップダウンも同様です。他のツールのマスキング仕様は今回取得したページで確認できていないため、導入前に各社へ確認してください。個人情報の取り扱いに関する個別の判断は、弁護士等の専門家にご確認ください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ヒートマップとGA4はどう使い分けますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GA4は「どのページで何人が離脱し、何件コンバージョンしたか」という数を見るツールで、ヒートマップは「そのページのどこが読まれ、どこでクリックされているか」というページ内の動きを見るツールです。数でページを絞り込み、ヒートマップで原因の仮説を立て、修正後にGA4で数が変わったかを確認する、という順番で使うと役割が重なりません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どのページから入れるのがよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "当社の考え方では、広告やSNSからの流入が最も多い着地ページ（LP）と、問い合わせフォームの直前のページの2つから始めます。全ページに入れても、見る時間が足りず放置されやすいためです。最初は2〜3ページに絞り、週1回の確認が続いたら範囲を広げてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "複数のヒートマップツールを併用してもよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "技術的には可能ですが、Cookieや計測タグが増えるため、プライバシーポリシーやCookieの告知に記載するツールも増えます。また、同じページで結果が食い違うと判断に迷うため、当社では1つに絞って一定期間使い込み、足りない機能が明確になってから追加することをおすすめしています。"
+      }
+    }
+  ]
+}</script>
+<style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/lp-improvement/">LP改善</a>
+<span class="sep">/</span>
+<span class="cur">ヒートマップツールおすすめ6選｜保存期間と上限比較</span>
+</nav>
+<p class="article-hero__kicker"><span></span>LP改善</p>
+<h1 class="article-hero__title">ヒートマップツールおすすめ6選｜<br/>無料の上限と保存期間を公式情報で比較</h1>
+<div class="article-hero__meta">
+<time datetime="2026-10-24">2026年10月24日</time>
+<span class="article-hero__tag">ヒートマップ</span>
+<span class="article-hero__tag">ツール比較</span>
+<span class="article-hero__tag">LP改善</span>
+<span class="article-hero__tag">無料</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body"><div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>ヒートマップツール6つ（Microsoft Clarity・Contentsquare・ミエルカヒートマップ・SiTest・User Heat・LnX）の比較表</li>
+<li>無料枠・保存期間・上限・入力欄の扱いを、公式ページで確認できた範囲だけで並べ直した結果</li>
+<li>6つそれぞれの特徴・向いているケース・注意点（公式サイトのリンク付き）</li>
+<li>状況別の選び方と、導入前に確認する7項目、導入後の見る頻度の決め方</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#gap">ヒートマップツールは、機能より「上限・保存期間・入力欄の扱い」で選ぶ</a></li>
+<li><a href="#compare">ヒートマップツールおすすめ6選の比較表</a></li>
+<li><a href="#profiles">6つそれぞれの特徴を個別に見る</a></li>
+<li><a href="#retention">データが「見られなくなる日」を、保存期間と上限で並べ直す</a></li>
+<li><a href="#privacy">入力欄とCookieの扱いを、導入前に確認する</a></li>
+<li><a href="#choose">自社の状況別に、合うツールのタイプを選ぶ</a></li>
+<li><a href="#operate">入れた後に続けるための、見る頻度と見る順番</a></li>
+<li><a href="#check">導入前に確認する7項目</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="gap">ヒートマップツールは、機能より「上限・保存期間・入力欄の扱い」で選ぶ</h2>
+<p>結論から言うと、<strong>ヒートマップツールの比較で最初に見るべきは、機能の数ではなく「無料枠の上限」「データの保存期間」「入力欄の扱い」の3つ</strong>です。クリック・スクロール・熟読といった基本のヒートマップはどのツールにも揃っていて、そこで大きな差はつきません。差が出るのは、「先月のデータをいつまで見られるか」「月に何セッションまで取れるか」「フォームの入力内容が記録されないか」という運用に関わる部分です。</p>
+<p>ヒートマップツールを並べた記事では、無料と有料の区分、料金、取れるヒートマップの種類、A/Bテストやアクセス解析との連携、サポートの有無といった観点が共通して取り上げられていました。この記事でも、それらは比較表に入れています。そのうえで、<strong>公式ページで確認できた範囲の「保存期間」「上限」「入力欄の扱い」</strong>を別の表に並べ直しました。導入してから「前月と比べたいのに先月分が消えていた」「フォームの中身が気になって使えなくなった」となるのを避けるための視点です。</p>
+<p>なお、LP改善の中でヒートマップをどう読むかは、<a href="https://lnx.co.jp/column/lp-improvement/lp-heatmap-analysis/">ヒートマップによるLP改善｜離脱点の見つけ方</a>で扱っています。この記事は、その前段の「どのツールを入れるか」の比較です。</p>
+
+<h2 id="compare">ヒートマップツールおすすめ6選の比較表</h2>
+<p>ここからは、公式ページが開けて内容を確認できたツールを並べます。<strong>掲載しているのは、2026年10月24日時点で各社の公式ページを実際に開いて確認できた内容だけです。</strong>確認できなかった項目は「公開なし」または「確認できず」と書き、推測では埋めていません。</p>
+<div class="highlight-card--warning highlight-card">
+<p><strong>比較の前に。</strong>次の表の「無料枠」や「料金」は、単位や条件が揃っていません。Clarityは「セッション数」、Contentsquareは「月間セッション数」、ミエルカやUser Heatは上限の記載自体が見つかっていません。<strong>金額の大小よりも、「どの単位で上限があり、超えたらどうなるか」を見てください。</strong></p>
+</div>
+<table class="cost-table">
+<thead>
+<tr><th>ツール（公式ページ）</th><th>運営</th><th>無料で使える範囲</th><th>有料の入口</th><th>取れるもの</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://clarity.microsoft.com/" rel="noopener nofollow" target="_blank"><strong>Microsoft Clarity</strong></a></td>
+<td>Microsoft（ページ下部の表記）</td>
+<td>無料のまま、トラフィック制限・サイト数の制限なし（公式FAQ）</td>
+<td>なし（「Free forever」と表記）</td>
+<td>クリック・スクロール・エリアのヒートマップ、セッション録画</td>
+</tr>
+<tr>
+<td><a href="https://contentsquare.com/pricing/" rel="noopener nofollow" target="_blank"><strong>Contentsquare</strong></a><br/>（hotjar.comの料金ページの転送先）</td>
+<td>Contentsquare</td>
+<td>Free：0ドル、月20万セッションまで</td>
+<td>Growth：月額39ドル〜（7千〜+24万セッションの選択式）。Pro・Enterpriseは要問い合わせ</td>
+<td>リプレイ、ヒートマップ、ファネル（Freeの記載）。Growthはゾーン型ヒートマップ</td>
+</tr>
+<tr>
+<td><a href="https://mieru-ca.com/heatmap/" rel="noopener nofollow" target="_blank"><strong>ミエルカヒートマップ</strong></a></td>
+<td>株式会社Faber Company（東京都港区）</td>
+<td>無料プランあり。「無料の範囲内で期限なく」利用可。上限の条件は確認できず</td>
+<td>確認できず（取得したページ本文に金額の記載なし）</td>
+<td>熟読・離脱・クリックの3種類のヒートマップ</td>
+</tr>
+<tr>
+<td><a href="https://sitest.jp/" rel="noopener nofollow" target="_blank"><strong>SiTest</strong></a></td>
+<td>ページ上のISMS表記から、グラッドキューブと読み取れる</td>
+<td>無料プランの記載なし。2週間の無料トライアル</td>
+<td>公開なし</td>
+<td>スクロール・マウスグラフィ・クリック・タップなど。ノーコードのA/Bテスト、多変量テスト</td>
+</tr>
+<tr>
+<td><a href="https://userheat.com/" rel="noopener nofollow" target="_blank"><strong>User Heat</strong></a></td>
+<td>UserLocal, Inc.（フッター表記）</td>
+<td>無料版あり（ヒートマップ5種類）。月間の上限は確認できず</td>
+<td>有償版「UserInsight」あり。金額はトップページに記載なし</td>
+<td>ヒートマップ5種類、EFO機能、Search Console連携、テキストマイニング</td>
+</tr>
+<tr style="background: rgba(37,99,235,.06);">
+<td><strong>LnX合同会社</strong><br/>（ツールではなく広告・LP・計測の支援）</td>
+<td>LnX合同会社（東京都渋谷区）</td>
+<td>ヒートマップツールの提供なし。資料請求・無料相談は無料</td>
+<td>広告運用代行の手数料は広告出稿額の20%（出稿額50万円未満は月10万円・税込）。簡易LP制作は10万円〜</td>
+<td>LP制作・改善、GA4・タグ・コンバージョン計測の構築、広告の運用とレポート</td>
+</tr>
+</tbody>
+</table>
+<p class="table-note" style="font-size:13px;color:rgba(15,23,42,.55);margin-top:-8px;">※ 各社の情報は2026年10月24日に公式ページを確認したものです。料金・機能は改定される可能性があるため、導入前に必ず各社にご確認ください。順位付けは行っておらず、掲載順は優劣を示すものではありません。</p>
+<div class="highlight-card">
+<p><strong>当社の位置づけも、他社と同じ粒度で書いておきます。</strong>当社は、ヒートマップツールそのものを提供してはいません。広告運用代行のページ（<a href="https://lnx.co.jp/ad-lp/">ad-lp</a>）に記載しているのは、LP制作・改善（簡易LPは10万円〜）、GA4・各媒体のタグ・コンバージョン計測の構築、広告の運用とレポートです。ヒートマップの導入設定や分析をどこまで対応するかはページに記載がないため、個別にご相談いただく形になります。<strong>他社の提案書や見積もりを並べた状態でのご相談も歓迎です。</strong></p>
+</div>
+<div class="article-cta">
+<p class="article-cta__label">Web広告運用代行</p>
+<div class="article-cta__title">LPの数字の見方から、広告・計測の設計まで一緒に整理したい方へ</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用代行の詳細を見る</a>
+</div>
+
+<h2 id="profiles">6つそれぞれの特徴を個別に見る</h2>
+<p>表だけでは、各ツールが何を強みにしていて、どこから先は別の手当てが必要になるのかまでは分かりません。ここからは1つずつ、<strong>公式ページで確認できた特徴・向いているケース・注意点</strong>を整理します。繰り返しになりますが、順位ではありません。</p>
+
+<h3>Microsoft Clarity</h3>
+<p><strong>公式サイト：</strong><a href="https://clarity.microsoft.com/" rel="noopener nofollow" target="_blank">https://clarity.microsoft.com/</a>　／　<strong>サービスページ：</strong><a href="https://learn.microsoft.com/ja-jp/clarity/" rel="noopener nofollow" target="_blank">Microsoft Clarity ドキュメント</a></p>
+<p>Clarityは、<strong>ヒートマップとセッション録画を無料で使える</strong>ツールです。公式FAQには「Clarity is a free service forever」と書かれ、トラフィックの制限も、1アカウントあたりのサイト数の制限もないと説明されています。トップページのタイトルも「Free Heatmaps &amp; Session Recordings」です。クリックマップ、スクロールマップ、エリアマップといったヒートマップに加えて、実際の閲覧を再生できる録画が同じ画面で見られます。（出典：<a href="https://learn.microsoft.com/en-us/clarity/faq" target="_blank" rel="noopener">Clarity FAQ｜Microsoft Learn</a>）</p>
+<p>ただし、無料でも機能上の上限はあります。録画は1プロジェクトあたり1日10万セッションまで、ヒートマップは1つあたり10万ページビューまで、ライブセッションは最大100件まで閲覧できます。保存期間は、ヒートマップが最大9か月、録画は記録から30日（お気に入りの録画と無作為抽出のサンプルは最大9か月）です。</p>
+<div class="highlight-card">
+<p><strong>向いているケース：</strong>まず費用をかけずに、LPやフォームの動きを録画つきで確認したい。<br/><strong>注意点：</strong>録画の通常の保存は30日のため、後で見返したい録画はお気に入りに入れる運用が必要です。EEA・英国・スイスのユーザーを対象にする場合は、同意の取得が必要と公式に書かれています。日本語のサポート窓口の有無は、今回の確認では取れていません。</p>
+</div>
+
+<h3>Contentsquare</h3>
+<p><strong>公式サイト：</strong><a href="https://contentsquare.com/" rel="noopener nofollow" target="_blank">https://contentsquare.com/</a>　／　<strong>サービスページ：</strong><a href="https://contentsquare.com/pricing/" rel="noopener nofollow" target="_blank">Pricing｜Contentsquare（英語）</a></p>
+<p>hotjar.comの料金ページを開くと、contentsquare.com/pricing/に転送されました。そのページでは、<strong>Free・Growth・Pro・Enterpriseの4段階</strong>が示されています。Freeは0ドルで月20万セッションまで、保存は1か月、リプレイ・ヒートマップ・ファネルが使えます。Growthは月額39ドル（通常49ドルからの割引表示）で、セッション数は7千〜+24万の選択式、保存は13か月、ゾーン型ヒートマップとAIによるセッション要約が含まれます。ProとEnterpriseは要問い合わせです。（出典：<a href="https://contentsquare.com/pricing/" target="_blank" rel="noopener">Pricing｜Contentsquare</a>）</p>
+<p>表示は英語・ドル建てで、欧州顧客のGrowthプランはユーロ建てで請求されると書かれています。年払いにするとVAT前の金額から20%の割引とされていますが、年額の具体的な金額は記載がありません。Proの機能一覧には「最大6プロジェクト」とありますが、FAQには「3つ含まれ、さらに3つ購入可能」とあり、記述が一致していません。会社の所在地や日本向けの税表記は、取得したページに記載がありませんでした。</p>
+<div class="highlight-card">
+<p><strong>向いているケース：</strong>保存を13か月取れるプランで、前年同月との比較までやりたい。英語の画面で運用できる。<br/><strong>注意点：</strong>円建ての料金や日本の窓口は確認できていません。無料のFreeは保存が1か月と短いため、月次で振り返る運用には不足しがちです。</p>
+</div>
+
+<h3>ミエルカヒートマップ</h3>
+<p><strong>公式サイト：</strong><a href="https://mieru-ca.com/" rel="noopener nofollow" target="_blank">https://mieru-ca.com/</a>　／　<strong>サービスページ：</strong><a href="https://mieru-ca.com/heatmap/" rel="noopener nofollow" target="_blank">ミエルカヒートマップ</a></p>
+<p>国内企業の株式会社Faber Companyが運営するヒートマップツールです（所在地は東京都港区虎ノ門と記載）。サイトのトップページのタイトルは「ミエルカSEO」となっており、SEOツールと同じ運営元のサービスとして提供されていることが読み取れます。ヒートマップは<strong>熟読・離脱・クリックの3種類</strong>で、無料アカウントを発行すると「無料の範囲内で期限なく」利用できると案内されています。</p>
+<p>一方で、無料の範囲の具体的な上限、有料プランの金額、データの保存期間は、取得したページの本文では確認できませんでした。そのため、無料でどこまで使えるかは申し込み前に確認が必要です。</p>
+<div class="highlight-card">
+<p><strong>向いているケース：</strong>国内企業のツールで、期限なしの無料枠から試したい。熟読・離脱・クリックの3種類で足りる。<br/><strong>注意点：</strong>上限・保存期間・有料の金額が確認できていないため、無料の範囲を見極めてから本格導入するのが安全です。</p>
+</div>
+
+<h3>SiTest</h3>
+<p><strong>公式サイト：</strong><a href="https://sitest.jp/" rel="noopener nofollow" target="_blank">https://sitest.jp/</a>　／　<strong>サービスページ：</strong><a href="https://sitest.jp/" rel="noopener nofollow" target="_blank">SiTest（トップページが製品ページ）</a></p>
+<p>SiTestは、<strong>Webサイトの分析、A/Bテスト、動画接客をAIとノーコードで行うプラットフォーム</strong>と説明されています。ヒートマップは、スクロール、マウスグラフィ、クリック、タップ、タッチアクションなどが挙げられています。画像やテキストをノーコードで編集してテストできるA/Bテストと、多変量テストも掲載されており、「見る」だけでなく「試す」ところまで同じツールで進められる点が特徴です。</p>
+<p>料金は取得したページに記載がなく、無料プランの記載もありません。確認できたのは2週間の無料トライアルです。運営会社の表記は見つからず、ISMS認証の記載とフッターのリンクからグラッドキューブと読み取れる、という程度の確認にとどまります。所在地・税表記も記載を確認できませんでした。</p>
+<div class="highlight-card">
+<p><strong>向いているケース：</strong>ヒートマップで課題を見つけたあと、同じツールでA/Bテストまで進めたい。<br/><strong>注意点：</strong>料金が公開されていないため、他ツールと同じ条件で比較するには見積もりが必要です。トライアル期間は2週間のため、その間に確認したいページと指標を決めておく必要があります。</p>
+</div>
+
+<h3>User Heat</h3>
+<p><strong>公式サイト：</strong><a href="https://userheat.com/" rel="noopener nofollow" target="_blank">https://userheat.com/</a>　／　<strong>サービスページ：</strong><a href="https://userheat.com/" rel="noopener nofollow" target="_blank">User Heat（トップページ）</a></p>
+<p>User Heatのトップページには、無料版として<strong>ヒートマップ5種類、EFO機能、Google Search Consoleとの連携による検索ワードの可視化、テキストマイニング機能</strong>が挙げられています。より高度な分析をしたい企業向けには、有償版の「UserInsight」（ヒートマップ10種類以上、絞り込み25種類以上、SEO改善向け機能、パワーポイント形式のレポート自動作成など）が案内されています。運営はフッターの表記から、UserLocal, Inc.です。</p>
+<p>無料版の月間の上限、保存期間、商用利用の可否は、トップページには明記がありません。関連する記述として「個人サイトで気軽に利用できます」とあるため、企業サイトで使う場合の条件は、利用規約などで確認したほうが安全です。</p>
+<div class="highlight-card">
+<p><strong>向いているケース：</strong>5種類のヒートマップとEFOの確認を無料で試したい。Search Consoleの検索ワードも同じ画面で見たい。<br/><strong>注意点：</strong>無料版の上限・保存期間・企業利用の条件が確認できていません。有償版の金額も、トップページには記載がありません。</p>
+</div>
+
+<h3>LnX合同会社</h3>
+<p><strong>公式サイト：</strong><a href="https://lnx.co.jp/" rel="noopener nofollow" target="_blank">https://lnx.co.jp/</a>　／　<strong>サービスページ：</strong><a href="https://lnx.co.jp/ad-lp/" rel="noopener nofollow" target="_blank">LnX合同会社</a></p>
+<p>当社は、ヒートマップツールを提供する会社ではありません。ここに並べたのは、<strong>ツールを入れたあとに「何を直し、広告とどう結びつけるか」を考える側</strong>だからです。広告運用代行のページには、LP制作・改善、GA4や各媒体のタグ・コンバージョン計測の構築、配信・運用・レポーティングが支援内容として書かれています。簡易LPの制作費は10万円〜です。</p>
+<p>料金は、運用手数料が広告出稿額の20%（出稿額が50万円に満たない場合は月10万円・税込）で、広告費の最低出稿額は設けていません。最低契約期間は6か月です。Meta広告のみ・新規契約限定のスタートプランは、運用手数料が月額33,000円（税込）〜です。ヒートマップの導入や分析を単独で受けるメニューは、ページに記載していません。</p>
+<div class="highlight-card">
+<p><strong>向いているケース：</strong>ヒートマップで見つかった課題を、LPの修正や広告の入れ替えまで含めて任せたい。<br/><strong>注意点：</strong>ヒートマップ分析だけを単独で依頼したい場合は、対応可否を先にご相談ください。スタートプランはMeta広告のみ・新規契約限定です。</p>
+</div>
+
+<h2 id="retention">データが「見られなくなる日」を、保存期間と上限で並べ直す</h2>
+<p>前の表では見えにくい「いつまで見られるか」を、公式ページで確認できた範囲だけで並べ直します。</p>
+<table class="cost-table">
+<thead><tr><th>ツール</th><th>無料での保存・上限</th><th>有料での保存</th><th>確認できなかった点</th></tr></thead>
+<tbody>
+<tr><td>Microsoft Clarity</td><td>ヒートマップ最大9か月／録画30日（お気に入り・抽出サンプルは最大9か月）。録画は1日10万セッション/プロジェクト、ヒートマップは10万PV/個まで</td><td>有料プランなし</td><td>日本語サポートの窓口</td></tr>
+<tr><td>Contentsquare</td><td>Free：保存1か月、月20万セッション</td><td>Growth：保存13か月、7千〜+24万セッション</td><td>円建て料金、日本の所在地・税表記</td></tr>
+<tr><td>ミエルカヒートマップ</td><td>「無料の範囲内で期限なく」。上限は確認できず</td><td>確認できず</td><td>保存期間、上限、有料の金額</td></tr>
+<tr><td>SiTest</td><td>無料プランの記載なし（2週間トライアル）</td><td>確認できず</td><td>保存期間、料金</td></tr>
+<tr><td>User Heat</td><td>無料版あり。上限は確認できず</td><td>UserInsight（金額の記載なし）</td><td>保存期間、無料の上限、企業利用の条件</td></tr>
+</tbody>
+</table>
+<p>この表から言えるのは、<strong>保存期間を公式に明記しているのは、今回の6つの中ではClarityとContentsquareだけ</strong>だったということです。（出典：<a href="https://learn.microsoft.com/en-us/clarity/faq" target="_blank" rel="noopener">Clarity FAQ｜Microsoft Learn</a>、<a href="https://contentsquare.com/pricing/" target="_blank" rel="noopener">Pricing｜Contentsquare</a>）他のツールが短いと言っているのではなく、取得したページで確認できなかったということです。</p>
+<p>保存期間は、<strong>自社の振り返りのサイクルから逆算して決めます</strong>。これは当社の考え方ですが、毎月、改善した月と直前の月を比べるなら、最低でも2か月分が見られる必要があります。四半期で振り返るなら3か月分以上です。録画が30日のツールを使う場合は、「後で見返したい録画をお気に入りに入れる」「ヒートマップは月末にスクリーンショットを残す」といった運用で補います。</p>
+
+<h2 id="privacy">入力欄とCookieの扱いを、導入前に確認する</h2>
+<p>ヒートマップや録画のツールは、ページ上の動きを記録します。そのため、<strong>フォームに入力された内容や、画面に表示された個人情報が記録されないか</strong>は、導入前に必ず確認してください。</p>
+<p>Clarityの公式ドキュメントでは、マスキングのモードが3つ示されています。既定はBalancedで、数字とメールアドレスを機微な内容として分類してマスクします。Strictは全内容をマスクし、Relaxedは内容をマスクしません。ただし、<strong>入力欄の内容はすべてのモードでマスクされ、カスタマイズできません</strong>。ドロップダウンも同様です。特定の要素をマスクしたい場合は、CSSセレクタか、HTMLの属性（data-clarity-mask）で指定できます。マスクの設定を変更しても、反映されるのは新しい録画からで、反映までに最大1時間かかり、過去の録画には遡って適用できません。（出典：<a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking" target="_blank" rel="noopener">Clarity masking｜Microsoft Learn</a>）</p>
+<p>Cookieについては、Clarityの公式FAQが、利用するCookieをユーザーに通知する必要があるかという問いに「Yes」と答えています。EEA・英国・スイスのユーザーに対しては、Cookieを置く前に明示的な同意が必要とされ、同意がない場合は、ファネル追跡やセッション録画などの機能に影響が出ると書かれています。（出典：<a href="https://learn.microsoft.com/en-us/clarity/faq" target="_blank" rel="noopener">Clarity FAQ｜Microsoft Learn</a>）</p>
+<p>他の4ツールについては、今回取得したページにマスキングの仕様が見つかりませんでした。導入前に、<strong>「入力欄は記録されるか」「マスクは誰がどこで設定するか」</strong>を各社に確認してください。同意取得の考え方は<a href="https://lnx.co.jp/column/analytics/consent-mode-v2-guide/">同意モードv2は日本企業に必要か｜判断基準とGTM設定</a>で整理しています。個人情報保護法などの個別の判断は、弁護士等の専門家にご確認ください。</p>
+
+<h2 id="choose">自社の状況別に、合うツールのタイプを選ぶ</h2>
+<table class="cost-table">
+<thead><tr><th>自社の状況</th><th>合いやすい選び方</th><th>今回の例</th></tr></thead>
+<tbody>
+<tr><td>費用をかけずに、LPの動きを録画つきで見たい</td><td>無料で録画も使えるツールから始める</td><td>Microsoft Clarity</td></tr>
+<tr><td>前年同月と比べたい。保存を長く取りたい</td><td>保存期間が公式に明記された有料プラン</td><td>Contentsquare（Growth）</td></tr>
+<tr><td>国内企業のツールで、SEOツールと同じ運営元のものを使いたい</td><td>国内運営の無料枠から確認する</td><td>ミエルカヒートマップ</td></tr>
+<tr><td>見つけた課題を、そのままA/Bテストで試したい</td><td>ヒートマップとA/Bテストが一体のツール</td><td>SiTest</td></tr>
+<tr><td>5種類のヒートマップを無料で試したい</td><td>無料版の機能数で選ぶ（上限は要確認）</td><td>User Heat</td></tr>
+<tr><td>ツールの導入より、広告・LP・計測をまとめて設計したい</td><td>運用する会社に相談する</td><td>LnX（条件あり）</td></tr>
+</tbody>
+</table>
+<p>ツールは後から変えられます。<strong>最初の1つは「無料で試せて、やめても損がないもの」</strong>を選び、1〜2か月使って足りない点が明確になってから乗り換えるほうが、判断を間違えにくくなります。</p>
+
+<h2 id="operate">入れた後に続けるための、見る頻度と見る順番</h2>
+<p>ヒートマップは、入れただけでは改善につながりません。当社の目安では、<strong>週1回30分、見る人と曜日を決める</strong>ところまでが導入の作業です。見る順番も、次のように決めておくと迷いません。</p>
+<table class="cost-table">
+<thead><tr><th>順番</th><th>見るもの</th><th>そこから立てる仮説の例</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>スクロールの到達（どこで読まれなくなるか）</td><td>訴求の本題がその位置より下にある</td></tr>
+<tr><td>2</td><td>クリックの集まり（リンクでない箇所を含む）</td><td>押せると思われている箇所がある／ボタンが目立たない</td></tr>
+<tr><td>3</td><td>フォーム周辺の動き（録画があれば入力の止まる位置）</td><td>項目が多い／入力しにくい欄がある</td></tr>
+</tbody>
+</table>
+<p>1回に直すのは1点だけにして、<strong>2〜4週間はそのまま動かさず、GA4のコンバージョン率で結果を確認</strong>します。複数の箇所を同時に直すと、どれが効いたのか分からなくなります。具体的な見方は<a href="https://lnx.co.jp/column/lp-improvement/lp-heatmap-analysis/">ヒートマップによるLP改善｜離脱点の見つけ方</a>、LP全体の優先順位は<a href="https://lnx.co.jp/column/lp-improvement/lp-cvr-improvement/">LPのCVRを改善する方法｜広告成果を上げるチェックポイント完全版</a>で扱っています。</p>
+
+<h2 id="check">導入前に確認する7項目</h2>
+<div class="checklist-card">
+<p class="checklist-card__title">ヒートマップツール導入前の確認7項目</p>
+<div class="checklist-card__section">
+<ul>
+<li>無料枠の上限は、何の単位（セッション・ページビュー・ページ数）で決まっているか。超えたらどうなるか</li>
+<li>ヒートマップと録画の保存期間は何か月か。月次の振り返りに足りるか</li>
+<li>入力欄とドロップダウンは記録されないか。マスクの設定は誰ができるか</li>
+<li>Cookieの告知とプライバシーポリシーに、ツール名と目的を追記する準備ができているか</li>
+<li>計測の対象ページを2〜3ページに絞ったか。見る人と曜日は決まっているか</li>
+<li>GA4と同じページ・同じ期間で、数とヒートマップを照らし合わせられるか</li>
+<li>やめるときにデータを書き出せるか。有料の場合、最低契約期間と解約の条件は何か</li>
+</ul>
+</div>
+</div>
+
+<h2 id="lnx-view">LnXの見解</h2>
+<p>ヒートマップツールは、<strong>どれを選ぶかより、入れた後に「誰が、いつ、何を直すか」を決めておくこと</strong>のほうが成果に効くと考えています。無料のツールでも、毎週見て毎回1点直す会社のほうが、高機能なツールを入れて放置する会社より、LPは良くなります。</p>
+<p>当社の広告運用代行のページでは、簡易LP制作費10万円〜、運用手数料20%（出稿額50万円未満は月10万円）、Meta広告のみの新規契約向けスタートプラン月額33,000円（税込）〜、最低契約6か月という条件を公開しています。この条件は、広告・LP・計測をまとめて任せたい方に向いていますが、<strong>ヒートマップの分析だけを単独で依頼したい方には、最適とは限りません</strong>。その場合は、まず無料ツールで数週間試し、足りない点を具体的にしてからご相談ください。</p>
+<p>他社の提案書や見積もりを並べた状態でのご相談も歓迎です。ツールの比較だけでなく、LPと広告をどの順番で直すかまで、一緒に整理します。</p>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+ヒートマップツールは無料で足りますか？
+</summary><div class="article-faq__body">
+<p>公式ページで確認できた範囲では、Microsoft Clarityは無料のままトラフィック制限なしと明記されており、1プロジェクトあたり1日10万セッションまで録画、ヒートマップは1つあたり10万ページビューまでという機能上の上限があります。LP数枚から中規模のサイトであれば足りることが多い一方、録画の通常の保存が30日である点は運用で補う必要があります。前年同月との比較など長期の保存が必要になった段階で、有料プランを検討してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+無料ツールのデータは、どのくらいの期間見られますか？
+</summary><div class="article-faq__body">
+<p>ツールによって異なります。Microsoft Clarityはヒートマップを最大9か月、セッション録画は記録から30日（お気に入りに入れた録画と無作為抽出のサンプルは最大9か月）と記載されています。Contentsquareの無料プランは1か月、月額39ドル〜のGrowthプランは13か月です。ミエルカヒートマップ・SiTest・User Heatは、今回取得した公式ページに保存期間の記載を確認できませんでした。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+入力フォームに打ち込まれた内容も記録されてしまいますか？
+</summary><div class="article-faq__body">
+<p>Microsoft Clarityでは、入力欄の内容はどのマスキングモードでもマスクされ、カスタマイズできないと公式に記載されています。ドロップダウンも同様です。他のツールのマスキング仕様は今回取得したページで確認できていないため、導入前に各社へ確認してください。個人情報の取り扱いに関する個別の判断は、弁護士等の専門家にご確認ください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+ヒートマップとGA4はどう使い分けますか？
+</summary><div class="article-faq__body">
+<p>GA4は「どのページで何人が離脱し、何件コンバージョンしたか」という数を見るツールで、ヒートマップは「そのページのどこが読まれ、どこでクリックされているか」というページ内の動きを見るツールです。数でページを絞り込み、ヒートマップで原因の仮説を立て、修正後にGA4で数が変わったかを確認する、という順番で使うと役割が重なりません。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+どのページから入れるのがよいですか？
+</summary><div class="article-faq__body">
+<p>当社の考え方では、広告やSNSからの流入が最も多い着地ページ（LP）と、問い合わせフォームの直前のページの2つから始めます。全ページに入れても、見る時間が足りず放置されやすいためです。最初は2〜3ページに絞り、週1回の確認が続いたら範囲を広げてください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+複数のヒートマップツールを併用してもよいですか？
+</summary><div class="article-faq__body">
+<p>技術的には可能ですが、Cookieや計測タグが増えるため、プライバシーポリシーやCookieの告知に記載するツールも増えます。また、同じページで結果が食い違うと判断に迷うため、当社では1つに絞って一定期間使い込み、足りない機能が明確になってから追加することをおすすめしています。</p>
+</div>
+</details>
+</div>
+
+<div class="article-related">
+<p style="font-size:15px;font-weight:800;margin:32px 0 12px;">あわせて読みたい</p>
+<ul style="list-style:none;padding:0;display:grid;gap:10px;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/lp-improvement/lp-heatmap-analysis/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ ヒートマップによるLP改善｜離脱点の見つけ方</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/lp-improvement/lp-cvr-improvement/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ LPのCVRを改善する方法｜広告成果を上げるチェックポイント完全版</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/consent-mode-v2-guide/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 同意モードv2は日本企業に必要か｜判断基準とGTM設定</a>
+</li>
+</ul>
+</div><!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div></article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>
