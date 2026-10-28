@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>AI競合調査のやり方｜裏取り台帳つきの手順 | LnX合同会社</title>
+<link rel="canonical" href="https://lnx.co.jp/column/ai-katsuyo/ai-competitor-research/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="AI競合調査のやり方｜裏取り台帳つきの手順｜LnX合同会社"/>
+<meta property="og:description" content="生成AIで競合調査を進める手順を、人が先に決める3点（目的・競合の選び方・比較軸）、5ステップ、指示文の例、AIの出力を確認済みにする裏取り台帳、入力してよい情報の線引き、起きやすい間違い5つまで解説。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/ai-katsuyo/ai-competitor-research/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="AI競合調査のやり方｜裏取り台帳つきの手順｜LnX合同会社"/>
+<meta name="twitter:description" content="生成AIで競合調査を進める手順を、人が先に決める3点（目的・競合の選び方・比較軸）、5ステップ、指示文の例、AIの出力を確認済みにする裏取り台帳、入力してよい情報の線引き、起きやすい間違い5つまで解説。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+
+<meta content="生成AIで競合調査を進める手順を、人が先に決める3点（目的・競合の選び方・比較軸）、5ステップ、指示文の例、AIの出力を確認済みにする裏取り台帳、入力してよい情報の線引き、起きやすい間違い5つまで解説。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+
+    .article-hero {
+      background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      padding: 64px 0 48px;
+    }
+    .article-hero__kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: .18em;
+      color: var(--brand3); margin-bottom: 16px;
+    }
+    .article-hero__kicker span {
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--brand3); display: inline-block;
+    }
+    .article-hero__title {
+      font-size: clamp(26px, 4vw, 40px); font-weight: 900;
+      line-height: 1.25; letter-spacing: -.02em;
+      color: var(--txt); margin: 0 0 20px;
+    }
+    .article-hero__meta {
+      display: flex; align-items: center; gap: 18px;
+      flex-wrap: wrap; font-size: 13px; color: var(--soft);
+    }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(37,99,235,.10); color: var(--brand3);
+      font-size: 12px; font-weight: 800;
+    }
+
+    .article-container {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 48px; align-items: start;
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad);
+    }
+
+    .article-body {
+      padding: 56px 0 80px; font-size: 15.5px;
+      line-height: 1.9; color: rgba(15,23,42,.80);
+    }
+    .article-body > h2 {
+      font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important;
+      letter-spacing: -.02em !important; color: var(--txt) !important;
+      margin: 56px 0 20px !important; padding-bottom: 10px !important;
+      border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 {
+      font-size: 17px; font-weight: 900; color: var(--txt);
+      margin: 36px 0 14px; padding-left: 14px;
+      border-left: 3px solid var(--brand3);
+    }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px;
+    }
+    .article-body li { line-height: 1.75; }
+
+    .toc {
+      background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px;
+    }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box {
+      background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10);
+      border-radius: var(--radius); padding: 24px 28px;
+      margin: 0 0 40px; box-shadow: var(--shadow2);
+    }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 原因カード */
+    .cause-list { display: grid; gap: 20px; margin: 0 0 32px; }
+    .cause-item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2);
+      overflow: hidden; transition: .2s ease;
+    }
+    .cause-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .cause-item__head {
+      display: grid; grid-template-columns: 56px 1fr;
+      align-items: center; gap: 16px; padding: 16px 22px;
+      background: linear-gradient(135deg, rgba(37,99,235,.06), rgba(124,58,237,.04));
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .cause-item__num {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 900; font-size: 18px; color: #fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+    }
+    .cause-item__title { font-size: 16px; font-weight: 900; margin: 0; letter-spacing: -.01em; }
+    .cause-item__body { padding: 18px 22px; }
+    .cause-item__body p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.85; }
+    .cause-item__body p:last-child { margin: 0; }
+
+    .action-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .action-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.75;
+      padding: 10px 14px; border-radius: 10px;
+      background: rgba(16,185,129,.05); border: 1px solid rgba(16,185,129,.16);
+    }
+    .action-list li::before { content: "✓"; color: #059669; font-weight: 900; flex: 0 0 auto; margin-top: 1px; }
+
+    .cost-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      margin: 0 0 28px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow2);
+    }
+    .cost-table th {
+      background: linear-gradient(135deg, var(--brand3), var(--brand1));
+      color: #fff; font-weight: 800; font-size: 13px;
+      padding: 12px 16px; text-align: left;
+    }
+    .cost-table td {
+      padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08);
+      vertical-align: top; line-height: 1.65;
+    }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card {
+      border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px; margin: 24px 0;
+    }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    .checklist-card {
+      border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04);
+      border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px;
+    }
+    .checklist-card__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist-card__section { margin-bottom: 18px; }
+    .checklist-card__section:last-child { margin-bottom: 0; }
+    .checklist-card__section-title { font-size: 12px; font-weight: 800; letter-spacing: .10em; color: var(--muted); margin: 0 0 10px; }
+    .checklist-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .checklist-card li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.7; }
+    .checklist-card li::before { content: "□"; font-size: 15px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden;
+    }
+    .article-faq__item summary {
+      cursor: pointer; list-style: none; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90);
+    }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge {
+      flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px;
+    }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta {
+      border-radius: 20px; border: 1px solid rgba(124,58,237,.20);
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%),
+        radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%),
+        rgba(255,255,255,.96);
+      box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center;
+    }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 999px;
+      background: var(--brand3);
+      color: #fff; font-weight: 800; font-size: 15px;
+      box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease;
+    }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0;
+    }
+    .article-author__icon {
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand3));
+      display: grid; place-items: center; font-size: 18px; flex: 0 0 auto;
+    }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card {
+      border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96);
+      border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px;
+    }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta {
+      background: linear-gradient(150deg, #1E6BFF, #0A2FA8);
+      color: #fff; border-radius: var(--radius); padding: 20px; text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a {
+      display: block; background: #fff; color: #0A2FA8;
+      font-weight: 800; font-size: 13px; padding: 10px;
+      border-radius: 999px; transition: .18s ease;
+    }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) {
+      .article-container { grid-template-columns: 1fr; }
+      .article-sidebar { display: none; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 48px 0 36px; }
+      .cost-table { font-size: 12.5px; }
+      .cost-table th, .cost-table td { padding: 10px 12px; }
+      .article-body { padding: 36px 0 56px; }
+      .cause-item__head { grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 16px; }
+      .cause-item__num { width: 40px; height: 40px; font-size: 16px; }
+      .cause-item__body { padding: 14px 16px; }
+    }
+  </style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI競合調査のやり方｜裏取り台帳つきの手順",
+  "description": "生成AIで競合調査を進める手順を、人が先に決める3点（目的・競合の選び方・比較軸）、5ステップ、指示文の例、AIの出力を確認済みにする裏取り台帳、入力してよい情報の線引き、起きやすい間違い5つまで解説。",
+  "url": "https://lnx.co.jp/column/ai-katsuyo/ai-competitor-research/",
+  "datePublished": "2026-10-28",
+  "dateModified": "2026-10-28",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/ai-katsuyo/ai-competitor-research/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI活用",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "AI競合調査のやり方｜裏取り台帳つきの手順",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/ai-competitor-research/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "AIだけで競合調査は完結しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "完結はしません。AIは、貼った情報の整理や、比較表の下書き、論点の洗い出しに向いていますが、競合の選び方、比較の軸、数字の裏取り、最後の判断は人が行う必要があります。特に料金や契約条件は、公式ページで確認した情報だけを提案書や判断に使ってください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "競合は何社くらい調べればよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最初は3〜5社で十分です。商談で比べられた会社や失注した会社から選ぶと、自社のお客様の判断に近い比較になります。社数を増やすと、台帳の確認作業が増えて続かなくなるため、まず少数を丁寧に確認し、必要になってから足すほうが現実的です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ChatGPTなどの検索機能があれば、一次情報の貼り付けは不要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "おすすめしません。検索機能があっても、古い情報や他社の記事の内容が、その会社の公式情報のように書かれることがあります。公式ページを人が開き、本文を貼って「この本文に書かれていることだけで作って」と頼むほうが、間違いを見つけやすくなります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "競合の料金は、どのくらいの頻度で確認し直せばよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "当社の目安では、競合の料金ページは月1回、台帳全体の見直しは四半期に1回です。台帳の確認日の列を見て、古い行だけを開き直せば足ります。料金改定の多い業界では、頻度を上げてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "社内の売上や見積書をAIに入力してもよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "売上や価格の内訳は、金額を範囲や記号に置き換え、会社名を伏せるなどの加工をしてから入力するのが安全です。取引先の名前と条件、見積書、契約書、顧客の個人情報は、秘密保持の範囲を確認するまで入力しないでください。個別の判断は、弁護士等の専門家にご確認ください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "競合のサイトの文章を、そのまま自社資料に使ってよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "そのまま転載することはおすすめしません。競合の文章や画像には著作権があり、サイトの利用規約で利用方法が定められていることもあります。調べた内容は、自社の言葉で要点をまとめる形で使い、出典URLと確認日を台帳に残してください。個別の判断は、弁護士等の専門家にご確認ください。"
+      }
+    }
+  ]
+}</script>
+<style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/ai-katsuyo/">AI活用</a>
+<span class="sep">/</span>
+<span class="cur">AI競合調査のやり方｜裏取り台帳つきの手順</span>
+</nav>
+<p class="article-hero__kicker"><span></span>AI活用</p>
+<h1 class="article-hero__title">AI競合調査のやり方｜<br/>調べる前に決める3点と、裏取り台帳つきの5ステップ</h1>
+<div class="article-hero__meta">
+<time datetime="2026-10-28">2026年10月28日</time>
+<span class="article-hero__tag">AI競合調査</span>
+<span class="article-hero__tag">生成AI</span>
+<span class="article-hero__tag">競合分析</span>
+<span class="article-hero__tag">業務効率化</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body"><div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>AIに頼む前に人が決める3つのこと（調査の目的・競合の選び方・比較の軸）</li>
+<li>競合調査をAIと進める5ステップと、貼った情報だけで表を作らせる指示文の例</li>
+<li>AIの出力を1行ずつ確認済みにする「裏取り台帳」の作り方と記入例</li>
+<li>入力してよい情報の線引き、AIが起こしやすい間違い5つと見つけ方、調査結果の使い方</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#gap">AI競合調査は、AIに聞く前に「何を決めるための調査か」を1行で決める</a></li>
+<li><a href="#before">AIに頼む前に、人が決める3つのこと</a></li>
+<li><a href="#steps">競合調査を、AIと一緒に進める5ステップ</a></li>
+<li><a href="#prompt">指示文の型｜貼った情報だけで作らせる</a></li>
+<li><a href="#ledger">裏取り台帳｜AIの出力を1行ずつ確認済みにする</a></li>
+<li><a href="#example">架空の例で5ステップを通してみる</a></li>
+<li><a href="#inputs">AIに入力してよい情報と、入れない情報の線引き</a></li>
+<li><a href="#mistakes">AIの競合調査で起きやすい間違い5つと、見つけ方</a></li>
+<li><a href="#use">調査結果は、3つの問いに落として使う</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+<li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="gap">AI競合調査は、AIに聞く前に「何を決めるための調査か」を1行で決める</h2>
+<p>結論から言うと、<strong>AIを使った競合調査でいちばん差が出るのは、プロンプトの上手さではなく、「何を決めるための調査か」「どの会社を競合とみなすか」「何を根拠に書くか」を、AIに聞く前に人が決めておくこと</strong>です。AIに「競合を分析して」と頼むと、一般論を整えた、それらしい文章はすぐ出てきます。しかし、その中に実在しない会社、古い料金、出どころの分からない数字が混ざっていても、見た目では区別がつきません。</p>
+<p>AIによる競合調査を扱った記事では、調査の目的を決める、競合を直接・間接などの階層で整理する、AIの出力は公式情報で裏取りする、機密情報は入力しない、といった点が共通して挙げられていました。この記事でも、それらは外していません。そのうえで、当社が実務で重視している2点を加えました。<strong>1つは、競合を「失注した相手」「見積もりで比べられた相手」から決めること。もう1つは、AIの出力を「裏取り台帳」に1行ずつ書き出し、確認済みのものだけを提案や判断に使うこと</strong>です。</p>
+<p>AIの回答をどこまで信じてよいかという一般論は、<a href="https://lnx.co.jp/column/ai-katsuyo/ai-hallucination-check/">生成AIの回答はどこまで信じていいか？ハルシネーションが起きる場面と業務での検証フロー</a>で扱っています。この記事は、その考え方を競合調査という具体的な作業に当てはめたものです。</p>
+
+<h2 id="before">AIに頼む前に、人が決める3つのこと</h2>
+<p>調査の質は、AIに渡す前の準備でほぼ決まります。次の3つを、A4半分程度のメモにしてから始めてください。</p>
+<div class="cause-list">
+<div class="cause-item">
+<div class="cause-item__head"><div class="cause-item__num">1</div><p class="cause-item__title">調査の目的を、1行で書く</p></div>
+<div class="cause-item__body">
+<p>「競合を知る」では広すぎます。「来月の提案書で、料金の説明を変えるかどうか決める」「新しいサービスの価格帯を決める」のように、<strong>調査の結果で何を決めるのか</strong>を1行で書きます。決めることがない調査は、集めた情報が使われずに終わりやすくなります。</p>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head"><div class="cause-item__num">2</div><p class="cause-item__title">競合を、「負けた相手・比べられた相手」から選ぶ</p></div>
+<div class="cause-item__body">
+<p>AIに「競合を挙げて」と頼むと、検索で目立つ大手や、同じ業界名を持つ会社が並びがちです。<strong>実際に商談で比べられた会社、失注した会社、問い合わせ時に「他社も見ています」と言われた会社</strong>を、営業メモやメールから先に3〜5社書き出してください。AIに任せるのは、そのリストに「見落としている候補がないか」を足してもらう作業です。</p>
+</div>
+</div>
+<div class="cause-item">
+<div class="cause-item__head"><div class="cause-item__num">3</div><p class="cause-item__title">比較する項目を、お客様の判断基準から決める</p></div>
+<div class="cause-item__body">
+<p>比較表の列を、AIが提案するフレームワーク（SWOT、4Pなど）にそのまま任せると、料金・機能・実績といった一般的な項目になります。<strong>自社のお客様が、発注の前に何を確認しているか</strong>（料金の出し方、最低契約期間、対応範囲、担当者の顔が見えるか、など）から列を決めると、判断に使える表になります。</p>
+</div>
+</div>
+</div>
+
+<h2 id="steps">競合調査を、AIと一緒に進める5ステップ</h2>
+<table class="cost-table">
+<thead><tr><th>ステップ</th><th>人がやること</th><th>AIに任せること</th></tr></thead>
+<tbody>
+<tr><td>1. 競合の候補を決める</td><td>失注・比較された3〜5社を書く</td><td>見落としている候補の洗い出し（候補を鵜呑みにしない）</td></tr>
+<tr><td>2. 一次情報を集める</td><td>各社の料金ページ・サービスページ・会社概要を自分で開き、本文を貼る</td><td>貼った本文の要点の抽出、項目への振り分け</td></tr>
+<tr><td>3. 比較表を作る</td><td>列（比較項目）を決める。確認できなかった項目は空欄にする方針を伝える</td><td>貼った情報からの表の作成。貼っていない情報は書かせない</td></tr>
+<tr><td>4. 裏取りする</td><td>表の数字・固有名詞を、公式ページと1つずつ照らす</td><td>食い違いの候補の指摘</td></tr>
+<tr><td>5. 判断に落とす</td><td>自社が負けている点・競合が触れていない点・今回は触れない点を決める</td><td>論点の整理、提案書の下書き</td></tr>
+</tbody>
+</table>
+<p>ポイントは、<strong>ステップ2で「人が一次情報を貼る」こと</strong>です。AIに「この会社の料金を調べて」と頼むと、検索機能があっても、古い情報や他社の記事の内容が混ざることがあります。公式ページの本文を人が貼り、「この本文に書かれていることだけで表を作って」と頼むほうが、間違いが減ります。</p>
+
+<h2 id="prompt">指示文の型｜貼った情報だけで作らせる</h2>
+<p>指示文は、<strong>目的・使ってよい情報・出力の形・書いてはいけないこと</strong>の4つを入れます。次の例は、そのまま使える形にしてあります（【　】の中は自社の内容に置き換えてください）。</p>
+<div class="highlight-card">
+<p><strong>【例1：貼った情報から比較表を作る】</strong><br/>目的：【来月の提案書で料金の説明を変えるか決める】。<br/>以下に、A社・B社・C社の料金ページの本文を貼ります。この本文に書かれていることだけを使い、【初期費用・月額・最低契約期間・対応範囲】の列で表を作ってください。本文に書かれていない項目は、推測せず「記載なし」と書いてください。表の後に、本文のどの部分を根拠にしたか、会社ごとに1行ずつ添えてください。</p>
+</div>
+<div class="highlight-card">
+<p><strong>【例2：候補の見落としを探す】</strong><br/>当社は【サービス内容】を【対象のお客様】に提供しています。商談で比べられた会社は【A社・B社・C社】です。これ以外に、同じお客様が比べそうな会社の候補を挙げてください。挙げた会社ごとに、実在を確認できる公式サイトのURLが分かる場合だけ書き、分からない場合は「URL不明・要確認」としてください。</p>
+</div>
+<div class="highlight-card">
+<p><strong>【例3：表から論点を整理する】</strong><br/>上の表をもとに、【自社が負けている点】【競合が書いていない点】【自社が今回は触れない点】を、それぞれ3つまで挙げてください。表に無い情報は使わないでください。</p>
+</div>
+<p>例2の「分からない場合は要確認と書く」という一文が重要です。何も指定しないと、AIは分からないことを、それらしい内容で埋めることがあります。<strong>「書けないときは書かない」という逃げ道を、指示文の中に作っておく</strong>ことが、間違いを減らす基本です。繰り返し使う指示文は、<a href="https://lnx.co.jp/column/ai-katsuyo/ai-prompt-standardization/">生成AIの出力が人によってバラつく？社内プロンプトを標準化・資産化する手順</a>のように、社内で共有できる形にしておくと、担当者が変わっても同じ質で進められます。</p>
+
+<h2 id="ledger">裏取り台帳｜AIの出力を1行ずつ確認済みにする</h2>
+<p>AIが作った比較表は、そのまま提案書や社内資料に貼らず、<strong>1行ずつ「裏取り台帳」に書き出して、確認済みのものだけを使います</strong>。台帳といっても、スプレッドシートに次の6列を作るだけです。</p>
+<table class="cost-table">
+<thead><tr><th>列</th><th>書く内容</th></tr></thead>
+<tbody>
+<tr><td>対象</td><td>どの会社の、どの項目か（例：A社・最低契約期間）</td></tr>
+<tr><td>AIの主張</td><td>AIの表に書かれていた内容（例：6か月）</td></tr>
+<tr><td>出典URL</td><td>人が開いて確認したページのURL</td></tr>
+<tr><td>確認日</td><td>ページを開いた日（料金は変わるため必須）</td></tr>
+<tr><td>確度</td><td>「公式ページで確認」「他社記事のみ」「AIの推測」のどれか</td></tr>
+<tr><td>使い方</td><td>「提案書に使う」「社内の参考のみ」「使わない」のどれか</td></tr>
+</tbody>
+</table>
+<p>記入例を1行だけ示します。これは書き方を見せるための<strong>架空の例</strong>で、実在の会社・金額ではありません。</p>
+<table class="cost-table">
+<thead><tr><th>対象</th><th>AIの主張</th><th>出典URL</th><th>確認日</th><th>確度</th><th>使い方</th></tr></thead>
+<tbody>
+<tr><td>A社（仮）・最低契約期間</td><td>6か月</td><td>（A社の料金ページのURL）</td><td>10月28日</td><td>公式ページで確認</td><td>提案書に使う</td></tr>
+<tr><td>A社（仮）・初期費用</td><td>無料</td><td>該当ページなし</td><td>—</td><td>AIの推測</td><td>使わない（再確認）</td></tr>
+</tbody>
+</table>
+<p>この台帳で、<strong>「AIの推測」と「公式ページで確認」が混ざらなくなります</strong>。後から「この金額はどこで見たのか」と聞かれたときにも、URLと確認日を示せます。台帳は、料金ページを月1回見直す際の差分チェックにも、そのまま使えます。</p>
+
+<h2 id="example">架空の例で5ステップを通してみる</h2>
+<p>流れをつかむために、<strong>架空の会社</strong>で5ステップを通します。社名・金額・期間はすべて説明用の仮のもので、実在する会社や相場ではありません。</p>
+<table class="cost-table">
+<thead><tr><th>ステップ</th><th>この例での内容</th></tr></thead>
+<tbody>
+<tr><td>目的の1行</td><td>来月の提案書で、「月額の説明」を「月額＋最低契約期間の総額」の書き方に変えるか決める</td></tr>
+<tr><td>1. 競合候補</td><td>営業メモから、直近3か月で比べられた会社として甲社・乙社・丙社（仮）を書き出す。AIに頼んで、丁社（仮）が候補に追加される</td></tr>
+<tr><td>2. 一次情報</td><td>4社の料金ページを人が開き、本文を貼る。丁社のページは見つからず、候補から外す（AIが挙げた会社が実在するとは限らないため）</td></tr>
+<tr><td>3. 比較表</td><td>列は「月額・初期費用・最低契約期間・6か月の総額」。乙社の初期費用は本文にないため「記載なし」のまま空欄にする</td></tr>
+<tr><td>4. 裏取り</td><td>甲社の最低契約期間が、AIの表では「3か月」だが、公式ページでは「6か月」と判明。台帳を直し、表を修正する</td></tr>
+<tr><td>5. 判断</td><td>3社とも月額だけを大きく見せ、総額は載せていない。提案書では、総額を先に示す書き方に変える。値下げには追従しない</td></tr>
+</tbody>
+</table>
+<p>この例のように、<strong>AIの表に間違いが1つも無いほうが珍しい</strong>くらいの前提で、ステップ4に時間を割いてください。ステップ4で見つけた食い違いは、台帳に残しておくと、次回AIに頼むときの指示文（「契約期間は必ず本文から転記する」など）の改善にもつながります。</p>
+
+<h2 id="inputs">AIに入力してよい情報と、入れない情報の線引き</h2>
+<p>競合調査では、自社の情報も一緒に入力したくなります。次のように、<strong>公開されている情報と、社内だけの情報を分けて</strong>から入力してください。</p>
+<table class="cost-table">
+<thead><tr><th>区分</th><th>例</th><th>入力の考え方</th></tr></thead>
+<tbody>
+<tr><td>入力してよい</td><td>各社の公式サイトに公開されている料金・サービス内容の本文</td><td>出典URLと取得日を控えたうえで貼る</td></tr>
+<tr><td>加工して入力</td><td>自社の売上、粗利、価格の内訳</td><td>金額を範囲や記号に置き換える。会社名は伏せる</td></tr>
+<tr><td>入力しない</td><td>取引先の名前と条件、見積書、契約書、顧客の個人情報、社外秘の資料</td><td>契約上の秘密保持の範囲を確認するまで入れない</td></tr>
+</tbody>
+</table>
+<p>特に、<strong>失注した案件の見積書や、商談メモに含まれる取引先の情報</strong>は、競合調査の材料になる一方で、そのままAIに入れると問題になることがあります。使っているAIサービスの設定や、取引先との秘密保持の取り決めは、<a href="https://lnx.co.jp/column/ai-katsuyo/ai-data-security-settings/">生成AIの情報漏洩リスクはどこにある？シャドーAI・学習利用設定・取引先との合意</a>で整理しています。</p>
+<p>また、競合の文章・画像・料金表をそのまま転載したり、サイトの利用規約で禁じられている方法で情報を集めたりしないでください。調べた内容は、自社の言葉で要点をまとめる形で使います。著作権やサイトの利用規約など、個別の判断は弁護士等の専門家にご確認ください。成果物の著作権の考え方は<a href="https://lnx.co.jp/column/ai-katsuyo/ai-copyright-output-check/">生成AIの成果物と著作権｜判断ポイントと社内体制</a>も参考になります。</p>
+
+<h2 id="mistakes">AIの競合調査で起きやすい間違い5つと、見つけ方</h2>
+<table class="cost-table">
+<thead><tr><th>間違い</th><th>どう見つけるか</th></tr></thead>
+<tbody>
+<tr><td>実在しない会社・サービスが候補に混ざる</td><td>会社名で検索し、公式サイトと会社概要が見つかるかを確認する。見つからなければ候補から外す</td></tr>
+<tr><td>料金が古い、または別プランの金額が書かれる</td><td>公式の料金ページを開き、プラン名・税表記・確認日を台帳に書く</td></tr>
+<tr><td>書かれていない項目を、もっともらしく埋める</td><td>指示文に「書かれていない項目は記載なしと書く」と入れ、表に空欄が1つもなければ疑う</td></tr>
+<tr><td>他社の記事の内容を、その会社の公式情報として扱う</td><td>台帳の確度の列で「他社記事のみ」と「公式ページで確認」を分ける</td></tr>
+<tr><td>一般論に丸まり、自社のお客様の判断に使えない</td><td>比較の列を、お客様の判断基準（ステップ2の前に決めた列）に合わせ直す</td></tr>
+</tbody>
+</table>
+<div class="highlight-card--warning highlight-card">
+<p><strong>出典URLにも注意してください。</strong>AIが「出典」として示したURLが、実際には存在しなかったり、書かれた内容と違うページだったりすることがあります。台帳の「出典URL」は、AIが示したものをそのまま写さず、<strong>人が開いて確認したURL</strong>を書いてください。</p>
+</div>
+
+<h2 id="use">調査結果は、3つの問いに落として使う</h2>
+<p>調査を、きれいな比較表で終わらせないために、次の3つの問いに答える形でまとめます。</p>
+<table class="cost-table">
+<thead><tr><th>問い</th><th>使い道の例</th></tr></thead>
+<tbody>
+<tr><td>お客様の判断基準で、自社が負けている点は何か</td><td>提案書で先に説明する、条件を見直す、強みの出し方を変える</td></tr>
+<tr><td>競合が書いておらず、自社なら書ける点は何か</td><td>サイトやコラムで、比較される前に答えておく</td></tr>
+<tr><td>今回は、競合に合わせない点は何か</td><td>追従しない理由を決めておき、値下げや機能追加の判断を急がない</td></tr>
+</tbody>
+</table>
+<h3>社内で続けるための役割分担</h3>
+<p>競合調査は、1回きれいに作るより、<strong>小さく続ける</strong>ほうが役に立ちます。続かない理由の多くは、誰が何をやるのかが決まっていないことです。次の3つだけ決めてください。</p>
+<ul>
+<li><strong>台帳の持ち主：</strong>1人に決めます。営業と兼務でも構いません。AIの出力を台帳に書き、確認済みにするところまでが持ち主の仕事です。</li>
+<li><strong>保管場所：</strong>台帳と、貼り付けた一次情報の本文（取得日つき）を、同じ共有フォルダにまとめます。担当が変わっても、過去の判断の根拠を辿れます。</li>
+<li><strong>見直しの日：</strong>毎月、同じ日に台帳の「確認日」が古い行だけを開き直します。見直しの日が決まっていないと、料金改定に気づかないまま提案書が古くなります。</li>
+</ul>
+<p>この3つが決まっていれば、AIの機能やサービスが変わっても、運用は崩れません。反対に、どれだけ高性能なAIを使っても、台帳の持ち主がいなければ、情報は古くなっていきます。</p>
+
+<p>更新の頻度は、競合の料金ページは月1回、台帳全体の見直しは四半期に1回を目安にしてください。これは当社の目安で、業界によって変わります。毎月すべてを調べ直す必要はなく、<strong>台帳の確認日が古い行だけを開き直す</strong>運用で十分です。</p>
+
+<div class="article-cta">
+<p class="article-cta__label">AI活用のご相談</p>
+<div class="article-cta__title">競合調査をはじめ、日々の業務にAIをどこまで使うか。調べ方から整理しませんか</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html?type=ai">AI活用について相談する</a>
+</div>
+
+<h2 id="lnx-view">LnXの見解</h2>
+<p>AIによる競合調査は、<strong>調べる速さは確実に上がりますが、「何を信じてよいか」の判断は、人が持ち続ける必要がある</strong>と考えています。AIに任せてよいのは、貼った情報の整理、表の下書き、論点の洗い出しです。競合の選び方、比較の軸、裏取り、最後の判断は、自社の営業現場や、お客様の声を知っている人が担う部分です。</p>
+<p>当社のお問い合わせフォームには、「AIに関するお問い合わせ」の項目があります。調査の進め方、台帳の作り方、社内で使う指示文の整え方など、実際の業務に合わせたご相談を受け付けています。<strong>すでにAIで調べた比較表がある場合は、その表と台帳を持ち寄っていただければ、どの行を使い、どの行を確認し直すかから一緒に整理できます。</strong></p>
+
+
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+AIだけで競合調査は完結しますか？
+</summary><div class="article-faq__body">
+<p>完結はしません。AIは、貼った情報の整理や、比較表の下書き、論点の洗い出しに向いていますが、競合の選び方、比較の軸、数字の裏取り、最後の判断は人が行う必要があります。特に料金や契約条件は、公式ページで確認した情報だけを提案書や判断に使ってください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+競合は何社くらい調べればよいですか？
+</summary><div class="article-faq__body">
+<p>最初は3〜5社で十分です。商談で比べられた会社や失注した会社から選ぶと、自社のお客様の判断に近い比較になります。社数を増やすと、台帳の確認作業が増えて続かなくなるため、まず少数を丁寧に確認し、必要になってから足すほうが現実的です。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+ChatGPTなどの検索機能があれば、一次情報の貼り付けは不要ですか？
+</summary><div class="article-faq__body">
+<p>おすすめしません。検索機能があっても、古い情報や他社の記事の内容が、その会社の公式情報のように書かれることがあります。公式ページを人が開き、本文を貼って「この本文に書かれていることだけで作って」と頼むほうが、間違いを見つけやすくなります。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+競合の料金は、どのくらいの頻度で確認し直せばよいですか？
+</summary><div class="article-faq__body">
+<p>当社の目安では、競合の料金ページは月1回、台帳全体の見直しは四半期に1回です。台帳の確認日の列を見て、古い行だけを開き直せば足ります。料金改定の多い業界では、頻度を上げてください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+社内の売上や見積書をAIに入力してもよいですか？
+</summary><div class="article-faq__body">
+<p>売上や価格の内訳は、金額を範囲や記号に置き換え、会社名を伏せるなどの加工をしてから入力するのが安全です。取引先の名前と条件、見積書、契約書、顧客の個人情報は、秘密保持の範囲を確認するまで入力しないでください。個別の判断は、弁護士等の専門家にご確認ください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+競合のサイトの文章を、そのまま自社資料に使ってよいですか？
+</summary><div class="article-faq__body">
+<p>そのまま転載することはおすすめしません。競合の文章や画像には著作権があり、サイトの利用規約で利用方法が定められていることもあります。調べた内容は、自社の言葉で要点をまとめる形で使い、出典URLと確認日を台帳に残してください。個別の判断は、弁護士等の専門家にご確認ください。</p>
+</div>
+</details>
+</div>
+
+<div class="article-related">
+<p style="font-size:15px;font-weight:800;margin:32px 0 12px;">あわせて読みたい</p>
+<ul style="list-style:none;padding:0;display:grid;gap:10px;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-hallucination-check/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIの回答はどこまで信じていいか？ハルシネーションが起きる場面と業務での検証フロー</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-data-security-settings/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIの情報漏洩リスクはどこにある？シャドーAI・学習利用設定・取引先との合意</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/ai-katsuyo/ai-prompt-standardization/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIの出力が人によってバラつく？社内プロンプトを標準化・資産化する手順</a>
+</li>
+</ul>
+</div><!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div></article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>
