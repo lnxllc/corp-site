@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-10-29（スプシA完了後の自由テーマ枠：2本作成。週10本・1回2本ペース）
+- 最終更新：2026-10-30（ロングテール（悩み顕在）KW方針で2本作成。週10本・1回2本ペース）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -247,9 +247,18 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 
 **メモ（2026-10-29）**：前回(10-28)の送客先はad-lp/contact.html?type=aiだったため、今回はaio-lp（seo）とmarke-comon-lp（web-marketing）を使用。aio-lp（ライト月8本15万/スタンダード16本25万/フル30本40万・初期30万・最低6か月）とmarke-comon-lp（8/15/30万円・最低3か月・CMO代行50万〜・実作業は別見積）は前回から変更なし。column合計290本（seo53＋クロス掲載1／ai-katsuyo40／advertising63／web-marketing55／lp-improvement26／sns-marketing27／analytics26）、sitemapのcolumn記事URLは290件。次回はad-lp（advertising/lp-improvement/analytics）・contact.html?type=ai/sns を優先。titleは全角換算でSEO費用記事31.5／年間計画記事30.0（半角0.5換算・32以内）。**気づき**：(1)StockSunのSEOコンサルページ(stock-sun.com/service/seo)の現在の料金表は実行のみ10〜50万・コンサルのみ10〜30万・実行＋コンサル20〜100万・最低3か月〜（「一般的なケースの費用感」注記、別箇所は月額30〜100万・半年程度）で、2026-10-27作成の seo-consulting-company-recommended の記述（30万〜/50万〜/25万〜、3か月/6か月）と食い違う→週次リライトで要整合。(2)プリンシプル(principle-c.com)は今回robots制限で取得できず、同記事の記述は再確認できていない。(3)ナイル(seohacks.net)のコンサル各プランは6か月〜、SEO＋LLMOは60万〜。(4)WebFetchは小モデル要約のため「記載なし」は取得漏れの可能性あり。
 
+## ロングテール（悩み顕在）KW
+
+| 日付 | 狙ったKW | KWを選んだ根拠 | 上位の顔ぶれ | 記事パス |
+|---|---|---|---|---|
+| 2026-10-30 | Google広告 クリック単価 急に上がった | 既存記事に正面から答えるものが無い。「リスティング広告 クリック単価 急に上がった」の検索結果は用語解説（LINEヤフー、サングローブ）と古いWeb担当者Forum記事が中心 | 用語解説系・2014年の記事。変更履歴→計測→外部の切り分け手順を示すページが少ない | column/advertising/google-ads-cpc-sudden-increase/ |
+| 2026-10-30 | インスタ フォロワー 急に減った | Search Console 28日で「インスタ フォロワー 減る 不具合 2026」表示9・平均順位10.1。既存は「増えない」記事のみ | TaTap・minto.tech・個人ブログ等。減り方の形から原因を絞る視点が弱い | column/sns-marketing/instagram-follower-sudden-drop/ |
+
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
 - タイトルは「◯◯おすすめN選｜…」の形にする
 - 比較表に加えて、**1社ずつH3の個別セクション**を置く（公式サイトリンク＋特徴2段落＋highlight-cardで「向いているケース／注意点」）
 - 各社の**コーポレートサイトURLとサービスページURLの両方**を載せる
 - 実装の見本：`column/seo/aio-company-selection/`
+
+**メモ（2026-10-30）**：前回(10-29)の送客先はaio-lp/marke-comon-lpだったため、今回はad-lp（advertising）とcontact.html（sns-marketing）を使用。column合計292本（seo53＋クロス掲載1／ai-katsuyo40／advertising64／web-marketing55／lp-improvement26／sns-marketing28／analytics26）、sitemapのcolumn URLは292件。titleは全角換算でCPC記事31.0／フォロワー記事30.0。次回はaio-lp・marke-comon-lp、またはcontact.html?type=ai を優先。Search Consoleのクエリは読めた（既存記事がある語が大半で、未カバーはフォロワー減少系のみ）。自社実績の差し込みは該当なし。
