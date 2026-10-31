@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- FV以下のモーション・メッセージ -->
   <link rel="stylesheet" href="assets/css/top-motion.css?v=16" />
   <link rel="stylesheet" href="assets/css/top-adpick.css?v=1" />
-<link rel="stylesheet" href="assets/css/top-renewal.css?v=2" />
+<link rel="stylesheet" href="assets/css/top-renewal.css?v=3" />
   <script>
   /* FV見出し：初回描画の前に「隠した状態」を決めておき、読み込み後に左→右で出す */
   (function(){
@@ -479,38 +479,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- 追加：例えば広告運用なら（費用の比較） -->
   <section class="section nx5-cost">
     <div class="container">
-      <div class="nx5-card">
-        <div class="nx5-text">
-          <p class="nx5-tag">例えば、広告運用なら</p>
-          <h3 class="nx5-title"><span class="nx-nw">最初の一歩の</span><span class="nx-nw">大きさが、違う。</span></h3>
-          <dl class="nx5-pts">
-            <div><dt><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M3 21h18"/><path d="M8 8h3M8 12h3M8 16h3"/></svg></i>一般的な広告代理店</dt><dd>広告費は月30万円〜が目安。手数料は広告費の20%前後で、最低手数料がかかることも。</dd></div>
-            <div class="is-lnx"><dt><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7zM12 10c0-3.5 2.5-6 7-6 0 3.5-2.5 6-7 6z"/><path d="M7 21h10"/></svg></i>LnX</dt><dd>運用代行は月3.3万円〜。広告費の下限はなく、予算に合わせて自由に決められます。</dd></div>
-          </dl>
-          <p class="nx5-msg">小さく試して、<b>効いた施策にだけ予算を寄せる</b>。<br class="only-pc-br">はじめての会社に合った始め方です。</p>
-        </div>
+      <p class="nx6-label">例えば、広告運用なら</p>
+      <figure class="nx6-chart" data-nx6 aria-label="始めるときの月額の目安：一般的な広告代理店は月36万円〜、LnXは月3.3万円〜（広告費は別途、自由に設定）。差は32.7万円。">
+        <div class="nx6-plot">
+          <span class="nx6-guide nx6-guide--top" aria-hidden="true"></span>
+          <span class="nx6-guide nx6-guide--low" aria-hidden="true"></span>
 
-        <figure class="nx5-chart" aria-label="月額の目安の比較：一般的な広告代理店は月36万円〜、LnXは月3.3万円〜（広告費は別途、自由に設定）">
-          <div class="nx5-plot">
-            <div class="nx5-col">
-              <div class="nx5-bar nx5-bar--agency">
-                <p class="nx5-val">月<b>36</b>万円〜</p>
-                <span class="nx5-seg nx5-seg--fee" style="--h:38px">手数料</span>
-                <span class="nx5-seg nx5-seg--ad" style="--h:192px">広告費<br>30万円〜</span>
-              </div>
-            </div>
-            <div class="nx5-col nx5-col--lnx">
-              <div class="nx5-bar nx5-bar--lnx">
-                <p class="nx5-val">月<b>3.3</b>万円〜</p>
-                <span class="nx5-seg nx5-seg--free" style="--h:76px">＋広告費は<br>自由に</span>
-                <span class="nx5-seg nx5-seg--run" style="--h:22px">運用</span>
+          <div class="nx6-col nx6-col--agency">
+            <div class="nx6-bar">
+              <p class="nx6-val">月<b data-to="36">36</b>万円〜</p>
+              <div class="nx6-stack">
+                <span class="nx6-seg nx6-seg--fee">手数料</span>
+                <span class="nx6-seg nx6-seg--ad">広告費<br>30万円〜</span>
               </div>
             </div>
           </div>
-          <div class="nx5-axis"><span>一般的な<br class="only-sp-br">広告代理店</span><span class="is-lnx">LnX</span></div>
-        </figure>
-      </div>
-      <p class="nx5-note">※一般的な広告代理店は、Web広告運用代行の料金相場として公開されている目安（広告費月30万円〜・手数料は広告費の20%前後）で、特定の会社の料金ではありません。LnXはMeta広告運用代行の新規ご契約限定スタートプラン（月額33,000円・税込）の運用費で、広告費は別途です。</p>
+
+          <div class="nx6-gap" aria-hidden="true">
+            <span class="nx6-arrow"></span>
+            <span class="nx6-badge"><small>始めるときの差</small><b>−<em data-to="32.7">32.7</em></b><i>万円</i></span>
+          </div>
+
+          <div class="nx6-col nx6-col--lnx">
+            <div class="nx6-bar">
+              <p class="nx6-val">月<b data-to="3.3">3.3</b>万円〜</p>
+              <div class="nx6-stack">
+                <span class="nx6-seg nx6-seg--free">＋広告費は<br>自由に</span>
+                <span class="nx6-seg nx6-seg--run"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nx6-axis"><span>一般的な<br class="only-sp-br">広告代理店</span><span></span><span class="is-lnx">LnX</span></div>
+      </figure>
+      <p class="nx6-note">※一般的な広告代理店は、Web広告運用代行の料金相場として公開されている目安（広告費月30万円〜・手数料は広告費の20%前後）で、特定の会社の料金ではありません。LnXはMeta広告運用代行の新規ご契約限定スタートプラン（月額33,000円・税込）の運用費で、広告費は別途、予算に合わせて自由に設定できます。</p>
     </div>
   </section>
 
@@ -942,6 +944,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
-<script src="assets/js/top-carousel.js?v=1" defer></script>
+<script src="assets/js/top-carousel.js?v=2" defer></script>
 </body>
 </html>
