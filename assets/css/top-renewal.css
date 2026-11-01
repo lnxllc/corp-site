@@ -80,10 +80,16 @@ body.top-v4 .nx3-cols{padding:72px 0 80px}
 .nx3-col__title{font-size:13.5px}
 }
 /* ===== v4：人とAIで、安価に本格支援 ===== */
-body.top-v4 .nx4-why{position:relative;z-index:1;padding:110px 0 120px;background:var(--v4-pale)!important;overflow-x:clip;overflow-y:visible}
-.nx4-why::before{content:"";position:absolute;right:-180px;top:0;width:520px;height:520px;border-radius:50%;
-  background:radial-gradient(circle,rgba(53,192,242,.14),transparent 65%);pointer-events:none}
+/* z-index を付けない：付けると上の ISSUE セクションからはみ出す紐（z-index:1）が地に隠れて途切れる。
+   右上の淡い円は ::before だと巨大ウォーターマーク（WHY LnX）と衝突するので、地のグラデーションで描く */
+body.top-v4 .nx4-why{position:relative;padding:110px 0 120px;overflow-x:clip;overflow-y:visible;
+  background:radial-gradient(circle 260px at calc(100% - 80px) 260px,rgba(53,192,242,.14),transparent 65%),var(--v4-pale)!important}
 .nx4-why .container{position:relative}
+/* 巨大ウォーターマークが同じ色の地との境目で途中から切れて見えないようにする
+   ・ISSUE：次の WHY LnX の地より上に出して、文字全体を見せる
+   ・WHY LnX：下の nx5-cost も同じ地なので、沈めずにセクション内に収める */
+body.top-v4 .section.t-msg[data-v4-wm]::before{z-index:1}
+body.top-v4 .section.nx4-why[data-v4-wm]::before{bottom:0}
 .nx4-head{text-align:center;margin-bottom:48px}
 .nx4-head__title{margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:900;line-height:1.45;letter-spacing:.02em;color:var(--v4-ink)}
 .nx4-mark{color:var(--v4-brand);background:linear-gradient(transparent 64%,rgba(53,192,242,.28) 64%)}
