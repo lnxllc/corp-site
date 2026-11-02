@@ -3,7 +3,7 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-10-30（ロングテール（悩み顕在）KW方針で2本作成。週10本・1回2本ペース）
+- 最終更新：2026-11-02（ロングテール（悩み顕在）KW方針で2本作成。週10本・1回2本ペース）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
   - `要リライト` … 記事はあるが、実在他社の社名比較表が無く「会社/おすすめ/比較」系の検索意図を満たしていない
@@ -253,6 +253,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 |---|---|---|---|---|
 | 2026-10-30 | Google広告 クリック単価 急に上がった | 既存記事に正面から答えるものが無い。「リスティング広告 クリック単価 急に上がった」の検索結果は用語解説（LINEヤフー、サングローブ）と古いWeb担当者Forum記事が中心 | 用語解説系・2014年の記事。変更履歴→計測→外部の切り分け手順を示すページが少ない | column/advertising/google-ads-cpc-sudden-increase/ |
 | 2026-10-30 | インスタ フォロワー 急に減った | Search Console 28日で「インスタ フォロワー 減る 不具合 2026」表示9・平均順位10.1。既存は「増えない」記事のみ | TaTap・minto.tech・個人ブログ等。減り方の形から原因を絞る視点が弱い | column/sns-marketing/instagram-follower-sudden-drop/ |
+| 2026-11-02 | GPTBot ブロック していい（robots.txt AI検索） | Search Console未取得（Chrome接続先の選択不可）。AIクローラーの設定は「ブロックすべきか」の悩みとして実在。既存はrobots.txtに部分的に触れるのみで正面から答える記事が無い | 英語のツール/解説記事、gori.me等。日本語で公式仕様（OAI-SearchBotとGPTBotの分離、Google-Extendedは検索に無影響）に基づき目的別に書き分けたページが少ない | column/seo/gptbot-block-robots-txt-guide/ |
+| 2026-11-02 | 税理士事務所 ホームページ 問い合わせ 来ない | Search Console未取得。「税理士事務所 ホームページ 問い合わせ 来ない 原因」の検索結果は士業ポータル(all-senmonka)・Q&A(zeiri4, biz.ne.jp)が中心。既存のshigyo-marketing-advisorは顧問活用で別主題 | ポータル記事・質問掲示板。4段階の切り分けと自分で確かめる数字を示すページが少ない | column/web-marketing/tax-accountant-website-no-inquiry/ |
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
@@ -262,3 +264,5 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 - 実装の見本：`column/seo/aio-company-selection/`
 
 **メモ（2026-10-30）**：前回(10-29)の送客先はaio-lp/marke-comon-lpだったため、今回はad-lp（advertising）とcontact.html（sns-marketing）を使用。column合計292本（seo53＋クロス掲載1／ai-katsuyo40／advertising64／web-marketing55／lp-improvement26／sns-marketing28／analytics26）、sitemapのcolumn URLは292件。titleは全角換算でCPC記事31.0／フォロワー記事30.0。次回はaio-lp・marke-comon-lp、またはcontact.html?type=ai を優先。Search Consoleのクエリは読めた（既存記事がある語が大半で、未カバーはフォロワー減少系のみ）。自社実績の差し込みは該当なし。
+
+**メモ（2026-11-02）**：前回(10-30)の送客先はad-lp/contact.htmlだったため、今回はaio-lp（seo）とmarke-comon-lp（web-marketing）を使用。column合計294本（seo54＋クロス掲載1／ai-katsuyo40／advertising64／web-marketing56／lp-improvement26／sns-marketing28／analytics26）。sitemapのcolumn関連URLは302件（カテゴリindex等を含む）。titleは全角換算でGPTBot記事28.0／税理士記事27.0。Search ConsoleはChromeが2台接続されていて選択できず読めなかった（無人実行のため）。自社実績の差し込みは今回なし。次回はad-lp・contact.html優先。
