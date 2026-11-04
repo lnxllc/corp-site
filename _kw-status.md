@@ -3,7 +3,8 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-03（広告・Webマーケ各1本追加）
+- 最終更新：2026-11-04（SEO・SNS各1本追加）
+- （旧）最終更新：2026-11-03（広告・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-02（ロングテール（悩み顕在）KW方針で2本作成。週10本・1回2本ペース）
 - ステータスの定義
   - `作成済み` … そのKWの検索意図を主題として扱う記事が存在する
@@ -258,6 +259,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-11-02 | 税理士事務所 ホームページ 問い合わせ 来ない | Search Console未取得。「税理士事務所 ホームページ 問い合わせ 来ない 原因」の検索結果は士業ポータル(all-senmonka)・Q&A(zeiri4, biz.ne.jp)が中心。既存のshigyo-marketing-advisorは顧問活用で別主題 | ポータル記事・質問掲示板。4段階の切り分けと自分で確かめる数字を示すページが少ない | column/web-marketing/tax-accountant-website-no-inquiry/ |
 | 2026-11-03 | Google広告 予算 消化されない 配信されない | Search Console未取得（Chrome未使用）。知恵袋型の悩みとして実在。既存はCPC急上昇・入札戦略のみで正面から答える記事が無い | 広告会社ブログ（sienca等）・英語の解説・公式ヘルプ断片。表示0と消化遅延の切り分け、1日予算が平均である仕組みを手順化したページが少ない | column/advertising/google-ads-budget-not-spent/ |
 | 2026-11-03 | Googleビジネスプロフィール 停止 復旧 | Search Console未取得。「停止された」は実害が大きい具体的悩み。既存はMEO入門のみで停止対応の記事が無い | 代理店ブログ（サングローブ等）・英語解説・公式ヘルプ。公式の再審査手順と書類・60分制限、やってはいけない対応を一体で示す日本語ページが少ない | column/web-marketing/google-business-profile-suspended-recovery/ |
+| 2026-11-04 | Search Console 表示回数 多い クリック 0 | Search Console（当社28日）で表示40〜50回・平均30位台以下のクリック0クエリが多数。知恵袋・相談で実在する悩み。既存はインデックス未登録・流入減少のみで正面から答える記事が無い | impress Web担当者Forum（幽霊クエリ＝画像の事例のみ）・luft・Google公式ヘルプ。順位帯ごとの切り分けと直す順番を示すページが少ない | column/seo/search-console-impressions-no-clicks/ |
+| 2026-11-04 | LINE公式アカウント ブロック率 高い 原因 | Search Console未取得分。検索の関連語に実在。上位はLINE拡張ツール会社(ligla・lme)の記事で、平均値に出典なし・目標値が記事内で食い違い | ligla・lme・koukoku.jp。公式マニュアルのブロック数の数え方（期間中発生数・90日以上は「その他」）に基づく解説が無い | column/sns-marketing/line-official-account-block-rate-high/ |
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
@@ -271,3 +274,5 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 **メモ（2026-11-02）**：前回(10-30)の送客先はad-lp/contact.htmlだったため、今回はaio-lp（seo）とmarke-comon-lp（web-marketing）を使用。column合計294本（seo54＋クロス掲載1／ai-katsuyo40／advertising64／web-marketing56／lp-improvement26／sns-marketing28／analytics26）。sitemapのcolumn関連URLは302件（カテゴリindex等を含む）。titleは全角換算でGPTBot記事28.0／税理士記事27.0。Search ConsoleはChromeが2台接続されていて選択できず読めなかった（無人実行のため）。自社実績の差し込みは今回なし。次回はad-lp・contact.html優先。
 
 **メモ（2026-11-03）**：前回(11-02)の送客先はaio-lp/marke-comon-lpだったため、今回はad-lp（advertising）とmarke-comon-lp（web-marketing）を使用（contact.html系はInstagramインサイト案で公式出典が取れず見送り）。column合計296本（seo54＋クロス掲載1／ai-katsuyo40／advertising65／web-marketing57／lp-improvement26／sns-marketing28／analytics26）、sitemapのcolumn記事URLは296件。titleは全角換算で予算記事29.0／GBP記事30.0。Search Consoleは未取得。自社実績の差し込みは今回なし。次回はcontact.html（sns/ai）・aio-lpを優先。
+
+**メモ（2026-11-04）**：前回(11-03)の送客先はad-lp/marke-comon-lpだったため、今回はaio-lp（seo）とcontact.html（sns-marketing）を使用。column合計298本（seo55＋クロス掲載1／ai-katsuyo40／advertising65／web-marketing57／lp-improvement26／sns-marketing29／analytics26）、sitemapのcolumn記事URLは298件。titleは全角換算で29.5／30.0。Search Consoleは読めた（Chrome接続）。自社実績はSC記事にwork22.webp、LINE記事は該当なし。**気づき**：既存の sns-marketing/line-official-account-marketing は通数を「配信人数×吹き出し数」と書いているが、LINE公式の料金ページの式は「送った回数×送った友だちの数」（吹き出し数は掛けない）。週次タスクでの修正候補。次回はad-lp・marke-comon-lp優先。
