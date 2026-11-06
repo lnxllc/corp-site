@@ -3,7 +3,9 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-04（SEO・SNS各1本追加）
+- 最終更新：2026-11-06（SEO・AI活用各1本追加）
+- （旧）最終更新：2026-11-05（計測・Webマーケ各1本追加）
+- （旧）最終更新：2026-11-04（SEO・SNS各1本追加）
 - （旧）最終更新：2026-11-03（広告・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-02（ロングテール（悩み顕在）KW方針で2本作成。週10本・1回2本ペース）
 - ステータスの定義
@@ -261,6 +263,14 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-11-03 | Googleビジネスプロフィール 停止 復旧 | Search Console未取得。「停止された」は実害が大きい具体的悩み。既存はMEO入門のみで停止対応の記事が無い | 代理店ブログ（サングローブ等）・英語解説・公式ヘルプ。公式の再審査手順と書類・60分制限、やってはいけない対応を一体で示す日本語ページが少ない | column/web-marketing/google-business-profile-suspended-recovery/ |
 | 2026-11-04 | Search Console 表示回数 多い クリック 0 | Search Console（当社28日）で表示40〜50回・平均30位台以下のクリック0クエリが多数。知恵袋・相談で実在する悩み。既存はインデックス未登録・流入減少のみで正面から答える記事が無い | impress Web担当者Forum（幽霊クエリ＝画像の事例のみ）・luft・Google公式ヘルプ。順位帯ごとの切り分けと直す順番を示すページが少ない | column/seo/search-console-impressions-no-clicks/ |
 | 2026-11-04 | LINE公式アカウント ブロック率 高い 原因 | Search Console未取得分。検索の関連語に実在。上位はLINE拡張ツール会社(ligla・lme)の記事で、平均値に出典なし・目標値が記事内で食い違い | ligla・lme・koukoku.jp。公式マニュアルのブロック数の数え方（期間中発生数・90日以上は「その他」）に基づく解説が無い | column/sns-marketing/line-official-account-block-rate-high/ |
+| 2026-11-05 | GTM プレビュー 接続できない | Search Console未取得（Chrome未接続）。「GTM プレビューモード 接続できない」は実在する悩み。既存はgtm-container-design(設計)のみで正面から答える記事が無い | ITmedia連載・英語のDEV/Shopify系・コミュニティ。公式ヘルプ(Tag Assistant接続トラブル)の項目を症状A/B/Cで整理し10分チェック化 | column/analytics/gtm-preview-not-connecting/ |
+| 2026-11-05 | ホームページ リニューアル 問い合わせ 減った | Search Console未取得。「リニューアル後 問い合わせ 減った 順位 下がった」の検索結果は古い記事(2013・2019・2022のWeb担当者Forum)と制作会社ブログが中心。既存に該当記事なし | impress webtan(古い記事)・mobinc・coconala等。流入/導線/計測の3パターン切り分けとGoogle公式サイト移転資料の確認点で差別化 | column/web-marketing/website-renewal-inquiries-dropped/ |
+| 2026-11-06 | オウンドメディア 問い合わせ 来ない 記事 増やしても | Search Console未取得（Chrome未使用）。「オウンドメディア 記事 増やしても 問い合わせ 来ない」は実在する悩み。既存はKPI設計・更新停止・運用代行系のみで、原因の切り分けに正面から答える記事が無い | koukoku.jp・サングローブ・impress webtan(2016年)・StockSun。CVR1.5倍等の数値は出典なし。表示→クリック→導線→計測の4関門で切り分けるページが少ない | column/seo/owned-media-no-inquiries-causes/ |
+| 2026-11-06 | 生成AI 導入 使われない 定着しない 社内 | Search Console未取得。「生成AI 導入したのに 社内で使われない 定着しない」は実在する悩み。既存は失敗パターン・研修・ROIなどで、症状別に正面から答える記事が無い | cloudpack・JAPAN AI・WEEL・シフトAI・マイナビ等のベンダー/メディア記事。総務省白書の数値と症状別（4症状）の切り分けで差別化 | column/ai-katsuyo/ai-adoption-not-used-in-company/ |
+
+**メモ（2026-11-05）**：前回(11-04)の送客先はaio-lp/contact.html?type=snsだったため、今回はad-lp（analytics）とmarke-comon-lp（web-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/20%・最低6か月）とmarke-comon-lp（8/15/30万円・最低3か月・CMO代行50万〜）は前回から変更なし。column合計300本（seo55＋クロス掲載1／ai-katsuyo40／advertising65／web-marketing58／lp-improvement26／sns-marketing29／analytics27）、sitemapのcolumn URLは308件（index等8件を含む）。自社実績は画像マスタに該当なしのため差し込まず。FVスクショ対象記事なし。
+
+**メモ（2026-11-06）**：前回(11-05)の送客先はad-lp/marke-comon-lpだったため、今回はaio-lp（seo）とcontact.html?type=ai（ai-katsuyo）を使用。aio-lp（初期30万円＋月15/25/40万円・最低6か月）とcontact.html（お問い合わせ項目にAI項目あり）は実物確認済み。column合計302本（seo56＋クロス掲載1／ai-katsuyo41／advertising65／web-marketing58／lp-improvement26／sns-marketing29／analytics27）、sitemapのcolumn記事URLは302件。titleは全角換算でSEO記事32.0／AI記事29.0。Search Consoleは未取得。自社実績はSEO記事にwork22.webp（113記事・表示約7倍・問い合わせ約15倍）、AI記事は該当なし。画像マスタ(Drive出力)はbase64のままで全文は未デコード、既存記事のfigcaptionと一致する数値のみ使用。FVスクショ対象記事なし。次回はad-lp・marke-comon-lp優先。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
