@@ -112,6 +112,13 @@ body.top-v4 .section.nx4-why[data-v4-wm]::before{bottom:0}
 .nx4-card__list li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700}
 .nx4-card__list i{flex:0 0 20px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#8FE0FF;color:#0A2A73}
 .nx4-card__list svg{width:13px;height:13px}
+/* カードの板（白地・枠・影）と RESULT の青いグラデーションは外し、イラストと文字だけを置く */
+body.top-v4 .nx4-card,body.top-v4 .nx4-card--res{background:none;border:0;box-shadow:none;color:var(--v4-ink)}
+body.top-v4 .nx4-card--res .nx4-card__who{color:var(--v4-ink-2)}
+body.top-v4 .nx4-card--res .nx4-card__who span{background:var(--v4-brand);color:#fff}
+body.top-v4 .nx4-card--res .nx4-card__title{color:var(--v4-brand)}
+body.top-v4 .nx4-card--res .nx4-card__list li{color:var(--v4-ink)}
+body.top-v4 .nx4-card--res .nx4-card__list i{background:var(--v4-brand);color:#fff}
 .nx4-op{display:grid;place-items:center;font-size:22px;font-weight:900;color:var(--v4-brand)}
 @media (max-width:900px){
 body.top-v4 .nx4-why{padding:76px 0 72px}
