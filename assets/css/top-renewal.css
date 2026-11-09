@@ -119,6 +119,8 @@ body.top-v4 .nx4-card--res .nx4-card__who span{background:var(--v4-brand);color:
 body.top-v4 .nx4-card--res .nx4-card__title{color:var(--v4-brand)}
 body.top-v4 .nx4-card--res .nx4-card__list li{color:var(--v4-ink)}
 body.top-v4 .nx4-card--res .nx4-card__list i{background:var(--v4-brand);color:#fff}
+/* 括弧書きなどを途中で折り返さず、まとまりで次の行に送る */
+.nx4-nb{display:inline-block}
 .nx4-op{display:grid;place-items:center;font-size:22px;font-weight:900;color:var(--v4-brand)}
 @media (max-width:900px){
 body.top-v4 .nx4-why{padding:76px 0 72px}
