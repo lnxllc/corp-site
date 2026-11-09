@@ -94,10 +94,10 @@ body.top-v4 .section.nx4-why[data-v4-wm]::before{bottom:0}
 .nx4-head__title{margin:0;font-size:clamp(28px,3.4vw,44px);font-weight:900;line-height:1.45;letter-spacing:.02em;color:var(--v4-ink)}
 .nx4-mark{color:var(--v4-brand);background:linear-gradient(transparent 64%,rgba(53,192,242,.28) 64%)}
 .nx4-head__lead{margin:18px 0 0;font-size:15px;line-height:1.95;color:var(--v4-ink-2)}
-.nx4-flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1.1fr;align-items:stretch}
+.nx4-flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch}
 .nx4-card{position:relative;display:flex;flex-direction:column;padding:8px 24px 26px;border-radius:20px;
   background:#fff;border:1px solid var(--v4-line);box-shadow:0 14px 36px rgba(10,37,69,.06)}
-.nx4-card__ill{margin:0 -10px -8px}
+.nx4-card__ill{margin:0 -10px 20px}
 .nx4-card__ill svg{display:block;width:100%;height:auto}
 .nx4-card__who{margin:0 0 4px;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;color:var(--v4-ink-2)}
 .nx4-card__who span{font-family:var(--v4-mono);font-size:10.5px;letter-spacing:.14em;padding:3px 8px;border-radius:6px;background:var(--v4-pale);color:var(--v4-brand)}
