@@ -133,7 +133,7 @@ body.top-v4 .nx4-why{padding:76px 0 72px}
 .nx4-card--res .nx4-card__title{font-size:18px;margin:0 0 4px}
 .nx4-card__title br{display:none}
 .nx4-card__txt{font-size:12.5px;line-height:1.7}
-.nx4-card__list{grid-column:1 / -1;margin:8px 0 0 10px}
+.nx4-card__list{grid-column:2;margin:8px 0 0}
 .nx4-card__list li{font-size:13px}
 }
 /* ---- 例えば広告運用なら（縦棒グラフ） ---- */
