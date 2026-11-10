@@ -3,7 +3,8 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-09（計測・Webマーケ各1本追加）
+- 最終更新：2026-11-10（SEO・SNS各1本追加）
+- （旧）最終更新：2026-11-09（計測・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-06（SEO・AI活用各1本追加）
 - （旧）最終更新：2026-11-05（計測・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-04（SEO・SNS各1本追加）
@@ -270,12 +271,16 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-11-06 | 生成AI 導入 使われない 定着しない 社内 | Search Console未取得。「生成AI 導入したのに 社内で使われない 定着しない」は実在する悩み。既存は失敗パターン・研修・ROIなどで、症状別に正面から答える記事が無い | cloudpack・JAPAN AI・WEEL・シフトAI・マイナビ等のベンダー/メディア記事。総務省白書の数値と症状別（4症状）の切り分けで差別化 | column/ai-katsuyo/ai-adoption-not-used-in-company/ |
 | 2026-11-09 | Google広告 コンバージョン 待機中 設定が不適切 計測されない | Search Console未取得（Chrome未使用）。「Google広告 コンバージョン 待機中 設定が不適切 計測されない 原因」は実在する悩み。既存はGA4/GTM側（ga4-cv-not-tracking・gtm-preview）のみで、Google広告のステータス別に答える記事が無い | サングローブ・Shopifyコミュニティ・coconala・kwm・Google公式ヘルプ。公式のステータス定義（待機中＝過去7日間記録なし／設定が不適切＝記録が完全停止）に沿って原因5つ・確認順を示すページが少ない | column/analytics/google-ads-conversion-waiting-misconfigured/ |
 | 2026-11-09 | Web担当者 退職 広告 アクセス解析 引き継ぎ 誰も分からない | Search Console未取得。「Web担当者 退職 引き継ぎ なし ホームページ 広告 運用 誰も分からない」で小規模制作会社ブログ（the-bridge・amiche・insemble・web-tantou等）が上位に並び実在する悩みと確認。既存の所有権記事は代理店交代向けで別主題 | ホームページ管理中心の制作会社ブログ。広告・GA4の権限（管理者を複数に）・支払い・契約・計測まで通した引き継ぎ手順は少ない | column/web-marketing/web-staff-resigned-ads-analytics-handover/ |
+| 2026-11-10 | ChatGPT 自社 情報 間違っている 直し方 | Search Console未取得（Chrome未使用）。「ChatGPT 自社 情報 間違っている 修正」は実在する悩み。既存はcheck-ai-citation（引用の確認）のみで誤情報の直し方に正面から答える記事が無い | AI検索対策会社のブログ（uravation・stellagent等）が中心で、公式出典はGoogle検索セントラル程度。ChatGPT公式ヘルプで確認できた範囲（出典表示・訂正窓口の記載なし）を明記する切り口で勝負 | column/seo/chatgpt-wrong-company-info-fix/ |
+| 2026-11-10 | LINE公式アカウント 友だち 増えない 店舗 | Search Console未取得。「LINE公式アカウント 友だち 増えない 店舗 集まらない」は実在する悩み。既存はブロック率・集客活用のみで友だち追加に正面から答える記事が無い | 店舗向け情報サイト（shopowner-support等）・LINE拡張ツール会社・LINEヤフー公式コラム。登録率での3タイプ切り分けと無料プラン通数の試算で差別化 | column/sns-marketing/line-official-account-friends-not-increasing-store/ |
 
 **メモ（2026-11-05）**：前回(11-04)の送客先はaio-lp/contact.html?type=snsだったため、今回はad-lp（analytics）とmarke-comon-lp（web-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/20%・最低6か月）とmarke-comon-lp（8/15/30万円・最低3か月・CMO代行50万〜）は前回から変更なし。column合計300本（seo55＋クロス掲載1／ai-katsuyo40／advertising65／web-marketing58／lp-improvement26／sns-marketing29／analytics27）、sitemapのcolumn URLは308件（index等8件を含む）。自社実績は画像マスタに該当なしのため差し込まず。FVスクショ対象記事なし。
 
 **メモ（2026-11-06）**：前回(11-05)の送客先はad-lp/marke-comon-lpだったため、今回はaio-lp（seo）とcontact.html?type=ai（ai-katsuyo）を使用。aio-lp（初期30万円＋月15/25/40万円・最低6か月）とcontact.html（お問い合わせ項目にAI項目あり）は実物確認済み。column合計302本（seo56＋クロス掲載1／ai-katsuyo41／advertising65／web-marketing58／lp-improvement26／sns-marketing29／analytics27）、sitemapのcolumn記事URLは302件。titleは全角換算でSEO記事32.0／AI記事29.0。Search Consoleは未取得。自社実績はSEO記事にwork22.webp（113記事・表示約7倍・問い合わせ約15倍）、AI記事は該当なし。画像マスタ(Drive出力)はbase64のままで全文は未デコード、既存記事のfigcaptionと一致する数値のみ使用。FVスクショ対象記事なし。次回はad-lp・marke-comon-lp優先。
 
 **メモ（2026-11-09）**：前回(11-06)の送客先はaio-lp/contact.html（ai）だったため、今回はad-lp（analytics）とmarke-comon-lp（web-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/20%・最低6か月）とmarke-comon-lp（8/15/30万円・最低3か月・CMO代行50万〜）は10/21更新のまま変更なし。column合計304本（seo56＋クロス掲載1／ai-katsuyo41／advertising65／web-marketing59／lp-improvement26／sns-marketing29／analytics28）、sitemapのcolumn URLは312件（記事304＋index等8）。titleは全角換算で29.0／29.5。Search Consoleは未取得（Chrome未使用）。Metaヘルプはrobotsで取得不可のためMeta系KW（CPM・配信されない）は見送り、Google公式ヘルプで出典が取れる題材を選択。自社実績は両記事とも該当なしのため差し込まず。FVスクショ対象記事なし。**気づき**：Google広告ヘルプの「コンバージョンのステータス」ページの要約取得では5ステータス（有効／要確認／設定が不適切／コンバージョンを待機中／削除済み）のみ確認でき、「記録なし」「非アクティブ」等の旧表記は確認できず。次回はaio-lp・contact.html優先。
+
+**メモ（2026-11-10）**：前回(11-09)の送客先はad-lp/marke-comon-lpだったため、今回はaio-lp（seo）とcontact.html（sns-marketing）を使用。aio-lp（初期30万円＋月15/25/40万円・最低6か月）とcontact.html（お問い合わせ項目にSNS・AI項目あり）を確認。column合計306本（seo56＋クロス掲載1／ai-katsuyo41／advertising65／web-marketing59／lp-improvement26／sns-marketing30／analytics28）、sitemapのcolumn記事URLはフォルダ実体と一致。titleは全角換算で27.5／32.0。Search Consoleは未取得（Chrome未使用）。自社実績・FVスクショ対象記事なし（画像マスタは今回未参照）。出典：OpenAI（ChatGPT search・クローラー概要）、Google検索セントラル（AI機能）、LINEヤフー for Business（友だちを増やす方法・料金プラン）。次回はad-lp・marke-comon-lp優先。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 
