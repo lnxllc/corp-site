@@ -3,7 +3,8 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-11（LP改善・SNS各1本追加）
+- 最終更新：2026-11-12（SEO・Webマーケ各1本追加）
+- （旧）最終更新：2026-11-11（LP改善・SNS各1本追加）
 - （旧）最終更新：2026-11-10（SEO・SNS各1本追加）
 - （旧）最終更新：2026-11-09（計測・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-06（SEO・AI活用各1本追加）
@@ -276,6 +277,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-11-10 | LINE公式アカウント 友だち 増えない 店舗 | Search Console未取得。「LINE公式アカウント 友だち 増えない 店舗 集まらない」は実在する悩み。既存はブロック率・集客活用のみで友だち追加に正面から答える記事が無い | 店舗向け情報サイト（shopowner-support等）・LINE拡張ツール会社・LINEヤフー公式コラム。登録率での3タイプ切り分けと無料プラン通数の試算で差別化 | column/sns-marketing/line-official-account-friends-not-increasing-store/ |
 | 2026-11-11 | LP CVR 急に下がった 原因 | Search Console（28日）は読めたが、3語以上の未カバークエリ（電話CV計測・GA4ユーザー数等）は既存記事あり。「LP CVR 急に下がった 原因」は検索結果に実在し、既存はCVR改善の総論（lp-cvr-improvement）のみで急落の切り分けに正面から答える記事が無い | サングローブ（LPO総論）・StockSun（CVR改善総論）・kwm・funnel-ai。いずれも慢性的な低CVRの原因で、計測不具合・流入の変化・直近変更の時系列切り分けは扱っていない | column/lp-improvement/lp-cvr-sudden-drop/ |
 | 2026-11-11 | インスタ ストーリー 閲覧数 急に減った 原因 | Search Consoleで「インスタ フォロワー 減る/増えない」系の表示が継続（関連する悩み）。ストーリーズ閲覧数の急減は検索結果に実在し、既存はフォロワー減少・リールのみで正面から答える記事が無い | アシスト（ハウスケアラボ、出典なし・足跡中心）・jbc・find-model等の個人/メディアブログ。Instagram公式（Ranking Explained）のストーリーズの3シグナルに基づいて事業用に切り分けるページが少ない | column/sns-marketing/instagram-story-views-sudden-drop/ |
+| 2026-11-12 | AI Overview 引用されない 上位 | Search Console（28日）で「ai overview 表示 されない」（表示4・平均80位）など、AI概要に関するクエリの表示が継続。既存はai-overview-taisaku（引用される作り方の総論）のみで「上位なのに引用されない」切り分けに正面から答える記事が無い | koukoku.jp（3層診断・本文に出典URLなし）・ahrefs（データ記事）・0120.co.jp・seo.com（英語）。Ahrefsの「1位でも引用は約50%」とGoogle公式（スニペット制御・クエリファンアウト・特別な最適化不要）に基づき、3状態の見分けと引用元との突き合わせ手順で差別化 | column/seo/ai-overview-not-cited-despite-ranking/ |
+| 2026-11-12 | 工務店 ホームページ 問い合わせ 来ない | Search Console該当なし。「工務店 ホームページ 問い合わせ 来ない 原因」は検索結果に実在（biz.ne.jp等のQ&Aあり）。既存に工務店・住宅向け記事なし（税理士版の業種展開） | shopowner-support（Zenken、出典なし・切り分け手順なし）・stock-sun・crexgroup・issoh・biz.ne.jp。4関門（見つからない／比べられない／一歩が重い／数えられていない）の切り分けとGoogle公式（site:検索・ローカル順位の3要素）で差別化 | column/web-marketing/builder-website-no-inquiries/ |
 
 **メモ（2026-11-05）**：前回(11-04)の送客先はaio-lp/contact.html?type=snsだったため、今回はad-lp（analytics）とmarke-comon-lp（web-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/20%・最低6か月）とmarke-comon-lp（8/15/30万円・最低3か月・CMO代行50万〜）は前回から変更なし。column合計300本（seo55＋クロス掲載1／ai-katsuyo40／advertising65／web-marketing58／lp-improvement26／sns-marketing29／analytics27）、sitemapのcolumn URLは308件（index等8件を含む）。自社実績は画像マスタに該当なしのため差し込まず。FVスクショ対象記事なし。
 
@@ -286,6 +289,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 **メモ（2026-11-10）**：前回(11-09)の送客先はad-lp/marke-comon-lpだったため、今回はaio-lp（seo）とcontact.html（sns-marketing）を使用。aio-lp（初期30万円＋月15/25/40万円・最低6か月）とcontact.html（お問い合わせ項目にSNS・AI項目あり）を確認。column合計306本（seo56＋クロス掲載1／ai-katsuyo41／advertising65／web-marketing59／lp-improvement26／sns-marketing30／analytics28）、sitemapのcolumn記事URLはフォルダ実体と一致。titleは全角換算で27.5／32.0。Search Consoleは未取得（Chrome未使用）。自社実績・FVスクショ対象記事なし（画像マスタは今回未参照）。出典：OpenAI（ChatGPT search・クローラー概要）、Google検索セントラル（AI機能）、LINEヤフー for Business（友だちを増やす方法・料金プラン）。次回はad-lp・marke-comon-lp優先。
 
 **メモ（2026-11-11）**：前回(11-10)の送客先はaio-lp/contact.html（sns）だったため、今回は前回未使用のad-lp（lp-improvement）を必ず含め、もう1本は本数の少ないsns-marketing（contact.html）を使用。ad-lp（スタート33,000円〜・通常10万円〜/出稿50万以上は20%・簡易LP10万円〜・計測環境構築あり・最低6か月）は前回確認時から変更なし、contact.htmlのお問い合わせ項目7つ（SNS・AI含む）も変更なし。column合計308本（seo57＋クロス掲載1／ai-katsuyo41／advertising65／web-marketing59／lp-improvement27／sns-marketing31／analytics28）、sitemapのcolumn記事URLは308件（index等8件を含め316件）。titleは全角換算で25.5／31.0。Search Consoleは読めた（Chrome接続）。自社実績は両記事とも該当なし（画像マスタにLP CVR回復・ストーリーズ閲覧の実績なし）。FVスクショ対象記事なし。出典：Google アナリティクス ヘルプ（9333790）、Google 広告 ヘルプ（変更履歴 19888）、Instagram公式ブログ（Ranking Explained 2023-05-31）。**気づき**：既存記事のサイドバー（aside）は空で column-sidebar-form.js がフォームを差し込む仕様のため、サイドバー目次は既存記事に合わせて置いていない。次回はmarke-comon-lp・contact.html?type=ai・aio-lp優先。
+
+**メモ（2026-11-12）**：前回(11-11)の送客先はad-lp/contact.html（sns）だったため、今回は前回未使用のaio-lp（seo）とmarke-comon-lp（web-marketing）を使用。各LP・contact.htmlの更新日は10/20〜10/21のままで記述変更なし。column合計310本（seo58＋クロス掲載1／ai-katsuyo41／advertising65／web-marketing60／lp-improvement27／sns-marketing31／analytics28）、sitemapのcolumn記事URLは310件。titleは全角換算で30.5／30.0。Search Consoleは読めた（Chrome接続）。自社実績はAI Overview記事にwork28.webp（生成AIインプレッション約7倍／AIOスコア91点）、工務店記事は該当なし。FVスクショ対象記事なし。出典：Google検索セントラル（AI 機能とウェブサイト／SEOスターターガイド）、Google検索ヘルプ（AIによる概要 14901683）、Googleビジネスプロフィール ヘルプ（7091）、Ahrefs（上位表示とAI概要の引用 2025-07）。今回からサイドバー（aside）にも sidebar-toc の目次を置いた（JSのフォームは appendChild なので共存する）。次回はad-lp・contact.html優先。
 
 ## 記事フォーマットの決定事項（2026-09-21にユーザーと合意）
 

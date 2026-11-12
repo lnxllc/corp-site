@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>上位でもAI Overviewに引用されない原因と確認手順 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/seo/ai-overview-not-cited-despite-ranking/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="上位でもAI Overviewに引用されない原因と確認手順 | LnX合同会社"/>
+<meta property="og:description" content="検索で上位に表示されているのに、AI Overview（AI による概要）に自社ページが引用されないときの切り分け手順を解説。AI概要が出ていない・他サイトが引用されている・回答が毎回変わるの3状態の見分け方、スニペット制御や答えの位置など原因5つ、直す順番、Search Consoleで分かることの限界までまとめています。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/seo/ai-overview-not-cited-despite-ranking/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="上位でもAI Overviewに引用されない原因と確認手順 | LnX合同会社"/>
+<meta name="twitter:description" content="検索で上位に表示されているのに、AI Overview（AI による概要）に自社ページが引用されないときの切り分け手順を解説。AI概要が出ていない・他サイトが引用されている・回答が毎回変わるの3状態の見分け方、スニペット制御や答えの位置など原因5つ、直す順番、Search Consoleで分かることの限界までまとめています。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta content="検索で上位に表示されているのに、AI Overview（AI による概要）に自社ページが引用されないときの切り分け手順を解説。AI概要が出ていない・他サイトが引用されている・回答が毎回変わるの3状態の見分け方、スニペット制御や答えの位置など原因5つ、直す順番、Search Consoleで分かることの限界までまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicon-180.webp">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 13.5px; }
+    .compare-table th, .compare-table td { border: 1px solid rgba(15,23,42,.12); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare-table th { background: rgba(37,99,235,.06); font-weight: 800; color: var(--txt); }
+    .compare-table td { color: rgba(15,23,42,.78); }
+    .scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0 0 28px; }
+    .scope-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2); }
+    .scope-card__head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .scope-card__icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 16px; flex: 0 0 auto; background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(124,58,237,.10)); }
+    .scope-card__name { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0; }
+    .scope-card__desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "\25A1"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 0 0 28px; }
+    .compare-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); }
+    .compare-card__label { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 8px; }
+    .compare-card h4 { margin: 0 0 10px; font-size: 15px; font-weight: 900; }
+    .compare-card ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-card li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(150deg, #1E6BFF, #0A2FA8); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .scope-grid { grid-template-columns: 1fr; } .compare-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .article-body { padding: 36px 0 56px; } }
+
+/* 出典・外部リンクはリンクと分かる見た目にする */
+.article-body a[target="_blank"]{color:var(--brand3);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.article-body a[target="_blank"]:hover{opacity:.75}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "上位表示でもAI Overview（AI による概要）に引用されない原因と確認手順",
+  "description": "検索で上位に表示されているのに、AI Overview（AI による概要）に自社ページが引用されないときの切り分け手順を解説。AI概要が出ていない・他サイトが引用されている・回答が毎回変わるの3状態の見分け方、スニペット制御や答えの位置など原因5つ、直す順番、Search Consoleで分かることの限界までまとめています。",
+  "url": "https://lnx.co.jp/column/seo/ai-overview-not-cited-despite-ranking/",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/seo/ai-overview-not-cited-despite-ranking/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SEO/AIO",
+      "item": "https://lnx.co.jp/column/seo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "上位表示でもAI Overview（AI による概要）に引用されない原因と確認手順",
+      "item": "https://lnx.co.jp/column/seo/ai-overview-not-cited-despite-ranking/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "検索1位なら、AI Overviewにも必ず引用されますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "必ずではありません。Ahrefsが2025年に公開した100万キーワードの調査では、検索1位のページがAI Overviewの上位3件に引用される割合は約50%でした。順位と引用には相関がありますが、上位でも引用されない状態は珍しくありません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI Overviewに引用されるために、特別な設定やファイルは必要ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Googleは、AI による概要やAIモードに表示されるための追加の要件はなく、特別な最適化も不要だと説明しています。条件は、ページがインデックスに登録され、検索でスニペットが表示できる状態であることです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "引用されたかどうかは、Search Consoleで分かりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI機能に表示されたサイトのトラフィックは、Search Consoleの検索タイプ「ウェブ」の検索パフォーマンスに含まれます。ただし、AI Overview経由かどうかを分けて見る項目は公式ヘルプでは案内されていないため、実際の検索画面を定期的に記録して補います。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "同じキーワードでも、AI Overviewが出たり出なかったりするのはなぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Googleのヘルプでは、AI による概要はすべての検索で表示されるわけではなく、生成AIが特に役立つとシステムが判断した場合に表示されると説明されています。表示や引用元は検索のたびに変わることがあるため、日をあけて複数回確認してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "nosnippetを付けているページは引用されますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Googleは、nosnippet・data-nosnippet・max-snippet・noindexで、検索に表示されるページの情報を制限できると説明しています。これらの設定で本文の表示を制限していると、AI機能で使われる範囲も狭まるため、意図せず付いていないかを確認してください。"
+      }
+    }
+  ]
+}</script>
+</head>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="brand__logo">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/seo/">SEO/AIO</a>
+<span class="sep">/</span>
+<span class="cur">上位表示でもAI Overview（AI による概要）に引用されない原因と確認手順</span>
+</nav>
+<p class="article-hero__kicker"><span></span>SEO/AIO</p>
+<h1 class="article-hero__title">上位表示でもAI Overview（AI による概要）に<br/>引用されない原因と確認手順</h1>
+<div class="article-hero__meta">
+<time datetime="2026-11-12">2026年11月12日</time>
+<span class="article-hero__tag">AIO</span><span class="article-hero__tag">AI Overview</span><span class="article-hero__tag">引用</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>「上位なのに引用されない」を3つの状態に分けて見分ける方法</li>
+<li>15分でできる、自分で確かめる手順と記録の残し方</li>
+<li>引用されない主な原因5つと、原因ごとの直し方</li>
+<li>Search Consoleで分かること・分からないこと、手を引く判断の目安</li>
+</ul>
+</div>
+<div class="highlight-card highlight-card--success">
+<p><strong>結論：</strong>検索で上位でも、AI Overview（AI による概要）に引用されないことは珍しくありません。まず「AI概要がそもそも出ていない」「出ているが他サイトが引用されている」「引用が毎回変わる」のどれかを見分けてください。他サイトが引用されている場合は、質問への答えがページの奥に埋もれているか、AIが調べた周辺の論点に自社ページが答えていないことが多いです。スニペットを制限する設定が付いていないかも、最初に確認します。Googleは、AI概要に出るための特別な設定やファイルは不要だと説明しています。</p>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#states">「上位なのに引用されない」は3つの状態に分かれる</a></li><li><a href="#check">自分で確かめる：15分でできる確認手順</a></li><li><a href="#causes">引用されない主な原因5つ</a></li><li><a href="#fix">原因別の直し方と、直す順番</a></li><li><a href="#measure">効果の見方：Search Consoleで分かること・分からないこと</a></li><li><a href="#judge">それでも引用されないときの判断の目安</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+
+<h2 id="states">「上位なのに引用されない」は3つの状態に分かれる</h2>
+<p>「検索では3位以内に出ているのに、AI Overviewの引用元に自社ページが出てこない」という相談は、AI概要の表示が広がってから増えています。ただ、同じ「引用されない」でも、起きていることは一つではありません。直す場所を間違えないために、まず状態を3つに分けます。</p>
+<table class="cost-table">
+<tr><th>状態</th><th>起きていること</th><th>最初に見るところ</th></tr>
+<tr><td>A. AI概要が出ていない</td><td>そのキーワードでは、AI による概要自体が表示されていない</td><td>自社ページではなく、キーワードの性質</td></tr>
+<tr><td>B. 他サイトが引用されている</td><td>AI概要は出ているが、引用元のリンクに自社ページが入っていない</td><td>答えの位置・周辺の論点・スニペットの設定</td></tr>
+<tr><td>C. 引用が毎回変わる</td><td>引用される日とされない日がある、人によって見え方が違う</td><td>1回の結果で判断せず、記録を取って傾向を見る</td></tr>
+</table>
+<p>Googleのヘルプでは、AI による概要は<strong>すべての検索で表示されるわけではなく、生成AIが特に役立つとシステムが判断した場合に表示される</strong>と説明されています（出典：<a href="https://support.google.com/websearch/answer/14901683?hl=ja" target="_blank" rel="noopener">Google 検索の AI による概要で、情報をすばやく簡単に見つける｜Google 検索 ヘルプ</a>）。Aの状態なら、自社ページをいくら直しても引用は生まれません。</p>
+<p>また、順位と引用の関係について、Ahrefsは2025年7月に、AI概要が出た100万キーワードを分析した結果を公開しています。検索1位のページがAI概要の上位3件に引用される割合は約50%で、順位と引用の相関は中程度（スピアマン相関係数0.347）でした（出典：<a href="https://ahrefs.com/blog/ja/does-ranking-higher-on-google-mean-youll-get-cited-in-ai-overviews" target="_blank" rel="noopener">Googleでの上位表示が AI による概要の引用に直結？｜Ahrefs</a>）。<strong>上位であることは有利ですが、引用を約束するものではない</strong>、というのが出発点です。</p>
+
+<h2 id="check">自分で確かめる：15分でできる確認手順</h2>
+<p>原因を探す前に、いまの状態を記録します。あとで直したときに「変わったのか」を比べるためです。</p>
+<div class="checklist">
+<p class="checklist__title">確認の手順</p>
+<ul>
+<li><strong>狙っているキーワードを5〜10個に絞る：</strong>Search Consoleの検索パフォーマンスで、自社ページが10位以内に入っているクエリから選ぶ</li>
+<li><strong>ログアウトした状態（シークレットウィンドウ）で検索する：</strong>普段の検索履歴の影響をできるだけ避ける</li>
+<li><strong>AI概要が出たかどうかを記録する：</strong>出ない場合は「A」として、その日の結果を残す</li>
+<li><strong>出た場合は引用元をすべて控える：</strong>AI概要内のリンクを開き、どのサイトのどのページかをURLで記録する</li>
+<li><strong>AI概要の文章と、引用元の本文を見比べる：</strong>回答のどの一文が、引用元のどの段落から来ているかを確かめる</li>
+<li><strong>自社ページの同じ論点の書き方を見る：</strong>同じことが書いてあるか、書いてあるならページのどこにあるかを確認する</li>
+<li><strong>日をあけて3回、同じ条件で繰り返す：</strong>1回で判断せず、Cの状態かどうかを見分ける</li>
+</ul>
+</div>
+<p>手順の5つ目が一番大事です。引用元のページと自社ページを並べると、「引用元は冒頭の2行で答えている」「自社ページは同じことを4つ目の見出しの中で書いている」のように、差がはっきり見えることが多いです。</p>
+<div class="highlight-card">
+<p><strong>記録の目安：</strong>キーワード・日付・AI概要の有無・引用元URL・自社ページの順位の5項目を、表に1行ずつ残します。ここで作った表が、直したあとの比較の基準になります。</p>
+</div>
+
+<h2 id="causes">引用されない主な原因5つ</h2>
+<h3>原因1：スニペットを制限する設定が付いている</h3>
+<p>Googleは、検索に表示されるページの情報を制限する方法として、nosnippet・data-nosnippet・max-snippet・noindexを挙げています（出典：<a href="https://developers.google.com/search/docs/appearance/ai-overviews?hl=ja" target="_blank" rel="noopener">AI 機能とウェブサイト｜Google 検索セントラル</a>）。テーマやプラグインの設定で、本文の要所にdata-nosnippetが付いていたり、max-snippetの値が小さく設定されていたりすると、AI機能で使える範囲が狭くなります。順位は出ているのに引用だけされない場合、最初に疑う場所です。</p>
+<h3>原因2：答えがページの奥に埋もれている</h3>
+<p>検索の上位は、ページ全体の評価で決まります。一方、AI概要が引用するのは、質問に対する答えになっている部分です。前置きや会社紹介が長く、肝心の答えが中盤以降にある、答えが表や画像の中にしかない、といったページは、上位でも引用されにくくなります。当社が実務で見ている範囲でも、<strong>引用されているページは、見出しの直後に1〜2文で答えを言い切っていることが多い</strong>です。</p>
+<h3>原因3：AIが調べた周辺の論点に答えていない</h3>
+<p>Googleは、AI概要やAIモードが、関連する複数のサブトピックやデータソースに対して検索を実行し、それをもとに回答を組み立てる「クエリ ファンアウト」という手法を使うことがあると説明しています（出典：<a href="https://developers.google.com/search/docs/appearance/ai-overviews?hl=ja" target="_blank" rel="noopener">AI 機能とウェブサイト｜Google 検索セントラル</a>）。たとえば「◯◯ 費用」で上位でも、AIが「費用の内訳」「安くする方法」「注意点」を別々に調べ、それぞれに答えている別のページを引用することがあります。自社ページがメインの問いにしか答えていないと、周辺の論点で引用を取られます。</p>
+<h3>原因4：上位に出ている理由と、AI概要の問いがずれている</h3>
+<p>同じキーワードでも、検索結果の上位と、AI概要がまとめる内容が一致するとは限りません。自社ページが「会社紹介」や「サービス案内」として上位に出ている一方、AI概要は「やり方」や「原因」の説明をまとめている、というケースです。この場合は、サービスページを直すより、問いに答える解説ページを別に用意したほうが早いことがあります。</p>
+<h3>原因5：内容が古い、または根拠が見えない</h3>
+<p>料金・制度・仕様など、時期によって変わる情報は、更新日が新しく、出典が明示されたページが引用されやすいと当社は見ています。数年前の数字が残っている、根拠が書かれていない、といったページは、上位に残っていても引用の候補から外れやすくなります。</p>
+
+<h2 id="fix">原因別の直し方と、直す順番</h2>
+<p>直す順番は、<strong>手間が小さく、効果の確認がしやすいもの</strong>からです。</p>
+<table class="cost-table">
+<tr><th>順番</th><th>やること</th><th>確認方法</th></tr>
+<tr><td>1</td><td>meta robotsとHTMLを確認し、意図しないnosnippet・data-nosnippet・max-snippetを外す</td><td>ページのソースを表示して検索する。URL検査ツールで再クロールを依頼する</td></tr>
+<tr><td>2</td><td>各見出しの直後に、問いへの答えを1〜2文で書く。表や画像の中だけにある答えは本文にも書く</td><td>引用元のページと並べて、答えの位置が同じくらい前にあるかを見る</td></tr>
+<tr><td>3</td><td>AI概要の文章を分解し、自社ページが答えていない論点を見出しとして足す</td><td>確認手順で控えた引用元が、どの論点で引用されているかを照らし合わせる</td></tr>
+<tr><td>4</td><td>古い数字や制度の記述を更新し、出典と確認日を書く</td><td>更新日と出典が本文に入っているか</td></tr>
+<tr><td>5</td><td>問いがずれている場合は、解説ページを別に作り、サービスページからリンクする</td><td>新しいページがインデックスされ、狙うクエリで表示が出始めたか</td></tr>
+</table>
+<div class="highlight-card highlight-card--warning">
+<p><strong>やりすぎ注意：</strong>Googleは、AI による概要やAIモードに表示されるための追加の要件はなく、特別な最適化も必要ないと説明しています（出典：<a href="https://developers.google.com/search/docs/appearance/ai-overviews?hl=ja" target="_blank" rel="noopener">AI 機能とウェブサイト｜Google 検索セントラル</a>）。「AI向けのファイルを置けば引用される」「専用の構造化データが必須」といった提案には、公式の裏付けがありません。まずは本文の答え方を直してください。</p>
+</div>
+<p>周辺の論点を足すときは、1ページに詰め込みすぎないことも大切です。論点が大きく異なるなら、別のページに分けて内部リンクでつなぐほうが、それぞれの問いに正面から答えやすくなります。</p>
+
+<h2 id="measure">効果の見方：Search Consoleで分かること・分からないこと</h2>
+<p>Googleは、AI機能に表示されたサイトのトラフィックも、Search Consoleの検索タイプ「ウェブ」の検索パフォーマンスに含まれると説明しています（出典：<a href="https://developers.google.com/search/docs/appearance/ai-overviews?hl=ja" target="_blank" rel="noopener">AI 機能とウェブサイト｜Google 検索セントラル</a>）。つまり、表示回数やクリック数の変化は見られますが、<strong>どれがAI概要経由かを分けて見る項目は、公式ヘルプでは案内されていません</strong>。</p>
+<p>そのため、効果の確認は2つを組み合わせます。</p>
+<ul>
+<li><strong>Search Console：</strong>直したページの、狙うクエリでの表示回数・クリック数・平均掲載順位を、直す前の4週間と直した後の4週間で比べる</li>
+<li><strong>検索画面の記録：</strong>確認手順で作った表を、週1回同じ条件で更新し、引用元に自社ページが入った回数を数える</li>
+</ul>
+<p>表示回数が多いのにクリックが少ない状態の見方は、<a href="https://lnx.co.jp/column/seo/search-console-impressions-no-clicks/">Search Consoleで表示されるのにクリック0の原因</a>でも整理しています。</p>
+<p>自社メディアでは、質問に答える構成と継続的な更新を続けた結果、生成AI側の指標も伸びました。</p>
+<figure class="result-figure">
+<img alt="生成AIインプレッションの推移グラフと、AIOスコア91点の項目別内訳を示した画面" loading="lazy" src="../../../assets/img/work28.webp"/>
+<figcaption><strong>生成AIインプレッション 約7倍／AIOスコア 91点（100点満点・Bランク）</strong>（LnX自社オウンドメディアでの実測）。スコアは外部提供のAIO評価ツールによるもので、構造化データ・FAQ・サイト動線・技術基盤の4領域で採点されています。<span class="result-figure__source">出典：LnX合同会社 支援実績（<a href="https://lnx.co.jp/cases/seo-aio-owned-media/">事例詳細はこちら</a>）</span></figcaption>
+</figure>
+<p>この数字は自社メディアでの結果で、他のサイトで同じ結果を保証するものではありません。</p>
+
+<h2 id="judge">それでも引用されないときの判断の目安</h2>
+<p>上の5つを直しても変わらない場合は、次の目安で、追い続けるか、別の打ち手に移るかを判断します。</p>
+<div class="checklist">
+<p class="checklist__title">判断の目安</p>
+<ul>
+<li><strong>4〜6週間、記録を続けても引用ゼロ：</strong>そのキーワードは、引用元が大手メディアや公式サイトで固まっている可能性が高い。より具体的な悩みのキーワードに移る</li>
+<li><strong>AI概要がほとんど出ない：</strong>状態Aのキーワード。引用ではなく、通常の検索順位とクリック率の改善に集中する</li>
+<li><strong>引用されたりされなかったりする：</strong>状態C。直す方向は合っているので、同じ書き方を関連ページにも広げる</li>
+<li><strong>順位自体が落ちてきた：</strong>引用より先に、検索流入の減少として原因を切り分ける</li>
+</ul>
+</div>
+<p>順位が落ちてきた場合の切り分けは、<a href="https://lnx.co.jp/column/seo/search-traffic-drop-diagnosis/">検索流入が減った原因を切り分ける手順｜AI概要も確認</a>を参考にしてください。</p>
+
+<h2 id="lnx-view">LnXの見解</h2>
+<p>「上位なのに引用されない」相談を受けて実際に画面を並べると、<strong>原因は技術的な設定よりも、答え方にあることがほとんどです</strong>。上位に出ているページは、検索エンジンからの評価はすでに得ています。足りないのは、AIが一文を抜き出しやすい形で答えているかどうかです。見出しの直後で言い切る、周辺の論点にも答える、根拠と確認日を書く。この3つは、人間の読者にとっても読みやすいページの条件と同じです。</p>
+<p>一方で、AI概要の表示や引用元は検索のたびに変わり、自社だけでは管理できない部分も残ります。引用を一つずつ追いかけるより、悩みが具体的なキーワードで、質問に正面から答えるページを増やしていくほうが、結果として引用の機会も増えると当社は考えています。どのキーワードから手を付けるか迷う場合は、現在のSearch Consoleのデータをもとに一緒に整理できます。</p>
+<p>※Googleの仕様や画面は更新されます。実際の作業前に最新の公式情報も確認してください。</p>
+<div class="article-cta">
+<p class="article-cta__label">SEO・AIO対策／オウンドメディア運用代行</p>
+<div class="article-cta__title">上位なのに引用されないページを、引用元と並べて診断します</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/aio-lp/">SEO・AIO対策の詳細を見る</a>
+</div>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>検索1位なら、AI Overviewにも必ず引用されますか？</summary><div class="article-faq__body"><p>必ずではありません。Ahrefsが2025年に公開した100万キーワードの調査では、検索1位のページがAI Overviewの上位3件に引用される割合は約50%でした。順位と引用には相関がありますが、上位でも引用されない状態は珍しくありません。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>AI Overviewに引用されるために、特別な設定やファイルは必要ですか？</summary><div class="article-faq__body"><p>Googleは、AI による概要やAIモードに表示されるための追加の要件はなく、特別な最適化も不要だと説明しています。条件は、ページがインデックスに登録され、検索でスニペットが表示できる状態であることです。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>引用されたかどうかは、Search Consoleで分かりますか？</summary><div class="article-faq__body"><p>AI機能に表示されたサイトのトラフィックは、Search Consoleの検索タイプ「ウェブ」の検索パフォーマンスに含まれます。ただし、AI Overview経由かどうかを分けて見る項目は公式ヘルプでは案内されていないため、実際の検索画面を定期的に記録して補います。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>同じキーワードでも、AI Overviewが出たり出なかったりするのはなぜですか？</summary><div class="article-faq__body"><p>Googleのヘルプでは、AI による概要はすべての検索で表示されるわけではなく、生成AIが特に役立つとシステムが判断した場合に表示されると説明されています。表示や引用元は検索のたびに変わることがあるため、日をあけて複数回確認してください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>nosnippetを付けているページは引用されますか？</summary><div class="article-faq__body"><p>Googleは、nosnippet・data-nosnippet・max-snippet・noindexで、検索に表示されるページの情報を制限できると説明しています。これらの設定で本文の表示を制限していると、AI機能で使われる範囲も狭まるため、意図せず付いていないかを確認してください。</p></div></details>
+</div>
+
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/seo/ai-overview-taisaku/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ AI Overview対策｜引用されるページの作り方</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/seo/check-ai-citation/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ ChatGPTやAI概要で自社の引用を確認する方法</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/seo/search-traffic-drop-diagnosis/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 検索流入が減った原因を切り分ける手順｜AI概要も確認</a></li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用・AI活用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#states">「上位なのに引用されない」は3つの状態に分かれる</a></li><li><a href="#check">自分で確かめる：15分でできる確認手順</a></li><li><a href="#causes">引用されない主な原因5つ</a></li><li><a href="#fix">原因別の直し方と、直す順番</a></li><li><a href="#measure">効果の見方：Search Consoleで分かること・分からないこと</a></li><li><a href="#judge">それでも引用されないときの判断の目安</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo.webp" alt="LnX合同会社ロゴ" class="t-footer__logo">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>
