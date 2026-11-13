@@ -1,0 +1,6 @@
+#!/bin/sh
+# TOP用CSSの元ファイルがコミットに含まれていたら、結合版を作り直して一緒にコミットする
+cd "$(git rev-parse --show-toplevel)"
+if git diff --cached --name-only | grep -qE '^assets/css/(styles|site-v4|top-bg03|top-rope|top-motion|top-adpick|top-renewal)\.css$'; then
+  sh tools/build-top-css.sh && git add assets/css/top.bundle.css index.html
+fi
