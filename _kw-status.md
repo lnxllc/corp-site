@@ -3,7 +3,8 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-12（SEO・Webマーケ各1本追加）
+- 最終更新：2026-11-13（広告・SNS各1本追加）
+- （旧）最終更新：2026-11-12（SEO・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-11（LP改善・SNS各1本追加）
 - （旧）最終更新：2026-11-10（SEO・SNS各1本追加）
 - （旧）最終更新：2026-11-09（計測・Webマーケ各1本追加）
@@ -279,6 +280,10 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-11-11 | インスタ ストーリー 閲覧数 急に減った 原因 | Search Consoleで「インスタ フォロワー 減る/増えない」系の表示が継続（関連する悩み）。ストーリーズ閲覧数の急減は検索結果に実在し、既存はフォロワー減少・リールのみで正面から答える記事が無い | アシスト（ハウスケアラボ、出典なし・足跡中心）・jbc・find-model等の個人/メディアブログ。Instagram公式（Ranking Explained）のストーリーズの3シグナルに基づいて事業用に切り分けるページが少ない | column/sns-marketing/instagram-story-views-sudden-drop/ |
 | 2026-11-12 | AI Overview 引用されない 上位 | Search Console（28日）で「ai overview 表示 されない」（表示4・平均80位）など、AI概要に関するクエリの表示が継続。既存はai-overview-taisaku（引用される作り方の総論）のみで「上位なのに引用されない」切り分けに正面から答える記事が無い | koukoku.jp（3層診断・本文に出典URLなし）・ahrefs（データ記事）・0120.co.jp・seo.com（英語）。Ahrefsの「1位でも引用は約50%」とGoogle公式（スニペット制御・クエリファンアウト・特別な最適化不要）に基づき、3状態の見分けと引用元との突き合わせ手順で差別化 | column/seo/ai-overview-not-cited-despite-ranking/ |
 | 2026-11-12 | 工務店 ホームページ 問い合わせ 来ない | Search Console該当なし。「工務店 ホームページ 問い合わせ 来ない 原因」は検索結果に実在（biz.ne.jp等のQ&Aあり）。既存に工務店・住宅向け記事なし（税理士版の業種展開） | shopowner-support（Zenken、出典なし・切り分け手順なし）・stock-sun・crexgroup・issoh・biz.ne.jp。4関門（見つからない／比べられない／一歩が重い／数えられていない）の切り分けとGoogle公式（site:検索・ローカル順位の3要素）で差別化 | column/web-marketing/builder-website-no-inquiries/ |
+| 2026-11-13 | Google広告 無効なクリック 多い（競合 いたずら クリック） | Search Console（28日）は読めたが該当クエリなし。「リスティング広告 競合 わざとクリック」は相談として実在。既存は除外設定・CPC急上昇のみで無効なクリックに正面から答える記事が無い | Google広告ヘルプ（定義のみ）・英語のクリック詐欺対策ツール（lunio・ClickGuard）・2007年の公式ブログ。日本語で「無効なクリック」列→原因5つ→クレジット→クリック品質フォームの準備まで通したページが少ない | column/advertising/google-ads-invalid-clicks/ |
+| 2026-11-13 | YouTubeショート 再生回数 伸びない 企業 | Search Console該当なし。「YouTubeショート 再生回数 伸びない 止まる」は検索結果に実在。既存はショート動画の媒体使い分けのみで正面から答える記事が無い | pamxy（2025-04更新・公式出典なし・「低再生は削除」推奨）・smashballoon（翻訳記事）・addness・tatap。YouTube Studioの「フィードで表示／視聴を選択したユーザー数」で状態を3つに分ける手順と、2026-08-24の視聴回数カウント変更（公式ヘルプ）で差別化 | column/sns-marketing/youtube-shorts-views-not-growing/ |
+
+**メモ（2026-11-13）**：前回(11-12)の送客先はaio-lp/marke-comon-lpだったため、今回は前回未使用のad-lp（advertising）とcontact.html（sns-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/出稿50万以上は20%・簡易LP10万円〜・最低6か月）とcontact.htmlは10/21更新のまま変更なし。column合計312本（seo58＋クロス掲載1／ai-katsuyo41／advertising66／web-marketing60／lp-improvement27／sns-marketing32／analytics28）、sitemapのcolumn記事URLは312件。titleは全角換算で31.0／29.5。Search Consoleは読めた（Chrome接続、738行。今回のKWに直接のクエリはなし）。自社実績は両記事とも該当なし（画像マスタ05は読込済み。work19は「LTV最適化」で無効クリックの文脈と異なるため不使用）。FVスクショ対象記事なし。出典：Google 広告 ヘルプ（42995・11182074・16826168）、YouTube ヘルプ（12942217・2991785）、Impress Watch（2133635）。**気づき**：YouTubeは2026-08-24から全形式で再生開始時点を視聴回数として数える方式に変更（公式ヘルプ）。既存のshort-video-platform-strategyなどで旧カウント前提の記述があれば週次リライト候補。次回はaio-lp・marke-comon-lp・contact.html?type=ai優先。
 
 **メモ（2026-11-05）**：前回(11-04)の送客先はaio-lp/contact.html?type=snsだったため、今回はad-lp（analytics）とmarke-comon-lp（web-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/20%・最低6か月）とmarke-comon-lp（8/15/30万円・最低3か月・CMO代行50万〜）は前回から変更なし。column合計300本（seo55＋クロス掲載1／ai-katsuyo40／advertising65／web-marketing58／lp-improvement26／sns-marketing29／analytics27）、sitemapのcolumn URLは308件（index等8件を含む）。自社実績は画像マスタに該当なしのため差し込まず。FVスクショ対象記事なし。
 
