@@ -3961,7 +3961,7 @@ br.only-sp-br{ display:none !important; }
   padding-top:54px;
   padding-bottom:30px;
 }
-.t-footer__logo{height:34px;}
+.t-footer__logo{height:34px;width:auto;} /* 幅は縦横比から決める（img の width/height 属性が幅として効かないように） */
 .t-footer__brand p{margin:10px 0 0; font-weight:800;}
 .t-footer__desc{
   font-weight:400 !important;
