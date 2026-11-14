@@ -1,6 +1,19 @@
 #!/bin/sh
-# TOP用CSSの元ファイルがコミットに含まれていたら、結合版を作り直して一緒にコミットする
+# コミット時の自動処理（tools/pre-commit → .git/hooks/pre-commit にコピーして使う）
 cd "$(git rev-parse --show-toplevel)"
+
+# 1. TOP用CSSの元ファイルがコミットに含まれていたら、結合版を作り直して一緒にコミットする
 if git diff --cached --name-only | grep -qE '^assets/css/(styles|site-v4|top-bg03|top-rope|top-motion|top-adpick|top-renewal)\.css$'; then
   sh tools/build-top-css.sh && git add assets/css/top.bundle.css index.html
 fi
+
+# 2. 記事（column/）・事例（cases/）ページは表示速度を優先して Google Fonts を読み込まない（2026-11-14〜）。
+#    既存記事をもとに作った新しいページに読み込みが残っていたら、ここで外して一緒にコミットする。
+git diff --cached --name-only --diff-filter=ACM | grep -E '^(column|cases)/.*\.html$' | while IFS= read -r f; do
+  if grep -q 'fonts\.googleapis\.com\|fonts\.gstatic\.com' "$f"; then
+    sed -i -E '/<link[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>/d' "$f"
+    git add "$f"
+    echo "pre-commit: Google Fonts の読み込みを外しました: $f"
+  fi
+done
+exit 0
