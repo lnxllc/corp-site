@@ -233,11 +233,12 @@ body.top-v4 .v3-scope[data-v4-no]::after{color:rgba(255,255,255,.09)}
 /* 淡い面のセクション */
 /* 淡色セクション。境界に波を敷くぶん、地の色は白と差が出る濃さにする
    （詳細は末尾「10. セクションの境目の波」） */
+/* 上端の白い波は、背景画像だとスマホでLCP（最大の要素）に選ばれて計測が不安定になるため、
+   index.html の <svg class="v4-wave-top"> で同じ形を描く（見た目は同じ。2026-11-14） */
 body.top-v4 .v3-pain{
-  background:
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
-    #EDF5FF!important;
+  background:#EDF5FF!important;
 }
+body.top-v4 .v3-pain > .v4-wave-top{position:absolute;left:0;top:0;width:100%;height:var(--v4-wv);display:block;pointer-events:none}
 body.top-v4 .v3-cases{
   background:
     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 220' preserveAspectRatio='none'><g><path fill='rgb(255,255,255)' d='M-60,100 C 150,52 320,30 540,48 C 740,65 870,148 1100,156 C 1280,162 1380,130 1500,108 L1500,-20 L-60,-20 Z'/></g></svg>") top center / 100% var(--v4-wv) no-repeat,
