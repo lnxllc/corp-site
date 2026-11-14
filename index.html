@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- CSS：TOP用の結合版（元は styles / site-v4 / top-bg03 / top-rope / top-motion / top-adpick / top-renewal の7ファイル）。
        元ファイルを直したら tools/build-top-css.sh で作り直す（コミット時は pre-commit フックが自動実行） -->
-  <link rel="stylesheet" href="assets/css/top.bundle.css?v=ab298013" />
+  <link rel="stylesheet" href="assets/css/top.bundle.css?v=2c6495f9" />
   <script>
   /* FV見出し：初回描画の前に「隠した状態」を決めておき、読み込み後に左→右で出す */
   (function(){
@@ -205,6 +205,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="cwh fv--bg bg-constellation">
   <div class="bg-host" data-bg="constellation" aria-hidden="true"></div>
   <div class="bg-scrim" aria-hidden="true"></div>
+  <!-- 紙目ノイズ：背景画像だとLCP（最大の要素）の候補になって計測が遅れるので、同じSVGをページ内に直接置く -->
+  <svg class="cwh__noise" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><filter id="cwhNoiseF"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/></filter><pattern id="cwhNoiseP" width="140" height="140" patternUnits="userSpaceOnUse"><rect width="140" height="140" filter="url(#cwhNoiseF)"/></pattern><rect width="100%" height="100%" fill="url(#cwhNoiseP)"/></svg>
   <div class="cwh__grid" aria-hidden="true"></div>
   <div class="cwh__diag" aria-hidden="true"></div>
   <svg class="cwh__bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -250,7 +252,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <p class="cwh__brand">
       <span class="cwh__brandLine" aria-hidden="true"></span>
-      <span class="cwh__brandText">Digital Marketing Company</span>
+      <span class="cwh__brandText" aria-label="Digital Marketing Company" data-split="1"><span aria-hidden="true" style="--c:0">D</span><span aria-hidden="true" style="--c:1">i</span><span aria-hidden="true" style="--c:2">g</span><span aria-hidden="true" style="--c:3">i</span><span aria-hidden="true" style="--c:4">t</span><span aria-hidden="true" style="--c:5">a</span><span aria-hidden="true" style="--c:6">l</span><span aria-hidden="true" style="--c:7">&nbsp;</span><span aria-hidden="true" style="--c:8">M</span><span aria-hidden="true" style="--c:9">a</span><span aria-hidden="true" style="--c:10">r</span><span aria-hidden="true" style="--c:11">k</span><span aria-hidden="true" style="--c:12">e</span><span aria-hidden="true" style="--c:13">t</span><span aria-hidden="true" style="--c:14">i</span><span aria-hidden="true" style="--c:15">n</span><span aria-hidden="true" style="--c:16">g</span><span aria-hidden="true" style="--c:17">&nbsp;</span><span aria-hidden="true" style="--c:18">C</span><span aria-hidden="true" style="--c:19">o</span><span aria-hidden="true" style="--c:20">m</span><span aria-hidden="true" style="--c:21">p</span><span aria-hidden="true" style="--c:22">a</span><span aria-hidden="true" style="--c:23">n</span><span aria-hidden="true" style="--c:24">y</span></span>
     </p>
 
     <h1 class="cwh__title cwh__title--band">

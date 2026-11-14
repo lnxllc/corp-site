@@ -24,12 +24,10 @@ body.top-v4 .cwh.fv--bg{
   background:linear-gradient(135deg,#08205C 0%,#0F3A9E 34%,#1E6BFF 66%,#35C0F2 100%);
   color:#fff;
 }
-/* 紙目ノイズ（TASTE-01）：幕の上・本文の下 */
-body.top-v4 .cwh.fv--bg::after{
-  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:140px;
-}
+/* 紙目ノイズ（TASTE-01）：幕の上・本文の下。
+   以前は ::after の背景画像（同じSVG）だったが、背景画像はLCPの候補になり計測が遅れるため、
+   index.html の <svg class="cwh__noise"> で同じノイズを描く（見た目は同じ） */
+body.top-v4 .cwh.fv--bg .cwh__noise{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.05}
 /* 旧背景（方眼・斜線・y=ln x の帯・透かし文字）と3Dロゴは、球体と役割が重なるので出さない */
 body.top-v4 .cwh.fv--bg .cwh__grid,
 body.top-v4 .cwh.fv--bg .cwh__diag,

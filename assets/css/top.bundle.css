@@ -6726,12 +6726,10 @@ body.top-v4 .cwh.fv--bg{
   background:linear-gradient(135deg,#08205C 0%,#0F3A9E 34%,#1E6BFF 66%,#35C0F2 100%);
   color:#fff;
 }
-/* 紙目ノイズ（TASTE-01）：幕の上・本文の下 */
-body.top-v4 .cwh.fv--bg::after{
-  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:140px;
-}
+/* 紙目ノイズ（TASTE-01）：幕の上・本文の下。
+   以前は ::after の背景画像（同じSVG）だったが、背景画像はLCPの候補になり計測が遅れるため、
+   index.html の <svg class="cwh__noise"> で同じノイズを描く（見た目は同じ） */
+body.top-v4 .cwh.fv--bg .cwh__noise{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.05}
 /* 旧背景（方眼・斜線・y=ln x の帯・透かし文字）と3Dロゴは、球体と役割が重なるので出さない */
 body.top-v4 .cwh.fv--bg .cwh__grid,
 body.top-v4 .cwh.fv--bg .cwh__diag,
@@ -7744,6 +7742,39 @@ html.fv-anim body.top-v4 :is(.cwh__title--band,.t-bandwrap).is-in .t-band__txt{c
 body.top-v4 .t-ceo__copy.t-bandwrap{line-height:1.95!important;letter-spacing:.01em!important}
 /* 既存の「コピー全体を拭き取り」は帯の動きと重なるので外す */
 html.t-motion body.top-v4 .t-ceo__inner[data-v4-rv] .t-ceo__copy.t-bandwrap{clip-path:none;transition:none}
+
+/* =========================================================
+   FV：JSの読み込みを待たずに、表示直後から再生する（2026-11-14）
+   これまで「Digital Marketing Company」は top-motion.js / top-v4.js（defer）が付ける
+   html.t-motion と body.is-ready を、黒帯の見出しは DOMContentLoaded 後の .is-in を待ってから
+   動き始めていた。動き（時間・遅延・イージング）は同じまま、CSSアニメーションで最初から再生する。
+   html.fv-anim は index.html の<head>で付ける（「視差効果を減らす」設定では付かない＝静止で表示）。
+   文字の分割（1文字ずつの span）は index.html 側で済ませてある（data-split="1"）。
+   ========================================================= */
+@keyframes fvBrandLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes fvBrandFade{from{opacity:0}to{opacity:1}}
+@keyframes fvBrandRise{from{transform:translateY(.7em);filter:blur(4px)}to{transform:none;filter:none}}
+@keyframes fvBand{from{background-size:0% 100%}to{background-size:100% 100%}}
+@keyframes fvBandTxt{from{clip-path:inset(-.3em 100% -.3em 0)}to{clip-path:inset(-.3em 0 -.3em 0)}}
+html.fv-anim body.top-v4 .cwh__brandLine{
+  transform-origin:0 50%;transition:none;
+  animation:fvBrandLine .9s cubic-bezier(.65,0,.35,1) .1s both;
+}
+html.fv-anim body.top-v4 .cwh__brandText > span{
+  transition:none;
+  animation:fvBrandFade .5s ease both,fvBrandRise .6s cubic-bezier(.16,1,.3,1) both;
+  animation-delay:calc(.35s + var(--c,0) * 28ms);
+}
+html.fv-anim body.top-v4 .cwh__title--band .t-band{
+  transition:none;
+  animation:fvBand .6s cubic-bezier(.65,0,.35,1) both;
+  animation-delay:calc(var(--i,0) * .16s + .1s);
+}
+html.fv-anim body.top-v4 .cwh__title--band .t-band__txt{
+  transition:none;
+  animation:fvBandTxt .55s cubic-bezier(.65,0,.35,1) both;
+  animation-delay:calc(var(--i,0) * .16s + .45s);
+}
 
 
 /* ===== top-adpick.css ===== */

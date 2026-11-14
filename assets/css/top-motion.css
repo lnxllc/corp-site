@@ -876,3 +876,36 @@ html.fv-anim body.top-v4 :is(.cwh__title--band,.t-bandwrap).is-in .t-band__txt{c
 body.top-v4 .t-ceo__copy.t-bandwrap{line-height:1.95!important;letter-spacing:.01em!important}
 /* 既存の「コピー全体を拭き取り」は帯の動きと重なるので外す */
 html.t-motion body.top-v4 .t-ceo__inner[data-v4-rv] .t-ceo__copy.t-bandwrap{clip-path:none;transition:none}
+
+/* =========================================================
+   FV：JSの読み込みを待たずに、表示直後から再生する（2026-11-14）
+   これまで「Digital Marketing Company」は top-motion.js / top-v4.js（defer）が付ける
+   html.t-motion と body.is-ready を、黒帯の見出しは DOMContentLoaded 後の .is-in を待ってから
+   動き始めていた。動き（時間・遅延・イージング）は同じまま、CSSアニメーションで最初から再生する。
+   html.fv-anim は index.html の<head>で付ける（「視差効果を減らす」設定では付かない＝静止で表示）。
+   文字の分割（1文字ずつの span）は index.html 側で済ませてある（data-split="1"）。
+   ========================================================= */
+@keyframes fvBrandLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes fvBrandFade{from{opacity:0}to{opacity:1}}
+@keyframes fvBrandRise{from{transform:translateY(.7em);filter:blur(4px)}to{transform:none;filter:none}}
+@keyframes fvBand{from{background-size:0% 100%}to{background-size:100% 100%}}
+@keyframes fvBandTxt{from{clip-path:inset(-.3em 100% -.3em 0)}to{clip-path:inset(-.3em 0 -.3em 0)}}
+html.fv-anim body.top-v4 .cwh__brandLine{
+  transform-origin:0 50%;transition:none;
+  animation:fvBrandLine .9s cubic-bezier(.65,0,.35,1) .1s both;
+}
+html.fv-anim body.top-v4 .cwh__brandText > span{
+  transition:none;
+  animation:fvBrandFade .5s ease both,fvBrandRise .6s cubic-bezier(.16,1,.3,1) both;
+  animation-delay:calc(.35s + var(--c,0) * 28ms);
+}
+html.fv-anim body.top-v4 .cwh__title--band .t-band{
+  transition:none;
+  animation:fvBand .6s cubic-bezier(.65,0,.35,1) both;
+  animation-delay:calc(var(--i,0) * .16s + .1s);
+}
+html.fv-anim body.top-v4 .cwh__title--band .t-band__txt{
+  transition:none;
+  animation:fvBandTxt .55s cubic-bezier(.65,0,.35,1) both;
+  animation-delay:calc(var(--i,0) * .16s + .45s);
+}
