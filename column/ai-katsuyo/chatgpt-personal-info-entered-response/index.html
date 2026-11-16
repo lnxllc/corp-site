@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>ChatGPTに個人情報を入力してしまった時の会社の初動 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/ai-katsuyo/chatgpt-personal-info-entered-response/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="ChatGPTに個人情報を入力してしまった時の会社の初動 | LnX合同会社"/>
+<meta property="og:description" content="社員がChatGPTに個人情報を入力してしまったときに会社がやることを解説。消す前に記録する最初の1時間の手順、影響の大きさを決める4つの確認、OpenAI公式ヘルプに基づく削除と学習設定の注意点、個人情報保護法の漏えい等報告の観点、本人・取引先への連絡、再発防止の仕組みまでまとめています。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/ai-katsuyo/chatgpt-personal-info-entered-response/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ChatGPTに個人情報を入力してしまった時の会社の初動 | LnX合同会社"/>
+<meta name="twitter:description" content="社員がChatGPTに個人情報を入力してしまったときに会社がやることを解説。消す前に記録する最初の1時間の手順、影響の大きさを決める4つの確認、OpenAI公式ヘルプに基づく削除と学習設定の注意点、個人情報保護法の漏えい等報告の観点、本人・取引先への連絡、再発防止の仕組みまでまとめています。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta content="社員がChatGPTに個人情報を入力してしまったときに会社がやることを解説。消す前に記録する最初の1時間の手順、影響の大きさを決める4つの確認、OpenAI公式ヘルプに基づく削除と学習設定の注意点、個人情報保護法の漏えい等報告の観点、本人・取引先への連絡、再発防止の仕組みまでまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicon-180.webp">
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 13.5px; }
+    .compare-table th, .compare-table td { border: 1px solid rgba(15,23,42,.12); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare-table th { background: rgba(37,99,235,.06); font-weight: 800; color: var(--txt); }
+    .compare-table td { color: rgba(15,23,42,.78); }
+    .scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0 0 28px; }
+    .scope-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2); }
+    .scope-card__head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .scope-card__icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 16px; flex: 0 0 auto; background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(124,58,237,.10)); }
+    .scope-card__name { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0; }
+    .scope-card__desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "\25A1"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 0 0 28px; }
+    .compare-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); }
+    .compare-card__label { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 8px; }
+    .compare-card h4 { margin: 0 0 10px; font-size: 15px; font-weight: 900; }
+    .compare-card ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-card li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(150deg, #1E6BFF, #0A2FA8); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .scope-grid { grid-template-columns: 1fr; } .compare-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .article-body { padding: 36px 0 56px; } }
+
+/* 出典・外部リンクはリンクと分かる見た目にする */
+.article-body a[target="_blank"]{color:var(--brand3);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.article-body a[target="_blank"]:hover{opacity:.75}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ChatGPTに個人情報を入力してしまった時の会社の初動｜消す前の記録・削除・報告の判断",
+  "description": "社員がChatGPTに個人情報を入力してしまったときに会社がやることを解説。消す前に記録する最初の1時間の手順、影響の大きさを決める4つの確認、OpenAI公式ヘルプに基づく削除と学習設定の注意点、個人情報保護法の漏えい等報告の観点、本人・取引先への連絡、再発防止の仕組みまでまとめています。",
+  "url": "https://lnx.co.jp/column/ai-katsuyo/chatgpt-personal-info-entered-response/",
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/ai-katsuyo/chatgpt-personal-info-entered-response/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI活用",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "ChatGPTに個人情報を入力してしまった時の会社の初動｜消す前の記録・削除・報告の判断",
+      "item": "https://lnx.co.jp/column/ai-katsuyo/chatgpt-personal-info-entered-response/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ChatGPTのチャットを削除すれば、入力した情報は完全に消えますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "画面からはすぐに消えますが、OpenAIの公式ヘルプでは、削除したチャットはシステムから30日以内に完全に削除されるとされています。セキュリティや法的な理由で保持が必要なものなどは例外です。削除しても入力した事実は残るため、削除の前に記録を取ってください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "事故の後に「学習に使わない」設定にすれば、その会話も学習から外れますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "外れません。OpenAIの公式ヘルプでは、設定をオフにした後の新しい会話が学習に使われなくなると説明されており、既存の会話は、オプトアウトしていなければ学習に使われる可能性があるとされています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "個人情報を入力したら、必ず個人情報保護委員会に報告しなければなりませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一律に必要とは限りません。報告の対象は、要配慮個人情報が含まれる、財産的被害のおそれがある、不正の目的による、1,000人を超える、の4つの事態とされています。生成AIへの入力が該当するかは個別の判断になるため、弁護士等の専門家や委員会の窓口に確認してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "法人向けプランなら、入力しても問題ありませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OpenAIは法人向けの環境でビジネスデータを学習に使わないと説明しており、個人アカウントより扱いは明確です。ただし、利用目的の範囲内か、取引先との契約で第三者のサービスへの入力が認められているかは別に確認が必要です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "社員が個人のアカウントで入力していた場合はどうすればよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "会社は個人アカウントの設定や記録を直接確認できないため、本人の協力を得て、画面の記録、学習設定の状態、共有リンクの有無を確認します。そのうえで削除を依頼し、今後は会社として用意したアカウントを使うよう案内します。"
+      }
+    }
+  ]
+}</script>
+</head>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="brand__logo" width="160" height="160">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/ai-katsuyo/">AI活用</a>
+<span class="sep">/</span>
+<span class="cur">ChatGPTに個人情報を入力してしまった時の会社の初動｜消す前の記録・削除・報告の判断</span>
+</nav>
+<p class="article-hero__kicker"><span></span>AI活用</p>
+<h1 class="article-hero__title">ChatGPTに個人情報を入力してしまった時の<br/>会社の初動</h1>
+<div class="article-hero__meta">
+<time datetime="2026-11-16">2026年11月16日</time>
+<span class="article-hero__tag">生成AI</span><span class="article-hero__tag">個人情報</span><span class="article-hero__tag">情報漏洩</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>社員がChatGPTに個人情報を入力してしまったときに、最初の1時間で会社がやること</li>
+<li>チャットを消す前に記録すべき項目と、影響の大きさを決める4つの確認</li>
+<li>ChatGPTで消せるもの・消しても残るもの（OpenAIの公式ヘルプに基づく）</li>
+<li>個人情報保護法の漏えい等報告に当たるかを確認するときの観点と、相談先</li>
+</ul>
+</div>
+<div class="highlight-card highlight-card--success">
+<p><strong>結論：</strong>社員がChatGPTに個人情報を入力してしまったら、まず本人を責めずに報告を受け、チャットを消す前に「何を・いつ・どのアカウントとプランで・学習設定はどうだったか」を記録します。そのうえで、会話の削除と共有リンクの停止を行います。OpenAIの公式ヘルプでは、削除したチャットは30日以内にシステムから完全に削除されるとされています。学習に使わない設定をオンにしても効くのは新しい会話からで、過去の会話はさかのぼって除外されません。個人情報保護法上の報告が必要かどうかは個別の判断になるため、記録をそろえたうえで、弁護士などの専門家や個人情報保護委員会の窓口に確認してください。</p>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#first-hour">最初の1時間でやること：消す前に記録する</a></li><li><a href="#scope">影響の大きさを決める4つの確認</a></li><li><a href="#delete">ChatGPTで消せるもの・消しても残るもの</a></li><li><a href="#law">個人情報保護法で確認すること</a></li><li><a href="#notify">本人・取引先への連絡をどう判断するか</a></li><li><a href="#prevent">同じことを起こさないための3つの仕組み</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="first-hour">最初の1時間でやること：消す前に記録する</h2>
+<p>「顧客の名前と電話番号が入ったリストを、そのまま貼ってしまった」「応募者の履歴書を要約させてしまった」。こうした報告を受けたとき、担当者がまずやりがちなのが、慌ててチャットを消すことです。ところが、消してしまうと<strong>何をどこまで入力したのかを後から確かめられなくなります</strong>。影響の大きさを判断する材料がなくなり、結果として「念のため全員に連絡する」といった過大な対応か、逆に「たぶん大丈夫」という根拠のない判断に流れやすくなります。</p>
+<p>最初の1時間は、次の順に進めます。</p>
+<ol>
+<li><strong>報告してくれたことを受け止める。</strong>叱責から入ると、次の事故が報告されなくなります。事実の確認に集中します。</li>
+<li><strong>画面を記録する。</strong>入力した内容が分かる部分をスクリーンショットで保存し、入力した日時、使ったサービス名、アカウント（会社契約か個人か）、プラン名をメモに残します。保存したスクリーンショット自体も個人情報なので、閲覧できる人を限定した場所に置きます。</li>
+<li><strong>共有リンクを止める。</strong>その会話の共有リンクを作っていた場合は、先に共有を停止します。社外に転送していないかも確認します。</li>
+<li><strong>窓口に上げる。</strong>情報システム担当、個人情報の管理責任者、経営者など、社内で決めた窓口に報告します。決まっていなければ、この時点で判断する人を1人決めます。</li>
+<li><strong>記録がそろってから会話を削除する。</strong>削除の手順と、削除しても残るものは後の章で説明します。</li>
+</ol>
+<div class="highlight-card highlight-card--warning">
+<p><strong>注意：</strong>会社で契約している法人向けプランでは、管理者が会話の記録を保持・確認できる設定になっている場合があります。本人が自分の画面で削除しても、会社側の記録がどう扱われるかは契約と管理画面の設定によるため、削除の前に管理者に確認してください。</p>
+</div>
+
+<h2 id="scope">影響の大きさを決める4つの確認</h2>
+<p>同じ「個人情報を入れてしまった」でも、影響の大きさは大きく変わります。記録をもとに、次の4つを確認します。</p>
+<table class="cost-table">
+<tr><th>確認すること</th><th>影響が小さい例</th><th>影響が大きくなる例</th></tr>
+<tr><td>1. 何を入れたか</td><td>氏名だけ、社内の担当者名だけ</td><td>病歴・障害・犯罪歴などの配慮が必要な情報、口座番号やカード番号、マイナンバー</td></tr>
+<tr><td>2. 何人分か</td><td>1〜数人分</td><td>顧客リストや応募者一覧など、数百〜数千人分</td></tr>
+<tr><td>3. どのアカウントか</td><td>会社が契約し、管理している法人向けプラン</td><td>社員の個人アカウント（無料版・個人の有料版）</td></tr>
+<tr><td>4. 学習設定はどうだったか</td><td>学習に使わない設定になっていた、一時チャットを使った</td><td>学習に使う設定のままだった、設定を確認していない</td></tr>
+</table>
+<p>1と2は、後で説明する個人情報保護法の報告対象に当たるかどうかの判断に直結します。3と4は、入力した情報が提供元でどう扱われるかに関わります。OpenAIは、法人向けの環境について「ビジネスデータを学習に使わない」と説明しています（出典：<a href="https://openai.com/enterprise-privacy/" target="_blank" rel="noopener">Enterprise privacy at OpenAI｜OpenAI</a>）。一方、個人アカウントでは、利用者がデータコントロールの設定で学習への利用をオフにしていない限り、会話が学習に使われる可能性があります（出典：<a href="https://help.openai.com/en/articles/7730893-data-controls-faq" target="_blank" rel="noopener">Data Controls FAQ｜OpenAI Help Center</a>）。</p>
+<p>なお、どの情報が「個人情報」に当たるか、どの程度の情報なら影響が小さいかは、表の例どおりに機械的に決まるものではありません。迷う場合は、影響が大きい側に寄せて扱い、次章の確認に進んでください。</p>
+
+<h2 id="delete">ChatGPTで消せるもの・消しても残るもの</h2>
+<p>OpenAIの公式ヘルプに書かれている内容を、会社として押さえておくべき点に絞って整理します。仕様は変わることがあるため、対応する時点で最新のヘルプも確認してください。</p>
+<table class="cost-table">
+<tr><th>操作・状態</th><th>公式ヘルプでの説明</th><th>会社として押さえる点</th></tr>
+<tr><td>チャットを削除する</td><td>削除したチャットは30日以内にシステムから完全に削除される。ただし、すでに匿名化されアカウントから切り離されたもの、セキュリティや法的な理由で保持が必要なものは例外</td><td>画面からは即座に消えるが、提供元のシステムから消えるまでには期間がある。削除後は復元できない</td></tr>
+<tr><td>チャットをアーカイブする</td><td>サイドバーから見えなくなるだけで、通常のチャットと同じように保持される</td><td>「隠した」だけでは削除にならない。アーカイブ済みの会話も確認する</td></tr>
+<tr><td>一時チャット</td><td>30日以内にシステムから削除され、学習には使われない</td><td>個人情報を扱う可能性がある作業の既定にしておく選択肢がある</td></tr>
+<tr><td>学習への利用をオフにする</td><td>オフにした後の新しい会話は学習に使われない。既存の会話は、オプトアウトしていなければ学習に使われる可能性がある</td><td>事故の後に設定を変えても、その会話にはさかのぼって効かない</td></tr>
+</table>
+<p>（出典：<a href="https://help.openai.com/en/articles/8809935-how-chat-retention-works-in-chatgpt" target="_blank" rel="noopener">How chat retention works in ChatGPT｜OpenAI Help Center</a>、<a href="https://help.openai.com/en/articles/7730893-data-controls-faq" target="_blank" rel="noopener">Data Controls FAQ｜OpenAI Help Center</a>）</p>
+<p>学習への利用は、ChatGPTの「設定」→「データコントロール」にある「すべての人のためにモデルを改善する」で切り替えます。この設定は端末ではなくアカウント単位で、他の端末にも反映されます。また、メモリ機能やカスタム指示を使っている場合は、入力した情報がそこに保存されていないかも確認し、残っていれば削除します。</p>
+<p>ここで大切なのは、<strong>「削除したから、なかったことになる」わけではない</strong>という点です。削除は被害を広げないための措置であり、すでに起きた入力の事実は残ります。だからこそ、削除の前に記録を取っておく必要があります。</p>
+
+<h2 id="law">個人情報保護法で確認すること</h2>
+<p>個人情報保護委員会は2023年6月、生成AIサービスの利用について注意喚起を出しています。個人情報を扱う事業者に向けては、プロンプトに個人情報を入力する場合は利用目的の達成に必要な範囲内かを確認すること、本人の同意なく個人データを入力し、その個人データが応答結果の出力以外の目的で取り扱われる場合は法律に違反するおそれがあるため、入力する前に提供元が機械学習に利用しないことなどを十分に確認することを求めています（出典：<a href="https://www8.cao.go.jp/cstp/ai/ai_senryaku/3kai/kojinjouhou.pdf" target="_blank" rel="noopener">生成AIサービスの利用に関する注意喚起等について（個人情報保護委員会 令和5年6月2日）｜内閣府 AI戦略会議 資料</a>）。前の章の「学習設定はどうだったか」が重要なのは、このためです。</p>
+<p>もう一つ確認しておきたいのが、漏えい等の報告です。2022年4月から、個人データの漏えい等が起き、個人の権利利益を害するおそれがあるときは、個人情報保護委員会への報告と本人への通知が義務になっています。委員会のページでは、報告の対象として次の4つの事態が示され、報告は速やか（おおむね3〜5日以内）に行うよう案内されています（出典：<a href="https://www.ppc.go.jp/news/kaiseihou_feature/roueitouhoukoku_gimuka/" target="_blank" rel="noopener">漏えい等報告・本人への通知の義務化について｜個人情報保護委員会</a>）。</p>
+<div class="checklist">
+<p class="checklist__title">漏えい等報告の対象となる4つの事態（個人情報保護委員会のページより）</p>
+<ul>
+<li>要配慮個人情報が含まれる事態</li>
+<li>財産的被害が生じるおそれがある事態</li>
+<li>不正の目的をもって行われた漏えい等が発生した事態</li>
+<li>1,000人を超える漏えい等が発生した事態</li>
+</ul>
+</div>
+<p>生成AIへの入力が、そもそも法律上の「漏えい等」に当たるのか、当たるとしてこの4つのどれかに該当するのかは、入力した情報の中身、件数、提供元での扱われ方などによって変わり、一律には決まりません。ここを社内だけで「たぶん該当しない」と決めてしまうのが、最も避けたい対応です。</p>
+<div class="highlight-card">
+<p><strong>大切なこと：</strong>この記事は一般的な考え方の整理であり、個別の事案が報告対象に当たるかどうかの法的な判断ではありません。個別の判断は、弁護士等の専門家に確認してください。個人情報保護委員会も相談窓口を設けています。相談する際は、第1章・第2章で集めた記録（入力した項目、件数、日時、アカウントとプラン、学習設定）をそろえておくと、短時間で判断材料を伝えられます。報告の目安が「おおむね3〜5日以内」であることを考えると、相談は早いほど選択肢が残ります。</p>
+</div>
+
+<h2 id="notify">本人・取引先への連絡をどう判断するか</h2>
+<p>報告の要否とは別に、本人や取引先にどう伝えるかも決める必要があります。判断は現場の担当者に任せず、窓口の責任者が行います。</p>
+<h3>取引先から預かった情報だった場合</h3>
+<p>取引先から業務委託で預かった顧客情報などを入力した場合は、まず契約書と秘密保持契約を確認します。事故時の通知義務や通知までの期限が定められていることが多く、法律上の報告の要否とは別に、契約上の連絡が必要になる場合があります。連絡が遅れるほど、取引先が自社の顧客への対応を準備する時間がなくなります。</p>
+<h3>本人への連絡</h3>
+<p>漏えい等報告の対象に当たる場合、本人への通知も必要になります。委員会のページでは、通知の内容として概要・個人データの項目・原因などを挙げ、郵送やメールなど本人に分かりやすい方法で行うこと、通知が難しい場合はホームページでの公表や問い合わせ窓口の設置などの代わりの措置も可能であることが案内されています（出典：<a href="https://www.ppc.go.jp/news/kaiseihou_feature/roueitouhoukoku_gimuka/" target="_blank" rel="noopener">漏えい等報告・本人への通知の義務化について｜個人情報保護委員会</a>）。報告対象に当たらない場合でも、取引の関係や情報の性質によっては、自主的に伝えたほうがよい場面があります。</p>
+<div class="checklist">
+<p class="checklist__title">連絡の判断のために整理しておくこと</p>
+<ul>
+<li>入力した情報の持ち主は誰か（自社の顧客・応募者・取引先から預かった情報）</li>
+<li>契約書・秘密保持契約に、事故時の通知の定めがあるか</li>
+<li>専門家・窓口に確認した結果（報告対象か、本人への通知が必要か）</li>
+<li>連絡する場合の文面と、問い合わせを受ける担当者</li>
+<li>社内で同じ使い方をしている人が他にいないかの確認結果</li>
+</ul>
+</div>
+
+<h2 id="prevent">同じことを起こさないための3つの仕組み</h2>
+<p>事故の後に「個人情報の入力を禁止する」と通知するだけでは、再発は防げません。多くの場合、社員は業務を早く終わらせようとして、手元の資料をそのまま貼っています。仕組みで防ぐ必要があります。</p>
+<div class="scope-grid">
+<div class="scope-card"><div class="scope-card__head"><div class="scope-card__icon">1</div><p class="scope-card__name">会社として使える環境を配る</p></div><p class="scope-card__desc">個人アカウントで業務をしている状態が最も把握しにくい状態です。学習に使われない法人向けプランを用意し、業務ではそれを使うと決めます。</p></div>
+<div class="scope-card"><div class="scope-card__head"><div class="scope-card__icon">2</div><p class="scope-card__name">入れてよい形を具体例で示す</p></div><p class="scope-card__desc">「氏名は『Aさん』に置き換える」「電話番号やメールアドレスは消してから貼る」など、加工のしかたを例で示すと、禁止より守られます。</p></div>
+<div class="scope-card"><div class="scope-card__head"><div class="scope-card__icon">3</div><p class="scope-card__name">報告した人を責めないと明記する</p></div><p class="scope-card__desc">速やかに報告すれば不利益を受けないと社内ルールに書いておきます。隠された事故は、気づいたときには取れる手がなくなっています。</p></div>
+<div class="scope-card"><div class="scope-card__head"><div class="scope-card__icon">+</div><p class="scope-card__name">初動の手順を1枚にしておく</p></div><p class="scope-card__desc">この記事の「最初の1時間」の5項目と窓口の連絡先を1枚にまとめ、AIを使う全員に配っておくと、慌てて消すという最初の失敗を防げます。</p></div>
+</div>
+<p>社内ルール全体の作り方は、関連記事の「生成AIの社内利用ルールの作り方」で、章立てと書き方の例を紹介しています。</p>
+
+<h2 id="lnx-view">LnXの見解</h2>
+<p>個人情報の誤入力が起きた会社のお話を聞くと、問題を大きくしているのは入力そのものより、<strong>その後の数時間の動き方</strong>であることが多いと感じます。慌てて消して記録が残っていない、誰に報告すればよいか決まっていない、報告を受けた側も判断の材料を持っていない。こうなると、本来なら落ち着いて判断できた事案でも、確認の手がかりが失われてしまいます。</p>
+<p>逆に言えば、記録の取り方と報告先、判断する人さえ決まっていれば、多くの事案は落ち着いて対処できます。生成AIを禁止しても、社員が個人のスマートフォンで使えば会社からは見えなくなるだけです。安全に使える環境を配り、入れてよい形を示し、事故のときの動き方を先に決めておく。この3つをそろえることが、AI活用を止めずに事故を小さくする現実的な方法です。LnXでは、ツールの選定と設定から、入力してよい情報の線引き、初動手順の1枚化まで、社内の状況に合わせて一緒に整えています。</p>
+<p>※ChatGPTの仕様や画面は更新されます。対応の際は最新の公式情報も確認してください。</p>
+<div class="article-cta">
+<p class="article-cta__label">AI活用のご相談</p>
+<div class="article-cta__title">誤入力が起きても慌てない、生成AIの使い方とルールを整えます</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html?type=ai">AI活用について相談する</a>
+</div>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>ChatGPTのチャットを削除すれば、入力した情報は完全に消えますか？</summary><div class="article-faq__body"><p>画面からはすぐに消えますが、OpenAIの公式ヘルプでは、削除したチャットはシステムから30日以内に完全に削除されるとされています。セキュリティや法的な理由で保持が必要なものなどは例外です。削除しても入力した事実は残るため、削除の前に記録を取ってください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>事故の後に「学習に使わない」設定にすれば、その会話も学習から外れますか？</summary><div class="article-faq__body"><p>外れません。OpenAIの公式ヘルプでは、設定をオフにした後の新しい会話が学習に使われなくなると説明されており、既存の会話は、オプトアウトしていなければ学習に使われる可能性があるとされています。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>個人情報を入力したら、必ず個人情報保護委員会に報告しなければなりませんか？</summary><div class="article-faq__body"><p>一律に必要とは限りません。報告の対象は、要配慮個人情報が含まれる、財産的被害のおそれがある、不正の目的による、1,000人を超える、の4つの事態とされています。生成AIへの入力が該当するかは個別の判断になるため、弁護士等の専門家や委員会の窓口に確認してください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>法人向けプランなら、入力しても問題ありませんか？</summary><div class="article-faq__body"><p>OpenAIは法人向けの環境でビジネスデータを学習に使わないと説明しており、個人アカウントより扱いは明確です。ただし、利用目的の範囲内か、取引先との契約で第三者のサービスへの入力が認められているかは別に確認が必要です。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>社員が個人のアカウントで入力していた場合はどうすればよいですか？</summary><div class="article-faq__body"><p>会社は個人アカウントの設定や記録を直接確認できないため、本人の協力を得て、画面の記録、学習設定の状態、共有リンクの有無を確認します。そのうえで削除を依頼し、今後は会社として用意したアカウントを使うよう案内します。</p></div></details>
+</div>
+
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/ai-katsuyo/ai-data-security-settings/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIの情報漏洩リスクはどこにある？シャドーAI・学習利用設定・取引先との合意</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/ai-katsuyo/ai-usage-policy-guideline/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIの社内利用ルールの作り方｜6章構成</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/ai-katsuyo/ai-adoption-not-used-in-company/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 生成AIが社内で使われない原因と定着させる手順</a></li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用・AI活用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#first-hour">最初の1時間でやること：消す前に記録する</a></li><li><a href="#scope">影響の大きさを決める4つの確認</a></li><li><a href="#delete">ChatGPTで消せるもの・消しても残るもの</a></li><li><a href="#law">個人情報保護法で確認すること</a></li><li><a href="#notify">本人・取引先への連絡をどう判断するか</a></li><li><a href="#prevent">同じことを起こさないための3つの仕組み</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="t-footer__logo" width="160" height="160">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>
