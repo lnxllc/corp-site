@@ -3,7 +3,8 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-13（広告・SNS各1本追加）
+- 最終更新：2026-11-17（広告・Webマーケ各1本追加）
+- （旧）最終更新：2026-11-13（広告・SNS各1本追加）
 - （旧）最終更新：2026-11-12（SEO・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-11（LP改善・SNS各1本追加）
 - （旧）最終更新：2026-11-10（SEO・SNS各1本追加）
@@ -284,6 +285,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-11-13 | YouTubeショート 再生回数 伸びない 企業 | Search Console該当なし。「YouTubeショート 再生回数 伸びない 止まる」は検索結果に実在。既存はショート動画の媒体使い分けのみで正面から答える記事が無い | pamxy（2025-04更新・公式出典なし・「低再生は削除」推奨）・smashballoon（翻訳記事）・addness・tatap。YouTube Studioの「フィードで表示／視聴を選択したユーザー数」で状態を3つに分ける手順と、2026-08-24の視聴回数カウント変更（公式ヘルプ）で差別化 | column/sns-marketing/youtube-shorts-views-not-growing/ |
 | 2026-11-16 | サーチコンソール サイトマップ 取得できませんでした | Search Console（28日）は読めた（703行）。3語以上の未カバークエリ（ai アンケート分析・ai モード seo・電話CV計測等）は既存記事あり。「サイトマップ 取得できませんでした」は検索結果に実在（Shopifyコミュニティ・WordPressフォーラムの質問）。既存はインデックス未登録記事で軽く触れるのみ | Shopify/WordPressのフォーラム・AIOSEO（プラグイン限定）・Wixヘルプ・assist-all（出典なし）・Google公式ヘルプ。CMSに依存しない3パターンの切り分けと10分の確認手順（curl・ライブテスト・WAF）で差別化 | column/seo/search-console-sitemap-couldnt-fetch/ |
 | 2026-11-16 | ChatGPT 個人情報 入力してしまった 対処 会社 | Search Console該当なし。検索結果に実在（WEEL・aiagent-navi・exawizards等）。既存のai-data-security-settingsは1セクションで軽く触れるのみ | WEEL（個人向け中心・漏えい等報告に触れず）・aiagent-navi（法人の初動が部分的）・exawizards・tech-camp。会社側の「消す前に記録」の初動、影響を決める4確認、個人情報保護委員会の漏えい等報告4事態・3〜5日の観点で差別化 | column/ai-katsuyo/chatgpt-personal-info-entered-response/ |
+| 2026-11-17 | Meta広告 頭打ち（CPA 徐々に上がる） | Search Console（28日、681行）で「meta 広告 頭打ち」表示2・平均29.0位。既存はmeta-ads-no-result（成果が出ない総論）・学習期間・クリエイティブ本数のみで、伸びていた配信が頭打ちになったときの切り分けに正面から答える記事が無い | coconala個人ブログ（Meta広告カルテ、公式出典なし）・英語の広告疲れ解説（jonloomer・chatterbuzz等）。Metaビジネスヘルプセンター（フリークエンシー・情報収集期間・広告関連度診断）に基づき、3つの形→CPM/CTR/CVR分解→5原因の切り分けで差別化 | column/advertising/meta-ads-performance-plateau/ |
+| 2026-11-17 | 問い合わせ 来るのに 成約しない 原因 | Search Console該当なし。J-Net21のビジネスQ&A（ホームページからの引き合いが成約しない製造業の相談）に実在。既存のsales-marketing-alignmentはリード定義・対応ルールが主題で、成約しない問い合わせの型の切り分けに正面から答える記事が無い | mobinc（サイト制作会社、成約後の対応に触れず）・サングローブ（集客の悩み7選の1項目）・J-Net21・webtan(2022)。4つの型と問い合わせ台帳（6列・流入元別成約率）で、サイト側と対応側を分けて直す手順で差別化 | column/web-marketing/inquiries-not-converting-causes/ |
 
 **メモ（2026-11-13）**：前回(11-12)の送客先はaio-lp/marke-comon-lpだったため、今回は前回未使用のad-lp（advertising）とcontact.html（sns-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/出稿50万以上は20%・簡易LP10万円〜・最低6か月）とcontact.htmlは10/21更新のまま変更なし。column合計312本（seo58＋クロス掲載1／ai-katsuyo41／advertising66／web-marketing60／lp-improvement27／sns-marketing32／analytics28）、sitemapのcolumn記事URLは312件。titleは全角換算で31.0／29.5。Search Consoleは読めた（Chrome接続、738行。今回のKWに直接のクエリはなし）。自社実績は両記事とも該当なし（画像マスタ05は読込済み。work19は「LTV最適化」で無効クリックの文脈と異なるため不使用）。FVスクショ対象記事なし。出典：Google 広告 ヘルプ（42995・11182074・16826168）、YouTube ヘルプ（12942217・2991785）、Impress Watch（2133635）。**気づき**：YouTubeは2026-08-24から全形式で再生開始時点を視聴回数として数える方式に変更（公式ヘルプ）。既存のshort-video-platform-strategyなどで旧カウント前提の記述があれば週次リライト候補。次回はaio-lp・marke-comon-lp・contact.html?type=ai優先。
 
@@ -316,3 +319,5 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 
 
 **メモ（2026-11-16）**：前回(11-13)の送客先はad-lp/contact.html（sns）だったため、今回は前回未使用のaio-lp（seo）と、contact.html?type=ai（ai-katsuyo）を使用。aio-lp（初期30万円＋月15/25/40万円・最低6か月・無料AIO診断）とcontact.html（お問い合わせ項目7つ・AI項目あり）は前回から変更なし。column合計314本（seo59＋クロス掲載1／ai-katsuyo42／advertising66／web-marketing60／lp-improvement27／sns-marketing32／analytics28）、sitemapのcolumn記事URLは314件。titleは全角換算で32.0／31.5。Search Consoleは読めた（Chrome接続）。自社実績は両記事とも該当なし（画像マスタ05はDrive CSVで読込済み）。FVスクショ対象記事なし。出典：Search Console ヘルプ（7451001）、Google検索セントラル（サイトマップの作成と送信）、OpenAI Help Center（chat retention・Data Controls FAQ）、OpenAI Enterprise privacy、個人情報保護委員会（漏えい等報告・本人通知の義務化）、内閣府AI戦略会議資料（PPC注意喚起 2023-06-02）。この回は9:03分の起動が未実行だったため10:31に実行。次回はad-lp・marke-comon-lp優先。
+
+**メモ（2026-11-17）**：前回(11-16)の送客先はaio-lp/contact.html?type=aiだったため、今回は前回未使用のad-lp（advertising）とmarke-comon-lp（web-marketing）を使用。ad-lp（11/14更新。スタート33,000円〜・広告費20万円以下・クリエイティブ1種類5,000円／通常10万円〜・出稿50万以上は20%・簡易LP10万円〜・最低6か月・広告費の下限なし）とmarke-comon-lp（8/15/30/50万円・税別想定・最低3か月）、contact.htmlを確認。column合計316本（seo59＋クロス掲載1／ai-katsuyo42／advertising67／web-marketing61／lp-improvement27／sns-marketing32／analytics28）、sitemapのcolumn記事URLは316件。titleは全角換算で30.0／29.0。Search Consoleは読めた（Chrome接続、681行）。自社実績はWebマーケ記事にwork19.webp（LTV 1.6倍、件数でなく期待売上で広告を組み替えた例として使用）、Meta記事は該当なし（work29はジム新規開業の初月CPAで頭打ちの文脈と異なるため不使用）。FVスクショ対象記事なし。出典：Metaビジネスヘルプセンター（1546570362238584 フリークエンシー／112167992830700 情報収集期間／403110480493160 広告関連度診断。WebFetchは不可だがChromeで本文確認）、J-Net21 ビジネスQ&A（Q0874）。次回はaio-lp・contact.html（sns/ai）優先。
