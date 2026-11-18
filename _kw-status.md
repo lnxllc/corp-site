@@ -3,7 +3,8 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-17（広告・Webマーケ各1本追加）
+- 最終更新：2026-11-18（手動依頼で広告2本追加：店舗集客／恵比寿・渋谷。AI検索での露出調査の結果を受けた施策）
+- （旧）最終更新：2026-11-17（広告・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-13（広告・SNS各1本追加）
 - （旧）最終更新：2026-11-12（SEO・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-11（LP改善・SNS各1本追加）
@@ -325,3 +326,11 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 **メモ（2026-11-16）**：前回(11-13)の送客先はad-lp/contact.html（sns）だったため、今回は前回未使用のaio-lp（seo）と、contact.html?type=ai（ai-katsuyo）を使用。aio-lp（初期30万円＋月15/25/40万円・最低6か月・無料AIO診断）とcontact.html（お問い合わせ項目7つ・AI項目あり）は前回から変更なし。column合計314本（seo59＋クロス掲載1／ai-katsuyo42／advertising66／web-marketing60／lp-improvement27／sns-marketing32／analytics28）、sitemapのcolumn記事URLは314件。titleは全角換算で32.0／31.5。Search Consoleは読めた（Chrome接続）。自社実績は両記事とも該当なし（画像マスタ05はDrive CSVで読込済み）。FVスクショ対象記事なし。出典：Search Console ヘルプ（7451001）、Google検索セントラル（サイトマップの作成と送信）、OpenAI Help Center（chat retention・Data Controls FAQ）、OpenAI Enterprise privacy、個人情報保護委員会（漏えい等報告・本人通知の義務化）、内閣府AI戦略会議資料（PPC注意喚起 2023-06-02）。この回は9:03分の起動が未実行だったため10:31に実行。次回はad-lp・marke-comon-lp優先。
 
 **メモ（2026-11-17）**：前回(11-16)の送客先はaio-lp/contact.html?type=aiだったため、今回は前回未使用のad-lp（advertising）とmarke-comon-lp（web-marketing）を使用。ad-lp（11/14更新。スタート33,000円〜・広告費20万円以下・クリエイティブ1種類5,000円／通常10万円〜・出稿50万以上は20%・簡易LP10万円〜・最低6か月・広告費の下限なし）とmarke-comon-lp（8/15/30/50万円・税別想定・最低3か月）、contact.htmlを確認。column合計316本（seo59＋クロス掲載1／ai-katsuyo42／advertising67／web-marketing61／lp-improvement27／sns-marketing32／analytics28）、sitemapのcolumn記事URLは316件。titleは全角換算で30.0／29.0。Search Consoleは読めた（Chrome接続、681行）。自社実績はWebマーケ記事にwork19.webp（LTV 1.6倍、件数でなく期待売上で広告を組み替えた例として使用）、Meta記事は該当なし（work29はジム新規開業の初月CPAで頭打ちの文脈と異なるため不使用）。FVスクショ対象記事なし。出典：Metaビジネスヘルプセンター（1546570362238584 フリークエンシー／112167992830700 情報収集期間／403110480493160 広告関連度診断。WebFetchは不可だがChromeで本文確認）、J-Net21 ビジネスQ&A（Q0874）。次回はaio-lp・contact.html（sns/ai）優先。
+
+
+## 手動追加（2026-11-18・AI露出調査の施策）
+
+| 狙い | ステータス | 該当記事 | メモ |
+|---|---|---|---|
+| ジム・サロン・店舗の広告運用代行（店舗集客に強い広告運用代行） | 作成済み | column/advertising/store-gym-salon-ad-agency/ | ChatGPTで「店舗集客に強いMeta広告の運用代行」「ジムやサロンの集客に強い広告運用代行」にLnXが出ていなかったため。ジム事例（体験会参加CPA 10,000円）を軸に作成 |
+| 恵比寿・渋谷の広告運用代行 | 作成済み | column/advertising/ebisu-shibuya-ad-agency/ | 「東京でおすすめの広告運用代行」にLnXが出ていなかったため。東京5選（tokyo-ad-agency-recommended）とは対象を渋谷区本社の4社に絞って役割を分けた |
