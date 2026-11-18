@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>LINE公式アカウントの開封率が下がった原因と確認手順 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/sns-marketing/line-official-account-open-rate-drop/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="LINE公式アカウントの開封率が下がった原因と確認手順 | LnX合同会社"/>
+<meta property="og:description" content="LINE公式アカウントの開封率が下がったときに、配信数と開封数のどちらが動いたかで原因を切り分ける方法、公式マニュアルにある「開封」の数え方と集計期間、よくある原因5つ、分析画面で確かめる手順、原因別の直し方を整理します。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/sns-marketing/line-official-account-open-rate-drop/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="LINE公式アカウントの開封率が下がった原因と確認手順 | LnX合同会社"/>
+<meta name="twitter:description" content="LINE公式アカウントの開封率が下がったときに、配信数と開封数のどちらが動いたかで原因を切り分ける方法、公式マニュアルにある「開封」の数え方と集計期間、よくある原因5つ、分析画面で確かめる手順、原因別の直し方を整理します。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta content="LINE公式アカウントの開封率が下がったときに、配信数と開封数のどちらが動いたかで原因を切り分ける方法、公式マニュアルにある「開封」の数え方と集計期間、よくある原因5つ、分析画面で確かめる手順、原因別の直し方を整理します。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicon-180.webp">
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 13.5px; }
+    .compare-table th, .compare-table td { border: 1px solid rgba(15,23,42,.12); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare-table th { background: rgba(37,99,235,.06); font-weight: 800; color: var(--txt); }
+    .compare-table td { color: rgba(15,23,42,.78); }
+    .scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0 0 28px; }
+    .scope-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2); }
+    .scope-card__head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .scope-card__icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 16px; flex: 0 0 auto; background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(124,58,237,.10)); }
+    .scope-card__name { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0; }
+    .scope-card__desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "\25A1"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 0 0 28px; }
+    .compare-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); }
+    .compare-card__label { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 8px; }
+    .compare-card h4 { margin: 0 0 10px; font-size: 15px; font-weight: 900; }
+    .compare-card ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-card li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(150deg, #1E6BFF, #0A2FA8); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .scope-grid { grid-template-columns: 1fr; } .compare-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .article-body { padding: 36px 0 56px; } }
+
+/* 出典・外部リンクはリンクと分かる見た目にする */
+.article-body a[target="_blank"]{color:var(--brand3);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.article-body a[target="_blank"]:hover{opacity:.75}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LINE公式アカウントの開封率が下がった原因と確認手順",
+  "description": "LINE公式アカウントの開封率が下がったときに、配信数と開封数のどちらが動いたかで原因を切り分ける方法、公式マニュアルにある「開封」の数え方と集計期間、よくある原因5つ、分析画面で確かめる手順、原因別の直し方を整理します。",
+  "url": "https://lnx.co.jp/column/sns-marketing/line-official-account-open-rate-drop/",
+  "datePublished": "2026-11-18",
+  "dateModified": "2026-11-18",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/sns-marketing/line-official-account-open-rate-drop/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SNS運用",
+      "item": "https://lnx.co.jp/column/sns-marketing/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "LINE公式アカウントの開封率が下がった原因と確認手順",
+      "item": "https://lnx.co.jp/column/sns-marketing/line-official-account-open-rate-drop/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "LINE公式アカウントの開封率はどのくらいあれば良いですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "決まった基準はありません。業種や友だちの集め方で大きく変わるため、他社の平均と比べるより、自社の過去の配信と比べてください。あわせて、配信からの予約や購入が増えているかで判断します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "既読がついているのに、開封数に入らないのはなぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "公式マニュアルでは、開封は「いずれかの吹き出しが100%表示された人数」とされ、吹き出しが100%表示されていない既読は含まれないと説明されています。そのため、既読の数と開封数は一致しないことがあります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "配信したばかりのメッセージの開封率が低いのですが、問題ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "まだ集計の途中の可能性があります。各指標は配信から14日間集計され、配信直後の24時間の値は推定値です。比べるときは、配信から14日以上たった配信どうしで比べてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "開封率を上げるために、配信の回数を減らしたほうがいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "回数を減らすと1通ごとの開封率は上がりやすくなりますが、予約や購入の合計が減ることもあります。率だけでなく、配信全体でどれだけ予約や購入につながったかを比べて決めてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "少人数に配信したメッセージの開封が「0」になっています。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "公式マニュアルによると、結果が1〜19の場合、開封は「0」と表示されます。少人数の配信は、何回分かを合計してから率を出すと判断しやすくなります。"
+      }
+    }
+  ]
+}</script>
+</head>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="brand__logo" width="160" height="160">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/sns-marketing/">SNS運用</a>
+<span class="sep">/</span>
+<span class="cur">LINE公式アカウントの開封率が下がった原因と確認手順</span>
+</nav>
+<p class="article-hero__kicker"><span></span>SNS運用</p>
+<h1 class="article-hero__title">LINE公式アカウントの開封率が<br/>下がった原因と確認手順</h1>
+<div class="article-hero__meta">
+<time datetime="2026-11-18">2026年11月18日</time>
+<span class="article-hero__tag">SNS運用</span><span class="article-hero__tag">LINE公式アカウント</span><span class="article-hero__tag">開封率</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>LINE公式アカウントの開封率が下がったとき、最初に確かめる3つの数字</li>
+<li>管理画面の「開封」がどう数えられているか（公式マニュアルの定義）</li>
+<li>開封率が下がるよくある原因5つと、分析画面での確かめ方</li>
+<li>原因別の直し方と、開封率より先に見るべき指標</li>
+</ul>
+</div>
+<div class="highlight-card highlight-card--success">
+<p><strong>結論：</strong>LINE公式アカウントの開封率が下がったときは、まず<strong>「配信」と「開封」の人数がそれぞれどう動いたか</strong>を分けて見てください。開封率は開封数を配信数で割った値なので、開封した人が減っていなくても、配信する友だちが増えれば率は下がります。キャンペーンや広告で友だちが増えた直後なら、まず母数の変化を疑います。母数が変わっていないのに下がったなら、配信の頻度・時間帯・内容が友だちの関心とずれています。開封率は配信から14日間集計されるので、配信直後の数字で判断しないことも大切です。</p>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#check">まず確かめる：「開封した人」が減ったのか、「配信先」が増えたのか</a></li><li><a href="#count">管理画面の「開封」はどう数えられているか</a></li><li><a href="#causes">開封率が下がるよくある原因5つ</a></li><li><a href="#steps">分析画面で確かめる手順</a></li><li><a href="#fix">原因別の直し方</a></li><li><a href="#still">それでも戻らないときの判断の目安</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="check">まず確かめる：「開封した人」が減ったのか、「配信先」が増えたのか</h2>
+<p>「開封率が下がった」という相談を受けて数字を見ると、実際には開封した人数はほとんど変わっておらず、配信した人数だけが増えていた、ということがよくあります。LINE公式アカウントのマニュアルでは、開封率は「開封数÷配信数」で計算されると説明されています。（出典：<a href="https://www.lycbiz.com/jp/manual/OfficialAccountManager/insight_message" target="_blank" rel="noopener">LINE公式アカウント 分析 - メッセージ配信マニュアル｜LINEヤフー for Business</a>）</p>
+<p>そのため、最初に次の3つを、下がる前と後の配信で並べて比べます。</p>
+<table class="cost-table">
+<tr><th>見る数字</th><th>動き方</th><th>考えられること</th></tr>
+<tr><td>配信（人数）</td><td>増えた</td><td>友だちが増えた、またはセグメントを広げて配信した。率が下がるのは自然なことが多い</td></tr>
+<tr><td>開封（人数）</td><td>減った</td><td>読む人そのものが減っている。頻度・時間帯・内容のずれを疑う</td></tr>
+<tr><td>開封率</td><td>配信も開封も変わらないのに下がった</td><td>比べている配信の集計期間がそろっていない、または少人数の配信どうしを比べている</td></tr>
+</table>
+<p>「配信は増えたが開封は横ばい」なら、問題は配信の中身ではなく、新しく増えた友だちの質や、友だちを集めた経路にあります。「配信は横ばいで開封が減った」なら、いま読んでくれている友だちとの関係が弱くなっているサインです。同じ「開封率が下がった」でも、直すところがまったく違います。</p>
+
+<h2 id="count">管理画面の「開封」はどう数えられているか</h2>
+<p>開封率を正しく読むには、管理画面の「開封」が何を数えているかを知っておく必要があります。公式マニュアルでは、主な指標が次のように定義されています。（出典：<a href="https://www.lycbiz.com/jp/manual/OfficialAccountManager/insight_message" target="_blank" rel="noopener">LINE公式アカウント 分析 - メッセージ配信マニュアル｜LINEヤフー for Business</a>）</p>
+<ul>
+<li><strong>配信</strong>：メッセージが送信された人数。送信した日時で数えられます。</li>
+<li><strong>開封</strong>：いずれかの吹き出しが100%表示された人数。プレビュー画面での表示も含まれ、同じ人は重複して数えません。吹き出しが100%表示されていない既読は含まれません。</li>
+<li><strong>集計期間</strong>：各指標は配信から14日間集計されます。グラフは配信直後の24時間は約30分ごとに更新され、この間の値は推定値です。</li>
+<li><strong>少人数のとき</strong>：結果が1〜19の場合、配信は実数で表示されますが、開封は「0」と表示されます。</li>
+</ul>
+<p>ここから、実務で気をつけたい点が3つあります。1つ目は、<strong>配信した翌日の開封率と、2週間たった配信の開封率を比べても意味がない</strong>ことです。後から開く人も数えられていくため、新しい配信ほど低く見えます。2つ目は、セグメント配信などで<strong>配信先が少ない回は、開封が「0」と表示されることがある</strong>ことです。3つ目は、「既読がついたのに開封に入らない」ことがあり得る点です。開封は吹き出しが100%表示されたかで判断されるため、既読の数とは一致しません。</p>
+
+<h2 id="causes">開封率が下がるよくある原因5つ</h2>
+<h3>1. キャンペーンや広告で、関心の薄い友だちが増えた</h3>
+<p>友だち追加でクーポンがもらえる、抽選に参加できる、といった企画で一気に友だちが増えると、特典だけが目的の人も多く含まれます。こうした友だちはメッセージを開かないことが多く、配信数だけが増えて開封率が下がります。数字としては「開封数は横ばい、配信数が増えた」形になります。</p>
+<h3>2. 配信の頻度を上げた、または時間帯を変えた</h3>
+<p>配信の回数を増やしたり、配信する時間帯を変えたりした直後に下がった場合は、それが原因の可能性が高いです。頻度が上がると、1通ごとの開封率は下がりやすくなります。特に、同じような内容の告知が続くと、通知を見ても開かない人が増えます。</p>
+<h3>3. 全員に同じ内容を送っていて、関心とずれている</h3>
+<p>友だちが増えるほど、関心の幅は広がります。たとえば美容室で、カットの人にもカラーの人にも同じ新メニューの告知を送ると、関係のない人は開かなくなります。全員に一斉配信を続けていると、少しずつ「開かなくてもいいアカウント」と思われていきます。</p>
+<h3>4. 冒頭の見え方で、開く理由が伝わっていない</h3>
+<p>トーク一覧や通知に出る最初の部分で、何のお知らせか分からないと開かれにくくなります。「いつもありがとうございます」から始まる文面や、画像だけのメッセージは、通知の段階で内容が伝わりません。これは当社が運用の現場でよく見る原因です。</p>
+<h3>5. 数字の比べ方がそろっていない</h3>
+<p>前の章で見たとおり、開封は配信から14日間かけて積み上がります。配信直後の数字や、少人数のセグメント配信の数字と比べて「下がった」と判断しているケースも少なくありません。原因を探す前に、比べ方がそろっているかを確かめます。</p>
+
+<h2 id="steps">分析画面で確かめる手順</h2>
+<p>LINE Official Account Managerの「分析」から、メッセージ配信の結果を確認します。次の順で見ると、30分ほどで原因の見当がつきます。</p>
+<ol>
+<li><strong>比べる配信を決める</strong>：開封率が下がる前の配信3〜5本と、下がった後の配信3〜5本を選びます。どちらも配信から14日以上たったものを使います。</li>
+<li><strong>配信と開封の人数を書き出す</strong>：表計算ソフトに、配信日・配信人数・開封人数・開封率・クリックユーザーを並べます。</li>
+<li><strong>配信人数が増えた時期を確かめる</strong>：配信人数が大きく増えた回があれば、その前に友だち集めの企画や広告がなかったかを確かめます。</li>
+<li><strong>配信の条件を並べる</strong>：配信の曜日・時間帯・頻度、メッセージの種類（テキスト・画像・リッチメッセージなど）を書き加え、下がった回に共通するものを探します。</li>
+<li><strong>セグメント別に見る</strong>：公式マニュアルによると、2025年3月1日以降に配信したメッセージは、セグメント別の結果も確認できます。属性によって開封の差が大きい場合は、配信の出し分けが効きます。（出典：<a href="https://www.lycbiz.com/jp/manual/OfficialAccountManager/insight_message" target="_blank" rel="noopener">LINE公式アカウント 分析 - メッセージ配信マニュアル｜LINEヤフー for Business</a>）</li>
+<li><strong>クリックとその先も見る</strong>：開封率が下がっていても、クリックユーザーや予約・来店が減っていなければ、大きな問題ではないことがあります。</li>
+</ol>
+
+<h2 id="fix">原因別の直し方</h2>
+<table class="cost-table">
+<tr><th>原因</th><th>直し方</th></tr>
+<tr><td>関心の薄い友だちが増えた</td><td>友だちを集めた経路ごとに、最初の数回の配信で反応を見る。特典目的の友だちには、特典の使い方など関係のある内容から送る。全体の開封率は「増えた分を除いた数字」でも見る</td></tr>
+<tr><td>頻度・時間帯を変えた</td><td>下がる前の頻度・時間帯に戻して比べる。告知は回数を絞り、1通に情報をまとめる</td></tr>
+<tr><td>全員に同じ内容を送っている</td><td>属性や来店内容で配信を分ける。全員向けは「全員に関係する内容」だけにする</td></tr>
+<tr><td>冒頭で開く理由が伝わらない</td><td>最初の一文で「誰に・何の得があるか」を書く。画像だけのメッセージには、先頭に短いテキストを添える</td></tr>
+<tr><td>比べ方がそろっていない</td><td>配信から14日以上たった配信どうしで比べる。少人数の配信は、合計してから率を出す</td></tr>
+</table>
+<p>直し方は一度に全部変えず、1つずつ試すのが基本です。頻度と内容を同時に変えると、どちらが効いたのか分からなくなります。配信ごとに「何を変えたか」を表に1行足しておくと、次に下がったときにすぐ振り返れます。</p>
+
+<h2 id="still">それでも戻らないときの判断の目安</h2>
+<p>上の手順を試しても開封率が戻らないときは、開封率そのものを追うのをいったんやめて、次の点で判断することをおすすめします。</p>
+<ul>
+<li><strong>予約・来店・購入が減っていないか</strong>：開封率が下がっても、配信からの予約や購入が減っていなければ、運用は成り立っています。友だちが増えた分、反応する人の総数はむしろ増えていることもあります。</li>
+<li><strong>ブロックが増えていないか</strong>：開封率と同時にブロックが増えているなら、配信の頻度や内容が負担になっています。ブロックの見直しは<a href="https://lnx.co.jp/column/sns-marketing/line-official-account-block-rate-high/">LINE公式アカウントのブロック率が高い原因と対策</a>で整理しています。</li>
+<li><strong>友だち集めの方法が合っているか</strong>：特典目的の友だちばかりが増えているなら、集め方そのものを見直す時期です。</li>
+</ul>
+<p>開封率は、配信が読まれているかを知る入口の数字にすぎません。最終的には、配信が予約や購入につながっているかで良し悪しを決めます。</p>
+
+<h2 id="lnx-view">LnXの見解</h2>
+<p>LINE公式アカウントの開封率が下がったという相談では、<strong>配信の中身より先に、友だちの増え方が変わっていた</strong>というケースが多いと感じています。友だちが増えること自体は良いことなので、全体の開封率だけを見て配信を減らしてしまうのはもったいない判断です。</p>
+<p>大切なのは、配信人数・開封人数・クリック、そしてその先の予約や来店を、同じ表で並べて見ることです。数字の見方がそろえば、直すところは自然と1つか2つに絞れます。</p>
+<p>LnXは、LINE公式アカウントやSNSの運用設計から、配信内容の見直し、数字の振り返りの仕組みづくりまでを支援しています。「どの数字を見ればいいか分からない」という段階からでもご相談ください。</p>
+<p>※LINE公式アカウントの機能・指標・マニュアルの内容は更新されます。実際の運用の前に、最新の公式情報も確認してください。</p>
+<div class="article-cta">
+<p class="article-cta__label">SNS運用のご相談</p>
+<div class="article-cta__title">LINE公式アカウントの配信の見直しから、予約・来店につながる運用設計までご相談ください</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/contact.html?type=sns">SNS運用について相談する</a>
+</div>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>LINE公式アカウントの開封率はどのくらいあれば良いですか？</summary><div class="article-faq__body"><p>決まった基準はありません。業種や友だちの集め方で大きく変わるため、他社の平均と比べるより、自社の過去の配信と比べてください。あわせて、配信からの予約や購入が増えているかで判断します。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>既読がついているのに、開封数に入らないのはなぜですか？</summary><div class="article-faq__body"><p>公式マニュアルでは、開封は「いずれかの吹き出しが100%表示された人数」とされ、吹き出しが100%表示されていない既読は含まれないと説明されています。そのため、既読の数と開封数は一致しないことがあります。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>配信したばかりのメッセージの開封率が低いのですが、問題ですか？</summary><div class="article-faq__body"><p>まだ集計の途中の可能性があります。各指標は配信から14日間集計され、配信直後の24時間の値は推定値です。比べるときは、配信から14日以上たった配信どうしで比べてください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>開封率を上げるために、配信の回数を減らしたほうがいいですか？</summary><div class="article-faq__body"><p>回数を減らすと1通ごとの開封率は上がりやすくなりますが、予約や購入の合計が減ることもあります。率だけでなく、配信全体でどれだけ予約や購入につながったかを比べて決めてください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>少人数に配信したメッセージの開封が「0」になっています。</summary><div class="article-faq__body"><p>公式マニュアルによると、結果が1〜19の場合、開封は「0」と表示されます。少人数の配信は、何回分かを合計してから率を出すと判断しやすくなります。</p></div></details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/sns-marketing/line-official-account-block-rate-high/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ LINE公式アカウントのブロック率が高い原因と対策</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/sns-marketing/line-official-account-friends-not-increasing-store/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ LINE公式アカウントの友だちが増えない店舗の見直し順</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/sns-marketing/sns-kpi-measurement-design/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ SNS運用の効果測定はどう設計する？フォロワー数以外に見るべき指標と目的別KPI</a></li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用・AI活用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#check">まず確かめる：「開封した人」が減ったのか、「配信先」が増えたのか</a></li><li><a href="#count">管理画面の「開封」はどう数えられているか</a></li><li><a href="#causes">開封率が下がるよくある原因5つ</a></li><li><a href="#steps">分析画面で確かめる手順</a></li><li><a href="#fix">原因別の直し方</a></li><li><a href="#still">それでも戻らないときの判断の目安</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="t-footer__logo" width="160" height="160">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>
