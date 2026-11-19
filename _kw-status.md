@@ -3,7 +3,8 @@
 このファイルはスケジュールタスク `corp-site-daily-article` の作業記録です。
 **サイトのコンテンツではありません。**デプロイ対象から外して問題ありません（.gitignore推奨）。
 
-- 最終更新：2026-11-18（手動依頼で広告2本追加：店舗集客／恵比寿・渋谷。AI検索での露出調査の結果を受けた施策）
+- 最終更新：2026-11-19（SEO・AI活用各1本追加）
+- （旧）最終更新：2026-11-18（手動依頼で広告2本追加：店舗集客／恵比寿・渋谷。AI検索での露出調査の結果を受けた施策）
 - （旧）最終更新：2026-11-17（広告・Webマーケ各1本追加）
 - （旧）最終更新：2026-11-13（広告・SNS各1本追加）
 - （旧）最終更新：2026-11-12（SEO・Webマーケ各1本追加）
@@ -290,6 +291,8 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 | 2026-11-17 | 問い合わせ 来るのに 成約しない 原因 | Search Console該当なし。J-Net21のビジネスQ&A（ホームページからの引き合いが成約しない製造業の相談）に実在。既存のsales-marketing-alignmentはリード定義・対応ルールが主題で、成約しない問い合わせの型の切り分けに正面から答える記事が無い | mobinc（サイト制作会社、成約後の対応に触れず）・サングローブ（集客の悩み7選の1項目）・J-Net21・webtan(2022)。4つの型と問い合わせ台帳（6列・流入元別成約率）で、サイト側と対応側を分けて直す手順で差別化 | column/web-marketing/inquiries-not-converting-causes/ |
 | 2026-11-18 | LINE公式アカウント 開封率 下がった（原因） | Search Console（28日）は読めたが該当クエリなし。検索結果に「開封率が下がる原因は？」を扱うページが実在（ownly・lme・ligla等）。既存のLINE記事はブロック率・友だちが増えないのみで、開封率の低下に正面から答える記事が無い | ownly（2026-03、FAQで原因を挙げるのみ・切り分け手順なし）・lme・ligla（配信ツール各社の「開封率を上げる」記事）。公式マニュアルの定義（開封＝吹き出し100%表示、14日集計、1〜19は0表示）を使い、配信数と開封数を分けて見る切り分けで差別化 | column/sns-marketing/line-official-account-open-rate-drop/ |
 | 2026-11-18 | 問い合わせフォーム 営業メール 多い 対策 | Search Console該当なし。Adobe Marketoコミュニティ（フォーム営業の対策の相談）・Shopifyコミュニティに実在する質問。既存はEFO・CV数のズレのみで、営業メール対策に正面から答える記事が無い | ASCII（対策SaaSのプレスリリース）・kigyolog（送る側の手順）・ai-agent-x（機能論、広告計測に触れず）・ScanNetSecurity（ボットのスパムのみ）。人の営業とボットの切り分け、営業の送信が広告CVに数えられ自動入札がずれる問題、完了ページの分割とCV撤回で差別化 | column/lp-improvement/inquiry-form-sales-spam/ |
+| 2026-11-19 | 会社名で検索しても出てこない（自社サイト） | Search Console（28日、623行）は読めたが3語以上の未カバークエリは見当たらず（ai モード seo・アンケート自由記述・AI PoC等は既存記事あり）。「会社名で検索しても出てこない ホームページ」は検索結果に実在（制作会社・ドメイン会社の解説記事が並ぶ）。既存のbranded-search-growth（指名検索を増やす）・indexing-not-registered-guideとは主題が異なる | jinrai（2026-04、8原因を並べるが公式出典なし・確認手順は原因1のみ）・web-kanji（制作会社、3原因）・onamae.com・tatap（AI検索版）。「登録されていない／社名で上位に来ない／出ているのに自社と分からない」の3状態の切り分けと、Google公式（サイト名・WebSite構造化データ、get-on-google、再クロール、手動による対策）で差別化 | column/seo/company-name-search-not-showing/ |
+| 2026-11-19 | ChatGPT 計算 間違える（業務での対策） | Search Console該当なし。「ChatGPT 計算を間違える」はnote・個人/メディアブログの記事が多数あり悩みとして実在。既存のai-hallucination-checkは回答全般の検証で、計算ミスに正面から答える記事が無い | romptn（2026-03、プロンプトのコツ中心）・aitrend（2025-06、公式出典なし）・kotanigawa・note個人記事。業務（見積・請求・集計）の検算ルールが無い。OpenAI公式ヘルプ（データ分析・真実を伝えますか）に基づき「計算した答えか書いた答えか」の見分けと、式をつくらせる使い方で差別化 | column/ai-katsuyo/chatgpt-calculation-errors-business/ |
 
 **メモ（2026-11-13）**：前回(11-12)の送客先はaio-lp/marke-comon-lpだったため、今回は前回未使用のad-lp（advertising）とcontact.html（sns-marketing）を使用。ad-lp（スタート33,000円〜・通常10万円〜/出稿50万以上は20%・簡易LP10万円〜・最低6か月）とcontact.htmlは10/21更新のまま変更なし。column合計312本（seo58＋クロス掲載1／ai-katsuyo41／advertising66／web-marketing60／lp-improvement27／sns-marketing32／analytics28）、sitemapのcolumn記事URLは312件。titleは全角換算で31.0／29.5。Search Consoleは読めた（Chrome接続、738行。今回のKWに直接のクエリはなし）。自社実績は両記事とも該当なし（画像マスタ05は読込済み。work19は「LTV最適化」で無効クリックの文脈と異なるため不使用）。FVスクショ対象記事なし。出典：Google 広告 ヘルプ（42995・11182074・16826168）、YouTube ヘルプ（12942217・2991785）、Impress Watch（2133635）。**気づき**：YouTubeは2026-08-24から全形式で再生開始時点を視聴回数として数える方式に変更（公式ヘルプ）。既存のshort-video-platform-strategyなどで旧カウント前提の記述があれば週次リライト候補。次回はaio-lp・marke-comon-lp・contact.html?type=ai優先。
 
@@ -334,3 +337,5 @@ URL: https://docs.google.com/spreadsheets/d/1YPnb1N7CUmTAVhDuK-HosQ4Incg72eFLPNZ
 |---|---|---|---|
 | ジム・サロン・店舗の広告運用代行（店舗集客に強い広告運用代行） | 作成済み | column/advertising/store-gym-salon-ad-agency/ | ChatGPTで「店舗集客に強いMeta広告の運用代行」「ジムやサロンの集客に強い広告運用代行」にLnXが出ていなかったため。ジム事例（体験会参加CPA 10,000円）を軸に作成 |
 | 恵比寿・渋谷の広告運用代行 | 作成済み | column/advertising/ebisu-shibuya-ad-agency/ | 「東京でおすすめの広告運用代行」にLnXが出ていなかったため。東京5選（tokyo-ad-agency-recommended）とは対象を渋谷区本社の4社に絞って役割を分けた |
+
+**メモ（2026-11-19）**：前回(11-18)の送客先はcontact.html?type=sns/ad-lp（同日の手動追加2本もad-lp）だったため、今回は前回未使用のaio-lp（seo）とcontact.html?type=ai（ai-katsuyo）を使用。aio-lp（初期30万円＋月15/25/40万円・最低6か月・無料AIO診断）・marke-comon-lp・ad-lp・contact.html（お問い合わせ項目7つ・AI項目あり）は11/13〜11/14更新のままで記述変更なし。column合計322本（seo60＋クロス掲載1／ai-katsuyo43／advertising69／web-marketing61／lp-improvement28／sns-marketing33／analytics28）、sitemapのcolumn記事URLは322件。titleは全角換算で32.0／28.5。Search Consoleは読めた（Chrome接続、623行）。自社実績は両記事とも該当なし（画像マスタ05はDrive CSVで読込済み。work22はオウンドメディアのリード獲得で社名検索の文脈と異なるため不使用）。FVスクショ対象記事なし。出典：Google検索セントラル（サイト名の指定／ウェブサイトをGoogleに表示させる／クロールとインデックス登録FAQ／URLの再クロール／noindex）、Search Console ヘルプ（手動による対策 9044175）、OpenAI Help Center（8437071 データ分析／8313428 ChatGPTは真実を伝えますか。WebFetchは不可でChromeで本文確認）。**気づき**：Search Consoleのクエリに、AIへの指示文のような長い文字列（「context: location: japan …」で始まる質問文）が表示3回で記録されていた。データとして扱い、記事選定には使っていない。次回はad-lp・marke-comon-lp・contact.html?type=sns優先。

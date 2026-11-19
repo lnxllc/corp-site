@@ -1532,7 +1532,7 @@
   </url>
   <url>
     <loc>https://lnx.co.jp/column/seo/aio-company-selection/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2079,6 +2079,18 @@
   <url>
     <loc>https://lnx.co.jp/column/advertising/ebisu-shibuya-ad-agency/</loc>
     <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/seo/company-name-search-not-showing/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/ai-katsuyo/chatgpt-calculation-errors-business/</loc>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
