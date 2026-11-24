@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>Meta広告の支払いに失敗したときの原因と対処 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/advertising/meta-ads-payment-failed/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Meta広告の支払いに失敗したときの原因と対処｜LnX合同会社"/>
+<meta property="og:description" content="Meta広告の支払いに失敗して広告が止まったときに、請求と支払いの画面で状況を確かめる方法、カードの利用枠・有効期限・カード会社の利用制限・残高不足などのよくある原因、未払い分を支払って配信を戻す手順、放置したときのアカウントへの影響と再発を防ぐ設定をまとめています。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/advertising/meta-ads-payment-failed/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Meta広告の支払いに失敗したときの原因と対処｜LnX合同会社"/>
+<meta name="twitter:description" content="Meta広告の支払いに失敗して広告が止まったときに、請求と支払いの画面で状況を確かめる方法、カードの利用枠・有効期限・カード会社の利用制限・残高不足などのよくある原因、未払い分を支払って配信を戻す手順、放置したときのアカウントへの影響と再発を防ぐ設定をまとめています。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+
+<meta content="Meta広告の支払いに失敗して広告が止まったときに、請求と支払いの画面で状況を確かめる方法、カードの利用枠・有効期限・カード会社の利用制限・残高不足などのよくある原因、未払い分を支払って配信を戻す手順、放置したときのアカウントへの影響と再発を防ぐ設定をまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      text-align: left !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 2カラム比較 */
+    .compare-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 28px; }
+    .compare-col { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow2); }
+    .compare-col--google { border-top: 3px solid #4285F4; }
+    .compare-col--meta { border-top: 3px solid #0866FF; }
+    .compare-col__label { font-size: 11px; font-weight: 800; letter-spacing: .14em; margin: 0 0 8px; }
+    .compare-col--google .compare-col__label { color: #4285F4; }
+    .compare-col--meta .compare-col__label { color: #0866FF; }
+    .compare-col h4 { font-size: 16px; font-weight: 900; margin: 0 0 12px; }
+    .compare-col ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-col li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* チェックリスト */
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "□"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(150deg, #1E6BFF, #0A2FA8); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .compare-2col { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } .article-body { padding: 36px 0 56px; } }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Meta広告の支払いに失敗したときの原因と対処｜広告を止めずに戻す手順と再発防止",
+  "description": "Meta広告の支払いに失敗して広告が止まったときに、請求と支払いの画面で状況を確かめる方法、カードの利用枠・有効期限・カード会社の利用制限・残高不足などのよくある原因、未払い分を支払って配信を戻す手順、放置したときのアカウントへの影響と再発を防ぐ設定をまとめています。",
+  "url": "https://lnx.co.jp/column/advertising/meta-ads-payment-failed/",
+  "datePublished": "2026-11-24",
+  "dateModified": "2026-11-24",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/advertising/meta-ads-payment-failed/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "広告運用",
+      "item": "https://lnx.co.jp/column/advertising/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Meta広告の支払いに失敗したときの原因と対処｜広告を止めずに戻す手順と再発防止",
+      "item": "https://lnx.co.jp/column/advertising/meta-ads-payment-failed/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Meta広告の支払いに失敗すると、広告はどうなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "未払いの残高が支払われるまで、その広告アカウントのすべての広告の配信が止まります。広告の内容や設定を直しても再開しないため、請求と支払いの画面で支払いを済ませてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "カードに問題はないのに、支払いに失敗しました。なぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "カード会社が不正利用を防ぐために、ネット上の決済や海外の事業者からの請求を一時的に止めていることがあります。カード会社に連絡して利用の確認を済ませてから、支払いをやり直してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "未払いの残高を支払えば、すぐに広告は再開しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "支払いが完了すると配信は再開されますが、反映までに少し時間がかかることがあります。数時間たっても再開しない場合は、アカウントクオリティで制限が出ていないかなど、他の原因も確認してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支払いの失敗を放置すると、どうなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "未払いのまま放置すると、広告アカウントが使えなくなるおそれがあります。気づいた時点で、支払い方法を直して未払い分を支払ってください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "支払いの失敗を防ぐには、何をしておけばよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "予備の支払い方法を登録しておくこと、予算を増やす前にカードの利用枠を確認すること、カードの更新時期を共有しておくこと、支払いの設定を変更できる人を社内で決めておくことが有効です。"
+      }
+    }
+  ]
+}</script><style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="brand__logo" width="160" height="160">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/advertising/">広告運用</a>
+<span class="sep">/</span>
+<span class="cur">Meta広告の支払いに失敗したときの原因と対処</span>
+</nav>
+<p class="article-hero__kicker"><span></span>広告運用</p>
+<h1 class="article-hero__title">Meta広告の支払いに失敗したときの原因と対処<br/>広告を止めずに戻す手順と再発防止</h1>
+<div class="article-hero__meta">
+<time datetime="2026-11-24">2026年11月24日</time>
+<span class="article-hero__tag">広告運用</span><span class="article-hero__tag">Meta広告</span><span class="article-hero__tag">Instagram広告</span><span class="article-hero__tag">支払い</span>
+</div>
+</div>
+</section>
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>支払いの失敗で何が止まるのか</li>
+<li>請求と支払いの画面で確認すること</li>
+<li>カードの利用枠・有効期限・カード会社の制限などのよくある原因</li>
+<li>未払い分を支払って配信を戻す手順</li>
+<li>放置したときのアカウントへの影響</li>
+<li>再発を防ぐための設定と運用</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#conclusion">結論：支払いを済ませるまで、すべての広告が止まる</a></li>
+<li><a href="#verify">最初に確かめる：何が止まっているのか</a></li>
+<li><a href="#causes">支払いに失敗する原因を整理する</a></li>
+<li><a href="#steps">配信を戻す5ステップ</a></li>
+<li><a href="#fix">原因別の直し方と、やってはいけない対応</a></li>
+<li><a href="#judge">自社で直すか、相談するかの判断の目安</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+</ol>
+</nav>
+<p>「広告マネージャに支払いの失敗が表示され、広告が止まっている」「カード会社から利用確認の連絡が来た直後に、配信が止まった」。Meta広告（Facebook・Instagram広告）では、登録しているカードの決済が通らないと、未払いの残高が支払われるまで広告の配信が止まります。広告の設定に問題がなくても止まるため、<strong>広告を直すのではなく、請求と支払いの画面で状況を確かめること</strong>が先です。</p>
+<h2 id="conclusion">結論：支払いを済ませるまで、すべての広告が止まる</h2>
+<div class="highlight-card highlight-card--success">
+<p><strong>結論1：</strong>支払いに失敗すると、その広告アカウントのすべての広告の配信が止まります。広告の中身を直しても戻りません。<br/>
+<strong>結論2：</strong>まず請求と支払いの画面で、未払いの残高と、失敗した理由の表示を確認します。<br/>
+<strong>結論3：</strong>よくある原因は、カードの利用枠の不足、有効期限切れ、カード会社による利用の制限、デビットカードやプリペイドカードの残高不足です。<br/>
+<strong>結論4：</strong>支払い方法を直してから、未払いの残高を支払うと、配信が再開されます。<br/>
+<strong>結論5：</strong>未払いのまま放置すると、広告アカウントが使えなくなるおそれがあります。早めに対応します。</p>
+</div>
+<h2 id="verify">最初に確かめる：何が止まっているのか</h2>
+<ul>
+<li><strong>止まっているのは広告アカウント全体か</strong>：支払いの失敗では、一部の広告だけでなくアカウント内のすべての広告が止まります。一部だけ止まっている場合は、審査や設定など別の原因を疑います。</li>
+<li><strong>どの広告アカウントか</strong>：複数の広告アカウントを持っている場合、支払い方法はアカウントごとに設定されています。止まっているアカウントの請求の画面を開きます。</li>
+<li><strong>未払いの残高がいくらか</strong>：請求と支払いの画面に、支払いが必要な金額と、決済に失敗した日時が表示されます。</li>
+</ul>
+<div class="highlight-card">
+<p><strong>先に確認しておくこと：</strong>広告アカウントの支払いの設定を変更できるのは、権限を持つ人に限られます。カードの名義人と広告の担当者が違う会社では、誰が支払い方法を変更できるかを先に確認しておくと、対応が早くなります。</p>
+</div>
+<h2 id="causes">支払いに失敗する原因を整理する</h2>
+<table class="cost-table">
+<thead>
+<tr><th>原因</th><th>よくある状況</th><th>確認する相手</th></tr>
+</thead>
+<tbody>
+<tr><td>カードの利用枠の不足</td><td>月末や大きな支払いが重なった時期に、利用枠を超えた</td><td>カード会社、社内の経理</td></tr>
+<tr><td>有効期限切れ・カードの切り替え</td><td>カードが更新されたが、広告アカウントには古い番号のまま</td><td>カードの名義人</td></tr>
+<tr><td>カード会社による利用の制限</td><td>海外の事業者からの請求やネットでの決済を、不正利用の疑いとして止めた</td><td>カード会社（利用の確認や制限の解除）</td></tr>
+<tr><td>デビット・プリペイドカードの残高不足</td><td>口座やカードの残高が、請求のタイミングで足りなかった</td><td>口座・カードの残高</td></tr>
+<tr><td>請求額が想定より大きかった</td><td>予算を増やした結果、1回あたりの請求額が上がり、利用枠に引っかかった</td><td>広告の予算、支払いの設定</td></tr>
+</tbody>
+</table>
+<h3>カード会社の利用制限が原因のとき</h3>
+<p>カード自体に問題がなくても、カード会社が不正利用を防ぐために、ネット上の決済や海外の事業者からの請求を一時的に止めることがあります。この場合は、カード会社に連絡して利用の確認を済ませるか、制限を解除してもらう必要があります。カード会社からの確認の連絡を見落としていないかも確認します。</p>
+<h3>予算を増やした直後に失敗したとき</h3>
+<p>Meta広告では、配信した金額に応じて請求が発生します。予算を大きく増やすと、1回あたりの請求額や請求の回数が増え、カードの利用枠に引っかかることがあります。予算を増やす前に、カードの利用枠に余裕があるかを確認しておくと安心です。</p>
+<h2 id="steps">配信を戻す5ステップ</h2>
+<ol>
+<li><strong>請求と支払いの画面で、未払いの残高と失敗の表示を確認する</strong>：止まっている広告アカウントの画面を開きます。</li>
+<li><strong>カードの状態を確認する</strong>：利用枠、有効期限、カード会社からの利用確認の連絡がないかを確認します。</li>
+<li><strong>支払い方法を直す、または別の支払い方法を追加する</strong>：新しいカード番号に更新する、別のカードを追加してメインに設定する、などの対応をします。</li>
+<li><strong>未払いの残高を支払う</strong>：支払いが完了すると、配信が再開されます。</li>
+<li><strong>配信が再開したかを広告マネージャで確認する</strong>：再開までに少し時間がかかることがあります。数時間たっても再開しない場合は、他の原因も確認します。</li>
+</ol>
+<div class="checklist">
+<p class="checklist__title">確認チェックリスト</p>
+<ul>
+<li>止まっているのはアカウント内のすべての広告か</li>
+<li>請求と支払いの画面で、未払いの残高を確認したか</li>
+<li>カードの利用枠と有効期限に問題がないか</li>
+<li>カード会社から利用確認の連絡が来ていないか</li>
+<li>支払い方法を変更できる権限を持つ人が対応しているか</li>
+<li>未払いの残高を支払ったあと、配信の再開を確認したか</li>
+<li>予備の支払い方法を登録しているか</li>
+</ul>
+</div>
+<h2 id="fix">原因別の直し方と、やってはいけない対応</h2>
+<table class="cost-table">
+<thead>
+<tr><th>原因</th><th>直し方</th><th>注意点</th></tr>
+</thead>
+<tbody>
+<tr><td>利用枠の不足</td><td>利用枠に余裕のあるカードに切り替える、または利用枠の引き上げをカード会社に相談する</td><td>予算を増やす前に、利用枠を確認する運用にする</td></tr>
+<tr><td>有効期限切れ</td><td>新しいカードの情報に更新する</td><td>カードの更新時期を経理と共有しておく</td></tr>
+<tr><td>カード会社の利用制限</td><td>カード会社に連絡して利用の確認を済ませ、支払いをやり直す</td><td>確認が済むまでは、何度決済しても通らないことがある</td></tr>
+<tr><td>残高不足</td><td>口座やカードに入金してから、支払いをやり直す</td><td>請求のタイミングに合わせて残高を管理する</td></tr>
+</tbody>
+</table>
+<div class="highlight-card highlight-card--warning">
+<p><strong>やってはいけない対応：</strong>未払いの残高を残したまま、新しい広告アカウントを作って広告を出そうとすることです。<strong>支払いの問題を解決しないまま別のアカウントで配信しようとすると、制限の回避と見なされ、関連するアカウントまで使えなくなるおそれがあります。</strong>まず既存のアカウントの支払いを済ませてください。</p>
+</div>
+<div class="article-cta">
+<p class="article-cta__label">Web広告運用代行</p>
+<div class="article-cta__title">広告アカウントの管理から、運用までまとめてご相談ください</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用代行の詳細を見る</a>
+</div>
+<!-- 依頼先の比較記事（送客導線 2026-11-18） -->
+<div class="lnx-compare-links" style="margin: 28px 0 8px;"><p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 12px;">運用の外注先を比べたい方へ</p><ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;"><li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/advertising/listing-ads-agency-recommended/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ リスティング広告運用代行おすすめ13選｜料金比較</a></li><li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/advertising/google-ads-agency-recommended/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Google広告運用代行おすすめ14選｜料金比較</a></li><li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/advertising/listing-ads-cost/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ リスティング広告運用代行の費用相場はいくら？手数料・広告費・業種別に解説</a></li></ul></div>
+<h2 id="judge">自社で直すか、相談するかの判断の目安</h2>
+<table class="cost-table">
+<thead>
+<tr><th>状況</th><th>判断の目安</th></tr>
+</thead>
+<tbody>
+<tr><td>原因がカードの利用枠・有効期限・残高と分かった</td><td>自社で支払い方法を直して、未払い分を支払う</td></tr>
+<tr><td>支払いは済んだのに、配信が再開しない</td><td>アカウントクオリティで制限が出ていないかを確認する。制限の対応は<a href="https://lnx.co.jp/column/advertising/meta-ads-account-restriction/">Meta広告アカウント制限・審査落ちの対処法</a>を参照</td></tr>
+<tr><td>広告アカウントが使えなくなった</td><td>支払いの解決と、アカウントの制限の解除の手続きが必要。対応を誤ると長引くため、早めに相談する</td></tr>
+<tr><td>代理店や外部の担当者が支払いの権限を持っている</td><td>権限の持ち主を確認する。広告アカウントの持ち主の考え方は<a href="https://lnx.co.jp/column/advertising/ad-account-ownership-handover/">広告アカウントの所有権と引き継ぎ</a>で整理しています</td></tr>
+</tbody>
+</table>
+<h2 id="lnx-view">LnXの見解</h2>
+<p>支払いの失敗は、広告の運用の腕とは関係なく起きるトラブルです。それでも、<strong>止まっていることに気づくまでの時間で、損失の大きさが変わります</strong>。特に、広告の担当者とカードの名義人が別の会社では、担当者が気づいても自分では直せず、経理の担当者に連絡がつくまで数日止まったまま、ということが起きがちです。</p>
+<p>私たちは、予備の支払い方法を登録しておくこと、予算を増やすときにカードの利用枠も一緒に確認すること、支払いの設定を変更できる人を社内で決めておくことをおすすめしています。どれも一度決めておけば済むことですが、決めていない会社がほとんどです。</p>
+<p>広告アカウントの権限や支払いまわりも含めて、運用をまとめて任せたいという場合は、LnXの広告運用代行にご相談ください。</p>
+<div class="article-cta">
+<p class="article-cta__label">Web広告運用代行</p>
+<div class="article-cta__title">アカウントの状態を、第三者の目で見てほしい方へ</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用代行の詳細を見る</a>
+</div>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+Meta広告の支払いに失敗すると、広告はどうなりますか？
+</summary>
+<div class="article-faq__body">
+<p>未払いの残高が支払われるまで、その広告アカウントのすべての広告の配信が止まります。広告の内容や設定を直しても再開しないため、請求と支払いの画面で支払いを済ませてください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+カードに問題はないのに、支払いに失敗しました。なぜですか？
+</summary>
+<div class="article-faq__body">
+<p>カード会社が不正利用を防ぐために、ネット上の決済や海外の事業者からの請求を一時的に止めていることがあります。カード会社に連絡して利用の確認を済ませてから、支払いをやり直してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+未払いの残高を支払えば、すぐに広告は再開しますか？
+</summary>
+<div class="article-faq__body">
+<p>支払いが完了すると配信は再開されますが、反映までに少し時間がかかることがあります。数時間たっても再開しない場合は、アカウントクオリティで制限が出ていないかなど、他の原因も確認してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+支払いの失敗を放置すると、どうなりますか？
+</summary>
+<div class="article-faq__body">
+<p>未払いのまま放置すると、広告アカウントが使えなくなるおそれがあります。気づいた時点で、支払い方法を直して未払い分を支払ってください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+支払いの失敗を防ぐには、何をしておけばよいですか？
+</summary>
+<div class="article-faq__body">
+<p>予備の支払い方法を登録しておくこと、予算を増やす前にカードの利用枠を確認すること、カードの更新時期を共有しておくこと、支払いの設定を変更できる人を社内で決めておくことが有効です。</p>
+</div>
+</details>
+</div>
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/meta-ads-account-restriction/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告アカウント制限・審査落ちの対処法と再審査</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/ad-account-ownership-handover/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ 広告アカウントの所有権｜引き継ぎ手順と失う資産</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/meta-ads-not-delivering/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告が配信されない原因と確認手順</a>
+</li>
+</ul>
+</div>
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<aside class="article-sidebar">
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="t-footer__logo" width="160" height="160">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>

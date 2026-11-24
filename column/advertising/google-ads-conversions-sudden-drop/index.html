@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>Google広告のCVが急に減った原因と確認手順 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/advertising/google-ads-conversions-sudden-drop/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Google広告のCVが急に減った原因と確認手順｜LnX合同会社"/>
+<meta property="og:description" content="Google広告のコンバージョンが急に減った・0になったときに、計測の不具合か実際の減少かを見分ける方法、コンバージョンの反映の遅れ、タグとGTM、同意バナー、コンバージョンアクションの設定変更、入札とリンク先の5系統の原因、絞り込む5ステップと直し方をまとめています。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/advertising/google-ads-conversions-sudden-drop/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Google広告のCVが急に減った原因と確認手順｜LnX合同会社"/>
+<meta name="twitter:description" content="Google広告のコンバージョンが急に減った・0になったときに、計測の不具合か実際の減少かを見分ける方法、コンバージョンの反映の遅れ、タグとGTM、同意バナー、コンバージョンアクションの設定変更、入札とリンク先の5系統の原因、絞り込む5ステップと直し方をまとめています。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+
+<meta content="Google広告のコンバージョンが急に減った・0になったときに、計測の不具合か実際の減少かを見分ける方法、コンバージョンの反映の遅れ、タグとGTM、同意バナー、コンバージョンアクションの設定変更、入札とリンク先の5系統の原因、絞り込む5ステップと直し方をまとめています。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important;
+      text-align: left !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+
+    /* 2カラム比較 */
+    .compare-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0 0 28px; }
+    .compare-col { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow2); }
+    .compare-col--google { border-top: 3px solid #4285F4; }
+    .compare-col--meta { border-top: 3px solid #0866FF; }
+    .compare-col__label { font-size: 11px; font-weight: 800; letter-spacing: .14em; margin: 0 0 8px; }
+    .compare-col--google .compare-col__label { color: #4285F4; }
+    .compare-col--meta .compare-col__label { color: #0866FF; }
+    .compare-col h4 { font-size: 16px; font-weight: 900; margin: 0 0 12px; }
+    .compare-col ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-col li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .cost-table tr:hover td { background: rgba(37,99,235,.06); }
+
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+
+    /* チェックリスト */
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "□"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__lead { font-size: 14px; color: var(--muted); margin: 0 0 22px; max-width: 52ch; margin-left: auto; margin-right: auto; text-align: center; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(150deg, #1E6BFF, #0A2FA8); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .compare-2col { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .cost-table { font-size: 12.5px; } .cost-table th, .cost-table td { padding: 10px 12px; } .article-body { padding: 36px 0 56px; } }
+  </style>
+</meta><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google広告のコンバージョンが急に減った原因と確認手順｜計測の不具合か、本当の減少かを見分ける",
+  "description": "Google広告のコンバージョンが急に減った・0になったときに、計測の不具合か実際の減少かを見分ける方法、コンバージョンの反映の遅れ、タグとGTM、同意バナー、コンバージョンアクションの設定変更、入札とリンク先の5系統の原因、絞り込む5ステップと直し方をまとめています。",
+  "url": "https://lnx.co.jp/column/advertising/google-ads-conversions-sudden-drop/",
+  "datePublished": "2026-11-24",
+  "dateModified": "2026-11-24",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/advertising/google-ads-conversions-sudden-drop/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "広告運用",
+      "item": "https://lnx.co.jp/column/advertising/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Google広告のコンバージョンが急に減った原因と確認手順｜計測の不具合か、本当の減少かを見分ける",
+      "item": "https://lnx.co.jp/column/advertising/google-ads-conversions-sudden-drop/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "直近の数日だけ、コンバージョンが少なく見えます。計測が壊れていますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "壊れていないことがあります。Google広告はコンバージョンを広告がクリックされた日に計上するため、クリックから数日たって発生した分は、後から過去の日付に加わります。直近の数日は少なく見えるのが普通なので、数日たってから見直してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "コンバージョンが急に0件になりました。何から確認すればよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "まず問い合わせ管理など広告の外の実数を確認し、実数が減っていなければ計測の問題です。次に、コンバージョンアクションのステータスと、サイトのサンクスページやGTMに変更がなかったかを確認してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cookieの同意バナーを入れてから、コンバージョンが減りました。なぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同意しなかった人の計測のされ方が変わり、記録される件数が減ることがあるためです。同意モードの設定を見直すことや、拡張コンバージョンの導入を検討してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "計測が壊れていた期間の自動入札は、どうすればよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "計測を直すことが最優先です。壊れていた期間は、自動入札が誤ったデータで学習している可能性があります。直したあとは、配信が落ち着くまで入札戦略や目標値を頻繁に変えずに様子を見てください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GA4とGoogle広告で、コンバージョンの数が違います。どちらが正しいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "数え方や計上する日付の基準が違うため、一致しないのが普通です。広告の改善はGoogle広告の数字、チャネル間の比較はGA4、事業の成果は問い合わせ管理の実数、と役割を分けて見ることをおすすめします。"
+      }
+    }
+  ]
+}</script><style id="bc-style">
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;font-weight:700;color:var(--soft);margin-bottom:18px;}
+.article-breadcrumb a{color:var(--brand3);text-decoration:none;}
+.article-breadcrumb a:hover{text-decoration:underline;}
+.article-breadcrumb span.sep{color:rgba(15,23,42,.25);}
+.article-breadcrumb span.cur{color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42ch;}
+</style>
+</head>
+<link href="../../../assets/img/favicon-32.webp" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../../assets/img/favicon-180.webp" rel="apple-touch-icon" sizes="180x180"/>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="nav">
+  <div class="container nav__inner">
+
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="brand__logo" width="160" height="160">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/advertising/">広告運用</a>
+<span class="sep">/</span>
+<span class="cur">Google広告のコンバージョンが急に減った原因と確認手順</span>
+</nav>
+<p class="article-hero__kicker"><span></span>広告運用</p>
+<h1 class="article-hero__title">Google広告のコンバージョンが急に減った原因と確認手順<br/>計測の不具合か、本当の減少かを見分ける</h1>
+<div class="article-hero__meta">
+<time datetime="2026-11-24">2026年11月24日</time>
+<span class="article-hero__tag">広告運用</span><span class="article-hero__tag">Google広告</span><span class="article-hero__tag">コンバージョン</span><span class="article-hero__tag">計測</span>
+</div>
+</div>
+</section>
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>「計測が壊れた」のか「本当に減った」のかを見分ける方法</li>
+<li>直近の数字が少なく見える、反映の遅れの仕組み</li>
+<li>タグ・同意バナー・アクションの設定・入札・リンク先の5系統の原因</li>
+<li>減り始めた日から原因を絞り込む5ステップ</li>
+<li>原因別の直し方と、自動入札で気をつけること</li>
+<li>自社で直すか、相談するかの判断の目安</li>
+</ul>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#conclusion">結論：まず「計測の問題か、実際の減少か」を分ける</a></li>
+<li><a href="#verify">最初に確かめる：本当にコンバージョンが減ったのか</a></li>
+<li><a href="#causes">コンバージョンが急に減る原因を症状別に整理する</a></li>
+<li><a href="#steps">自分で原因を絞り込む5ステップ</a></li>
+<li><a href="#fix">原因別の直し方と、やってはいけない対応</a></li>
+<li><a href="#judge">自社で直すか、相談するかの判断の目安</a></li>
+<li><a href="#lnx-view">LnXの見解</a></li>
+</ol>
+</nav>
+<p>「先週まで毎日数件あったコンバージョンが、急に0になった」「クリックは変わらないのに、コンバージョンだけが半分になった」。Google広告でこうした変化が起きたとき、広告の成果が落ちたとは限りません。<strong>実際に問い合わせや購入が減ったのか、計測が止まっただけなのか</strong>で、打つ手はまったく違います。この記事では、Google広告のコンバージョンが急に減ったときの原因と、見分け方の順番を整理します。</p>
+<h2 id="conclusion">結論：まず「計測の問題か、実際の減少か」を分ける</h2>
+<div class="highlight-card highlight-card--success">
+<p><strong>結論1：</strong>最初に、問い合わせ管理や受注の記録など、広告の外にある実数と比べます。実数が減っていなければ、計測の問題です。<br/>
+<strong>結論2：</strong>直近の数日は、コンバージョンの反映が遅れて少なく見えることがあります。数日たってから見直します。<br/>
+<strong>結論3：</strong>0件や半減など急な変化は、タグの外れ、GTMの変更、同意バナーの導入、コンバージョンアクションの設定変更が多い原因です。<br/>
+<strong>結論4：</strong>計測が壊れている間は、自動入札が誤ったデータで学習します。計測を直すことを最優先にします。<br/>
+<strong>結論5：</strong>実数も減っているなら、入札・予算・リンク先のフォーム・需要の変化を疑います。</p>
+</div>
+<h2 id="verify">最初に確かめる：本当にコンバージョンが減ったのか</h2>
+<ul>
+<li><strong>広告の外の実数と比べる</strong>：問い合わせ管理の表、フォームの通知メール、受注の記録など、広告とは別に残っている数と比べます。ここが変わっていなければ、計測の問題です。</li>
+<li><strong>反映の遅れ</strong>：Google広告は、コンバージョンを広告がクリックされた日に計上します。クリックから数日たって問い合わせがあると、その分は過去の日付に後から加わります。そのため、直近の数日は少なく見えるのが普通です。</li>
+<li><strong>見ている列の違い</strong>：「コンバージョン」列と「すべてのコンバージョン」列は、数える対象が違います。コンバージョンアクションの設定を変えると、片方だけが減ることがあります。</li>
+<li><strong>比較期間</strong>：連休や月末をまたぐと、需要そのものが変わります。同じ長さの直前期間か、前週の同じ曜日で比べます。</li>
+</ul>
+<div class="highlight-card">
+<p><strong>先に決めておくこと：</strong>「0件になった」のか「減った」のかを分けます。<strong>ある日を境に0件になった場合は、ほぼ計測の問題</strong>です。徐々に減っている場合は、実際の減少や需要の変化も含めて考えます。</p>
+</div>
+<h2 id="causes">コンバージョンが急に減る原因を症状別に整理する</h2>
+<table class="cost-table">
+<thead>
+<tr><th>症状</th><th>疑う原因</th><th>確認する場所</th></tr>
+</thead>
+<tbody>
+<tr><td>ある日を境に0件になった</td><td>サイト改修でタグが外れた、サンクスページのURLが変わった、GTMのコンテナを更新した</td><td>コンバージョンアクションのステータス、タグの発火、GTMのバージョン履歴</td></tr>
+<tr><td>件数が半分ほどに減った</td><td>Cookieの同意バナーを導入・変更した、計測するページやイベントの一部が外れた</td><td>同意バナーの設定、同意モードの状態</td></tr>
+<tr><td>「コンバージョン」列だけ減った</td><td>コンバージョンアクションを「メイン」から「サブ」に変えた、目標の設定を変えた</td><td>目標とコンバージョンアクションの設定、変更履歴</td></tr>
+<tr><td>直近の数日だけ少ない</td><td>コンバージョンの反映の遅れ</td><td>数日後に同じ期間を見直す</td></tr>
+<tr><td>実数も減っている</td><td>入札戦略や予算の変更、リンク先のフォームの不具合、需要の変化</td><td>変更履歴、フォームの送信テスト、前年同期の推移</td></tr>
+</tbody>
+</table>
+<h3>計測が原因のとき</h3>
+<p>最も多いのは、サイト側の変更です。サイトのリニューアルでサンクスページのURLが変わった、フォームの仕組みを入れ替えた、GTMの別の変更を公開したときに計測のタグが巻き込まれた、といったケースです。広告の担当者が知らないところで起きるため、気づくまでに時間がかかります。タグの動き方の確認は<a href="https://lnx.co.jp/column/analytics/gtm-preview-not-connecting/">GTMのプレビューがつながらないとき</a>も参考にしてください。</p>
+<h3>同意バナー・設定変更が原因のとき</h3>
+<p>Cookieの同意バナーを導入したり設定を変えたりすると、同意しなかった人の計測のされ方が変わり、記録される件数が減ることがあります。また、コンバージョンアクションを「サブ」に変えると、そのアクションは「コンバージョン」列に数えられなくなります。設定を変えた心当たりがある場合は、変更履歴で日付を確認します。</p>
+<h2 id="steps">自分で原因を絞り込む5ステップ</h2>
+<ol>
+<li><strong>広告の外の実数と比べる</strong>：問い合わせ管理や受注の記録が減っていないかを確認します。</li>
+<li><strong>日別のコンバージョンを1か月分表示し、減り始めた日を特定する</strong>：直近の数日は反映の遅れを考慮して除きます。</li>
+<li><strong>コンバージョンアクションのステータスを見る</strong>：目標のコンバージョンの画面で、記録が止まっている、タグが確認できないといった表示がないかを確認します。</li>
+<li><strong>その日の前後に、サイト・GTM・同意バナー・広告アカウントの変更がないかを確認する</strong>：サイトの担当者や制作会社にも確認します。</li>
+<li><strong>実際にフォームを送信して、タグが動くかを試す</strong>：Tag AssistantやGTMのプレビューで、コンバージョンのタグが発火するかを見ます。</li>
+</ol>
+<div class="checklist">
+<p class="checklist__title">確認チェックリスト</p>
+<ul>
+<li>問い合わせ管理や受注の記録など、広告の外の実数と比べたか</li>
+<li>直近の数日を除いて比べたか（反映の遅れ）</li>
+<li>「コンバージョン」列と「すべてのコンバージョン」列の両方を見たか</li>
+<li>コンバージョンアクションのステータスに異常が出ていないか</li>
+<li>サンクスページのURLやフォームの仕組みが変わっていないか</li>
+<li>GTMで、減り始めた日に公開した変更がないか</li>
+<li>Cookieの同意バナーを導入・変更していないか</li>
+<li>実際にフォームを送信して、タグの発火を確認したか</li>
+</ul>
+</div>
+<h2 id="fix">原因別の直し方と、やってはいけない対応</h2>
+<table class="cost-table">
+<thead>
+<tr><th>原因</th><th>直し方</th><th>注意点</th></tr>
+</thead>
+<tbody>
+<tr><td>タグの外れ・URLの変更</td><td>新しいページやイベントに合わせてタグやトリガーを設定し直す</td><td>直したあと、実際に送信して記録されるかを確認する</td></tr>
+<tr><td>GTMの変更</td><td>バージョン履歴で前の状態と比べ、計測に関わる変更を戻すか直す</td><td>公開前にプレビューで確認する運用にする</td></tr>
+<tr><td>同意バナー</td><td>同意モードの設定を見直す。拡張コンバージョンの導入も検討する</td><td>拡張コンバージョンは<a href="https://lnx.co.jp/column/advertising/google-ads-enhanced-conversions/">Google広告の拡張コンバージョン</a>で解説</td></tr>
+<tr><td>アクションの設定変更</td><td>入札に使いたいアクションを「メイン」に戻す</td><td>変えると自動入札の学習にも影響する</td></tr>
+<tr><td>フォームの不具合</td><td>フォームを直す。直るまで広告の予算を抑えることも検討する</td><td>広告ではなくサイトの問題。広告費が無駄に出ていく</td></tr>
+<tr><td>実際の減少・需要の変化</td><td>入札・予算・広告文・リンク先を見直す。前年同期と比べる</td><td>計測の問題を潰してから判断する</td></tr>
+</tbody>
+</table>
+<div class="highlight-card highlight-card--warning">
+<p><strong>やってはいけない対応：</strong>計測が壊れている可能性を確かめないまま、入札戦略や目標CPAを変えることです。<strong>自動入札は記録されたコンバージョンを手がかりに配信を決めるため、計測が止まっていると「成果が出ない広告」と判断して配信を絞ってしまいます。</strong>計測を直すのが先です。</p>
+</div>
+<div class="article-cta">
+<p class="article-cta__label">Web広告運用代行・計測設定</p>
+<div class="article-cta__title">コンバージョンの計測から、広告の見直しまでご相談ください</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用代行の詳細を見る</a>
+</div>
+<!-- 依頼先の比較記事（送客導線 2026-11-18） -->
+<div class="lnx-compare-links" style="margin: 28px 0 8px;"><p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 12px;">運用の外注先を比べたい方へ</p><ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;"><li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/advertising/listing-ads-agency-recommended/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ リスティング広告運用代行おすすめ13選｜料金比較</a></li><li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/advertising/google-ads-agency-recommended/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Google広告運用代行おすすめ14選｜料金比較</a></li><li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/advertising/listing-ads-cost/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ リスティング広告運用代行の費用相場はいくら？手数料・広告費・業種別に解説</a></li></ul></div>
+<h2 id="judge">自社で直すか、相談するかの判断の目安</h2>
+<table class="cost-table">
+<thead>
+<tr><th>状況</th><th>判断の目安</th></tr>
+</thead>
+<tbody>
+<tr><td>実数は減っておらず、原因の変更も分かった</td><td>自社でタグや設定を直し、数日たってから記録の回復を確認する</td></tr>
+<tr><td>計測の問題だが、どこが壊れたか分からない</td><td>サイト・GTM・広告の3つにまたがるため、計測に詳しい人に見てもらう</td></tr>
+<tr><td>GA4とGoogle広告で数字が大きく違う</td><td>数え方の違いを整理する。考え方は<a href="https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/">GA4でコンバージョンが計測されない原因</a>を参照</td></tr>
+<tr><td>実数も減っている</td><td>広告とリンク先を一体で見直す。入札や予算の変更前後も比べる</td></tr>
+</tbody>
+</table>
+<h2 id="lnx-view">LnXの見解</h2>
+<p>「コンバージョンが急に減った」という相談で調べてみると、<strong>実際の問い合わせは減っておらず、計測だけが止まっていた</strong>ということがよくあります。サイトのリニューアルやフォームの入れ替えは、広告の担当者に知らされないまま進むことが多く、気づいたときには自動入札が何日も誤ったデータで動いていた、ということも珍しくありません。</p>
+<p>そのため私たちは、広告の管理画面の数字だけでなく、問い合わせ管理の実数と週に1回は突き合わせることをおすすめしています。広告の数字と実数がずれ始めたら、それが計測の異常に最も早く気づくサインになります。</p>
+<p>LnXでは広告運用と、GA4・GTMの計測の設定を同じ担当者が見ています。計測と広告のどちらに原因があるか分からないという場合も、切り分けからご相談ください。</p>
+<div class="article-cta">
+<p class="article-cta__label">Web広告運用代行</p>
+<div class="article-cta__title">アカウントの状態を、第三者の目で見てほしい方へ</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用代行の詳細を見る</a>
+</div>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+直近の数日だけ、コンバージョンが少なく見えます。計測が壊れていますか？
+</summary>
+<div class="article-faq__body">
+<p>壊れていないことがあります。Google広告はコンバージョンを広告がクリックされた日に計上するため、クリックから数日たって発生した分は、後から過去の日付に加わります。直近の数日は少なく見えるのが普通なので、数日たってから見直してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+コンバージョンが急に0件になりました。何から確認すればよいですか？
+</summary>
+<div class="article-faq__body">
+<p>まず問い合わせ管理など広告の外の実数を確認し、実数が減っていなければ計測の問題です。次に、コンバージョンアクションのステータスと、サイトのサンクスページやGTMに変更がなかったかを確認してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+Cookieの同意バナーを入れてから、コンバージョンが減りました。なぜですか？
+</summary>
+<div class="article-faq__body">
+<p>同意しなかった人の計測のされ方が変わり、記録される件数が減ることがあるためです。同意モードの設定を見直すことや、拡張コンバージョンの導入を検討してください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+計測が壊れていた期間の自動入札は、どうすればよいですか？
+</summary>
+<div class="article-faq__body">
+<p>計測を直すことが最優先です。壊れていた期間は、自動入札が誤ったデータで学習している可能性があります。直したあとは、配信が落ち着くまで入札戦略や目標値を頻繁に変えずに様子を見てください。</p>
+</div>
+</details>
+<details class="article-faq__item">
+<summary>
+<span class="faq-q-badge">Q</span>
+GA4とGoogle広告で、コンバージョンの数が違います。どちらが正しいですか？
+</summary>
+<div class="article-faq__body">
+<p>数え方や計上する日付の基準が違うため、一致しないのが普通です。広告の改善はGoogle広告の数字、チャネル間の比較はGA4、事業の成果は問い合わせ管理の実数、と役割を分けて見ることをおすすめします。</p>
+</div>
+</details>
+</div>
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/analytics/ga4-cv-not-tracking/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ GA4でコンバージョンが計測されない原因と確認手順</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/google-ads-enhanced-conversions/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Google広告の拡張コンバージョン｜仕組みと導入判断</a>
+</li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);">
+<a href="https://lnx.co.jp/column/advertising/google-ads-bid-strategy/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Google広告の入札戦略｜自動入札の使い分けと切替</a>
+</li>
+</ul>
+</div>
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<aside class="article-sidebar">
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="t-footer__logo" width="160" height="160">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>

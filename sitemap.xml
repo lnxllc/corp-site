@@ -392,13 +392,13 @@
   </url>
   <url>
     <loc>https://lnx.co.jp/column/advertising/meta-ads-cost/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://lnx.co.jp/column/advertising/instagram-ads-cost/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1448,7 +1448,7 @@
   </url>
   <url>
     <loc>https://lnx.co.jp/column/advertising/ad-agency-cost-guide/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2115,6 +2115,48 @@
   <url>
     <loc>https://lnx.co.jp/column/ai-katsuyo/chatgpt-shared-link-delete-company/</loc>
     <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/analytics/meta-ads-link-click-landing-page-view-gap/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/web-marketing/trade-show-business-cards-no-deals/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/advertising/meta-ads-not-delivering/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/advertising/meta-ads-cpm-sudden-increase/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/advertising/google-ads-disapproved/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/advertising/google-ads-conversions-sudden-drop/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lnx.co.jp/column/advertising/meta-ads-payment-failed/</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>Meta広告のリンククリックとLPビューの差が大きい原因 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/analytics/meta-ads-link-click-landing-page-view-gap/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Meta広告のリンククリックとLPビューの差が大きい原因 | LnX合同会社"/>
+<meta property="og:description" content="Meta広告の「リンクのクリック」に比べて「ランディングページビュー」が大きく少ないときに、2つの指標の違い、差が出るよくある原因6つ、配置面・端末・ピクセルから差の出どころを突き止める確認手順、原因別の直し方と様子を見てよい差の目安を整理します。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/analytics/meta-ads-link-click-landing-page-view-gap/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Meta広告のリンククリックとLPビューの差が大きい原因 | LnX合同会社"/>
+<meta name="twitter:description" content="Meta広告の「リンクのクリック」に比べて「ランディングページビュー」が大きく少ないときに、2つの指標の違い、差が出るよくある原因6つ、配置面・端末・ピクセルから差の出どころを突き止める確認手順、原因別の直し方と様子を見てよい差の目安を整理します。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta content="Meta広告の「リンクのクリック」に比べて「ランディングページビュー」が大きく少ないときに、2つの指標の違い、差が出るよくある原因6つ、配置面・端末・ピクセルから差の出どころを突き止める確認手順、原因別の直し方と様子を見てよい差の目安を整理します。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicon-180.webp">
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 13.5px; }
+    .compare-table th, .compare-table td { border: 1px solid rgba(15,23,42,.12); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare-table th { background: rgba(37,99,235,.06); font-weight: 800; color: var(--txt); }
+    .compare-table td { color: rgba(15,23,42,.78); }
+    .scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0 0 28px; }
+    .scope-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2); }
+    .scope-card__head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .scope-card__icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 16px; flex: 0 0 auto; background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(124,58,237,.10)); }
+    .scope-card__name { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0; }
+    .scope-card__desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "\25A1"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 0 0 28px; }
+    .compare-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); }
+    .compare-card__label { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 8px; }
+    .compare-card h4 { margin: 0 0 10px; font-size: 15px; font-weight: 900; }
+    .compare-card ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-card li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(150deg, #1E6BFF, #0A2FA8); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .scope-grid { grid-template-columns: 1fr; } .compare-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .article-body { padding: 36px 0 56px; } }
+
+/* 出典・外部リンクはリンクと分かる見た目にする */
+.article-body a[target="_blank"]{color:var(--brand3);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.article-body a[target="_blank"]:hover{opacity:.75}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Meta広告のリンククリックとLPビューの差が大きい原因",
+  "description": "Meta広告の「リンクのクリック」に比べて「ランディングページビュー」が大きく少ないときに、2つの指標の違い、差が出るよくある原因6つ、配置面・端末・ピクセルから差の出どころを突き止める確認手順、原因別の直し方と様子を見てよい差の目安を整理します。",
+  "url": "https://lnx.co.jp/column/analytics/meta-ads-link-click-landing-page-view-gap/",
+  "datePublished": "2026-11-24",
+  "dateModified": "2026-11-24",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/analytics/meta-ads-link-click-landing-page-view-gap/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "計測・GA4",
+      "item": "https://lnx.co.jp/column/analytics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Meta広告のリンククリックとLPビューの差が大きい原因",
+      "item": "https://lnx.co.jp/column/analytics/meta-ads-link-click-landing-page-view-gap/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "リンクのクリックとランディングページビューは、どちらを見ればよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LPに来た人の数を知りたいときはランディングページビューを見てください。リンクのクリックは広告が押された数で、LPが表示される前に閉じた人や、サイト以外の行き先への移動も含まれることがあります。広告の良し悪しは、ランディングページビューあたりの単価や、問い合わせ・購入の単価で比べるのが安全です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ランディングページビューが0のままです。なぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LPにMetaピクセルが入っていないか、入っていても動いていない可能性が高いです。イベントマネージャのテストイベント機能などで、LPを開いたときにPageViewが送られているかを確かめてください。広告の行き先がインスタントフォームやメッセージの場合も、ランディングページビューは出ません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "差の割合は何%なら正常ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "公式の基準はありません。配置面・端末・LPの重さ・同意バナーの有無で変わるためです。当社が実務で見ている目安では、行き先がウェブサイトの広告で7〜8割以上が毎週ほぼ同じなら様子を見てよく、5割を下回る、または急に下がった場合はピクセルやLPの不具合を最優先で疑います。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "特定の配置面だけ差が大きいときは、その配置面を外すべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "すぐに外す前に、その配置面での問い合わせ・購入の単価も確かめてください。差が大きくても成果の単価が良ければ残す判断もあります。差が大きく、成果の単価も悪い場合は、外すか、広告セットを分けて予算を抑えることを検討してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GA4のセッション数とランディングページビューも合いません。どちらが正しいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "どちらも完全に正しい数字ではなく、数え方が違います。GA4とMetaピクセルは、同意の扱いや計測の仕組みが異なるため、ある程度の差は出ます。差の割合が毎週ほぼ同じかどうかを見て、急に変わったときに設定の変更やタグの不具合を疑ってください。"
+      }
+    }
+  ]
+}</script>
+</head>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="brand__logo" width="160" height="160">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/analytics/">計測・GA4</a>
+<span class="sep">/</span>
+<span class="cur">Meta広告のリンククリックとLPビューの差が大きい原因</span>
+</nav>
+<p class="article-hero__kicker"><span></span>計測・GA4</p>
+<h1 class="article-hero__title">Meta広告のリンククリックと<br/>LPビューの差が大きい原因</h1>
+<div class="article-hero__meta">
+<time datetime="2026-11-24">2026年11月24日</time>
+<span class="article-hero__tag">Meta広告</span><span class="article-hero__tag">計測</span><span class="article-hero__tag">LP</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>Meta広告の「リンクのクリック」と「ランディングページビュー」が数えているものの違い</li><li>リンクのクリックに比べてランディングページビューが少なくなる、よくある原因6つ</li><li>配置面・端末・ピクセルの3点から差の出どころを突き止める確認手順</li><li>原因別の直し方と、どこまでの差なら様子を見てよいかの目安</li>
+</ul>
+</div>
+<div class="highlight-card highlight-card--success">
+<p><strong>結論：</strong>リンクのクリックとランディングページビュー（LPビュー）の差は、ある程度は必ず出ます。リンクのクリックは「広告のリンクが押された数」で、LPビューは「押した人のブラウザでLPが読み込まれ、Metaピクセルが反応した数」だからです。差が大きいときは、<strong>LPの表示が遅い・ピクセルがLPで動いていない・リンクのクリックにサイト以外の行き先が混ざっている</strong>のどれかを最初に疑います。どれに当たるかは、<strong>配置面別・端末別に分けて見て、広告のURLを実際にInstagramやFacebookのアプリ内で開く</strong>と短時間で絞れます。差を放置すると、広告費のうち実際にLPを見てもらえていない分が見えないまま、配信の判断を誤ります。</p>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#difference">まず知る：リンクのクリックとLPビューは何が違うか</a></li><li><a href="#causes">LPビューが少なくなるよくある原因6つ</a></li><li><a href="#steps">差の出どころを突き止める確認手順</a></li><li><a href="#fix">原因別の直し方</a></li><li><a href="#judge">どこまでの差なら様子を見てよいか</a></li><li><a href="#still">それでも差が縮まらないときの判断</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="difference">まず知る：リンクのクリックとLPビューは何が違うか</h2>
+<p>Meta広告のレポートには、クリックに関する数字がいくつも並びます。そのうち「リンクのクリック」と「ランディングページビュー」は、名前は似ていますが数えている瞬間が違います。</p>
+<table class="cost-table">
+<tr><th>指標</th><th>数えている瞬間</th><th>数えるのに必要なもの</th></tr>
+<tr><td>リンクのクリック</td><td>広告の中のリンク（ボタン・画像・見出しなど）が押された瞬間</td><td>Meta側だけで数えられる</td></tr>
+<tr><td>ランディングページビュー</td><td>押した人のブラウザで移動先のページが読み込まれ、ピクセルが反応した瞬間</td><td>LPにMetaピクセルが入っていて、正しく動くこと</td></tr>
+</table>
+<p>Metaは、ランディングページビューを導入した際の発表で、この指標を「広告のリンクのクリックの後にサイトへたどり着いた人」を測るものと説明し、読み込みの遅いページで離脱が起きることへの対策として位置づけています。（出典：<a href="https://about.fb.com/news/2017/06/better-understand-interactions/" target="_blank" rel="noopener">Metrics Release: New Ways to Better Understand Interactions｜Meta Newsroom</a>）つまり、<strong>リンクのクリックからLPビューまでの間で抜け落ちた人</strong>が、2つの数字の差になります。</p>
+<p>また、海外の広告運用者の解説では、LPビューにはサイト側のピクセルが必要であること、リンクのクリックにはMetaの中のリンクへの移動や、押した直後の離脱も含まれ得ることが指摘されています。（出典：<a href="https://www.jonloomer.com/glossary/landing-page-view/" target="_blank" rel="noopener">Landing Page View｜Jon Loomer Digital</a>）</p>
+<div class="highlight-card">
+<p><strong>ポイント：</strong>差には「本当にLPを見てもらえていない差」と「見てもらえているのに数えられていない差」の2種類があります。前者は広告費のむだ、後者は計測の問題です。直し方がまったく違うので、まずどちらかを見分けることが大切です。</p>
+</div>
+
+<h2 id="causes">LPビューが少なくなるよくある原因6つ</h2>
+<p>当社が広告アカウントの点検で出会うことが多い原因は、次の6つです。</p>
+<table class="cost-table">
+<tr><th>原因</th><th>起きていること</th><th>差の種類</th></tr>
+<tr><td>1. LPの表示が遅い</td><td>アプリ内ブラウザで読み込みに時間がかかり、表示される前に閉じられる。画像が重いLPや、表示前に別の処理を待つLPで起きやすい</td><td>見てもらえていない</td></tr>
+<tr><td>2. ピクセルがLPで動いていない</td><td>LPにピクセルが入っていない、GTMの発火条件からLPが外れている、別ドメインのLPにだけ入っていない</td><td>数えられていない</td></tr>
+<tr><td>3. 同意バナー・ブロックで送られない</td><td>Cookieの同意を得るまでピクセルを止める設定や、広告ブロック・ブラウザの追跡防止でピクセルが送られない</td><td>数えられていない</td></tr>
+<tr><td>4. サイト以外の行き先が混ざっている</td><td>Instagramのプロフィールへの移動、メッセージ、インスタントフォームなども「リンクのクリック」に数えられる場合がある</td><td>そもそも比べる相手が違う</td></tr>
+<tr><td>5. 誤タップ・興味の薄いクリック</td><td>スクロール中の指が触れる、画面いっぱいの広告で押しやすい配置面に配信が寄っている</td><td>見てもらえていない</td></tr>
+<tr><td>6. URLの転送やパラメータで壊れる</td><td>計測用の転送をはさむ、URLパラメータを付けるとエラーになる、LPを差し替えたあと古いURLが残っている</td><td>見てもらえていない</td></tr>
+</table>
+<p>原因4について補足すると、Metaが進めているアトリビューションの見直しでは、ウェブサイトや店舗のコンバージョンについて、クリック経由の成果に数えるのはリンクのクリックだけに絞られ、いいね・シェア・保存などの反応は「エンゲージスルー」として別に扱われると報じられています。（出典：<a href="https://searchengineland.com/meta-introduces-click-and-engage-through-attribution-updates-470629" target="_blank" rel="noopener">Meta introduces click and engage-through attribution updates｜Search Engine Land</a>）一方で、何が「リンクのクリック」に当たるかには、アプリストア・電話・メッセージ・リード獲得フォーム・Instagramのプロフィールへのリンクなど、ウェブサイト以外の行き先も含まれると解説されています。（出典：<a href="https://www.jonloomer.com/click-through-attribution-link-click/" target="_blank" rel="noopener">Click-Through Attribution Now Requires a Link Click｜Jon Loomer Digital</a>）LPへの移動だけを比べたいときは、行き先がウェブサイトの広告だけに絞って数字を見てください。</p>
+
+<h2 id="steps">差の出どころを突き止める確認手順</h2>
+<p>次の順で進めると、多くの場合15〜30分で原因の当たりがつきます。期間は直近7〜14日にそろえ、行き先がウェブサイトの広告セットだけを対象にしてください。</p>
+<div class="checklist">
+<p class="checklist__title">確認の順番</p>
+<ul>
+<li><strong>手順1：</strong>広告マネージャの表に「リンクのクリック」と「ランディングページビュー」を並べ、広告セットごとに「LPビュー÷リンクのクリック」を出す。特定の広告セット・広告だけ低くないかを見る</li>
+<li><strong>手順2：</strong>「内訳」で配置面別に分ける。特定の配置面（ストーリーズ、リール、Audience Networkなど）だけ割合が低いなら、原因5か原因1が濃厚</li>
+<li><strong>手順3：</strong>同じく端末別（モバイル・パソコン）に分ける。モバイルだけ低いなら、原因1（表示の遅さ）を優先して疑う</li>
+<li><strong>手順4：</strong>広告のプレビューから、実際にInstagramとFacebookのアプリ内でLPを開く。表示までの時間、途中で真っ白になる時間、エラーや転送の有無を見る（原因1・6）</li>
+<li><strong>手順5：</strong>イベントマネージャのテストイベント機能やブラウザの拡張機能で、LPを開いたときにピクセルのPageViewが送られているかを確かめる。広告のURLにパラメータを付けた状態で試す（原因2・6）</li>
+<li><strong>手順6：</strong>同意バナーがある場合は、「同意しない」を選んだときと選ぶ前に、ピクセルが送られるかどうかを確かめる（原因3）</li>
+<li><strong>手順7：</strong>GA4でUTM付きの流入（参照元がfacebookやinstagram）のセッション数を同じ期間で見て、LPビューと大きく食い違っていないかを確かめる</li>
+</ul>
+</div>
+<p>手順7で、GA4のセッションはLPビューに近いのにリンクのクリックだけが大きい場合は、LPの手前で抜けている（原因1・5・6）可能性が高まります。逆に、GA4のセッションもLPビューも少ない場合は、表示の手前で離脱が起きているか、計測がどちらも止まっているかのどちらかです。GA4と広告の数字の違いそのものについては、<a href="https://lnx.co.jp/column/analytics/meta-ads-ga4-gap/">GA4のセッション数・ユーザー数が合わない理由</a>で整理しています。</p>
+<div class="highlight-card highlight-card--warning">
+<p><strong>注意：</strong>確認のために自分で広告を何度も押すと、その分の広告費がかかります。確認には広告のプレビューや、広告に設定しているURLを直接アプリ内で開く方法を使ってください。</p>
+</div>
+
+<h2 id="fix">原因別の直し方</h2>
+<div class="compare-grid">
+<div class="compare-card"><p class="compare-card__label">原因1：表示が遅い</p><h4>最初の画面を軽くする</h4><ul><li>ファーストビューの画像を圧縮し、最初に見える部分だけ先に読み込む</li><li>表示前に読み込むタグや外部の部品を減らす</li><li>アプリ内ブラウザで実際の表示時間を測ってから直す</li></ul></div>
+<div class="compare-card"><p class="compare-card__label">原因2・3：ピクセルが動かない</p><h4>送られる条件を確かめる</h4><ul><li>LPを含む全ページでPageViewが送られるようにする</li><li>GTMの発火条件や、別ドメインのLPの設置漏れを点検する</li><li>同意の設定が意図どおりかを確かめ、取りこぼしが出る前提で見る</li></ul></div>
+<div class="compare-card"><p class="compare-card__label">原因4・5：比べ方と配信先</p><h4>比べる対象と配置面をそろえる</h4><ul><li>行き先がウェブサイトの広告だけで割合を見る</li><li>割合が極端に低い配置面は、獲得単価も見たうえで外すか分ける</li><li>押しやすさで選ばれる素材ではなく、内容が伝わる素材にする</li></ul></div>
+<div class="compare-card"><p class="compare-card__label">原因6：転送・URL</p><h4>URLを1本に整理する</h4><ul><li>不要な転送をはずし、広告のURLをLPの最終URLにする</li><li>パラメータ付きでも正しく表示されるかを確かめる</li><li>LPを差し替えたら、すべての広告のURLを確認する</li></ul></div>
+</div>
+<p>ピクセルだけに頼ると、同意やブラウザの制限による取りこぼしは避けられません。サーバー側からもイベントを送るコンバージョンAPIの考え方は、<a href="https://lnx.co.jp/column/analytics/meta-capi-guide/">Meta広告のコンバージョンAPI｜導入手順と注意点</a>で解説しています。LPの表示速度の直し方は、<a href="https://lnx.co.jp/column/lp-improvement/lp-page-speed-cvr/">LPの表示速度とCVR｜Core Web Vitals改善の手順</a>も参考にしてください。</p>
+<p>なお、Metaの広告ポリシーでは、機能しないランディングページ（開けない、移動を妨げる、広告の内容と一致しないなど）に誘導する広告は認められていません。（出典：<a href="https://transparency.meta.com/policies/ad-standards/product-format-specific-policies/non-functional-landing-page/" target="_blank" rel="noopener">機能しないランディングページ｜Meta 透明性センター</a>）原因6でLPがエラーになっている状態は、計測だけでなく審査の面でも早めに直すべきです。</p>
+
+<h2 id="judge">どこまでの差なら様子を見てよいか</h2>
+<p>「LPビュー÷リンクのクリック」が何%なら正常という公式の基準はありません。配置面・端末・LPの重さ・同意バナーの有無で変わるためです。そのうえで、当社が実務で見ている目安は次のとおりです。</p>
+<ul>
+<li><strong>割合が7〜8割以上で、毎週ほぼ同じ</strong>なら、多くの場合は様子を見てよい状態です。施策の比較はこの割合が変わらない前提で行います</li>
+<li><strong>割合が5〜6割台</strong>なら、配置面別・端末別に分けて、特に低いところがないかを確かめます。表示の遅さや誤タップが混ざっていることが多い水準です</li>
+<li><strong>割合が5割を下回る、または急に下がった</strong>なら、ピクセルの停止・LPのエラー・転送の不具合を最優先で疑ってください</li>
+</ul>
+<p>この目安は、行き先がウェブサイトの広告に絞った場合の数字です。インスタントフォームやメッセージへの広告が混ざっていると、割合は大きく下がって見えます。また、Metaのアトリビューションの見直しのように、媒体側の数え方が変わる時期には、変わる前と後の数字をそのまま比べないよう注意してください。</p>
+
+<h2 id="still">それでも差が縮まらないときの判断</h2>
+<p>手順をひと通り試しても差が縮まらない場合は、次の3つのどれに当たるかで動き方を決めます。</p>
+<table class="cost-table">
+<tr><th>状態</th><th>考えられること</th><th>次の動き</th></tr>
+<tr><td>LPビューは少ないが、問い合わせ・購入の数はLP側の記録と合う</td><td>計測の取りこぼし（原因2・3）が中心で、成果は出ている</td><td>差の割合を記録して傾向を見る。必要ならコンバージョンAPIを検討する</td></tr>
+<tr><td>LPビューもGA4のセッションも少なく、獲得単価も悪い</td><td>LPの手前で人が抜けている（原因1・5・6）</td><td>LPの表示速度と配置面を優先して見直す。素材の作り方も見直す</td></tr>
+<tr><td>原因が分からず、数字の食い違いが毎月大きく変わる</td><td>複数の原因が重なっている、またはタグの管理が整理されていない</td><td>計測の設計から点検し直す。広告・LP・計測をまとめて見られる人に相談する</td></tr>
+</table>
+<p>リンクのクリックの数だけを見てクリック単価が安いと判断していると、実際にはLPを見てもらえていない広告に予算を寄せてしまうことがあります。<strong>広告の良し悪しは、LPビューあたりの単価や、最終的な問い合わせ・購入の単価で比べる</strong>のが安全です。</p>
+
+<h2 id="lnx-view">LnXの見解</h2>
+<p>リンクのクリックとLPビューの差は、広告のレポートの中では目立たない数字ですが、<strong>広告とLPと計測のつなぎ目で何が起きているか</strong>がいちばんよく表れる数字だと考えています。クリック単価が安く見える広告ほど、実はLPを見てもらえていなかった、という例は珍しくありません。</p>
+<p>差の原因は、広告の配信設定・LPの作り・ピクセルの設置のどれか一つではなく、つなぎ目にあることが多いため、それぞれを別の担当者や別の会社が見ていると見落とされがちです。まずは本記事の手順で配置面・端末・ピクセルの3点を確かめ、差の割合を毎週記録するところから始めてみてください。</p>
+<p>LnXの広告運用代行では、Meta広告の運用に加えて、広告の受け皿となるLPの制作・改善や、GA4・コンバージョン計測などの計測環境の構築まで自社で対応しています。広告・LP・計測のつなぎ目をまとめて点検したい場合は、お気軽にご相談ください。</p>
+<p>※Meta広告の指標名・画面・ポリシーは更新されます。設定を変える前に、最新の公式情報もご確認ください。</p>
+<div class="article-cta">
+<p class="article-cta__label">Web広告運用代行</p>
+<div class="article-cta__title">クリックをLPの閲覧と成果につなげる運用に整えませんか</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用代行の詳細を見る</a>
+</div>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>リンクのクリックとランディングページビューは、どちらを見ればよいですか？</summary><div class="article-faq__body"><p>LPに来た人の数を知りたいときはランディングページビューを見てください。リンクのクリックは広告が押された数で、LPが表示される前に閉じた人や、サイト以外の行き先への移動も含まれることがあります。広告の良し悪しは、ランディングページビューあたりの単価や、問い合わせ・購入の単価で比べるのが安全です。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>ランディングページビューが0のままです。なぜですか？</summary><div class="article-faq__body"><p>LPにMetaピクセルが入っていないか、入っていても動いていない可能性が高いです。イベントマネージャのテストイベント機能などで、LPを開いたときにPageViewが送られているかを確かめてください。広告の行き先がインスタントフォームやメッセージの場合も、ランディングページビューは出ません。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>差の割合は何%なら正常ですか？</summary><div class="article-faq__body"><p>公式の基準はありません。配置面・端末・LPの重さ・同意バナーの有無で変わるためです。当社が実務で見ている目安では、行き先がウェブサイトの広告で7〜8割以上が毎週ほぼ同じなら様子を見てよく、5割を下回る、または急に下がった場合はピクセルやLPの不具合を最優先で疑います。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>特定の配置面だけ差が大きいときは、その配置面を外すべきですか？</summary><div class="article-faq__body"><p>すぐに外す前に、その配置面での問い合わせ・購入の単価も確かめてください。差が大きくても成果の単価が良ければ残す判断もあります。差が大きく、成果の単価も悪い場合は、外すか、広告セットを分けて予算を抑えることを検討してください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>GA4のセッション数とランディングページビューも合いません。どちらが正しいですか？</summary><div class="article-faq__body"><p>どちらも完全に正しい数字ではなく、数え方が違います。GA4とMetaピクセルは、同意の扱いや計測の仕組みが異なるため、ある程度の差は出ます。差の割合が毎週ほぼ同じかどうかを見て、急に変わったときに設定の変更やタグの不具合を疑ってください。</p></div></details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/analytics/meta-ads-ga4-gap/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ GA4のセッション数・ユーザー数が合わない理由</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/analytics/meta-capi-guide/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Meta広告のコンバージョンAPI｜導入手順と注意点</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/lp-improvement/lp-page-speed-cvr/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ LPの表示速度とCVR｜Core Web Vitals改善の手順</a></li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用・AI活用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#difference">まず知る：リンクのクリックとLPビューは何が違うか</a></li><li><a href="#causes">LPビューが少なくなるよくある原因6つ</a></li><li><a href="#steps">差の出どころを突き止める確認手順</a></li><li><a href="#fix">原因別の直し方</a></li><li><a href="#judge">どこまでの差なら様子を見てよいか</a></li><li><a href="#still">それでも差が縮まらないときの判断</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="t-footer__logo" width="160" height="160">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>

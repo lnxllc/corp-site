@@ -466,6 +466,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><a href="#causes">数値がズレる原因6つと対処法</a></li>
 <li><a href="#attribution-2026">2026年のアトリビューション変更：知っておくべき最新情報</a></li>
 <li><a href="#which-to-trust">どちらの数値を基準にすべきか</a></li>
+<li><a href="#view-through-ga4">GA4でビュースルーコンバージョンは計測できるか</a></li>
 <li><a href="#checklist">確認チェックリスト</a></li>
 <li><a href="#lnx-view">LnXの見解</a></li>
 <li><a href="#faq">よくある質問</a></li>
@@ -696,6 +697,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </table>
 <div class="highlight-card--success highlight-card">
 <p><strong>実務の結論：</strong>Meta広告のCPA改善判断は「管理画面のクリックスルーCPAの推移」で行い、全体の費用対効果の評価は「GA4のチャネル別CV数」と「CRM件数」で行うという役割分担が最も実用的です。</p>
+</div>
+<!-- ===== GA4とビュースルーCV ===== -->
+<h2 id="view-through-ga4">GA4でビュースルーコンバージョンは計測できるか</h2>
+<p>結論から言うと、<strong>Meta広告のビュースルーCV（広告を見ただけでクリックせず、後からCVした分）は、GA4では計測できません。</strong>GA4はサイトへの訪問（セッション）ごとに「どこから来たか」を記録し、CVをその流入元に割り当てる仕組みです。広告をクリックしていない人には広告のURL（UTMパラメータ）が付かないため、後日検索や直接入力でサイトに来てCVすると、GA4では「Organic Search」や「Direct」のCVとして数えられます。</p>
+<p>GA4のアトリビューションには、Google広告と連携した場合にYouTubeのエンゲージビュー（一定時間以上の視聴）を経路に含める仕組みがありますが、これはGoogle広告向けのもので、Meta広告の表示は対象外です。そのため、ビュースルー分は「GA4で見る」のではなく、次の3つの方法で把握します。</p>
+<table class="cost-table">
+<thead>
+<tr>
+<th>確認したいこと</th>
+<th>見る場所</th>
+<th>見方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>管理画面のCVのうち、ビュー分がいくつか</strong></td>
+<td>広告マネージャの列の設定で「アトリビューション設定を比較」を選び、「1日間のビュー」と「7日間のクリック」を並べる</td>
+<td>合計のCVからクリック分を引いた差がビュースルー分。GA4と比べるのはクリック分の数値</td>
+</tr>
+<tr>
+<td><strong>自社の広告セットが何をCVに数えているか</strong></td>
+<td>広告セットの編集画面の「アトリビューション設定」</td>
+<td>既定ではクリック後とビュー後の両方を数える。クリックのみに変えると管理画面のCVはGA4に近づくが、配信の最適化にも影響するため変更は慎重に</td>
+</tr>
+<tr>
+<td><strong>ビュー分が実際の成果に効いているか</strong></td>
+<td>GA4のDirect・Organic SearchのCV数と、Search Consoleの指名検索（社名・サービス名）の表示回数</td>
+<td>配信している期間と止めた期間で比べ、配信中だけ増えていれば間接効果があると推定できる。ただし季節や他の施策の影響も混ざる</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-card--warning highlight-card">
+<p><strong>注意：</strong>ビュースルーCVには「広告を見た人が、広告がなくてもCVしていた」分も含まれます。リターゲティングや既存顧客への配信では特に多く出やすいため、ビュー分だけで広告の成果を評価しないでください。より確かめたい場合は、Meta広告のコンバージョンリフト調査（広告を見せるグループと見せないグループを比べる機能。利用には条件があります）を検討します。</p>
 </div>
 <!-- ===== チェックリスト ===== -->
 <h2 id="checklist">確認チェックリスト</h2>
