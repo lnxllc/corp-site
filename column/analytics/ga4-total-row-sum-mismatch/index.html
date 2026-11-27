@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T88FG4HN');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<title>GA4で行の合計と合計値が合わない原因と確認手順 | LnX合同会社</title>
+<!-- SEO: canonical / OGP -->
+<link rel="canonical" href="https://lnx.co.jp/column/analytics/ga4-total-row-sum-mismatch/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="GA4で行の合計と合計値が合わない原因と確認手順 | LnX合同会社"/>
+<meta property="og:description" content="GA4のレポートで各行を足した数と「合計」の値が合わないときに、合計が行の足し算ではない理由、ずれるよくある原因6つ（重複・近似・(other)・しきい値・サンプリング・ディメンション）、多いか少ないかで原因を絞る方法、10〜20分でできる確認手順と対処を、Google公式資料に沿って整理します。"/>
+<meta property="og:url" content="https://lnx.co.jp/column/analytics/ga4-total-row-sum-mismatch/"/>
+<meta property="og:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta property="og:site_name" content="LnX合同会社"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="GA4で行の合計と合計値が合わない原因と確認手順 | LnX合同会社"/>
+<meta name="twitter:description" content="GA4のレポートで各行を足した数と「合計」の値が合わないときに、合計が行の足し算ではない理由、ずれるよくある原因6つ（重複・近似・(other)・しきい値・サンプリング・ディメンション）、多いか少ないかで原因を絞る方法、10〜20分でできる確認手順と対処を、Google公式資料に沿って整理します。"/>
+<meta name="twitter:image" content="https://lnx.co.jp/assets/img/ogp.webp"/>
+<meta content="GA4のレポートで各行を足した数と「合計」の値が合わないときに、合計が行の足し算ではない理由、ずれるよくある原因6つ（重複・近似・(other)・しきい値・サンプリング・ディメンション）、多いか少ないかで原因を絞る方法、10〜20分でできる確認手順と対処を、Google公式資料に沿って整理します。" name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicon-32.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicon-180.webp">
+<link href="../../../assets/css/styles.css?v=1" rel="stylesheet"/>
+<link href="../../../assets/css/site-v4.css?v=7" rel="stylesheet"/>
+<style>
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-hero { background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.06)); border-bottom: 1px solid rgba(15,23,42,.08); padding: 64px 0 48px; }
+    .article-hero__kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .18em; color: var(--brand3); margin-bottom: 16px; }
+    .article-hero__kicker span { width: 6px; height: 6px; border-radius: 999px; background: var(--brand3); display: inline-block; }
+    .article-hero__title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; line-height: 1.25; letter-spacing: -.02em; color: var(--txt); margin: 0 0 20px; }
+    .article-hero__meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--soft); }
+    .article-hero__meta time { font-weight: 600; }
+    .article-hero__tag { padding: 4px 10px; border-radius: 999px; background: rgba(37,99,235,.10); color: var(--brand3); font-size: 12px; font-weight: 800; }
+    .article-container { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 var(--hpad); }
+    .article-body { padding: 56px 0 80px; font-size: 15.5px; line-height: 1.9; color: rgba(15,23,42,.80); }
+    .article-body > h2 { font-size: clamp(20px, 2.4vw, 26px) !important; font-weight: 900 !important; letter-spacing: -.02em !important; color: var(--txt) !important; margin: 56px 0 20px !important; padding-bottom: 10px !important; border-bottom: 2px solid rgba(37,99,235,.18) !important; }
+    .article-body > h2::first-letter { font-size: 1em !important; font-style: normal !important; }
+    .article-body h3 { font-size: 17px; font-weight: 900; color: var(--txt); margin: 36px 0 14px; padding-left: 14px; border-left: 3px solid var(--brand3); }
+    .article-body p { margin: 0 0 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 22px; display: grid; gap: 8px; }
+    .article-body li { line-height: 1.75; }
+    .toc { background: rgba(37,99,235,.05); border: 1px solid rgba(37,99,235,.14); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; }
+    .toc__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 14px; }
+    .toc ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .toc li { font-size: 14px; font-weight: 600; line-height: 1.5; }
+    .toc a { color: rgba(15,23,42,.75); text-decoration: none; border-bottom: 1px solid transparent; transition: .15s ease; }
+    .toc a:hover { color: var(--brand3); border-bottom-color: rgba(37,99,235,.3); }
+    .lead-box { background: rgba(255,255,255,.96); border: 1px solid rgba(15,23,42,.10); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 40px; box-shadow: var(--shadow2); }
+    .lead-box__title { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--muted); margin: 0 0 12px; }
+    .lead-box ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+    .lead-box li { font-size: 14.5px; font-weight: 500; }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow2); }
+    .cost-table th { background: linear-gradient(135deg, var(--brand3), var(--brand1)); color: #fff; font-weight: 800; font-size: 13px; padding: 12px 16px; text-align: left; }
+    .cost-table td { padding: 12px 16px; border-bottom: 1px solid rgba(15,23,42,.08); vertical-align: top; line-height: 1.65; }
+    .cost-table tr:last-child td { border-bottom: none; }
+    .cost-table tr:nth-child(even) td { background: rgba(37,99,235,.03); }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 13.5px; }
+    .compare-table th, .compare-table td { border: 1px solid rgba(15,23,42,.12); padding: 12px 14px; text-align: left; vertical-align: top; }
+    .compare-table th { background: rgba(37,99,235,.06); font-weight: 800; color: var(--txt); }
+    .compare-table td { color: rgba(15,23,42,.78); }
+    .scope-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 0 0 28px; }
+    .scope-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow2); }
+    .scope-card__head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .scope-card__icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 16px; flex: 0 0 auto; background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(124,58,237,.10)); }
+    .scope-card__name { font-size: 14px; font-weight: 900; color: var(--txt); margin: 0; }
+    .scope-card__desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
+    .highlight-card { border-left: 4px solid var(--brand3); background: rgba(37,99,235,.05); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 24px 0; }
+    .highlight-card--warning { border-left-color: #f59e0b; background: rgba(245,158,11,.06); }
+    .highlight-card--success { border-left-color: #10b981; background: rgba(16,185,129,.06); }
+    .highlight-card p { margin: 0; font-size: 14.5px; }
+    .highlight-card strong { color: var(--brand3); }
+    .highlight-card--warning strong { color: #d97706; }
+    .highlight-card--success strong { color: #059669; }
+    .checklist { border: 1px solid rgba(37,99,235,.18); background: rgba(37,99,235,.04); border-radius: var(--radius); padding: 24px 28px; margin: 0 0 28px; }
+    .checklist__title { font-size: 14px; font-weight: 900; color: var(--brand3); margin: 0 0 16px; }
+    .checklist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.7; }
+    .checklist li::before { content: "\25A1"; font-size: 16px; color: var(--brand3); flex: 0 0 auto; margin-top: 1px; font-weight: 900; }
+    .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 0 0 28px; }
+    .compare-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); }
+    .compare-card__label { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--brand3); margin: 0 0 8px; }
+    .compare-card h4 { margin: 0 0 10px; font-size: 15px; font-weight: 900; }
+    .compare-card ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+    .compare-card li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .article-faq { display: grid; gap: 12px; margin: 0 0 28px; }
+    .article-faq__item { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); box-shadow: var(--shadow2); overflow: hidden; }
+    .article-faq__item summary { cursor: pointer; list-style: none; padding: 18px 20px; display: flex; align-items: flex-start; gap: 12px; font-weight: 800; font-size: 14.5px; color: rgba(15,23,42,.90); }
+    .article-faq__item summary::-webkit-details-marker { display: none; }
+    .faq-q-badge { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand1), var(--brand3)); color: #fff; font-size: 12px; font-weight: 900; margin-top: 1px; }
+    .article-faq__body { padding: 0 20px 18px 58px; border-top: 1px solid rgba(15,23,42,.08); }
+    .article-faq__body p { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .article-cta { border-radius: 20px; border: 1px solid rgba(124,58,237,.20); background: radial-gradient(closest-side at 20% 30%, rgba(37,99,235,.10), transparent 65%), radial-gradient(closest-side at 80% 70%, rgba(124,58,237,.08), transparent 70%), rgba(255,255,255,.96); box-shadow: var(--shadow); padding: 32px; margin: 48px 0 28px; text-align: center; }
+    .article-cta__label { font-size: 12px; font-weight: 800; letter-spacing: .16em; color: var(--brand1); margin-bottom: 10px; }
+    .article-cta__title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 900; letter-spacing: -.01em; margin: 0 0 10px; }
+    .article-cta__btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 999px; background: var(--brand3); color: #fff; font-weight: 800; font-size: 15px; box-shadow: 0 18px 44px rgba(37,99,235,.22); transition: .2s ease; }
+    .article-cta__btn:hover { transform: translateY(-2px); }
+    .article-author { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid rgba(15,23,42,.08); background: rgba(255,255,255,.94); margin: 40px 0 0; }
+    .article-author__icon { width: 48px; height: 48px; border-radius: 999px; background: linear-gradient(135deg, var(--brand1), var(--brand3)); display: grid; place-items: center; font-size: 18px; flex: 0 0 auto; }
+    .article-author__name { font-weight: 900; font-size: 15px; margin: 0 0 3px; }
+    .article-author__bio { font-size: 13px; color: var(--soft); margin: 0; }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { border: 1px solid rgba(15,23,42,.10); background: rgba(255,255,255,.96); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow2); margin-bottom: 18px; }
+    .sidebar-card__title { font-size: 12px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin: 0 0 12px; }
+    .sidebar-toc ol { margin: 0; padding-left: 16px; display: grid; gap: 8px; }
+    .sidebar-toc li { font-size: 13px; line-height: 1.5; }
+    .sidebar-toc a { color: rgba(15,23,42,.68); text-decoration: none; transition: .15s ease; }
+    .sidebar-toc a:hover { color: var(--brand3); }
+    .sidebar-cta { background: linear-gradient(150deg, #1E6BFF, #0A2FA8); color: #fff; border-radius: var(--radius); padding: 20px; text-align: center; }
+    .sidebar-cta p { font-size: 13px; margin: 0 0 14px; opacity: .92; }
+    .sidebar-cta a { display: block; background: #fff; color: #0A2FA8; font-weight: 800; font-size: 13px; padding: 10px; border-radius: 999px; transition: .18s ease; }
+    .sidebar-cta a:hover { transform: translateY(-2px); }
+    @media (max-width: 980px) { .article-container { grid-template-columns: 1fr; } .article-sidebar { display: none; } .scope-grid { grid-template-columns: 1fr; } .compare-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .article-hero { padding: 48px 0 36px; } .article-body { padding: 36px 0 56px; } }
+
+/* 出典・外部リンクはリンクと分かる見た目にする */
+.article-body a[target="_blank"]{color:var(--brand3);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.article-body a[target="_blank"]:hover{opacity:.75}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GA4で行の合計と合計値が合わない原因と確認手順",
+  "description": "GA4のレポートで各行を足した数と「合計」の値が合わないときに、合計が行の足し算ではない理由、ずれるよくある原因6つ（重複・近似・(other)・しきい値・サンプリング・ディメンション）、多いか少ないかで原因を絞る方法、10〜20分でできる確認手順と対処を、Google公式資料に沿って整理します。",
+  "url": "https://lnx.co.jp/column/analytics/ga4-total-row-sum-mismatch/",
+  "datePublished": "2026-11-27",
+  "dateModified": "2026-11-27",
+  "author": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LnX合同会社",
+    "url": "https://lnx.co.jp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lnx.co.jp/assets/img/logo.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://lnx.co.jp/column/analytics/ga4-total-row-sum-mismatch/"
+  }
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "TOP",
+      "item": "https://lnx.co.jp/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://lnx.co.jp/column/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "計測・GA4",
+      "item": "https://lnx.co.jp/column/analytics/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "GA4で行の合計と合計値が合わない原因と確認手順",
+      "item": "https://lnx.co.jp/column/analytics/ga4-total-row-sum-mismatch/"
+    }
+  ]
+}</script><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "GA4のユーザー数は、行の合計と合計値のどちらが正しいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "期間全体の人数としては、合計の値を使ってください。ユーザー数は1人が複数の行に出るため、行を足すと同じ人を重ねて数えてしまいます。行の値は、チャネルやページごとの内訳のめやすとして見るのが安全です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "日別のユーザー数を足すと、月のユーザー数より多くなります。おかしいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "おかしくありません。同じ人が月に何日も来ると、日別の表では毎日1人ずつ数えられますが、月の合計では1人です。月のユーザー数が必要なときは、期間を1か月にして合計の値を見てください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "イベント数でも行の合計が合計値と合いません。なぜですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "イベント数は本来足し算できる指標なので、表示から外れている行がある可能性が高いです。表の中の(other)や(not set)の行、フィルタによる絞り込み、データ品質のアイコン（しきい値・サンプリング）を確かめてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "(other)の行をなくすにはどうすればよいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "副次ディメンションや比較を外す、期間を短くして分けて見る、標準レポートで確認するなど、表の行数を減らす方法が基本です。ページのURLにパラメータが付いて値が増えすぎている場合は、URLの整理も検討してください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Looker Studioで作ったレポートの合計も合いません。",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Looker Studioでも、表の集計行や、書き出したデータを足し算した値は、GA4の合計の値と一致しないことがあります。ユーザー数のように重複しない数の指標では、内訳の行を足すと重複が入るためです。期間全体のユーザー数は、内訳なしのスコアカードなどで表示し、GA4の合計の値と並べて確かめてください。"
+      }
+    }
+  ]
+}</script>
+</head>
+<body class="site-v4 col-v4">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T88FG4HN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ===== Header ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="../../../" class="brand">
+      <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="brand__logo" width="160" height="160">
+      <div class="brand__name">LnX合同会社</div>
+    </a>
+    <nav class="nav__menu">
+      <a href="../../../">TOP</a>
+      <a href="../../../company.html">会社概要</a>
+      <a href="../../../services.html">事業内容</a>
+      <a href="../../../works.html">実績</a>
+      <a href="../../../cases/">支援事例</a>
+      <a class="nav__active" href="../../../column/">コラム</a>
+    </nav>
+    <div class="nav__right">
+      <a href="../../../contact.html" class="btn btn-primary">無料相談</a>
+    </div>
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<!-- ===== 記事ヒーロー ===== -->
+<section class="article-hero">
+<div class="article-wrap">
+<nav class="article-breadcrumb" aria-label="パンくずリスト">
+<a href="../../../">TOP</a>
+<span class="sep">/</span>
+<a href="../../../column/">コラム</a>
+<span class="sep">/</span>
+<a href="../../../column/analytics/">計測・GA4</a>
+<span class="sep">/</span>
+<span class="cur">GA4で行の合計と合計値が合わない原因と確認手順</span>
+</nav>
+<p class="article-hero__kicker"><span></span>計測・GA4</p>
+<h1 class="article-hero__title">GA4で行の合計と合計値が<br/>合わない原因と確認手順</h1>
+<div class="article-hero__meta">
+<time datetime="2026-11-27">2026年11月27日</time>
+<span class="article-hero__tag">GA4</span><span class="article-hero__tag">計測</span><span class="article-hero__tag">レポート</span>
+</div>
+</div>
+</section>
+<!-- ===== 記事本文 ===== -->
+<div class="article-container">
+<main>
+<article class="article-body">
+<div class="lead-box">
+<p class="lead-box__title">この記事でわかること</p>
+<ul>
+<li>GA4の「合計」の値が、下の行を足した数と一致しない理由</li><li>行の合計と合計値がずれる、よくある原因6つ</li><li>行の合計が「多い」か「少ない」かで原因を絞る方法</li><li>10〜20分でできる確認手順と、原因別の対処・判断の目安</li>
+</ul>
+</div>
+<p>GA4でチャネル別やページ別の表を見ていて、各行を足した数がいちばん上の「合計」と合わず、どちらが正しいのか分からなくなることがあります。月次の報告で数字を求められると、なおさら困ります。この記事では、ずれる理由と、直すべきずれかどうかの見分け方を順に整理します。</p>
+<div class="highlight-card highlight-card--success">
+<p><strong>結論：</strong>GA4の「合計」は、行を足した数ではなく、全体を数え直した数です。ユーザー数やセッション数は1人が複数の行に出るため、行の合計が合計値より多くなるのは仕様どおりです。行の合計が少ないときは、(other)の行、データのしきい値、(not set)の行で表示から外れた分があります。まず「指標は足せる種類か」「多いか少ないか」の2点を確かめると、直すべきずれかどうかがすぐに分かります。</p>
+</div>
+<nav aria-label="目次" class="toc">
+<p class="toc__title">目次</p>
+<ol>
+<li><a href="#not-sum">まず知る：GA4の「合計」は行を足した数ではない</a></li><li><a href="#causes">行の合計と合計値が合わない原因6つ</a></li><li><a href="#direction">「多い」か「少ない」かで原因を絞る</a></li><li><a href="#steps">どの原因かを見分ける確認手順</a></li><li><a href="#fix">原因別の対処と、ずれないレポートの作り方</a></li><li><a href="#judge">どこまでの差なら気にしなくてよいか</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</nav>
+
+<h2 id="not-sum">まず知る：GA4の「合計」は行を足した数ではない</h2>
+<p>GA4のレポートの表では、いちばん上に「合計」の行があり、その下にチャネル・ページ・日付などの行が並びます。この「合計」は、下の行を足し算した数ではありません。<strong>同じ条件でもう一度、全体を数え直した数</strong>です。そのため、指標によっては行を足しても合計と一致しないのが正常な動きです。</p>
+<p>指標は、大きく2つに分けて考えると分かりやすくなります。</p>
+<table class="cost-table">
+<tr><th>指標の種類</th><th>例</th><th>行を足すと合計になるか</th></tr>
+<tr><td>件数を数える指標</td><td>イベント数、表示回数、キーイベント（コンバージョン）の数、収益</td><td>原則なる（しきい値や(other)の影響がなければ）</td></tr>
+<tr><td>重複しない人・訪問を数える指標</td><td>ユーザー数（アクティブ ユーザー数）、総ユーザー数、新規ユーザー数、セッション数</td><td>ならないことが多い</td></tr>
+</table>
+<p>たとえば、同じ人が今週「自然検索」と「広告」の両方から来た場合、チャネル別の表ではその人が2つの行に1人ずつ数えられます。しかし合計の行では、その人は1人です。<strong>1人が複数の行に出るほど、行の合計は合計値より大きく</strong>なります。日付を行にした表で、毎日のユーザー数を足すと期間全体のユーザー数より大きくなるのも同じ理由です。</p>
+<p>なお、GA4の画面で単に「ユーザー」と表示される数は、通常「アクティブ ユーザー数」を指します。「総ユーザー数」とは別の指標なので、比べる指標の名前がそろっているかも確かめてください。（出典：<a href="https://developers.google.com/analytics/blog/2023/bigquery-vs-ui?hl=ja" target="_blank" rel="noopener">Google アナリティクスの UI と BigQuery エクスポートのギャップを埋める｜Google for Developers</a>）ユーザー関連の指標の定義は、Googleのヘルプにまとまっています。（出典：<a href="https://support.google.com/analytics/answer/12253918?hl=en" target="_blank" rel="noopener">[GA4] Understand user metrics｜Analytics Help</a>）</p>
+<div class="highlight-card">
+<p><strong>ポイント：</strong>「合わない」と感じたら、最初に<strong>見ている指標が足し算できる種類かどうか</strong>を確かめてください。ユーザー数やセッション数で行の合計が合計値を上回っているだけなら、多くは仕様どおりで、直すものはありません。</p>
+</div>
+
+<h2 id="causes">行の合計と合計値が合わない原因6つ</h2>
+<p>当社が計測の点検で確認することが多い原因は、次の6つです。1つだけでなく、いくつかが重なっていることもあります。</p>
+<table class="cost-table">
+<tr><th>原因</th><th>起きていること</th><th>ずれ方</th></tr>
+<tr><td>1. 重複しない数の指標を足している</td><td>ユーザー数・セッション数などは、1人・1回が複数の行に出る。行を足すと重複して数えられる</td><td>行の合計が多い</td></tr>
+<tr><td>2. 近似で数えている</td><td>GA4はユーザー数・セッション数などを、HyperLogLog++という方法で推定している。行ごとと全体とで、小さな誤差が出る</td><td>どちらにも小さくずれる</td></tr>
+<tr><td>3. (other)行・行数の上限</td><td>表の行数が上限を超えると、数の少ない値が「(other)」にまとめられる。フィルタで(other)を隠していると、その分が行から消える</td><td>行の合計が少ない</td></tr>
+<tr><td>4. データのしきい値</td><td>ユーザー属性などを含むレポートで、人数の少ない行が表示から外される</td><td>行の合計が少ない</td></tr>
+<tr><td>5. サンプリング</td><td>データ探索などで扱うデータが多いと、一部のデータから全体を推定する</td><td>どちらにもずれる</td></tr>
+<tr><td>6. 行の条件で数える対象が変わる</td><td>ディメンションを追加すると、その値を持たないイベントが計算から外れることがある。「(not set)」の行の扱いでも変わる</td><td>行の合計が少ないことが多い</td></tr>
+</table>
+<p>原因2について、Googleの開発者向けブログでは、ユーザー数やセッション数などの数はHyperLogLog++で推定しており、画面やAPIの値は一定の精度の近似値になると説明されています。例として、セッション数は95%の信頼区間で±1.63%程度とされています。（出典：<a href="https://developers.google.com/analytics/blog/2023/bigquery-vs-ui?hl=ja" target="_blank" rel="noopener">Google アナリティクスの UI と BigQuery エクスポートのギャップを埋める｜Google for Developers</a>）</p>
+<p>原因3について、Googleのヘルプでは、表の行数が上限を超えると、多い値だけを表示し、残りを「(other)」の行にまとめると説明されています。1つのディメンションの値が500を超えると「高基数」とされ、副次ディメンションやフィルタ、比較を使うと(other)が出やすくなります。（出典：<a href="https://support.google.com/analytics/answer/13331684" target="_blank" rel="noopener">About the (other) row｜Analytics Help</a>）</p>
+<p>原因4について、データのしきい値はシステムが決めるもので、利用者は調整できません。ユーザー属性のデータなどを含む場合に、一部のデータが除外されることがあります。（出典：<a href="https://support.google.com/analytics/answer/9383630?hl=ja" target="_blank" rel="noopener">[GA4] データのしきい値について｜アナリティクス ヘルプ</a>）</p>
+<p>原因5・6について、サンプリングはレポートやデータ探索で起こりうること、またレポートにディメンションを加えると計算に使うイベントが少なくなることがあると、Googleの公式資料に書かれています。（出典：<a href="https://support.google.com/analytics/answer/13644080?hl=ja" target="_blank" rel="noopener">レポート表示内容の比較｜アナリティクス ヘルプ</a>／<a href="https://developers.google.com/analytics/devguides/reporting/data/v1/reporting-data-expectations?hl=ja" target="_blank" rel="noopener">レポートデータの期待値｜Google for Developers</a>）</p>
+
+<h2 id="direction">「多い」か「少ない」かで原因を絞る</h2>
+<p>原因は、行の合計が合計値より<strong>多い</strong>か<strong>少ない</strong>かで、かなり絞れます。</p>
+<div class="compare-grid">
+<div class="compare-card"><p class="compare-card__label">行の合計が多い</p><h4>重複して数えている可能性が高い</h4><ul><li>見ている指標がユーザー数・セッション数・新規ユーザー数か</li><li>行のディメンションが、1人が複数の値を持てるもの（チャネル・ページ・日付・端末など）か</li><li>ほとんどの場合は原因1で、仕様どおり</li></ul></div>
+<div class="compare-card"><p class="compare-card__label">行の合計が少ない</p><h4>表示から外れている行がある可能性が高い</h4><ul><li>表の中に「(other)」や「(not set)」の行があるか、フィルタで隠していないか</li><li>データ品質のアイコン（しきい値・サンプリング）が出ていないか</li><li>イベント数・キーイベント数のような件数の指標で少ないなら、原因3・4・6を優先して疑う</li></ul></div>
+</div>
+<p>差が1〜2%程度で、指標がユーザー数やセッション数なら、原因2（近似）の範囲であることが多いです。一方、<strong>イベント数・キーイベント数・収益のような件数の指標で、行の合計が合計値より大きく少ない</strong>場合は、仕様だけでは説明しにくいので、次の手順で確かめてください。</p>
+
+<h2 id="steps">どの原因かを見分ける確認手順</h2>
+<p>次の順に進めると、多くの場合10〜20分で当たりがつきます。期間と指標は、比べたい表とそろえてください。</p>
+<div class="checklist">
+<p class="checklist__title">確認の順番</p>
+<ul>
+<li><strong>手順1：</strong>指標の名前を確かめる。「ユーザー」「総ユーザー数」「新規ユーザー数」「セッション」なら、まず原因1を前提に考える</li>
+<li><strong>手順2：</strong>同じ表で、指標を「イベント数」に切り替えて行の合計と合計値を比べる。イベント数なら一致するのに、ユーザー数だけ合わないなら原因1・2でほぼ確定</li>
+<li><strong>手順3：</strong>表の右上付近にあるデータ品質のアイコンを確かめる。しきい値やサンプリングの表示があれば原因4・5</li>
+<li><strong>手順4：</strong>表を最後のページまで送り、「(other)」「(not set)」の行がないかを見る。フィルタや検索窓で行を絞っていないかも確かめる（原因3・6）</li>
+<li><strong>手順5：</strong>副次ディメンションや比較を外して、同じ数字を見直す。外すと合うなら、行の条件で数える対象が変わっている（原因3・6）</li>
+<li><strong>手順6：</strong>期間を広げる、またはユーザー属性のディメンションを外して見直す。しきい値は期間を広げると除外が減ることがある（原因4）</li>
+<li><strong>手順7：</strong>データ探索で合わない場合は、同じ内容を標準レポートでも見る。標準レポートは集計済みのデータを使うため、(other)やサンプリングが出にくい（原因3・5）</li>
+</ul>
+</div>
+<div class="highlight-card highlight-card--warning">
+<p><strong>注意：</strong>Looker Studioやスプレッドシートに書き出した表で、日別やチャネル別のユーザー数を「合計」の関数で足すと、原因1の重複がそのまま数字に入ります。ユーザー数の合計が欲しいときは、足し算ではなく、合計の行（または期間全体を数え直した値）を使ってください。</p>
+</div>
+
+<h2 id="fix">原因別の対処と、ずれないレポートの作り方</h2>
+<div class="compare-grid">
+<div class="compare-card"><p class="compare-card__label">原因1・2：重複・近似</p><h4>足さずに、合計の値を使う</h4><ul><li>ユーザー数・セッション数は、行の足し算で合計を出さない</li><li>チャネル別の内訳は「構成比のめやす」として見る</li><li>月次の報告では、合計の値とその定義を一緒に書く</li></ul></div>
+<div class="compare-card"><p class="compare-card__label">原因3：(other)</p><h4>行の数を減らす</h4><ul><li>副次ディメンションや比較を外し、必要な軸だけにする</li><li>期間を短くして分けて見る</li><li>ページのURLのパラメータで値が増えすぎていないかを点検する</li></ul></div>
+<div class="compare-card"><p class="compare-card__label">原因4・5：しきい値・サンプリング</p><h4>条件を軽くする</h4><ul><li>ユーザー属性のディメンションを外す、期間を広げる</li><li>データ探索ではなく標準レポートで確認する</li><li>正確な数がどうしても必要なら、BigQueryへの書き出しを検討する</li></ul></div>
+<div class="compare-card"><p class="compare-card__label">原因6：数える対象</p><h4>ディメンションの付き方を点検する</h4><ul><li>「(not set)」が多いディメンションは、イベントへの値の付け方を見直す</li><li>カスタムディメンションは、送っていないイベントがあることを前提に見る</li><li>比べる2つの表で、ディメンションと絞り込み条件をそろえる</li></ul></div>
+</div>
+<p>Googleの資料では、BigQueryに書き出したデータからは近似ではない正確な数を計算でき、(other)へのまとめやサンプリングも起きないと整理されています。ただし、しきい値やGoogleシグナルによる重複除去など、画面のレポートにしかない処理もあるため、BigQueryとも完全には一致しません。（出典：<a href="https://developers.google.com/analytics/blog/2023/bigquery-vs-ui?hl=ja" target="_blank" rel="noopener">Google アナリティクスの UI と BigQuery エクスポートのギャップを埋める｜Google for Developers</a>）書き出すかどうかの判断は、<a href="https://lnx.co.jp/column/analytics/ga4-data-retention-bigquery/">GA4のデータ保持期間は初期設定のままでいい？14か月への変更とBigQuery連携の判断基準</a>で整理しています。</p>
+<p>レポートを毎月作っている場合は、「ユーザー数は合計の値を使い、チャネル別の内訳は足し算しない」といった<strong>数字の扱いのルールを報告書の欄外に1行書いておく</strong>と、社内で「合計が合わない」と問い合わせが来るのを防げます。レポートの自動化の設計は、<a href="https://lnx.co.jp/column/analytics/looker-studio-report-automation/">Looker Studioでレポート自動化｜設計6ステップ</a>も参考にしてください。</p>
+
+<h2 id="judge">どこまでの差なら気にしなくてよいか</h2>
+<p>行の合計と合計値の差が何%なら正常という公式の基準はありません。そのうえで、当社が実務で見ている目安は次のとおりです。</p>
+<ul>
+<li><strong>ユーザー数・セッション数で、行の合計が多い</strong>：原因1の重複が中心で、多くは気にしなくてよい状態です。チャネルや日付の行が多いほど差は大きくなります</li>
+<li><strong>ユーザー数・セッション数で、差が1〜2%程度</strong>：近似による誤差の範囲であることが多く、直すものはありません</li>
+<li><strong>イベント数・キーイベント数・収益で、行の合計が数%以上少ない</strong>：(other)・しきい値・(not set)のどれかが効いています。手順3〜6で原因を確かめてください</li>
+<li><strong>前月までは合っていたのに、急に大きくずれた</strong>：タグやイベント設定の変更、URLの変更による行の増加を疑い、計測の設定から点検してください</li>
+</ul>
+<p>合計値そのものが広告の管理画面やECの売上と合わない場合は、別の問題です。広告やセッションとのずれは<a href="https://lnx.co.jp/column/analytics/meta-ads-ga4-gap/">GA4のセッション数・ユーザー数が合わない理由</a>、売上とのずれは<a href="https://lnx.co.jp/column/analytics/ga4-revenue-mismatch-ec-sales/">GA4の収益がECの売上と合わない原因と確認手順</a>で解説しています。</p>
+
+<h2 id="lnx-view">LnXの見解</h2>
+<p>「GA4の合計が合わない」という相談の多くは、計測の不具合ではなく、<strong>ユーザー数を足し算してしまっている</strong>ことが原因です。数字が間違っていると思い込んでタグを触ると、かえって本当の不具合を作ってしまうことがあります。まずは指標の種類と、多いか少ないかを確かめるだけで、直すべきかどうかの大半は判断できます。</p>
+<p>一方で、件数の指標で行が少なく出ている場合は、(other)や(not set)の裏に、イベントの設計やURLの整理の問題が隠れていることがあります。広告の成果をチャネル別に見る表でこれが起きていると、予算の判断を誤る原因になります。</p>
+<p>LnXの広告運用代行では、広告の運用に加えて、GA4やコンバージョン計測などの計測環境の構築まで自社で対応しています。広告の成果を正しく比べられる数字の土台から整えたい場合は、ご相談ください。</p>
+<p>※GA4の画面・指標の名前・仕様は更新されます。設定を変える前に、最新の公式ヘルプもご確認ください。</p>
+
+<div class="article-cta">
+<p class="article-cta__label">Web広告運用代行</p>
+<div class="article-cta__title">広告の成果を、正しく比べられる数字で見ませんか</div>
+<a class="article-cta__btn" href="https://lnx.co.jp/ad-lp/">広告運用代行の詳細を見る</a>
+</div>
+
+<h2 id="faq">よくある質問</h2>
+<div class="article-faq">
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>GA4のユーザー数は、行の合計と合計値のどちらが正しいですか？</summary><div class="article-faq__body"><p>期間全体の人数としては、合計の値を使ってください。ユーザー数は1人が複数の行に出るため、行を足すと同じ人を重ねて数えてしまいます。行の値は、チャネルやページごとの内訳のめやすとして見るのが安全です。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>日別のユーザー数を足すと、月のユーザー数より多くなります。おかしいですか？</summary><div class="article-faq__body"><p>おかしくありません。同じ人が月に何日も来ると、日別の表では毎日1人ずつ数えられますが、月の合計では1人です。月のユーザー数が必要なときは、期間を1か月にして合計の値を見てください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>イベント数でも行の合計が合計値と合いません。なぜですか？</summary><div class="article-faq__body"><p>イベント数は本来足し算できる指標なので、表示から外れている行がある可能性が高いです。表の中の(other)や(not set)の行、フィルタによる絞り込み、データ品質のアイコン（しきい値・サンプリング）を確かめてください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>(other)の行をなくすにはどうすればよいですか？</summary><div class="article-faq__body"><p>副次ディメンションや比較を外す、期間を短くして分けて見る、標準レポートで確認するなど、表の行数を減らす方法が基本です。ページのURLにパラメータが付いて値が増えすぎている場合は、URLの整理も検討してください。</p></div></details>
+<details class="article-faq__item"><summary><span class="faq-q-badge">Q</span>Looker Studioで作ったレポートの合計も合いません。</summary><div class="article-faq__body"><p>Looker Studioでも、表の集計行や、書き出したデータを足し算した値は、GA4の合計の値と一致しないことがあります。ユーザー数のように重複しない数の指標では、内訳の行を足すと重複が入るためです。期間全体のユーザー数は、内訳なしのスコアカードなどで表示し、GA4の合計の値と並べて確かめてください。</p></div></details>
+</div>
+<!-- 関連記事 -->
+<div style="border-top: 1px solid rgba(15,23,42,.10); padding-top: 32px; margin-top: 40px;">
+<p style="font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--soft); margin-bottom: 14px;">関連記事</p>
+<ul style="display: grid; gap: 10px; padding: 0; list-style: none; margin: 0;">
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/analytics/meta-ads-ga4-gap/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ GA4のセッション数・ユーザー数が合わない理由</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/analytics/ga4-revenue-mismatch-ec-sales/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ GA4の収益がECの売上と合わない原因と確認手順</a></li>
+<li style="border: 1px solid rgba(15,23,42,.08); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.96);"><a href="https://lnx.co.jp/column/analytics/looker-studio-report-automation/" style="font-size: 14px; font-weight: 700; color: rgba(15,23,42,.80); text-decoration: none;">→ Looker Studioでレポート自動化｜設計6ステップ</a></li>
+</ul>
+</div>
+<!-- 著者 -->
+<div class="article-author">
+<div class="article-author__icon">🧑‍💻</div>
+<div>
+<p class="article-author__name">LnX合同会社 編集部</p>
+<p class="article-author__bio">中小企業向けのWeb集客・広告運用・SNS運用・AI活用を一気通貫で支援。現場の実務知見をもとに、実践的な情報を発信しています。</p>
+</div>
+</div>
+</article>
+</main>
+<!-- サイドバー -->
+<aside class="article-sidebar">
+<div class="sidebar-card sidebar-toc">
+<p class="sidebar-card__title">目次</p>
+<ol>
+<li><a href="#not-sum">まず知る：GA4の「合計」は行を足した数ではない</a></li><li><a href="#causes">行の合計と合計値が合わない原因6つ</a></li><li><a href="#direction">「多い」か「少ない」かで原因を絞る</a></li><li><a href="#steps">どの原因かを見分ける確認手順</a></li><li><a href="#fix">原因別の対処と、ずれないレポートの作り方</a></li><li><a href="#judge">どこまでの差なら気にしなくてよいか</a></li><li><a href="#lnx-view">LnXの見解</a></li><li><a href="#faq">よくある質問</a></li>
+</ol>
+</div>
+</aside>
+</div>
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <div class="container t-footer__grid">
+      <div class="t-footer__brand">
+        <img src="../../../assets/img/logo-160.webp" alt="LnX合同会社ロゴ" class="t-footer__logo" width="160" height="160">
+        <p>LnX合同会社</p>
+        <p class="t-footer__desc">中小企業のWeb集客を、戦略から実行までワンストップで支援します。</p>
+      </div>
+      <nav class="t-footer__nav" aria-label="フッターナビゲーション">
+        <a href="../../../">TOP</a>
+        <a href="../../../company.html">会社概要</a>
+        <a href="../../../services.html">事業内容</a>
+        <a href="../../../works.html">実績</a>
+        <a href="../../../cases/">支援事例</a>
+        <a href="../../../column/">コラム</a>
+        <a href="../../../privacy.html">プライバシーポリシー</a>
+      </nav>
+    </div>
+            <div class="container t-footer__info">
+      <address class="t-footer__address">
+        <span>LnX合同会社</span>｜
+        <span>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</span>｜
+        <a href="../../../contact.html" style="color:#aaa;">お問い合わせはこちら</a>
+      </address>
+    </div>
+    <div class="container t-footer__copy">© 2026 LnX合同会社</div>
+  </footer>
+<div class="drawer-overlay" id="js-overlay" hidden></div>
+
+<nav class="drawer" id="js-drawer" aria-hidden="true">
+  <ul class="drawer__list">
+    <li><a href="../../../">TOP</a></li>
+    <li><a href="../../../company.html">会社概要</a></li>
+    <li><a href="../../../services.html">事業内容</a></li>
+    <li><a href="../../../works.html">実績</a></li>
+    <li><a href="../../../cases/">支援事例</a></li>
+    <li><a href="../../../column/">コラム</a></li>
+    <li><a href="../../../contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+<script defer="" src="../../../assets/js/main.js?v=5"></script>
+<script defer="" src="../../../assets/js/column-sidebar-form.js?v=3"></script>
+</body>
+</html>
